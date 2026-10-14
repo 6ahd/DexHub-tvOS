@@ -17,6 +17,7 @@ A modified Kodi 22 for Apple TV with:
 - **Three ways to play:** Aether, Kodi's own player, or an external app (Infuse or VidHub) with resume, subtitle hand-off and return.
 - **Dex Hub add-on and skin** installed on first launch, with Arabic subtitle fonts.
 - **Performance:** Release build; the interface runs in the Apple TV's own mode (60 Hz).
+- **Set up from your phone.** tvOS has no file browser and typing with the remote is slow, so Dex Hub shows a QR code on the TV. Scan it and a page opens on your phone (same Wi‑Fi) where you link accounts (Nuvio, Trakt, Stremio, Plex, Emby, Jellyfin, IPTV), pick the Home layout, arrange rows, choose one of 28 themes and the language, and move files both ways: add-on ZIPs, subtitles, fonts, backups and restores. Every change reaches the TV right away.
 
 ### Requirements
 - Apple TV 4K on **tvOS 26** or later.
@@ -80,6 +81,7 @@ The build pins Aether 7.35.1 (commit `60ac862`) and its packages, builds the sma
 - **ثلاثة خيارات تشغيل:** Aether، ومشغل Kodi الأصلي، أو تطبيق خارجي (Infuse أو VidHub) مع تمرير الوقت والترجمة والعودة.
 - **إضافة Dex Hub وسكين Dex Hub** مثبتة داخل التطبيق من أول تشغيل، مع خطوط عربية للترجمة.
 - **أداء:** بناء Release، والواجهة على معدل Apple TV نفسه (60Hz).
+- **الإعداد من الجوال.** Apple TV ما فيه متصفح ملفات، والكتابة بالريموت بطيئة، فـ Dex Hub يعرض رمز QR على التلفزيون. امسحه وتفتح صفحة على جوالك (نفس شبكة الواي فاي) تربط منها الحسابات (Nuvio وTrakt وStremio وPlex وEmby وJellyfin وIPTV)، وتختار شكل الرئيسية، وترتب الصفوف، وتختار من 28 ثيم واللغة، وتنقل الملفات بالاتجاهين: إضافات ZIP والترجمات والخطوط والنسخ الاحتياطية والاسترجاع. أي تغيير يوصل التلفزيون فورا.
 
 ### المتطلبات
 - Apple TV 4K بنظام **tvOS 26** أو أحدث.
