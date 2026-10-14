@@ -1,0 +1,3 @@
+AF3 font and purple background from jurialmunkey/skin.arctic.fuse.3, omega branch.
+AF3 artwork: CC BY-NC-SA 4.0. League Spartan: SIL Open Font License, see LeagueSpartan-OFL.txt.
+https://github.com/jurialmunkey/skin.arctic.fuse.3

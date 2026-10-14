@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="script.dexhub.tvos.test" name="DexHub tvOS Player Test" version="0.2.1" provider-name="DexWorld">
+  <requires><import addon="xbmc.python" version="3.0.0"/></requires>
+  <extension point="xbmc.python.script" library="default.py"><provides>executable</provides></extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Experimental Aether / external player test</summary>
+    <description lang="en_GB">Tests native Aether/Kodi skin controls and external playback. Requires the native Kodi build; not a standalone engine installer.</description>
+    <platform>all</platform><license>GPL-2.0-or-later</license>
+  </extension>
+</addon>

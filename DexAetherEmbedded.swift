@@ -1,0 +1,366 @@
+import Foundation
+import UIKit
+import AVFoundation
+import AetherEngine
+
+private final class SnapshotStore: @unchecked Sendable {
+    private let lock = NSLock()
+    private var token = ""
+    private var value: NSDictionary = [:]
+    func begin(_ token: String) {
+        lock.lock(); defer { lock.unlock() }
+        self.token = token
+        value = ["state": "loading"]
+    }
+    func set(_ token: String, _ value: NSDictionary) {
+        lock.lock(); defer { lock.unlock() }
+        guard self.token == token else { return }
+        self.value = value
+    }
+    func get(_ token: String) -> NSDictionary? {
+        lock.lock(); defer { lock.unlock() }
+        return self.token == token ? value : nil
+    }
+}
+private let snapshots = SnapshotStore()
+
+@MainActor
+@objc(DexAetherBridge)
+public final class DexAetherBridge: NSObject {
+    private static var session: EmbeddedSession?
+
+    @objc(startEmbedded:inView:belowView:)
+    public static func startEmbedded(_ request: NSDictionary, inView parent: UIView, belowView overlay: UIView) {
+        guard let token = request["token"] as? String else { return }
+        session?.stop()
+        session = nil
+        snapshots.begin(token)
+        if let engine = request["engine"] as? String, ["Infuse", "VidHub"].contains(engine) {
+            openExternal(request, engine: engine, token: token)
+            return
+        }
+        do {
+            let next = try EmbeddedSession(request: request, parent: parent, overlay: overlay)
+            session = next
+            next.start()
+        } catch {
+            snapshots.set(token, ["state": "error", "message": error.localizedDescription])
+        }
+    }
+
+    @objc(snapshotForToken:)
+    nonisolated public static func snapshotForToken(_ token: NSString) -> NSDictionary? {
+        snapshots.get(token as String)
+    }
+
+    @objc(command:)
+    public static func command(_ request: NSDictionary) {
+        guard let current = session, request["token"] as? String == current.token else { return }
+        if request["name"] as? String == "stop" {
+            current.stop()
+            session = nil
+        } else {
+            current.command(request)
+        }
+    }
+
+    private static func openExternal(_ request: NSDictionary, engine: String, token: String) {
+        guard let raw = request["url"] as? String,
+              let media = URL(string: raw), ["http", "https"].contains(media.scheme?.lowercased() ?? ""),
+              !raw.contains("|") else {
+            snapshots.set(token, ["state": "error", "message": "External player requires a direct HTTP(S) URL without custom headers."])
+            return
+        }
+        var target = URLComponents()
+        target.scheme = engine == "VidHub" ? "open-vidhub" : "infuse"
+        target.host = "x-callback-url"
+        target.path = "/play"
+        let position = max(0, (request["position"] as? NSNumber)?.doubleValue ?? 0)
+        var query = [URLQueryItem(name: "url", value: raw), URLQueryItem(name: "position", value: String(Int(position)))]
+        if let filename = request["filename"] as? String, !filename.isEmpty {
+            query.append(URLQueryItem(name: "filename", value: filename))
+        }
+        if let subtitle = (request["subtitles"] as? [String])?.first,
+           let url = URL(string: subtitle), ["http", "https"].contains(url.scheme?.lowercased() ?? "") {
+            query.append(URLQueryItem(name: "sub", value: subtitle))
+        }
+        if engine == "Infuse", let home = request["home"] as? String {
+            let path = URL(fileURLWithPath: home).appendingPathComponent("dexhub-infuse-pending.json")
+            var pending: [String: Any] = [:]
+            if let data = try? Data(contentsOf: path),
+               let value = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any],
+               value["video"] as? String == raw {
+                pending = value
+            }
+            let callbackToken = UUID().uuidString
+            pending["token"] = callbackToken
+            pending["video"] = raw
+            pending["kodi_path"] = request["kodiPath"] as? String ?? raw
+            if let context = request["context"] as? [String: Any], !context.isEmpty {
+                pending["context"] = context
+            }
+            pending["position"] = position
+            let duration = (request["duration"] as? NSNumber)?.doubleValue ?? 0
+            if duration > 0 || pending["duration"] == nil { pending["duration"] = duration }
+            pending["created"] = Date().timeIntervalSince1970
+            pending["returned"] = false
+            do {
+                let data = try JSONSerialization.data(withJSONObject: pending)
+                try data.write(to: path, options: .atomic)
+            } catch {
+                snapshots.set(token, ["state": "error", "message": "Cannot save Infuse playback context."])
+                return
+            }
+            for (key, status) in [("x-success", "success"), ("x-error", "error")] {
+                var callback = URLComponents()
+                callback.scheme = "dexhub-player"
+                callback.host = status
+                callback.queryItems = [URLQueryItem(name: "token", value: callbackToken)]
+                query.append(URLQueryItem(name: key, value: callback.string))
+            }
+        }
+        target.queryItems = query
+        target.percentEncodedQuery = target.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
+        guard let url = target.url else { return }
+        UIApplication.shared.open(url, options: [:]) { success in
+            snapshots.set(token, success ? ["state": "external", "position": position] :
+                ["state": "error", "message": "External app could not be opened. Check that it is installed."])
+        }
+    }
+}
+
+@MainActor
+private final class EmbeddedSession {
+    let token: String
+    private let request: NSDictionary
+    private let engine: AetherEngine
+    private let surface: AetherPlayerView
+    private weak var overlay: UIView?
+    private let wasOpaque: Bool
+    private let layerWasOpaque: Bool
+    private let backgroundWas: UIColor?
+    private var timer: Timer?
+    private var loadTask: Task<Void, Never>?
+    private var seekTask: Task<Void, Never>?
+    private var stopped = false
+    private var failure: String?
+    private var bitmapViews: [String: UIImageView] = [:]
+    private var subtitleDelay = 0.0
+    private var lastAudio: [TrackInfo] = []
+    private var lastSubtitles: [TrackInfo] = []
+    private var audioRows: [[String: Any]] = []
+    private var subtitleRows: [[String: Any]] = []
+    private var trackRevision = 0
+
+    init(request: NSDictionary, parent: UIView, overlay: UIView) throws {
+        self.request = request
+        token = request["token"] as? String ?? ""
+        engine = try AetherEngine()
+        surface = AetherPlayerView(frame: parent.bounds)
+        self.overlay = overlay
+        wasOpaque = overlay.isOpaque
+        layerWasOpaque = overlay.layer.isOpaque
+        backgroundWas = overlay.backgroundColor
+        surface.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        surface.isUserInteractionEnabled = false
+        overlay.isOpaque = false
+        overlay.layer.isOpaque = false
+        overlay.backgroundColor = .clear
+        parent.insertSubview(surface, belowSubview: overlay)
+        engine.bind(view: surface)
+        surface.setNeedsLayout()
+        surface.layoutIfNeeded()
+        engine.setNativeSubtitleRendering(false)
+    }
+
+    func start() {
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
+            // Installed on the main run loop: avoid queued Tasks during a stall.
+            MainActor.assumeIsolated { self?.publish() }
+        }
+        timer?.tolerance = 0.025
+        loadTask = Task { [weak self] in
+            guard let self else { return }
+            do {
+                guard let raw = request["url"] as? String else { throw URLError(.badURL) }
+                let parts = raw.split(separator: "|", maxSplits: 1, omittingEmptySubsequences: false)
+                let media = String(parts[0])
+                let url = media.hasPrefix("/") ? URL(fileURLWithPath: media) : URL(string: media)
+                guard let url else { throw URLError(.badURL) }
+                var headers: [String: String] = [:]
+                if parts.count > 1 {
+                    for pair in parts[1].split(separator: "&") {
+                        let row = pair.split(separator: "=", maxSplits: 1, omittingEmptySubsequences: false)
+                        if row.count == 2 {
+                            let key = String(row[0]).replacingOccurrences(of: "+", with: " ").removingPercentEncoding ?? String(row[0])
+                            let value = String(row[1]).replacingOccurrences(of: "+", with: " ").removingPercentEncoding ?? String(row[1])
+                            headers[key] = value
+                        }
+                    }
+                }
+                let subtitles = (request["subtitles"] as? [String] ?? []).compactMap { raw -> ExternalSubtitleTrack? in
+                    let url = raw.hasPrefix("/") ? URL(fileURLWithPath: raw) : URL(string: raw)
+                    guard let url else { return nil }
+                    return ExternalSubtitleTrack(url: url, language: "ar", httpHeaders: nil)
+                }
+                // Keep source probing and display matching intact. Mount the video before
+                // adding sidecars, so a slow subtitle download cannot hold its first frame.
+                let layouts: [SpatialSpeakerLayout] = [.l512, .l514, .l712, .l714, .l916]
+                let layout = (request["truehdAtmosLayout"] as? NSNumber)?.intValue ?? 0
+                let objectAudio: ObjectAudioRendering = (1...layouts.count).contains(layout) ? .apac(layouts[layout - 1]) : .off
+                let options = LoadOptions(httpHeaders: headers, matchContentEnabled: true,
+                    objectAudioRendering: objectAudio, confirmAtmos: true,
+                    preferredSubtitleLanguages: ["ar", "ara"], externalSubtitles: [],
+                    autoplay: true)
+                let position = max(0, (request["position"] as? NSNumber)?.doubleValue ?? 0)
+                let startedAt = Date()
+                try await engine.load(url: url, startPosition: position, options: options)
+                guard !stopped else { return }
+                NSLog("DexAetherBridge: video load completed in %.3f seconds", Date().timeIntervalSince(startedAt))
+                engine.setNativeSubtitleRendering(false)
+                if position == 0, let percent = request["percent"] as? NSNumber, percent.doubleValue > 0,
+                   engine.duration.isFinite, engine.duration > 0 {
+                    await engine.seek(to: engine.duration * min(100, percent.doubleValue) / 100)
+                }
+                var preferredSidecar: Int?
+                for subtitle in subtitles {
+                    let track = engine.addExternalSubtitleTrack(subtitle)
+                    if preferredSidecar == nil { preferredSidecar = track.id }
+                }
+                if let preferredSidecar { engine.selectSubtitleTrack(index: preferredSidecar) }
+                engine.setNativeSubtitleRendering(false)
+                publish()
+            } catch {
+                if !stopped { failure = error.localizedDescription; publish() }
+            }
+        }
+    }
+
+    func command(_ request: NSDictionary) {
+        let value = (request["value"] as? NSNumber)?.doubleValue ?? 0
+        switch request["name"] as? String {
+        case "rate":
+            if value == 0 { engine.pause() } else { engine.play(); engine.setRate(Float(value)) }
+        case "seek":
+            seekTask?.cancel()
+            seekTask = Task { [weak self] in
+                guard let self, !stopped else { return }
+                await engine.seek(to: max(0, value))
+            }
+        case "volume": engine.volume = Float(max(0, min(1, value)))
+        case "audioDelay": engine.setAudioDelay(value)
+        case "subtitleDelay": subtitleDelay = value
+        case "audio": engine.selectAudioTrack(index: Int(value))
+        case "subtitle":
+            if value < 0 { engine.clearSubtitle() } else { engine.selectSubtitleTrack(index: Int(value)) }
+            engine.setNativeSubtitleRendering(false)
+        case "addSubtitle":
+            if let raw = request["text"] as? String {
+                let url = raw.hasPrefix("/") ? URL(fileURLWithPath: raw) : URL(string: raw)
+                if let url {
+                    let track = engine.addExternalSubtitleTrack(ExternalSubtitleTrack(url: url, language: nil, httpHeaders: nil))
+                    engine.selectSubtitleTrack(index: track.id)
+                }
+            }
+        case "rect":
+            if let parent = surface.superview {
+                let x = (request["x"] as? NSNumber)?.doubleValue ?? 0
+                let y = (request["y"] as? NSNumber)?.doubleValue ?? 0
+                let width = (request["width"] as? NSNumber)?.doubleValue ?? 1
+                let height = (request["height"] as? NSNumber)?.doubleValue ?? 1
+                surface.frame = CGRect(x: x * parent.bounds.width, y: y * parent.bounds.height,
+                    width: width * parent.bounds.width, height: height * parent.bounds.height)
+            }
+        default: break
+        }
+    }
+
+    private func track(_ row: TrackInfo) -> [String: Any] {
+        ["id": row.id, "name": row.name, "language": row.language ?? "", "codec": row.codec,
+         "channels": row.channels, "samplerate": row.sampleRate, "bits": row.bitsPerSample,
+         "external": row.isExternal]
+    }
+
+    private func publish() {
+        guard !stopped else { return }
+        var state = "loading"
+        switch engine.state {
+        case .playing: state = "playing"
+        case .paused: state = "paused"
+        case .ended: state = "ended"
+        case .error(let message): state = "error"; failure = message
+        case .seeking: state = "seeking"
+        default: break
+        }
+        if failure != nil { state = "error" }
+        let sourceTime = engine.clock.sourceTime
+        let time = sourceTime + subtitleDelay
+        var cues: [SubtitleCue] = []
+        var text: [[String: Any]] = []
+        for cue in engine.subtitleCues where cue.startTime <= time + 1 && cue.endTime > time - 1 {
+            if time >= cue.startTime && time < cue.endTime { cues.append(cue) }
+            if let value = cue.text { text.append(["text": value, "start": cue.startTime, "end": cue.endTime]) }
+        }
+        updateBitmaps(cues)
+        if lastAudio != engine.audioTracks || lastSubtitles != engine.subtitleTracks {
+            lastAudio = engine.audioTracks
+            lastSubtitles = engine.subtitleTracks
+            audioRows = lastAudio.map(track)
+            subtitleRows = lastSubtitles.map(track)
+            trackRevision += 1
+        }
+        snapshots.set(token, ["state": state, "message": failure ?? "",
+            "position": engine.clock.currentTime.isFinite ? engine.clock.currentTime : 0,
+            "sourceTime": sourceTime.isFinite ? sourceTime : 0,
+            "duration": engine.duration.isFinite ? engine.duration : 0,
+            "width": engine.sourceVideoWidth, "height": engine.sourceVideoHeight,
+            "fps": engine.sourceVideoFrameRate ?? 0, "codec": engine.sourceVideoCodecName ?? "",
+            "surfaceInWindow": surface.window != nil,
+            "surfaceWidth": surface.bounds.width, "surfaceHeight": surface.bounds.height,
+            "surfaceLayers": surface.layer.sublayers?.count ?? 0,
+            "hdr": String(describing: engine.sourceVideoFormat),
+            "audioId": engine.activeAudioTrackIndex ?? -1, "subtitleId": engine.activeSubtitleTrackIndex ?? -1,
+            "trackRevision": trackRevision,
+            "audio": audioRows, "subtitles": subtitleRows, "cues": text])
+    }
+
+    private func updateBitmaps(_ cues: [SubtitleCue]) {
+        var visible = Set<String>()
+        let videoSize = CGSize(width: CGFloat(max(1, Int(engine.sourceVideoWidth))), height: CGFloat(max(1, Int(engine.sourceVideoHeight))))
+        let scale = min(surface.bounds.width / videoSize.width, surface.bounds.height / videoSize.height)
+        let videoRect = CGRect(x: (surface.bounds.width - videoSize.width * scale) / 2,
+            y: (surface.bounds.height - videoSize.height * scale) / 2,
+            width: videoSize.width * scale, height: videoSize.height * scale)
+        for cue in cues {
+            guard case .image(let image) = cue.body else { continue }
+            let key = "\(cue.id):\(cue.startTime)"
+            visible.insert(key)
+            let view = bitmapViews[key] ?? UIImageView(image: UIImage(cgImage: image.cgImage))
+            if bitmapViews[key] == nil { surface.addSubview(view); bitmapViews[key] = view }
+            let canvas = image.canvasSize.width > 0 && image.canvasSize.height > 0 ? image.canvasSize : videoSize
+            let canvasScale = videoRect.width / canvas.width
+            let originY = videoRect.midY - canvas.height * canvasScale / 2
+            view.frame = CGRect(x: videoRect.minX + image.position.minX * canvas.width * canvasScale,
+                y: originY + image.position.minY * canvas.height * canvasScale,
+                width: image.position.width * canvas.width * canvasScale,
+                height: image.position.height * canvas.height * canvasScale)
+        }
+        for key in Array(bitmapViews.keys) where !visible.contains(key) {
+            bitmapViews.removeValue(forKey: key)?.removeFromSuperview()
+        }
+    }
+
+    func stop() {
+        guard !stopped else { return }
+        stopped = true
+        timer?.invalidate()
+        loadTask?.cancel()
+        seekTask?.cancel()
+        engine.stop()
+        surface.removeFromSuperview()
+        overlay?.isOpaque = wasOpaque
+        overlay?.layer.isOpaque = layerWasOpaque
+        overlay?.backgroundColor = backgroundWas
+        snapshots.set(token, ["state": "stopped"])
+    }
+}

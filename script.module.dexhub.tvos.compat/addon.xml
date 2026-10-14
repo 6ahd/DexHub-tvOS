@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="script.module.dexhub.tvos.compat" name="DexWorld Apple TV Compatibility" version="1.0.0" provider-name="DexWorld">
+  <requires><import addon="xbmc.python" version="3.0.0" /></requires>
+  <extension point="xbmc.python.module" library="resources/lib" />
+  <extension point="xbmc.service" library="service.py" />
+  <extension point="xbmc.python.script" library="default.py" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">tvOS Python compatibility and missing AF3 assets</summary>
+    <summary lang="ar_SA">توافق Python وإصلاح ملفات AF3 المفقودة على Apple TV</summary>
+    <description lang="en_GB">Preserves proxy environment settings and restores only missing AF3 assets. Keeps existing skin settings and layout.</description>
+    <platform>all</platform><license>GPL-3.0-or-later; bundled AF3 assets CC-BY-NC-SA-4.0; font SIL-OFL-1.1</license>
+  </extension>
+</addon>

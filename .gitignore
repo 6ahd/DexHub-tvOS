@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.DS_Store
+DexAetherBridge.xcodeproj/
+bridge-exports.txt
+repo-generated/
+# Dex Hub add-on and skin come from Releases (get-dexhub.sh), not from git
+assets/plugin.video.dexhub.tvos-*.zip
+assets/skin.dexhub.tvos-*.zip
+*.ipa

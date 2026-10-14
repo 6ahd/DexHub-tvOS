@@ -1,0 +1,69 @@
+{
+  "script.dexworld.fonts-1.0.0.zip": {
+    "sha256": "086dc47b0e4c57113c3b87457ea94327b50790fcf9e0cf1aac89ff8082d6d0fd"
+  },
+  "script.module.addon.signals-0.0.6+matrix.1.zip": {
+    "source": "https://mirrors.kodi.tv/addons/piers/script.module.addon.signals/script.module.addon.signals-0.0.6+matrix.1.zip",
+    "mirror_md5": "08a99adb7b528b57eca34a15dca462ab",
+    "sha256": "a14fdec2d8f5f941a29bab6350a15f9f5c9fab6adfd4f9167f31ed62855f7695"
+  },
+  "script.module.certifi-2023.5.7.zip": {
+    "source": "https://mirrors.kodi.tv/addons/piers/script.module.certifi/script.module.certifi-2023.5.7.zip",
+    "mirror_md5": "cb831e3bd3ce41e3aa2aa9df0e52d2ab",
+    "sha256": "661463021711c9cd3e1a7dd0b63fbbf07b2eb253e07a6835e3e69ae3f353fbc4"
+  },
+  "script.module.chardet-5.1.0.zip": {
+    "source": "https://mirrors.kodi.tv/addons/piers/script.module.chardet/script.module.chardet-5.1.0.zip",
+    "mirror_md5": "885318471021d06680ed6419e8381f2b",
+    "sha256": "63bd8c75819256e39095ed0651ae7a2206e12adbf88d527582b4803b8b2a9824"
+  },
+  "script.module.dexhub.tvos.compat-1.0.0.zip": {
+    "sha256": "442f90c243a329ad1096a31514a96c024ebae2351ac395393bd665e61b99e6f9"
+  },
+  "script.module.idna-3.10.0.zip": {
+    "source": "https://mirrors.kodi.tv/addons/piers/script.module.idna/script.module.idna-3.10.0.zip",
+    "mirror_md5": "dd630f7211895e190863227702a7efdf",
+    "sha256": "a1267f062f960fb51103b4c6609d385b33a36acc3d74b27e2a4f2cbf66b10f98"
+  },
+  "script.module.infotagger-0.0.9.zip": {
+    "source": "https://github.com/jurialmunkey/script.module.infotagger",
+    "commit": "c6272475996215648d19fd030dd12b3cadc1bd23",
+    "sha256": "a84f9cafb7d95955d89f8a5cf40916f1977e3c6e403fefa525306db38a15eee0"
+  },
+  "script.module.jurialmunkey-0.2.35.zip": {
+    "source": "https://github.com/jurialmunkey/script.module.jurialmunkey",
+    "commit": "8f42fb5f4698f3e4552f38955964b2f3843dba69",
+    "sha256": "b8a850e3d68eb3939bde60cdc51618c34057e0fbbc316df5176298d093fe3210"
+  },
+  "script.module.qrcode-6.1.0+matrix.3.zip": {
+    "source": "https://mirrors.kodi.tv/addons/piers/script.module.qrcode/script.module.qrcode-6.1.0+matrix.3.zip",
+    "mirror_md5": "09af28c3591e1a4e6ef948bfd2d877ef",
+    "sha256": "0cdc5b01b02b0aca87fa29b9f0c3972a4e8dabe454ef50f5207f385019dae07a"
+  },
+  "script.module.requests-2.31.0.zip": {
+    "source": "https://mirrors.kodi.tv/addons/piers/script.module.requests/script.module.requests-2.31.0.zip",
+    "mirror_md5": "e7544e1e7672d819ef8bc3043ef69928",
+    "sha256": "30fab89549032cfcf8926da6f2f0ca8775bfd1a0b8ed199ea7a89fb14c124967"
+  },
+  "script.module.six-1.16.0+matrix.1.zip": {
+    "source": "https://mirrors.kodi.tv/addons/piers/script.module.six/script.module.six-1.16.0+matrix.1.zip",
+    "mirror_md5": "a95abe2f0e8d9f9aa91e4eac121ef198",
+    "sha256": "15fa60d61fb067d4e81233109fc28c02310e3374798b2a88d9f399abf22958ef"
+  },
+  "script.module.urllib3-2.2.3.zip": {
+    "source": "https://mirrors.kodi.tv/addons/piers/script.module.urllib3/script.module.urllib3-2.2.3.zip",
+    "mirror_md5": "46dc2b45d070bbde57ae03b644341848",
+    "sha256": "cbc08498e4b39a12f246eb0e721f47ba653a92706c5fea5684fee3b2318695cf"
+  },
+  "script.skinvariables-2.2.9+appletv.1.zip": {
+    "sha256": "a7aa9569e9337a19fecde04df7b07e99f4d37256382218f6016c584e296b62ad"
+  },
+  "plugin.video.themoviedb.helper-6.17.9+appletv.2.zip": {
+    "sha256": "9f7400a1de34448805830ad691666b62d76b2b3a62064fefe2c5cdd1dabaa5a6",
+    "source": "Retained complete addon plus v17 fixes; see UPDATE-v17-AR.md"
+  },
+  "script.dexhub.tvos.players-1.0.13.zip": {
+    "source": "Built from script.dexhub.tvos.players by release_assets.py",
+    "sha256": "15ce56ab981b800d58ac1b3a0ef96e9ee8a995a803ce12c0da4d564f722690e9"
+  }
+}
