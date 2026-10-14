@@ -35,5 +35,9 @@ fi
 echo "Kodi AetherOnly v20 TEST: Aether 7.35.1 / DexHub 5.10.294 / Skin 3.28.42 / Players 1.0.13 / Release"
 echo "The Apple TV addon does not need to be running to build on this Mac."
 cd "$BASE"
-bash "$BASE/get-dexhub.sh"
+if [ -d "$BASE/src/plugin.video.dexhub.tvos" ] && [ -d "$BASE/src/skin.dexhub.tvos" ]; then
+  python3 "$BASE/release_assets.py"
+else
+  bash "$BASE/get-dexhub.sh"
+fi
 bash "$BASE/all.sh"

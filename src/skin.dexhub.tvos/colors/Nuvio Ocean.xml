@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dex Hub theme Nuvio Ocean (skin.dexhub.tvos 3.14.0): the colours over defaults.xml -->
+<colors>
+	<color name="primary_background">FF0D0D0F</color>
+	<color name="secondary_background">331A1F24</color>
+	<color name="dialog_tint">FF14161A</color>
+	<color name="background">FF070708</color>
+	<color name="white">FFFFFFFF</color>
+	<color name="grey">FFB3B3B3</color>
+	<color name="blue">FF42A5F5</color>
+	<color name="button_focus">FF1E88E5</color>
+	<color name="button_alt_focus">801E88E5</color>
+	<color name="selected">FF56A6EC</color>
+	<color name="dh_accent">FF1E88E5</color>
+	<color name="dh_accent_dim">471E88E5</color>
+	<color name="dh_secondary">FF42A5F5</color>
+	<color name="dh_surface">FF0D0D0F</color>
+	<color name="dh_card">FF1A1F24</color>
+	<color name="dh_text">FFFFFFFF</color>
+	<color name="dh_muted">FFB3B3B3</color>
+	<color name="dh_on_accent">FFFFFFFF</color>
+	<color name="dh_glow_a">5C1E88E5</color>
+	<color name="dh_glow_b">4042A5F5</color>
+	<color name="dh_glow_focus">991E88E5</color>
+</colors>

@@ -1,0 +1,663 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<window type="dialog" id="1159">
+	<defaultcontrol always="true">6009</defaultcontrol>
+	<controls>
+		<control type="group">
+			<animation effect="fade" time="200" start="100" end="0" condition="Window.IsActive(1140) | Window.IsActive(1141) | Window.IsActive(1142) | Window.IsActive(videobookmarks) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml)" reversible="false">Conditional</animation>
+			<animation effect="fade" time="200" delay="200" end="100" start="0" condition="![Window.IsActive(1140) | Window.IsActive(1141) | Window.IsActive(1142) | Window.IsActive(videobookmarks) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml)]" reversible="false">Conditional</animation>
+			<left>80</left>
+			<right>80</right>
+			<visible>!Window.IsActive(DialogPlayerProcessInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogSlider.xml)</visible>
+			<control type="group">
+				<visible>String.IsEmpty(VideoPlayer.HdrType)</visible>
+				<visible>!Window.IsVisible(DialogSettings.xml)</visible>
+				<control type="group">
+					<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+					<control type="image">
+						<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+						<left>-80</left>
+						<right>-80</right>
+						<top>-80</top>
+						<bottom>-80</bottom>
+						<bordersize>80</bordersize>
+						<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+					</control>
+					<control type="image">
+						<fadetime>400</fadetime>
+						<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+					</control>
+				</control>
+				<control type="image">
+					<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+				</control>
+				<animation type="Visible" reversible="false" condition="true">
+					<effect type="fade" start="0" end="100" time="300" delay="150"/>
+					<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="150"/>
+				</animation>
+				<animation type="WindowOpen" reversible="false" condition="true">
+					<effect type="fade" start="0" end="100" time="300" delay="400"/>
+					<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="400"/>
+				</animation>
+				<control type="image">
+					<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+				</control>
+				<control type="image">
+					<left>40</left>
+					<right>40</right>
+					<height>1</height>
+					<centerbottom>40</centerbottom>
+					<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+				</control>
+				<right>-40</right>
+				<bottom>220</bottom>
+				<width>450</width>
+				<height>440</height>
+				<control type="group" id="">
+					<height>120</height>
+					<control type="label">
+						<label>VS10</label>
+						<textoffsetx>40</textoffsetx>
+						<font>af3_font_midi_bold</font>
+						<aligny>center</aligny>
+						<textcolor>af3_dialog_fg_90</textcolor>
+						<align>left</align>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+					<control type="group" id="">
+						<right>40</right>
+						<centertop>50%</centertop>
+						<height>40</height>
+						<width>40</width>
+						<control type="image">
+							<bordersize>-8</bordersize>
+							<texture colordiffuse="af3_dialog_fg_90">af3/extras/icons/vs10.png</texture>
+						</control>
+					</control>
+					<control type="image">
+						<bottom>0</bottom>
+						<height>1</height>
+						<left>40</left>
+						<right>40</right>
+						<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+					</control>
+				</control>
+				<control type="group">
+					<top>120</top>
+					<bottom>40</bottom>
+					<control type="grouplist" id="6210">
+						<top>20</top>
+						<bottom>20</bottom>
+						<left>20</left>
+						<right>20</right>
+						<ondown>6009</ondown>
+						<onleft>6009</onleft>
+						<onright>6009</onright>
+						<onup>6211</onup>
+						<orientation>vertical</orientation>
+						<control type="button" id="8490">
+							<onclick>RunScript(script.tinyppi,run_mode,dv)</onclick>
+							<onclick>Dialog.Close(all)</onclick>
+							<align>left</align>
+							<font>af3_font_main</font>
+							<height>80</height>
+							<textoffsetx>40</textoffsetx>
+							<texturenofocus/>
+							<alttexturenofocus/>
+							<description>None</description>
+							<aligny>center</aligny>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<focusedcolor>ff272727</focusedcolor>
+							<disabledcolor>af3_main_fg_30</disabledcolor>
+							<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+							<pulseonselect>false</pulseonselect>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+						</control>
+						<control type="group" id="6894">
+							<height>80</height>
+							<top>-80</top>
+							<left>-20</left>
+							<visible>Control.IsEnabled(8490) + Control.IsVisible(8490)</visible>
+							<control type="group">
+								<visible>!Control.HasFocus(8490)</visible>
+							</control>
+							<control type="group">
+								<visible>Control.HasFocus(8490)</visible>
+							</control>
+						</control>
+						<control type="button" id="8491">
+							<onclick>RunScript(script.tinyppi,run_mode,hdr10)</onclick>
+							<onclick>Dialog.Close(all)</onclick>
+							<align>left</align>
+							<font>af3_font_main</font>
+							<height>80</height>
+							<textoffsetx>40</textoffsetx>
+							<texturenofocus/>
+							<alttexturenofocus/>
+							<description>None</description>
+							<aligny>center</aligny>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<focusedcolor>ff272727</focusedcolor>
+							<disabledcolor>af3_main_fg_30</disabledcolor>
+							<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+							<pulseonselect>false</pulseonselect>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+						</control>
+						<control type="group" id="6895">
+							<height>80</height>
+							<top>-80</top>
+							<left>-20</left>
+							<visible>Control.IsEnabled(8491) + Control.IsVisible(8491)</visible>
+							<control type="group">
+								<visible>!Control.HasFocus(8491)</visible>
+							</control>
+							<control type="group">
+								<visible>Control.HasFocus(8491)</visible>
+							</control>
+						</control>
+						<control type="button" id="8493">
+							<onclick>RunScript(script.tinyppi,run_mode,original_sdr)</onclick>
+							<onclick>Dialog.Close(all)</onclick>
+							<align>left</align>
+							<font>af3_font_main</font>
+							<height>80</height>
+							<textoffsetx>40</textoffsetx>
+							<texturenofocus/>
+							<alttexturenofocus/>
+							<description>None</description>
+							<aligny>center</aligny>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<focusedcolor>ff272727</focusedcolor>
+							<disabledcolor>af3_main_fg_30</disabledcolor>
+							<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+							<pulseonselect>false</pulseonselect>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+						</control>
+						<control type="group" id="6897">
+							<height>80</height>
+							<top>-80</top>
+							<left>-20</left>
+							<visible>Control.IsEnabled(8493) + Control.IsVisible(8493)</visible>
+							<control type="group">
+								<visible>!Control.HasFocus(8493)</visible>
+							</control>
+							<control type="group">
+								<visible>Control.HasFocus(8493)</visible>
+							</control>
+						</control>
+						<scrolltime tween="quadratic">400</scrolltime>
+						<usecontrolcoords>true</usecontrolcoords>
+						<itemgap>0</itemgap>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<visible>String.Contains(VideoPlayer.HdrType,hdr10)</visible>
+				<visible>!Window.IsVisible(DialogSettings.xml)</visible>
+				<control type="group">
+					<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+					<control type="image">
+						<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+						<left>-80</left>
+						<right>-80</right>
+						<top>-80</top>
+						<bottom>-80</bottom>
+						<bordersize>80</bordersize>
+						<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+					</control>
+					<control type="image">
+						<fadetime>400</fadetime>
+						<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+					</control>
+				</control>
+				<control type="image">
+					<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+				</control>
+				<animation type="Visible" reversible="false" condition="true">
+					<effect type="fade" start="0" end="100" time="300" delay="150"/>
+					<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="150"/>
+				</animation>
+				<animation type="WindowOpen" reversible="false" condition="true">
+					<effect type="fade" start="0" end="100" time="300" delay="400"/>
+					<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="400"/>
+				</animation>
+				<control type="image">
+					<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+				</control>
+				<control type="image">
+					<left>40</left>
+					<right>40</right>
+					<height>1</height>
+					<centerbottom>40</centerbottom>
+					<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+				</control>
+				<right>-40</right>
+				<bottom>220</bottom>
+				<width>450</width>
+				<height>440</height>
+				<control type="group" id="">
+					<height>120</height>
+					<control type="label">
+						<label>VS10</label>
+						<textoffsetx>40</textoffsetx>
+						<font>af3_font_midi_bold</font>
+						<aligny>center</aligny>
+						<textcolor>af3_dialog_fg_90</textcolor>
+						<align>left</align>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+					<control type="group" id="">
+						<right>40</right>
+						<centertop>50%</centertop>
+						<height>40</height>
+						<width>40</width>
+						<control type="image">
+							<bordersize>-8</bordersize>
+							<texture colordiffuse="af3_dialog_fg_90">af3/extras/icons/vs10.png</texture>
+						</control>
+					</control>
+					<control type="image">
+						<bottom>0</bottom>
+						<height>1</height>
+						<left>40</left>
+						<right>40</right>
+						<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+					</control>
+				</control>
+				<control type="group">
+					<top>120</top>
+					<bottom>40</bottom>
+					<control type="grouplist" id="6210">
+						<top>20</top>
+						<bottom>20</bottom>
+						<left>20</left>
+						<right>20</right>
+						<ondown>6009</ondown>
+						<onleft>6009</onleft>
+						<onright>6009</onright>
+						<onup>6211</onup>
+						<orientation>vertical</orientation>
+						<control type="button" id="8490">
+							<onclick>RunScript(script.tinyppi,run_mode,dv)</onclick>
+							<onclick>Dialog.Close(all)</onclick>
+							<align>left</align>
+							<font>af3_font_main</font>
+							<height>80</height>
+							<textoffsetx>40</textoffsetx>
+							<texturenofocus/>
+							<alttexturenofocus/>
+							<description>None</description>
+							<aligny>center</aligny>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<focusedcolor>ff272727</focusedcolor>
+							<disabledcolor>af3_main_fg_30</disabledcolor>
+							<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+							<pulseonselect>false</pulseonselect>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+						</control>
+						<control type="group" id="6894">
+							<height>80</height>
+							<top>-80</top>
+							<left>-20</left>
+							<visible>Control.IsEnabled(8490) + Control.IsVisible(8490)</visible>
+							<control type="group">
+								<visible>!Control.HasFocus(8490)</visible>
+							</control>
+							<control type="group">
+								<visible>Control.HasFocus(8490)</visible>
+							</control>
+						</control>
+						<control type="button" id="8492">
+							<onclick>RunScript(script.tinyppi,run_mode,sdr8)</onclick>
+							<onclick>Dialog.Close(all)</onclick>
+							<align>left</align>
+							<font>af3_font_main</font>
+							<height>80</height>
+							<textoffsetx>40</textoffsetx>
+							<texturenofocus/>
+							<alttexturenofocus/>
+							<description>None</description>
+							<aligny>center</aligny>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<focusedcolor>ff272727</focusedcolor>
+							<disabledcolor>af3_main_fg_30</disabledcolor>
+							<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+							<pulseonselect>false</pulseonselect>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+						</control>
+						<control type="group" id="6896">
+							<height>80</height>
+							<top>-80</top>
+							<left>-20</left>
+							<visible>Control.IsEnabled(8492) + Control.IsVisible(8492)</visible>
+							<control type="group">
+								<visible>!Control.HasFocus(8492)</visible>
+							</control>
+							<control type="group">
+								<visible>Control.HasFocus(8492)</visible>
+							</control>
+						</control>
+						<control type="button" id="8493">
+							<onclick>RunScript(script.tinyppi,run_mode,original_hdr)</onclick>
+							<onclick>Dialog.Close(all)</onclick>
+							<align>left</align>
+							<font>af3_font_main</font>
+							<height>80</height>
+							<textoffsetx>40</textoffsetx>
+							<texturenofocus/>
+							<alttexturenofocus/>
+							<description>None</description>
+							<aligny>center</aligny>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<focusedcolor>ff272727</focusedcolor>
+							<disabledcolor>af3_main_fg_30</disabledcolor>
+							<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+							<pulseonselect>false</pulseonselect>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+						</control>
+						<control type="group" id="6897">
+							<height>80</height>
+							<top>-80</top>
+							<left>-20</left>
+							<visible>Control.IsEnabled(8493) + Control.IsVisible(8493)</visible>
+							<control type="group">
+								<visible>!Control.HasFocus(8493)</visible>
+							</control>
+							<control type="group">
+								<visible>Control.HasFocus(8493)</visible>
+							</control>
+						</control>
+						<scrolltime tween="quadratic">400</scrolltime>
+						<usecontrolcoords>true</usecontrolcoords>
+						<itemgap>0</itemgap>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<visible>String.Contains(VideoPlayer.HdrType,dolby)</visible>
+				<visible>!Window.IsVisible(DialogSettings.xml)</visible>
+				<control type="group">
+					<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+					<control type="image">
+						<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+						<left>-80</left>
+						<right>-80</right>
+						<top>-80</top>
+						<bottom>-80</bottom>
+						<bordersize>80</bordersize>
+						<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+					</control>
+					<control type="image">
+						<fadetime>400</fadetime>
+						<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+					</control>
+				</control>
+				<control type="image">
+					<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+				</control>
+				<animation type="Visible" reversible="false" condition="true">
+					<effect type="fade" start="0" end="100" time="300" delay="150"/>
+					<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="150"/>
+				</animation>
+				<animation type="WindowOpen" reversible="false" condition="true">
+					<effect type="fade" start="0" end="100" time="300" delay="400"/>
+					<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="400"/>
+				</animation>
+				<control type="image">
+					<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+				</control>
+				<control type="image">
+					<left>40</left>
+					<right>40</right>
+					<height>1</height>
+					<centerbottom>40</centerbottom>
+					<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+				</control>
+				<right>-40</right>
+				<bottom>220</bottom>
+				<width>450</width>
+				<height>360</height>
+				<control type="group" id="">
+					<height>120</height>
+					<control type="label">
+						<label>VS10</label>
+						<textoffsetx>40</textoffsetx>
+						<font>af3_font_midi_bold</font>
+						<aligny>center</aligny>
+						<textcolor>af3_dialog_fg_90</textcolor>
+						<align>left</align>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+					<control type="group" id="">
+						<right>40</right>
+						<centertop>50%</centertop>
+						<height>40</height>
+						<width>40</width>
+						<control type="image">
+							<bordersize>-8</bordersize>
+							<texture colordiffuse="af3_dialog_fg_90">af3/extras/icons/vs10.png</texture>
+						</control>
+					</control>
+					<control type="image">
+						<bottom>0</bottom>
+						<height>1</height>
+						<left>40</left>
+						<right>40</right>
+						<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+					</control>
+				</control>
+				<control type="group">
+					<top>120</top>
+					<bottom>40</bottom>
+					<control type="grouplist" id="6210">
+						<top>20</top>
+						<bottom>20</bottom>
+						<left>20</left>
+						<right>20</right>
+						<ondown>6009</ondown>
+						<onleft>6009</onleft>
+						<onright>6009</onright>
+						<onup>6211</onup>
+						<orientation>vertical</orientation>
+						<control type="button" id="8492">
+							<onclick>RunScript(script.tinyppi,run_mode,sdr8)</onclick>
+							<onclick>Dialog.Close(all)</onclick>
+							<align>left</align>
+							<font>af3_font_main</font>
+							<height>80</height>
+							<textoffsetx>40</textoffsetx>
+							<texturenofocus/>
+							<alttexturenofocus/>
+							<description>None</description>
+							<aligny>center</aligny>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<focusedcolor>ff272727</focusedcolor>
+							<disabledcolor>af3_main_fg_30</disabledcolor>
+							<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+							<pulseonselect>false</pulseonselect>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+						</control>
+						<control type="group" id="6896">
+							<height>80</height>
+							<top>-80</top>
+							<left>-20</left>
+							<visible>Control.IsEnabled(8492) + Control.IsVisible(8492)</visible>
+							<control type="group">
+								<visible>!Control.HasFocus(8492)</visible>
+							</control>
+							<control type="group">
+								<visible>Control.HasFocus(8492)</visible>
+							</control>
+						</control>
+						<control type="button" id="8493">
+							<onclick>RunScript(script.tinyppi,run_mode,original_dv)</onclick>
+							<onclick>Dialog.Close(all)</onclick>
+							<align>left</align>
+							<font>af3_font_main</font>
+							<height>80</height>
+							<textoffsetx>40</textoffsetx>
+							<texturenofocus/>
+							<alttexturenofocus/>
+							<description>None</description>
+							<aligny>center</aligny>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<focusedcolor>ff272727</focusedcolor>
+							<disabledcolor>af3_main_fg_30</disabledcolor>
+							<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+							<pulseonselect>false</pulseonselect>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+						</control>
+						<control type="group" id="6897">
+							<height>80</height>
+							<top>-80</top>
+							<left>-20</left>
+							<visible>Control.IsEnabled(8493) + Control.IsVisible(8493)</visible>
+							<control type="group">
+								<visible>!Control.HasFocus(8493)</visible>
+							</control>
+							<control type="group">
+								<visible>Control.HasFocus(8493)</visible>
+							</control>
+						</control>
+						<scrolltime tween="quadratic">400</scrolltime>
+						<usecontrolcoords>true</usecontrolcoords>
+						<itemgap>0</itemgap>
+					</control>
+				</control>
+			</control>
+			<control type="grouplist">
+				<onright condition="!Control.IsVisible(6016) + !Control.IsVisible(6015)">6005</onright><onright condition="!Control.IsVisible(6016) + Control.IsVisible(6015)">6015</onright><onright condition="Control.IsVisible(6016)">6016</onright><onleft condition="!Control.IsVisible(6009)">6008</onleft><onleft condition="Control.IsVisible(6009)">6009</onleft><height>120</height>
+				<left>-20</left>
+				<centerbottom>80</centerbottom>
+				<orientation>horizontal</orientation>
+				<itemgap>37</itemgap>
+				<align>left</align>
+				<control type="button" id="6001">
+					<width>80</width>
+					<texturefocus/>
+					<texturenofocus/>
+					<font/>
+					<label/>
+					<onfocus>Close</onfocus>
+					<onfocus>SetFocus(6001)</onfocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>30</textoffsetx>
+					<textcolor>af3_main_fg_70</textcolor>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<focusedcolor>ff272727</focusedcolor>
+					<disabledcolor>af3_main_fg_30</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+				<onleft condition="Control.IsVisible(6009)">6009</onleft><onleft condition="!Control.IsVisible(6009)">6008</onleft><onright>6002</onright></control>
+				<control type="button" id="6002">
+					<width>80</width>
+					<texturefocus/>
+					<texturenofocus/>
+					<font/>
+					<label/>
+					<onfocus>Close</onfocus>
+					<onfocus>SetFocus(6002)</onfocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>30</textoffsetx>
+					<textcolor>af3_main_fg_70</textcolor>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<focusedcolor>ff272727</focusedcolor>
+					<disabledcolor>af3_main_fg_30</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+				<onleft>6001</onleft><onright>6003</onright></control>
+				<control type="button" id="6003">
+					<width>80</width>
+					<texturefocus/>
+					<texturenofocus/>
+					<font/>
+					<label/>
+					<onfocus>Close</onfocus>
+					<onfocus>SetFocus(6003)</onfocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>30</textoffsetx>
+					<textcolor>af3_main_fg_70</textcolor>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<focusedcolor>ff272727</focusedcolor>
+					<disabledcolor>af3_main_fg_30</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+				<onleft>6002</onleft><onright>6004</onright></control>
+				<control type="button" id="6004">
+					<width>80</width>
+					<texturefocus/>
+					<texturenofocus/>
+					<font/>
+					<label/>
+					<onfocus>Close</onfocus>
+					<onfocus>SetFocus(6004)</onfocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>30</textoffsetx>
+					<textcolor>af3_main_fg_70</textcolor>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<focusedcolor>ff272727</focusedcolor>
+					<disabledcolor>af3_main_fg_30</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+				<onleft>6003</onleft><onright condition="Control.IsVisible(6016)">6016</onright><onright condition="!Control.IsVisible(6016) + Control.IsVisible(6015)">6015</onright><onright condition="!Control.IsVisible(6016) + !Control.IsVisible(6015)">6005</onright></control>
+				<scrolltime tween="quadratic">400</scrolltime>
+				<usecontrolcoords>true</usecontrolcoords>
+			</control>
+			<!-- dhs osd slots v1 (skin 3.28.40, Dex Hub 5.10.288) -->
+			<!-- the OSD's own buttons stay drawn under this panel, in the order chosen in Player buttons; this holder keeps the panel's actions, Left/Right close it and focus the neighbour slot -->
+			<control type="button" id="6009">
+				<right>0</right>
+				<bottom>0</bottom>
+				<width>1</width>
+				<height>1</height>
+				<texturefocus />
+				<texturenofocus />
+				<font />
+				<label />
+				<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
+				<onclick>RunScript(script.tinyppi)</onclick>
+				<onup>SetFocus(8493)</onup>
+				<ondown>ActivateWindow($VAR[AF3_Action_OSD_Main_OnDown])</ondown>
+				<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
+				<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
+				<onleft>Close</onleft>
+				<onleft>SetFocus($VAR[DhOsdPrev_ppi])</onleft>
+				<onright>Close</onright>
+				<onright>SetFocus($VAR[DhOsdNext_ppi])</onright>
+			</control>
+		</control>
+	</controls>
+</window>

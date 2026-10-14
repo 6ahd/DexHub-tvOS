@@ -1,0 +1,1285 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<window>
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<backgroundcolor>$VAR[DhSurface]</backgroundcolor>
+	<onload condition="String.IsEmpty(Skin.String(background_overlay))">Skin.SetString(background_overlay,1)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dhs.skinsettings.section),player)">SetFocus(9000,3,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dhs.skinsettings.section),badges)">SetFocus(9000,4,absolute)</onload>
+	<onload>ClearProperty(dhs.skinsettings.section,home)</onload>
+	<controls>
+		<control type="label">
+			<left>1440</left>
+			<top>22</top>
+			<width>400</width>
+			<height>50</height>
+			<font>af3_font_midi_bold</font>
+			<textcolor>af3_main_fg_70</textcolor>
+			<align>right</align>
+			<aligny>center</aligny>
+			<label>$INFO[System.Time]</label>
+		</control>
+		<control type="group">
+			<left>160</left>
+			<top>90</top>
+			<width>1600</width>
+			<height>900</height>
+			<include>DhAF3DialogOpen</include>
+			<include>DhAF3DialogFrame</include>
+			<control type="image">
+				<left>320</left>
+				<top>0</top>
+				<texture border="20" colordiffuse="af3_dialog_bg_12">af3/common/dialog_overlay.png</texture>
+				<right>0</right>
+				<bottom>0</bottom>
+				<bordersize>1</bordersize>
+			</control>
+			<control type="image">
+				<left>320</left>
+				<top>1</top>
+				<width>1</width>
+				<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+				<bottom>1</bottom>
+			</control>
+			<control type="label">
+				<left>40</left>
+				<top>40</top>
+				<width>260</width>
+				<height>40</height>
+				<font>af3_font_midi_bold</font>
+				<textcolor>af3_dialog_fg_90</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>$VAR[DhSettingsString31896]</label>
+			</control>
+			<control type="image">
+				<left>40</left>
+				<top>110</top>
+				<width>240</width>
+				<height>1</height>
+				<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+			</control>
+			<control type="list" id="9000">
+				<left>20</left>
+				<top>130</top>
+				<width>280</width>
+				<height>740</height>
+				<onleft>9000</onleft>
+				<onright>10000</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<scrolltime tween="quadratic">180</scrolltime>
+				<itemlayout height="68" width="280">
+					<control type="label">
+						<left>20</left>
+						<top>0</top>
+						<width>240</width>
+						<height>68</height>
+						<font>af3_font_main</font>
+						<textcolor>af3_dialog_fg_70</textcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout height="68" width="280">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>280</width>
+						<height>68</height>
+						<texture border="40">af3/common/menu.png</texture>
+						<colordiffuse>$VAR[DhAccent]</colordiffuse>
+						<visible>Control.HasFocus(9000)</visible>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>280</width>
+						<height>68</height>
+						<texture border="40" colordiffuse="af3_dialog_fg_12">af3/common/menu.png</texture>
+						<visible>!Control.HasFocus(9000)</visible>
+					</control>
+					<control type="label">
+						<left>20</left>
+						<top>0</top>
+						<width>240</width>
+						<height>68</height>
+						<font>af3_font_main</font>
+						<textcolor>$VAR[DhOnAccent]</textcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>Control.HasFocus(9000)</visible>
+					</control>
+					<control type="label">
+						<left>20</left>
+						<top>0</top>
+						<width>240</width>
+						<height>68</height>
+						<font>af3_font_main</font>
+						<textcolor>af3_dialog_fg_90</textcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>!Control.HasFocus(9000)</visible>
+					</control>
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<label>$VAR[DhSettingsString31940]</label>
+						<onclick>noop</onclick>
+					</item>
+					<item id="2">
+						<label>$VAR[DhSettingsString31941]</label>
+						<onclick>noop</onclick>
+					</item>
+					<item id="12">
+						<label>$VAR[DhSettingsString32143]</label>
+						<onclick>noop</onclick>
+					</item>
+					<item id="4">
+						<label>$VAR[DhSettingsString31942]</label>
+						<onclick>noop</onclick>
+					</item>
+					<item id="11">
+						<label>$VAR[DhSettingsString32085]</label>
+						<onclick>noop</onclick>
+					</item>
+					<item id="7">
+						<label>$VAR[DhSettingsString31945]</label>
+						<onclick>noop</onclick>
+					</item>
+					<item id="5">
+						<label>$VAR[DhSettingsString31943]</label>
+						<onclick>noop</onclick>
+					</item>
+					<item id="6">
+						<label>$VAR[DhSettingsString31944]</label>
+						<onclick>noop</onclick>
+					</item>
+					<item id="8">
+						<label>$VAR[DhSettingsString31946]</label>
+						<onclick>noop</onclick>
+					</item>
+					<item id="9">
+						<label>$VAR[DhSettingsString31947]</label>
+						<onclick>noop</onclick>
+					</item>
+					<item id="10">
+						<label>$VAR[DhSettingsString31948]</label>
+						<onclick>noop</onclick>
+					</item>
+					<item id="3">
+						<label>$VAR[DhSettingsString31976]</label>
+						<onclick>noop</onclick>
+					</item>
+				</content>
+			</control>
+			<control type="label">
+				<left>360</left>
+				<top>40</top>
+				<width>1180</width>
+				<height>40</height>
+				<font>af3_font_midi_bold</font>
+				<textcolor>af3_dialog_fg_90</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>$INFO[Container(9000).ListItem.Label]</label>
+			</control>
+			<control type="image">
+				<left>360</left>
+				<top>110</top>
+				<width>1200</width>
+				<height>1</height>
+				<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+			</control>
+			<control type="group" id="10000">
+				<left>340</left>
+				<top>130</top>
+				<width>1210</width>
+				<height>620</height>
+				<control type="grouplist" id="700">
+					<onback>9000</onback>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>700</onup>
+					<ondown>700</ondown>
+					<visible>Container(9000).HasFocus(1)</visible>
+					<control type="button" id="641">
+						<label>$VAR[DhSettingsString31878]</label>
+						<label2>$INFO[Window(Home).Property(dexhub.tvos.theme.name)]</label2>
+						<include>DhSettingButton</include>
+						<onclick>ActivateWindow(1191)</onclick>
+					</control>
+					<control type="button" id="642">
+						<label>$VAR[DhSettingsString31888]</label>
+						<label2>$VAR[DhAccentLabel2]</label2>
+						<include>DhSettingButton</include>
+						<onclick>ActivateWindow(1192)</onclick>
+					</control>
+					<control type="button" id="643">
+						<label>$VAR[DhSettingsString31889]</label>
+						<label2>$VAR[DhOnTextLabel2]</label2>
+						<include>DhSettingButton</include>
+						<onclick condition="String.IsEmpty(Skin.String(dh.ontext))">Skin.SetString(dh.ontext,white)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(dh.ontext),white)">Skin.SetString(dh.ontext,dark)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(dh.ontext),dark)">Skin.Reset(dh.ontext)</onclick>
+					</control>
+					<control type="radiobutton" id="645">
+						<label>$VAR[DhSettingsString31893]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Skin.String(dh.focusglow),off)</selected>
+						<onclick condition="!String.IsEqual(Skin.String(dh.focusglow),off)">Skin.SetString(dh.focusglow,off)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(dh.focusglow),off)">Skin.Reset(dh.focusglow)</onclick>
+					</control>
+					<control type="radiobutton" id="646">
+						<label>$VAR[DhSettingsString31895]</label>
+						<include>DhSettingRadio</include>
+						<selected>String.IsEqual(Skin.String(dh.amoled),on)</selected>
+						<onclick condition="!String.IsEqual(Skin.String(dh.amoled),on)">Skin.SetString(dh.amoled,on)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(dh.amoled),on)">Skin.Reset(dh.amoled)</onclick>
+					</control>
+					<control type="button" id="644">
+						<label>$VAR[DhSettingsString31881]</label>
+						<label2>$VAR[DhGlowLabel2]</label2>
+						<include>DhSettingButton</include>
+						<onclick condition="String.IsEmpty(Skin.String(dh.glow)) | String.IsEqual(Skin.String(dh.glow),soft)">Skin.SetString(dh.glow,vivid)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(dh.glow),vivid)">Skin.SetString(dh.glow,off)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(dh.glow),off)">Skin.Reset(dh.glow)</onclick>
+					</control>
+					<height>620</height>
+					<pagecontrol>60</pagecontrol>
+				<control type="button" id="8125">
+						<label>$VAR[DhSettingsString32134]</label>
+						<include>DhSettingButton</include>
+						<label2>$VAR[DhMotionLabel]</label2>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=homeui_focus_motion)</onclick>
+					</control>
+					<control type="radiobutton" id="8126">
+						<label>$VAR[DhSettingsString32144]</label>
+						<include>DhSettingRadio</include>
+						<selected>String.IsEqual(Window(Home).Property(dhs.pref.homeui_nav_names),true)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=homeui_nav_names)</onclick>
+					</control>
+					<control type="button" id="8123">
+						<label>$VAR[DhSettingsString32076]</label>
+						<include>DhSettingButton</include>
+						<label2>$VAR[DhRowDimLabel]</label2>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=homeui_row_dim)</onclick>
+					</control>
+					<control type="radiobutton" id="8114">
+						<label>$VAR[DhSettingsString32033]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.homeui_kenburns),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=homeui_kenburns)</onclick>
+					</control>
+					<control type="radiobutton" id="8115">
+						<label>$VAR[DhSettingsString32034]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.homeui_focus_gif),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=homeui_focus_gif)</onclick>
+					</control>
+					</control>
+				<control type="grouplist" id="600">
+					<onback>9000</onback>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>600</onup>
+					<ondown>600</ondown>
+					<visible>Container(9000).HasFocus(3)</visible>
+					<control type="radiobutton" id="605">
+						<label>$LOCALIZE[31002]</label>
+						<include>DhSettingRadio</include>
+						<onclick>Skin.ToggleSetting(no_fanart)</onclick>
+						<selected>!Skin.HasSetting(no_fanart)</selected>
+					</control>
+					<control type="button" id="607">
+						<label>$LOCALIZE[31156]</label>
+						<label2>$VAR[BackgroundOverlayTypeVar]</label2>
+						<include>DhSettingButton</include>
+						<onclick condition="String.IsEqual(Skin.String(background_overlay),7)">Skin.SetString(background_overlay,0)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(background_overlay),6)">Skin.SetString(background_overlay,7)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(background_overlay),5)">Skin.SetString(background_overlay,6)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(background_overlay),4)">Skin.SetString(background_overlay,5)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(background_overlay),3)">Skin.SetString(background_overlay,4)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(background_overlay),2)">Skin.SetString(background_overlay,3)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(background_overlay),1)">Skin.SetString(background_overlay,2)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(background_overlay),0)">Skin.SetString(background_overlay,1)</onclick>
+					</control>
+					<control type="button" id="608">
+						<label>$LOCALIZE[31131]</label>
+						<label2>$INFO[Skin.String(HomeFanart.name)]</label2>
+						<include>DhSettingButton</include>
+						<onclick condition="System.AddonIsEnabled(script.image.resource.select)">RunScript(script.image.resource.select,property=HomeFanart&amp;type=resource.images.skinbackgrounds)</onclick>
+						<onclick condition="System.HasAddon(script.image.resource.select) + !System.AddonIsEnabled(script.image.resource.select)">EnableAddon(script.image.resource.select)</onclick>
+						<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
+						<enable>!Skin.HasSetting(no_fanart)</enable>
+					</control>
+					<control type="button" id="609">
+						<label>$LOCALIZE[31062]</label>
+						<label2>$INFO[Skin.String(WeatherFanart.name)]</label2>
+						<include>DhSettingButton</include>
+						<onclick condition="System.AddonIsEnabled(script.image.resource.select)">RunScript(script.image.resource.select,property=WeatherFanart&amp;type=resource.images.weatherfanart)</onclick>
+						<onclick condition="System.HasAddon(script.image.resource.select) + !System.AddonIsEnabled(script.image.resource.select)">EnableAddon(script.image.resource.select)</onclick>
+						<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
+						<enable>!Skin.HasSetting(no_fanart)</enable>
+					</control>
+					<control type="button" id="6066">
+						<label>$LOCALIZE[31149]</label>
+						<label2>$INFO[Skin.String(MovieGenreFanart.Name)]</label2>
+						<include>DhSettingButton</include>
+						<onclick condition="System.AddonIsEnabled(script.image.resource.select)">RunScript(script.image.resource.select,property=MovieGenreFanart&amp;type=resource.images.moviegenrefanart)</onclick>
+						<onclick condition="System.HasAddon(script.image.resource.select) + !System.AddonIsEnabled(script.image.resource.select)">EnableAddon(script.image.resource.select)</onclick>
+						<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
+					</control>
+					<control type="radiobutton" id="6067">
+						<label>$LOCALIZE[31168]</label>
+						<include>DhSettingRadio</include>
+						<onclick>Skin.ToggleSetting(show_musicvideoposter)</onclick>
+						<selected>Skin.HasSetting(show_musicvideoposter)</selected>
+					</control>
+					<height>620</height>
+					<pagecontrol>60</pagecontrol>
+					<control type="radiobutton" id="701">
+						<label>$LOCALIZE[31095]</label>
+						<include>DhSettingRadio</include>
+						<selected>!Skin.HasSetting(no_slide_animations)</selected>
+						<onclick>Skin.ToggleSetting(no_slide_animations)</onclick>
+					</control>
+					<control type="radiobutton" id="702">
+						<label>$LOCALIZE[20189]</label>
+						<include>DhSettingRadio</include>
+						<onclick>Skin.ToggleSetting(autoscroll)</onclick>
+						<selected>Skin.HasSetting(autoscroll)</selected>
+					</control>
+					<control type="radiobutton" id="703">
+						<label>$LOCALIZE[31158]</label>
+						<include>DhSettingRadio</include>
+						<onclick>Skin.ToggleSetting(touchmode)</onclick>
+						<selected>Skin.HasSetting(touchmode)</selected>
+					</control>
+					<control type="radiobutton" id="704">
+						<label>$LOCALIZE[31093]</label>
+						<include>DhSettingRadio</include>
+						<onclick condition="!String.IsEmpty(Weather.Plugin)">Skin.ToggleSetting(show_weatherinfo)</onclick>
+						<onclick condition="String.IsEmpty(Weather.Plugin)">ActivateWindow(servicesettings,weather)</onclick>
+						<selected>Skin.HasSetting(show_weatherinfo) + !String.IsEmpty(Weather.Plugin)</selected>
+					</control>
+					<control type="radiobutton" id="705">
+						<label>$LOCALIZE[31160]</label>
+						<include>DhSettingRadio</include>
+						<onclick>Skin.ToggleSetting(hide_mediaflags)</onclick>
+						<selected>!Skin.HasSetting(hide_mediaflags)</selected>
+					</control>
+					<control type="button" id="706">
+						<label>$LOCALIZE[31024]</label>
+						<include>DhSettingButton</include>
+						<onclick>Skin.SelectBool(31024, 38018|circle_userrating, 563|circle_rating, 16018|circle_none)</onclick>
+						<label2>$VAR[RatingSettingLabel2Var]</label2>
+					</control>
+					<control type="button" id="707">
+						<label>$LOCALIZE[31164]</label>
+						<include>DhSettingButton</include>
+						<onclick>Skin.SelectBool(31164, 31165|show_profilename, 31166|show_profileavatar, 16018|show_none)</onclick>
+						<label2>$VAR[ProfileIdentificationLabel2Var]</label2>
+					</control>
+					<control type="radiobutton" id="8150">
+						<label>$VAR[DhSettingsString32043]</label>
+						<include>DhSettingRadio</include>
+						<selected>Skin.HasSetting(DhSettings.KodiLibrary)</selected>
+						<onclick>Skin.ToggleSetting(DhSettings.KodiLibrary)</onclick>
+					</control>
+					<control type="radiobutton" id="621">
+						<label>$LOCALIZE[31008]</label>
+						<include>DhSettingRadio</include>
+						<selected>!Skin.HasSetting(home_no_categories_widget)</selected>
+						<onclick>Skin.ToggleSetting(home_no_categories_widget)</onclick>
+						<visible>Skin.HasSetting(DhSettings.KodiLibrary)</visible>
+					</control>
+					<control type="radiobutton" id="611">
+						<label>$LOCALIZE[342]</label>
+						<include>DhSettingRadio</include>
+						<selected>!Skin.HasSetting(HomeMenuNoMovieButton)</selected>
+						<onclick>Skin.ToggleSetting(HomeMenuNoMovieButton)</onclick>
+						<visible>Skin.HasSetting(DhSettings.KodiLibrary)</visible>
+					</control>
+					<control type="button" id="6110">
+						<label>- $LOCALIZE[31157]</label>
+						<include>DhSettingButton</include>
+						<onclick condition="System.AddonIsEnabled(plugin.library.node.editor)">ActivateWindow(programs,plugin://plugin.library.node.editor/?ltype=video,return)</onclick>
+						<onclick condition="System.HasAddon(plugin.library.node.editor) + !System.AddonIsEnabled(plugin.library.node.editor)">EnableAddon(plugin.library.node.editor)</onclick>
+						<onclick condition="!System.HasAddon(plugin.library.node.editor)">InstallAddon(plugin.library.node.editor)</onclick>
+						<enable>!Skin.HasSetting(HomeMenuNoMovieButton)</enable>
+						<visible>Skin.HasSetting(DhSettings.KodiLibrary)</visible>
+					</control>
+					<control type="button" id="627">
+						<label>- $LOCALIZE[31176]</label>
+						<include>DhSettingButton</include>
+						<onclick>Skin.SelectBool(31176, 37015|movieset_onclick_browse, 13362|movieset_onclick_continuewatching, 12021|movieset_onclick_playfrombeginning, 10008|movieset_onclick_playnext, 13347|movieset_onclick_queue)</onclick>
+						<label2>$VAR[MovieSetOnClickActionLabel2Var]</label2>
+						<enable>!Skin.HasSetting(HomeMenuNoMovieButton)</enable>
+						<visible>Skin.HasSetting(DhSettings.KodiLibrary)</visible>
+					</control>
+					<control type="radiobutton" id="612">
+						<label>$LOCALIZE[20343]</label>
+						<include>DhSettingRadio</include>
+						<selected>!Skin.HasSetting(HomeMenuNoTVShowButton)</selected>
+						<onclick>Skin.ToggleSetting(HomeMenuNoTVShowButton)</onclick>
+						<visible>Skin.HasSetting(DhSettings.KodiLibrary)</visible>
+					</control>
+					<control type="button" id="6120">
+						<label>- $LOCALIZE[31157]</label>
+						<include>DhSettingButton</include>
+						<onclick condition="System.AddonIsEnabled(plugin.library.node.editor)">ActivateWindow(programs,plugin://plugin.library.node.editor/?ltype=video,return)</onclick>
+						<onclick condition="System.HasAddon(plugin.library.node.editor) + !System.AddonIsEnabled(plugin.library.node.editor)">EnableAddon(plugin.library.node.editor)</onclick>
+						<onclick condition="!System.HasAddon(plugin.library.node.editor)">InstallAddon(plugin.library.node.editor)</onclick>
+						<enable>!Skin.HasSetting(HomeMenuNoTVShowButton)</enable>
+						<visible>Skin.HasSetting(DhSettings.KodiLibrary)</visible>
+					</control>
+					<control type="button" id="626">
+						<label>- $LOCALIZE[31175]</label>
+						<include>DhSettingButton</include>
+						<onclick>Skin.SelectBool(31175, 37015|tvshow_onclick_browse, 13362|tvshow_onclick_continuewatching, 12021|tvshow_onclick_playfrombeginning, 10008|tvshow_onclick_playnext, 13347|tvshow_onclick_queue)</onclick>
+						<label2>$VAR[TVShowOnClickActionLabel2Var]</label2>
+						<enable>!Skin.HasSetting(HomeMenuNoTVShowButton)</enable>
+						<visible>Skin.HasSetting(DhSettings.KodiLibrary)</visible>
+					</control>
+					<control type="radiobutton" id="613">
+						<label>$LOCALIZE[2]</label>
+						<include>DhSettingRadio</include>
+						<selected>!Skin.HasSetting(HomeMenuNoMusicButton)</selected>
+						<onclick>Skin.ToggleSetting(HomeMenuNoMusicButton)</onclick>
+						<visible>Skin.HasSetting(DhSettings.KodiLibrary)</visible>
+					</control>
+					<control type="button" id="6130">
+						<label>- $LOCALIZE[31157]</label>
+						<include>DhSettingButton</include>
+						<onclick condition="System.AddonIsEnabled(plugin.library.node.editor)">ActivateWindow(programs,plugin://plugin.library.node.editor/?ltype=music,return)</onclick>
+						<onclick condition="System.HasAddon(plugin.library.node.editor) + !System.AddonIsEnabled(plugin.library.node.editor)">EnableAddon(plugin.library.node.editor)</onclick>
+						<onclick condition="!System.HasAddon(plugin.library.node.editor)">InstallAddon(plugin.library.node.editor)</onclick>
+						<enable>!Skin.HasSetting(HomeMenuNoMusicButton)</enable>
+						<visible>Skin.HasSetting(DhSettings.KodiLibrary)</visible>
+					</control>
+					<control type="button" id="625">
+						<label>- $LOCALIZE[31174]</label>
+						<include>DhSettingButton</include>
+						<onclick>Skin.SelectBool(31174, 37015|album_onclick_browse, 208|album_onclick_play, 10008|album_onclick_playnext, 13347|album_onclick_queue)</onclick>
+						<label2>$VAR[AlbumOnClickActionLabel2Var]</label2>
+						<enable>!Skin.HasSetting(HomeMenuNoMusicButton)</enable>
+						<visible>Skin.HasSetting(DhSettings.KodiLibrary)</visible>
+					</control>
+					<control type="radiobutton" id="6131">
+						<label>$LOCALIZE[20389]</label>
+						<include>DhSettingRadio</include>
+						<selected>!Skin.HasSetting(HomeMenuNoMusicVideoButton)</selected>
+						<onclick>Skin.ToggleSetting(HomeMenuNoMusicVideoButton)</onclick>
+						<visible>Skin.HasSetting(DhSettings.KodiLibrary)</visible>
+					</control>
+					<control type="radiobutton" id="618">
+						<label>$LOCALIZE[19020]</label>
+						<include>DhSettingRadio</include>
+						<selected>!Skin.HasSetting(HomeMenuNoTVButton)</selected>
+						<onclick>Skin.ToggleSetting(HomeMenuNoTVButton)</onclick>
+						<visible>Skin.HasSetting(DhSettings.KodiLibrary)</visible>
+					</control>
+					<control type="radiobutton" id="619">
+						<label>$LOCALIZE[19021]</label>
+						<include>DhSettingRadio</include>
+						<selected>!Skin.HasSetting(HomeMenuNoRadioButton)</selected>
+						<onclick>Skin.ToggleSetting(HomeMenuNoRadioButton)</onclick>
+						<visible>Skin.HasSetting(DhSettings.KodiLibrary)</visible>
+					</control>
+					<control type="radiobutton" id="614">
+						<label>$LOCALIZE[24001]</label>
+						<include>DhSettingRadio</include>
+						<selected>!Skin.HasSetting(HomeMenuNoProgramsButton)</selected>
+						<onclick>Skin.ToggleSetting(HomeMenuNoProgramsButton)</onclick>
+						<visible>Skin.HasSetting(DhSettings.KodiLibrary)</visible>
+					</control>
+					<control type="radiobutton" id="615">
+						<label>$LOCALIZE[1]</label>
+						<include>DhSettingRadio</include>
+						<selected>!Skin.HasSetting(HomeMenuNoPicturesButton)</selected>
+						<onclick>Skin.ToggleSetting(HomeMenuNoPicturesButton)</onclick>
+						<visible>Skin.HasSetting(DhSettings.KodiLibrary)</visible>
+					</control>
+					<control type="radiobutton" id="616">
+						<label>$LOCALIZE[3]</label>
+						<include>DhSettingRadio</include>
+						<selected>!Skin.HasSetting(HomeMenuNoVideosButton)</selected>
+						<onclick>Skin.ToggleSetting(HomeMenuNoVideosButton)</onclick>
+						<visible>Skin.HasSetting(DhSettings.KodiLibrary)</visible>
+					</control>
+					<control type="radiobutton" id="620">
+						<label>$LOCALIZE[15016]</label>
+						<include>DhSettingRadio</include>
+						<selected>!Skin.HasSetting(HomeMenuNoGamesButton)</selected>
+						<onclick>Skin.ToggleSetting(HomeMenuNoGamesButton)</onclick>
+						<visible>[[System.GetBool(gamesgeneral.enable)]] + Skin.HasSetting(DhSettings.KodiLibrary)</visible>
+					</control>
+					<control type="radiobutton" id="6160">
+						<label>$LOCALIZE[10134]</label>
+						<include>DhSettingRadio</include>
+						<selected>!Skin.HasSetting(HomeMenuNoFavButton)</selected>
+						<onclick>Skin.ToggleSetting(HomeMenuNoFavButton)</onclick>
+						<visible>Skin.HasSetting(DhSettings.KodiLibrary)</visible>
+					</control>
+					<control type="radiobutton" id="617">
+						<label>$LOCALIZE[8]</label>
+						<include>DhSettingRadio</include>
+						<selected>!Skin.HasSetting(HomeMenuNoWeatherButton)</selected>
+						<onclick>Skin.ToggleSetting(HomeMenuNoWeatherButton)</onclick>
+						<visible>Skin.HasSetting(DhSettings.KodiLibrary)</visible>
+					</control>
+					<control type="button" id="7604">
+						<label>$VAR[DhSettingsString31964]</label>
+						<include>DhSettingButton</include>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=simple_quick_setup)</onclick>
+					</control>
+					<control type="button" id="7605">
+						<label>$VAR[DhSettingsString31961]</label>
+						<include>DhSettingButton</include>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=open_settings)</onclick>
+					</control>
+				</control>
+				<control type="grouplist" id="610">
+					<onback>9000</onback>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>610</onup>
+					<pagecontrol>60</pagecontrol>
+					<ondown>610</ondown>
+					<visible>Container(9000).HasFocus(2)</visible>
+					<height>620</height>
+					<include>DhHomePresentationSettings</include>
+					<control type="button" id="7311">
+						<label>$VAR[DhSettingsString31951]</label>
+						<include>DhSettingButton</include>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=home_layout)</onclick>
+					</control>
+					<control type="radiobutton" id="8112">
+						<label>$VAR[DhSettingsString32031]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.homeui_carousel),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=homeui_carousel)</onclick>
+					</control>
+					<control type="button" id="8113">
+						<label>$VAR[DhSettingsString32032]</label>
+						<include>DhSettingButton</include>
+						<label2>$INFO[Window(Home).Property(dhs.pref.homeui_carousel_interval)]</label2>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=homeui_carousel_interval)</onclick>
+					</control>
+					<control type="radiobutton" id="8116">
+						<label>$VAR[DhSettingsString32035]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.homeui_plot_scroll),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=homeui_plot_scroll)</onclick>
+					</control>
+					<control type="radiobutton" id="8124">
+						<label>$VAR[DhSettingsString32133]</label>
+						<include>DhSettingRadio</include>
+						<selected>String.IsEqual(Window(Home).Property(dhs.pref.homeui_hide_plot),true)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=homeui_hide_plot)</onclick>
+					</control>
+					<control type="radiobutton" id="8117">
+						<label>$VAR[DhSettingsString32036]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.homeui_show_continue),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=homeui_show_continue)</onclick>
+					</control>
+					<control type="radiobutton" id="8118">
+						<label>$VAR[DhSettingsString32037]</label>
+						<include>DhSettingRadio</include>
+						<selected>String.IsEqual(Window(Home).Property(dhs.pref.homeui_show_nextup),true)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=homeui_show_nextup)</onclick>
+					</control>
+					<control type="button" id="7313">
+						<label>$VAR[DhSettingsString31973]</label>
+						<include>DhSettingButton</include>
+						<onclick>ActivateWindow(Videos,plugin://plugin.video.dexhub.tvos/?action=simple_nuvio_collections,return)</onclick>
+					</control>
+				</control>
+				<control type="grouplist" id="7412">
+					<onback>9000</onback>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>7412</onup>
+					<pagecontrol>60</pagecontrol>
+					<ondown>7412</ondown>
+					<visible>Container(9000).HasFocus(12)</visible>
+					<height>620</height>
+					<control type="radiobutton" id="8107">
+						<label>$VAR[DhSettingsString32026]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.homeui_trailers),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=homeui_trailers)</onclick>
+					</control>
+					<control type="button" id="8108">
+						<label>$VAR[DhSettingsString32028]</label>
+						<include>DhSettingButton</include>
+						<label2>$INFO[Window(Home).Property(dhs.pref.homeui_trailer_delay)]</label2>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=homeui_trailer_delay)</onclick>
+					</control>
+					<control type="radiobutton" id="8109">
+						<label>$VAR[DhSettingsString32027]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.homeui_trailer_sound),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=homeui_trailer_sound)</onclick>
+					</control>
+					<control type="button" id="8110">
+						<label>$VAR[DhSettingsString32029]</label>
+						<include>DhSettingButton</include>
+						<label2>$INFO[Window(Home).Property(dhs.pref.homeui_trailer_quality)]</label2>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=homeui_trailer_quality)</onclick>
+					</control>
+					<control type="radiobutton" id="8111">
+						<label>$VAR[DhSettingsString32030]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.homeui_immersive),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=homeui_immersive)</onclick>
+					</control>
+					</control>
+				<control type="grouplist" id="622">
+					<onback>9000</onback>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>622</onup>
+					<pagecontrol>60</pagecontrol>
+					<ondown>622</ondown>
+					<visible>Container(9000).HasFocus(4)</visible>
+					<height>620</height>
+					<control type="button" id="7323">
+						<label>$VAR[DhSettingsString32125]</label>
+						<include>DhSettingButton</include>
+						<label2>$INFO[Window(Home).Property(dhs.playback.mode)]</label2>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=playback_mode)</onclick>
+					</control>
+					<control type="radiobutton" id="7326">
+						<label>$VAR[DhSettingsString32126]</label>
+						<include>DhSettingRadio</include>
+						<selected>String.IsEqual(Window(Home).Property(dhs.pref.remember_last_source),true)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=remember_last_source)</onclick>
+					</control>
+					<control type="radiobutton" id="7327">
+						<label>$VAR[DhSettingsString32127]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.continue_known_source_direct),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=continue_known_source_direct)</onclick>
+					</control>
+					<control type="button" id="7328">
+						<label>$VAR[DhSettingsString32128]</label>
+						<include>DhSettingButton</include>
+						<label2>$VAR[DhLibraryPlaybackLabel]</label2>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=library_playback_mode)</onclick>
+					</control>
+					<control type="button" id="7324">
+						<label>$VAR[DhSettingsString32132]</label>
+						<include>DhSettingButton</include>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=setup_quality)</onclick>
+					</control>
+					<control type="button" id="7325">
+						<label>$VAR[DhSettingsString32131]</label>
+						<include>DhSettingButton</include>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=simple_episode_controls)</onclick>
+					</control>
+					<control type="button" id="8130">
+                        <visible>System.Platform.TVOS</visible>
+                        <label>المشغل المفضل / Preferred player</label>
+                        <include>DhSettingButton</include>
+                        <onclick>RunScript(script.dexhub.tvos.players,preferences)</onclick>
+                    </control>
+                    <control type="button" id="8131">
+                        <visible>System.Platform.TVOS</visible>
+                        <label>خطوط الترجمة / Subtitle fonts</label>
+                        <include>DhSettingButton</include>
+                        <onclick>RunScript(script.dexhub.tvos.players,fonts)</onclick>
+                    </control>
+                    <!-- 3.28.13: Back in the player keeps the video playing behind, or stops it (Dex Hub 5.10.245) -->
+					<control type="radiobutton" id="8127">
+						<label>$VAR[DhSettingsString32148]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.video_back_background),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=video_back_background)</onclick>
+					</control>
+					<control type="radiobutton" id="8101">
+						<label>$VAR[DhSettingsString32001]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.player_show_clearlogo),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=player_show_clearlogo)</onclick>
+					</control>
+					<control type="button" id="8102">
+						<label>$VAR[DhSettingsString32002]</label>
+						<include>DhSettingButton</include>
+						<label2>$VAR[DhPlayerLogoPositionLabel]</label2>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=player_logo_position)</onclick>
+					</control>
+					<control type="radiobutton" id="8103">
+						<label>$VAR[DhSettingsString32006]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.player_show_plot),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=player_show_plot)</onclick>
+					</control>
+					<control type="radiobutton" id="8104">
+						<label>$VAR[DhSettingsString32007]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.player_show_metadata),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=player_show_metadata)</onclick>
+					</control>
+					<control type="radiobutton" id="8105">
+						<label>$VAR[DhSettingsString32008]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.player_show_ratings),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=player_show_ratings)</onclick>
+					</control>
+					<control type="radiobutton" id="8106">
+						<label>$VAR[DhSettingsString32009]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.player_show_studio),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=player_show_studio)</onclick>
+					</control>
+					<!-- 3.28.40: the player bar's buttons, shown or hidden, in their order (Dex Hub 5.10.288) -->
+					<control type="button" id="8128">
+						<label>$VAR[DhOsdButtonsTitle]</label>
+						<label2>$INFO[Window(Home).Property(dhs.pref.osd_summary)]</label2>
+						<include>DhSettingButton</include>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=osd_buttons)</onclick>
+					</control>
+					<control type="radiobutton" id="8160">
+						<label>$VAR[DhSettingsString32058]</label>
+						<include>DhSettingRadio</include>
+						<selected>Skin.HasSetting(OSD.DisplayInfoOnControls)</selected>
+						<onclick>Skin.ToggleSetting(OSD.DisplayInfoOnControls)</onclick>
+					</control>
+					<control type="radiobutton" id="623">
+						<label>$LOCALIZE[31172]</label>
+						<include>DhSettingRadio</include>
+						<selected>Skin.HasSetting(OSDAutoClose)</selected>
+						<onclick>Skin.ToggleSetting(OSDAutoClose)</onclick>
+					</control>
+					<control type="button" id="624">
+						<label>- $LOCALIZE[31173]</label>
+						<label2>$VAR[SkinSettingOSDAutoCloseTime]</label2>
+						<include>DhSettingButton</include>
+						<onclick>Skin.SetNumeric(OSDAutoCloseTime)</onclick>
+						<enable>Skin.HasSetting(OSDAutoClose)</enable>
+					</control>
+				</control>
+				<control type="grouplist" id="7411">
+					<onback>9000</onback>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>7411</onup>
+					<ondown>7411</ondown>
+					<visible>Container(9000).HasFocus(11)</visible>
+					<height>620</height>
+					<pagecontrol>60</pagecontrol>
+					<control type="button" id="7700">
+						<label>$VAR[DhSettingsString31949]</label>
+						<label2>$VAR[DhOSDBadgeStyleLabel]</label2>
+						<include>DhSettingButton</include>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=player_badges)</onclick>
+					</control>
+					<control type="button" id="7708">
+						<label>$VAR[DhBadgeSizeTitle]</label>
+						<label2>$VAR[DhBadgeSizeLabel]</label2>
+						<include>DhSettingButton</include>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=player_badges_size)</onclick>
+					</control>
+					<!-- 3.28.37 (issue #18): Badge opacity 100 / 85 / 70 % -->
+					<control type="button" id="7709">
+						<label>$VAR[DhBadgeOpacityTitle]</label>
+						<label2>$VAR[DhBadgeOpacityLabel]</label2>
+						<include>DhSettingButton</include>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=player_badges_opacity)</onclick>
+					</control>
+					<control type="button" id="7706">
+						<label>$VAR[DhSettingsString32091]</label>
+						<label2>$VAR[DhOSDBadgePlaceLabel]</label2>
+						<include>DhSettingButton</include>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=player_badges_place)</onclick>
+					</control>
+					<control type="button" id="7701">
+						<label>$VAR[DhSettingsString32082]</label>
+						<label2>$INFO[Window(Home).Property(dhs.osd.badge.packname)]</label2>
+						<include>DhSettingButton</include>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=player_badge_packs)</onclick>
+					</control>
+					<control type="radiobutton" id="7702">
+						<label>$VAR[DhSettingsString32086]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.badges_home),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=badge_option&amp;key=badges_home)</onclick>
+					</control>
+					<control type="radiobutton" id="7703">
+						<label>$VAR[DhSettingsString32087]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.badges.sources),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=badge_option&amp;key=elite_badges_enabled)</onclick>
+					</control>
+					<control type="radiobutton" id="7704">
+						<label>$VAR[DhSettingsString32088]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.badges.follow),false)</selected>
+						<enable>!String.IsEqual(Window(Home).Property(dhs.badges.sources),false)</enable>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=badge_option&amp;key=badges_sources_follow)</onclick>
+					</control>
+					<control type="radiobutton" id="7707">
+						<label>$VAR[DhSettingsString32094]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.badges.rows),false)</selected>
+						<enable>!String.IsEqual(Window(Home).Property(dhs.badges.sources),false)</enable>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=badge_option&amp;key=badges_sources_rows)</onclick>
+					</control>
+					<control type="button" id="7705">
+						<label>$VAR[DhSettingsString32089]</label>
+						<include>DhSettingButton</include>
+						<enable>!String.IsEqual(Window(Home).Property(dhs.badges.sources),false)</enable>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=badges_url)</onclick>
+					</control>
+				</control>
+				<control type="grouplist" id="7405">
+					<onback>9000</onback>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>7405</onup>
+					<ondown>7405</ondown>
+					<visible>Container(9000).HasFocus(5)</visible>
+					<control type="button" id="7550">
+						<label>$VAR[DhSettingsString31972]</label>
+						<include>DhSettingButton</include>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=home_setup)</onclick>
+					</control>
+					<control type="button" id="7553">
+						<label>$VAR[DhSettingsString31975]</label>
+						<include>DhSettingButton</include>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=simple_trakt)</onclick>
+					</control>
+					<height>620</height>
+					<pagecontrol>60</pagecontrol>
+					<control type="button" id="7582">
+						<label>$VAR[DhSettingsString31943]</label>
+						<include>DhSettingButton</include>
+						<onclick>ActivateWindow(Videos,plugin://plugin.video.dexhub.tvos/?action=setup_connections,return)</onclick>
+					</control>
+				</control>
+				<control type="grouplist" id="7406">
+					<onback>9000</onback>
+					<control type="button" id="8120">
+						<label>$VAR[DhSettingsString32040]</label>
+						<include>DhSettingButton</include>
+						<label2>$VAR[DhFavoritesLayoutLabel]</label2>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=favorites_layout)</onclick>
+					</control>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>7406</onup>
+					<ondown>7406</ondown>
+					<visible>Container(9000).HasFocus(6)</visible>
+					<control type="button" id="7560">
+						<label>$VAR[DhSettingsString31974]</label>
+						<include>DhSettingButton</include>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=simple_favorites)</onclick>
+					</control>
+					<control type="button" id="7561">
+						<label>$VAR[DhSettingsString31944]</label>
+						<include>DhSettingButton</include>
+						<onclick>ActivateWindow(Videos,plugin://plugin.video.dexhub.tvos/?action=favorites,return)</onclick>
+					</control>
+					<control type="button" id="7562">
+						<label>$VAR[DhSettingsString31954]</label>
+						<include>DhSettingButton</include>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=simple_watching)</onclick>
+					</control>
+					<height>620</height>
+					<pagecontrol>60</pagecontrol>
+				</control>
+				<control type="grouplist" id="7407">
+					<onback>9000</onback>
+					<control type="radiobutton" id="8119">
+						<label>$VAR[DhSettingsString32010]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.metadata_badges),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=metadata_badges)</onclick>
+					</control>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>7407</onup>
+					<ondown>7407</ondown>
+					<visible>Container(9000).HasFocus(7)</visible>
+					<control type="button" id="7570">
+						<label>$VAR[DhSettingsString31966]</label>
+						<include>DhSettingButton</include>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=meta_source_picker)</onclick>
+					</control>
+					<control type="button" id="7571">
+						<label>$VAR[DhSettingsString31977]</label>
+						<include>DhSettingButton</include>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=simple_metadata_language)</onclick>
+					</control>
+					<control type="button" id="7572">
+						<label>$VAR[DhSettingsString31971]</label>
+						<include>DhSettingButton</include>
+						<onclick>ActivateWindow(Videos,plugin://plugin.video.dexhub.tvos/?action=simple_metadata,return)</onclick>
+					</control>
+					<height>620</height>
+					<pagecontrol>60</pagecontrol>
+				</control>
+				<control type="grouplist" id="7408">
+					<onback>9000</onback>
+					<control type="radiobutton" id="8209">
+						<label>$VAR[DhSettingsString32097]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.show_servers),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=show_servers)</onclick>
+					</control>
+					<control type="radiobutton" id="8201">
+						<label>$VAR[DhSettingsString32051]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.iptv_show_live),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=iptv_show_live)</onclick>
+					</control>
+					<control type="radiobutton" id="8202">
+						<label>$VAR[DhSettingsString32052]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.iptv_show_vod),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=iptv_show_vod)</onclick>
+					</control>
+					<control type="radiobutton" id="8203">
+						<label>$VAR[DhSettingsString32053]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.iptv_show_movies),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=iptv_show_movies)</onclick>
+						<enable>!String.IsEqual(Window(Home).Property(dhs.pref.iptv_show_vod),false)</enable>
+					</control>
+					<control type="radiobutton" id="8204">
+						<label>$VAR[DhSettingsString32054]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.iptv_show_series),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=iptv_show_series)</onclick>
+						<enable>!String.IsEqual(Window(Home).Property(dhs.pref.iptv_show_vod),false)</enable>
+					</control>
+					<control type="radiobutton" id="8206">
+						<label>$VAR[DhSettingsString32145]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.iptv_in_continue),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=iptv_in_continue)</onclick>
+						<enable>!String.IsEqual(Window(Home).Property(dhs.pref.iptv_show_vod),false)</enable>
+					</control>
+					<control type="radiobutton" id="8205">
+						<label>$VAR[DhSettingsString32050]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.iptv_epg_enabled),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=iptv_epg_enabled)</onclick>
+					</control>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>7408</onup>
+					<ondown>7408</ondown>
+					<visible>Container(9000).HasFocus(8)</visible>
+					<control type="button" id="7580">
+						<label>$VAR[DhSettingsString31962]</label>
+						<include>DhSettingButton</include>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=home_live)</onclick>
+					</control>
+					<control type="button" id="7581">
+						<label>$VAR[DhSettingsString31963]</label>
+						<include>DhSettingButton</include>
+						<onclick>ActivateWindow(Videos,plugin://plugin.video.dexhub.tvos/?action=media_libraries_menu,return)</onclick>
+					</control>
+					<height>620</height>
+					<pagecontrol>60</pagecontrol>
+				</control>
+				<control type="grouplist" id="7409">
+					<onback>9000</onback>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>7409</onup>
+					<ondown>7409</ondown>
+					<visible>Container(9000).HasFocus(9)</visible>
+					<control type="button" id="7590">
+						<label>$VAR[DhSettingsString31947]</label>
+						<include>DhSettingButton</include>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=setup_subtitles)</onclick>
+					</control>
+					<height>620</height>
+					<pagecontrol>60</pagecontrol>
+				</control>
+				<control type="grouplist" id="7410">
+					<onback>9000</onback>
+					<control type="radiobutton" id="8121">
+						<label>$VAR[DhSettingsString32038]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.homeui_light_mode),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=homeui_light_mode)</onclick>
+					</control>
+					<control type="radiobutton" id="8122">
+						<label>$VAR[DhSettingsString32039]</label>
+						<include>DhSettingRadio</include>
+						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.homeui_live_preview),false)</selected>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=homeui_live_preview)</onclick>
+					</control>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>7410</onup>
+					<ondown>7410</ondown>
+					<visible>Container(9000).HasFocus(10)</visible>
+					<control type="button" id="7600">
+						<label>$VAR[DhSettingsString31967]</label>
+						<include>DhSettingButton</include>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=setup_stability)</onclick>
+					</control>
+					<control type="button" id="7601">
+						<label>$VAR[DhSettingsString31968]</label>
+						<include>DhSettingButton</include>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=clear_cache)</onclick>
+					</control>
+					<control type="button" id="7602">
+						<label>$VAR[DhSettingsString31969]</label>
+						<include>DhSettingButton</include>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=setup_diagnostics)</onclick>
+					</control>
+					<control type="button" id="7603">
+						<label>$VAR[DhSettingsString31970]</label>
+						<include>DhSettingButton</include>
+						<onclick>ActivateWindow(Videos,plugin://plugin.video.dexhub.tvos/?action=config_backup_menu,return)</onclick>
+					</control>
+					<height>620</height>
+					<pagecontrol>60</pagecontrol>
+				</control>
+			</control>
+			<control type="scrollbar" id="60">
+				<left>1566</left>
+				<top>140</top>
+				<width>8</width>
+				<height>600</height>
+				<orientation>vertical</orientation>
+				<texturesliderbackground colordiffuse="af3_dialog_fg_06" border="4">af3/common/white.png</texturesliderbackground>
+				<texturesliderbar colordiffuse="af3_dialog_fg_30" border="4">af3/common/white.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="$VAR[DhAccent]" border="4">af3/common/white.png</texturesliderbarfocus>
+				<showonepage>false</showonepage>
+				<onleft>10000</onleft>
+				<onright>9000</onright>
+				<visible>Control.IsVisible(10000)</visible>
+			</control>
+			<control type="image">
+				<left>360</left>
+				<top>770</top>
+				<width>1200</width>
+				<height>1</height>
+				<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+			</control>
+			<control type="image">
+				<left>370</left>
+				<top>804</top>
+				<width>40</width>
+				<height>40</height>
+				<texture colordiffuse="af3_dialog_fg_70">dexhub/btn_info.png</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>![Container(9000).HasFocus(11) + [!String.IsEmpty(Window(Home).Property(dhs.badges.sample.1)) | !String.IsEmpty(Window(Home).Property(dhs.badges.sample.text))]]</visible>
+			</control>
+			<control type="textbox">
+				<left>430</left>
+				<top>784</top>
+				<width>1120</width>
+				<height>84</height>
+				<font>af3_font_mini</font>
+				<textcolor>af3_dialog_fg_70</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>$VAR[DhSettingsHelp]</label>
+				<visible>![Container(9000).HasFocus(11) + [!String.IsEmpty(Window(Home).Property(dhs.badges.sample.1)) | !String.IsEmpty(Window(Home).Property(dhs.badges.sample.text))]]</visible>
+				<autoscroll time="3000" delay="5000" repeat="5000">true</autoscroll>
+			</control>
+			<control type="group">
+				<left>360</left>
+				<top>782</top>
+				<width>1200</width>
+				<height>88</height>
+				<visible>Container(9000).HasFocus(11) + [!String.IsEmpty(Window(Home).Property(dhs.badges.sample.1)) | !String.IsEmpty(Window(Home).Property(dhs.badges.sample.text))]</visible>
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>1200</width>
+					<height>88</height>
+					<texture border="40" colordiffuse="af3_dialog_fg_06">af3/common/menu.png</texture>
+				</control>
+				<control type="group">
+					<left>30</left>
+					<top>22</top>
+					<visible>String.IsEqual(Window(Home).Property(dhs.badges.sample.mode),c)</visible>
+					<control type="image">
+						<left>0</left>
+						<top>1</top>
+						<width>140</width>
+						<height>42</height>
+						<aspectratio align="left" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[Window(Home).Property(dhs.badges.sample.1)]</texture>
+					</control>
+					<control type="image">
+						<left>150</left>
+						<top>1</top>
+						<width>140</width>
+						<height>42</height>
+						<aspectratio align="left" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[Window(Home).Property(dhs.badges.sample.2)]</texture>
+					</control>
+					<control type="image">
+						<left>300</left>
+						<top>1</top>
+						<width>140</width>
+						<height>42</height>
+						<aspectratio align="left" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[Window(Home).Property(dhs.badges.sample.3)]</texture>
+					</control>
+					<control type="image">
+						<left>450</left>
+						<top>1</top>
+						<width>140</width>
+						<height>42</height>
+						<aspectratio align="left" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[Window(Home).Property(dhs.badges.sample.4)]</texture>
+					</control>
+					<control type="image">
+						<left>600</left>
+						<top>1</top>
+						<width>140</width>
+						<height>42</height>
+						<aspectratio align="left" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[Window(Home).Property(dhs.badges.sample.5)]</texture>
+					</control>
+					<control type="image">
+						<left>750</left>
+						<top>1</top>
+						<width>140</width>
+						<height>42</height>
+						<aspectratio align="left" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[Window(Home).Property(dhs.badges.sample.6)]</texture>
+					</control>
+				</control>
+				<control type="group">
+					<left>30</left>
+					<top>22</top>
+					<visible>String.IsEmpty(Window(Home).Property(dhs.badges.sample.mode)) + !String.IsEmpty(Window(Home).Property(dhs.badges.sample.1))</visible>
+					<control type="image">
+						<left>0</left>
+						<top>2</top>
+						<width>176</width>
+						<height>40</height>
+						<aspectratio align="left" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[Window(Home).Property(dhs.badges.sample.1)]</texture>
+					</control>
+					<control type="image">
+						<left>190</left>
+						<top>2</top>
+						<width>176</width>
+						<height>40</height>
+						<aspectratio align="left" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[Window(Home).Property(dhs.badges.sample.2)]</texture>
+					</control>
+					<control type="image">
+						<left>380</left>
+						<top>2</top>
+						<width>176</width>
+						<height>40</height>
+						<aspectratio align="left" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[Window(Home).Property(dhs.badges.sample.3)]</texture>
+					</control>
+					<control type="image">
+						<left>570</left>
+						<top>2</top>
+						<width>176</width>
+						<height>40</height>
+						<aspectratio align="left" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[Window(Home).Property(dhs.badges.sample.4)]</texture>
+					</control>
+					<control type="image">
+						<left>760</left>
+						<top>2</top>
+						<width>176</width>
+						<height>40</height>
+						<aspectratio align="left" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[Window(Home).Property(dhs.badges.sample.5)]</texture>
+					</control>
+					<control type="image">
+						<left>950</left>
+						<top>2</top>
+						<width>176</width>
+						<height>40</height>
+						<aspectratio align="left" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[Window(Home).Property(dhs.badges.sample.6)]</texture>
+					</control>
+				</control>
+				<control type="group">
+					<left>30</left>
+					<top>22</top>
+					<visible>String.IsEqual(Window(Home).Property(dhs.badges.sample.mode),w)</visible>
+					<control type="image">
+						<left>0</left>
+						<top>2</top>
+						<width>270</width>
+						<height>40</height>
+						<aspectratio align="left" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[Window(Home).Property(dhs.badges.sample.1)]</texture>
+					</control>
+					<control type="image">
+						<left>285</left>
+						<top>2</top>
+						<width>270</width>
+						<height>40</height>
+						<aspectratio align="left" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[Window(Home).Property(dhs.badges.sample.2)]</texture>
+					</control>
+					<control type="image">
+						<left>570</left>
+						<top>2</top>
+						<width>270</width>
+						<height>40</height>
+						<aspectratio align="left" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[Window(Home).Property(dhs.badges.sample.3)]</texture>
+					</control>
+					<control type="image">
+						<left>855</left>
+						<top>2</top>
+						<width>270</width>
+						<height>40</height>
+						<aspectratio align="left" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[Window(Home).Property(dhs.badges.sample.4)]</texture>
+					</control>
+				</control>
+				<control type="group">
+					<left>30</left>
+					<top>22</top>
+					<visible>!String.IsEmpty(Window(Home).Property(dhs.badges.sample.pair))</visible>
+					<control type="image">
+						<left>0</left>
+						<top>-2</top>
+						<width>560</width>
+						<height>48</height>
+						<aspectratio align="left" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[Window(Home).Property(dhs.badges.sample.1)]</texture>
+					</control>
+					<control type="image">
+						<left>580</left>
+						<top>-2</top>
+						<width>560</width>
+						<height>48</height>
+						<aspectratio align="left" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[Window(Home).Property(dhs.badges.sample.2)]</texture>
+					</control>
+				</control>
+				<control type="label">
+					<left>30</left>
+					<top>0</top>
+					<width>1140</width>
+					<height>88</height>
+					<font>af3_font_main_bold</font>
+					<textcolor>af3_dialog_fg_70</textcolor>
+					<aligny>center</aligny>
+					<label>$INFO[Window(Home).Property(dhs.badges.sample.text)]</label>
+					<visible>!String.IsEmpty(Window(Home).Property(dhs.badges.sample.text))</visible>
+				</control>
+			</control>
+		</control>
+	</controls>
+	<onload>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_options_publish)</onload>
+</window>

@@ -1,0 +1,1986 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="1153">
+	<zorder>0</zorder>
+	<visible>Window.IsVisible(1145) | Window.IsVisible(videoosd) + Skin.HasSetting(OSD.DisplayInfoOnControls)</visible>
+	<controls>
+		<control type="group">
+			<visible>!Window.IsActive(1193)</visible>
+			<visible>![Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml)]</visible>
+			<animation type="Hidden" reversible="false" condition="true">
+				<effect type="zoom" start="100" end="85" center="auto" tween="sine" delay="0" easing="out" time="300"/>
+				<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300"/>
+			</animation>
+			<animation type="Visible" reversible="false" condition="true">
+				<effect type="fade" start="0" end="100" time="300" delay="200" tween="sine" easing="in"/>
+				<effect type="zoom" start="85" end="100" time="300" delay="200" center="auto" tween="sine" easing="out"/>
+			</animation>
+			<animation effect="fade" time="200" start="100" end="0" condition="Window.IsActive(1140) | Window.IsActive(1141) | Window.IsActive(1142) | Window.IsActive(videobookmarks) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml)" reversible="false">Conditional</animation>
+			<animation effect="fade" time="200" delay="200" end="100" start="0" condition="![Window.IsActive(1140) | Window.IsActive(1141) | Window.IsActive(1142) | Window.IsActive(videobookmarks) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml)]" reversible="false">Conditional</animation>
+			<visible>!Window.IsActive(DialogPlayerProcessInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogSlider.xml)</visible>
+			<top>80</top>
+			<control type="group">
+				<top>0</top>
+				<bottom>240</bottom>
+				<animation type="Visible" reversible="false" condition="true">
+					<effect type="fade" start="0" end="100" time="300" delay="150"/>
+					<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="150"/>
+				</animation>
+				<animation type="WindowOpen" reversible="false" condition="true">
+					<effect type="fade" start="0" end="100" time="300" delay="400"/>
+					<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="400"/>
+				</animation>
+				<control type="grouplist">
+					<bottom>40</bottom>
+					<align>bottom</align>
+					<left>40</left>
+					<top>-40</top>
+					<orientation>vertical</orientation>
+					<control type="group" description="Avoid grouplist chop with spacer">
+						<height>20</height>
+					</control>
+					<control type="group">
+						<left>40</left>
+						<height>230.625</height>
+						<width>410</width>
+					</control>
+					<control type="group" description="Avoid grouplist chop with spacer">
+						<height>40</height>
+					</control>
+					<include>DhOverlayLogo</include>
+					<control type="group">
+						<visible>!Skin.HasSetting(InfoBar.TwoRow)</visible>
+						<visible>!String.IsEqual(Window(Home).Property(dhs.pref.player_show_metadata),false)</visible>
+						<left>40</left>
+						<height>80</height>
+						<control type="grouplist">
+							<hitrect x="0" y="0" w="0" h="0"/>
+							<orientation>horizontal</orientation>
+							<itemgap>10</itemgap>
+							<left>-20</left>
+							<control type="group" description="Avoid grouplist chop with spacer">
+								<left>-10</left>
+								<width>20</width>
+							</control>
+							<control type="button">
+								<visible>Integer.IsGreater(VideoPlayer.VideoResolution,2160) | String.IsEqual(VideoPlayer.VideoResolution,8K)</visible>
+								<centertop>50%</centertop>
+								<height>30</height>
+								<width min="60">60</width>
+								<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+								<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+								<align>center</align>
+								<textoffsety>-5</textoffsety>
+								<textoffsetx>10</textoffsetx>
+								<aligny>top</aligny>
+								<font>af3_font_infotag_bold</font>
+								<textcolor>ff2a2a2a</textcolor>
+								<shadowcolor>20ffffff</shadowcolor>
+								<label>8K</label>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<focusedcolor>ff272727</focusedcolor>
+								<disabledcolor>af3_main_fg_30</disabledcolor>
+								<pulseonselect>false</pulseonselect>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+							</control>
+							<control type="button">
+								<visible>![Integer.IsGreater(VideoPlayer.VideoResolution,2160) | String.IsEqual(VideoPlayer.VideoResolution,8K)] + [Integer.IsGreater(VideoPlayer.VideoResolution,1080) | String.IsEqual(VideoPlayer.VideoResolution,4K)]</visible>
+								<centertop>50%</centertop>
+								<height>30</height>
+								<width min="60">60</width>
+								<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+								<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+								<align>center</align>
+								<textoffsety>-5</textoffsety>
+								<textoffsetx>10</textoffsetx>
+								<aligny>top</aligny>
+								<font>af3_font_infotag_bold</font>
+								<textcolor>ff2a2a2a</textcolor>
+								<shadowcolor>20ffffff</shadowcolor>
+								<label>4K</label>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<focusedcolor>ff272727</focusedcolor>
+								<disabledcolor>af3_main_fg_30</disabledcolor>
+								<pulseonselect>false</pulseonselect>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+							</control>
+							<control type="button">
+								<visible>![Integer.IsGreater(VideoPlayer.VideoResolution,2160) | String.IsEqual(VideoPlayer.VideoResolution,8K)] + ![Integer.IsGreater(VideoPlayer.VideoResolution,1080) | String.IsEqual(VideoPlayer.VideoResolution,4K)] + Integer.IsGreater(VideoPlayer.VideoResolution,720)</visible>
+								<centertop>50%</centertop>
+								<height>30</height>
+								<width min="60">60</width>
+								<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+								<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+								<align>center</align>
+								<textoffsety>-5</textoffsety>
+								<textoffsetx>0</textoffsetx>
+								<aligny>top</aligny>
+								<font>af3_font_infotag_bold</font>
+								<textcolor>ff2a2a2a</textcolor>
+								<shadowcolor>20ffffff</shadowcolor>
+								<label>FHD</label>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<focusedcolor>ff272727</focusedcolor>
+								<disabledcolor>af3_main_fg_30</disabledcolor>
+								<pulseonselect>false</pulseonselect>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+							</control>
+							<control type="button">
+								<visible>![Integer.IsGreater(VideoPlayer.VideoResolution,2160) | String.IsEqual(VideoPlayer.VideoResolution,8K)] + ![Integer.IsGreater(VideoPlayer.VideoResolution,1080) | String.IsEqual(VideoPlayer.VideoResolution,4K)] + !Integer.IsGreater(VideoPlayer.VideoResolution,720) + Integer.IsEqual(VideoPlayer.VideoResolution,720)</visible>
+								<centertop>50%</centertop>
+								<height>30</height>
+								<width min="60">60</width>
+								<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+								<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+								<align>center</align>
+								<textoffsety>-5</textoffsety>
+								<textoffsetx>10</textoffsetx>
+								<aligny>top</aligny>
+								<font>af3_font_infotag_bold</font>
+								<textcolor>ff2a2a2a</textcolor>
+								<shadowcolor>20ffffff</shadowcolor>
+								<label>HD</label>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<focusedcolor>ff272727</focusedcolor>
+								<disabledcolor>af3_main_fg_30</disabledcolor>
+								<pulseonselect>false</pulseonselect>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+							</control>
+							<control type="button">
+								<visible>![Integer.IsGreater(VideoPlayer.VideoResolution,2160) | String.IsEqual(VideoPlayer.VideoResolution,8K)] + ![Integer.IsGreater(VideoPlayer.VideoResolution,1080) | String.IsEqual(VideoPlayer.VideoResolution,4K)] + !Integer.IsGreater(VideoPlayer.VideoResolution,720) + !Integer.IsEqual(VideoPlayer.VideoResolution,720) + !String.IsEmpty(VideoPlayer.VideoResolution)</visible>
+								<centertop>50%</centertop>
+								<height>30</height>
+								<width min="60">60</width>
+								<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+								<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+								<align>center</align>
+								<textoffsety>-5</textoffsety>
+								<textoffsetx>10</textoffsetx>
+								<aligny>top</aligny>
+								<font>af3_font_infotag_bold</font>
+								<textcolor>ff2a2a2a</textcolor>
+								<shadowcolor>20ffffff</shadowcolor>
+								<label>SD</label>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<focusedcolor>ff272727</focusedcolor>
+								<disabledcolor>af3_main_fg_30</disabledcolor>
+								<pulseonselect>false</pulseonselect>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+							</control>
+							<control type="group">
+								<visible>![Integer.IsGreater(VideoPlayer.VideoResolution,2160) | String.IsEqual(VideoPlayer.VideoResolution,8K)] + ![Integer.IsGreater(VideoPlayer.VideoResolution,1080) | String.IsEqual(VideoPlayer.VideoResolution,4K)] + !Integer.IsGreater(VideoPlayer.VideoResolution,720) + !Integer.IsEqual(VideoPlayer.VideoResolution,720) + String.IsEmpty(VideoPlayer.VideoResolution)</visible>
+								<centertop>50%</centertop>
+								<height>30</height>
+								<width>60</width>
+								<control type="image">
+									<texture colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texture>
+								</control>
+								<control type="group">
+									<width>37</width>
+									<height>24</height>
+									<centertop>51%</centertop>
+									<centerleft>50%</centerleft>
+									<control type="image">
+										<top>1</top>
+										<bottom>-1</bottom>
+										<left>1</left>
+										<right>-1</right>
+										<texture colordiffuse="20ffffff">af3/flags/info-inverted.png</texture>
+									</control>
+									<control type="image">
+										<texture colordiffuse="ff1a1a1a">af3/flags/info-inverted.png</texture>
+									</control>
+								</control>
+							</control>
+							<include condition="Skin.HasSetting(InfoTags.EnableAudioCodec)">af3_dyn_15</include>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.Rating) + String.IsEmpty(VideoPlayer.UserRating)</visible>
+							</control>
+							<control type="grouplist">
+								<left>-10</left>
+								<height>44</height>
+								<width>144</width>
+								<centertop>50%</centertop>
+								<itemgap>-16</itemgap>
+								<visible>!String.IsEmpty(VideoPlayer.Rating) + String.IsEmpty(VideoPlayer.UserRating)</visible>
+								<orientation>horizontal</orientation>
+								<control type="group">
+									<centertop>50%</centertop>
+									<height>44</height>
+									<width>44</width>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<animation effect="fade" end="33" condition="true">Conditional</animation>
+									</control>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star5.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.Rating,0) + !Integer.IsGreater(VideoPlayer.Rating,1)</visible>
+									</control>
+									<control type="image">
+										<colordiffuse>yellow</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.Rating,1)</visible>
+									</control>
+								</control>
+								<control type="group">
+									<centertop>50%</centertop>
+									<height>44</height>
+									<width>44</width>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<animation effect="fade" end="33" condition="true">Conditional</animation>
+									</control>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star5.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.Rating,2) + !Integer.IsGreater(VideoPlayer.Rating,3)</visible>
+									</control>
+									<control type="image">
+										<colordiffuse>yellow</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.Rating,3)</visible>
+									</control>
+								</control>
+								<control type="group">
+									<centertop>50%</centertop>
+									<height>44</height>
+									<width>44</width>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<animation effect="fade" end="33" condition="true">Conditional</animation>
+									</control>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star5.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.Rating,4) + !Integer.IsGreater(VideoPlayer.Rating,5)</visible>
+									</control>
+									<control type="image">
+										<colordiffuse>yellow</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.Rating,5)</visible>
+									</control>
+								</control>
+								<control type="group">
+									<centertop>50%</centertop>
+									<height>44</height>
+									<width>44</width>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<animation effect="fade" end="33" condition="true">Conditional</animation>
+									</control>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star5.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.Rating,6) + !Integer.IsGreater(VideoPlayer.Rating,7)</visible>
+									</control>
+									<control type="image">
+										<colordiffuse>yellow</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.Rating,7)</visible>
+									</control>
+								</control>
+								<control type="group">
+									<centertop>50%</centertop>
+									<height>44</height>
+									<width>44</width>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<animation effect="fade" end="33" condition="true">Conditional</animation>
+									</control>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star5.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.Rating,8) + !Integer.IsGreater(VideoPlayer.Rating,9)</visible>
+									</control>
+									<control type="image">
+										<colordiffuse>yellow</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.Rating,9)</visible>
+									</control>
+								</control>
+								<scrolltime tween="quadratic">400</scrolltime>
+								<usecontrolcoords>true</usecontrolcoords>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.UserRating)</visible>
+							</control>
+							<control type="grouplist">
+								<left>-10</left>
+								<height>44</height>
+								<width>144</width>
+								<centertop>50%</centertop>
+								<itemgap>-16</itemgap>
+								<visible>!String.IsEmpty(VideoPlayer.UserRating)</visible>
+								<orientation>horizontal</orientation>
+								<control type="group">
+									<centertop>50%</centertop>
+									<height>44</height>
+									<width>44</width>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<animation effect="fade" end="33" condition="true">Conditional</animation>
+									</control>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star5.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.UserRating,0) + !Integer.IsGreater(VideoPlayer.UserRating,1)</visible>
+									</control>
+									<control type="image">
+										<colordiffuse>yellow</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.UserRating,1)</visible>
+									</control>
+								</control>
+								<control type="group">
+									<centertop>50%</centertop>
+									<height>44</height>
+									<width>44</width>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<animation effect="fade" end="33" condition="true">Conditional</animation>
+									</control>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star5.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.UserRating,2) + !Integer.IsGreater(VideoPlayer.UserRating,3)</visible>
+									</control>
+									<control type="image">
+										<colordiffuse>yellow</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.UserRating,3)</visible>
+									</control>
+								</control>
+								<control type="group">
+									<centertop>50%</centertop>
+									<height>44</height>
+									<width>44</width>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<animation effect="fade" end="33" condition="true">Conditional</animation>
+									</control>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star5.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.UserRating,4) + !Integer.IsGreater(VideoPlayer.UserRating,5)</visible>
+									</control>
+									<control type="image">
+										<colordiffuse>yellow</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.UserRating,5)</visible>
+									</control>
+								</control>
+								<control type="group">
+									<centertop>50%</centertop>
+									<height>44</height>
+									<width>44</width>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<animation effect="fade" end="33" condition="true">Conditional</animation>
+									</control>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star5.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.UserRating,6) + !Integer.IsGreater(VideoPlayer.UserRating,7)</visible>
+									</control>
+									<control type="image">
+										<colordiffuse>yellow</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.UserRating,7)</visible>
+									</control>
+								</control>
+								<control type="group">
+									<centertop>50%</centertop>
+									<height>44</height>
+									<width>44</width>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<animation effect="fade" end="33" condition="true">Conditional</animation>
+									</control>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star5.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.UserRating,8) + !Integer.IsGreater(VideoPlayer.UserRating,9)</visible>
+									</control>
+									<control type="image">
+										<colordiffuse>yellow</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.UserRating,9)</visible>
+									</control>
+								</control>
+								<scrolltime tween="quadratic">400</scrolltime>
+								<usecontrolcoords>true</usecontrolcoords>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.Property(gender)) + [String.IsEqual(VideoPlayer.DBType,actor) | String.IsEqual(VideoPlayer.DBType,video)]</visible>
+							</control>
+							<control type="label">
+								<label fallback="">$INFO[ListItem.Property(gender)]</label>
+								<haspath>false</haspath>
+								<textcolor>af3_panel_fg_70</textcolor>
+								<width>auto</width>
+								<font>af3_font_main</font>
+								<visible>!String.IsEmpty(VideoPlayer.Property(gender)) + [String.IsEqual(VideoPlayer.DBType,actor) | String.IsEqual(VideoPlayer.DBType,video)]</visible>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.Property(department)) + [String.IsEqual(VideoPlayer.DBType,actor) | String.IsEqual(VideoPlayer.DBType,video)]</visible>
+							</control>
+							<control type="label">
+								<label fallback="">$INFO[ListItem.Property(department)]</label>
+								<haspath>false</haspath>
+								<textcolor>af3_panel_fg_70</textcolor>
+								<width>auto</width>
+								<font>af3_font_main</font>
+								<visible>!String.IsEmpty(VideoPlayer.Property(department)) + [String.IsEqual(VideoPlayer.DBType,actor) | String.IsEqual(VideoPlayer.DBType,video)]</visible>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.Property(age)) + [String.IsEqual(VideoPlayer.DBType,actor) | String.IsEqual(VideoPlayer.DBType,video)]</visible>
+							</control>
+							<control type="label">
+								<label fallback="">$INFO[ListItem.Property(Age),, $LOCALIZE[31070]]</label>
+								<haspath>false</haspath>
+								<textcolor>af3_panel_fg_70</textcolor>
+								<width>auto</width>
+								<font>af3_font_main</font>
+								<visible>!String.IsEmpty(VideoPlayer.Property(age)) + [String.IsEqual(VideoPlayer.DBType,actor) | String.IsEqual(VideoPlayer.DBType,video)]</visible>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.Premiered)</visible>
+							</control>
+							<control type="label">
+								<label fallback="">$INFO[VideoPlayer.Premiered]</label>
+								<haspath>false</haspath>
+								<textcolor>af3_panel_fg_70</textcolor>
+								<width>auto</width>
+								<font>af3_font_main</font>
+								<visible>!String.IsEmpty(VideoPlayer.Premiered)</visible>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.ChannelName)</visible>
+							</control>
+							<control type="label">
+								<label fallback="">$INFO[VideoPlayer.ChannelName]</label>
+								<haspath>false</haspath>
+								<textcolor>af3_panel_fg_70</textcolor>
+								<width>auto</width>
+								<font>af3_font_main</font>
+								<visible>!String.IsEmpty(VideoPlayer.ChannelName)</visible>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.ChannelNumberLabel)</visible>
+							</control>
+							<control type="label">
+								<label fallback="">$INFO[VideoPlayer.ChannelNumberLabel,Channel ,]</label>
+								<haspath>false</haspath>
+								<textcolor>af3_panel_fg_70</textcolor>
+								<width>auto</width>
+								<font>af3_font_main</font>
+								<visible>!String.IsEmpty(VideoPlayer.ChannelNumberLabel)</visible>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.MPAA)</visible>
+							</control>
+							<control type="label">
+								<label fallback="">$INFO[VideoPlayer.MPAA]</label>
+								<haspath>false</haspath>
+								<textcolor>af3_panel_fg_70</textcolor>
+								<width>auto</width>
+								<font>af3_font_main</font>
+								<visible>!String.IsEmpty(VideoPlayer.MPAA)</visible>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.Year) + [String.IsEqual(VideoPlayer.DBType,album) | String.IsEqual(VideoPlayer.DBType,song)]</visible>
+							</control>
+							<control type="label">
+								<label fallback="">$INFO[VideoPlayer.Year]</label>
+								<haspath>false</haspath>
+								<textcolor>af3_panel_fg_70</textcolor>
+								<width>auto</width>
+								<font>af3_font_main</font>
+								<visible>!String.IsEmpty(VideoPlayer.Year) + [String.IsEqual(VideoPlayer.DBType,album) | String.IsEqual(VideoPlayer.DBType,song)]</visible>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.Property(album_label)) + [String.IsEqual(VideoPlayer.DBType,album) | String.IsEqual(VideoPlayer.DBType,song)]</visible>
+							</control>
+							<control type="label">
+								<label fallback="">$INFO[VideoPlayer.Property(album_label)]</label>
+								<haspath>false</haspath>
+								<textcolor>af3_panel_fg_70</textcolor>
+								<width>auto</width>
+								<font>af3_font_main</font>
+								<visible>!String.IsEmpty(VideoPlayer.Property(album_label)) + [String.IsEqual(VideoPlayer.DBType,album) | String.IsEqual(VideoPlayer.DBType,song)]</visible>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.Duration) + [String.IsEqual(VideoPlayer.DBType,album) | String.IsEqual(VideoPlayer.DBType,song)]</visible>
+							</control>
+							<control type="label">
+								<label fallback="">$INFO[VideoPlayer.Duration]</label>
+								<haspath>false</haspath>
+								<textcolor>af3_panel_fg_70</textcolor>
+								<width>auto</width>
+								<font>af3_font_main</font>
+								<visible>!String.IsEmpty(VideoPlayer.Duration) + [String.IsEqual(VideoPlayer.DBType,album) | String.IsEqual(VideoPlayer.DBType,song)]</visible>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.Duration) + !Integer.IsEqual(VideoPlayer.Duration(h),0)</visible>
+							</control>
+							<control type="label">
+								<label fallback="">$INFO[VideoPlayer.Duration(h),, $LOCALIZE[31076] ]$INFO[VideoPlayer.Duration(m),, $LOCALIZE[31077]]</label>
+								<haspath>false</haspath>
+								<textcolor>af3_panel_fg_70</textcolor>
+								<width>auto</width>
+								<font>af3_font_main</font>
+								<visible>!String.IsEmpty(VideoPlayer.Duration) + !Integer.IsEqual(VideoPlayer.Duration(h),0)</visible>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.Duration) + Integer.IsEqual(VideoPlayer.Duration(h),0)</visible>
+							</control>
+							<control type="label">
+								<label fallback="">$INFO[VideoPlayer.Duration(m),, $LOCALIZE[31077]]</label>
+								<haspath>false</haspath>
+								<textcolor>af3_panel_fg_70</textcolor>
+								<width>auto</width>
+								<font>af3_font_main</font>
+								<visible>!String.IsEmpty(VideoPlayer.Duration) + Integer.IsEqual(VideoPlayer.Duration(h),0)</visible>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<scrolltime tween="quadratic">400</scrolltime>
+							<usecontrolcoords>true</usecontrolcoords>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Skin.HasSetting(InfoBar.TwoRow)</visible>
+						<visible>!String.IsEqual(Window(Home).Property(dhs.pref.player_show_metadata),false)</visible>
+						<left>40</left>
+						<height>105</height>
+						<control type="grouplist">
+							<hitrect x="0" y="0" w="0" h="0"/>
+							<orientation>horizontal</orientation>
+							<itemgap>10</itemgap>
+							<left>-20</left>
+							<centertop>35</centertop>
+							<control type="group" description="Avoid grouplist chop with spacer">
+								<left>-10</left>
+								<width>20</width>
+							</control>
+							<control type="button">
+								<visible>Integer.IsGreater(VideoPlayer.VideoResolution,2160) | String.IsEqual(VideoPlayer.VideoResolution,8K)</visible>
+								<centertop>50%</centertop>
+								<height>30</height>
+								<width min="60">60</width>
+								<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+								<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+								<align>center</align>
+								<textoffsety>-5</textoffsety>
+								<textoffsetx>10</textoffsetx>
+								<aligny>top</aligny>
+								<font>af3_font_infotag_bold</font>
+								<textcolor>ff2a2a2a</textcolor>
+								<shadowcolor>20ffffff</shadowcolor>
+								<label>8K</label>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<focusedcolor>ff272727</focusedcolor>
+								<disabledcolor>af3_main_fg_30</disabledcolor>
+								<pulseonselect>false</pulseonselect>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+							</control>
+							<control type="button">
+								<visible>![Integer.IsGreater(VideoPlayer.VideoResolution,2160) | String.IsEqual(VideoPlayer.VideoResolution,8K)] + [Integer.IsGreater(VideoPlayer.VideoResolution,1080) | String.IsEqual(VideoPlayer.VideoResolution,4K)]</visible>
+								<centertop>50%</centertop>
+								<height>30</height>
+								<width min="60">auto</width>
+								<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+								<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+								<align>center</align>
+								<textoffsety>-5</textoffsety>
+								<textoffsetx>10</textoffsetx>
+								<aligny>top</aligny>
+								<font>af3_font_infotag_bold</font>
+								<textcolor>ff2a2a2a</textcolor>
+								<shadowcolor>20ffffff</shadowcolor>
+								<label>4K Ultra HD</label>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<focusedcolor>ff272727</focusedcolor>
+								<disabledcolor>af3_main_fg_30</disabledcolor>
+								<pulseonselect>false</pulseonselect>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+							</control>
+							<control type="button">
+								<visible>![Integer.IsGreater(VideoPlayer.VideoResolution,2160) | String.IsEqual(VideoPlayer.VideoResolution,8K)] + ![Integer.IsGreater(VideoPlayer.VideoResolution,1080) | String.IsEqual(VideoPlayer.VideoResolution,4K)] + Integer.IsGreater(VideoPlayer.VideoResolution,720)</visible>
+								<centertop>50%</centertop>
+								<height>30</height>
+								<width min="60">auto</width>
+								<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+								<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+								<align>center</align>
+								<textoffsety>-5</textoffsety>
+								<textoffsetx>10</textoffsetx>
+								<aligny>top</aligny>
+								<font>af3_font_infotag_bold</font>
+								<textcolor>ff2a2a2a</textcolor>
+								<shadowcolor>20ffffff</shadowcolor>
+								<label>Full HD</label>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<focusedcolor>ff272727</focusedcolor>
+								<disabledcolor>af3_main_fg_30</disabledcolor>
+								<pulseonselect>false</pulseonselect>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+							</control>
+							<control type="button">
+								<visible>![Integer.IsGreater(VideoPlayer.VideoResolution,2160) | String.IsEqual(VideoPlayer.VideoResolution,8K)] + ![Integer.IsGreater(VideoPlayer.VideoResolution,1080) | String.IsEqual(VideoPlayer.VideoResolution,4K)] + !Integer.IsGreater(VideoPlayer.VideoResolution,720) + Integer.IsEqual(VideoPlayer.VideoResolution,720)</visible>
+								<centertop>50%</centertop>
+								<height>30</height>
+								<width min="60">60</width>
+								<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+								<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+								<align>center</align>
+								<textoffsety>-5</textoffsety>
+								<textoffsetx>10</textoffsetx>
+								<aligny>top</aligny>
+								<font>af3_font_infotag_bold</font>
+								<textcolor>ff2a2a2a</textcolor>
+								<shadowcolor>20ffffff</shadowcolor>
+								<label>HD</label>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<focusedcolor>ff272727</focusedcolor>
+								<disabledcolor>af3_main_fg_30</disabledcolor>
+								<pulseonselect>false</pulseonselect>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+							</control>
+							<control type="button">
+								<visible>![Integer.IsGreater(VideoPlayer.VideoResolution,2160) | String.IsEqual(VideoPlayer.VideoResolution,8K)] + ![Integer.IsGreater(VideoPlayer.VideoResolution,1080) | String.IsEqual(VideoPlayer.VideoResolution,4K)] + !Integer.IsGreater(VideoPlayer.VideoResolution,720) + !Integer.IsEqual(VideoPlayer.VideoResolution,720) + !String.IsEmpty(VideoPlayer.VideoResolution)</visible>
+								<centertop>50%</centertop>
+								<height>30</height>
+								<width min="60">60</width>
+								<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+								<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+								<align>center</align>
+								<textoffsety>-5</textoffsety>
+								<textoffsetx>10</textoffsetx>
+								<aligny>top</aligny>
+								<font>af3_font_infotag_bold</font>
+								<textcolor>ff2a2a2a</textcolor>
+								<shadowcolor>20ffffff</shadowcolor>
+								<label>SD</label>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<focusedcolor>ff272727</focusedcolor>
+								<disabledcolor>af3_main_fg_30</disabledcolor>
+								<pulseonselect>false</pulseonselect>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+							</control>
+							<control type="group">
+								<visible>![Integer.IsGreater(VideoPlayer.VideoResolution,2160) | String.IsEqual(VideoPlayer.VideoResolution,8K)] + ![Integer.IsGreater(VideoPlayer.VideoResolution,1080) | String.IsEqual(VideoPlayer.VideoResolution,4K)] + !Integer.IsGreater(VideoPlayer.VideoResolution,720) + !Integer.IsEqual(VideoPlayer.VideoResolution,720) + String.IsEmpty(VideoPlayer.VideoResolution)</visible>
+								<centertop>50%</centertop>
+								<height>30</height>
+								<width>60</width>
+								<control type="image">
+									<texture colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texture>
+								</control>
+								<control type="group">
+									<width>37</width>
+									<height>24</height>
+									<centertop>51%</centertop>
+									<centerleft>50%</centerleft>
+									<control type="image">
+										<top>1</top>
+										<bottom>-1</bottom>
+										<left>1</left>
+										<right>-1</right>
+										<texture colordiffuse="20ffffff">af3/flags/info-inverted.png</texture>
+									</control>
+									<control type="image">
+										<texture colordiffuse="ff1a1a1a">af3/flags/info-inverted.png</texture>
+									</control>
+								</control>
+							</control>
+							<include condition="Skin.HasSetting(InfoTags.EnableAudioCodec)">af3_dyn_15</include>
+							<scrolltime tween="quadratic">400</scrolltime>
+							<usecontrolcoords>true</usecontrolcoords>
+						</control>
+						<control type="grouplist">
+							<hitrect x="0" y="0" w="0" h="0"/>
+							<orientation>horizontal</orientation>
+							<itemgap>10</itemgap>
+							<left>-20</left>
+							<centertop>75</centertop>
+							<control type="group" description="Avoid grouplist chop with spacer">
+								<left>-10</left>
+								<width>20</width>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.Rating) + String.IsEmpty(VideoPlayer.UserRating)</visible>
+							</control>
+							<control type="grouplist">
+								<left>-10</left>
+								<height>44</height>
+								<width>144</width>
+								<centertop>50%</centertop>
+								<itemgap>-16</itemgap>
+								<visible>!String.IsEmpty(VideoPlayer.Rating) + String.IsEmpty(VideoPlayer.UserRating)</visible>
+								<orientation>horizontal</orientation>
+								<control type="group">
+									<centertop>50%</centertop>
+									<height>44</height>
+									<width>44</width>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<animation effect="fade" end="33" condition="true">Conditional</animation>
+									</control>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star5.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.Rating,0) + !Integer.IsGreater(VideoPlayer.Rating,1)</visible>
+									</control>
+									<control type="image">
+										<colordiffuse>yellow</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.Rating,1)</visible>
+									</control>
+								</control>
+								<control type="group">
+									<centertop>50%</centertop>
+									<height>44</height>
+									<width>44</width>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<animation effect="fade" end="33" condition="true">Conditional</animation>
+									</control>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star5.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.Rating,2) + !Integer.IsGreater(VideoPlayer.Rating,3)</visible>
+									</control>
+									<control type="image">
+										<colordiffuse>yellow</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.Rating,3)</visible>
+									</control>
+								</control>
+								<control type="group">
+									<centertop>50%</centertop>
+									<height>44</height>
+									<width>44</width>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<animation effect="fade" end="33" condition="true">Conditional</animation>
+									</control>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star5.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.Rating,4) + !Integer.IsGreater(VideoPlayer.Rating,5)</visible>
+									</control>
+									<control type="image">
+										<colordiffuse>yellow</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.Rating,5)</visible>
+									</control>
+								</control>
+								<control type="group">
+									<centertop>50%</centertop>
+									<height>44</height>
+									<width>44</width>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<animation effect="fade" end="33" condition="true">Conditional</animation>
+									</control>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star5.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.Rating,6) + !Integer.IsGreater(VideoPlayer.Rating,7)</visible>
+									</control>
+									<control type="image">
+										<colordiffuse>yellow</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.Rating,7)</visible>
+									</control>
+								</control>
+								<control type="group">
+									<centertop>50%</centertop>
+									<height>44</height>
+									<width>44</width>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<animation effect="fade" end="33" condition="true">Conditional</animation>
+									</control>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star5.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.Rating,8) + !Integer.IsGreater(VideoPlayer.Rating,9)</visible>
+									</control>
+									<control type="image">
+										<colordiffuse>yellow</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.Rating,9)</visible>
+									</control>
+								</control>
+								<scrolltime tween="quadratic">400</scrolltime>
+								<usecontrolcoords>true</usecontrolcoords>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.UserRating)</visible>
+							</control>
+							<control type="grouplist">
+								<left>-10</left>
+								<height>44</height>
+								<width>144</width>
+								<centertop>50%</centertop>
+								<itemgap>-16</itemgap>
+								<visible>!String.IsEmpty(VideoPlayer.UserRating)</visible>
+								<orientation>horizontal</orientation>
+								<control type="group">
+									<centertop>50%</centertop>
+									<height>44</height>
+									<width>44</width>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<animation effect="fade" end="33" condition="true">Conditional</animation>
+									</control>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star5.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.UserRating,0) + !Integer.IsGreater(VideoPlayer.UserRating,1)</visible>
+									</control>
+									<control type="image">
+										<colordiffuse>yellow</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.UserRating,1)</visible>
+									</control>
+								</control>
+								<control type="group">
+									<centertop>50%</centertop>
+									<height>44</height>
+									<width>44</width>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<animation effect="fade" end="33" condition="true">Conditional</animation>
+									</control>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star5.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.UserRating,2) + !Integer.IsGreater(VideoPlayer.UserRating,3)</visible>
+									</control>
+									<control type="image">
+										<colordiffuse>yellow</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.UserRating,3)</visible>
+									</control>
+								</control>
+								<control type="group">
+									<centertop>50%</centertop>
+									<height>44</height>
+									<width>44</width>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<animation effect="fade" end="33" condition="true">Conditional</animation>
+									</control>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star5.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.UserRating,4) + !Integer.IsGreater(VideoPlayer.UserRating,5)</visible>
+									</control>
+									<control type="image">
+										<colordiffuse>yellow</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.UserRating,5)</visible>
+									</control>
+								</control>
+								<control type="group">
+									<centertop>50%</centertop>
+									<height>44</height>
+									<width>44</width>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<animation effect="fade" end="33" condition="true">Conditional</animation>
+									</control>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star5.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.UserRating,6) + !Integer.IsGreater(VideoPlayer.UserRating,7)</visible>
+									</control>
+									<control type="image">
+										<colordiffuse>yellow</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.UserRating,7)</visible>
+									</control>
+								</control>
+								<control type="group">
+									<centertop>50%</centertop>
+									<height>44</height>
+									<width>44</width>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<animation effect="fade" end="33" condition="true">Conditional</animation>
+									</control>
+									<control type="image">
+										<colordiffuse>af3_panel_fg_90</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star5.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.UserRating,8) + !Integer.IsGreater(VideoPlayer.UserRating,9)</visible>
+									</control>
+									<control type="image">
+										<colordiffuse>yellow</colordiffuse>
+										<aspectratio>keep</aspectratio>
+										<texture>af3/flags/star10.png</texture>
+										<visible>Integer.IsGreater(VideoPlayer.UserRating,9)</visible>
+									</control>
+								</control>
+								<scrolltime tween="quadratic">400</scrolltime>
+								<usecontrolcoords>true</usecontrolcoords>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.Property(gender)) + [String.IsEqual(VideoPlayer.DBType,actor) | String.IsEqual(VideoPlayer.DBType,video)]</visible>
+							</control>
+							<control type="label">
+								<label fallback="">$INFO[ListItem.Property(gender)]</label>
+								<haspath>false</haspath>
+								<textcolor>af3_panel_fg_70</textcolor>
+								<width>auto</width>
+								<font>af3_font_main</font>
+								<visible>!String.IsEmpty(VideoPlayer.Property(gender)) + [String.IsEqual(VideoPlayer.DBType,actor) | String.IsEqual(VideoPlayer.DBType,video)]</visible>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.Property(department)) + [String.IsEqual(VideoPlayer.DBType,actor) | String.IsEqual(VideoPlayer.DBType,video)]</visible>
+							</control>
+							<control type="label">
+								<label fallback="">$INFO[ListItem.Property(department)]</label>
+								<haspath>false</haspath>
+								<textcolor>af3_panel_fg_70</textcolor>
+								<width>auto</width>
+								<font>af3_font_main</font>
+								<visible>!String.IsEmpty(VideoPlayer.Property(department)) + [String.IsEqual(VideoPlayer.DBType,actor) | String.IsEqual(VideoPlayer.DBType,video)]</visible>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.Property(age)) + [String.IsEqual(VideoPlayer.DBType,actor) | String.IsEqual(VideoPlayer.DBType,video)]</visible>
+							</control>
+							<control type="label">
+								<label fallback="">$INFO[ListItem.Property(Age),, $LOCALIZE[31070]]</label>
+								<haspath>false</haspath>
+								<textcolor>af3_panel_fg_70</textcolor>
+								<width>auto</width>
+								<font>af3_font_main</font>
+								<visible>!String.IsEmpty(VideoPlayer.Property(age)) + [String.IsEqual(VideoPlayer.DBType,actor) | String.IsEqual(VideoPlayer.DBType,video)]</visible>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.Premiered)</visible>
+							</control>
+							<control type="label">
+								<label fallback="">$INFO[VideoPlayer.Premiered]</label>
+								<haspath>false</haspath>
+								<textcolor>af3_panel_fg_70</textcolor>
+								<width>auto</width>
+								<font>af3_font_main</font>
+								<visible>!String.IsEmpty(VideoPlayer.Premiered)</visible>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.MPAA)</visible>
+							</control>
+							<control type="label">
+								<label fallback="">$INFO[VideoPlayer.MPAA]</label>
+								<haspath>false</haspath>
+								<textcolor>af3_panel_fg_70</textcolor>
+								<width>auto</width>
+								<font>af3_font_main</font>
+								<visible>!String.IsEmpty(VideoPlayer.MPAA)</visible>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.Year) + [String.IsEqual(VideoPlayer.DBType,album) | String.IsEqual(VideoPlayer.DBType,song)]</visible>
+							</control>
+							<control type="label">
+								<label fallback="">$INFO[VideoPlayer.Year]</label>
+								<haspath>false</haspath>
+								<textcolor>af3_panel_fg_70</textcolor>
+								<width>auto</width>
+								<font>af3_font_main</font>
+								<visible>!String.IsEmpty(VideoPlayer.Year) + [String.IsEqual(VideoPlayer.DBType,album) | String.IsEqual(VideoPlayer.DBType,song)]</visible>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.Property(album_label)) + [String.IsEqual(VideoPlayer.DBType,album) | String.IsEqual(VideoPlayer.DBType,song)]</visible>
+							</control>
+							<control type="label">
+								<label fallback="">$INFO[VideoPlayer.Property(album_label)]</label>
+								<haspath>false</haspath>
+								<textcolor>af3_panel_fg_70</textcolor>
+								<width>auto</width>
+								<font>af3_font_main</font>
+								<visible>!String.IsEmpty(VideoPlayer.Property(album_label)) + [String.IsEqual(VideoPlayer.DBType,album) | String.IsEqual(VideoPlayer.DBType,song)]</visible>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.Duration) + [String.IsEqual(VideoPlayer.DBType,album) | String.IsEqual(VideoPlayer.DBType,song)]</visible>
+							</control>
+							<control type="label">
+								<label fallback="">$INFO[VideoPlayer.Duration]</label>
+								<haspath>false</haspath>
+								<textcolor>af3_panel_fg_70</textcolor>
+								<width>auto</width>
+								<font>af3_font_main</font>
+								<visible>!String.IsEmpty(VideoPlayer.Duration) + [String.IsEqual(VideoPlayer.DBType,album) | String.IsEqual(VideoPlayer.DBType,song)]</visible>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.Duration) + !Integer.IsEqual(VideoPlayer.Duration(h),0)</visible>
+							</control>
+							<control type="label">
+								<label fallback="">$INFO[VideoPlayer.Duration(h),, $LOCALIZE[31076] ]$INFO[VideoPlayer.Duration(m),, $LOCALIZE[31077]]</label>
+								<haspath>false</haspath>
+								<textcolor>af3_panel_fg_70</textcolor>
+								<width>auto</width>
+								<font>af3_font_main</font>
+								<visible>!String.IsEmpty(VideoPlayer.Duration) + !Integer.IsEqual(VideoPlayer.Duration(h),0)</visible>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ffffffff">af3/common/circle.png</texture>
+								<aspectratio>keep</aspectratio>
+								<width>8</width>
+								<height>8</height>
+								<centertop>52%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.Duration) + Integer.IsEqual(VideoPlayer.Duration(h),0)</visible>
+							</control>
+							<control type="label">
+								<label fallback="">$INFO[VideoPlayer.Duration(m),, $LOCALIZE[31077]]</label>
+								<haspath>false</haspath>
+								<textcolor>af3_panel_fg_70</textcolor>
+								<width>auto</width>
+								<font>af3_font_main</font>
+								<visible>!String.IsEmpty(VideoPlayer.Duration) + Integer.IsEqual(VideoPlayer.Duration(h),0)</visible>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<scrolltime tween="quadratic">400</scrolltime>
+							<usecontrolcoords>true</usecontrolcoords>
+						</control>
+					</control>
+					<include condition="!Skin.HasSetting(OSD.DisablePlotRatingsOnInfo)">af3_dyn_14</include>
+					<control type="label">
+						<label>$INFO[VideoPlayer.Season,,x]$INFO[VideoPlayer.Episode,,. ]$INFO[VideoPlayer.Title]</label>
+						<height>40</height>
+						<colordiffuse>af3_panel_fg_70</colordiffuse>
+						<left>40</left>
+						<width>1120</width>
+						<visible>Skin.HasSetting(OSD.DisablePlotRatingsOnInfo)</visible>
+						<visible>[VideoPlayer.Content(episodes) | String.StartsWith(Window(Home).Property(dexhub.source.key),series) | String.StartsWith(Window(Home).Property(dexhub.source.key),anime)]</visible>
+						<visible>!String.IsEmpty(VideoPlayer.Title)</visible>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>af3_font_main</font>
+						<textcolor>af3_main_fg_70</textcolor>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+					<control type="label">
+						<label>$INFO[VideoPlayer.Tagline]</label>
+						<height>40</height>
+						<colordiffuse>af3_panel_fg_70</colordiffuse>
+						<left>40</left>
+						<width>1120</width>
+						<visible>Skin.HasSetting(OSD.DisablePlotRatingsOnInfo)</visible>
+						<visible>![VideoPlayer.Content(episodes) | String.StartsWith(Window(Home).Property(dexhub.source.key),series) | String.StartsWith(Window(Home).Property(dexhub.source.key),anime)]</visible>
+						<visible>!String.IsEmpty(VideoPlayer.Tagline)</visible>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>af3_font_main</font>
+						<textcolor>af3_main_fg_70</textcolor>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+					<control type="group">
+						<visible>String.IsEqual(VideoPlayer.DBType,song)</visible>
+						<height>120</height>
+						<control type="grouplist">
+							<orientation>vertical</orientation>
+							<control type="group">
+								<left>40</left>
+								<height>40</height>
+								<visible>String.IsEqual(VideoPlayer.DBType,song)</visible>
+								<visible>!String.IsEmpty(VideoPlayer.Title)</visible>
+								<control type="grouplist">
+									<bottom>0</bottom>
+									<orientation>horizontal</orientation>
+									<height>40</height>
+									<itemgap>12</itemgap>
+									<left>-20</left>
+									<control type="group" description="Avoid grouplist chop with spacer">
+										<left>-12</left>
+										<width>20</width>
+									</control>
+									<control type="image">
+										<width>32</width>
+										<height>40</height>
+										<aspectratio align="center" aligny="center">keep</aspectratio>
+										<aligny>center</aligny>
+										<texture colordiffuse="af3_main_fg_90">af3/extras/icons/music.png</texture>
+										<bordersize>-12</bordersize>
+									</control>
+									<control type="label">
+										<left>-12</left>
+										<height>40</height>
+										<aligny>center</aligny>
+										<label>$INFO[VideoPlayer.TrackNumber,,. ]$INFO[VideoPlayer.Title]</label>
+										<textcolor>af3_main_fg_70</textcolor>
+										<font>af3_font_main</font>
+										<width max="680">auto</width>
+										<textoffsetx>0</textoffsetx>
+										<texturefocus/>
+										<texturenofocus/>
+										<align>left</align>
+										<selectedcolor>af3_main_fg_70</selectedcolor>
+										<scrollsuffix> </scrollsuffix>
+										<scrollspeed>40</scrollspeed>
+										<disabledcolor>60FFFFFF</disabledcolor>
+									</control>
+									<control type="group">
+										<width>-4</width>
+									</control>
+									<scrolltime tween="quadratic">400</scrolltime>
+									<usecontrolcoords>true</usecontrolcoords>
+								</control>
+							</control>
+							<control type="group">
+								<left>40</left>
+								<height>40</height>
+								<visible>String.IsEqual(VideoPlayer.DBType,song)</visible>
+								<visible>!String.IsEmpty(VideoPlayer.Contributors)</visible>
+								<control type="grouplist">
+									<bottom>0</bottom>
+									<orientation>horizontal</orientation>
+									<height>40</height>
+									<itemgap>12</itemgap>
+									<left>-20</left>
+									<control type="group" description="Avoid grouplist chop with spacer">
+										<left>-12</left>
+										<width>20</width>
+									</control>
+									<control type="image">
+										<width>32</width>
+										<height>40</height>
+										<aspectratio align="center" aligny="center">keep</aspectratio>
+										<aligny>center</aligny>
+										<texture colordiffuse="af3_main_fg_90">af3/extras/icons/person.png</texture>
+										<bordersize>-12</bordersize>
+									</control>
+									<control type="label">
+										<left>-12</left>
+										<height>40</height>
+										<aligny>center</aligny>
+										<label>$INFO[VideoPlayer.Contributors]</label>
+										<textcolor>af3_main_fg_70</textcolor>
+										<font>af3_font_main</font>
+										<width max="680">auto</width>
+										<textoffsetx>0</textoffsetx>
+										<texturefocus/>
+										<texturenofocus/>
+										<align>left</align>
+										<selectedcolor>af3_main_fg_70</selectedcolor>
+										<scrollsuffix> </scrollsuffix>
+										<scrollspeed>40</scrollspeed>
+										<disabledcolor>60FFFFFF</disabledcolor>
+									</control>
+									<control type="group">
+										<width>-4</width>
+									</control>
+									<scrolltime tween="quadratic">400</scrolltime>
+									<usecontrolcoords>true</usecontrolcoords>
+								</control>
+							</control>
+							<control type="group">
+								<left>40</left>
+								<height>40</height>
+								<visible>String.IsEqual(VideoPlayer.DBType,song)</visible>
+								<visible>!String.IsEmpty(VideoPlayer.LastPlayed)</visible>
+								<control type="grouplist">
+									<bottom>0</bottom>
+									<orientation>horizontal</orientation>
+									<height>40</height>
+									<itemgap>12</itemgap>
+									<left>-20</left>
+									<control type="group" description="Avoid grouplist chop with spacer">
+										<left>-12</left>
+										<width>20</width>
+									</control>
+									<control type="image">
+										<width>32</width>
+										<height>40</height>
+										<aspectratio align="center" aligny="center">keep</aspectratio>
+										<aligny>center</aligny>
+										<texture colordiffuse="af3_main_fg_90">af3/extras/icons/clock-rotate-left.png</texture>
+										<bordersize>-12</bordersize>
+									</control>
+									<control type="label">
+										<left>-12</left>
+										<height>40</height>
+										<aligny>center</aligny>
+										<label>$INFO[VideoPlayer.LastPlayed]$INFO[VideoPlayer.PlayCount, x, ]</label>
+										<textcolor>af3_main_fg_70</textcolor>
+										<font>af3_font_main</font>
+										<width max="680">auto</width>
+										<textoffsetx>0</textoffsetx>
+										<texturefocus/>
+										<texturenofocus/>
+										<align>left</align>
+										<selectedcolor>af3_main_fg_70</selectedcolor>
+										<scrollsuffix> </scrollsuffix>
+										<scrollspeed>40</scrollspeed>
+										<disabledcolor>60FFFFFF</disabledcolor>
+									</control>
+									<control type="group">
+										<width>-4</width>
+									</control>
+									<scrolltime tween="quadratic">400</scrolltime>
+									<usecontrolcoords>true</usecontrolcoords>
+								</control>
+							</control>
+							<scrolltime tween="quadratic">400</scrolltime>
+							<usecontrolcoords>true</usecontrolcoords>
+							<itemgap>0</itemgap>
+						</control>
+					</control>
+					<control type="group">
+						<left>40</left>
+						<include condition="!Skin.HasSetting(InfoBar.TwoRow)">af3_dyn_16</include>
+						<include condition="Skin.HasSetting(InfoBar.TwoRow)">af3_dyn_17</include>
+						<control type="grouplist">
+							<bottom>0</bottom>
+							<orientation>horizontal</orientation>
+							<height>40</height>
+							<itemgap>12</itemgap>
+							<left>-20</left>
+							<control type="group" description="Avoid grouplist chop with spacer">
+								<left>-12</left>
+								<width>20</width>
+							</control>
+							<include>DhOverlayRatings</include>
+							<control type="image">
+								<width>32</width>
+								<height>40</height>
+								<aspectratio align="center" aligny="center">keep</aspectratio>
+								<aligny>center</aligny>
+								<texture colordiffuse="af3_main_fg_90">af3/flags/monochrome/ratings/trakt.png</texture>
+								<visible>[String.IsEqual(VideoPlayer.DBType,movie) | VideoPlayer.Content(movies)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Trakt_Rating))</visible>
+								<bordersize>0</bordersize>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<height>40</height>
+								<aligny>center</aligny>
+								<label>$INFO[Window(Home).Property(TMDbHelper.Player.Trakt_Rating)]</label>
+								<textcolor>af3_main_fg_70</textcolor>
+								<font>af3_font_main</font>
+								<visible>[String.IsEqual(VideoPlayer.DBType,movie) | VideoPlayer.Content(movies)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Trakt_Rating))</visible>
+								<width max="680">auto</width>
+								<textoffsetx>0</textoffsetx>
+								<texturefocus/>
+								<texturenofocus/>
+								<align>left</align>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="group">
+								<visible>[String.IsEqual(VideoPlayer.DBType,movie) | VideoPlayer.Content(movies)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Trakt_Rating))</visible>
+								<width>-4</width>
+							</control>
+							<control type="image">
+								<width>32</width>
+								<height>40</height>
+								<aspectratio align="center" aligny="center">keep</aspectratio>
+								<aligny>center</aligny>
+								<texture colordiffuse="af3_main_fg_90">af3/flags/monochrome/ratings/metacritic.png</texture>
+								<visible>[String.IsEqual(VideoPlayer.DBType,movie) | VideoPlayer.Content(movies)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.MetaCritic_Rating))</visible>
+								<bordersize>0</bordersize>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<height>40</height>
+								<aligny>center</aligny>
+								<label>$INFO[Window(Home).Property(TMDbHelper.Player.MetaCritic_Rating),,%]</label>
+								<textcolor>af3_main_fg_70</textcolor>
+								<font>af3_font_main</font>
+								<visible>[String.IsEqual(VideoPlayer.DBType,movie) | VideoPlayer.Content(movies)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.MetaCritic_Rating))</visible>
+								<width max="680">auto</width>
+								<textoffsetx>0</textoffsetx>
+								<texturefocus/>
+								<texturenofocus/>
+								<align>left</align>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="group">
+								<visible>[String.IsEqual(VideoPlayer.DBType,movie) | VideoPlayer.Content(movies)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.MetaCritic_Rating))</visible>
+								<width>-4</width>
+							</control>
+							<control type="image">
+								<width>32</width>
+								<height>40</height>
+								<aspectratio align="center" aligny="center">keep</aspectratio>
+								<aligny>center</aligny>
+								<texture colordiffuse="af3_main_fg_90">af3/flags/monochrome/ratings/trakt.png</texture>
+								<visible>[String.IsEqual(VideoPlayer.DBType,tvshow) | String.IsEqual(VideoPlayer.DBType,season) | String.IsEqual(VideoPlayer.DBType,episode)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Trakt_Rating))</visible>
+								<bordersize>0</bordersize>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<height>40</height>
+								<aligny>center</aligny>
+								<label>$INFO[Window(Home).Property(TMDbHelper.Player.Trakt_Rating)]</label>
+								<textcolor>af3_main_fg_70</textcolor>
+								<font>af3_font_main</font>
+								<visible>[String.IsEqual(VideoPlayer.DBType,tvshow) | String.IsEqual(VideoPlayer.DBType,season) | String.IsEqual(VideoPlayer.DBType,episode)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Trakt_Rating))</visible>
+								<width max="680">auto</width>
+								<textoffsetx>0</textoffsetx>
+								<texturefocus/>
+								<texturenofocus/>
+								<align>left</align>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="group">
+								<visible>[String.IsEqual(VideoPlayer.DBType,tvshow) | String.IsEqual(VideoPlayer.DBType,season) | String.IsEqual(VideoPlayer.DBType,episode)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Trakt_Rating))</visible>
+								<width>-4</width>
+							</control>
+							<control type="image">
+								<width>32</width>
+								<height>40</height>
+								<aspectratio align="center" aligny="center">keep</aspectratio>
+								<aligny>center</aligny>
+								<texture colordiffuse="af3_main_fg_90">af3/flags/monochrome/ratings/metacritic.png</texture>
+								<visible>[String.IsEqual(VideoPlayer.DBType,tvshow) | String.IsEqual(VideoPlayer.DBType,season) | String.IsEqual(VideoPlayer.DBType,episode)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.MetaCritic_Rating))</visible>
+								<bordersize>0</bordersize>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<height>40</height>
+								<aligny>center</aligny>
+								<label>$INFO[Window(Home).Property(TMDbHelper.Player.MetaCritic_Rating),,%]</label>
+								<textcolor>af3_main_fg_70</textcolor>
+								<font>af3_font_main</font>
+								<visible>[String.IsEqual(VideoPlayer.DBType,tvshow) | String.IsEqual(VideoPlayer.DBType,season) | String.IsEqual(VideoPlayer.DBType,episode)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.MetaCritic_Rating))</visible>
+								<width max="680">auto</width>
+								<textoffsetx>0</textoffsetx>
+								<texturefocus/>
+								<texturenofocus/>
+								<align>left</align>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="group">
+								<visible>[String.IsEqual(VideoPlayer.DBType,tvshow) | String.IsEqual(VideoPlayer.DBType,season) | String.IsEqual(VideoPlayer.DBType,episode)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.MetaCritic_Rating))</visible>
+								<width>-4</width>
+							</control>
+							<control type="image">
+								<width>32</width>
+								<height>40</height>
+								<aspectratio align="center" aligny="center">keep</aspectratio>
+								<aligny>center</aligny>
+								<texture colordiffuse="af3_main_fg_90">af3/extras/icons/compact-disc.png</texture>
+								<visible>[String.IsEqual(VideoPlayer.DBType,album) | String.IsEqual(VideoPlayer.DBType,song)] + !String.IsEmpty(VideoPlayer.Album)</visible>
+								<bordersize>-12</bordersize>
+							</control>
+							<control type="label">
+								<left>-12</left>
+								<height>40</height>
+								<aligny>center</aligny>
+								<label>$INFO[VideoPlayer.Album]</label>
+								<textcolor>af3_main_fg_70</textcolor>
+								<font>af3_font_main</font>
+								<visible>[String.IsEqual(VideoPlayer.DBType,album) | String.IsEqual(VideoPlayer.DBType,song)] + !String.IsEmpty(VideoPlayer.Album)</visible>
+								<width max="680">auto</width>
+								<textoffsetx>0</textoffsetx>
+								<texturefocus/>
+								<texturenofocus/>
+								<align>left</align>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="group">
+								<visible>[String.IsEqual(VideoPlayer.DBType,album) | String.IsEqual(VideoPlayer.DBType,song)] + !String.IsEmpty(VideoPlayer.Album)</visible>
+								<width>-4</width>
+							</control>
+							<control type="image">
+								<width>32</width>
+								<height>40</height>
+								<aspectratio align="center" aligny="center">keep</aspectratio>
+								<aligny>center</aligny>
+								<texture colordiffuse="af3_main_fg_90">af3/extras/icons/cake-candles.png</texture>
+								<visible>[String.IsEqual(VideoPlayer.DBType,actor) | String.IsEqual(VideoPlayer.DBType,artist) | String.IsEqual(VideoPlayer.Property(tmdb_type),person)] + !String.IsEmpty(VideoPlayer.Property(birthday))</visible>
+								<bordersize>-12</bordersize>
+							</control>
+							<control type="label">
+								<left>-12</left>
+								<height>40</height>
+								<aligny>center</aligny>
+								<label>$INFO[VideoPlayer.Property(birthday)]</label>
+								<textcolor>af3_main_fg_70</textcolor>
+								<font>af3_font_main</font>
+								<visible>[String.IsEqual(VideoPlayer.DBType,actor) | String.IsEqual(VideoPlayer.DBType,artist) | String.IsEqual(VideoPlayer.Property(tmdb_type),person)] + !String.IsEmpty(VideoPlayer.Property(birthday))</visible>
+								<width max="680">auto</width>
+								<textoffsetx>0</textoffsetx>
+								<texturefocus/>
+								<texturenofocus/>
+								<align>left</align>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="group">
+								<visible>[String.IsEqual(VideoPlayer.DBType,actor) | String.IsEqual(VideoPlayer.DBType,artist) | String.IsEqual(VideoPlayer.Property(tmdb_type),person)] + !String.IsEmpty(VideoPlayer.Property(birthday))</visible>
+								<width>-4</width>
+							</control>
+							<control type="image">
+								<width>32</width>
+								<height>40</height>
+								<aspectratio align="center" aligny="center">keep</aspectratio>
+								<aligny>center</aligny>
+								<texture colordiffuse="af3_main_fg_90">af3/extras/icons/cross.png</texture>
+								<visible>[String.IsEqual(VideoPlayer.DBType,actor) | String.IsEqual(VideoPlayer.DBType,artist) | String.IsEqual(VideoPlayer.Property(tmdb_type),person)] + !String.IsEmpty(VideoPlayer.Property(deathday))</visible>
+								<bordersize>-12</bordersize>
+							</control>
+							<control type="label">
+								<left>-12</left>
+								<height>40</height>
+								<aligny>center</aligny>
+								<label>$INFO[VideoPlayer.Property(deathday)]</label>
+								<textcolor>af3_main_fg_70</textcolor>
+								<font>af3_font_main</font>
+								<visible>[String.IsEqual(VideoPlayer.DBType,actor) | String.IsEqual(VideoPlayer.DBType,artist) | String.IsEqual(VideoPlayer.Property(tmdb_type),person)] + !String.IsEmpty(VideoPlayer.Property(deathday))</visible>
+								<width max="680">auto</width>
+								<textoffsetx>0</textoffsetx>
+								<texturefocus/>
+								<texturenofocus/>
+								<align>left</align>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="group">
+								<visible>[String.IsEqual(VideoPlayer.DBType,actor) | String.IsEqual(VideoPlayer.DBType,artist) | String.IsEqual(VideoPlayer.Property(tmdb_type),person)] + !String.IsEmpty(VideoPlayer.Property(deathday))</visible>
+								<width>-4</width>
+							</control>
+							<control type="image">
+								<width>32</width>
+								<height>40</height>
+								<aspectratio align="center" aligny="center">keep</aspectratio>
+								<aligny>center</aligny>
+								<texture colordiffuse="af3_main_fg_90">af3/flags/monochrome/ratings/ends.png</texture>
+								<visible>!String.IsEmpty(VideoPlayer.ChannelNumberLabel) + !String.IsEmpty(VideoPlayer.StartTime)</visible>
+								<bordersize>0</bordersize>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<height>40</height>
+								<aligny>center</aligny>
+								<label>$INFO[VideoPlayer.StartTime]$INFO[VideoPlayer.EndTime, - ,]</label>
+								<textcolor>af3_main_fg_70</textcolor>
+								<font>af3_font_main</font>
+								<visible>!String.IsEmpty(VideoPlayer.ChannelNumberLabel) + !String.IsEmpty(VideoPlayer.StartTime)</visible>
+								<width max="680">auto</width>
+								<textoffsetx>0</textoffsetx>
+								<texturefocus/>
+								<texturenofocus/>
+								<align>left</align>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="group">
+								<visible>!String.IsEmpty(VideoPlayer.ChannelNumberLabel) + !String.IsEmpty(VideoPlayer.StartTime)</visible>
+								<width>-4</width>
+							</control>
+							<control type="image">
+								<width>32</width>
+								<height>40</height>
+								<aspectratio align="center" aligny="center">keep</aspectratio>
+								<aligny>center</aligny>
+								<texture colordiffuse="af3_main_fg_90">af3/flags/monochrome/ratings/ends.png</texture>
+								<visible>[String.IsEqual(VideoPlayer.DBType,movie) | String.IsEqual(VideoPlayer.DBType,episode) | String.IsEqual(VideoPlayer.DBType,video)] + !String.IsEqual(VideoPlayer.Property(tmdb_type),person) + !String.IsEmpty(VideoPlayer.EndTimeResume)</visible>
+								<bordersize>0</bordersize>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<height>40</height>
+								<aligny>center</aligny>
+								<label>$INFO[VideoPlayer.EndTimeResume,$LOCALIZE[31078] ,]</label>
+								<textcolor>af3_main_fg_70</textcolor>
+								<font>af3_font_main</font>
+								<visible>[String.IsEqual(VideoPlayer.DBType,movie) | String.IsEqual(VideoPlayer.DBType,episode) | String.IsEqual(VideoPlayer.DBType,video)] + !String.IsEqual(VideoPlayer.Property(tmdb_type),person) + !String.IsEmpty(VideoPlayer.EndTimeResume)</visible>
+								<width max="680">auto</width>
+								<textoffsetx>0</textoffsetx>
+								<texturefocus/>
+								<texturenofocus/>
+								<align>left</align>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="group">
+								<visible>[String.IsEqual(VideoPlayer.DBType,movie) | String.IsEqual(VideoPlayer.DBType,episode) | String.IsEqual(VideoPlayer.DBType,video)] + !String.IsEqual(VideoPlayer.Property(tmdb_type),person) + !String.IsEmpty(VideoPlayer.EndTimeResume)</visible>
+								<width>-4</width>
+							</control>
+							<control type="image">
+								<width>32</width>
+								<height>40</height>
+								<aspectratio align="center" aligny="center">keep</aspectratio>
+								<aligny>center</aligny>
+								<texture colordiffuse="af3_main_fg_90">af3/flags/monochrome/ratings/ends.png</texture>
+								<visible>[[VideoPlayer.Content(episodes) | String.StartsWith(Window(Home).Property(dexhub.source.key),series) | String.StartsWith(Window(Home).Property(dexhub.source.key),anime)] | VideoPlayer.Content(movies)] + !String.IsEmpty(VideoPlayer.FinishTime)</visible>
+								<bordersize>0</bordersize>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<height>40</height>
+								<aligny>center</aligny>
+								<label>$INFO[Player.FinishTime,$LOCALIZE[31078] ,]</label>
+								<textcolor>af3_main_fg_70</textcolor>
+								<font>af3_font_main</font>
+								<visible>[[VideoPlayer.Content(episodes) | String.StartsWith(Window(Home).Property(dexhub.source.key),series) | String.StartsWith(Window(Home).Property(dexhub.source.key),anime)] | VideoPlayer.Content(movies)] + !String.IsEmpty(VideoPlayer.FinishTime)</visible>
+								<width max="680">auto</width>
+								<textoffsetx>0</textoffsetx>
+								<texturefocus/>
+								<texturenofocus/>
+								<align>left</align>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="group">
+								<visible>[[VideoPlayer.Content(episodes) | String.StartsWith(Window(Home).Property(dexhub.source.key),series) | String.StartsWith(Window(Home).Property(dexhub.source.key),anime)] | VideoPlayer.Content(movies)] + !String.IsEmpty(VideoPlayer.FinishTime)</visible>
+								<width>-4</width>
+							</control>
+							<control type="image">
+								<width>32</width>
+								<height>40</height>
+								<aspectratio align="center" aligny="center">keep</aspectratio>
+								<aligny>center</aligny>
+								<texture colordiffuse="af3_main_fg_90">$VAR[AF3_Image_Player_Status]</texture>
+								<visible>[String.IsEqual(VideoPlayer.DBType,tvshow) | String.IsEqual(VideoPlayer.DBType,season) | [VideoPlayer.Content(episodes) | String.StartsWith(Window(Home).Property(dexhub.source.key),series) | String.StartsWith(Window(Home).Property(dexhub.source.key),anime)]] + !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Status))</visible>
+								<bordersize>0</bordersize>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<height>40</height>
+								<aligny>center</aligny>
+								<label>$VAR[AF3_Label_Player_Status]$VAR[AF3_Label_Player_StatusDate, ,]</label>
+								<textcolor>af3_main_fg_70</textcolor>
+								<font>af3_font_main</font>
+								<visible>[String.IsEqual(VideoPlayer.DBType,tvshow) | String.IsEqual(VideoPlayer.DBType,season) | [VideoPlayer.Content(episodes) | String.StartsWith(Window(Home).Property(dexhub.source.key),series) | String.StartsWith(Window(Home).Property(dexhub.source.key),anime)]] + !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Status))</visible>
+								<width max="680">auto</width>
+								<textoffsetx>0</textoffsetx>
+								<texturefocus/>
+								<texturenofocus/>
+								<align>left</align>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="group">
+								<visible>[String.IsEqual(VideoPlayer.DBType,tvshow) | String.IsEqual(VideoPlayer.DBType,season) | [VideoPlayer.Content(episodes) | String.StartsWith(Window(Home).Property(dexhub.source.key),series) | String.StartsWith(Window(Home).Property(dexhub.source.key),anime)]] + !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Status))</visible>
+								<width>-4</width>
+							</control>
+							<control type="image">
+								<width>32</width>
+								<height>40</height>
+								<aspectratio align="center" aligny="center">keep</aspectratio>
+								<aligny>center</aligny>
+								<texture colordiffuse="af3_main_fg_90">af3/flags/monochrome/ratings/oscars.png</texture>
+								<visible>[String.IsEqual(VideoPlayer.DBType,movie) | VideoPlayer.Content(movies)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Oscar_Wins))</visible>
+								<bordersize>0</bordersize>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<height>40</height>
+								<aligny>center</aligny>
+								<label>$INFO[Window(Home).Property(TMDbHelper.Player.Oscar_Wins),x,]</label>
+								<textcolor>af3_main_fg_70</textcolor>
+								<font>af3_font_main</font>
+								<visible>[String.IsEqual(VideoPlayer.DBType,movie) | VideoPlayer.Content(movies)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Oscar_Wins))</visible>
+								<width max="680">auto</width>
+								<textoffsetx>0</textoffsetx>
+								<texturefocus/>
+								<texturenofocus/>
+								<align>left</align>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="group">
+								<visible>[String.IsEqual(VideoPlayer.DBType,movie) | VideoPlayer.Content(movies)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Oscar_Wins))</visible>
+								<width>-4</width>
+							</control>
+							<scrolltime tween="quadratic">400</scrolltime>
+							<usecontrolcoords>true</usecontrolcoords>
+						</control>
+					</control>
+					<control type="group" description="Avoid grouplist chop with spacer">
+						<height>40</height>
+					</control>
+					<scrolltime tween="quadratic">400</scrolltime>
+					<usecontrolcoords>true</usecontrolcoords>
+					<itemgap>0</itemgap>
+				</control>
+				<!-- skin.dexhub.tvos 3.18: the network logo at the right end of the column's bottom line -->
+				<include content="DhOverlayStudio"><param name="bottom" value="40" /></include>
+			</control>
+			<!-- skin.dexhub.tvos 3.18: the work logo at the top of the screen when chosen (under the clock line) -->
+			<include content="DhOverlayTopLogo"><param name="top" value="50" /></include>
+		</control>
+	</controls>
+</window>

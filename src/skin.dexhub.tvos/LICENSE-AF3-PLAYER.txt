@@ -1,0 +1,10 @@
+The video player of this skin (VideoFullScreen.xml, DialogSeekBar.xml, VideoOSD.xml,
+VideoOSDBookmarks.xml, DialogFullScreenInfo.xml, Custom_1140 to Custom_1159 and
+Includes_AF3Player.xml), its settings pages and dialogs (Settings*.xml, Dialog*.xml
+but DialogVideoInfo.xml, AddonBrowser.xml, FileBrowser.xml, FileManager.xml, EventLog.xml
+and Includes_AF3Pages.xml), with the media in media/af3, are adapted from Arctic Fuse 3
+by jurialmunkey (https://github.com/jurialmunkey/skin.arctic.fuse.3), as modified by
+ABUKARIM (the PPI player information, the Dolby Vision VS10 picker, the Arabic font sets),
+licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+License (http://creativecommons.org/licenses/by-nc-sa/4.0/). These parts keep that licence.
+The Arabic font files of those font sets come from that copy and keep their own terms.

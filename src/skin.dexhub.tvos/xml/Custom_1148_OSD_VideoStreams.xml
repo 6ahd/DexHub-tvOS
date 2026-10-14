@@ -1,0 +1,529 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<window type="dialog" id="1148">
+	<defaultcontrol always="true">6008</defaultcontrol>
+	<controls>
+		<control type="group">
+			<animation effect="fade" time="200" start="100" end="0" condition="Window.IsActive(1140) | Window.IsActive(1141) | Window.IsActive(1142) | Window.IsActive(videobookmarks) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml)" reversible="false">Conditional</animation>
+			<animation effect="fade" time="200" delay="200" end="100" start="0" condition="![Window.IsActive(1140) | Window.IsActive(1141) | Window.IsActive(1142) | Window.IsActive(videobookmarks) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml)]" reversible="false">Conditional</animation>
+			<left>80</left>
+			<right>80</right>
+			<visible>!Window.IsActive(DialogPlayerProcessInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogSlider.xml)</visible>
+			<control type="group">
+				<visible>!Window.IsVisible(DialogSettings.xml)</visible>
+				<control type="group">
+					<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+					<control type="image">
+						<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+						<left>-80</left>
+						<right>-80</right>
+						<top>-80</top>
+						<bottom>-80</bottom>
+						<bordersize>80</bordersize>
+						<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+					</control>
+					<control type="image">
+						<fadetime>400</fadetime>
+						<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+					</control>
+				</control>
+				<control type="image">
+					<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+				</control>
+				<animation type="Visible" reversible="false" condition="true">
+					<effect type="fade" start="0" end="100" time="300" delay="150"/>
+					<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="150"/>
+				</animation>
+				<animation type="WindowOpen" reversible="false" condition="true">
+					<effect type="fade" start="0" end="100" time="300" delay="400"/>
+					<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="400"/>
+				</animation>
+				<control type="image">
+					<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+				</control>
+				<control type="image">
+					<left>40</left>
+					<right>40</right>
+					<height>1</height>
+					<centerbottom>40</centerbottom>
+					<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+				</control>
+				<right>-40</right>
+				<bottom>220</bottom>
+				<width>520</width>
+				<height>480</height>
+				<control type="group" id="">
+					<height>120</height>
+					<control type="label">
+						<label>$LOCALIZE[157]</label>
+						<textoffsetx>40</textoffsetx>
+						<font>af3_font_midi_bold</font>
+						<aligny>center</aligny>
+						<textcolor>af3_dialog_fg_90</textcolor>
+						<align>left</align>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+					<control type="group" id="">
+						<right>40</right>
+						<centertop>50%</centertop>
+						<height>40</height>
+						<width>40</width>
+						<control type="image">
+							<bordersize>-8</bordersize>
+							<texture colordiffuse="af3_dialog_fg_90">af3/extras/icons/video.png</texture>
+						</control>
+					</control>
+					<control type="image">
+						<bottom>0</bottom>
+						<height>1</height>
+						<left>40</left>
+						<right>40</right>
+						<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+					</control>
+				</control>
+				<control type="group">
+					<top>120</top>
+					<bottom>40</bottom>
+					<control type="grouplist" id="6208">
+						<top>20</top>
+						<bottom>20</bottom>
+						<left>20</left>
+						<right>20</right>
+						<ondown>7800</ondown>
+						<onleft>6008</onleft>
+						<onright>6008</onright>
+						<onup>noop</onup>
+						<orientation>vertical</orientation>
+						<control type="button" id="6805">
+							<label/>
+							<font/>
+							<onclick>Action(PlayerProcessInfo)</onclick>
+							<align>left</align>
+							<height>80</height>
+							<textoffsetx>40</textoffsetx>
+							<texturenofocus/>
+							<alttexturenofocus/>
+							<description>None</description>
+							<aligny>center</aligny>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<focusedcolor>ff272727</focusedcolor>
+							<disabledcolor>af3_main_fg_30</disabledcolor>
+							<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+							<pulseonselect>false</pulseonselect>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+						</control>
+						<control type="group" id="6895">
+							<height>80</height>
+							<top>-80</top>
+							<left>-20</left>
+							<visible>Control.IsEnabled(6805) + Control.IsVisible(6805)</visible>
+							<control type="group">
+								<visible>!Control.HasFocus(6805)</visible>
+								<control type="group">
+									<centertop>50%</centertop>
+									<height>80</height>
+									<control type="grouplist">
+										<visible>!String.IsEmpty(VideoPlayer.VideoResolution) + !Skin.HasSetting(Furniture.DisableCodecLogos)</visible>
+										<orientation>horizontal</orientation>
+										<align>center</align>
+										<itemgap>15</itemgap>
+										<control type="image">
+											<texture background="true" colordiffuse="af3_dialog_fg_90">$INFO[VideoPlayer.VideoResolution,af3/flags/colorful/resolution/,.png]</texture>
+											<aspectratio>keep</aspectratio>
+											<height>110</height>
+											<width>110</width>
+											<centertop>50%</centertop>
+											<visible>!String.IsEmpty(VideoPlayer.VideoResolution)</visible>
+										</control>
+										<control type="image">
+											<texture background="true" colordiffuse="af3_dialog_fg_90">$INFO[VideoPlayer.VideoAspect,af3/flags/colorful/aspectratio/,.png]</texture>
+											<aspectratio>keep</aspectratio>
+											<height>80</height>
+											<width>80</width>
+											<centertop>50%</centertop>
+											<visible>!String.IsEmpty(VideoPlayer.VideoAspect)</visible>
+										</control>
+										<control type="image">
+											<texture background="true" colordiffuse="af3_dialog_fg_90">$INFO[VideoPlayer.VideoCodec,af3/flags/colorful/source/,.png]</texture>
+											<aspectratio>keep</aspectratio>
+											<height>48</height>
+											<width>71</width>
+											<centertop>50%</centertop>
+											<visible>!String.IsEmpty(VideoPlayer.VideoCodec)</visible>
+										</control>
+										<control type="image">
+											<texture background="true" colordiffuse="af3_dialog_fg_90">$INFO[VideoPlayer.AudioCodec,af3/flags/colorful/audio/,.png]</texture>
+											<aspectratio>keep</aspectratio>
+											<height>48</height>
+											<width>71</width>
+											<centertop>50%</centertop>
+											<visible>!String.IsEmpty(VideoPlayer.AudioCodec)</visible>
+										</control>
+										<control type="image" id="77881">
+											<fadetime>100</fadetime>
+											<centertop>50%</centertop>
+											<width>95</width>
+											<height>100</height>
+											<aspectratio align="left">keep</aspectratio>
+											<texture background="true" colordiffuse="af3_dialog_fg_90">$VAR[AF3_Image_RipSource]</texture>
+											<visible>!String.IsEmpty(Control.GetLabel(77881))</visible>
+										</control>
+										<control type="image">
+											<texture background="true" colordiffuse="af3_dialog_fg_90">$INFO[VideoPlayer.AudioChannels,af3/flags/colorful/channels/,.png]</texture>
+											<aspectratio>keep</aspectratio>
+											<height>43</height>
+											<width>65</width>
+											<centertop>50%</centertop>
+											<visible>!String.IsEmpty(VideoPlayer.AudioChannels)</visible>
+										</control>
+										<scrolltime tween="quadratic">400</scrolltime>
+										<usecontrolcoords>true</usecontrolcoords>
+									</control>
+								</control>
+							</control>
+							<control type="group">
+								<visible>Control.HasFocus(6805)</visible>
+								<control type="group">
+									<centertop>50%</centertop>
+									<height>80</height>
+									<control type="grouplist">
+										<visible>!String.IsEmpty(VideoPlayer.VideoResolution) + !Skin.HasSetting(Furniture.DisableCodecLogos)</visible>
+										<orientation>horizontal</orientation>
+										<align>center</align>
+										<itemgap>15</itemgap>
+										<control type="image">
+											<texture background="true" colordiffuse="ff272727">$INFO[VideoPlayer.VideoResolution,af3/flags/colorful/resolution/,.png]</texture>
+											<aspectratio>keep</aspectratio>
+											<height>110</height>
+											<width>110</width>
+											<centertop>50%</centertop>
+											<visible>!String.IsEmpty(VideoPlayer.VideoResolution)</visible>
+										</control>
+										<control type="image">
+											<texture background="true" colordiffuse="ff272727">$INFO[VideoPlayer.VideoAspect,af3/flags/colorful/aspectratio/,.png]</texture>
+											<aspectratio>keep</aspectratio>
+											<height>80</height>
+											<width>80</width>
+											<centertop>50%</centertop>
+											<visible>!String.IsEmpty(VideoPlayer.VideoAspect)</visible>
+										</control>
+										<control type="image">
+											<texture background="true" colordiffuse="ff272727">$INFO[VideoPlayer.VideoCodec,af3/flags/colorful/source/,.png]</texture>
+											<aspectratio>keep</aspectratio>
+											<height>48</height>
+											<width>71</width>
+											<centertop>50%</centertop>
+											<visible>!String.IsEmpty(VideoPlayer.VideoCodec)</visible>
+										</control>
+										<control type="image">
+											<texture background="true" colordiffuse="ff272727">$INFO[VideoPlayer.AudioCodec,af3/flags/colorful/audio/,.png]</texture>
+											<aspectratio>keep</aspectratio>
+											<height>48</height>
+											<width>71</width>
+											<centertop>50%</centertop>
+											<visible>!String.IsEmpty(VideoPlayer.AudioCodec)</visible>
+										</control>
+										<control type="image" id="77881">
+											<fadetime>100</fadetime>
+											<centertop>50%</centertop>
+											<width>95</width>
+											<height>100</height>
+											<aspectratio align="left">keep</aspectratio>
+											<texture background="true" colordiffuse="ff272727">$VAR[AF3_Image_RipSource]</texture>
+											<visible>!String.IsEmpty(Control.GetLabel(77881))</visible>
+										</control>
+										<control type="image">
+											<texture background="true" colordiffuse="ff272727">$INFO[VideoPlayer.AudioChannels,af3/flags/colorful/channels/,.png]</texture>
+											<aspectratio>keep</aspectratio>
+											<height>43</height>
+											<width>65</width>
+											<centertop>50%</centertop>
+											<visible>!String.IsEmpty(VideoPlayer.AudioChannels)</visible>
+										</control>
+										<scrolltime tween="quadratic">400</scrolltime>
+										<usecontrolcoords>true</usecontrolcoords>
+									</control>
+								</control>
+							</control>
+						</control>
+						<scrolltime tween="quadratic">400</scrolltime>
+						<usecontrolcoords>true</usecontrolcoords>
+						<itemgap>0</itemgap>
+					</control>
+					<control type="group">
+						<bottom>20</bottom>
+						<height>160</height>
+						<left>60</left>
+						<right>60</right>
+						<control type="image">
+							<left>-20</left>
+							<right>-20</right>
+							<centertop>-20</centertop>
+							<height>1</height>
+							<texture colordiffuse="af3_main_fg_12">af3/common/white.png</texture>
+						</control>
+						<control type="button" id="7800">
+							<left>-40</left>
+							<right>-40</right>
+							<texturenofocus/>
+							<onup>6805</onup>
+							<ondown>6008</ondown>
+							<height>160</height>
+							<onleft condition="Player.Paused">PlayerControl(Play)</onleft>
+							<onright condition="Player.Paused">PlayerControl(Play)</onright>
+							<onleft condition="Player.TempoEnabled">PlayerControl(TempoDown)</onleft>
+							<onright condition="Player.TempoEnabled">PlayerControl(TempoUp)</onright>
+							<onright condition="!Player.TempoEnabled + !Player.Forwarding32x">PlayerControl(Forward)</onright>
+							<onleft condition="!Player.TempoEnabled + !Player.Rewinding32x">PlayerControl(Rewind)</onleft>
+							<align>center</align>
+							<aligny>center</aligny>
+							<font>af3_font_mini</font>
+							<textoffsetx>30</textoffsetx>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<focusedcolor>ff272727</focusedcolor>
+							<disabledcolor>af3_main_fg_30</disabledcolor>
+							<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+							<pulseonselect>false</pulseonselect>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+						</control>
+						<control type="group">
+							<visible>!Control.HasFocus(7800)</visible>
+							<control type="label">
+								<font>af3_font_tiny_bold</font>
+								<label>$LOCALIZE[31064]</label>
+								<textcolor>af3_dialog_fg_90</textcolor>
+								<align>left</align>
+								<height>70</height>
+								<top>0</top>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<include condition="!Player.TempoEnabled">af3_dyn_8</include>
+							<include condition="Player.TempoEnabled">af3_dyn_9</include>
+							<control type="image">
+								<colordiffuse>af3_dialog_fg_06</colordiffuse>
+								<texture border="12,0,12,0">af3/progress/progress-nib.png</texture>
+								<centertop>50%</centertop>
+								<height>12</height>
+							</control>
+							<control type="group">
+								<left>6</left>
+								<centertop>50%</centertop>
+								<height>24</height>
+								<width>24</width>
+								<animation effect="slide" end="52" condition="Player.TempoEnabled + String.IsEqual(Player.PlaySpeed,0.90)">Conditional</animation>
+								<animation effect="slide" end="104" condition="Player.TempoEnabled + [String.IsEqual(Player.PlaySpeed,1.00) | String.IsEqual(Player.PlaySpeed,0.00)]">Conditional</animation>
+								<animation effect="slide" end="156" condition="Player.TempoEnabled + String.IsEqual(Player.PlaySpeed,1.10)">Conditional</animation>
+								<animation effect="slide" end="208" condition="Player.TempoEnabled + String.IsEqual(Player.PlaySpeed,1.20)">Conditional</animation>
+								<animation effect="slide" end="260" condition="Player.TempoEnabled + String.IsEqual(Player.PlaySpeed,1.30)">Conditional</animation>
+								<animation effect="slide" end="312" condition="Player.TempoEnabled + String.IsEqual(Player.PlaySpeed,1.40)">Conditional</animation>
+								<animation effect="slide" end="364" condition="Player.TempoEnabled + String.IsEqual(Player.PlaySpeed,1.50)">Conditional</animation>
+								<animation effect="slide" end="-8" condition="!Player.TempoEnabled + Player.Rewinding32x">Conditional</animation>
+								<animation effect="slide" end="30" condition="!Player.TempoEnabled + Player.Rewinding16x">Conditional</animation>
+								<animation effect="slide" end="68" condition="!Player.TempoEnabled + Player.Rewinding8x">Conditional</animation>
+								<animation effect="slide" end="106" condition="!Player.TempoEnabled + Player.Rewinding4x">Conditional</animation>
+								<animation effect="slide" end="144" condition="!Player.TempoEnabled + Player.Rewinding2x">Conditional</animation>
+								<animation effect="slide" end="182" condition="!Player.TempoEnabled + !Player.Rewinding + !Player.Forwarding">Conditional</animation>
+								<animation effect="slide" end="220" condition="!Player.TempoEnabled + Player.Forwarding2x">Conditional</animation>
+								<animation effect="slide" end="258" condition="!Player.TempoEnabled + Player.Forwarding4x">Conditional</animation>
+								<animation effect="slide" end="296" condition="!Player.TempoEnabled + Player.Forwarding8x">Conditional</animation>
+								<animation effect="slide" end="334" condition="!Player.TempoEnabled + Player.Forwarding16x">Conditional</animation>
+								<animation effect="slide" end="372" condition="!Player.TempoEnabled + Player.Forwarding32x">Conditional</animation>
+								<control type="image">
+									<colordiffuse>af3_dialog_fg_100</colordiffuse>
+									<texture>af3/common/circle.png</texture>
+								</control>
+								<control type="image">
+									<centerleft>50%</centerleft>
+									<bottom>-12</bottom>
+									<height>16</height>
+									<width>16</width>
+									<colordiffuse>af3_dialog_fg_100</colordiffuse>
+									<texture flipy="true">af3/arrows/arrow-menu-up.png</texture>
+								</control>
+							</control>
+						</control>
+						<control type="group">
+							<visible>Control.HasFocus(7800)</visible>
+							<control type="label">
+								<font>af3_font_tiny_bold</font>
+								<label>$LOCALIZE[31064]</label>
+								<textcolor>ff272727</textcolor>
+								<align>left</align>
+								<height>70</height>
+								<top>0</top>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<include condition="!Player.TempoEnabled">af3_dyn_10</include>
+							<include condition="Player.TempoEnabled">af3_dyn_11</include>
+							<control type="image">
+								<colordiffuse>4d272727</colordiffuse>
+								<texture border="12,0,12,0">af3/progress/progress-nib.png</texture>
+								<centertop>50%</centertop>
+								<height>12</height>
+							</control>
+							<control type="group">
+								<left>6</left>
+								<centertop>50%</centertop>
+								<height>24</height>
+								<width>24</width>
+								<animation effect="slide" end="52" condition="Player.TempoEnabled + String.IsEqual(Player.PlaySpeed,0.90)">Conditional</animation>
+								<animation effect="slide" end="104" condition="Player.TempoEnabled + [String.IsEqual(Player.PlaySpeed,1.00) | String.IsEqual(Player.PlaySpeed,0.00)]">Conditional</animation>
+								<animation effect="slide" end="156" condition="Player.TempoEnabled + String.IsEqual(Player.PlaySpeed,1.10)">Conditional</animation>
+								<animation effect="slide" end="208" condition="Player.TempoEnabled + String.IsEqual(Player.PlaySpeed,1.20)">Conditional</animation>
+								<animation effect="slide" end="260" condition="Player.TempoEnabled + String.IsEqual(Player.PlaySpeed,1.30)">Conditional</animation>
+								<animation effect="slide" end="312" condition="Player.TempoEnabled + String.IsEqual(Player.PlaySpeed,1.40)">Conditional</animation>
+								<animation effect="slide" end="364" condition="Player.TempoEnabled + String.IsEqual(Player.PlaySpeed,1.50)">Conditional</animation>
+								<animation effect="slide" end="-8" condition="!Player.TempoEnabled + Player.Rewinding32x">Conditional</animation>
+								<animation effect="slide" end="30" condition="!Player.TempoEnabled + Player.Rewinding16x">Conditional</animation>
+								<animation effect="slide" end="68" condition="!Player.TempoEnabled + Player.Rewinding8x">Conditional</animation>
+								<animation effect="slide" end="106" condition="!Player.TempoEnabled + Player.Rewinding4x">Conditional</animation>
+								<animation effect="slide" end="144" condition="!Player.TempoEnabled + Player.Rewinding2x">Conditional</animation>
+								<animation effect="slide" end="182" condition="!Player.TempoEnabled + !Player.Rewinding + !Player.Forwarding">Conditional</animation>
+								<animation effect="slide" end="220" condition="!Player.TempoEnabled + Player.Forwarding2x">Conditional</animation>
+								<animation effect="slide" end="258" condition="!Player.TempoEnabled + Player.Forwarding4x">Conditional</animation>
+								<animation effect="slide" end="296" condition="!Player.TempoEnabled + Player.Forwarding8x">Conditional</animation>
+								<animation effect="slide" end="334" condition="!Player.TempoEnabled + Player.Forwarding16x">Conditional</animation>
+								<animation effect="slide" end="372" condition="!Player.TempoEnabled + Player.Forwarding32x">Conditional</animation>
+								<control type="image">
+									<colordiffuse>ff272727</colordiffuse>
+									<texture>af3/common/circle.png</texture>
+								</control>
+								<control type="image">
+									<centerleft>50%</centerleft>
+									<bottom>-12</bottom>
+									<height>16</height>
+									<width>16</width>
+									<colordiffuse>ff272727</colordiffuse>
+									<texture flipy="true">af3/arrows/arrow-menu-up.png</texture>
+								</control>
+							</control>
+						</control>
+					</control>
+				</control>
+			</control>
+			<control type="grouplist">
+				<onright condition="!Control.IsVisible(6016) + !Control.IsVisible(6015)">6005</onright><onright condition="!Control.IsVisible(6016) + Control.IsVisible(6015)">6015</onright><onright condition="Control.IsVisible(6016)">6016</onright><onleft condition="!Control.IsVisible(6009)">6008</onleft><onleft condition="Control.IsVisible(6009)">6009</onleft><height>120</height>
+				<left>-20</left>
+				<centerbottom>80</centerbottom>
+				<orientation>horizontal</orientation>
+				<itemgap>37</itemgap>
+				<align>left</align>
+				<control type="button" id="6001">
+					<width>80</width>
+					<texturefocus/>
+					<texturenofocus/>
+					<font/>
+					<label/>
+					<onfocus>Close</onfocus>
+					<onfocus>SetFocus(6001)</onfocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>30</textoffsetx>
+					<textcolor>af3_main_fg_70</textcolor>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<focusedcolor>ff272727</focusedcolor>
+					<disabledcolor>af3_main_fg_30</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+				<onleft condition="Control.IsVisible(6009)">6009</onleft><onleft condition="!Control.IsVisible(6009)">6008</onleft><onright>6002</onright></control>
+				<control type="button" id="6002">
+					<width>80</width>
+					<texturefocus/>
+					<texturenofocus/>
+					<font/>
+					<label/>
+					<onfocus>Close</onfocus>
+					<onfocus>SetFocus(6002)</onfocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>30</textoffsetx>
+					<textcolor>af3_main_fg_70</textcolor>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<focusedcolor>ff272727</focusedcolor>
+					<disabledcolor>af3_main_fg_30</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+				<onleft>6001</onleft><onright>6003</onright></control>
+				<control type="button" id="6003">
+					<width>80</width>
+					<texturefocus/>
+					<texturenofocus/>
+					<font/>
+					<label/>
+					<onfocus>Close</onfocus>
+					<onfocus>SetFocus(6003)</onfocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>30</textoffsetx>
+					<textcolor>af3_main_fg_70</textcolor>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<focusedcolor>ff272727</focusedcolor>
+					<disabledcolor>af3_main_fg_30</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+				<onleft>6002</onleft><onright>6004</onright></control>
+				<control type="button" id="6004">
+					<width>80</width>
+					<texturefocus/>
+					<texturenofocus/>
+					<font/>
+					<label/>
+					<onfocus>Close</onfocus>
+					<onfocus>SetFocus(6004)</onfocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>30</textoffsetx>
+					<textcolor>af3_main_fg_70</textcolor>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<focusedcolor>ff272727</focusedcolor>
+					<disabledcolor>af3_main_fg_30</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+				<onleft>6003</onleft><onright condition="Control.IsVisible(6016)">6016</onright><onright condition="!Control.IsVisible(6016) + Control.IsVisible(6015)">6015</onright><onright condition="!Control.IsVisible(6016) + !Control.IsVisible(6015)">6005</onright></control>
+				<scrolltime tween="quadratic">400</scrolltime>
+				<usecontrolcoords>true</usecontrolcoords>
+			</control>
+			<!-- dhs osd slots v1 (skin 3.28.40, Dex Hub 5.10.288) -->
+			<!-- the OSD's own buttons stay drawn under this panel, in the order chosen in Player buttons; this holder keeps the panel's actions, Left/Right close it and focus the neighbour slot -->
+			<control type="button" id="6008">
+				<right>0</right>
+				<bottom>0</bottom>
+				<width>1</width>
+				<height>1</height>
+				<texturefocus />
+				<texturenofocus />
+				<font />
+				<label />
+				<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
+				<onclick>ActivateWindow(osdvideosettings)</onclick>
+				<onup>SetFocus(7800)</onup>
+				<ondown>ActivateWindow($VAR[AF3_Action_OSD_Main_OnDown])</ondown>
+				<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
+				<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
+				<onleft>Close</onleft>
+				<onleft>SetFocus($VAR[DhOsdPrev_video])</onleft>
+				<onright>Close</onright>
+				<onright>SetFocus($VAR[DhOsdNext_video])</onright>
+			</control>
+		</control>
+	</controls>
+</window>

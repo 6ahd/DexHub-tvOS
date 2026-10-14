@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<addon id="skin.dexhub.tvos" version="3.28.42" name="Dex Hub Skin (Apple TV)" provider-name="DexWorld">
+    <requires>
+        <import addon="xbmc.gui" version="5.17.0" />
+        <import addon="plugin.video.dexhub.tvos" version="5.10.160" optional="true" />
+        <import addon="script.dexhub.tvos.players" version="1.0.1" />
+    </requires>
+    <extension point="xbmc.gui.skin" debugging="false">
+        <res width="1920" height="1440" aspect="4:3" default="false" folder="xml" />
+        <res width="1920" height="1280" aspect="3:2" default="false" folder="xml" />
+        <res width="1920" height="1200" aspect="16:10" default="false" folder="xml" />
+        <res width="2040" height="1080" aspect="17:9" default="false" folder="xml" />
+        <res width="1920" height="1080" aspect="16:9" default="true" folder="xml" />
+        <res width="2560" height="1080" aspect="21:9" default="false" folder="xml" />
+        <res width="2338" height="1080" aspect="19.5:9" default="false" folder="xml" />
+        <res width="2160" height="1080" aspect="18:9" default="false" folder="xml" />
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="en_GB">Dex Hub: a light, modern Kodi skin built around Dex Hub</summary>
+        <summary lang="ar_SA">Dex Hub: سكين كودي خفيف وعصري مبني حول Dex Hub</summary>
+        <description lang="en_GB">Dex Hub's Home drawn by Kodi itself: a moving spotlight with trailers, your Dex Hub rows, collection animations, the video playing behind the Home on the whole page, your Nuvio profile, Dex Hub's title pages and grids. The video player, the settings pages and Kodi's dialogs are Arctic Fuse 3's, with ABUKARIM's CoreELEC player tools (PPI, Dolby Vision VS10) and his Arabic font sets.</description>
+        <description lang="ar_SA">رئيسية Dex Hub يرسمها كودي نفسه: بانر متحرك مع التريلر، صفوف Dex Hub، حركة المجموعات، الفيديو الذي يعمل في الخلفية على الصفحة كاملة، بروفايل Nuvio، صفحات الأعمال والكتالوجات. المشغل وصفحات الإعدادات ونوافذ كودي من Arctic Fuse 3، مع أدوات كورليك من ABUKARIM (PPI و Dolby Vision VS10) وخطوطه العربية.</description>
+        <disclaimer lang="en_GB">Based on Estuary (Team Kodi). The video player, settings pages and dialogs are Arctic Fuse 3's by jurialmunkey (CC BY-NC-SA 4.0), from ABUKARIM's modified copy. Fonts: Inter with IBM Plex Sans Arabic, League Spartan, Font Awesome 6 Free (SIL Open Font License); the Arabic font sets come from that copy under their own terms.</disclaimer>
+        <license>CC BY-SA 4.0 (Estuary), CC BY-NC-SA 4.0 (Arctic Fuse 3 player), GNU GENERAL PUBLIC LICENSE Version 2.0</license>
+        <forum>https://dexworld.cc</forum>
+        <news>Sync subtitle and Next subtitle always shown in the player bar; they call Dex Hub, which uses DexSubtitles when it is installed. Pairs with Dex Hub 5.10.290. Apple TV player dependencies are retained.</news>
+        <assets>
+            <icon>resources/icon.png</icon>
+            <fanart>resources/fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dex Hub theme Royal Violet (skin.dexhub.tvos 3.14.0): the colours over defaults.xml -->
+<colors>
+	<color name="primary_background">FF0E0A16</color>
+	<color name="secondary_background">331D1430</color>
+	<color name="dialog_tint">FF160F23</color>
+	<color name="background">FF08060C</color>
+	<color name="white">FFF1EDFB</color>
+	<color name="grey">FF8B84A6</color>
+	<color name="blue">FFC4B5FD</color>
+	<color name="button_focus">FF8B5CF6</color>
+	<color name="button_alt_focus">808B5CF6</color>
+	<color name="selected">FFA885F8</color>
+	<color name="dh_accent">FF8B5CF6</color>
+	<color name="dh_accent_dim">478B5CF6</color>
+	<color name="dh_secondary">FFC4B5FD</color>
+	<color name="dh_surface">FF0E0A16</color>
+	<color name="dh_card">FF1D1430</color>
+	<color name="dh_text">FFF1EDFB</color>
+	<color name="dh_muted">FF8B84A6</color>
+	<color name="dh_on_accent">FFFFFFFF</color>
+	<color name="dh_glow_a">5C8B5CF6</color>
+	<color name="dh_glow_b">40C4B5FD</color>
+	<color name="dh_glow_focus">998B5CF6</color>
+</colors>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dex Hub theme Black Aqua (skin.dexhub.tvos 3.14.0): the colours over defaults.xml -->
+<colors>
+	<color name="primary_background">FF000000</color>
+	<color name="secondary_background">330E1416</color>
+	<color name="dialog_tint">FF070A0B</color>
+	<color name="background">FF000000</color>
+	<color name="white">FFF0FAFB</color>
+	<color name="grey">FF86979B</color>
+	<color name="blue">FF80DEEA</color>
+	<color name="button_focus">FF00B8D4</color>
+	<color name="button_alt_focus">8000B8D4</color>
+	<color name="selected">FF40CADF</color>
+	<color name="dh_accent">FF00B8D4</color>
+	<color name="dh_accent_dim">4700B8D4</color>
+	<color name="dh_secondary">FF80DEEA</color>
+	<color name="dh_surface">FF000000</color>
+	<color name="dh_card">FF0E1416</color>
+	<color name="dh_text">FFF0FAFB</color>
+	<color name="dh_muted">FF86979B</color>
+	<color name="dh_on_accent">FF000000</color>
+	<color name="dh_glow_a">5C00B8D4</color>
+	<color name="dh_glow_b">4080DEEA</color>
+	<color name="dh_glow_focus">9900B8D4</color>
+</colors>

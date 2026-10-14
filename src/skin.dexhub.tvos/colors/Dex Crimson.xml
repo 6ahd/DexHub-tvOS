@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dex Hub theme Dex Crimson (skin.dexhub.tvos 3.14.0): the colours over defaults.xml -->
+<colors>
+	<color name="primary_background">FF0D0D12</color>
+	<color name="secondary_background">331B1B24</color>
+	<color name="dialog_tint">FF14141B</color>
+	<color name="background">FF07070A</color>
+	<color name="white">FFF2F2F7</color>
+	<color name="grey">FF8E94A6</color>
+	<color name="blue">FFF2A0A8</color>
+	<color name="button_focus">FFE04355</color>
+	<color name="button_alt_focus">80E04355</color>
+	<color name="selected">FFE87280</color>
+	<color name="dh_accent">FFE04355</color>
+	<color name="dh_accent_dim">47E04355</color>
+	<color name="dh_secondary">FFF2A0A8</color>
+	<color name="dh_surface">FF0D0D12</color>
+	<color name="dh_card">FF1B1B24</color>
+	<color name="dh_text">FFF2F2F7</color>
+	<color name="dh_muted">FF8E94A6</color>
+	<color name="dh_on_accent">FFFFFFFF</color>
+	<color name="dh_glow_a">5CE04355</color>
+	<color name="dh_glow_b">40F2A0A8</color>
+	<color name="dh_glow_focus">99E04355</color>
+</colors>

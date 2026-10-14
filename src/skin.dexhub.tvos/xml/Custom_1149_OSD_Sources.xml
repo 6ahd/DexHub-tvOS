@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 3.28.12: the player's Sources panel (Dex Hub 5.10.243). The list is the
+     title's sources as Dex Hub found them last time, the one playing first;
+     OK plays another one from the same point. -->
+<window type="dialog" id="1149">
+	<defaultcontrol always="true">6209</defaultcontrol>
+	<onload>SetProperty(UID,$INFO[System.Time(hh:mm:ss)])</onload>
+	<controls>
+		<control type="group">
+			<animation type="WindowOpen" reversible="false">
+				<effect type="fade" start="0" end="100" time="250"/>
+				<effect type="slide" start="0,48" end="0" tween="back" easing="out" time="350"/>
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="fade" start="100" end="0" time="150"/>
+			</animation>
+			<right>80</right>
+			<width>1040</width>
+			<bottom>220</bottom>
+			<height>820</height>
+			<control type="group">
+				<animation effect="fade" start="100" end="92" condition="true">Conditional</animation>
+				<control type="image">
+					<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+					<left>-80</left>
+					<right>-80</right>
+					<top>-80</top>
+					<bottom>-80</bottom>
+					<bordersize>80</bordersize>
+					<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+				</control>
+				<control type="image">
+					<fadetime>400</fadetime>
+					<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+				</control>
+			</control>
+			<control type="image">
+				<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+			</control>
+			<control type="image">
+				<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+			</control>
+			<!-- header -->
+			<control type="group">
+				<height>120</height>
+				<control type="label">
+					<left>40</left>
+					<right>300</right>
+					<label>$VAR[DhSourcesTitle]</label>
+					<font>af3_font_midi_bold</font>
+					<aligny>center</aligny>
+					<textcolor>af3_dialog_fg_90</textcolor>
+				</control>
+				<control type="label">
+					<right>100</right>
+					<width>300</width>
+					<align>right</align>
+					<aligny>center</aligny>
+					<label>$INFO[Container(6209).NumItems]</label>
+					<font>af3_font_mini_bold</font>
+					<textcolor>af3_dialog_fg_70</textcolor>
+				</control>
+				<control type="image">
+					<right>40</right>
+					<centertop>50%</centertop>
+					<height>40</height>
+					<width>40</width>
+					<bordersize>-8</bordersize>
+					<texture colordiffuse="af3_dialog_fg_90">af3/extras/icons/network.png</texture>
+				</control>
+				<control type="image">
+					<bottom>0</bottom>
+					<height>1</height>
+					<left>40</left>
+					<right>40</right>
+					<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+				</control>
+			</control>
+			<control type="label">
+				<top>120</top>
+				<bottom>40</bottom>
+				<left>40</left>
+				<right>40</right>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>af3_font_main</font>
+				<textcolor>af3_dialog_fg_70</textcolor>
+				<label>$VAR[DhSourcesEmpty]</label>
+				<visible>Integer.IsEqual(Container(6209).NumItems,0) + !Container(6209).IsUpdating</visible>
+			</control>
+			<control type="panel" id="6209">
+				<top>140</top>
+				<bottom>40</bottom>
+				<onleft>Close</onleft>
+				<onright>6309</onright>
+				<ondown>noop</ondown>
+				<onup>noop</onup>
+				<pagecontrol>6309</pagecontrol>
+				<orientation>vertical</orientation>
+				<scrolltime tween="quadratic">250</scrolltime>
+				<itemlayout height="104">
+					<control type="group">
+						<left>20</left>
+						<right>20</right>
+						<include content="DhSourceRow">
+							<param name="fg">af3_dialog_fg_90</param>
+							<param name="dim">af3_dialog_fg_70</param>
+						</include>
+					</control>
+				</itemlayout>
+				<focusedlayout height="104">
+					<control type="group">
+						<left>20</left>
+						<right>20</right>
+						<control type="image">
+							<texture border="40" colordiffuse="ffffffff">af3/common/menu.png</texture>
+						</control>
+						<include content="DhSourceRow">
+							<param name="fg">ff272727</param>
+							<param name="dim">aa272727</param>
+						</include>
+					</control>
+				</focusedlayout>
+				<content>plugin://plugin.video.dexhub.tvos/?action=skin_osd_sources&amp;reload=$INFO[Window.Property(UID)]</content>
+				<onclick>RunPlugin($INFO[ListItem.FileNameAndPath])</onclick>
+			</control>
+			<control type="scrollbar" id="6309">
+				<top>140</top>
+				<bottom>40</bottom>
+				<onleft>6209</onleft>
+				<onright>Close</onright>
+				<centerright>0</centerright>
+				<width>10</width>
+				<showonepage>false</showonepage>
+				<texturesliderbackground/>
+				<texturesliderbar colordiffuse="af3_dialog_fg_70" border="4">af3/scrollbar/scrollv_line.png</texturesliderbar>
+				<texturesliderbarfocus border="4" colordiffuse="ffffffff">af3/common/scrollv.png</texturesliderbarfocus>
+				<textureslidernib/>
+				<textureslidernibfocus/>
+				<orientation>vertical</orientation>
+			</control>
+		</control>
+	</controls>
+</window>

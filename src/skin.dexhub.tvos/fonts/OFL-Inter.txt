@@ -1,0 +1,8 @@
+Copyright (c) 2016 The Inter Project Authors (https://github.com/rsms/inter)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is available with a FAQ at: https://openfontlicense.org
+
+The fonts in this folder are Inter with glyphs added from IBM Plex Sans Arabic
+(Copyright 2017 IBM Corp., SIL Open Font License 1.1); they are Modified
+Versions under the licence and keep its terms.

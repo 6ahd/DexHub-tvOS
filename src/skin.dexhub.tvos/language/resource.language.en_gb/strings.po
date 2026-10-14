@@ -1,0 +1,2200 @@
+# Kodi Media Center language file
+# Addon Name: Estuary
+# Addon id: skin.estuary
+# Addon Provider: phil65, Ichabod Fletchman
+msgid ""
+msgstr ""
+"Project-Id-Version: KODI Main\n"
+"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Kodi Translation Team\n"
+"Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/kodi-main/language/en_GB/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en_GB\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "Addon Summary"
+msgid "Estuary skin by phil65. (Kodi's default skin)"
+msgstr ""
+
+msgctxt "Addon Description"
+msgid "Estuary is the default skin for Kodi 17.0 and above. It attempts to be easy for first time Kodi users to understand and use."
+msgstr ""
+
+msgctxt "Addon Disclaimer"
+msgid "Estuary is the default skin for Kodi, removing it may cause issues"
+msgstr ""
+
+#: /xml/Home.xml /xml/DialogSeekBar.xml
+msgctxt "#31000"
+msgid "Now playing"
+msgstr ""
+
+#: /xml/Home.xml
+msgctxt "#31001"
+msgid "Search..."
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#31002"
+msgid "Show media fanart as background"
+msgstr ""
+
+#: /xml/DialogVideoInfo.xml
+msgctxt "#31003"
+msgid "Cinema mode"
+msgstr ""
+
+#: /xml/VideoOSD.xml
+msgctxt "#31004"
+msgid "Change mode"
+msgstr ""
+
+#: /xml/VideoOSD.xml
+msgctxt "#31005"
+msgid "Watch as 2D"
+msgstr ""
+
+#: /xml/Home.xml
+msgctxt "#31006"
+msgid "Random movies"
+msgstr ""
+
+#: /xml/Home.xml
+msgctxt "#31007"
+msgid "Unwatched movies"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#31008"
+msgid "Enable category widgets"
+msgstr ""
+
+#: /xml/MyVideoNav.xml
+msgctxt "#31009"
+msgid "Download icons"
+msgstr ""
+
+#: /xml/Home.xml
+msgctxt "#31010"
+msgid "In progress movies"
+msgstr ""
+
+#: /xml/Home.xml
+msgctxt "#31011"
+msgid "Most played albums"
+msgstr ""
+
+#: /xml/Home.xml
+msgctxt "#31012"
+msgid "Random albums"
+msgstr ""
+
+#: /xml/Home.xml
+msgctxt "#31013"
+msgid "Random artists"
+msgstr ""
+
+#: /xml/Home.xml
+msgctxt "#31014"
+msgid "Unplayed albums"
+msgstr ""
+
+#. home screen recordings widget: recent tv / radio recordings
+#: /xml/Home.xml
+msgctxt "#31015"
+msgid "Recent recordings"
+msgstr ""
+
+#. home screen channel widget: recently played tv channels. (please note that in some non-english languages #31018 and #31016 might not be equal)
+#: /xml/Home.xml
+msgctxt "#31016"
+msgid "Recently played channels"
+msgstr ""
+
+#: /xml/DialogVideoInfo.xml
+msgctxt "#31017"
+msgid "Rated"
+msgstr ""
+
+#. home screen channel widget: recently played radio channels. (please note that in some non-english languages #31018 and #31016 might not be equal)
+#: /xml/Home.xml
+msgctxt "#31018"
+msgid "Recently played channels"
+msgstr ""
+
+#: /xml/Home.xml /xml/MyWeather.xml
+msgctxt "#31019"
+msgid "Forecast"
+msgstr ""
+
+#: /xml/MyMusicNav.xml /xml/MyPics.xml /xml/MyVideoNav.xml
+msgctxt "#31020"
+msgid "Actions"
+msgstr ""
+
+#: /xml/AddonBrowser.xml /xml/DialogPVRChannelManager.xml /xml/Includes_MediaMenu.xml /xml/EventLog.xml
+msgctxt "#31021"
+msgid "Misc options"
+msgstr ""
+
+#: /xml/Includes_MediaMenu.xml /xml/Includes.xml
+msgctxt "#31022"
+msgid "Sort by"
+msgstr ""
+
+#: /xml/Includes_MediaMenu.xml
+msgctxt "#31023"
+msgid "Viewtype"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#31024"
+msgid "Choose rating to display for media items"
+msgstr ""
+
+#: /xml/DialogFavourites.xml
+msgctxt "#31025"
+msgid "No favourites found. You can add any item from media views to this list by using the context menu."
+msgstr ""
+
+#: /xml/DialogSeekBar.xml
+msgctxt "#31026"
+msgid "Timeshift"
+msgstr ""
+
+msgctxt "#31027"
+msgid "Next aired"
+msgstr ""
+
+#: /xml/DialogAlbumInfo.xml /xml/DialogVideoInfo.xml
+msgctxt "#31028"
+msgid "Show fanart"
+msgstr ""
+
+#: /xml/SettingsProfile.xml
+msgctxt "#31029"
+msgid "Last logged in"
+msgstr ""
+
+#: /xml/SettingsSystemInfo.xml
+#: /xml/DialogPlayerProcessInfo.xml
+#. Label to show the system memory usage
+msgctxt "#31030"
+msgid "System memory usage"
+msgstr ""
+
+#: /xml/SettingsSystemInfo.xml
+msgctxt "#31031"
+msgid "Version info"
+msgstr ""
+
+#: /xml/EventLog.xml /xml/Includes_MediaMenu.xml /xml/SmartPlaylistEditor.xml
+msgctxt "#31032"
+msgid "Order"
+msgstr ""
+
+#: /xml/DialogVideoInfo.xml /xml/DialogSongInfo.xml
+msgctxt "#31033"
+msgid "Your rating"
+msgstr ""
+
+#: /xml/DialogVideoInfo.xml
+msgctxt "#31034"
+msgid "Extended info"
+msgstr ""
+
+#: /xml/DialogPVRChannelManager.xml /xml/DialogPVRChannelsOSD.xml /xml/DialogPVRGuideOSD.xml /xml/Variables.xml /xml/FileBrowser.xml
+msgctxt "#31035"
+msgid "Pages"
+msgstr ""
+
+#: /xml/FileBrowser.xml /xml/Variables.xml /xml/MyPVRRecordings.xml
+msgctxt "#31036"
+msgid "items"
+msgstr ""
+
+#: /xml/Includes.xml
+msgctxt "#31037"
+msgid "Selected track"
+msgstr ""
+
+#: /xml/Variables.xml
+msgctxt "#31038"
+msgid "Rewind"
+msgstr ""
+
+#: /xml/Variables.xml
+msgctxt "#31039"
+msgid "Fast forward"
+msgstr ""
+
+#empty string with id 31040
+
+#: /xml/Variables.xml /xml/MyPics.xml
+msgctxt "#31041"
+msgid "Camera manufacturer"
+msgstr ""
+
+#: /xml/SmartPlaylistEditor.xml
+msgctxt "#31042"
+msgid "Playlist options"
+msgstr ""
+
+#: /xml/SmartPlaylistEditor.xml
+msgctxt "#31043"
+msgid "Set the type and add rules to create a smart playlist. These playlists are dynamic and include all media items from your database which apply to your chosen rules."
+msgstr ""
+
+#: /xml/DialogPVRGroupManager.xml
+msgctxt "#31044"
+msgid "Add group"
+msgstr ""
+
+#: /xml/DialogPVRGroupManager.xml
+msgctxt "#31045"
+msgid "Rename group"
+msgstr ""
+
+#: /xml/DialogPVRGroupManager.xml
+msgctxt "#31046"
+msgid "Delete group"
+msgstr ""
+
+#empty string with id 31047
+
+#: /xml/DialogVideoInfo.xml
+msgctxt "#31048"
+msgid "Available"
+msgstr ""
+
+#empty strings from id 31049 to 31051
+
+#: /xml/Includes.xml
+msgctxt "#31052"
+msgid "filtered"
+msgstr ""
+
+#: /xml/Font.xml
+msgctxt "#31053"
+msgid "Arial based"
+msgstr ""
+
+#: /xml/Variables.xml
+msgctxt "#31054"
+msgid "Press [B]Left[/B] to step back, or [B]Right[/B] to step forward"
+msgstr ""
+
+#: /xml/Variables.xml
+msgctxt "#31055"
+msgid "Press [B]Right[/B] to frame advance"
+msgstr ""
+
+#: /xml/MyMusicNav.xml /xml/MyVideoNav.xml
+msgctxt "#31056"
+msgid "Go to playlist"
+msgstr ""
+
+#: /xml/SettingsProfile.xml
+msgctxt "#31057"
+msgid "Show login screen on startup"
+msgstr ""
+
+#: /xml/SettingsProfile.xml
+msgctxt "#31058"
+msgid "Automatic Login on startup"
+msgstr ""
+
+#empty strings from id 31059 to 31060
+
+#: /xml/SkinSettings.xml
+msgctxt "#31061"
+msgid "Main menu items"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#31062"
+msgid "Choose weather fanart pack"
+msgstr ""
+
+#: /xml/Includes_MediaMenu.xml
+msgctxt "#31063"
+msgid "Sections"
+msgstr ""
+
+#empty string with id 31064
+
+#: /xml/MyVideoPlaylist.xml
+msgctxt "#31065"
+msgid "Video playlist"
+msgstr ""
+
+#: /xml/MyMusicPlaylist.xml
+msgctxt "#31066"
+msgid "Music playlist"
+msgstr ""
+
+#: /xml/EventLog.xml
+msgctxt "#31067"
+msgid "Event log"
+msgstr ""
+
+#: /xml/Custom_1105_MusicOSDSettings.xml
+msgctxt "#31068"
+msgid "Choose presets"
+msgstr ""
+
+#: /xml/AddonBrowser.xml
+msgctxt "#31069"
+msgid "Last Updated"
+msgstr ""
+
+#empty string with id 31070
+
+#: /xml/DialogAddonInfo.xml
+msgctxt "#31071"
+msgid "by"
+msgstr ""
+
+#: /xml/DialogButtonMenu.xml /xml/LoginScreen.xml
+msgctxt "#31072"
+msgid "Power Options"
+msgstr ""
+
+#: /xml/MyPlaylist.xml
+msgctxt "#31073"
+msgid "Total length"
+msgstr ""
+
+#: /xml/MyPlaylist.xml
+msgctxt "#31074"
+msgid "Total duration"
+msgstr ""
+
+#: /xml/Home.xml
+msgctxt "#31075"
+msgid "Movie sets"
+msgstr ""
+
+#empty strings from id 31076 to 31078
+
+#: /xml/DialogVideoInfo.xml
+msgctxt "#31079"
+msgid "Cast not available"
+msgstr ""
+
+#: /xml/VideoOSD.xml
+msgctxt "#31080"
+msgid "Ends at"
+msgstr ""
+
+#empty string with id 31081
+
+#: /xml/Custom_1105_MusicOSDSettings.xml
+msgctxt "#31082"
+msgid "Lyrics add-on"
+msgstr ""
+
+#: /xml/Custom_1105_MusicOSDSettings.xml
+msgctxt "#31083"
+msgid "Lyrics add-on settings"
+msgstr ""
+
+#: /xml/Custom_1105_MusicOSDSettings.xml
+msgctxt "#31084"
+msgid "Visualisation settings"
+msgstr ""
+
+#empty strings from id 31085 to 31088
+
+#: /xml/DialogPVRGroupManager.xml
+msgctxt "#31089"
+msgid "Available groups"
+msgstr ""
+
+#empty strings from id 31090 to 31091
+
+#: /xml/VideoOSD.xml /xml/Variables.xml
+msgctxt "#31092"
+msgid "Video menu"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#31093"
+msgid "Show weather info in top bar"
+msgstr ""
+
+#empty string with id 31094
+
+#: /xml/SkinSettings.xml
+msgctxt "#31095"
+msgid "Use slide animations"
+msgstr ""
+
+#: /xml/DialogSubtitles.xml
+msgctxt "#31096"
+msgid "Local subtitle available"
+msgstr ""
+
+#: /xml/DialogPVRChannelManager.xml
+msgctxt "#31097"
+msgid "Channel options"
+msgstr ""
+
+#: /xml/LoginScreen.xml
+msgctxt "#31098"
+msgid "Select your Kodi user profile[CR]to login and continue"
+msgstr ""
+
+#. viewtype name
+#: /xml/View_52_IconWall.xml
+msgctxt "#31099"
+msgid "IconWall"
+msgstr ""
+
+#. viewtype name
+#: /xml/View_53_Shift.xml
+msgctxt "#31100"
+msgid "Shift"
+msgstr ""
+
+#. viewtype name
+#: /xml/View_54_InfoWall.xml
+msgctxt "#31101"
+msgid "InfoWall"
+msgstr ""
+
+#. viewtype name
+#: /xml/View_500_Wall.xml
+msgctxt "#31102"
+msgid "Wall"
+msgstr ""
+
+#: /xml/SmartPlaylistRule.xml
+msgctxt "#31103"
+msgid "Enter text here..."
+msgstr ""
+
+#: /xml/Home.xml
+msgctxt "#31104"
+msgid "Your library is currently empty. In order to populate it with your personal media, enter \"Files\" section, add a media source and configure it. After the source has been added and indexed you will be able to browse your library."
+msgstr ""
+
+#: /xml/Home.xml
+msgctxt "#31105"
+msgid "Add video sources and set the appropriate content type in order to populate your video libraries."
+msgstr ""
+
+#: /xml/Variables.xml
+msgctxt "#31106"
+msgid "Teletext"
+msgstr ""
+
+#. viewtype name
+#: /xml/View_55_WideList.xml
+msgctxt "#31107"
+msgid "WideList"
+msgstr ""
+
+#empty strings from id 31108 to 31109
+
+#: /xml/Home.xml
+msgctxt "#31110"
+msgid "Enter files section"
+msgstr ""
+
+#: /xml/Home.xml
+msgctxt "#31111"
+msgid "View your personal pictures or download one of the many image add-ons from the official repository."
+msgstr ""
+
+#: /xml/VideoOSD.xml
+msgctxt "#31112"
+msgid "Toggle audio stream"
+msgstr ""
+
+#: /xml/Custom_1107_SearchDialog.xml
+msgctxt "#31113"
+msgid "Search local library"
+msgstr ""
+
+#: /xml/Custom_1107_SearchDialog.xml
+msgctxt "#31114"
+msgid "Search YouTube"
+msgstr ""
+
+#: /xml/VideoOSD.xml
+msgctxt "#31115"
+msgid "Toggle subtitle"
+msgstr ""
+
+#: /xml/Includes_Home.xml
+msgctxt "#31116"
+msgid "Remove this main menu item"
+msgstr ""
+
+#: /xml/MyVideoNav.xml
+msgctxt "#31117"
+msgid "Edit nodes"
+msgstr ""
+
+#: /xml/Home.xml
+msgctxt "#31118"
+msgid "Enter add-on browser"
+msgstr ""
+
+#: /xml/Home.xml
+msgctxt "#31119"
+msgid "You do not have any add-ons installed yet. Visit our add-on browser to browse through our collection and improve your Kodi experience."
+msgstr ""
+
+#: /xml/Home.xml
+msgctxt "#31120"
+msgid "You did not set up a weather provider yet. In order to view weather information, choose a weather provider and set up your location."
+msgstr ""
+
+#: /xml/Home.xml
+msgctxt "#31121"
+msgid "Set weather provider"
+msgstr ""
+
+#: /xml/Home.xml
+msgctxt "#31122"
+msgid "Unwatched TV Shows"
+msgstr ""
+
+#: /xml/DialogVideoInfo.xml
+msgctxt "#31123"
+msgid "Same director"
+msgstr ""
+
+#empty string with id 31124
+
+#: /xml/DialogVideoInfo.xml
+msgctxt "#31125"
+msgid "Press up for actor info"
+msgstr ""
+
+#: /xml/DialogVideoInfo.xml
+msgctxt "#31126"
+msgid "Press OK to read plot"
+msgstr ""
+
+#: /xml/Includes_MediaMenu.xml
+msgctxt "#31127"
+msgid "Show icons"
+msgstr ""
+
+#: /xml/Variables.xml
+msgctxt "#31128"
+msgid "Contributors"
+msgstr ""
+
+#: /xml/Variables.xml
+msgctxt "#31129"
+msgid "General settings applying to all areas of the skin."
+msgstr ""
+
+#: /xml/Variables.xml
+msgctxt "#31130"
+msgid "Main menu-related settings: Configure the home screen to your likings."
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#31131"
+msgid "Choose skin fanart pack"
+msgstr ""
+
+#: /xml/Custom_1101_SettingsList.xml
+msgctxt "#31132"
+msgid "Select Program"
+msgstr ""
+
+#: /xml/Custom_1101_SettingsList.xml
+msgctxt "#31133"
+msgid "Select Resolution"
+msgstr ""
+
+#: /xml/DialogSeekBar.xml
+msgctxt "#31134"
+msgid "Remaining"
+msgstr ""
+
+#: /xml/DialogAddonInfo.xml
+msgctxt "#31135"
+msgid "Binary"
+msgstr ""
+
+#: /xml/DialogAddonInfo.xml
+msgctxt "#31136"
+msgid "Click here to see latest changes..."
+msgstr ""
+
+#: /xml/DialogPlayerProcessInfo.xml
+#. Label to show PVR info page
+msgctxt "#31137"
+msgid "PVR"
+msgstr ""
+
+#: /xml/DialogPlayerProcessInfo.xml
+#. Label to show player info page
+msgctxt "#31138"
+msgid "Player"
+msgstr ""
+
+#: /xml/DialogPlayerProcessInfo.xml
+#. Label to show video decoder name
+msgctxt "#31139"
+msgid "Video decoder"
+msgstr ""
+
+#: /xml/DialogPlayerProcessInfo.xml
+#. Label to show the video pixel format
+msgctxt "#31140"
+msgid "Pixel format"
+msgstr ""
+
+#: /xml/DialogAddonInfo.xml
+msgctxt "#31141"
+msgid "Changes for version"
+msgstr ""
+
+#: /xml/Variables.xml
+msgctxt "#31142"
+msgid "Play speed"
+msgstr ""
+
+#: /xml/Home.xml
+msgctxt "#31143"
+msgid "You did not set up PVR yet. In order to use PVR, choose a PVR client addon and configure it. Please visit http://kodi.wiki/view/PVR to learn more."
+msgstr ""
+
+#: /xml/Home.xml
+msgctxt "#31144"
+msgid "Enter add-on browser"
+msgstr ""
+
+#: /xml/Custom_1107_SearchDialog.xml
+msgctxt "#31145"
+msgid "Search add-ons"
+msgstr ""
+
+msgctxt "#31146"
+msgid "In cinemas"
+msgstr ""
+
+msgctxt "#31147"
+msgid "In cinemas soon"
+msgstr ""
+
+#: /xml/Home.xml
+msgctxt "#31148"
+msgid "Categories"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#31149"
+msgid "Select genre fanart pack"
+msgstr ""
+
+#: /xml/DialogAddonInfo.xml
+msgctxt "#31150"
+msgid "Origin"
+msgstr ""
+
+#: /xml/Home.xml
+msgctxt "#31151"
+msgid "Unwatched music videos"
+msgstr ""
+
+#: /xml/Home.xml
+msgctxt "#31152"
+msgid "Random music videos"
+msgstr ""
+
+#: /xml/Includes.xml
+msgctxt "#31153"
+msgid "You do not have any add-ons of this type installed. Enter the add-on browser to download add-ons created by our community."
+msgstr ""
+
+#: /xml/MyWeather.xml
+msgctxt "#31154"
+msgid "Press OK to switch between locations"
+msgstr ""
+
+#: /xml/VideoOSDBookmarks.xml
+msgctxt "#31155"
+msgid "No bookmarks created yet."
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#31156"
+msgid "Choose background pattern"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#31157"
+msgid "Edit categories"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#31158"
+msgid "Touch mode"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#31159"
+msgid "Artwork"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#31160"
+msgid "Show media flags"
+msgstr ""
+
+#: /xml/DialogNumeric.xml
+msgctxt "#31161"
+msgid "Numeric pad"
+msgstr ""
+
+#: /xml/Home.xml
+msgctxt "#31162"
+msgid "Play your personal games or download one of the many game add-ons from the official repository."
+msgstr ""
+
+#: /xml/Custom_1105_MusicOSDSettings.xml
+msgctxt "#31163"
+msgid "Show Fanart background"
+msgstr ""
+
+#. Choose profile identifier
+#: /xml/SkinSettings.xml
+msgctxt "#31164"
+msgid "Choose kind of profile identification"
+msgstr ""
+
+#. Label for the kind of profile identification
+#: /xml/SkinSettings.xml
+msgctxt "#31165"
+msgid "Profile name"
+msgstr ""
+
+#. Label for the kind of profile identification
+#: /xml/SkinSettings.xml
+msgctxt "#31166"
+msgid "Profile avatar"
+msgstr ""
+
+#. Label of a setting
+#: /xml/SkinSettings.xml
+msgctxt "#31167"
+msgid "Animate background"
+msgstr ""
+
+#. Label of a setting
+#: /xml/SkinSettings.xml
+msgctxt "#31168"
+msgid "Show posters instead of thumbs for musicvideos"
+msgstr ""
+
+#. Description label for skin settings area
+#: /xml/Variables.xml
+msgctxt "#31169"
+msgid "Artwork related settings."
+msgstr ""
+
+#: /xml/SkinSettings.xml
+#. Label for OSD settings category
+msgctxt "#31170"
+msgid "On screen display"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+#. Helper text for the label of OSD settings category
+msgctxt "#31171"
+msgid "On screen display (OSD) related settings"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+#. Setting Automatically close video OSD
+msgctxt "#31172"
+msgid "Automatically close video OSD"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+#. Setting auto close time for video osd
+msgctxt "#31173"
+msgid "Video OSD autoclose time (seconds)"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+#. Setting to control what happens when clicking a music album on the home screen
+msgctxt "#31174"
+msgid "Default select action for albums on the home screen"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+#. Setting to control what happens when clicking a TV show on the home screen
+msgctxt "#31175"
+msgid "Default select action for TV shows on the home screen"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+#. Setting to control what happens when clicking a movie set on the home screen
+msgctxt "#31176"
+msgid "Default select action for movie sets on the home screen"
+msgstr ""
+
+#empty strings from id 31177 to 31599
+
+#: /xml/DialogPlayerProcessInfo.xml
+#. Label to show the video codec name
+msgctxt "#31600"
+msgid "Video codec"
+msgstr ""
+
+#: /xml/DialogPlayerProcessInfo.xml
+#. Label to show the video resolution
+msgctxt "#31601"
+msgid "Video resolution"
+msgstr ""
+
+#: /xml/DialogPlayerProcessInfo.xml
+#. Label to show the video aspect
+msgctxt "#31602"
+msgid "Video aspect"
+msgstr ""
+
+#: /xml/DialogPlayerProcessInfo.xml
+#. Label to show the video bitrate
+msgctxt "#31603"
+msgid "Video bitrate"
+msgstr ""
+
+#: /xml/DialogPlayerProcessInfo.xml
+#. Label to show the audio codec name
+msgctxt "#31604"
+msgid "Audio codec"
+msgstr ""
+
+#: /xml/DialogPlayerProcessInfo.xml
+#. Label to show the number of audio channels
+msgctxt "#31605"
+msgid "Audio channels"
+msgstr ""
+
+#: /xml/DialogPlayerProcessInfo.xml
+#. Label to show the audio bitrate
+msgctxt "#31606"
+msgid "Audio bitrate"
+msgstr ""
+
+#: /xml/DialogPlayerProcessInfo.xml
+#. Label to show the screen resolution
+msgctxt "#31607"
+msgid "Screen resolution"
+msgstr ""
+
+#: /xml/DialogPlayerProcessInfo.xml
+#. Label to show the system rendering speed
+msgctxt "#31608"
+msgid "System rendering speed"
+msgstr ""
+
+#: /xml/DialogPlayerProcessInfo.xml
+#. Label to show the system CPU usage
+msgctxt "#31609"
+msgid "System CPU usage"
+msgstr ""
+
+#: /xml/DialogPlayerProcessInfo.xml
+#. Label to show the media (metadata) info page
+msgctxt "#31610"
+msgid "Media"
+msgstr ""
+
+#: /xml/DialogPlayerProcessInfo.xml
+#. Label to show the system info page
+msgctxt "#31611"
+msgid "System"
+msgstr ""
+
+# Dex Hub
+
+msgctxt "#31800"
+msgid "Home"
+msgstr ""
+
+msgctxt "#31801"
+msgid "Movies"
+msgstr ""
+
+msgctxt "#31802"
+msgid "Series"
+msgstr ""
+
+msgctxt "#31803"
+msgid "Servers"
+msgstr ""
+
+msgctxt "#31804"
+msgid "Live TV"
+msgstr ""
+
+msgctxt "#31805"
+msgid "Favourites"
+msgstr ""
+
+msgctxt "#31806"
+msgid "Search"
+msgstr ""
+
+msgctxt "#31807"
+msgid "Menu"
+msgstr ""
+
+msgctxt "#31808"
+msgid "Add-ons"
+msgstr ""
+
+msgctxt "#31809"
+msgid "Programs"
+msgstr ""
+
+msgctxt "#31817"
+msgid "Videos"
+msgstr ""
+
+msgctxt "#31818"
+msgid "No add-ons here yet"
+msgstr ""
+
+msgctxt "#31810"
+msgid "See all"
+msgstr ""
+
+msgctxt "#31811"
+msgid "Playing in the background"
+msgstr ""
+
+msgctxt "#31812"
+msgid "Player"
+msgstr ""
+
+msgctxt "#31813"
+msgid "Pause"
+msgstr ""
+
+msgctxt "#31814"
+msgid "Stop"
+msgstr ""
+
+msgctxt "#31815"
+msgid "Resume"
+msgstr ""
+
+msgctxt "#31816"
+msgid "Back returns to the video"
+msgstr ""
+
+msgctxt "#31820"
+msgid "Play"
+msgstr ""
+
+msgctxt "#31821"
+msgid "Sources"
+msgstr ""
+
+msgctxt "#31822"
+msgid "Trailer"
+msgstr ""
+
+msgctxt "#31823"
+msgid "Favourite"
+msgstr ""
+
+msgctxt "#31824"
+msgid "Seasons"
+msgstr ""
+
+msgctxt "#31825"
+msgid "Episodes"
+msgstr ""
+
+msgctxt "#31826"
+msgid "Cast"
+msgstr ""
+
+msgctxt "#31827"
+msgid "More like this"
+msgstr ""
+
+msgctxt "#31828"
+msgid "More"
+msgstr ""
+
+msgctxt "#31829"
+msgid "Loading the episodes"
+msgstr ""
+
+msgctxt "#31830"
+msgid "More info"
+msgstr ""
+
+msgctxt "#31831"
+msgid "Now playing"
+msgstr ""
+
+msgctxt "#31833"
+msgid "Full screen"
+msgstr ""
+
+msgctxt "#31834"
+msgid "Subtitles"
+msgstr ""
+
+msgctxt "#31835"
+msgid "Audio"
+msgstr ""
+
+msgctxt "#31836"
+msgid "Settings"
+msgstr ""
+
+msgctxt "#31837"
+msgid "Ends at"
+msgstr ""
+
+msgctxt "#31838"
+msgid "Next"
+msgstr ""
+
+msgctxt "#31839"
+msgid "Previous"
+msgstr ""
+
+msgctxt "#31840"
+msgid "left"
+msgstr ""
+
+msgctxt "#31844"
+msgid "Paused"
+msgstr ""
+
+msgctxt "#31845"
+msgid "Video"
+msgstr ""
+
+msgctxt "#31846"
+msgid "Info"
+msgstr ""
+
+msgctxt "#31847"
+msgid "Speed"
+msgstr ""
+
+msgctxt "#31841"
+msgid "Nothing here yet"
+msgstr ""
+
+msgctxt "#31842"
+msgid "Dex Hub is getting the Home ready"
+msgstr ""
+
+msgctxt "#31843"
+msgid "Install or enable the Dex Hub add-on to fill this Home"
+msgstr ""
+
+msgctxt "#31850"
+msgid "Sort"
+msgstr ""
+
+msgctxt "#31851"
+msgid "Genre"
+msgstr ""
+
+msgctxt "#31852"
+msgid "Filter"
+msgstr ""
+
+msgctxt "#31853"
+msgid "Back"
+msgstr ""
+
+msgctxt "#31854"
+msgid "Dex Hub settings"
+msgstr ""
+
+msgctxt "#31855"
+msgid "Accounts and sources"
+msgstr ""
+
+msgctxt "#31856"
+msgid "Home layout"
+msgstr ""
+
+msgctxt "#31857"
+msgid "Interface size"
+msgstr ""
+
+msgctxt "#31858"
+msgid "Screensaver"
+msgstr ""
+
+msgctxt "#31859"
+msgid "Dex Hub menu"
+msgstr ""
+
+msgctxt "#31860"
+msgid "Back to the previous skin"
+msgstr ""
+
+msgctxt "#31861"
+msgid "Add-on settings"
+msgstr ""
+
+msgctxt "#31862"
+msgid "Sources, playback, subtitles and more"
+msgstr ""
+
+msgctxt "#31863"
+msgid "Nuvio, Stremio, Trakt and your servers"
+msgstr ""
+
+msgctxt "#31864"
+msgid "The rows, their order, shown or hidden"
+msgstr ""
+
+msgctxt "#31865"
+msgid "The size of Dex Hub's pages"
+msgstr ""
+
+msgctxt "#31866"
+msgid "Dex Hub's screensaver"
+msgstr ""
+
+msgctxt "#31867"
+msgid "Every section of Dex Hub"
+msgstr ""
+
+msgctxt "#31868"
+msgid "Estuary or the skin you had before"
+msgstr ""
+
+msgctxt "#31869"
+msgid "Kodi's settings page of the add-on"
+msgstr ""
+
+msgctxt "#31870"
+msgid "Device settings"
+msgstr ""
+
+msgctxt "#31871"
+msgid "Sources"
+msgstr ""
+
+msgctxt "#31872"
+msgid "Add-ons, accounts, servers and live TV"
+msgstr ""
+
+msgctxt "#31873"
+msgid "Player options"
+msgstr ""
+
+msgctxt "#31874"
+msgid "The info line, the seek bar and the OSD"
+msgstr ""
+
+msgctxt "#31875"
+msgid "Change skin"
+msgstr ""
+
+msgctxt "#31876"
+msgid "Pick a skin, Kodi takes it at once"
+msgstr ""
+
+# Arctic Fuse 3 (jurialmunkey, CC BY-NC-SA 4.0)
+
+msgctxt "#31182"
+msgid "Live TV / PVR"
+msgstr ""
+
+msgctxt "#31190"
+msgid "Order"
+msgstr ""
+
+msgctxt "#31185"
+msgid "items"
+msgstr ""
+
+msgctxt "#31186"
+msgid "Apply"
+msgstr ""
+
+msgctxt "#31191"
+msgid "Profile"
+msgstr ""
+
+msgctxt "#31070"
+msgid "Years Old"
+msgstr ""
+
+msgctxt "#31064"
+msgid "Playback Speed"
+msgstr ""
+
+msgctxt "#31077"
+msgid "mins"
+msgstr ""
+
+msgctxt "#31076"
+msgid "hr"
+msgstr ""
+
+msgctxt "#31049"
+msgid "No bookmarks"
+msgstr ""
+
+msgctxt "#31050"
+msgid "Add a bookmark here"
+msgstr ""
+
+msgctxt "#31188"
+msgid "Mirror"
+msgstr ""
+
+msgctxt "#31179"
+msgid "Playing"
+msgstr ""
+
+msgctxt "#31184"
+msgid "Page"
+msgstr ""
+
+msgctxt "#31187"
+msgid "Detailed"
+msgstr ""
+
+msgctxt "#31181"
+msgid "Used memory"
+msgstr ""
+
+msgctxt "#31180"
+msgid "Categories"
+msgstr ""
+
+msgctxt "#31189"
+msgid "Running add-ons"
+msgstr ""
+
+msgctxt "#31183"
+msgid "Version"
+msgstr ""
+
+msgctxt "#31091"
+msgid "REC"
+msgstr ""
+
+msgctxt "#31051"
+msgid "Up Next"
+msgstr ""
+
+msgctxt "#31178"
+msgid "Seek to"
+msgstr ""
+
+msgctxt "#31124"
+msgid "Bookmarks and chapters"
+msgstr ""
+
+msgctxt "#31177"
+msgid "Channels"
+msgstr ""
+
+msgctxt "#31109"
+msgid "Playlist"
+msgstr ""
+
+msgctxt "#31094"
+msgid "Crew"
+msgstr ""
+
+msgctxt "#31047"
+msgid "More by this artist"
+msgstr ""
+
+msgctxt "#31108"
+msgid "Channel EPG"
+msgstr ""
+
+msgctxt "#31090"
+msgid "Returning"
+msgstr ""
+
+msgctxt "#31081"
+msgid "Cancelled"
+msgstr ""
+
+msgctxt "#31085"
+msgid "Ended"
+msgstr ""
+
+msgctxt "#31086"
+msgid "Released"
+msgstr ""
+
+msgctxt "#31087"
+msgid "In-Production"
+msgstr ""
+
+msgctxt "#31088"
+msgid "Planned"
+msgstr ""
+
+msgctxt "#31040"
+msgid "Press down"
+msgstr ""
+
+msgctxt "#31078"
+msgid "Ends at"
+msgstr ""
+
+msgctxt "#31192"
+msgid "Unknown"
+msgstr ""
+
+msgctxt "#31898"
+msgid "Filter"
+msgstr ""
+
+msgctxt "#31877"
+msgid "Appearance"
+msgstr ""
+
+msgctxt "#31878"
+msgid "Theme"
+msgstr ""
+
+msgctxt "#31879"
+msgid "Accent colour"
+msgstr ""
+
+msgctxt "#31880"
+msgid "Back to the theme's colour"
+msgstr ""
+
+msgctxt "#31881"
+msgid "Light behind the pages"
+msgstr ""
+
+msgctxt "#31882"
+msgid "Soft"
+msgstr ""
+
+msgctxt "#31883"
+msgid "Vivid"
+msgstr ""
+
+msgctxt "#31884"
+msgid "Off"
+msgstr ""
+
+msgctxt "#31885"
+msgid "The theme's"
+msgstr ""
+
+msgctxt "#31886"
+msgid "Reboot to Android"
+msgstr ""
+
+msgctxt "#31887"
+msgid "Your accent"
+msgstr ""
+
+msgctxt "#31888"
+msgid "Focus colour"
+msgstr ""
+
+msgctxt "#31889"
+msgid "Text on the focus"
+msgstr ""
+
+msgctxt "#31890"
+msgid "Automatic"
+msgstr ""
+
+msgctxt "#31891"
+msgid "White"
+msgstr ""
+
+msgctxt "#31892"
+msgid "Dark"
+msgstr ""
+
+msgctxt "#31893"
+msgid "Glow around the focus"
+msgstr ""
+
+msgctxt "#31894"
+msgid "On"
+msgstr ""
+
+msgctxt "#31895"
+msgid "Pure black pages"
+msgstr ""
+
+msgctxt "#31896"
+msgid "Skin settings"
+msgstr ""
+
+msgctxt "#31897"
+msgid "A theme shows at once; Back when you are done."
+msgstr ""
+
+msgctxt "#31915"
+msgid "Another colour…"
+msgstr ""
+
+msgctxt "#31899"
+msgid "Aqua"
+msgstr ""
+
+msgctxt "#31900"
+msgid "Coral"
+msgstr ""
+
+msgctxt "#31901"
+msgid "Vaporwave"
+msgstr ""
+
+msgctxt "#31902"
+msgid "Blue"
+msgstr ""
+
+msgctxt "#31903"
+msgid "Purple"
+msgstr ""
+
+msgctxt "#31904"
+msgid "Nuvio red"
+msgstr ""
+
+msgctxt "#31905"
+msgid "Gold"
+msgstr ""
+
+msgctxt "#31906"
+msgid "Green"
+msgstr ""
+
+msgctxt "#31907"
+msgid "Dex Hub violet"
+msgstr ""
+
+msgctxt "#31908"
+msgid "The colours of the whole skin: Nuvio's dark themes first, then Dex Hub's."
+msgstr ""
+
+msgctxt "#31909"
+msgid "The colour of the focused item, as Arctic Fuse 3's highlight colour."
+msgstr ""
+
+msgctxt "#31910"
+msgid "White or dark text on the focus; automatic follows the colour."
+msgstr ""
+
+msgctxt "#31911"
+msgid "A soft light around the focused poster; off draws only its frame, as Nuvio does."
+msgstr ""
+
+msgctxt "#31912"
+msgid "Every page on pure black, whatever the theme (best on OLED screens)."
+msgstr ""
+
+msgctxt "#31913"
+msgid "The theme's light behind the Home and the pages."
+msgstr ""
+
+msgctxt "#31914"
+msgid "Pick a focus colour; Back when you are done."
+msgstr ""
+
+msgctxt "#31940"
+msgid "Appearance & Theme"
+msgstr "Appearance & Theme"
+
+msgctxt "#31941"
+msgid "Home & Widgets"
+msgstr "Home & Widgets"
+
+msgctxt "#31942"
+msgid "Player & Playback"
+msgstr "Player & Playback"
+
+msgctxt "#31943"
+msgid "Accounts & Sources"
+msgstr "Accounts & Sources"
+
+msgctxt "#31944"
+msgid "Library & Lists"
+msgstr "Library & Lists"
+
+msgctxt "#31945"
+msgid "Metadata & Artwork"
+msgstr "Metadata & Artwork"
+
+msgctxt "#31946"
+msgid "IPTV, VOD & Servers"
+msgstr "IPTV, VOD & Servers"
+
+msgctxt "#31947"
+msgid "Subtitles"
+msgstr "Subtitles"
+
+msgctxt "#31948"
+msgid "Performance & Maintenance"
+msgstr "Performance & Maintenance"
+
+msgctxt "#31949"
+msgid "Player badges"
+msgstr ""
+
+msgctxt "#31950"
+msgid "Home, banners & trailers"
+msgstr ""
+
+msgctxt "#31951"
+msgid "Arrange rows & widgets"
+msgstr ""
+
+msgctxt "#31952"
+msgid "Player options"
+msgstr ""
+
+msgctxt "#31953"
+msgid "Playback & source quality"
+msgstr ""
+
+msgctxt "#31954"
+msgid "Continue Watching & Next Up"
+msgstr ""
+
+msgctxt "#31955"
+msgid "Colorful"
+msgstr "Framed"
+
+msgctxt "#31956"
+msgid "Minimal"
+msgstr ""
+
+msgctxt "#31957"
+msgid "Compact"
+msgstr ""
+
+msgctxt "#31958"
+msgid "Custom Badger pack"
+msgstr ""
+
+msgctxt "#31959"
+msgid "Off"
+msgstr ""
+
+msgctxt "#31960"
+msgid "Shared Dex Hub options are saved once and remain available when using another skin."
+msgstr ""
+
+msgctxt "#31961"
+msgid "All settings"
+msgstr ""
+
+msgctxt "#31962"
+msgid "IPTV channels & VOD"
+msgstr ""
+
+msgctxt "#31963"
+msgid "Plex, Emby, Jellyfin & Silo"
+msgstr ""
+
+msgctxt "#31964"
+msgid "Quick setup"
+msgstr ""
+
+msgctxt "#31965"
+msgid "Source picker badges"
+msgstr ""
+
+msgctxt "#31966"
+msgid "Metadata & poster appearance"
+msgstr ""
+
+msgctxt "#31967"
+msgid "Speed profile"
+msgstr ""
+
+msgctxt "#31968"
+msgid "Clear cache"
+msgstr ""
+
+msgctxt "#31969"
+msgid "Diagnostics"
+msgstr ""
+
+msgctxt "#31970"
+msgid "Backup & Restore"
+msgstr ""
+
+msgctxt "#31971"
+msgid "Artwork & ratings"
+msgstr ""
+
+msgctxt "#31972"
+msgid "Link accounts"
+msgstr ""
+
+msgctxt "#31973"
+msgid "Nuvio Home & collections"
+msgstr ""
+
+msgctxt "#31974"
+msgid "Favorite list layout"
+msgstr ""
+
+msgctxt "#31975"
+msgid "Trakt settings"
+msgstr ""
+
+msgctxt "#31976"
+msgid "Advanced & Kodi"
+msgstr "Advanced & Kodi"
+
+msgctxt "#31977"
+msgid "Metadata language"
+msgstr ""
+
+msgctxt "#32000"
+msgid "Player appearance"
+msgstr ""
+
+msgctxt "#32001"
+msgid "Work logo in player"
+msgstr ""
+
+msgctxt "#32002"
+msgid "Work logo position"
+msgstr ""
+
+msgctxt "#32003"
+msgid "Above work details"
+msgstr ""
+
+msgctxt "#32004"
+msgid "Top left"
+msgstr ""
+
+msgctxt "#32005"
+msgid "Top right"
+msgstr ""
+
+msgctxt "#32006"
+msgid "Plot in player"
+msgstr ""
+
+msgctxt "#32007"
+msgid "Metadata in player"
+msgstr ""
+
+msgctxt "#32008"
+msgid "Ratings in player"
+msgstr ""
+
+msgctxt "#32009"
+msgid "Network logo in player"
+msgstr ""
+
+msgctxt "#32010"
+msgid "Supplement ratings & network logo"
+msgstr ""
+
+msgctxt "#32011"
+msgid "Preview · sample stream"
+msgstr ""
+
+msgctxt "#32012"
+msgid "Choose a style, preview it, then press OK to save."
+msgstr ""
+
+msgctxt "#32013"
+msgid "Custom pack · JSON"
+msgstr ""
+
+msgctxt "#32014"
+msgid "Import a pack"
+msgstr ""
+
+msgctxt "#32015"
+msgid "No saved pack. Import one to preview it."
+msgstr ""
+
+msgctxt "#32016"
+msgid "Badges hidden"
+msgstr ""
+
+msgctxt "#32017"
+msgid "Playback controls stay visible."
+msgstr ""
+
+msgctxt "#32018"
+msgid "Use images or a plain title; the title stays readable when no logo is available."
+msgstr ""
+
+msgctxt "#32019"
+msgid "Choose where the work logo appears."
+msgstr ""
+
+msgctxt "#32020"
+msgid "Show the plot when player controls or information are open."
+msgstr ""
+
+msgctxt "#32021"
+msgid "Year, genres, duration and episode number."
+msgstr ""
+
+msgctxt "#32022"
+msgid "Show available scores; cached data does not delay playback."
+msgstr ""
+
+msgctxt "#32023"
+msgid "A studio or network logo, when supplied by the source or cache."
+msgstr ""
+
+msgctxt "#32024"
+msgid "Preserve source posters and text; add only ratings and network logos."
+msgstr ""
+
+msgctxt "#32025"
+msgid "Trailers & motion"
+msgstr ""
+
+msgctxt "#32026"
+msgid "Automatic trailers"
+msgstr ""
+
+msgctxt "#32027"
+msgid "Trailer sound"
+msgstr ""
+
+msgctxt "#32028"
+msgid "Trailer delay (seconds)"
+msgstr ""
+
+msgctxt "#32029"
+msgid "Trailer quality"
+msgstr ""
+
+msgctxt "#32030"
+msgid "Fullscreen trailer"
+msgstr ""
+
+msgctxt "#32031"
+msgid "Banner carousel"
+msgstr ""
+
+msgctxt "#32032"
+msgid "Banner interval (seconds)"
+msgstr ""
+
+msgctxt "#32033"
+msgid "Animated backgrounds"
+msgstr ""
+
+msgctxt "#32034"
+msgid "Animated images"
+msgstr ""
+
+msgctxt "#32035"
+msgid "Scrolling plot"
+msgstr ""
+
+msgctxt "#32036"
+msgid "Continue Watching row"
+msgstr ""
+
+msgctxt "#32037"
+msgid "Next Up row"
+msgstr ""
+
+msgctxt "#32038"
+msgid "Light mode"
+msgstr ""
+
+msgctxt "#32039"
+msgid "Channel previews"
+msgstr ""
+
+msgctxt "#32040"
+msgid "Favorites layout"
+msgstr ""
+
+msgctxt "#32041"
+msgid "Separate by source"
+msgstr ""
+
+msgctxt "#32042"
+msgid "Combined list"
+msgstr ""
+
+msgctxt "#32043"
+msgid "Advanced Kodi library options"
+msgstr ""
+
+msgctxt "#32044"
+msgid "Use the arrow keys to browse; changes apply directly."
+msgstr ""
+
+msgctxt "#32045"
+msgid "Background work stays limited. Animated banners can remain enabled."
+msgstr ""
+
+msgctxt "#32046"
+msgid "Shown above the progress bar when the player controls are open: quality, HDR, codec, audio and source."
+msgstr ""
+
+msgctxt "#32047"
+msgid "Show or hide each part of the player independently."
+msgstr ""
+
+msgctxt "#32048"
+msgid "Only if available"
+msgstr ""
+
+msgctxt "#32049"
+msgid "Theme & focus"
+msgstr ""
+
+msgctxt "#32050"
+msgid "Programme guide EPG"
+msgstr ""
+
+msgctxt "#32051"
+msgid "IPTV channels section"
+msgstr ""
+
+msgctxt "#32052"
+msgid "VOD section"
+msgstr ""
+
+msgctxt "#32053"
+msgid "VOD movies"
+msgstr ""
+
+msgctxt "#32054"
+msgid "VOD series"
+msgstr ""
+
+msgctxt "#32055"
+msgid "Disabled sections are hidden and their catalogs are not loaded."
+msgstr ""
+
+msgctxt "#32056"
+msgid "Stops Dex Hub EPG requests and background XMLTV updates."
+msgstr ""
+
+msgctxt "#32057"
+msgid "Sections & guide"
+msgstr ""
+
+msgctxt "#32058"
+msgid "Details over the player controls"
+msgstr ""
+
+msgctxt "#32059"
+msgid "Shows the work logo, details, ratings and network logo above the controls."
+msgstr ""
+
+msgctxt "#32060"
+msgid "Official · Elite"
+msgstr ""
+
+msgctxt "#32061"
+msgid "Gold"
+msgstr ""
+
+msgctxt "#32062"
+msgid "Minimalist white"
+msgstr ""
+
+msgctxt "#32063"
+msgid "From my folder"
+msgstr ""
+
+msgctxt "#32064"
+msgid "Pack from a link"
+msgstr ""
+
+msgctxt "#32065"
+msgid "The skin's own clear badges, in colour."
+msgstr "Dex Hub badges in a clean white frame."
+
+msgctxt "#32066"
+msgid "Official logos (Dolby Vision, Atmos, DTS and more) from the Elite pack, drawn plainly at one height. Downloaded once (about 25 MB) and kept on this device."
+msgstr ""
+
+msgctxt "#32067"
+msgid "Gold logos from the Gold pack. Downloaded once (about 8 MB) and kept on this device."
+msgstr ""
+
+msgctxt "#32068"
+msgid "Thin white outlined words. This pack's images are SVG, which Kodi cannot draw, so their names are shown."
+msgstr ""
+
+msgctxt "#32069"
+msgid "The skin's badges. Put your own image with the same name in the folder and it replaces that badge."
+msgstr ""
+
+msgctxt "#32070"
+msgid "Words on soft chips."
+msgstr ""
+
+msgctxt "#32071"
+msgid "One line of text."
+msgstr ""
+
+msgctxt "#32072"
+msgid "Any Badger pack by its JSON link; its images are downloaded once."
+msgstr ""
+
+msgctxt "#32073"
+msgid "Not on this device yet. Press OK to download it once."
+msgstr ""
+
+msgctxt "#32074"
+msgid "Folder options"
+msgstr ""
+
+msgctxt "#32075"
+msgid "Folder"
+msgstr ""
+
+msgctxt "#32076"
+msgid "Dim unfocused rows"
+msgstr ""
+
+msgctxt "#32077"
+msgid "Light"
+msgstr ""
+
+msgctxt "#32078"
+msgid "None"
+msgstr ""
+
+msgctxt "#32079"
+msgid "Strong"
+msgstr ""
+
+msgctxt "#32080"
+msgid "Rows you are not on fade a little so the focused row stands out. Light keeps the Home bright; strong is the old look."
+msgstr ""
+
+msgctxt "#32081"
+msgid "Close"
+msgstr ""
+
+msgctxt "#32082"
+msgid "Packs from the repository"
+msgstr ""
+
+msgctxt "#32083"
+msgid "Kometa, jmxd and more, each a small add-on from the DexWorld repository that updates by itself. Press OK to choose one or get more."
+msgstr ""
+
+msgctxt "#32084"
+msgid "No pack installed yet. Press OK to get one from the repository."
+msgstr ""
+
+msgctxt "#32085"
+msgid "Quality Badges"
+msgstr "Quality Badges"
+
+msgctxt "#32086"
+msgid "Servers page: badges instead of the file line"
+msgstr ""
+
+msgctxt "#32087"
+msgid "Sources page: badges on each link"
+msgstr ""
+
+msgctxt "#32088"
+msgid "Sources page uses the player's pack"
+msgstr ""
+
+msgctxt "#32089"
+msgid "Sources page: badges from a JSON link"
+msgstr ""
+
+msgctxt "#32090"
+msgid "In the player, on the servers page and the sources page"
+msgstr ""
+
+msgctxt "#32091"
+msgid "Badges place"
+msgstr ""
+
+msgctxt "#32092"
+msgid "Above the seek bar"
+msgstr ""
+
+msgctxt "#32093"
+msgid "Under the details"
+msgstr ""
+
+msgctxt "#32094"
+msgid "Badges on every link"
+msgstr ""
+
+msgctxt "#32095"
+msgid "Track"
+msgstr ""
+
+msgctxt "#32096"
+msgid "My Library"
+msgstr ""
+
+msgctxt "#32097"
+msgid "Servers section"
+msgstr ""
+
+msgctxt "#32098"
+msgid "My Servers"
+msgstr ""
+
+msgctxt "#32121"
+msgid "Badge size"
+msgstr ""
+
+msgctxt "#32122"
+msgid "Auto · balanced"
+msgstr ""
+
+msgctxt "#32123"
+msgid "Small"
+msgstr ""
+
+msgctxt "#32124"
+msgid "Original size"
+msgstr ""
+
+
+msgctxt "#32125"
+msgid "Playback method"
+msgstr "Playback method"
+
+
+msgctxt "#32126"
+msgid "Replay the last version played for this title"
+msgstr "Replay the last version played for this title"
+
+
+msgctxt "#32127"
+msgid "Resume the known source directly"
+msgstr "Resume the known source directly"
+
+
+msgctxt "#32128"
+msgid "Library playback"
+msgstr "Library playback"
+
+
+msgctxt "#32129"
+msgid "Direct from library source"
+msgstr "Direct from library source"
+
+
+msgctxt "#32130"
+msgid "Search sources through Dex Hub"
+msgstr "Search sources through Dex Hub"
+
+
+msgctxt "#32131"
+msgid "Episodes & Skip Buttons"
+msgstr "Episodes & Skip Buttons"
+
+
+msgctxt "#32132"
+msgid "Quality & Source Filters"
+msgstr "Quality & Source Filters"
+
+msgctxt "#32133"
+msgid "Hide the plot on the Home"
+msgstr ""
+
+msgctxt "#32134"
+msgid "Focus motion"
+msgstr ""
+
+msgctxt "#32135"
+msgid "Soft zoom"
+msgstr ""
+
+msgctxt "#32136"
+msgid "Lift"
+msgstr ""
+
+msgctxt "#32137"
+msgid "Pop"
+msgstr ""
+
+msgctxt "#32138"
+msgid "Glow only"
+msgstr ""
+
+msgctxt "#32139"
+msgid "Trailer place"
+msgstr ""
+
+msgctxt "#32140"
+msgid "Behind the page"
+msgstr ""
+
+msgctxt "#32141"
+msgid "Inside the card"
+msgstr ""
+
+msgctxt "#32142"
+msgid "Edit Home"
+msgstr ""
+
+msgctxt "#32143"
+msgid "Trailers"
+msgstr ""
+
+msgctxt "#32144"
+msgid "Tab names in the top bar"
+msgstr ""
+
+msgctxt "#32145"
+msgid "IPTV films and series in Continue Watching"
+msgstr ""
+
+msgctxt "#32146"
+msgid "Sources"
+msgstr ""
+
+msgctxt "#32147"
+msgid "No other sources yet. Open this title's sources once and they show here."
+msgstr ""
+
+msgctxt "#32148"
+msgid "Back keeps the video playing behind"
+msgstr ""
+
+msgctxt "#32149"
+msgid "Badge opacity"
+msgstr ""
+
+# 3.28.40: the player bar's buttons (Dex Hub 5.10.288)
+msgctxt "#32150"
+msgid "Player buttons"
+msgstr ""

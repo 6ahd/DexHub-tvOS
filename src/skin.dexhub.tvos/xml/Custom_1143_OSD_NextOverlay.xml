@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<window type="dialog" id="1143">
+	<defaultcontrol always="true">6003</defaultcontrol>
+	<controls>
+		<control type="group">
+			<animation effect="fade" time="200" start="100" end="0" condition="Window.IsActive(1140) | Window.IsActive(1141) | Window.IsActive(1142) | Window.IsActive(videobookmarks) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml)" reversible="false">Conditional</animation>
+			<animation effect="fade" time="200" delay="200" end="100" start="0" condition="![Window.IsActive(1140) | Window.IsActive(1141) | Window.IsActive(1142) | Window.IsActive(videobookmarks) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml)]" reversible="false">Conditional</animation>
+			<control type="list" id="450">
+				<left>-1920</left>
+				<width>1</width>
+				<height>1</height>
+				<itemlayout width="1" height="1"/>
+				<focusedlayout width="1" height="1"/>
+				<content target="videos">$VAR[AF3_Path_OSD_NextRecommendation]</content>
+			</control>
+			<control type="group">
+				<top>80</top>
+				<left>80</left>
+				<visible>!Container(450).IsUpdating</visible>
+				<visible>!Integer.IsEqual(Container(450).NumItems,0)</visible>
+				<visible>![!String.IsEmpty(Player.Chapter) + !String.IsEqual(Player.Chapter,00) + !String.IsEmpty(Player.ChapterCount) + !String.IsEqual(Player.ChapterCount,00) + !String.IsEqual(Player.Chapter,Player.ChapterCount)]</visible>
+				<visible>Integer.IsLess(VideoPlayer.PlaylistPosition,VideoPlayer.PlaylistLength) | Integer.IsLess(Player.TimeRemaining(mins),10)</visible>
+				<animation type="WindowOpen" reversible="true">
+					<effect type="fade" start="0" end="100" time="300" delay="600"/>
+					<effect type="slide" start="0,-48" end="0" center="auto" tween="back" easing="out" time="400" delay="600"/>
+				</animation>
+				<animation type="Visible" reversible="true">
+					<effect type="fade" start="0" end="100" time="300" delay="600"/>
+					<effect type="slide" start="0,-48" end="0" center="auto" tween="back" easing="out" time="400" delay="600"/>
+				</animation>
+				<control type="group">
+					<height>230.625</height>
+					<width>410</width>
+					<control type="group">
+						<control type="image">
+							<left>-40</left>
+							<right>-40</right>
+							<top>-40</top>
+							<bottom>-40</bottom>
+							<bordersize>40</bordersize>
+							<bordertexture border="60" colordiffuse="af3_shadow_hard">af3/shadows/shadow-40.png</bordertexture>
+							<texture colordiffuse="af3_main_fg_12" border="20">af3/common/box.png</texture>
+						</control>
+						<control type="image">
+							<texture background="true" diffuse="af3/diffuse/landscape_w410_h231.png">$VAR[AF3_Image_OSD_UpNext_Playlist_Landscape]</texture>
+							<aspectratio scalediffuse="false">keep</aspectratio>
+						</control>
+					</control>
+				</control>
+				<control type="grouplist">
+					<left>410</left>
+					<height>230.625</height>
+					<align>center</align>
+					<orientation>vertical</orientation>
+					<control type="label">
+						<left>40</left>
+						<textcolor>af3_panel_fg_90</textcolor>
+						<label>$LOCALIZE[31051]$VAR[AF3_Label_OSD_UpNext_Playlist_TopTitle, - ,]</label>
+						<height>40</height>
+						<font>af3_font_main_bold</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+					<control type="label">
+						<left>40</left>
+						<textcolor>af3_panel_fg_70</textcolor>
+						<label>$VAR[AF3_Label_OSD_UpNext_Playlist_SubTitle]</label>
+						<height>40</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>af3_font_main</font>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+					<scrolltime tween="quadratic">400</scrolltime>
+					<usecontrolcoords>true</usecontrolcoords>
+					<itemgap>0</itemgap>
+				</control>
+			</control>
+			<control type="group">
+				<left>80</left>
+				<right>80</right>
+				<visible>!Window.IsActive(DialogPlayerProcessInfo.xml)</visible>
+				<visible>!Window.IsVisible(DialogSlider.xml)</visible>
+				<control type="grouplist">
+					<onright condition="!Control.IsVisible(6016) + !Control.IsVisible(6015)">6005</onright><onright condition="!Control.IsVisible(6016) + Control.IsVisible(6015)">6015</onright><onright condition="Control.IsVisible(6016)">6016</onright><onleft condition="!Control.IsVisible(6009)">6008</onleft><onleft condition="Control.IsVisible(6009)">6009</onleft><height>120</height>
+					<left>-20</left>
+					<centerbottom>80</centerbottom>
+					<orientation>horizontal</orientation>
+					<itemgap>37</itemgap>
+					<align>left</align>
+					<control type="button" id="6001">
+						<width>80</width>
+						<texturefocus/>
+						<texturenofocus/>
+						<font/>
+						<label/>
+						<onfocus>Close</onfocus>
+						<onfocus>SetFocus(6001)</onfocus>
+						<align>center</align>
+						<aligny>center</aligny>
+						<textoffsetx>30</textoffsetx>
+						<textcolor>af3_main_fg_70</textcolor>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<focusedcolor>ff272727</focusedcolor>
+						<disabledcolor>af3_main_fg_30</disabledcolor>
+						<pulseonselect>false</pulseonselect>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+					<onleft condition="Control.IsVisible(6009)">6009</onleft><onleft condition="!Control.IsVisible(6009)">6008</onleft><onright>6002</onright></control>
+					<control type="button" id="6002">
+						<width>80</width>
+						<texturefocus/>
+						<texturenofocus/>
+						<font/>
+						<label/>
+						<onfocus>Close</onfocus>
+						<onfocus>SetFocus(6002)</onfocus>
+						<align>center</align>
+						<aligny>center</aligny>
+						<textoffsetx>30</textoffsetx>
+						<textcolor>af3_main_fg_70</textcolor>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<focusedcolor>ff272727</focusedcolor>
+						<disabledcolor>af3_main_fg_30</disabledcolor>
+						<pulseonselect>false</pulseonselect>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+					<onleft>6001</onleft><onright>6003</onright></control>
+					<control type="button" id="6003">
+						<height>80</height>
+						<width>80</width>
+						<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+						<texturenofocus colordiffuse="00ffffff">af3/common/circle.png</texturenofocus>
+						<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
+						<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
+						<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
+						<textcolor>af3_panel_fg_70</textcolor>
+						<focusedcolor>ff272727</focusedcolor>
+						<font>af3_font_hint</font>
+						<align>center</align>
+						<aligny>top</aligny>
+						<textoffsety>45</textoffsety>
+						<textoffsetx>0</textoffsetx>
+						<onclick>$VAR[AF3_Action_OSD_SkipNext]</onclick>
+						<onup>Close</onup>
+						<onup>SetFocus(8200)</onup>
+						<ondown>ActivateWindow($VAR[AF3_Action_OSD_Main_OnDown])</ondown>
+						<label/>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<disabledcolor>af3_main_fg_30</disabledcolor>
+						<pulseonselect>false</pulseonselect>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+					<onleft>6002</onleft><onright>6004</onright></control>
+					<control type="group" id="6103">
+						<animation effect="fade" start="100" end="30" condition="!Control.IsEnabled(6003)" reversible="false">Conditional</animation>
+						<left>-37</left>
+						<width>0</width>
+						<control type="group">
+							<left>-80</left>
+							<control type="image">
+								<bordersize>12</bordersize>
+								<height>80</height>
+								<width>80</width>
+								<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[AF3_Image_OSD_SkipNext]</texture>
+								<visible>!Control.HasFocus(6003)</visible>
+							</control>
+							<control type="image">
+								<bordersize>12</bordersize>
+								<height>80</height>
+								<width>80</width>
+								<texture colordiffuse="ff272727" flipx="false">$VAR[AF3_Image_OSD_SkipNext]</texture>
+								<visible>Control.HasFocus(6003)</visible>
+							</control>
+						</control>
+					</control>
+					<control type="button" id="6004">
+						<width>80</width>
+						<texturefocus/>
+						<texturenofocus/>
+						<font/>
+						<label/>
+						<onfocus>Close</onfocus>
+						<onfocus>SetFocus(6004)</onfocus>
+						<align>center</align>
+						<aligny>center</aligny>
+						<textoffsetx>30</textoffsetx>
+						<textcolor>af3_main_fg_70</textcolor>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<focusedcolor>ff272727</focusedcolor>
+						<disabledcolor>af3_main_fg_30</disabledcolor>
+						<pulseonselect>false</pulseonselect>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+					<onleft>6003</onleft><onright condition="Control.IsVisible(6016)">6016</onright><onright condition="!Control.IsVisible(6016) + Control.IsVisible(6015)">6015</onright><onright condition="!Control.IsVisible(6016) + !Control.IsVisible(6015)">6005</onright></control>
+					<scrolltime tween="quadratic">400</scrolltime>
+					<usecontrolcoords>true</usecontrolcoords>
+				</control>
+				<!-- dhs osd slots v1 (skin 3.28.40, Dex Hub 5.10.288) -->
+			<!-- the right row copy left: the OSD draws its buttons in the order chosen in Player buttons -->
+			</control>
+		</control>
+	</controls>
+</window>

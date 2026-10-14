@@ -1,0 +1,2339 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<includes>
+	<variable name="AF3_Action_OSD_1140_OnDown">
+		<value condition="VideoPlayer.Content(livetv) + !Skin.HasSetting(OSD.OnDown.DisablePVROSDGuide)">pvrosdguide</value>
+		<value condition="VideoPlayer.Content(livetv)">$VAR[AF3_Action_OSD_PVROSDGuide_OnDown]</value>
+		<value condition="!Skin.HasSetting(OSD.OnDown.DisableVideoBookmarks)">videobookmarks</value>
+		<value />
+	</variable>
+	<variable name="AF3_Action_OSD_Main_OnDown">
+		<value condition="VideoPlayer.Content(livetv) + !Skin.HasSetting(OSD.OnDown.DisablePVROSDGuide) + VideoPlayer.HasEpg">pvrosdguide</value>
+		<value condition="VideoPlayer.Content(livetv)">$VAR[AF3_Action_OSD_PVROSDGuide_OnDown]</value>
+		<value condition="[$EXP[DhOsdIsSeries] | VideoPlayer.Content(livetv) | VideoPlayer.Content(movies) + !Integer.IsEqual(VideoPlayer.PlaylistLength,1) + !Integer.IsEqual(VideoPlayer.PlaylistLength,0)] + !Skin.HasSetting(OSD.OnDown.Disable1140)">1140</value>
+		<value condition="$EXP[DhOsdIsSeries] | VideoPlayer.Content(livetv) | VideoPlayer.Content(movies) + !Integer.IsEqual(VideoPlayer.PlaylistLength,1) + !Integer.IsEqual(VideoPlayer.PlaylistLength,0)">$VAR[AF3_Action_OSD_1140_OnDown]</value>
+		<value condition="!Skin.HasSetting(OSD.OnDown.DisableVideoBookmarks)">videobookmarks</value>
+		<value />
+	</variable>
+	<variable name="AF3_Action_OSD_PVROSDGuide_OnDown">
+		<value condition="!Skin.HasSetting(OSD.OnDown.DisablePVROSDChannels)">pvrosdchannels</value>
+	</variable>
+	<variable name="AF3_Action_OSD_SkipNext">
+		<value condition="!String.IsEmpty(Player.Chapter) + !String.IsEqual(Player.Chapter,00) + !String.IsEmpty(Player.ChapterCount) + !String.IsEqual(Player.ChapterCount,00) + !String.IsEqual(Player.Chapter,Player.ChapterCount)">ChapterOrBigStepForward</value>
+		<value condition="Integer.IsLess(VideoPlayer.PlaylistPosition,VideoPlayer.PlaylistLength)">SkipNext</value>
+		<value condition="!String.IsEmpty(Container(450).ListItem.FileNameAndPath) + Integer.IsLess(Player.TimeRemaining(mins),10)">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_playnext)</value>
+		<value>ChapterOrBigStepForward</value>
+	</variable>
+	<variable name="AF3_Action_OSD_SkipPrev">
+		<value condition="!String.IsEmpty(Player.Chapter) + !String.IsEqual(Player.Chapter,00) + !String.IsEmpty(Player.ChapterCount) + !String.IsEqual(Player.ChapterCount,00) + !String.IsEqual(Player.Chapter,01)">ChapterOrBigStepBack</value>
+		<value condition="Integer.IsGreater(VideoPlayer.PlaylistPosition,1) + Integer.IsGreater(VideoPlayer.PlaylistLength,1)">SkipPrevious</value>
+		<value>ChapterOrBigStepBack</value>
+	</variable>
+	<variable name="AF3_Action_OSD_WikiInfo">
+		<value condition="VideoPlayer.Content(livetv)">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_info)</value>
+		<value>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_info)</value>
+	</variable>
+	<variable name="AF3_ColorHighlight">
+		<value>ffffffff</value>
+	</variable>
+	<variable name="AF3_ColorSelected">
+		<value>ff272727</value>
+	</variable>
+	<variable name="AF3_ColorSelected_30">
+		<value>4d272727</value>
+	</variable>
+	<variable name="AF3_ColorWatchedProgress">
+		<value>ff03b585</value>
+	</variable>
+	<variable name="AF3_Color_DialogBorder">
+		<value>af3_dialog_fg_06</value>
+	</variable>
+	<variable name="AF3_Color_Directory">
+		<value>monochrome</value>
+	</variable>
+	<variable name="AF3_Defs_PercentPlayed">
+		<value condition="!String.IsEmpty(ListItem.Property(WatchedEpisodePercent)) + !Integer.IsEqual(ListItem.Property(WatchedEpisodePercent),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodePercent),100)">$INFO[ListItem.Property(WatchedEpisodePercent)]</value>
+		<value condition="!String.IsEmpty(ListItem.PercentPlayed) + [!Integer.IsEqual(ListItem.PercentPlayed,0) | ListItem.IsResumable]">$INFO[ListItem.PercentPlayed]</value>
+		<value condition="!String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0) + !Integer.IsEqual(ListItem.Property(WatchedProgress),100)">$INFO[ListItem.Property(WatchedProgress)]</value>
+	</variable>
+	<variable name="AF3_Furniture_Header_Right_Temperature">
+		<value condition="!String.IsEmpty(Weather.Plugin) + Weather.IsFetched"> $INFO[Weather.Temperature]</value>
+	</variable>
+	<variable name="AF3_Image_Current_Background">
+		<value condition="Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(SkinSettings.xml) | Window.IsVisible(SettingsProfile.xml) | Window.IsVisible(SettingsSystemInfo.xml) | Window.IsVisible(addonbrowser) | Window.IsVisible(filemanager) | Window.IsVisible(1115) | Window.IsVisible(Settings.xml) | Window.IsVisible(eventlog) | Window.IsVisible(SettingsScreenCalibration.xml) | Window.IsVisible(MyMusicPlaylistEditor.xml) | Window.IsMedia + Window.IsVisible(DialogBusy.xml) + Integer.IsEqual(Container.NumItems,0)">$INFO[Window(Home).Property(TMDbHelper.SimpleBackground.BlurImage)]</value>
+		<value>$INFO[Window(Home).Property(TMDbHelper.ListItem.Current.BlurImage)]</value>
+	</variable>
+	<variable name="AF3_Image_IsCurrentStream">
+		<value condition="!String.IsEmpty(ListItem.Property(iscurrent))">af3/buttons/check-on.png</value>
+		<value>af3/buttons/check-off.png</value>
+	</variable>
+	<variable name="AF3_Image_Landscape">
+		<value condition="String.IsEqual(ListItem.Property(tmdb_type),person)" />
+		<value condition="!String.IsEmpty(ListItem.Property(override_landscape))">$INFO[ListItem.Property(override_landscape)]</value>
+		<value condition="[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,video) | String.IsEqual(ListItem.DBType,musicvideo)] + !String.IsEmpty(ListItem.Art(thumb)) + !String.IsEqual(ListItem.Icon,ListItem.Art(fanart)) + !String.IsEqual(ListItem.Icon,OverlaySpoiler.png) + !String.IsEqual(ListItem.Art(thumb),ListItem.Art(poster)) + !String.IsEqual(ListItem.Art(thumb),ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(thumb)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(season.landscape))">$INFO[ListItem.Art(season.landscape)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(tvshow.landscape))">$INFO[ListItem.Art(tvshow.landscape)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(tvshow.fanart))">$INFO[ListItem.Art(tvshow.fanart)]</value>
+		<value condition="!String.IsEmpty(ListItem.EPGEventIcon)">$INFO[ListItem.EPGEventIcon]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+		<value condition="String.IsEqual(ListItem.DBType,studio) | String.IsEqual(ListItem.Property(DBType),studio)">$INFO[ListItem.Label,resource://resource.images.studios.white/,.png]</value>
+		<value condition="String.IsEqual(ListItem.DBType,country) | String.IsEqual(ListItem.Property(DBType),country)">$INFO[ListItem.Label,resource://resource.images.moviecountryicons.maps/,.png]</value>
+		<value condition="String.IsEqual(ListItem.DBType,genre) | String.IsEqual(ListItem.Property(DBType),genre)">$INFO[ListItem.Label,af3/genres/,.png]</value>
+		<value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
+	</variable>
+	<variable name="AF3_Image_Landscape_LIA_C450_0">
+		<value condition="String.IsEqual(Container(450).ListItemAbsolute(0).Property(tmdb_type),person)" />
+		<value condition="[String.IsEqual(Container(450).ListItemAbsolute(0).DBType,episode) | String.IsEqual(Container(450).ListItemAbsolute(0).DBType,video) | String.IsEqual(Container(450).ListItemAbsolute(0).DBType,musicvideo)] + !String.IsEmpty(Container(450).ListItemAbsolute(0).Art(thumb)) + !String.IsEqual(Container(450).ListItemAbsolute(0).Icon,Container(450).ListItemAbsolute(0).Art(fanart)) + !String.IsEqual(Container(450).ListItemAbsolute(0).Icon,OverlaySpoiler.png) + !String.IsEqual(Container(450).ListItemAbsolute(0).Art(thumb),Container(450).ListItemAbsolute(0).Art(poster)) + !String.IsEqual(Container(450).ListItemAbsolute(0).Art(thumb),Container(450).ListItemAbsolute(0).Art(tvshow.poster))">$INFO[Container(450).ListItemAbsolute(0).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(0).Art(landscape))">$INFO[Container(450).ListItemAbsolute(0).Art(landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(0).Art(season.landscape))">$INFO[Container(450).ListItemAbsolute(0).Art(season.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(0).Art(tvshow.landscape))">$INFO[Container(450).ListItemAbsolute(0).Art(tvshow.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(0).Art(fanart))">$INFO[Container(450).ListItemAbsolute(0).Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(0).Art(tvshow.fanart))">$INFO[Container(450).ListItemAbsolute(0).Art(tvshow.fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(0).EPGEventIcon)">$INFO[Container(450).ListItemAbsolute(0).EPGEventIcon]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(0).Art(thumb))">$INFO[Container(450).ListItemAbsolute(0).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(0).Icon)">$INFO[Container(450).ListItemAbsolute(0).Icon]</value>
+	</variable>
+	<variable name="AF3_Image_Landscape_LIA_C450_1">
+		<value condition="String.IsEqual(Container(450).ListItemAbsolute(1).Property(tmdb_type),person)" />
+		<value condition="[String.IsEqual(Container(450).ListItemAbsolute(1).DBType,episode) | String.IsEqual(Container(450).ListItemAbsolute(1).DBType,video) | String.IsEqual(Container(450).ListItemAbsolute(1).DBType,musicvideo)] + !String.IsEmpty(Container(450).ListItemAbsolute(1).Art(thumb)) + !String.IsEqual(Container(450).ListItemAbsolute(1).Icon,Container(450).ListItemAbsolute(1).Art(fanart)) + !String.IsEqual(Container(450).ListItemAbsolute(1).Icon,OverlaySpoiler.png) + !String.IsEqual(Container(450).ListItemAbsolute(1).Art(thumb),Container(450).ListItemAbsolute(1).Art(poster)) + !String.IsEqual(Container(450).ListItemAbsolute(1).Art(thumb),Container(450).ListItemAbsolute(1).Art(tvshow.poster))">$INFO[Container(450).ListItemAbsolute(1).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(1).Art(landscape))">$INFO[Container(450).ListItemAbsolute(1).Art(landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(1).Art(season.landscape))">$INFO[Container(450).ListItemAbsolute(1).Art(season.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(1).Art(tvshow.landscape))">$INFO[Container(450).ListItemAbsolute(1).Art(tvshow.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(1).Art(fanart))">$INFO[Container(450).ListItemAbsolute(1).Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(1).Art(tvshow.fanart))">$INFO[Container(450).ListItemAbsolute(1).Art(tvshow.fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(1).EPGEventIcon)">$INFO[Container(450).ListItemAbsolute(1).EPGEventIcon]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(1).Art(thumb))">$INFO[Container(450).ListItemAbsolute(1).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(1).Icon)">$INFO[Container(450).ListItemAbsolute(1).Icon]</value>
+	</variable>
+	<variable name="AF3_Image_Landscape_LIA_C450_10">
+		<value condition="String.IsEqual(Container(450).ListItemAbsolute(10).Property(tmdb_type),person)" />
+		<value condition="[String.IsEqual(Container(450).ListItemAbsolute(10).DBType,episode) | String.IsEqual(Container(450).ListItemAbsolute(10).DBType,video) | String.IsEqual(Container(450).ListItemAbsolute(10).DBType,musicvideo)] + !String.IsEmpty(Container(450).ListItemAbsolute(10).Art(thumb)) + !String.IsEqual(Container(450).ListItemAbsolute(10).Icon,Container(450).ListItemAbsolute(10).Art(fanart)) + !String.IsEqual(Container(450).ListItemAbsolute(10).Icon,OverlaySpoiler.png) + !String.IsEqual(Container(450).ListItemAbsolute(10).Art(thumb),Container(450).ListItemAbsolute(10).Art(poster)) + !String.IsEqual(Container(450).ListItemAbsolute(10).Art(thumb),Container(450).ListItemAbsolute(10).Art(tvshow.poster))">$INFO[Container(450).ListItemAbsolute(10).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(10).Art(landscape))">$INFO[Container(450).ListItemAbsolute(10).Art(landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(10).Art(season.landscape))">$INFO[Container(450).ListItemAbsolute(10).Art(season.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(10).Art(tvshow.landscape))">$INFO[Container(450).ListItemAbsolute(10).Art(tvshow.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(10).Art(fanart))">$INFO[Container(450).ListItemAbsolute(10).Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(10).Art(tvshow.fanart))">$INFO[Container(450).ListItemAbsolute(10).Art(tvshow.fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(10).EPGEventIcon)">$INFO[Container(450).ListItemAbsolute(10).EPGEventIcon]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(10).Art(thumb))">$INFO[Container(450).ListItemAbsolute(10).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(10).Icon)">$INFO[Container(450).ListItemAbsolute(10).Icon]</value>
+	</variable>
+	<variable name="AF3_Image_Landscape_LIA_C450_11">
+		<value condition="String.IsEqual(Container(450).ListItemAbsolute(11).Property(tmdb_type),person)" />
+		<value condition="[String.IsEqual(Container(450).ListItemAbsolute(11).DBType,episode) | String.IsEqual(Container(450).ListItemAbsolute(11).DBType,video) | String.IsEqual(Container(450).ListItemAbsolute(11).DBType,musicvideo)] + !String.IsEmpty(Container(450).ListItemAbsolute(11).Art(thumb)) + !String.IsEqual(Container(450).ListItemAbsolute(11).Icon,Container(450).ListItemAbsolute(11).Art(fanart)) + !String.IsEqual(Container(450).ListItemAbsolute(11).Icon,OverlaySpoiler.png) + !String.IsEqual(Container(450).ListItemAbsolute(11).Art(thumb),Container(450).ListItemAbsolute(11).Art(poster)) + !String.IsEqual(Container(450).ListItemAbsolute(11).Art(thumb),Container(450).ListItemAbsolute(11).Art(tvshow.poster))">$INFO[Container(450).ListItemAbsolute(11).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(11).Art(landscape))">$INFO[Container(450).ListItemAbsolute(11).Art(landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(11).Art(season.landscape))">$INFO[Container(450).ListItemAbsolute(11).Art(season.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(11).Art(tvshow.landscape))">$INFO[Container(450).ListItemAbsolute(11).Art(tvshow.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(11).Art(fanart))">$INFO[Container(450).ListItemAbsolute(11).Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(11).Art(tvshow.fanart))">$INFO[Container(450).ListItemAbsolute(11).Art(tvshow.fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(11).EPGEventIcon)">$INFO[Container(450).ListItemAbsolute(11).EPGEventIcon]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(11).Art(thumb))">$INFO[Container(450).ListItemAbsolute(11).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(11).Icon)">$INFO[Container(450).ListItemAbsolute(11).Icon]</value>
+	</variable>
+	<variable name="AF3_Image_Landscape_LIA_C450_12">
+		<value condition="String.IsEqual(Container(450).ListItemAbsolute(12).Property(tmdb_type),person)" />
+		<value condition="[String.IsEqual(Container(450).ListItemAbsolute(12).DBType,episode) | String.IsEqual(Container(450).ListItemAbsolute(12).DBType,video) | String.IsEqual(Container(450).ListItemAbsolute(12).DBType,musicvideo)] + !String.IsEmpty(Container(450).ListItemAbsolute(12).Art(thumb)) + !String.IsEqual(Container(450).ListItemAbsolute(12).Icon,Container(450).ListItemAbsolute(12).Art(fanart)) + !String.IsEqual(Container(450).ListItemAbsolute(12).Icon,OverlaySpoiler.png) + !String.IsEqual(Container(450).ListItemAbsolute(12).Art(thumb),Container(450).ListItemAbsolute(12).Art(poster)) + !String.IsEqual(Container(450).ListItemAbsolute(12).Art(thumb),Container(450).ListItemAbsolute(12).Art(tvshow.poster))">$INFO[Container(450).ListItemAbsolute(12).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(12).Art(landscape))">$INFO[Container(450).ListItemAbsolute(12).Art(landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(12).Art(season.landscape))">$INFO[Container(450).ListItemAbsolute(12).Art(season.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(12).Art(tvshow.landscape))">$INFO[Container(450).ListItemAbsolute(12).Art(tvshow.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(12).Art(fanart))">$INFO[Container(450).ListItemAbsolute(12).Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(12).Art(tvshow.fanart))">$INFO[Container(450).ListItemAbsolute(12).Art(tvshow.fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(12).EPGEventIcon)">$INFO[Container(450).ListItemAbsolute(12).EPGEventIcon]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(12).Art(thumb))">$INFO[Container(450).ListItemAbsolute(12).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(12).Icon)">$INFO[Container(450).ListItemAbsolute(12).Icon]</value>
+	</variable>
+	<variable name="AF3_Image_Landscape_LIA_C450_2">
+		<value condition="String.IsEqual(Container(450).ListItemAbsolute(2).Property(tmdb_type),person)" />
+		<value condition="[String.IsEqual(Container(450).ListItemAbsolute(2).DBType,episode) | String.IsEqual(Container(450).ListItemAbsolute(2).DBType,video) | String.IsEqual(Container(450).ListItemAbsolute(2).DBType,musicvideo)] + !String.IsEmpty(Container(450).ListItemAbsolute(2).Art(thumb)) + !String.IsEqual(Container(450).ListItemAbsolute(2).Icon,Container(450).ListItemAbsolute(2).Art(fanart)) + !String.IsEqual(Container(450).ListItemAbsolute(2).Icon,OverlaySpoiler.png) + !String.IsEqual(Container(450).ListItemAbsolute(2).Art(thumb),Container(450).ListItemAbsolute(2).Art(poster)) + !String.IsEqual(Container(450).ListItemAbsolute(2).Art(thumb),Container(450).ListItemAbsolute(2).Art(tvshow.poster))">$INFO[Container(450).ListItemAbsolute(2).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(2).Art(landscape))">$INFO[Container(450).ListItemAbsolute(2).Art(landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(2).Art(season.landscape))">$INFO[Container(450).ListItemAbsolute(2).Art(season.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(2).Art(tvshow.landscape))">$INFO[Container(450).ListItemAbsolute(2).Art(tvshow.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(2).Art(fanart))">$INFO[Container(450).ListItemAbsolute(2).Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(2).Art(tvshow.fanart))">$INFO[Container(450).ListItemAbsolute(2).Art(tvshow.fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(2).EPGEventIcon)">$INFO[Container(450).ListItemAbsolute(2).EPGEventIcon]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(2).Art(thumb))">$INFO[Container(450).ListItemAbsolute(2).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(2).Icon)">$INFO[Container(450).ListItemAbsolute(2).Icon]</value>
+	</variable>
+	<variable name="AF3_Image_Landscape_LIA_C450_3">
+		<value condition="String.IsEqual(Container(450).ListItemAbsolute(3).Property(tmdb_type),person)" />
+		<value condition="[String.IsEqual(Container(450).ListItemAbsolute(3).DBType,episode) | String.IsEqual(Container(450).ListItemAbsolute(3).DBType,video) | String.IsEqual(Container(450).ListItemAbsolute(3).DBType,musicvideo)] + !String.IsEmpty(Container(450).ListItemAbsolute(3).Art(thumb)) + !String.IsEqual(Container(450).ListItemAbsolute(3).Icon,Container(450).ListItemAbsolute(3).Art(fanart)) + !String.IsEqual(Container(450).ListItemAbsolute(3).Icon,OverlaySpoiler.png) + !String.IsEqual(Container(450).ListItemAbsolute(3).Art(thumb),Container(450).ListItemAbsolute(3).Art(poster)) + !String.IsEqual(Container(450).ListItemAbsolute(3).Art(thumb),Container(450).ListItemAbsolute(3).Art(tvshow.poster))">$INFO[Container(450).ListItemAbsolute(3).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(3).Art(landscape))">$INFO[Container(450).ListItemAbsolute(3).Art(landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(3).Art(season.landscape))">$INFO[Container(450).ListItemAbsolute(3).Art(season.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(3).Art(tvshow.landscape))">$INFO[Container(450).ListItemAbsolute(3).Art(tvshow.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(3).Art(fanart))">$INFO[Container(450).ListItemAbsolute(3).Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(3).Art(tvshow.fanart))">$INFO[Container(450).ListItemAbsolute(3).Art(tvshow.fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(3).EPGEventIcon)">$INFO[Container(450).ListItemAbsolute(3).EPGEventIcon]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(3).Art(thumb))">$INFO[Container(450).ListItemAbsolute(3).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(3).Icon)">$INFO[Container(450).ListItemAbsolute(3).Icon]</value>
+	</variable>
+	<variable name="AF3_Image_Landscape_LIA_C450_4">
+		<value condition="String.IsEqual(Container(450).ListItemAbsolute(4).Property(tmdb_type),person)" />
+		<value condition="[String.IsEqual(Container(450).ListItemAbsolute(4).DBType,episode) | String.IsEqual(Container(450).ListItemAbsolute(4).DBType,video) | String.IsEqual(Container(450).ListItemAbsolute(4).DBType,musicvideo)] + !String.IsEmpty(Container(450).ListItemAbsolute(4).Art(thumb)) + !String.IsEqual(Container(450).ListItemAbsolute(4).Icon,Container(450).ListItemAbsolute(4).Art(fanart)) + !String.IsEqual(Container(450).ListItemAbsolute(4).Icon,OverlaySpoiler.png) + !String.IsEqual(Container(450).ListItemAbsolute(4).Art(thumb),Container(450).ListItemAbsolute(4).Art(poster)) + !String.IsEqual(Container(450).ListItemAbsolute(4).Art(thumb),Container(450).ListItemAbsolute(4).Art(tvshow.poster))">$INFO[Container(450).ListItemAbsolute(4).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(4).Art(landscape))">$INFO[Container(450).ListItemAbsolute(4).Art(landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(4).Art(season.landscape))">$INFO[Container(450).ListItemAbsolute(4).Art(season.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(4).Art(tvshow.landscape))">$INFO[Container(450).ListItemAbsolute(4).Art(tvshow.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(4).Art(fanart))">$INFO[Container(450).ListItemAbsolute(4).Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(4).Art(tvshow.fanart))">$INFO[Container(450).ListItemAbsolute(4).Art(tvshow.fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(4).EPGEventIcon)">$INFO[Container(450).ListItemAbsolute(4).EPGEventIcon]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(4).Art(thumb))">$INFO[Container(450).ListItemAbsolute(4).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(4).Icon)">$INFO[Container(450).ListItemAbsolute(4).Icon]</value>
+	</variable>
+	<variable name="AF3_Image_Landscape_LIA_C450_5">
+		<value condition="String.IsEqual(Container(450).ListItemAbsolute(5).Property(tmdb_type),person)" />
+		<value condition="[String.IsEqual(Container(450).ListItemAbsolute(5).DBType,episode) | String.IsEqual(Container(450).ListItemAbsolute(5).DBType,video) | String.IsEqual(Container(450).ListItemAbsolute(5).DBType,musicvideo)] + !String.IsEmpty(Container(450).ListItemAbsolute(5).Art(thumb)) + !String.IsEqual(Container(450).ListItemAbsolute(5).Icon,Container(450).ListItemAbsolute(5).Art(fanart)) + !String.IsEqual(Container(450).ListItemAbsolute(5).Icon,OverlaySpoiler.png) + !String.IsEqual(Container(450).ListItemAbsolute(5).Art(thumb),Container(450).ListItemAbsolute(5).Art(poster)) + !String.IsEqual(Container(450).ListItemAbsolute(5).Art(thumb),Container(450).ListItemAbsolute(5).Art(tvshow.poster))">$INFO[Container(450).ListItemAbsolute(5).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(5).Art(landscape))">$INFO[Container(450).ListItemAbsolute(5).Art(landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(5).Art(season.landscape))">$INFO[Container(450).ListItemAbsolute(5).Art(season.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(5).Art(tvshow.landscape))">$INFO[Container(450).ListItemAbsolute(5).Art(tvshow.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(5).Art(fanart))">$INFO[Container(450).ListItemAbsolute(5).Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(5).Art(tvshow.fanart))">$INFO[Container(450).ListItemAbsolute(5).Art(tvshow.fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(5).EPGEventIcon)">$INFO[Container(450).ListItemAbsolute(5).EPGEventIcon]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(5).Art(thumb))">$INFO[Container(450).ListItemAbsolute(5).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(5).Icon)">$INFO[Container(450).ListItemAbsolute(5).Icon]</value>
+	</variable>
+	<variable name="AF3_Image_Landscape_LIA_C450_6">
+		<value condition="String.IsEqual(Container(450).ListItemAbsolute(6).Property(tmdb_type),person)" />
+		<value condition="[String.IsEqual(Container(450).ListItemAbsolute(6).DBType,episode) | String.IsEqual(Container(450).ListItemAbsolute(6).DBType,video) | String.IsEqual(Container(450).ListItemAbsolute(6).DBType,musicvideo)] + !String.IsEmpty(Container(450).ListItemAbsolute(6).Art(thumb)) + !String.IsEqual(Container(450).ListItemAbsolute(6).Icon,Container(450).ListItemAbsolute(6).Art(fanart)) + !String.IsEqual(Container(450).ListItemAbsolute(6).Icon,OverlaySpoiler.png) + !String.IsEqual(Container(450).ListItemAbsolute(6).Art(thumb),Container(450).ListItemAbsolute(6).Art(poster)) + !String.IsEqual(Container(450).ListItemAbsolute(6).Art(thumb),Container(450).ListItemAbsolute(6).Art(tvshow.poster))">$INFO[Container(450).ListItemAbsolute(6).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(6).Art(landscape))">$INFO[Container(450).ListItemAbsolute(6).Art(landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(6).Art(season.landscape))">$INFO[Container(450).ListItemAbsolute(6).Art(season.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(6).Art(tvshow.landscape))">$INFO[Container(450).ListItemAbsolute(6).Art(tvshow.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(6).Art(fanart))">$INFO[Container(450).ListItemAbsolute(6).Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(6).Art(tvshow.fanart))">$INFO[Container(450).ListItemAbsolute(6).Art(tvshow.fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(6).EPGEventIcon)">$INFO[Container(450).ListItemAbsolute(6).EPGEventIcon]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(6).Art(thumb))">$INFO[Container(450).ListItemAbsolute(6).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(6).Icon)">$INFO[Container(450).ListItemAbsolute(6).Icon]</value>
+	</variable>
+	<variable name="AF3_Image_Landscape_LIA_C450_7">
+		<value condition="String.IsEqual(Container(450).ListItemAbsolute(7).Property(tmdb_type),person)" />
+		<value condition="[String.IsEqual(Container(450).ListItemAbsolute(7).DBType,episode) | String.IsEqual(Container(450).ListItemAbsolute(7).DBType,video) | String.IsEqual(Container(450).ListItemAbsolute(7).DBType,musicvideo)] + !String.IsEmpty(Container(450).ListItemAbsolute(7).Art(thumb)) + !String.IsEqual(Container(450).ListItemAbsolute(7).Icon,Container(450).ListItemAbsolute(7).Art(fanart)) + !String.IsEqual(Container(450).ListItemAbsolute(7).Icon,OverlaySpoiler.png) + !String.IsEqual(Container(450).ListItemAbsolute(7).Art(thumb),Container(450).ListItemAbsolute(7).Art(poster)) + !String.IsEqual(Container(450).ListItemAbsolute(7).Art(thumb),Container(450).ListItemAbsolute(7).Art(tvshow.poster))">$INFO[Container(450).ListItemAbsolute(7).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(7).Art(landscape))">$INFO[Container(450).ListItemAbsolute(7).Art(landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(7).Art(season.landscape))">$INFO[Container(450).ListItemAbsolute(7).Art(season.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(7).Art(tvshow.landscape))">$INFO[Container(450).ListItemAbsolute(7).Art(tvshow.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(7).Art(fanart))">$INFO[Container(450).ListItemAbsolute(7).Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(7).Art(tvshow.fanart))">$INFO[Container(450).ListItemAbsolute(7).Art(tvshow.fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(7).EPGEventIcon)">$INFO[Container(450).ListItemAbsolute(7).EPGEventIcon]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(7).Art(thumb))">$INFO[Container(450).ListItemAbsolute(7).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(7).Icon)">$INFO[Container(450).ListItemAbsolute(7).Icon]</value>
+	</variable>
+	<variable name="AF3_Image_Landscape_LIA_C450_8">
+		<value condition="String.IsEqual(Container(450).ListItemAbsolute(8).Property(tmdb_type),person)" />
+		<value condition="[String.IsEqual(Container(450).ListItemAbsolute(8).DBType,episode) | String.IsEqual(Container(450).ListItemAbsolute(8).DBType,video) | String.IsEqual(Container(450).ListItemAbsolute(8).DBType,musicvideo)] + !String.IsEmpty(Container(450).ListItemAbsolute(8).Art(thumb)) + !String.IsEqual(Container(450).ListItemAbsolute(8).Icon,Container(450).ListItemAbsolute(8).Art(fanart)) + !String.IsEqual(Container(450).ListItemAbsolute(8).Icon,OverlaySpoiler.png) + !String.IsEqual(Container(450).ListItemAbsolute(8).Art(thumb),Container(450).ListItemAbsolute(8).Art(poster)) + !String.IsEqual(Container(450).ListItemAbsolute(8).Art(thumb),Container(450).ListItemAbsolute(8).Art(tvshow.poster))">$INFO[Container(450).ListItemAbsolute(8).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(8).Art(landscape))">$INFO[Container(450).ListItemAbsolute(8).Art(landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(8).Art(season.landscape))">$INFO[Container(450).ListItemAbsolute(8).Art(season.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(8).Art(tvshow.landscape))">$INFO[Container(450).ListItemAbsolute(8).Art(tvshow.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(8).Art(fanart))">$INFO[Container(450).ListItemAbsolute(8).Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(8).Art(tvshow.fanart))">$INFO[Container(450).ListItemAbsolute(8).Art(tvshow.fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(8).EPGEventIcon)">$INFO[Container(450).ListItemAbsolute(8).EPGEventIcon]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(8).Art(thumb))">$INFO[Container(450).ListItemAbsolute(8).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(8).Icon)">$INFO[Container(450).ListItemAbsolute(8).Icon]</value>
+	</variable>
+	<variable name="AF3_Image_Landscape_LIA_C450_9">
+		<value condition="String.IsEqual(Container(450).ListItemAbsolute(9).Property(tmdb_type),person)" />
+		<value condition="[String.IsEqual(Container(450).ListItemAbsolute(9).DBType,episode) | String.IsEqual(Container(450).ListItemAbsolute(9).DBType,video) | String.IsEqual(Container(450).ListItemAbsolute(9).DBType,musicvideo)] + !String.IsEmpty(Container(450).ListItemAbsolute(9).Art(thumb)) + !String.IsEqual(Container(450).ListItemAbsolute(9).Icon,Container(450).ListItemAbsolute(9).Art(fanart)) + !String.IsEqual(Container(450).ListItemAbsolute(9).Icon,OverlaySpoiler.png) + !String.IsEqual(Container(450).ListItemAbsolute(9).Art(thumb),Container(450).ListItemAbsolute(9).Art(poster)) + !String.IsEqual(Container(450).ListItemAbsolute(9).Art(thumb),Container(450).ListItemAbsolute(9).Art(tvshow.poster))">$INFO[Container(450).ListItemAbsolute(9).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(9).Art(landscape))">$INFO[Container(450).ListItemAbsolute(9).Art(landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(9).Art(season.landscape))">$INFO[Container(450).ListItemAbsolute(9).Art(season.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(9).Art(tvshow.landscape))">$INFO[Container(450).ListItemAbsolute(9).Art(tvshow.landscape)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(9).Art(fanart))">$INFO[Container(450).ListItemAbsolute(9).Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(9).Art(tvshow.fanart))">$INFO[Container(450).ListItemAbsolute(9).Art(tvshow.fanart)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(9).EPGEventIcon)">$INFO[Container(450).ListItemAbsolute(9).EPGEventIcon]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(9).Art(thumb))">$INFO[Container(450).ListItemAbsolute(9).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container(450).ListItemAbsolute(9).Icon)">$INFO[Container(450).ListItemAbsolute(9).Icon]</value>
+	</variable>
+	<variable name="AF3_Image_OSD_7000_Poster">
+		<value condition="!String.IsEmpty(Container(7000).ListItem.Art(poster))">$INFO[Container(7000).ListItem.Art(poster)]</value>
+		<value condition="!String.IsEmpty(Container(7000).ListItem.Art(tvshow.poster))">$INFO[Container(7000).ListItem.Art(tvshow.poster)]</value>
+		<value condition="!String.IsEmpty(Container(7000).ListItem.Icon)">$INFO[Container(7000).ListItem.Icon]</value>
+	</variable>
+	<variable name="AF3_Image_OSD_Landscape">
+		<value condition="!String.IsEmpty(Pvr.EPGEventIcon)">$INFO[Pvr.EPGEventIcon]</value>
+		<value condition="!String.IsEmpty(Player.Art(thumb)) + PVR.IsPlayingRecording">$INFO[Player.Art(thumb)]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Art(landscape))">$INFO[VideoPlayer.Art(landscape)]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Art(tvshow.landscape))">$INFO[VideoPlayer.Art(tvshow.landscape)]</value>
+		<value condition="!String.IsEmpty(Player.Art(landscape))">$INFO[Player.Art(landscape)]</value>
+		<value condition="!String.IsEmpty(Player.Art(tvshow.landscape))">$INFO[Player.Art(tvshow.landscape)]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Art(fanart))">$INFO[VideoPlayer.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Art(tvshow.fanart))">$INFO[VideoPlayer.Art(tvshow.fanart)]</value>
+		<value condition="!String.IsEmpty(Player.Art(fanart))">$INFO[Player.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Player.Art(tvshow.fanart))">$INFO[Player.Art(tvshow.fanart)]</value>
+		<value>$INFO[Player.Art(icon)]</value>
+	</variable>
+	<variable name="AF3_Image_OSD_PausePlay">
+		<value condition="Player.Playing">af3/extras/icons/pause.png</value>
+		<value>af3/extras/icons/play2.png</value>
+	</variable>
+	<variable name="AF3_Image_OSD_PlayPause">
+		<value condition="[Window.IsActive(musicosd) | Window.IsActive(videoosd)] + ![Window.IsActive(1140) | Window.IsActive(1141) | Window.IsActive(1142) | Window.IsActive(videobookmarks) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml)]">$VAR[AF3_Image_OSD_PausePlay]</value>
+		<value condition="Player.Paused">af3/extras/icons/pause.png</value>
+		<value condition="Player.Forwarding">af3/extras/icons/forward.png</value>
+		<value condition="Player.Rewinding">af3/extras/icons/backward.png</value>
+		<value>af3/extras/icons/play2.png</value>
+	</variable>
+	<variable name="AF3_Image_OSD_Poster">
+		<value condition="!String.IsEmpty(VideoPlayer.Art(poster))">$INFO[VideoPlayer.Art(poster)]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Art(tvshow.poster))">$INFO[VideoPlayer.Art(tvshow.poster)]</value>
+		<value condition="!String.IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
+		<value condition="!String.IsEmpty(Player.Art(tvshow.poster))">$INFO[Player.Art(tvshow.poster)]</value>
+	</variable>
+	<variable name="AF3_Image_OSD_SkipNext">
+		<value condition="!String.IsEmpty(Player.Chapter) + !String.IsEqual(Player.Chapter,00) + !String.IsEmpty(Player.ChapterCount) + !String.IsEqual(Player.ChapterCount,00) + !String.IsEqual(Player.Chapter,Player.ChapterCount)">af3/extras/icons/forward-fast.png</value>
+		<value condition="Integer.IsLess(VideoPlayer.PlaylistPosition,VideoPlayer.PlaylistLength)">af3/extras/icons/forward-step.png</value>
+		<value condition="Integer.IsLess(Player.TimeRemaining(mins),10)">af3/extras/icons/forward-step.png</value>
+		<value>af3/extras/icons/forward-jump.png</value>
+	</variable>
+	<variable name="AF3_Image_OSD_SkipPrev">
+		<value condition="!String.IsEmpty(Player.Chapter) + !String.IsEqual(Player.Chapter,00) + !String.IsEmpty(Player.ChapterCount) + !String.IsEqual(Player.ChapterCount,00) + !String.IsEqual(Player.Chapter,01)">af3/extras/icons/backward-fast.png</value>
+		<value condition="Integer.IsGreater(VideoPlayer.PlaylistPosition,1) + Integer.IsGreater(VideoPlayer.PlaylistLength,1)">af3/extras/icons/backward-step.png</value>
+		<value condition="Integer.IsLess(Player.Time(mins),10)">af3/extras/icons/backward-step.png</value>
+		<value>af3/extras/icons/backward-jump.png</value>
+	</variable>
+	<variable name="AF3_Image_OSD_UpNext_Playlist_Landscape">
+		<value condition="!Integer.IsLess(VideoPlayer.PlaylistPosition,VideoPlayer.PlaylistLength)">$VAR[AF3_Image_Landscape_LIA_C450_0]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,1)">$VAR[AF3_Image_Landscape_LIA_C450_1]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,2)">$VAR[AF3_Image_Landscape_LIA_C450_2]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,3)">$VAR[AF3_Image_Landscape_LIA_C450_3]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,4)">$VAR[AF3_Image_Landscape_LIA_C450_4]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,5)">$VAR[AF3_Image_Landscape_LIA_C450_5]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,6)">$VAR[AF3_Image_Landscape_LIA_C450_6]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,7)">$VAR[AF3_Image_Landscape_LIA_C450_7]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,8)">$VAR[AF3_Image_Landscape_LIA_C450_8]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,9)">$VAR[AF3_Image_Landscape_LIA_C450_9]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,10)">$VAR[AF3_Image_Landscape_LIA_C450_10]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,11)">$VAR[AF3_Image_Landscape_LIA_C450_11]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,12)">$VAR[AF3_Image_Landscape_LIA_C450_12]</value>
+	</variable>
+	<variable name="AF3_Image_Player_Status">
+		<value condition="String.IsEqual(Window(Home).Property(TMDbHelper.Player.Status),Returning Series)">af3/flags/monochrome/status/calendar-day.png</value>
+		<value condition="String.IsEqual(Window(Home).Property(TMDbHelper.Player.Status),Post Production)">af3/flags/monochrome/status/calendar-day.png</value>
+		<value condition="String.IsEqual(Window(Home).Property(TMDbHelper.Player.Status),Canceled)">af3/flags/monochrome/status/calendar-xmark.png</value>
+		<value condition="String.IsEqual(Window(Home).Property(TMDbHelper.Player.Status),Ended)">af3/flags/monochrome/status/calendar-check.png</value>
+		<value condition="String.IsEqual(Window(Home).Property(TMDbHelper.Player.Status),Released)">af3/flags/monochrome/status/calendar-check.png</value>
+		<value condition="String.IsEqual(Window(Home).Property(TMDbHelper.Player.Status),In Production)">af3/flags/monochrome/status/calendar-day.png</value>
+		<value condition="String.IsEqual(Window(Home).Property(TMDbHelper.Player.Status),Planned)">af3/flags/monochrome/status/calendar-day.png</value>
+		<value>af3/flags/monochrome/status/calendar-day.png</value>
+	</variable>
+	<variable name="AF3_Image_RipSource">
+		<value condition="![String.Contains(ListItem.FileNameAndPath,2160p) | String.Contains(ListItem.FileNameAndPath,UHD) | String.Contains(ListItem.FileNameAndPath,UltraHD) | String.Contains(ListItem.FileNameAndPath,Ultra-HD) | String.Contains(ListItem.FileNameAndPath,4K)] + [String.Contains(ListItem.FileNameAndPath,web-dl) | String.Contains(ListItem.FileNameAndPath,webdl) | String.Contains(ListItem.FileNameAndPath,WEBRip)]">af3/flags/colorful/other/web-dl.png</value>
+		<value condition="[String.Contains(ListItem.FileNameAndPath,2160p) | String.Contains(ListItem.FileNameAndPath,UHD) | String.Contains(ListItem.FileNameAndPath,UltraHD) | String.Contains(ListItem.FileNameAndPath,Ultra-HD) | String.Contains(ListItem.FileNameAndPath,4K)] + [String.Contains(ListItem.FileNameAndPath,web-dl) | String.Contains(ListItem.FileNameAndPath,webdl) | String.Contains(ListItem.FileNameAndPath,WEBRip)]">flags/colorful/other/4K_web-dl.png</value>
+		<value condition="String.Contains(ListItem.FileNameAndPath,blu-ray) | String.Contains(ListItem.FileNameAndPath,bluray) | String.Contains(ListItem.FileNameAndPath,bdrip) | String.Contains(ListItem.FileNameAndPath,bd25) | String.Contains(ListItem.FileNameAndPath,bd50)">af3/flags/colorful/other/bluray.png</value>
+		<value condition="[String.Contains(ListItem.FileNameAndPath,2160p) | String.Contains(ListItem.FileNameAndPath,UHD) | String.Contains(ListItem.FileNameAndPath,UltraHD) | String.Contains(ListItem.FileNameAndPath,Ultra-HD) | String.Contains(ListItem.FileNameAndPath,4K)] + ![String.Contains(ListItem.FileNameAndPath,web-dl) | String.Contains(ListItem.FileNameAndPath,webdl) | String.Contains(ListItem.FileNameAndPath,WEBRip)]">flags/colorful/other/4K.png</value>
+		<value condition="String.Contains(ListItem.FileNameAndPath,hddvd) | String.Contains(ListItem.FileNameAndPath,hd-dvd)">flags/colorful/other/hddvd.png</value>
+		<value condition="String.Contains(ListItem.FileNameAndPath,dvd)">af3/flags/colorful/other/dvd.png</value>
+		<value condition="String.Contains(ListItem.FileNameAndPath,vhs) | String.Contains(ListItem.FileNameAndPath,vhsrip)">af3/flags/colorful/other/vhs.png</value>
+		<value condition="String.Contains(ListItem.FileNameAndPath,hdtv) | String.Contains(ListItem.FileNameAndPath,pdtv) | String.Contains(ListItem.FileNameAndPath,dsr)">af3/flags/colorful/other/hdtv.png</value>
+		<value condition="String.Contains(ListItem.FileNameAndPath,sdtv)">flags/colorful/other/sdtv.png</value>
+		<value />
+	</variable>
+	<variable name="AF3_Image_VideoPlayer_AudioChannels">
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,6) + String.IsEqual(VideoPlayer.AudioCodec,eac3_ddp_atmos)">af3/flags/colorful/channels/5.1.4.png</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,8) + String.IsEqual(VideoPlayer.AudioCodec,truehd_atmos)">af3/flags/colorful/channels/7.1.4.png</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,8) + String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x)">af3/flags/colorful/channels/7.1.4.png</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,8) + String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x_imax)">af3/flags/colorful/channels/7.1.4.png</value>
+		<value>af3/flags/colorful/channels/$INFO[VideoPlayer.AudioChannels].png</value>
+	</variable>
+	<variable name="AF3_Image_VideoPlayer_AudioCodec">
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,eac3_ddp_atmos)">af3/flags/colorful/audio/atmos.png</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,truehd_atmos)">af3/flags/colorful/audio/atmos.png</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x)">af3/flags/colorful/audio/dtsx.png</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x_imax)">af3/flags/colorful/audio/dtsx-imax.png</value>
+		<value>af3/flags/colorful/audio/$INFO[VideoPlayer.AudioCodec].png</value>
+	</variable>
+	<variable name="AF3_Image_VideoPlayer_HDRType_Strip">
+		<value condition="String.IsEqual(VideoPlayer.HdrType,dolbyvision) | String.Contains(Player.Process(amlogic.vs10.mode),Dolby Vision) | String.Contains(Player.Filenameandpath,.dv.) | String.Contains(Player.Filenameandpath,dolby.vision) | String.Contains(Player.Filenameandpath,dovi)">af3/flags/colorful/other/dolbyvision.png</value>
+		<value condition="String.Contains(Player.Filenameandpath,hdr10plus) | String.Contains(Player.Filenameandpath,.hdrplus.)">af3/flags/colorful/other/hdr10plus.png</value>
+		<value condition="String.IsEqual(VideoPlayer.HdrType,hdr10) | String.Contains(Player.Process(amlogic.vs10.mode),HDR10)">af3/flags/colorful/other/hdr10.png</value>
+		<value condition="String.IsEqual(VideoPlayer.HdrType,hlg) | String.Contains(Player.Process(amlogic.eoft_gamut),HLG)">af3/flags/colorful/other/hlg.png</value>
+		<value condition="!String.IsEmpty(VideoPlayer.HdrType) | String.Contains(Player.Filenameandpath,hdr)">af3/flags/colorful/other/hdr.png</value>
+		<value>af3/flags/colorful/other/sdr.png</value>
+	</variable>
+	<variable name="AF3_Image_VideoPlayer_RipSource">
+		<value condition="![String.Contains(Player.FileNameAndPath,2160p) | String.Contains(Player.FileNameAndPath,UHD) | String.Contains(Player.FileNameAndPath,UltraHD) | String.Contains(Player.FileNameAndPath,Ultra-HD) | String.Contains(Player.FileNameAndPath,4K)] + [String.Contains(Player.FileNameAndPath,web-dl) | String.Contains(Player.FileNameAndPath,webdl) | String.Contains(Player.FileNameAndPath,WEBRip)]">af3/flags/colorful/other/web-dl.png</value>
+		<value condition="[String.Contains(Player.FileNameAndPath,2160p) | String.Contains(Player.FileNameAndPath,UHD) | String.Contains(Player.FileNameAndPath,UltraHD) | String.Contains(Player.FileNameAndPath,Ultra-HD) | String.Contains(Player.FileNameAndPath,4K)] + [String.Contains(Player.FileNameAndPath,web-dl) | String.Contains(Player.FileNameAndPath,webdl) | String.Contains(Player.FileNameAndPath,WEBRip)]">flags/colorful/other/4K_web-dl.png</value>
+		<value condition="String.Contains(Player.FileNameAndPath,blu-ray) | String.Contains(Player.FileNameAndPath,bluray) | String.Contains(Player.FileNameAndPath,bdrip) | String.Contains(Player.FileNameAndPath,bd25) | String.Contains(Player.FileNameAndPath,bd50)">af3/flags/colorful/other/bluray.png</value>
+		<value condition="[String.Contains(Player.FileNameAndPath,2160p) | String.Contains(Player.FileNameAndPath,UHD) | String.Contains(Player.FileNameAndPath,UltraHD) | String.Contains(Player.FileNameAndPath,Ultra-HD) | String.Contains(Player.FileNameAndPath,4K)] + ![String.Contains(Player.FileNameAndPath,web-dl) | String.Contains(Player.FileNameAndPath,webdl) | String.Contains(Player.FileNameAndPath,WEBRip)]">flags/colorful/other/4K.png</value>
+		<value condition="String.Contains(Player.FileNameAndPath,hddvd) | String.Contains(Player.FileNameAndPath,hd-dvd)">flags/colorful/other/hddvd.png</value>
+		<value condition="String.Contains(Player.FileNameAndPath,dvd)">af3/flags/colorful/other/dvd.png</value>
+		<value condition="String.Contains(Player.FileNameAndPath,vhs) | String.Contains(Player.FileNameAndPath,vhsrip)">af3/flags/colorful/other/vhs.png</value>
+		<value condition="String.Contains(Player.FileNameAndPath,hdtv) | String.Contains(Player.FileNameAndPath,pdtv) | String.Contains(Player.FileNameAndPath,dsr)">af3/flags/colorful/other/hdtv.png</value>
+		<value condition="String.Contains(Player.FileNameAndPath,sdtv)">flags/colorful/other/sdtv.png</value>
+		<value />
+	</variable>
+	<variable name="AF3_Label_NowPlayingSubLabel">
+		<value condition="!String.IsEmpty(MusicPlayer.Artist)">$INFO[MusicPlayer.Artist]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.TvShowTitle)">$INFO[VideoPlayer.TvShowTitle]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.ChannelNumberLabel)">$INFO[VideoPlayer.ChannelNumberLabel,$LOCALIZE[19029] ,]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Director)">$INFO[VideoPlayer.Director]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Studio)">$INFO[VideoPlayer.Studio]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Premiered)">$INFO[VideoPlayer.Premiered]</value>
+	</variable>
+	<variable name="AF3_Label_NowPlayingTitle">
+		<value condition="!String.IsEmpty(MusicPlayer.Artist)">$INFO[Player.Title]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.TvShowTitle)">$VAR[AF3_Label_OSD_Plot_Episode_Number,,. ]$INFO[Player.Title]</value>
+		<value>$INFO[Player.Title]</value>
+	</variable>
+	<variable name="AF3_Label_OSD_7000_SubLabel">
+		<value condition="!String.IsEmpty(Container(7000).ListItem.Artist)">$INFO[Container(7000).ListItem.Artist]</value>
+		<value condition="!String.IsEmpty(Container(7000).ListItem.TvShowTitle)">$INFO[Container(7000).ListItem.TvShowTitle]</value>
+		<value condition="!String.IsEmpty(Container(7000).ListItem.ChannelNumberLabel)">$INFO[Container(7000).ListItem.ChannelNumberLabel,$LOCALIZE[19029] ,]</value>
+		<value condition="!String.IsEmpty(Container(7000).ListItem.Director)">$INFO[Container(7000).ListItem.Director]</value>
+		<value condition="!String.IsEmpty(Container(7000).ListItem.Studio)">$INFO[Container(7000).ListItem.Studio]</value>
+		<value condition="!String.IsEmpty(Container(7000).ListItem.Premiered)">$INFO[Container(7000).ListItem.Premiered]</value>
+	</variable>
+	<variable name="AF3_Label_OSD_7000_Title">
+		<value condition="!String.IsEmpty(Container(7000).ListItem.Artist)">$INFO[Container(7000).ListItem.Title]</value>
+		<value condition="!String.IsEmpty(Container(7000).ListItem.TvShowTitle)">$VAR[AF3_Label_Plot_Episode_Number_C7000,,. ]$INFO[Container(7000).ListItem.Title]</value>
+		<value>$INFO[Container(7000).ListItem.Title]</value>
+	</variable>
+	<variable name="AF3_Label_OSD_Duration">
+		<value condition="Skin.String(Seekbar.TimeDisplay,Combined)">$INFO[Player.TimeRemaining(hh:mm:ss)]</value>
+		<value condition="Skin.String(Seekbar.TimeDisplay,Combined) + PVR.IsPlayingTV + !String.IsEmpty(PVR.EpgEventRemainingTime)">$INFO[PVR.EpgEventRemainingTime(hh:mm:ss)]</value>
+		<value condition="PVR.IsPlayingTV + !String.IsEmpty(PVR.EpgEventDuration)">$INFO[PVR.EpgEventDuration(hh:mm:ss)]</value>
+		<value>$INFO[Player.Duration(hh:mm:ss)]</value>
+	</variable>
+	<variable name="AF3_Label_OSD_Header">
+		<value condition="!String.IsEmpty(PVR.ChannelNumberInput)">$INFO[PVR.ChannelNumberInput,$LOCALIZE[19165] ,]</value>
+		<value condition="!String.IsEmpty(Player.SeekNumeric)">$INFO[Player.SeekNumeric,$LOCALIZE[31178] ,]</value>
+		<value condition="Player.Forwarding32x">FF 32x</value>
+		<value condition="Player.Forwarding16x">FF 16x</value>
+		<value condition="Player.Forwarding8x">FF 8x</value>
+		<value condition="Player.Forwarding4x">FF 4x</value>
+		<value condition="Player.Forwarding2x">FF 2x</value>
+		<value condition="Player.Forwarding">FF</value>
+		<value condition="Player.Rewinding32x">RW 32x</value>
+		<value condition="Player.Rewinding16x">RW 16x</value>
+		<value condition="Player.Rewinding8x">RW 8x</value>
+		<value condition="Player.Rewinding4x">RW 4x</value>
+		<value condition="Player.Rewinding2x">RW 2x</value>
+		<value condition="Player.Rewinding">RW</value>
+		<value condition="[Player.Seeking | Player.HasPerformedSeek(3)] + !String.IsEmpty(Player.SeekOffset)">$LOCALIZE[773]$INFO[Player.SeekOffset, ,]</value>
+		<value condition="Player.Seeking + String.IsEmpty(Player.SeekOffset)">$LOCALIZE[773]$INFO[Player.SeekStepSize, ,]</value>
+		<value condition="Player.Caching">$LOCALIZE[439] $INFO[Player.CacheLevel,,%]</value>
+		<value condition="!String.IsEmpty(Player.PlaySpeed) + !String.IsEqual(Player.PlaySpeed,1.00) + !String.IsEqual(Player.PlaySpeed,0.00)">$INFO[Player.PlaySpeed,$LOCALIZE[31064] ,x]</value>
+		<value condition="!String.IsEmpty(Player.Chapter) + !String.IsEqual(Player.Chapter,00) + !String.IsEmpty(Player.ChapterCount) + !String.IsEqual(Player.ChapterCount,00) + [Player.Seeking | Player.HasPerformedSeek(3) | Integer.IsEqual(System.CurrentControlID,8200)]">$INFO[Player.Chapter,$LOCALIZE[21396] ,]$INFO[Player.ChapterCount, / ,]$INFO[Player.ChapterName, - ,]</value>
+		<value condition="Player.Paused">$LOCALIZE[112]</value>
+		<value>$LOCALIZE[31179]</value>
+	</variable>
+	<variable name="AF3_Label_OSD_HintText">
+		<value condition="Window.IsVisible(1141)">$LOCALIZE[31094]</value>
+		<value condition="Window.IsVisible(pvrosdchannels)" />
+		<value condition="Window.IsVisible(videobookmarks)" />
+		<value condition="Window.IsVisible(1140)">$VAR[AF3_Label_OSD_HintText_1140]</value>
+		<value condition="Window.IsVisible(pvrosdguide)">$VAR[AF3_Label_OSD_HintText_PVROSDGuide]</value>
+		<value>$VAR[AF3_Label_OSD_HintText_Main]</value>
+	</variable>
+	<variable name="AF3_Label_OSD_HintText_1140">
+		<value condition="VideoPlayer.Content(livetv) + !Skin.HasSetting(OSD.OnDown.DisablePVROSDGuide)">$LOCALIZE[31108]</value>
+		<value condition="VideoPlayer.Content(livetv)">$VAR[AF3_Label_OSD_HintText_PVROSDGuide]</value>
+		<value condition="!Skin.HasSetting(OSD.OnDown.DisableVideoBookmarks)">$LOCALIZE[31124]</value>
+		<value />
+	</variable>
+	<variable name="AF3_Label_OSD_HintText_Main">
+		<value condition="VideoPlayer.Content(livetv) + !Skin.HasSetting(OSD.OnDown.DisablePVROSDGuide)">$LOCALIZE[31108]</value>
+		<value condition="VideoPlayer.Content(livetv)">$VAR[AF3_Label_OSD_HintText_PVROSDGuide]</value>
+		<value condition="[$EXP[DhOsdIsSeries] | VideoPlayer.Content(livetv) | VideoPlayer.Content(movies) + !Integer.IsEqual(VideoPlayer.PlaylistLength,1) + !Integer.IsEqual(VideoPlayer.PlaylistLength,0)] + !Skin.HasSetting(OSD.OnDown.Disable1140)">$LOCALIZE[31109]</value>
+		<value condition="$EXP[DhOsdIsSeries] | VideoPlayer.Content(livetv) | VideoPlayer.Content(movies) + !Integer.IsEqual(VideoPlayer.PlaylistLength,1) + !Integer.IsEqual(VideoPlayer.PlaylistLength,0)">$VAR[AF3_Label_OSD_HintText_1140]</value>
+		<value condition="!Skin.HasSetting(OSD.OnDown.DisableVideoBookmarks)">$LOCALIZE[31124]</value>
+		<value />
+	</variable>
+	<variable name="AF3_Label_OSD_HintText_PVROSDGuide">
+		<value condition="!Skin.HasSetting(OSD.OnDown.DisablePVROSDChannels)">$LOCALIZE[31177]</value>
+	</variable>
+	<variable name="AF3_Label_OSD_PVR_Recording">
+		<value condition="PVR.IsRecordingPlayingChannel">$LOCALIZE[31091]</value>
+	</variable>
+	<variable name="AF3_Label_OSD_Plot_Episode_Number">
+		<value condition="String.IsEmpty(VideoPlayer.Season) | String.IsEmpty(VideoPlayer.Episode)" />
+		<value condition="!Integer.IsLess(VideoPlayer.Episode,10)">$INFO[VideoPlayer.Season]$INFO[VideoPlayer.Episode,x,]</value>
+		<value>$INFO[VideoPlayer.Season]$INFO[VideoPlayer.Episode,x0,]</value>
+	</variable>
+	<variable name="AF3_Label_OSD_SubtitlesLanguage">
+		<value condition="VideoPlayer.SubtitlesEnabled">$INFO[VideoPlayer.SubtitlesLanguage,[UPPERCASE],[/UPPERCASE]]</value>
+	</variable>
+	<variable name="AF3_Label_OSD_Time">
+		<value condition="Skin.String(Seekbar.TimeDisplay,Remaining)">$INFO[Player.TimeRemaining(hh:mm:ss)]</value>
+		<value condition="Skin.String(Seekbar.TimeDisplay,Remaining) + PVR.IsPlayingTV + !String.IsEmpty(PVR.EpgEventRemainingTime)">$INFO[PVR.EpgEventRemainingTime(hh:mm:ss)]</value>
+		<value condition="PVR.IsPlayingTV + !String.IsEmpty(PVR.EpgEventElapsedTime)">$INFO[PVR.EpgEventElapsedTime(hh:mm:ss)]</value>
+		<value condition="Player.Seeking + !String.IsEmpty(Player.SeekTime)">$INFO[Player.SeekTime(hh:mm:ss)]</value>
+		<value>$INFO[Player.Time(hh:mm:ss)]</value>
+	</variable>
+	<variable name="AF3_Label_OSD_UpNext_Playlist_SubTitle">
+		<value condition="!Integer.IsLess(VideoPlayer.PlaylistPosition,VideoPlayer.PlaylistLength)">$INFO[Container(450).ListItemAbsolute(0).TvShowTitle,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$VAR[AF3_Label_Plot_Episode_Number_LIA_C450_0,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$INFO[Container(450).ListItemAbsolute(0).Year]$INFO[Container(450).ListItemAbsolute(0).Rating, [COLOR=af3_panel_fg_30]•[/COLOR] ,]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,1)">$INFO[Container(450).ListItemAbsolute(1).TvShowTitle,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$VAR[AF3_Label_Plot_Episode_Number_LIA_C450_1,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$INFO[Container(450).ListItemAbsolute(1).Year]$INFO[Container(450).ListItemAbsolute(1).Rating, [COLOR=af3_panel_fg_30]•[/COLOR] ,]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,2)">$INFO[Container(450).ListItemAbsolute(2).TvShowTitle,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$VAR[AF3_Label_Plot_Episode_Number_LIA_C450_2,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$INFO[Container(450).ListItemAbsolute(2).Year]$INFO[Container(450).ListItemAbsolute(2).Rating, [COLOR=af3_panel_fg_30]•[/COLOR] ,]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,3)">$INFO[Container(450).ListItemAbsolute(3).TvShowTitle,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$VAR[AF3_Label_Plot_Episode_Number_LIA_C450_3,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$INFO[Container(450).ListItemAbsolute(3).Year]$INFO[Container(450).ListItemAbsolute(3).Rating, [COLOR=af3_panel_fg_30]•[/COLOR] ,]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,4)">$INFO[Container(450).ListItemAbsolute(4).TvShowTitle,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$VAR[AF3_Label_Plot_Episode_Number_LIA_C450_4,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$INFO[Container(450).ListItemAbsolute(4).Year]$INFO[Container(450).ListItemAbsolute(4).Rating, [COLOR=af3_panel_fg_30]•[/COLOR] ,]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,5)">$INFO[Container(450).ListItemAbsolute(5).TvShowTitle,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$VAR[AF3_Label_Plot_Episode_Number_LIA_C450_5,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$INFO[Container(450).ListItemAbsolute(5).Year]$INFO[Container(450).ListItemAbsolute(5).Rating, [COLOR=af3_panel_fg_30]•[/COLOR] ,]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,6)">$INFO[Container(450).ListItemAbsolute(6).TvShowTitle,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$VAR[AF3_Label_Plot_Episode_Number_LIA_C450_6,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$INFO[Container(450).ListItemAbsolute(6).Year]$INFO[Container(450).ListItemAbsolute(6).Rating, [COLOR=af3_panel_fg_30]•[/COLOR] ,]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,7)">$INFO[Container(450).ListItemAbsolute(7).TvShowTitle,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$VAR[AF3_Label_Plot_Episode_Number_LIA_C450_7,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$INFO[Container(450).ListItemAbsolute(7).Year]$INFO[Container(450).ListItemAbsolute(7).Rating, [COLOR=af3_panel_fg_30]•[/COLOR] ,]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,8)">$INFO[Container(450).ListItemAbsolute(8).TvShowTitle,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$VAR[AF3_Label_Plot_Episode_Number_LIA_C450_8,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$INFO[Container(450).ListItemAbsolute(8).Year]$INFO[Container(450).ListItemAbsolute(8).Rating, [COLOR=af3_panel_fg_30]•[/COLOR] ,]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,9)">$INFO[Container(450).ListItemAbsolute(9).TvShowTitle,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$VAR[AF3_Label_Plot_Episode_Number_LIA_C450_9,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$INFO[Container(450).ListItemAbsolute(9).Year]$INFO[Container(450).ListItemAbsolute(9).Rating, [COLOR=af3_panel_fg_30]•[/COLOR] ,]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,10)">$INFO[Container(450).ListItemAbsolute(10).TvShowTitle,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$VAR[AF3_Label_Plot_Episode_Number_LIA_C450_10,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$INFO[Container(450).ListItemAbsolute(10).Year]$INFO[Container(450).ListItemAbsolute(10).Rating, [COLOR=af3_panel_fg_30]•[/COLOR] ,]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,11)">$INFO[Container(450).ListItemAbsolute(11).TvShowTitle,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$VAR[AF3_Label_Plot_Episode_Number_LIA_C450_11,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$INFO[Container(450).ListItemAbsolute(11).Year]$INFO[Container(450).ListItemAbsolute(11).Rating, [COLOR=af3_panel_fg_30]•[/COLOR] ,]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,12)">$INFO[Container(450).ListItemAbsolute(12).TvShowTitle,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$VAR[AF3_Label_Plot_Episode_Number_LIA_C450_12,, [COLOR=af3_panel_fg_30]•[/COLOR] ]$INFO[Container(450).ListItemAbsolute(12).Year]$INFO[Container(450).ListItemAbsolute(12).Rating, [COLOR=af3_panel_fg_30]•[/COLOR] ,]</value>
+	</variable>
+	<variable name="AF3_Label_OSD_UpNext_Playlist_TopTitle">
+		<value condition="!Integer.IsLess(VideoPlayer.PlaylistPosition,VideoPlayer.PlaylistLength)">$INFO[Container(450).ListItemAbsolute(0).Title]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,1)">$INFO[Container(450).ListItemAbsolute(1).Title]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,2)">$INFO[Container(450).ListItemAbsolute(2).Title]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,3)">$INFO[Container(450).ListItemAbsolute(3).Title]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,4)">$INFO[Container(450).ListItemAbsolute(4).Title]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,5)">$INFO[Container(450).ListItemAbsolute(5).Title]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,6)">$INFO[Container(450).ListItemAbsolute(6).Title]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,7)">$INFO[Container(450).ListItemAbsolute(7).Title]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,8)">$INFO[Container(450).ListItemAbsolute(8).Title]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,9)">$INFO[Container(450).ListItemAbsolute(9).Title]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,10)">$INFO[Container(450).ListItemAbsolute(10).Title]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,11)">$INFO[Container(450).ListItemAbsolute(11).Title]</value>
+		<value condition="Integer.IsEqual(VideoPlayer.PlaylistPosition,12)">$INFO[Container(450).ListItemAbsolute(12).Title]</value>
+	</variable>
+	<variable name="AF3_Label_PlayerStream_IsDefault">
+		<value condition="ListItem.Property(IsDefault)">$LOCALIZE[39105]</value>
+	</variable>
+	<variable name="AF3_Label_PlayerStream_IsForced">
+		<value condition="ListItem.Property(IsForced)">$LOCALIZE[39106]</value>
+	</variable>
+	<variable name="AF3_Label_PlayerStream_IsOriginal">
+		<value condition="ListItem.Property(IsOriginal)">$LOCALIZE[39111]</value>
+	</variable>
+	<variable name="AF3_Label_Player_Status">
+		<value condition="String.IsEqual(Window(Home).Property(TMDbHelper.Player.Status),Canceled)">$LOCALIZE[31081]</value>
+		<value condition="String.IsEqual(Window(Home).Property(TMDbHelper.Player.Status),Ended)">$LOCALIZE[31085]</value>
+		<value condition="String.IsEqual(Window(Home).Property(TMDbHelper.Player.Status),Released)">$LOCALIZE[31086]</value>
+		<value condition="String.IsEqual(Window(Home).Property(TMDbHelper.Player.Status),In Production) | String.IsEqual(Window(Home).Property(TMDbHelper.Player.Status),Post Production)">$LOCALIZE[31087]</value>
+		<value condition="String.IsEqual(Window(Home).Property(TMDbHelper.Player.Status),Planned)">$LOCALIZE[31088]</value>
+		<value condition="String.IsEqual(Window(Home).Property(TMDbHelper.Player.Status),Returning Series)">$LOCALIZE[31090]</value>
+		<value>$LOCALIZE[13205]</value>
+	</variable>
+	<variable name="AF3_Label_Player_StatusDate">
+		<value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Next_Aired))">$INFO[Window(Home).Property(TMDbHelper.Player.Next_Aired)]</value>
+		<value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Last_Aired))">$INFO[Window(Home).Property(TMDbHelper.Player.Last_Aired)]</value>
+		<value condition="String.IsEqual(Window(Home).Property(TMDbHelper.Player.base_dbtype),movie) + !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Premiered))">$INFO[Window(Home).Property(TMDbHelper.Player.Premiered)]</value>
+		<value>$LOCALIZE[1446]</value>
+	</variable>
+	<variable name="AF3_Label_Plot_Episode_Number_C7000">
+		<value condition="!String.IsEqual(Container(7000).ListItem.DBType,episode) | String.IsEmpty(Container(7000).ListItem.Season) | String.IsEmpty(Container(7000).ListItem.Episode)" />
+		<value condition="!Integer.IsLess(Container(7000).ListItem.Episode,10)">$INFO[Container(7000).ListItem.Season]$INFO[Container(7000).ListItem.Episode,x,]</value>
+		<value>$INFO[Container(7000).ListItem.Season]$INFO[Container(7000).ListItem.Episode,x0,]</value>
+	</variable>
+	<variable name="AF3_Label_Plot_Episode_Number_LIA_C450_0">
+		<value condition="!String.IsEqual(Container(450).ListItemAbsolute(0).DBType,episode) | String.IsEmpty(Container(450).ListItemAbsolute(0).Season) | String.IsEmpty(Container(450).ListItemAbsolute(0).Episode)" />
+		<value condition="!Integer.IsLess(Container(450).ListItemAbsolute(0).Episode,10)">$INFO[Container(450).ListItemAbsolute(0).Season]$INFO[Container(450).ListItemAbsolute(0).Episode,x,]</value>
+		<value>$INFO[Container(450).ListItemAbsolute(0).Season]$INFO[Container(450).ListItemAbsolute(0).Episode,x0,]</value>
+	</variable>
+	<variable name="AF3_Label_Plot_Episode_Number_LIA_C450_1">
+		<value condition="!String.IsEqual(Container(450).ListItemAbsolute(1).DBType,episode) | String.IsEmpty(Container(450).ListItemAbsolute(1).Season) | String.IsEmpty(Container(450).ListItemAbsolute(1).Episode)" />
+		<value condition="!Integer.IsLess(Container(450).ListItemAbsolute(1).Episode,10)">$INFO[Container(450).ListItemAbsolute(1).Season]$INFO[Container(450).ListItemAbsolute(1).Episode,x,]</value>
+		<value>$INFO[Container(450).ListItemAbsolute(1).Season]$INFO[Container(450).ListItemAbsolute(1).Episode,x0,]</value>
+	</variable>
+	<variable name="AF3_Label_Plot_Episode_Number_LIA_C450_10">
+		<value condition="!String.IsEqual(Container(450).ListItemAbsolute(10).DBType,episode) | String.IsEmpty(Container(450).ListItemAbsolute(10).Season) | String.IsEmpty(Container(450).ListItemAbsolute(10).Episode)" />
+		<value condition="!Integer.IsLess(Container(450).ListItemAbsolute(10).Episode,10)">$INFO[Container(450).ListItemAbsolute(10).Season]$INFO[Container(450).ListItemAbsolute(10).Episode,x,]</value>
+		<value>$INFO[Container(450).ListItemAbsolute(10).Season]$INFO[Container(450).ListItemAbsolute(10).Episode,x0,]</value>
+	</variable>
+	<variable name="AF3_Label_Plot_Episode_Number_LIA_C450_11">
+		<value condition="!String.IsEqual(Container(450).ListItemAbsolute(11).DBType,episode) | String.IsEmpty(Container(450).ListItemAbsolute(11).Season) | String.IsEmpty(Container(450).ListItemAbsolute(11).Episode)" />
+		<value condition="!Integer.IsLess(Container(450).ListItemAbsolute(11).Episode,10)">$INFO[Container(450).ListItemAbsolute(11).Season]$INFO[Container(450).ListItemAbsolute(11).Episode,x,]</value>
+		<value>$INFO[Container(450).ListItemAbsolute(11).Season]$INFO[Container(450).ListItemAbsolute(11).Episode,x0,]</value>
+	</variable>
+	<variable name="AF3_Label_Plot_Episode_Number_LIA_C450_12">
+		<value condition="!String.IsEqual(Container(450).ListItemAbsolute(12).DBType,episode) | String.IsEmpty(Container(450).ListItemAbsolute(12).Season) | String.IsEmpty(Container(450).ListItemAbsolute(12).Episode)" />
+		<value condition="!Integer.IsLess(Container(450).ListItemAbsolute(12).Episode,10)">$INFO[Container(450).ListItemAbsolute(12).Season]$INFO[Container(450).ListItemAbsolute(12).Episode,x,]</value>
+		<value>$INFO[Container(450).ListItemAbsolute(12).Season]$INFO[Container(450).ListItemAbsolute(12).Episode,x0,]</value>
+	</variable>
+	<variable name="AF3_Label_Plot_Episode_Number_LIA_C450_2">
+		<value condition="!String.IsEqual(Container(450).ListItemAbsolute(2).DBType,episode) | String.IsEmpty(Container(450).ListItemAbsolute(2).Season) | String.IsEmpty(Container(450).ListItemAbsolute(2).Episode)" />
+		<value condition="!Integer.IsLess(Container(450).ListItemAbsolute(2).Episode,10)">$INFO[Container(450).ListItemAbsolute(2).Season]$INFO[Container(450).ListItemAbsolute(2).Episode,x,]</value>
+		<value>$INFO[Container(450).ListItemAbsolute(2).Season]$INFO[Container(450).ListItemAbsolute(2).Episode,x0,]</value>
+	</variable>
+	<variable name="AF3_Label_Plot_Episode_Number_LIA_C450_3">
+		<value condition="!String.IsEqual(Container(450).ListItemAbsolute(3).DBType,episode) | String.IsEmpty(Container(450).ListItemAbsolute(3).Season) | String.IsEmpty(Container(450).ListItemAbsolute(3).Episode)" />
+		<value condition="!Integer.IsLess(Container(450).ListItemAbsolute(3).Episode,10)">$INFO[Container(450).ListItemAbsolute(3).Season]$INFO[Container(450).ListItemAbsolute(3).Episode,x,]</value>
+		<value>$INFO[Container(450).ListItemAbsolute(3).Season]$INFO[Container(450).ListItemAbsolute(3).Episode,x0,]</value>
+	</variable>
+	<variable name="AF3_Label_Plot_Episode_Number_LIA_C450_4">
+		<value condition="!String.IsEqual(Container(450).ListItemAbsolute(4).DBType,episode) | String.IsEmpty(Container(450).ListItemAbsolute(4).Season) | String.IsEmpty(Container(450).ListItemAbsolute(4).Episode)" />
+		<value condition="!Integer.IsLess(Container(450).ListItemAbsolute(4).Episode,10)">$INFO[Container(450).ListItemAbsolute(4).Season]$INFO[Container(450).ListItemAbsolute(4).Episode,x,]</value>
+		<value>$INFO[Container(450).ListItemAbsolute(4).Season]$INFO[Container(450).ListItemAbsolute(4).Episode,x0,]</value>
+	</variable>
+	<variable name="AF3_Label_Plot_Episode_Number_LIA_C450_5">
+		<value condition="!String.IsEqual(Container(450).ListItemAbsolute(5).DBType,episode) | String.IsEmpty(Container(450).ListItemAbsolute(5).Season) | String.IsEmpty(Container(450).ListItemAbsolute(5).Episode)" />
+		<value condition="!Integer.IsLess(Container(450).ListItemAbsolute(5).Episode,10)">$INFO[Container(450).ListItemAbsolute(5).Season]$INFO[Container(450).ListItemAbsolute(5).Episode,x,]</value>
+		<value>$INFO[Container(450).ListItemAbsolute(5).Season]$INFO[Container(450).ListItemAbsolute(5).Episode,x0,]</value>
+	</variable>
+	<variable name="AF3_Label_Plot_Episode_Number_LIA_C450_6">
+		<value condition="!String.IsEqual(Container(450).ListItemAbsolute(6).DBType,episode) | String.IsEmpty(Container(450).ListItemAbsolute(6).Season) | String.IsEmpty(Container(450).ListItemAbsolute(6).Episode)" />
+		<value condition="!Integer.IsLess(Container(450).ListItemAbsolute(6).Episode,10)">$INFO[Container(450).ListItemAbsolute(6).Season]$INFO[Container(450).ListItemAbsolute(6).Episode,x,]</value>
+		<value>$INFO[Container(450).ListItemAbsolute(6).Season]$INFO[Container(450).ListItemAbsolute(6).Episode,x0,]</value>
+	</variable>
+	<variable name="AF3_Label_Plot_Episode_Number_LIA_C450_7">
+		<value condition="!String.IsEqual(Container(450).ListItemAbsolute(7).DBType,episode) | String.IsEmpty(Container(450).ListItemAbsolute(7).Season) | String.IsEmpty(Container(450).ListItemAbsolute(7).Episode)" />
+		<value condition="!Integer.IsLess(Container(450).ListItemAbsolute(7).Episode,10)">$INFO[Container(450).ListItemAbsolute(7).Season]$INFO[Container(450).ListItemAbsolute(7).Episode,x,]</value>
+		<value>$INFO[Container(450).ListItemAbsolute(7).Season]$INFO[Container(450).ListItemAbsolute(7).Episode,x0,]</value>
+	</variable>
+	<variable name="AF3_Label_Plot_Episode_Number_LIA_C450_8">
+		<value condition="!String.IsEqual(Container(450).ListItemAbsolute(8).DBType,episode) | String.IsEmpty(Container(450).ListItemAbsolute(8).Season) | String.IsEmpty(Container(450).ListItemAbsolute(8).Episode)" />
+		<value condition="!Integer.IsLess(Container(450).ListItemAbsolute(8).Episode,10)">$INFO[Container(450).ListItemAbsolute(8).Season]$INFO[Container(450).ListItemAbsolute(8).Episode,x,]</value>
+		<value>$INFO[Container(450).ListItemAbsolute(8).Season]$INFO[Container(450).ListItemAbsolute(8).Episode,x0,]</value>
+	</variable>
+	<variable name="AF3_Label_Plot_Episode_Number_LIA_C450_9">
+		<value condition="!String.IsEqual(Container(450).ListItemAbsolute(9).DBType,episode) | String.IsEmpty(Container(450).ListItemAbsolute(9).Season) | String.IsEmpty(Container(450).ListItemAbsolute(9).Episode)" />
+		<value condition="!Integer.IsLess(Container(450).ListItemAbsolute(9).Episode,10)">$INFO[Container(450).ListItemAbsolute(9).Season]$INFO[Container(450).ListItemAbsolute(9).Episode,x,]</value>
+		<value>$INFO[Container(450).ListItemAbsolute(9).Season]$INFO[Container(450).ListItemAbsolute(9).Episode,x0,]</value>
+	</variable>
+	<variable name="AF3_Label_StreamLanguage">
+		<value condition="!String.IsEmpty(ListItem.Label)">$INFO[ListItem.Label]</value>
+		<value>UNK</value>
+	</variable>
+	<variable name="AF3_Path_OSD_Episodes">
+		<value condition="!Integer.IsEqual(VideoPlayer.PlaylistLength,1) + !Integer.IsEqual(VideoPlayer.PlaylistLength,0) + Integer.IsLess(VideoPlayer.PlaylistPosition,VideoPlayer.PlaylistLength)">playlistvideo://?reload=$INFO[VideoPlayer.Season,,_]$INFO[VideoPlayer.Episode,,_]$INFO[VideoPlayer.PlaylistPosition,,_]</value>
+		<value condition="$EXP[DhOsdIsSeries] + !String.IsEmpty(VideoPlayer.TvShowDBID) + !String.IsEmpty(VideoPlayer.Season)">videodb://tvshows/titles/$INFO[VideoPlayer.TvShowDBID]/$INFO[VideoPlayer.Season]/?tvshowid=$INFO[VideoPlayer.TvShowDBID]&amp;xsp=%7b%22order%22%3a%7b%22method%22%3a%22episode%22%7d%2c%22type%22%3a%22episodes%22%7d</value>
+		<value condition="$EXP[DhOsdIsSeries]">plugin://plugin.video.dexhub.tvos/?action=skin_osd_episodes&amp;nextpage=false&amp;cacheonly=true&amp;length=1&amp;tmdb_type=tv$INFO[Window(Home).Property(TMDbHelper.Player.TVShow.TMDb_ID),&amp;tmdb_id=,]$INFO[VideoPlayer.TVShowTitle,&amp;query=,]$INFO[VideoPlayer.Season,&amp;season=,]$INFO[Window(Home).Property(dhs.osd.season),&amp;pick=,]</value>
+	</variable>
+	<variable name="AF3_Path_OSD_NextRecommendation">
+		<value condition="Integer.IsLess(VideoPlayer.PlaylistPosition,VideoPlayer.PlaylistLength)">playlistvideo://?reload=$INFO[VideoPlayer.Season,,_]$INFO[VideoPlayer.Episode,,_]$INFO[VideoPlayer.PlaylistPosition,,_]</value>
+		<value condition="VideoPlayer.Content(movies) + !String.IsEmpty(VideoPlayer.IMDBNumber) + String.StartsWith(VideoPlayer.IMDBNumber,tt)">plugin://plugin.video.dexhub.tvos/?action=skin_osd_next&amp;tmdb_type=movie$INFO[VideoPlayer.IMDBNumber,&amp;imdb_id=,]</value>
+		<value condition="VideoPlayer.Content(movies)">plugin://plugin.video.dexhub.tvos/?action=skin_osd_next&amp;tmdb_type=movie$INFO[Window(Home).Property(TMDbHelper.Player.TMDb_ID),&amp;tmdb_id=,]$INFO[Player.Title,&amp;query=,]$INFO[VideoPlayer.Year,&amp;year=,]</value>
+		<value condition="$EXP[DhOsdIsSeries]">plugin://plugin.video.dexhub.tvos/?action=skin_osd_next&amp;tmdb_type=tv$INFO[Window(Home).Property(TMDbHelper.Player.TVShow.TMDb_ID),&amp;tmdb_id=,]$INFO[VideoPlayer.TVShowTitle,&amp;query=,]$INFO[VideoPlayer.Season,&amp;season=,]$INFO[VideoPlayer.Episode,&amp;episode=,]$INFO[VideoPlayer.Year,&amp;episode_year=,]</value>
+	</variable>
+	<include name="af3_dyn_1">
+		<control type="group">
+			<visible>Window.IsVisible(VideoOSD.xml)</visible>
+			<visible>String.IsEqual(Window(Home).Property(dhs.pref.player_badges_place),info)</visible>
+			<visible>!Window.IsVisible(MusicOSD.xml)</visible>
+			<visible>!Window.IsVisible(VideoFullScreen.xml) | !Window.IsVisible(Custom_1141_OSD_Cast.xml)</visible>
+			<visible>!Window.IsVisible(VideoOSDBookmarks.xml)</visible>
+			<visible>!Window.IsVisible(Custom_1140_OSD_Playlist.xml)</visible>
+			<bottom>0</bottom>
+			<height>540</height>
+			<left>80</left>
+			
+			<control type="group">
+				<top>257</top>
+				<height>46</height>
+				<visible>$EXP[DhOSDBadgesColorful]</visible>
+				<animation type="Visible" reversible="false" condition="true">
+					<effect type="fade" start="0" end="100" time="300" delay="150" />
+					<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="150" />
+				</animation>
+				<animation type="WindowOpen" reversible="false" condition="true">
+					<effect type="fade" start="0" end="100" time="300" delay="400" />
+					<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="400" />
+				</animation>
+				<control type="group">
+                    <visible>String.IsEqual(Window(Home).Property(dhs.pref.player_badges_size),original)</visible>
+                    <include>DhBadgeRow</include>
+                </control>
+                <control type="group">
+                    <top>5</top>
+                    <visible>!String.IsEqual(Window(Home).Property(dhs.pref.player_badges_size),original)</visible>
+                    <animation effect="zoom" start="87" end="87" time="0" center="0,0" condition="String.IsEqual(Window(Home).Property(dhs.pref.player_badges_size),small)">Conditional</animation>
+                    <include>DhBadgeRowSmall</include>
+                </control>
+			</control>
+			<visible>$EXP[DhOSDBadgesOn]</visible>
+			<control type="grouplist">
+				<top>248</top>
+				<height>54</height>
+				<width>1300</width>
+				<orientation>horizontal</orientation>
+				<itemgap>12</itemgap>
+				<usecontrolcoords>true</usecontrolcoords>
+				<visible>String.IsEqual(Window(Home).Property(dhs.osd.badge.style),minimal)</visible>
+				<control type="group">
+					<width>100</width>
+					<height>48</height>
+					<visible>!String.IsEmpty(VideoPlayer.VideoResolution)</visible>
+					<control type="image">
+						<width>100</width>
+						<height>48</height>
+						<texture border="20" colordiffuse="FFFFFFFF">af3/common/menu.png</texture>
+					</control>
+					<control type="label">
+						<width>100</width>
+						<height>48</height>
+						<font>af3_font_mini</font>
+						<textcolor>FFFFFFFF</textcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$VAR[DhOSDResLabel]</label>
+					</control>
+				</control>
+				<control type="group">
+					<width>170</width>
+					<height>48</height>
+					<visible>!String.IsEmpty(VideoPlayer.VideoCodec)</visible>
+					<control type="image">
+						<width>170</width>
+						<height>48</height>
+						<texture border="20" colordiffuse="FFFFFFFF">af3/common/menu.png</texture>
+					</control>
+					<control type="label">
+						<width>170</width>
+						<height>48</height>
+						<font>af3_font_mini</font>
+						<textcolor>FFFFFFFF</textcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$VAR[DhOSDHDRLabel]</label>
+					</control>
+				</control>
+				<control type="group">
+					<width>115</width>
+					<height>48</height>
+					<visible>!String.IsEmpty(VideoPlayer.VideoCodec)</visible>
+					<control type="image">
+						<width>115</width>
+						<height>48</height>
+						<texture border="20" colordiffuse="FFFFFFFF">af3/common/menu.png</texture>
+					</control>
+					<control type="label">
+						<width>115</width>
+						<height>48</height>
+						<font>af3_font_mini</font>
+						<textcolor>FFFFFFFF</textcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$VAR[DhOSDCodecLabel]</label>
+					</control>
+				</control>
+				<control type="group">
+					<width>180</width>
+					<height>48</height>
+					<visible>!String.IsEmpty(VideoPlayer.AudioCodec)</visible>
+					<control type="image">
+						<width>180</width>
+						<height>48</height>
+						<texture border="20" colordiffuse="FFFFFFFF">af3/common/menu.png</texture>
+					</control>
+					<control type="label">
+						<width>180</width>
+						<height>48</height>
+						<font>af3_font_mini</font>
+						<textcolor>FFFFFFFF</textcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$VAR[DhOSDAudioLabel]</label>
+					</control>
+				</control>
+				<control type="group">
+					<width>90</width>
+					<height>48</height>
+					<visible>!String.IsEmpty(VideoPlayer.AudioChannels)</visible>
+					<control type="image">
+						<width>90</width>
+						<height>48</height>
+						<texture border="20" colordiffuse="FFFFFFFF">af3/common/menu.png</texture>
+					</control>
+					<control type="label">
+						<width>90</width>
+						<height>48</height>
+						<font>af3_font_mini</font>
+						<textcolor>FFFFFFFF</textcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$VAR[DhOSDChannelsLabel]</label>
+					</control>
+				</control>
+				<control type="group">
+					<width>140</width>
+					<height>48</height>
+					<visible>!String.IsEmpty(VideoPlayer.AudioLanguage)</visible>
+					<control type="image">
+						<width>140</width>
+						<height>48</height>
+						<texture border="20" colordiffuse="FFFFFFFF">af3/common/menu.png</texture>
+					</control>
+					<control type="label">
+						<width>140</width>
+						<height>48</height>
+						<font>af3_font_mini</font>
+						<textcolor>FFFFFFFF</textcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$INFO[VideoPlayer.AudioLanguage]</label>
+					</control>
+				</control>
+			</control>
+			<control type="label">
+				<top>250</top>
+				<width>1300</width>
+				<height>44</height>
+				<font>af3_font_mini</font>
+				<textcolor>FFFFFFFF</textcolor>
+				<label>$VAR[DhOSDResLabel]$VAR[DhOSDHDRLabel, • ,]$VAR[DhOSDCodecLabel, • ,]$VAR[DhOSDAudioLabel, • ,]$VAR[DhOSDChannelsLabel, • ,][UPPERCASE]$INFO[VideoPlayer.AudioLanguage, • ,][/UPPERCASE]</label>
+				<visible>String.IsEqual(Window(Home).Property(dhs.osd.badge.style),compact)</visible>
+			</control>
+			
+			<control type="group">
+				<top>257</top>
+				<height>46</height>
+				<visible>$EXP[DhOSDBadgesPack]</visible>
+				<animation type="Visible" reversible="false" condition="true">
+					<effect type="fade" start="0" end="100" time="300" delay="150" />
+					<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="150" />
+				</animation>
+				<animation type="WindowOpen" reversible="false" condition="true">
+					<effect type="fade" start="0" end="100" time="300" delay="400" />
+					<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="400" />
+				</animation>
+				<control type="group">
+					<visible>!String.IsEqual(Window(Home).Property(dhs.osd.badge.scale),72)</visible>
+					<include>DhPackRow</include>
+				</control>
+				<control type="group">
+					<top>6.4</top>
+					<visible>String.IsEqual(Window(Home).Property(dhs.osd.badge.scale),72)</visible>
+                    <animation effect="zoom" start="87" end="87" time="0" center="0,0" condition="String.IsEqual(Window(Home).Property(dhs.pref.player_badges_size),small)">Conditional</animation>
+					<include>DhPackRowSmall</include>
+				</control>
+			</control>
+		<animation effect="fade" start="100" end="65" time="150" condition="String.IsEqual(Window(Home).Property(dhs.pref.player_badges_brightness),soft)">Conditional</animation>
+		<!-- 3.28.37 (issue #18): Badge opacity, 100 % unless 85 or 70 is chosen -->
+		<animation effect="fade" start="100" end="85" time="0" condition="String.IsEqual(Window(Home).Property(dhs.pref.player_badges_opacity),85)">Conditional</animation>
+		<animation effect="fade" start="100" end="70" time="0" condition="String.IsEqual(Window(Home).Property(dhs.pref.player_badges_opacity),70)">Conditional</animation></control>
+	</include>
+	<include name="DhBadgesAboveSeekbar">
+		<control type="group">
+			<visible>Window.IsVisible(VideoOSD.xml)</visible>
+			<visible>!String.IsEqual(Window(Home).Property(dhs.pref.player_badges_place),info)</visible>
+			<visible>!Window.IsVisible(MusicOSD.xml)</visible>
+			<visible>!Window.IsVisible(VideoFullScreen.xml) | !Window.IsVisible(Custom_1141_OSD_Cast.xml)</visible>
+			<visible>!Window.IsVisible(VideoOSDBookmarks.xml)</visible>
+			<visible>!Window.IsVisible(Custom_1140_OSD_Playlist.xml)</visible>
+			<bottom>0</bottom>
+			<height>519</height>
+			<left>80</left>
+			
+			<control type="group">
+				<top>257</top>
+				<height>46</height>
+				<visible>$EXP[DhOSDBadgesColorful]</visible>
+				<animation type="Visible" reversible="false" condition="true">
+					<effect type="fade" start="0" end="100" time="300" delay="150" />
+					<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="150" />
+				</animation>
+				<animation type="WindowOpen" reversible="false" condition="true">
+					<effect type="fade" start="0" end="100" time="300" delay="400" />
+					<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="400" />
+				</animation>
+				<control type="group">
+                    <visible>String.IsEqual(Window(Home).Property(dhs.pref.player_badges_size),original)</visible>
+                    <include>DhBadgeRow</include>
+                </control>
+                <control type="group">
+                    <top>5</top>
+                    <visible>!String.IsEqual(Window(Home).Property(dhs.pref.player_badges_size),original)</visible>
+                    <animation effect="zoom" start="87" end="87" time="0" center="0,0" condition="String.IsEqual(Window(Home).Property(dhs.pref.player_badges_size),small)">Conditional</animation>
+                    <include>DhBadgeRowSmall</include>
+                </control>
+			</control>
+			<visible>$EXP[DhOSDBadgesOn]</visible>
+			<control type="grouplist">
+				<top>248</top>
+				<height>54</height>
+				<width>1300</width>
+				<orientation>horizontal</orientation>
+				<itemgap>12</itemgap>
+				<usecontrolcoords>true</usecontrolcoords>
+				<visible>String.IsEqual(Window(Home).Property(dhs.osd.badge.style),minimal)</visible>
+				<control type="group">
+					<width>100</width>
+					<height>48</height>
+					<visible>!String.IsEmpty(VideoPlayer.VideoResolution)</visible>
+					<control type="image">
+						<width>100</width>
+						<height>48</height>
+						<texture border="20" colordiffuse="FFFFFFFF">af3/common/menu.png</texture>
+					</control>
+					<control type="label">
+						<width>100</width>
+						<height>48</height>
+						<font>af3_font_mini</font>
+						<textcolor>FFFFFFFF</textcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$VAR[DhOSDResLabel]</label>
+					</control>
+				</control>
+				<control type="group">
+					<width>170</width>
+					<height>48</height>
+					<visible>!String.IsEmpty(VideoPlayer.VideoCodec)</visible>
+					<control type="image">
+						<width>170</width>
+						<height>48</height>
+						<texture border="20" colordiffuse="FFFFFFFF">af3/common/menu.png</texture>
+					</control>
+					<control type="label">
+						<width>170</width>
+						<height>48</height>
+						<font>af3_font_mini</font>
+						<textcolor>FFFFFFFF</textcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$VAR[DhOSDHDRLabel]</label>
+					</control>
+				</control>
+				<control type="group">
+					<width>115</width>
+					<height>48</height>
+					<visible>!String.IsEmpty(VideoPlayer.VideoCodec)</visible>
+					<control type="image">
+						<width>115</width>
+						<height>48</height>
+						<texture border="20" colordiffuse="FFFFFFFF">af3/common/menu.png</texture>
+					</control>
+					<control type="label">
+						<width>115</width>
+						<height>48</height>
+						<font>af3_font_mini</font>
+						<textcolor>FFFFFFFF</textcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$VAR[DhOSDCodecLabel]</label>
+					</control>
+				</control>
+				<control type="group">
+					<width>180</width>
+					<height>48</height>
+					<visible>!String.IsEmpty(VideoPlayer.AudioCodec)</visible>
+					<control type="image">
+						<width>180</width>
+						<height>48</height>
+						<texture border="20" colordiffuse="FFFFFFFF">af3/common/menu.png</texture>
+					</control>
+					<control type="label">
+						<width>180</width>
+						<height>48</height>
+						<font>af3_font_mini</font>
+						<textcolor>FFFFFFFF</textcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$VAR[DhOSDAudioLabel]</label>
+					</control>
+				</control>
+				<control type="group">
+					<width>90</width>
+					<height>48</height>
+					<visible>!String.IsEmpty(VideoPlayer.AudioChannels)</visible>
+					<control type="image">
+						<width>90</width>
+						<height>48</height>
+						<texture border="20" colordiffuse="FFFFFFFF">af3/common/menu.png</texture>
+					</control>
+					<control type="label">
+						<width>90</width>
+						<height>48</height>
+						<font>af3_font_mini</font>
+						<textcolor>FFFFFFFF</textcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$VAR[DhOSDChannelsLabel]</label>
+					</control>
+				</control>
+				<control type="group">
+					<width>140</width>
+					<height>48</height>
+					<visible>!String.IsEmpty(VideoPlayer.AudioLanguage)</visible>
+					<control type="image">
+						<width>140</width>
+						<height>48</height>
+						<texture border="20" colordiffuse="FFFFFFFF">af3/common/menu.png</texture>
+					</control>
+					<control type="label">
+						<width>140</width>
+						<height>48</height>
+						<font>af3_font_mini</font>
+						<textcolor>FFFFFFFF</textcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$INFO[VideoPlayer.AudioLanguage]</label>
+					</control>
+				</control>
+			</control>
+			<control type="label">
+				<top>250</top>
+				<width>1300</width>
+				<height>44</height>
+				<font>af3_font_mini</font>
+				<textcolor>FFFFFFFF</textcolor>
+				<label>$VAR[DhOSDResLabel]$VAR[DhOSDHDRLabel, • ,]$VAR[DhOSDCodecLabel, • ,]$VAR[DhOSDAudioLabel, • ,]$VAR[DhOSDChannelsLabel, • ,][UPPERCASE]$INFO[VideoPlayer.AudioLanguage, • ,][/UPPERCASE]</label>
+				<visible>String.IsEqual(Window(Home).Property(dhs.osd.badge.style),compact)</visible>
+			</control>
+			
+			<control type="group">
+				<top>257</top>
+				<height>46</height>
+				<visible>$EXP[DhOSDBadgesPack]</visible>
+				<animation type="Visible" reversible="false" condition="true">
+					<effect type="fade" start="0" end="100" time="300" delay="150" />
+					<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="150" />
+				</animation>
+				<animation type="WindowOpen" reversible="false" condition="true">
+					<effect type="fade" start="0" end="100" time="300" delay="400" />
+					<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="400" />
+				</animation>
+				<control type="group">
+					<visible>!String.IsEqual(Window(Home).Property(dhs.osd.badge.scale),72)</visible>
+					<include>DhPackRow</include>
+				</control>
+				<control type="group">
+					<top>6.4</top>
+					<visible>String.IsEqual(Window(Home).Property(dhs.osd.badge.scale),72)</visible>
+                    <animation effect="zoom" start="87" end="87" time="0" center="0,0" condition="String.IsEqual(Window(Home).Property(dhs.pref.player_badges_size),small)">Conditional</animation>
+					<include>DhPackRowSmall</include>
+				</control>
+			</control>
+		<animation effect="fade" start="100" end="65" time="150" condition="String.IsEqual(Window(Home).Property(dhs.pref.player_badges_brightness),soft)">Conditional</animation>
+		<!-- 3.28.37 (issue #18): Badge opacity, 100 % unless 85 or 70 is chosen -->
+		<animation effect="fade" start="100" end="85" time="0" condition="String.IsEqual(Window(Home).Property(dhs.pref.player_badges_opacity),85)">Conditional</animation>
+		<animation effect="fade" start="100" end="70" time="0" condition="String.IsEqual(Window(Home).Property(dhs.pref.player_badges_opacity),70)">Conditional</animation></control>
+	</include>
+	<include name="af3_dyn_2">
+		<control type="group" id="6102">
+			<animation effect="fade" start="100" end="30" condition="!Control.IsEnabled(6002)" reversible="false">Conditional</animation>
+			<left>-37</left>
+			<width>0</width>
+			<control type="group">
+				<left>-80</left>
+				<control type="image">
+					<bordersize>12</bordersize>
+					<height>80</height>
+					<width>80</width>
+					<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[AF3_Image_OSD_SkipPrev]</texture>
+					<visible>!Control.HasFocus(6002)</visible>
+				</control>
+				<control type="image">
+					<bordersize>12</bordersize>
+					<height>80</height>
+					<width>80</width>
+					<texture colordiffuse="ff272727" flipx="false">$VAR[AF3_Image_OSD_SkipPrev]</texture>
+					<visible>Control.HasFocus(6002)</visible>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="af3_dyn_3">
+		<control type="group" id="6102">
+			<animation effect="fade" start="100" end="30" condition="!Control.IsEnabled(6002)" reversible="false">Conditional</animation>
+			<left>-37</left>
+			<width>0</width>
+			<control type="group">
+				<left>-80</left>
+				<control type="image">
+					<bordersize>12</bordersize>
+					<height>80</height>
+					<width>80</width>
+					<texture colordiffuse="af3_panel_fg_70" flipx="false">af3/extras/icons/list.png</texture>
+					<visible>!Control.HasFocus(6002)</visible>
+				</control>
+				<control type="image">
+					<bordersize>12</bordersize>
+					<height>80</height>
+					<width>80</width>
+					<texture colordiffuse="ff272727" flipx="false">af3/extras/icons/list.png</texture>
+					<visible>Control.HasFocus(6002)</visible>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="af3_dyn_4">
+		<control type="group" id="6103">
+			<animation effect="fade" start="100" end="30" condition="!Control.IsEnabled(6003)" reversible="false">Conditional</animation>
+			<left>-37</left>
+			<width>0</width>
+			<control type="group">
+				<left>-80</left>
+				<control type="image">
+					<bordersize>12</bordersize>
+					<height>80</height>
+					<width>80</width>
+					<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[AF3_Image_OSD_SkipNext]</texture>
+					<visible>!Control.HasFocus(6003)</visible>
+				</control>
+				<control type="image">
+					<bordersize>12</bordersize>
+					<height>80</height>
+					<width>80</width>
+					<texture colordiffuse="ff272727" flipx="false">$VAR[AF3_Image_OSD_SkipNext]</texture>
+					<visible>Control.HasFocus(6003)</visible>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="af3_dyn_5">
+		<control type="group" id="6103">
+			<animation effect="fade" start="100" end="30" condition="!Control.IsEnabled(6003)" reversible="false">Conditional</animation>
+			<left>-37</left>
+			<width>0</width>
+			<control type="group">
+				<animation effect="slide" start="0" end="0,-8" condition="PVR.IsRecordingPlayingChannel + PVR.CanRecordPlayingChannel">Conditional</animation>
+				<left>-80</left>
+				<control type="image">
+					<bordersize>12</bordersize>
+					<height>80</height>
+					<width>80</width>
+					<texture colordiffuse="af3_panel_fg_70" flipx="false">af3/extras/icons/record-vinyl.png</texture>
+					<visible>!Control.HasFocus(6003)</visible>
+				</control>
+				<control type="image">
+					<bordersize>12</bordersize>
+					<height>80</height>
+					<width>80</width>
+					<texture colordiffuse="ff272727" flipx="false">af3/extras/icons/record-vinyl.png</texture>
+					<visible>Control.HasFocus(6003)</visible>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="af3_dyn_6">
+		<content target="" sortby="lastplayed" sortorder="descending" limit="" browse="">pvr://channels/tv/*</content>
+	</include>
+	<include name="af3_dyn_7">
+		<content target="" sortby="" sortorder="" limit="" browse="">$VAR[AF3_Path_OSD_Episodes]</content>
+	</include>
+	<include name="af3_dyn_8">
+		<control type="grouplist">
+			<left>-9</left>
+			<right>-9</right>
+			<height>70</height>
+			<bottom>0</bottom>
+			<orientation>horizontal</orientation>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>$NUMBER[32]</label>
+				<textcolor>af3_dialog_fg_70</textcolor>
+				<width>38</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>$NUMBER[16]</label>
+				<textcolor>af3_dialog_fg_70</textcolor>
+				<width>38</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>$NUMBER[8]x</label>
+				<textcolor>af3_dialog_fg_70</textcolor>
+				<width>38</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>$NUMBER[4]x</label>
+				<textcolor>af3_dialog_fg_70</textcolor>
+				<width>38</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>$NUMBER[2]x</label>
+				<textcolor>af3_dialog_fg_70</textcolor>
+				<width>38</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>|</label>
+				<textcolor>af3_dialog_fg_70</textcolor>
+				<width>38</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>$NUMBER[2]x</label>
+				<textcolor>af3_dialog_fg_70</textcolor>
+				<width>38</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>$NUMBER[4]x</label>
+				<textcolor>af3_dialog_fg_70</textcolor>
+				<width>38</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>$NUMBER[8]x</label>
+				<textcolor>af3_dialog_fg_70</textcolor>
+				<width>38</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>$NUMBER[16]</label>
+				<textcolor>af3_dialog_fg_70</textcolor>
+				<width>38</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>$NUMBER[32]</label>
+				<textcolor>af3_dialog_fg_70</textcolor>
+				<width>38</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<scrolltime tween="quadratic">400</scrolltime>
+			<usecontrolcoords>true</usecontrolcoords>
+			<itemgap>0</itemgap>
+		</control>
+	</include>
+	<include name="af3_dyn_9">
+		<control type="grouplist">
+			<left>-8</left>
+			<right>-8</right>
+			<height>70</height>
+			<bottom>0</bottom>
+			<orientation>horizontal</orientation>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>0.80</label>
+				<textcolor>af3_dialog_fg_70</textcolor>
+				<width>52</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>0.90</label>
+				<textcolor>af3_dialog_fg_70</textcolor>
+				<width>52</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>1.00</label>
+				<textcolor>af3_dialog_fg_70</textcolor>
+				<width>52</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>1.10</label>
+				<textcolor>af3_dialog_fg_70</textcolor>
+				<width>52</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>1.20</label>
+				<textcolor>af3_dialog_fg_70</textcolor>
+				<width>52</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>1.30</label>
+				<textcolor>af3_dialog_fg_70</textcolor>
+				<width>52</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>1.40</label>
+				<textcolor>af3_dialog_fg_70</textcolor>
+				<width>52</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>1.50</label>
+				<textcolor>af3_dialog_fg_70</textcolor>
+				<width>52</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<scrolltime tween="quadratic">400</scrolltime>
+			<usecontrolcoords>true</usecontrolcoords>
+			<itemgap>0</itemgap>
+		</control>
+	</include>
+	<include name="af3_dyn_10">
+		<control type="grouplist">
+			<left>-9</left>
+			<right>-9</right>
+			<height>70</height>
+			<bottom>0</bottom>
+			<orientation>horizontal</orientation>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>$NUMBER[32]</label>
+				<textcolor>ff272727</textcolor>
+				<width>38</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>$NUMBER[16]</label>
+				<textcolor>ff272727</textcolor>
+				<width>38</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>$NUMBER[8]x</label>
+				<textcolor>ff272727</textcolor>
+				<width>38</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>$NUMBER[4]x</label>
+				<textcolor>ff272727</textcolor>
+				<width>38</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>$NUMBER[2]x</label>
+				<textcolor>ff272727</textcolor>
+				<width>38</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>|</label>
+				<textcolor>ff272727</textcolor>
+				<width>38</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>$NUMBER[2]x</label>
+				<textcolor>ff272727</textcolor>
+				<width>38</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>$NUMBER[4]x</label>
+				<textcolor>ff272727</textcolor>
+				<width>38</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>$NUMBER[8]x</label>
+				<textcolor>ff272727</textcolor>
+				<width>38</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>$NUMBER[16]</label>
+				<textcolor>ff272727</textcolor>
+				<width>38</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>$NUMBER[32]</label>
+				<textcolor>ff272727</textcolor>
+				<width>38</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<scrolltime tween="quadratic">400</scrolltime>
+			<usecontrolcoords>true</usecontrolcoords>
+			<itemgap>0</itemgap>
+		</control>
+	</include>
+	<include name="af3_dyn_11">
+		<control type="grouplist">
+			<left>-8</left>
+			<right>-8</right>
+			<height>70</height>
+			<bottom>0</bottom>
+			<orientation>horizontal</orientation>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>0.80</label>
+				<textcolor>ff272727</textcolor>
+				<width>52</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>0.90</label>
+				<textcolor>ff272727</textcolor>
+				<width>52</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>1.00</label>
+				<textcolor>ff272727</textcolor>
+				<width>52</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>1.10</label>
+				<textcolor>ff272727</textcolor>
+				<width>52</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>1.20</label>
+				<textcolor>ff272727</textcolor>
+				<width>52</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>1.30</label>
+				<textcolor>ff272727</textcolor>
+				<width>52</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>1.40</label>
+				<textcolor>ff272727</textcolor>
+				<width>52</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<control type="label">
+				<font>af3_font_tiny</font>
+				<label>1.50</label>
+				<textcolor>ff272727</textcolor>
+				<width>52</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+				<disabledcolor>60FFFFFF</disabledcolor>
+			</control>
+			<scrolltime tween="quadratic">400</scrolltime>
+			<usecontrolcoords>true</usecontrolcoords>
+			<itemgap>0</itemgap>
+		</control>
+	</include>
+	<include name="af3_dyn_12">
+		<control type="group">
+			<height>120</height>
+			<control type="group">
+				<visible>!String.IsEmpty(VideoPlayer.Season) | !String.IsEmpty(VideoPlayer.Episode) | !String.IsEmpty(VideoPlayer.Title)</visible>
+				<control type="label">
+					<textcolor>af3_panel_fg_90</textcolor>
+					<label>$INFO[VideoPlayer.Season,,x]$INFO[VideoPlayer.Episode,0,. ]$INFO[VideoPlayer.Title,,]</label>
+					<left>40</left>
+					<height>40</height>
+					<font>af3_font_main_bold</font>
+					<width>1120</width>
+					<visible>!Integer.IsGreater(VideoPlayer.Episode,9)</visible>
+					<align>left</align>
+					<aligny>center</aligny>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+					<disabledcolor>60FFFFFF</disabledcolor>
+				</control>
+				<control type="label">
+					<textcolor>af3_panel_fg_90</textcolor>
+					<label>$INFO[VideoPlayer.Season,,x]$INFO[VideoPlayer.Episode,,. ]$INFO[VideoPlayer.Title,,]</label>
+					<left>40</left>
+					<height>40</height>
+					<font>af3_font_main_bold</font>
+					<width>1120</width>
+					<visible>Integer.IsGreater(VideoPlayer.Episode,9)</visible>
+					<align>left</align>
+					<aligny>center</aligny>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+					<disabledcolor>60FFFFFF</disabledcolor>
+				</control>
+				<control type="textbox" id="">
+					<top>54</top>
+					<width>1120</width>
+					<textcolor>af3_panel_fg_70</textcolor>
+					<label>$INFO[VideoPlayer.Plot]</label>
+					<height>80</height>
+					<left>40</left>
+					<font>af3_font_mini_plot</font>
+					<align>left</align>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<autoscroll delay="6000" time="3000" repeat="10000">!Skin.HasSetting(Textboxes.DisableAutoscroll)</autoscroll>
+					<visible>!String.IsEqual(Window(Home).Property(dhs.pref.player_show_plot),false)</visible>
+				</control>
+			</control>
+			<control type="group">
+				<visible>![!String.IsEmpty(VideoPlayer.Season) | !String.IsEmpty(VideoPlayer.Episode) | !String.IsEmpty(VideoPlayer.Title)]</visible>
+				<control type="textbox" id="">
+					<top />
+					<width>1120</width>
+					<textcolor>af3_panel_fg_70</textcolor>
+					<label>$INFO[VideoPlayer.Plot]</label>
+					<height>120</height>
+					<left>40</left>
+					<font>af3_font_mini_plot</font>
+					<align>left</align>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<autoscroll delay="6000" time="3000" repeat="10000">!Skin.HasSetting(Textboxes.DisableAutoscroll)</autoscroll>
+					<visible>!String.IsEqual(Window(Home).Property(dhs.pref.player_show_plot),false)</visible>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="af3_dyn_13">
+		<control type="group">
+			<height>120</height>
+			<control type="group">
+				<visible>!String.IsEmpty(VideoPlayer.Tagline)</visible>
+				<control type="label">
+					<textcolor>af3_panel_fg_90</textcolor>
+					<label>$INFO[VideoPlayer.Tagline]</label>
+					<left>40</left>
+					<height>40</height>
+					<font>af3_font_main_bold</font>
+					<width>1120</width>
+					<align>left</align>
+					<aligny>center</aligny>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+					<disabledcolor>60FFFFFF</disabledcolor>
+				</control>
+				<control type="textbox" id="">
+					<top>54</top>
+					<width>1120</width>
+					<textcolor>af3_panel_fg_70</textcolor>
+					<label>$INFO[VideoPlayer.Plot]</label>
+					<height>80</height>
+					<left>40</left>
+					<font>af3_font_mini_plot</font>
+					<align>left</align>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<autoscroll delay="6000" time="3000" repeat="10000">!Skin.HasSetting(Textboxes.DisableAutoscroll)</autoscroll>
+					<visible>!String.IsEqual(Window(Home).Property(dhs.pref.player_show_plot),false)</visible>
+				</control>
+			</control>
+			<control type="group">
+				<visible>String.IsEmpty(VideoPlayer.Tagline)</visible>
+				<control type="textbox" id="">
+					<top />
+					<width>1120</width>
+					<textcolor>af3_panel_fg_70</textcolor>
+					<label>$INFO[VideoPlayer.Plot]</label>
+					<height>120</height>
+					<left>40</left>
+					<font>af3_font_mini_plot</font>
+					<align>left</align>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<autoscroll delay="6000" time="3000" repeat="10000">!Skin.HasSetting(Textboxes.DisableAutoscroll)</autoscroll>
+					<visible>!String.IsEqual(Window(Home).Property(dhs.pref.player_show_plot),false)</visible>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="af3_dyn_14">
+		<include condition="[VideoPlayer.Content(episodes) | String.StartsWith(Window(Home).Property(dexhub.source.key),series) | String.StartsWith(Window(Home).Property(dexhub.source.key),anime)]">af3_dyn_12</include>
+		<include condition="![VideoPlayer.Content(episodes) | String.StartsWith(Window(Home).Property(dexhub.source.key),series) | String.StartsWith(Window(Home).Property(dexhub.source.key),anime)]">af3_dyn_13</include>
+	</include>
+	<include name="af3_dyn_15">
+		<control type="button">
+			<visible>String.IsEqual(VideoPlayer.AudioCodec,aac) | String.IsEqual(VideoPlayer.AudioCodec,aac_latm) | String.IsEqual(VideoPlayer.AudioCodec,aac_lc) | String.IsEqual(VideoPlayer.AudioCodec,he_aac) | String.IsEqual(VideoPlayer.AudioCodec,he_aac_v2) | String.IsEqual(VideoPlayer.AudioCodec,aac_ssr) | String.IsEqual(VideoPlayer.AudioCodec,aac_ltp)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>AAC</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button">
+			<visible>!Skin.HasSetting(InfoBar.TwoRow) + String.IsEqual(VideoPlayer.AudioCodec,ac3) | String.IsEqual(VideoPlayer.AudioCodec,dolbydigital)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>Dolby Digital</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button">
+			<visible>Skin.HasSetting(InfoBar.TwoRow) + String.IsEqual(VideoPlayer.AudioCodec,ac3) | String.IsEqual(VideoPlayer.AudioCodec,dolbydigital) + !String.IsEqual(VideoPlayer.HdrType,dolbyvision)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>Dolby Digital</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button">
+			<visible>String.IsEqual(VideoPlayer.AudioCodec,avc)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>AVC</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button">
+			<visible>String.IsEqual(VideoPlayer.AudioCodec,dca) | String.IsEqual(VideoPlayer.AudioCodec,dts)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>DTS</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button">
+			<visible>String.IsEqual(VideoPlayer.AudioCodec,dtshd)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>DTS-HD</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button">
+			<visible>!Skin.HasSetting(InfoBar.TwoRow) + String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>DTS-HD MA</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button">
+			<visible>Skin.HasSetting(InfoBar.TwoRow) + String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>DTS-HD Master Audio</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button">
+			<visible>String.IsEqual(VideoPlayer.AudioCodec,dtshd_hra)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>DTS-HD HRA</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button">
+			<visible>String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>DTS:X</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button">
+			<visible>String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x_imax)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>DTS:X (IMAX)</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button">
+			<visible>!Skin.HasSetting(InfoBar.TwoRow) + String.IsEqual(VideoPlayer.AudioCodec,eac3)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>Dolby Digital+</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button">
+			<visible>Skin.HasSetting(InfoBar.TwoRow) + String.IsEqual(VideoPlayer.AudioCodec,eac3) + !String.IsEqual(VideoPlayer.HdrType,dolbyvision)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>Dolby Digital Plus</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button">
+			<visible>!Skin.HasSetting(InfoBar.TwoRow) + String.IsEqual(VideoPlayer.AudioCodec,eac3_ddp_atmos)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>Dolby Atmos</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button">
+			<visible>Skin.HasSetting(InfoBar.TwoRow) + String.IsEqual(VideoPlayer.AudioCodec,eac3_ddp_atmos) + !String.IsEqual(VideoPlayer.HdrType,dolbyvision)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>Dolby Digital Plus (Atmos)</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button">
+			<visible>String.IsEqual(VideoPlayer.AudioCodec,flac)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>FLAC</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button">
+			<visible>String.IsEqual(VideoPlayer.AudioCodec,mp3) | String.IsEqual(VideoPlayer.AudioCodec,mp3float)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>MP3</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button">
+			<visible>String.IsEqual(VideoPlayer.AudioCodec,ogg)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>OGG</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button">
+			<visible>String.IsEqual(VideoPlayer.AudioCodec,opus)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>OPUS</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button">
+			<visible>String.IsEqual(VideoPlayer.AudioCodec,pcm) | String.IsEqual(VideoPlayer.AudioCodec,pcm_bluray) | String.IsEqual(VideoPlayer.AudioCodec,pcm_s16le) | String.IsEqual(VideoPlayer.AudioCodec,pcm_s24le)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>PCM</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button">
+			<visible>!Skin.HasSetting(InfoBar.TwoRow) + String.IsEqual(VideoPlayer.AudioCodec,truehd)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>Dolby TrueHD</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button">
+			<visible>Skin.HasSetting(InfoBar.TwoRow) + String.IsEqual(VideoPlayer.AudioCodec,truehd) + !String.IsEqual(VideoPlayer.HdrType,dolbyvision)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>Dolby TrueHD</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button">
+			<visible>!Skin.HasSetting(InfoBar.TwoRow) + String.IsEqual(VideoPlayer.AudioCodec,truehd_atmos)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>Dolby Atmos</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button">
+			<visible>Skin.HasSetting(InfoBar.TwoRow) + String.IsEqual(VideoPlayer.AudioCodec,truehd_atmos) + !String.IsEqual(VideoPlayer.HdrType,dolbyvision)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>Dolby TrueHD (Atmos)</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button">
+			<visible>String.IsEqual(VideoPlayer.AudioCodec,wav)</visible>
+			<centertop>50%</centertop>
+			<height>30</height>
+			<width min="60">auto</width>
+			<texturefocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturefocus>
+			<texturenofocus colordiffuse="af3_panel_fg_90" border="4">af3/flags/blank.png</texturenofocus>
+			<align>center</align>
+			<textoffsety>-5</textoffsety>
+			<textoffsetx>10</textoffsetx>
+			<aligny>top</aligny>
+			<font>af3_font_infotag_bold</font>
+			<textcolor>ff2a2a2a</textcolor>
+			<shadowcolor>20ffffff</shadowcolor>
+			<label>WAV</label>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+	</include>
+	<include name="af3_dyn_16">
+		<height>60</height>
+	</include>
+	<include name="af3_dyn_17">
+		<height>50</height>
+	</include>
+	
+	<variable name="DhOSDHDRLabel">
+		<value condition="String.IsEqual(VideoPlayer.HdrType,dolbyvision)">Dolby Vision</value>
+		<value condition="String.IsEqual(VideoPlayer.HdrType,hdr10plus)">HDR10+</value>
+		<value condition="String.IsEqual(VideoPlayer.HdrType,hdr10)">HDR10</value>
+		<value condition="String.IsEqual(VideoPlayer.HdrType,hlg)">HLG</value>
+		<value condition="!String.IsEmpty(VideoPlayer.HdrType)">[UPPERCASE]$INFO[VideoPlayer.HdrType][/UPPERCASE]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.VideoCodec)">SDR</value>
+		<value />
+	</variable>
+	<variable name="DhOSDResLabel">
+		<value condition="String.IsEqual(VideoPlayer.VideoResolution,4K) | String.IsEqual(VideoPlayer.VideoResolution,8K)">$INFO[VideoPlayer.VideoResolution]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.VideoResolution)">$INFO[VideoPlayer.VideoResolution]p</value>
+		<value />
+	</variable>
+	<variable name="DhOSDCodecLabel">
+		<value condition="String.IsEqual(VideoPlayer.VideoCodec,hevc) | String.IsEqual(VideoPlayer.VideoCodec,h265) | String.IsEqual(VideoPlayer.VideoCodec,hev1) | String.IsEqual(VideoPlayer.VideoCodec,hvc1)">HEVC</value>
+		<value condition="String.IsEqual(VideoPlayer.VideoCodec,h264) | String.IsEqual(VideoPlayer.VideoCodec,avc1)">H.264</value>
+		<value condition="String.IsEqual(VideoPlayer.VideoCodec,mpeg2video)">MPEG-2</value>
+		<value condition="!String.IsEmpty(VideoPlayer.VideoCodec)">[UPPERCASE]$INFO[VideoPlayer.VideoCodec][/UPPERCASE]</value>
+		<value />
+	</variable>
+	<variable name="DhOSDAudioLabel">
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,eac3_ddp_atmos)">DD+ Atmos</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,truehd_atmos)">TrueHD Atmos</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x_imax)">DTS:X IMAX</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x) | String.IsEqual(VideoPlayer.AudioCodec,dts_x)">DTS:X</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma)">DTS-HD MA</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_hra)">DTS-HD HRA</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dca) | String.IsEqual(VideoPlayer.AudioCodec,dts)">DTS</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,truehd)">TrueHD</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,eac3)">DD+</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,ac3)">DD</value>
+		<value condition="String.StartsWith(VideoPlayer.AudioCodec,aac) | String.StartsWith(VideoPlayer.AudioCodec,he_aac)">AAC</value>
+		<value condition="String.StartsWith(VideoPlayer.AudioCodec,pcm)">PCM</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,mp3float)">MP3</value>
+		<value condition="!String.IsEmpty(VideoPlayer.AudioCodec)">[UPPERCASE]$INFO[VideoPlayer.AudioCodec][/UPPERCASE]</value>
+		<value />
+	</variable>
+	<variable name="DhOSDChannelsLabel">
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,1)">1.0</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,2)">2.0</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,3)">2.1</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,6)">5.1</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,7)">6.1</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,8)">7.1</value>
+		<value condition="!String.IsEmpty(VideoPlayer.AudioChannels)">$INFO[VideoPlayer.AudioChannels] ch</value>
+		<value />
+	</variable>
+	<variable name="DhOSDBadgeStyleLabel">
+		<value condition="String.IsEqual(Window(Home).Property(dhs.osd.badge.key),packs) + !String.IsEmpty(Window(Home).Property(dhs.osd.badge.packname))">$INFO[Window(Home).Property(dhs.osd.badge.packname)]</value>
+		<value condition="String.IsEqual(Window(Home).Property(dhs.osd.badge.key),elite)">$VAR[DhSettingsString32060]</value>
+		<value condition="String.IsEqual(Window(Home).Property(dhs.osd.badge.key),gold)">$VAR[DhSettingsString32061]</value>
+		<value condition="String.IsEqual(Window(Home).Property(dhs.osd.badge.key),white)">$VAR[DhSettingsString32062]</value>
+		<value condition="String.IsEqual(Window(Home).Property(dhs.osd.badge.key),folder)">$VAR[DhSettingsString32063]</value>
+		<value condition="String.IsEqual(Window(Home).Property(dhs.osd.badge.key),url)">$VAR[DhSettingsString32064]</value>
+		<value condition="String.IsEqual(Window(Home).Property(dhs.osd.badge.style),minimal)">$VAR[DhSettingsString31956]</value>
+		<value condition="String.IsEqual(Window(Home).Property(dhs.osd.badge.style),compact)">$VAR[DhSettingsString31957]</value>
+		<value condition="String.IsEqual(Window(Home).Property(dhs.osd.badge.style),custom)">$VAR[DhSettingsString31958]</value>
+		<value condition="String.IsEqual(Window(Home).Property(dhs.osd.badge.style),off)">$VAR[DhSettingsString31959]</value>
+		<value>$VAR[DhSettingsString31955]</value>
+	</variable>
+</includes>

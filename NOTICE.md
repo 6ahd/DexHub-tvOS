@@ -16,7 +16,7 @@ The app this repository builds combines the parts below. Each keeps its own lice
 | TMDb Helper, skinvariables, jurialmunkey module, infotagger (jurialmunkey) | add-ons in `assets/` | GPL-3.0 |
 | requests, urllib3, certifi, chardet, idna, six, qrcode, addon.signals | Python modules in `assets/` | their own licences, inside each ZIP |
 | Inter Arabic, IBM Plex Sans Arabic, Noto, League Spartan fonts | subtitle and UI fonts | SIL OFL 1.1, licences inside the ZIPs |
-| Dex Hub add-on (`plugin.video.dexhub.tvos`) | released as a ZIP, not in git | proprietary, source available; see its `LICENSE.txt` |
-| Dex Hub skin (`skin.dexhub.tvos`) | released as a ZIP, not in git | built on Estuary (GPL-2.0, artwork CC BY-SA 4.0) and Arctic Fuse 3 by jurialmunkey (CC BY-NC-SA 4.0); see its licence files |
+| Dex Hub add-on (`src/plugin.video.dexhub.tvos`) | the add-on | proprietary, source available; © DexWorld; see its `LICENSE.txt` and `THIRD-PARTY-NOTICES.txt` |
+| Dex Hub skin (`src/skin.dexhub.tvos`) | the skin | built on Estuary (GPL-2.0, artwork CC BY-SA 4.0) and Arctic Fuse 3 by jurialmunkey (CC BY-NC-SA 4.0); see its licence files |
 
 Dolby, Dolby Vision and Dolby Atmos are trademarks of Dolby Laboratories. Apple TV, tvOS and Xcode are trademarks of Apple Inc. Infuse and VidHub belong to their developers. No affiliation is implied.

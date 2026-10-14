@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dex Hub theme Amber Cinema (skin.dexhub.tvos 3.14.0): the colours over defaults.xml -->
+<colors>
+	<color name="primary_background">FF120F0A</color>
+	<color name="secondary_background">33241C12</color>
+	<color name="dialog_tint">FF1B160E</color>
+	<color name="background">FF0A0806</color>
+	<color name="white">FFFDF6EC</color>
+	<color name="grey">FFA6987C</color>
+	<color name="blue">FFFCD34D</color>
+	<color name="button_focus">FFF2A93B</color>
+	<color name="button_alt_focus">80F2A93B</color>
+	<color name="selected">FFF5BE6C</color>
+	<color name="dh_accent">FFF2A93B</color>
+	<color name="dh_accent_dim">47F2A93B</color>
+	<color name="dh_secondary">FFFCD34D</color>
+	<color name="dh_surface">FF120F0A</color>
+	<color name="dh_card">FF241C12</color>
+	<color name="dh_text">FFFDF6EC</color>
+	<color name="dh_muted">FFA6987C</color>
+	<color name="dh_on_accent">FF120F0A</color>
+	<color name="dh_glow_a">5CF2A93B</color>
+	<color name="dh_glow_b">40FCD34D</color>
+	<color name="dh_glow_focus">99F2A93B</color>
+</colors>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dex Hub theme Nuvio Arctic Blue (skin.dexhub.tvos 3.14.0): the colours over defaults.xml -->
+<colors>
+	<color name="primary_background">FF0B0E14</color>
+	<color name="secondary_background">33161E2A</color>
+	<color name="dialog_tint">FF10161F</color>
+	<color name="background">FF06080B</color>
+	<color name="white">FFFFFFFF</color>
+	<color name="grey">FFB3B3B3</color>
+	<color name="blue">FF4DE3FF</color>
+	<color name="button_focus">FF3185F5</color>
+	<color name="button_alt_focus">803185F5</color>
+	<color name="selected">FF64A4F8</color>
+	<color name="dh_accent">FF3185F5</color>
+	<color name="dh_accent_dim">473185F5</color>
+	<color name="dh_secondary">FF4DE3FF</color>
+	<color name="dh_surface">FF0B0E14</color>
+	<color name="dh_card">FF161E2A</color>
+	<color name="dh_text">FFFFFFFF</color>
+	<color name="dh_muted">FFB3B3B3</color>
+	<color name="dh_on_accent">FFFFFFFF</color>
+	<color name="dh_glow_a">5C3185F5</color>
+	<color name="dh_glow_b">404DE3FF</color>
+	<color name="dh_glow_focus">993185F5</color>
+</colors>

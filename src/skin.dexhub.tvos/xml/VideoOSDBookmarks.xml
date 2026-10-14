@@ -1,0 +1,938 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<zorder>0</zorder>
+	<defaultcontrol always="true">2</defaultcontrol>
+	<onload>CancelAlarm(osd_timeout,true)</onload>
+	<animation type="WindowOpen" reversible="false">
+		<effect type="fade" start="0" end="100" time="200" delay="200" tween="sine" easing="out"/>
+	</animation>
+	<animation type="WindowClose" reversible="false">
+		<effect type="fade" start="100" end="0" time="200" delay="0" tween="sine" easing="out"/>
+	</animation>
+	<controls>
+		<control type="group">
+			<visible>!Window.IsActive(1141)</visible>
+			<animation type="Visible" reversible="false">
+				<effect type="fade" start="0" end="100" time="200" delay="200" tween="sine" easing="out"/>
+			</animation>
+			<animation type="Hidden" reversible="false">
+				<effect type="fade" start="100" end="0" time="200" delay="0" tween="sine" easing="out"/>
+			</animation>
+			<control type="group">
+				<height>400</height>
+				<bottom>80</bottom>
+				<control type="group">
+					<top>-140</top>
+					<height>40</height>
+					<left>80</left>
+					<right>80</right>
+					<control type="group">
+						<centertop>0</centertop>
+						<height>80</height>
+						<control type="label">
+							<label fallback="">$LOCALIZE[298]</label>
+							<align></align>
+							<haspath>false</haspath>
+							<textcolor>af3_panel_fg_90</textcolor>
+							<aligny>center</aligny>
+							<font>af3_font_main_bold</font>
+							<width>auto</width>
+							<height>80</height>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="grouplist">
+						<orientation>horizontal</orientation>
+						<align></align>
+						<itemgap>8</itemgap>
+						<width>720</width>
+						<control type="image">
+							<height>1</height>
+							<centerbottom>10</centerbottom>
+							<width>720</width>
+							<left>0</left>
+							<texture colordiffuse="af3_main_fg_12" flipx="true">af3/common/gradient-box.png</texture>
+						</control>
+						<scrolltime tween="quadratic">400</scrolltime>
+						<usecontrolcoords>true</usecontrolcoords>
+					</control>
+				</control>
+				<control type="group">
+					<height>60</height>
+					<centerbottom>20</centerbottom>
+					<left>80</left>
+					<right>80</right>
+					<control type="group">
+						<centertop>50%</centertop>
+						<height>80</height>
+						<left>-40</left>
+						<width>460</width>
+						<control type="group">
+							<height>80</height>
+							<control type="group">
+								<centertop>50%</centertop>
+								<height>50</height>
+								<width>50</width>
+								<control type="image">
+									<left>-40</left>
+									<right>-40</right>
+									<top>-40</top>
+									<bottom>-40</bottom>
+									<bordersize>40</bordersize>
+									<bordertexture colordiffuse="af3_shadow_soft">af3/shadows/circle_50-shadow-40.png</bordertexture>
+									<texture colordiffuse="af3_main_fg_100">af3/diffuse/circle/circle_50.png</texture>
+								</control>
+								<control type="image">
+									<centertop>50%</centertop>
+									<height>50</height>
+									<width>50</width>
+									<bordersize>1</bordersize>
+									<aspectratio scalediffuse="false">scale</aspectratio>
+									<texture diffuse="af3/diffuse/circle/circle_50.png" colordiffuse="af3_main_bg_90" fallback="" background="true">af3/extras/icons/photo-film.png</texture>
+								</control>
+							</control>
+							<control type="image">
+								<centertop>50%</centertop>
+								<height>50</height>
+								<width>50</width>
+								<bordersize>2</bordersize>
+								<aspectratio scalediffuse="false">scale</aspectratio>
+								<texture diffuse="af3/diffuse/circle/circle_50.png" colordiffuse="white" fallback="" background="true">$VAR[AF3_Image_OSD_Poster]</texture>
+							</control>
+							<left>40</left>
+							<control type="label" id="">
+								<height>10</height>
+								<centertop>24</centertop>
+								<left>80</left>
+								<textcolor>af3_panel_fg_90</textcolor>
+								<selectedcolor>af3_panel_fg_90</selectedcolor>
+								<label fallback="$LOCALIZE[33029]">$VAR[AF3_Label_NowPlayingTitle]</label>
+								<font>af3_font_mini_bold</font>
+								<align>left</align>
+								<aligny>center</aligny>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="label" id="">
+								<height>10</height>
+								<centerbottom>25</centerbottom>
+								<left>80</left>
+								<textcolor>af3_panel_fg_70</textcolor>
+								<selectedcolor>af3_panel_fg_70</selectedcolor>
+								<label fallback="">$VAR[AF3_Label_NowPlayingSubLabel]</label>
+								<font>af3_font_tiny</font>
+								<align>left</align>
+								<aligny>center</aligny>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+						</control>
+					</control>
+					<control type="label">
+						<wrapmultiline>true</wrapmultiline>
+						<top>0</top>
+						<bottom>4</bottom>
+						<left>460</left>
+						<right>0</right>
+						<label>$INFO[VideoPlayer.Plot]</label>
+						<font>af3_font_mini</font>
+						<textcolor>af3_panel_fg_70</textcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+				</control>
+				<control type="fixedlist" id="11">
+					<height>450</height>
+					<bottom>100</bottom>
+					<onup>4000</onup>
+					<ondown>noop</ondown>
+					<movement>3</movement>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic">400</scrolltime>
+					<itemlayout width="450" height="350">
+						<control type="group">
+							<left>80</left>
+							<right>-80</right>
+							<top>80</top>
+							<bottom>-80</bottom>
+							<control type="group">
+								<width>410</width>
+								<height>230.625</height>
+								<control type="image">
+									<left>-40</left>
+									<right>-40</right>
+									<top>-40</top>
+									<bottom>-40</bottom>
+									<bordersize>40</bordersize>
+									<bordertexture border="60" colordiffuse="af3_shadow_hard">af3/shadows/shadow-40.png</bordertexture>
+									<texture colordiffuse="af3_main_fg_12" border="20">af3/common/box.png</texture>
+								</control>
+								<control type="image">
+									<texture background="true" diffuse="af3/diffuse/landscape_w410_h231.png">$VAR[AF3_Image_Landscape]</texture>
+									<aspectratio scalediffuse="false">keep</aspectratio>
+									<visible>![String.IsEqual(ListItem.Art(thumb),ListItem.Icon) | String.IsEmpty(ListItem.Art(thumb))] | !String.IsEmpty(ListItem.Art(fanart)) | !String.IsEmpty(ListItem.Art(poster)) | !String.StartsWith(ListItem.Icon,Default)</visible>
+								</control>
+								<control type="image">
+									<colordiffuse>af3_main_fg_100</colordiffuse>
+									<texture background="true" diffuse="af3/diffuse/landscape_w410_h231.png">$VAR[AF3_Image_Landscape]</texture>
+									<aspectratio scalediffuse="false">keep</aspectratio>
+									<visible>String.StartsWith(ListItem.Icon,Default) + [String.IsEqual(ListItem.Art(thumb),ListItem.Icon) | String.IsEmpty(ListItem.Art(thumb))] + String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(poster))</visible>
+									<visible>!String.IsEqual(ListItem.Icon,DefaultFolder.png) | !String.IsEqual(ListItem.Label,$LOCALIZE[22082])</visible>
+								</control>
+								<control type="image">
+									<texture background="true" diffuse="af3/diffuse/landscape_w410_h231.png">af3/fallback/more-items-wide.png</texture>
+									<aspectratio scalediffuse="false">scale</aspectratio>
+									<visible>String.IsEqual(ListItem.Icon,DefaultFolder.png) + String.IsEqual(ListItem.Label,$LOCALIZE[22082])</visible>
+								</control>
+								<control type="group">
+									<visible>[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow)] + String.IsEmpty(ListItem.Art(landscape)) + String.IsEmpty(ListItem.Art(tvshow.landscape))</visible>
+									<top>50%</top>
+									<left>50%</left>
+									<control type="group">
+										<top>-40</top>
+										<left>-40</left>
+										<right>40</right>
+										<bottom>40</bottom>
+										<control type="image">
+											<top>2</top>
+											<left>2</left>
+											<right>-2</right>
+											<bottom>-2</bottom>
+											<texture background="true" diffuse="af3/diffuse/landscape_w410_h231.png" colordiffuse="7f000000">$INFO[ListItem.Art(clearlogo)]</texture>
+											<aspectratio scalediffuse="false" align="right" aligny="bottom">keep</aspectratio>
+										</control>
+										<control type="image">
+											<texture background="true" diffuse="af3/diffuse/landscape_w410_h231.png">$INFO[ListItem.Art(clearlogo)]</texture>
+											<aspectratio scalediffuse="false" align="right" aligny="bottom">keep</aspectratio>
+										</control>
+									</control>
+								</control>
+								<control type="progress">
+									<height>0</height>
+									<left>0</left>
+									<right>0</right>
+									<centerbottom>-30</centerbottom>
+									<texturebg colordiffuse="af3_main_fg_12" border="12,0,12,0">af3/progress/progress-nib.png</texturebg>
+									<midtexture colordiffuse="af3_main_logo" border="12,0,12,0">af3/progress/progress-nib.png</midtexture>
+									<info>ListItem.Progress</info>
+									<visible>!Integer.IsEqual(ListItem.Progress,0)</visible>
+									<lefttexture/>
+									<righttexture/>
+									<overlaytexture/>
+								</control>
+								<control type="group">
+									<centerbottom>0</centerbottom>
+									<right>25</right>
+									<width>64</width>
+									<height>64</height>
+									<visible>ListItem.IsPlaying | !Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodes),0) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] | ListItem.IsRecording | ListItem.HasTimer | !ListItem.IsCollection + [ListItem.IsResumable | !String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0) + !Integer.IsEqual(ListItem.Property(WatchedProgress),100)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | !Integer.IsEqual(ListItem.PlayCount,0) + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,set) | String.IsEqual(ListItem.DBType,video) | String.IsEqual(ListItem.DBType,episode)] | !String.IsEmpty(ListItem.DBID) + !String.IsEmpty(ListItem.Property(Item.Info)) | ListItem.IsCollection</visible>
+									<control type="image" id="">
+										<texture colordiffuse="ff333333">af3/indicator/circle-colordiffuse.png</texture>
+									</control>
+									<control type="image" id="">
+										<texture colordiffuse="ff03b585" diffuse="af3/indicator/circle-diffuse.png" background="true" flipx="true" flipy="true">$VAR[AF3_Defs_PercentPlayed,af3/progress/circle/p,.png]</texture>
+										<aspectratio align="center" aligny="center">keep</aspectratio>
+										<visible>!Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodes),0) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] | !ListItem.IsCollection + [ListItem.IsResumable | !String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0) + !Integer.IsEqual(ListItem.Property(WatchedProgress),100)]</visible>
+									</control>
+									<control type="label" id="">
+										<font>af3_font_hint_bold</font>
+										<align>center</align>
+										<aligny>center</aligny>
+										<textcolor>af3_panel_fg_100</textcolor>
+										<label>$INFO[ListItem.Property(UnWatchedEpisodes)]</label>
+										<visible>!ListItem.IsPlaying + !Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodes),0) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]</visible>
+										<selectedcolor>af3_main_fg_70</selectedcolor>
+										<scrollsuffix> </scrollsuffix>
+										<scrollspeed>40</scrollspeed>
+										<disabledcolor>60FFFFFF</disabledcolor>
+									</control>
+									<control type="group">
+										<visible>!ListItem.IsPlaying + ![!Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodes),0) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]] + [ListItem.IsRecording | ListItem.HasTimer]</visible>
+										<control type="image">
+											<bordersize>20</bordersize>
+											<texture>af3/indicator/record.png</texture>
+											<visible>ListItem.IsRecording</visible>
+										</control>
+										<control type="image">
+											<bordersize>20</bordersize>
+											<texture>af3/indicator/timer.png</texture>
+											<visible>!ListItem.IsRecording</visible>
+											<visible>ListItem.HasTimer</visible>
+										</control>
+									</control>
+									<control type="image" id="">
+										<bordersize>20</bordersize>
+										<texture>af3/indicator/timer.png</texture>
+										<visible>!ListItem.IsPlaying + ![!Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodes),0) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]] + ![ListItem.IsRecording | ListItem.HasTimer] + !ListItem.IsCollection + [ListItem.IsResumable | !String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0) + !Integer.IsEqual(ListItem.Property(WatchedProgress),100)]</visible>
+									</control>
+									<control type="group" id="">
+										<control type="image">
+											<texture colordiffuse="ff03b585" diffuse="af3/indicator/circle-diffuse.png" background="true" flipx="true" flipy="true">af3/progress/circle/p100.png</texture>
+											<aspectratio align="center" aligny="center">keep</aspectratio>
+										</control>
+										<control type="image">
+											<bordersize>20</bordersize>
+											<texture colordiffuse="ff03b585">af3/indicator/checkmark.png</texture>
+										</control>
+										<visible>!ListItem.IsPlaying + ![!Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodes),0) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]] + ![ListItem.IsRecording | ListItem.HasTimer] + ![!ListItem.IsCollection + [ListItem.IsResumable | !String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0) + !Integer.IsEqual(ListItem.Property(WatchedProgress),100)]] + [String.IsEqual(ListItem.Overlay,OverlayWatched.png) | !Integer.IsEqual(ListItem.PlayCount,0) + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,set) | String.IsEqual(ListItem.DBType,video) | String.IsEqual(ListItem.DBType,episode)]]</visible>
+									</control>
+									<control type="image" id="">
+										<bordersize>20</bordersize>
+										<texture>af3/indicator/library.png</texture>
+										<visible>!ListItem.IsPlaying + ![!Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodes),0) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]] + ![ListItem.IsRecording | ListItem.HasTimer] + ![!ListItem.IsCollection + [ListItem.IsResumable | !String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0) + !Integer.IsEqual(ListItem.Property(WatchedProgress),100)]] + ![String.IsEqual(ListItem.Overlay,OverlayWatched.png) | !Integer.IsEqual(ListItem.PlayCount,0) + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,set) | String.IsEqual(ListItem.DBType,video) | String.IsEqual(ListItem.DBType,episode)]] + !String.IsEmpty(ListItem.DBID) + !String.IsEmpty(ListItem.Property(Item.Info))</visible>
+									</control>
+									<control type="image" id="">
+										<bordersize>20</bordersize>
+										<texture>af3/indicator/movieset.png</texture>
+										<visible>!ListItem.IsPlaying + ![!Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodes),0) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]] + ![ListItem.IsRecording | ListItem.HasTimer] + ![!ListItem.IsCollection + [ListItem.IsResumable | !String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0) + !Integer.IsEqual(ListItem.Property(WatchedProgress),100)]] + ![String.IsEqual(ListItem.Overlay,OverlayWatched.png) | !Integer.IsEqual(ListItem.PlayCount,0) + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,set) | String.IsEqual(ListItem.DBType,video) | String.IsEqual(ListItem.DBType,episode)]] + ![!String.IsEmpty(ListItem.DBID) + !String.IsEmpty(ListItem.Property(Item.Info))] + ListItem.IsCollection</visible>
+									</control>
+									<control type="group" id="">
+										<control type="image">
+											<bordersize>20</bordersize>
+											<texture>af3/indicator/play.png</texture>
+										</control>
+										<visible>ListItem.IsPlaying</visible>
+									</control>
+								</control>
+								<control type="group">
+									<top>230.625</top>
+									<control type="group">
+										<top>10</top>
+										<left></left>
+										<right></right>
+										<height>80</height>
+										<control type="textbox" id="">
+											<top>7</top>
+											<bottom>7</bottom>
+											<aligny>top</aligny>
+											<font>af3_font_mini</font>
+											<label fallback="">$INFO[ListItem.Label]$INFO[ListItem.Label2, - ,]</label>
+											<label>$INFO[ListItem.Label]</label>
+											<align>left</align>
+											<textcolor>af3_main_fg_70</textcolor>
+											<selectedcolor>af3_main_fg_70</selectedcolor>
+											<autoscroll delay="6000" time="3000" repeat="10000">!Skin.HasSetting(Textboxes.DisableAutoscroll)</autoscroll>
+										</control>
+										<control type="group">
+                        </control>
+									</control>
+								</control>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout width="450" height="350">
+						<control type="group">
+							<left>80</left>
+							<right>-80</right>
+							<top>80</top>
+							<bottom>-80</bottom>
+							<control type="group">
+								<animation effect="fade" start="100" end="0" condition="Control.HasFocus(11)">Conditional</animation>
+								<control type="group">
+									<width>410</width>
+									<height>230.625</height>
+									<control type="image">
+										<left>-40</left>
+										<right>-40</right>
+										<top>-40</top>
+										<bottom>-40</bottom>
+										<bordersize>40</bordersize>
+										<bordertexture border="60" colordiffuse="af3_shadow_hard">af3/shadows/shadow-40.png</bordertexture>
+										<texture colordiffuse="af3_main_fg_12" border="20">af3/common/box.png</texture>
+									</control>
+									<control type="image">
+										<texture background="true" diffuse="af3/diffuse/landscape_w410_h231.png">$VAR[AF3_Image_Landscape]</texture>
+										<aspectratio scalediffuse="false">keep</aspectratio>
+										<visible>![String.IsEqual(ListItem.Art(thumb),ListItem.Icon) | String.IsEmpty(ListItem.Art(thumb))] | !String.IsEmpty(ListItem.Art(fanart)) | !String.IsEmpty(ListItem.Art(poster)) | !String.StartsWith(ListItem.Icon,Default)</visible>
+									</control>
+									<control type="image">
+										<colordiffuse>af3_main_fg_100</colordiffuse>
+										<texture background="true" diffuse="af3/diffuse/landscape_w410_h231.png">$VAR[AF3_Image_Landscape]</texture>
+										<aspectratio scalediffuse="false">keep</aspectratio>
+										<visible>String.StartsWith(ListItem.Icon,Default) + [String.IsEqual(ListItem.Art(thumb),ListItem.Icon) | String.IsEmpty(ListItem.Art(thumb))] + String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(poster))</visible>
+										<visible>!String.IsEqual(ListItem.Icon,DefaultFolder.png) | !String.IsEqual(ListItem.Label,$LOCALIZE[22082])</visible>
+									</control>
+									<control type="image">
+										<texture background="true" diffuse="af3/diffuse/landscape_w410_h231.png">af3/fallback/more-items-wide.png</texture>
+										<aspectratio scalediffuse="false">scale</aspectratio>
+										<visible>String.IsEqual(ListItem.Icon,DefaultFolder.png) + String.IsEqual(ListItem.Label,$LOCALIZE[22082])</visible>
+									</control>
+									<control type="group">
+										<visible>[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow)] + String.IsEmpty(ListItem.Art(landscape)) + String.IsEmpty(ListItem.Art(tvshow.landscape))</visible>
+										<top>50%</top>
+										<left>50%</left>
+										<control type="group">
+											<top>-40</top>
+											<left>-40</left>
+											<right>40</right>
+											<bottom>40</bottom>
+											<control type="image">
+												<top>2</top>
+												<left>2</left>
+												<right>-2</right>
+												<bottom>-2</bottom>
+												<texture background="true" diffuse="af3/diffuse/landscape_w410_h231.png" colordiffuse="7f000000">$INFO[ListItem.Art(clearlogo)]</texture>
+												<aspectratio scalediffuse="false" align="right" aligny="bottom">keep</aspectratio>
+											</control>
+											<control type="image">
+												<texture background="true" diffuse="af3/diffuse/landscape_w410_h231.png">$INFO[ListItem.Art(clearlogo)]</texture>
+												<aspectratio scalediffuse="false" align="right" aligny="bottom">keep</aspectratio>
+											</control>
+										</control>
+									</control>
+									<control type="progress">
+										<height>0</height>
+										<left>0</left>
+										<right>0</right>
+										<centerbottom>-30</centerbottom>
+										<texturebg colordiffuse="af3_main_fg_12" border="12,0,12,0">af3/progress/progress-nib.png</texturebg>
+										<midtexture colordiffuse="af3_main_logo" border="12,0,12,0">af3/progress/progress-nib.png</midtexture>
+										<info>ListItem.Progress</info>
+										<visible>!Integer.IsEqual(ListItem.Progress,0)</visible>
+										<lefttexture/>
+										<righttexture/>
+										<overlaytexture/>
+									</control>
+									<control type="group">
+										<centerbottom>0</centerbottom>
+										<right>25</right>
+										<width>64</width>
+										<height>64</height>
+										<visible>ListItem.IsPlaying | !Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodes),0) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] | ListItem.IsRecording | ListItem.HasTimer | !ListItem.IsCollection + [ListItem.IsResumable | !String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0) + !Integer.IsEqual(ListItem.Property(WatchedProgress),100)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | !Integer.IsEqual(ListItem.PlayCount,0) + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,set) | String.IsEqual(ListItem.DBType,video) | String.IsEqual(ListItem.DBType,episode)] | !String.IsEmpty(ListItem.DBID) + !String.IsEmpty(ListItem.Property(Item.Info)) | ListItem.IsCollection</visible>
+										<control type="image" id="">
+											<texture colordiffuse="ff333333">af3/indicator/circle-colordiffuse.png</texture>
+										</control>
+										<control type="image" id="">
+											<texture colordiffuse="ff03b585" diffuse="af3/indicator/circle-diffuse.png" background="true" flipx="true" flipy="true">$VAR[AF3_Defs_PercentPlayed,af3/progress/circle/p,.png]</texture>
+											<aspectratio align="center" aligny="center">keep</aspectratio>
+											<visible>!Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodes),0) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] | !ListItem.IsCollection + [ListItem.IsResumable | !String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0) + !Integer.IsEqual(ListItem.Property(WatchedProgress),100)]</visible>
+										</control>
+										<control type="label" id="">
+											<font>af3_font_hint_bold</font>
+											<align>center</align>
+											<aligny>center</aligny>
+											<textcolor>af3_panel_fg_100</textcolor>
+											<label>$INFO[ListItem.Property(UnWatchedEpisodes)]</label>
+											<visible>!ListItem.IsPlaying + !Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodes),0) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]</visible>
+											<selectedcolor>af3_main_fg_70</selectedcolor>
+											<scrollsuffix> </scrollsuffix>
+											<scrollspeed>40</scrollspeed>
+											<disabledcolor>60FFFFFF</disabledcolor>
+										</control>
+										<control type="group">
+											<visible>!ListItem.IsPlaying + ![!Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodes),0) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]] + [ListItem.IsRecording | ListItem.HasTimer]</visible>
+											<control type="image">
+												<bordersize>20</bordersize>
+												<texture>af3/indicator/record.png</texture>
+												<visible>ListItem.IsRecording</visible>
+											</control>
+											<control type="image">
+												<bordersize>20</bordersize>
+												<texture>af3/indicator/timer.png</texture>
+												<visible>!ListItem.IsRecording</visible>
+												<visible>ListItem.HasTimer</visible>
+											</control>
+										</control>
+										<control type="image" id="">
+											<bordersize>20</bordersize>
+											<texture>af3/indicator/timer.png</texture>
+											<visible>!ListItem.IsPlaying + ![!Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodes),0) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]] + ![ListItem.IsRecording | ListItem.HasTimer] + !ListItem.IsCollection + [ListItem.IsResumable | !String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0) + !Integer.IsEqual(ListItem.Property(WatchedProgress),100)]</visible>
+										</control>
+										<control type="group" id="">
+											<control type="image">
+												<texture colordiffuse="ff03b585" diffuse="af3/indicator/circle-diffuse.png" background="true" flipx="true" flipy="true">af3/progress/circle/p100.png</texture>
+												<aspectratio align="center" aligny="center">keep</aspectratio>
+											</control>
+											<control type="image">
+												<bordersize>20</bordersize>
+												<texture colordiffuse="ff03b585">af3/indicator/checkmark.png</texture>
+											</control>
+											<visible>!ListItem.IsPlaying + ![!Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodes),0) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]] + ![ListItem.IsRecording | ListItem.HasTimer] + ![!ListItem.IsCollection + [ListItem.IsResumable | !String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0) + !Integer.IsEqual(ListItem.Property(WatchedProgress),100)]] + [String.IsEqual(ListItem.Overlay,OverlayWatched.png) | !Integer.IsEqual(ListItem.PlayCount,0) + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,set) | String.IsEqual(ListItem.DBType,video) | String.IsEqual(ListItem.DBType,episode)]]</visible>
+										</control>
+										<control type="image" id="">
+											<bordersize>20</bordersize>
+											<texture>af3/indicator/library.png</texture>
+											<visible>!ListItem.IsPlaying + ![!Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodes),0) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]] + ![ListItem.IsRecording | ListItem.HasTimer] + ![!ListItem.IsCollection + [ListItem.IsResumable | !String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0) + !Integer.IsEqual(ListItem.Property(WatchedProgress),100)]] + ![String.IsEqual(ListItem.Overlay,OverlayWatched.png) | !Integer.IsEqual(ListItem.PlayCount,0) + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,set) | String.IsEqual(ListItem.DBType,video) | String.IsEqual(ListItem.DBType,episode)]] + !String.IsEmpty(ListItem.DBID) + !String.IsEmpty(ListItem.Property(Item.Info))</visible>
+										</control>
+										<control type="image" id="">
+											<bordersize>20</bordersize>
+											<texture>af3/indicator/movieset.png</texture>
+											<visible>!ListItem.IsPlaying + ![!Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodes),0) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]] + ![ListItem.IsRecording | ListItem.HasTimer] + ![!ListItem.IsCollection + [ListItem.IsResumable | !String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0) + !Integer.IsEqual(ListItem.Property(WatchedProgress),100)]] + ![String.IsEqual(ListItem.Overlay,OverlayWatched.png) | !Integer.IsEqual(ListItem.PlayCount,0) + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,set) | String.IsEqual(ListItem.DBType,video) | String.IsEqual(ListItem.DBType,episode)]] + ![!String.IsEmpty(ListItem.DBID) + !String.IsEmpty(ListItem.Property(Item.Info))] + ListItem.IsCollection</visible>
+										</control>
+										<control type="group" id="">
+											<control type="image">
+												<bordersize>20</bordersize>
+												<texture>af3/indicator/play.png</texture>
+											</control>
+											<visible>ListItem.IsPlaying</visible>
+										</control>
+									</control>
+									<control type="group">
+										<top>230.625</top>
+										<control type="group">
+											<top>10</top>
+											<left></left>
+											<right></right>
+											<height>80</height>
+											<control type="textbox" id="">
+												<top>7</top>
+												<bottom>7</bottom>
+												<aligny>top</aligny>
+												<font>af3_font_mini</font>
+												<label fallback="">$INFO[ListItem.Label]$INFO[ListItem.Label2, - ,]</label>
+												<label>$INFO[ListItem.Label]</label>
+												<align>left</align>
+												<textcolor>af3_main_fg_70</textcolor>
+												<selectedcolor>af3_main_fg_70</selectedcolor>
+												<autoscroll delay="6000" time="3000" repeat="10000">!Skin.HasSetting(Textboxes.DisableAutoscroll)</autoscroll>
+											</control>
+											<control type="group">
+                        </control>
+										</control>
+									</control>
+								</control>
+							</control>
+							<control type="group">
+								<animation effect="fade" start="100" end="0" condition="!Control.HasFocus(11)">Conditional</animation>
+								<control type="group">
+									<width>410</width>
+									<height>230.625</height>
+									<control type="image">
+										<texture colordiffuse="af3_main_fg_12" border="20">af3/common/box.png</texture>
+									</control>
+									<control type="image" id="">
+										<texture border="20" colordiffuse="ffffffff">af3/common/box.png</texture>
+									</control>
+									<control type="image">
+										<texture background="true" diffuse="af3/diffuse/landscape_w410_h231.png">$VAR[AF3_Image_Landscape]</texture>
+										<aspectratio scalediffuse="false">keep</aspectratio>
+										<visible>![String.IsEqual(ListItem.Art(thumb),ListItem.Icon) | String.IsEmpty(ListItem.Art(thumb))] | !String.IsEmpty(ListItem.Art(fanart)) | !String.IsEmpty(ListItem.Art(poster)) | !String.StartsWith(ListItem.Icon,Default)</visible>
+									</control>
+									<control type="image">
+										<colordiffuse>ff272727</colordiffuse>
+										<texture background="true" diffuse="af3/diffuse/landscape_w410_h231.png">$VAR[AF3_Image_Landscape]</texture>
+										<aspectratio scalediffuse="false">keep</aspectratio>
+										<visible>String.StartsWith(ListItem.Icon,Default) + [String.IsEqual(ListItem.Art(thumb),ListItem.Icon) | String.IsEmpty(ListItem.Art(thumb))] + String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(poster))</visible>
+										<visible>!String.IsEqual(ListItem.Icon,DefaultFolder.png) | !String.IsEqual(ListItem.Label,$LOCALIZE[22082])</visible>
+									</control>
+									<control type="image">
+										<texture background="true" diffuse="af3/diffuse/landscape_w410_h231.png">af3/fallback/more-items-wide.png</texture>
+										<aspectratio scalediffuse="false">scale</aspectratio>
+										<visible>String.IsEqual(ListItem.Icon,DefaultFolder.png) + String.IsEqual(ListItem.Label,$LOCALIZE[22082])</visible>
+									</control>
+									<control type="group">
+										<visible>[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow)] + String.IsEmpty(ListItem.Art(landscape)) + String.IsEmpty(ListItem.Art(tvshow.landscape))</visible>
+										<top>50%</top>
+										<left>50%</left>
+										<control type="group">
+											<top>-40</top>
+											<left>-40</left>
+											<right>40</right>
+											<bottom>40</bottom>
+											<control type="image">
+												<top>2</top>
+												<left>2</left>
+												<right>-2</right>
+												<bottom>-2</bottom>
+												<texture background="true" diffuse="af3/diffuse/landscape_w410_h231.png" colordiffuse="7f000000">$INFO[ListItem.Art(clearlogo)]</texture>
+												<aspectratio scalediffuse="false" align="right" aligny="bottom">keep</aspectratio>
+											</control>
+											<control type="image">
+												<texture background="true" diffuse="af3/diffuse/landscape_w410_h231.png">$INFO[ListItem.Art(clearlogo)]</texture>
+												<aspectratio scalediffuse="false" align="right" aligny="bottom">keep</aspectratio>
+											</control>
+										</control>
+									</control>
+									<control type="progress">
+										<height>0</height>
+										<left>0</left>
+										<right>0</right>
+										<centerbottom>-30</centerbottom>
+										<texturebg colordiffuse="af3_main_fg_12" border="12,0,12,0">af3/progress/progress-nib.png</texturebg>
+										<midtexture colordiffuse="af3_main_logo" border="12,0,12,0">af3/progress/progress-nib.png</midtexture>
+										<info>ListItem.Progress</info>
+										<visible>!Integer.IsEqual(ListItem.Progress,0)</visible>
+										<lefttexture/>
+										<righttexture/>
+										<overlaytexture/>
+									</control>
+									<control type="group">
+										<top>230.625</top>
+										<control type="group">
+											<top>10</top>
+											<left></left>
+											<right></right>
+											<height>80</height>
+											<control type="textbox" id="">
+												<top>7</top>
+												<bottom>7</bottom>
+												<aligny>top</aligny>
+												<font>af3_font_mini</font>
+												<label fallback="">$INFO[ListItem.Label]$INFO[ListItem.Label2, - ,]</label>
+												<label>$INFO[ListItem.Label]</label>
+												<align>left</align>
+												<textcolor>af3_main_fg_70</textcolor>
+												<selectedcolor>af3_main_fg_70</selectedcolor>
+												<autoscroll delay="6000" time="3000" repeat="10000">!Skin.HasSetting(Textboxes.DisableAutoscroll)</autoscroll>
+											</control>
+											<control type="group">
+                        </control>
+										</control>
+									</control>
+									<control type="group">
+										<animation type="Focus" reversible="false">
+											<effect type="zoom" start="96.5" end="100" time="150" tween="sine" easing="inout" center="auto"/>
+											<effect type="fade" start="20" end="100" time="150" tween="back" easing="out"/>
+										</animation>
+										<control type="group" id="">
+											<left>-3</left>
+											<right>-3</right>
+											<top>-3</top>
+											<bottom>-3</bottom>
+											<control type="image">
+												<left>-40</left>
+												<right>-40</right>
+												<top>-40</top>
+												<bottom>-40</bottom>
+												<texture border="60" colordiffuse="af3_shadow_hard">af3/shadows/shadow-40.png</texture>
+											</control>
+											<control type="image">
+												<texture border="20" colordiffuse="ffffffff">af3/common/selectbox_thin.png</texture>
+											</control>
+										</control>
+										<control type="group">
+											<centerbottom>0</centerbottom>
+											<right>25</right>
+											<width>64</width>
+											<height>64</height>
+											<visible>ListItem.IsPlaying | !Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodes),0) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] | ListItem.IsRecording | ListItem.HasTimer | !ListItem.IsCollection + [ListItem.IsResumable | !String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0) + !Integer.IsEqual(ListItem.Property(WatchedProgress),100)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | !Integer.IsEqual(ListItem.PlayCount,0) + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,set) | String.IsEqual(ListItem.DBType,video) | String.IsEqual(ListItem.DBType,episode)] | !String.IsEmpty(ListItem.DBID) + !String.IsEmpty(ListItem.Property(Item.Info)) | ListItem.IsCollection</visible>
+											<control type="group">
+												<left>4</left>
+												<right>4</right>
+												<top>4</top>
+												<bottom>4</bottom>
+												<control type="image">
+													<left>-32</left>
+													<right>-32</right>
+													<top>-32</top>
+													<bottom>-32</bottom>
+													<texture colordiffuse="ffffffff">af3/indicator/circle-fo.png</texture>
+													<bordertexture colordiffuse="af3_shadow_hard">af3/indicator/circle-fo-shadow.png</bordertexture>
+													<bordersize>32</bordersize>
+												</control>
+											</control>
+											<control type="image" id="">
+												<texture colordiffuse="ff333333">af3/indicator/circle-colordiffuse.png</texture>
+											</control>
+											<control type="image" id="">
+												<texture colordiffuse="ff03b585" diffuse="af3/indicator/circle-diffuse.png" background="true" flipx="true" flipy="true">$VAR[AF3_Defs_PercentPlayed,af3/progress/circle/p,.png]</texture>
+												<aspectratio align="center" aligny="center">keep</aspectratio>
+												<visible>!Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodes),0) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] | !ListItem.IsCollection + [ListItem.IsResumable | !String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0) + !Integer.IsEqual(ListItem.Property(WatchedProgress),100)]</visible>
+											</control>
+											<control type="label" id="">
+												<font>af3_font_hint_bold</font>
+												<align>center</align>
+												<aligny>center</aligny>
+												<textcolor>af3_panel_fg_100</textcolor>
+												<label>$INFO[ListItem.Property(UnWatchedEpisodes)]</label>
+												<visible>!ListItem.IsPlaying + !Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodes),0) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]</visible>
+												<selectedcolor>af3_main_fg_70</selectedcolor>
+												<scrollsuffix> </scrollsuffix>
+												<scrollspeed>40</scrollspeed>
+												<disabledcolor>60FFFFFF</disabledcolor>
+											</control>
+											<control type="group">
+												<visible>!ListItem.IsPlaying + ![!Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodes),0) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]] + [ListItem.IsRecording | ListItem.HasTimer]</visible>
+												<control type="image">
+													<bordersize>20</bordersize>
+													<texture>af3/indicator/record.png</texture>
+													<visible>ListItem.IsRecording</visible>
+												</control>
+												<control type="image">
+													<bordersize>20</bordersize>
+													<texture>af3/indicator/timer.png</texture>
+													<visible>!ListItem.IsRecording</visible>
+													<visible>ListItem.HasTimer</visible>
+												</control>
+											</control>
+											<control type="image" id="">
+												<bordersize>20</bordersize>
+												<texture>af3/indicator/timer.png</texture>
+												<visible>!ListItem.IsPlaying + ![!Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodes),0) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]] + ![ListItem.IsRecording | ListItem.HasTimer] + !ListItem.IsCollection + [ListItem.IsResumable | !String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0) + !Integer.IsEqual(ListItem.Property(WatchedProgress),100)]</visible>
+											</control>
+											<control type="group" id="">
+												<control type="image">
+													<texture colordiffuse="ff03b585" diffuse="af3/indicator/circle-diffuse.png" background="true" flipx="true" flipy="true">af3/progress/circle/p100.png</texture>
+													<aspectratio align="center" aligny="center">keep</aspectratio>
+												</control>
+												<control type="image">
+													<bordersize>20</bordersize>
+													<texture colordiffuse="ff03b585">af3/indicator/checkmark.png</texture>
+												</control>
+												<visible>!ListItem.IsPlaying + ![!Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodes),0) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]] + ![ListItem.IsRecording | ListItem.HasTimer] + ![!ListItem.IsCollection + [ListItem.IsResumable | !String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0) + !Integer.IsEqual(ListItem.Property(WatchedProgress),100)]] + [String.IsEqual(ListItem.Overlay,OverlayWatched.png) | !Integer.IsEqual(ListItem.PlayCount,0) + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,set) | String.IsEqual(ListItem.DBType,video) | String.IsEqual(ListItem.DBType,episode)]]</visible>
+											</control>
+											<control type="image" id="">
+												<bordersize>20</bordersize>
+												<texture>af3/indicator/library.png</texture>
+												<visible>!ListItem.IsPlaying + ![!Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodes),0) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]] + ![ListItem.IsRecording | ListItem.HasTimer] + ![!ListItem.IsCollection + [ListItem.IsResumable | !String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0) + !Integer.IsEqual(ListItem.Property(WatchedProgress),100)]] + ![String.IsEqual(ListItem.Overlay,OverlayWatched.png) | !Integer.IsEqual(ListItem.PlayCount,0) + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,set) | String.IsEqual(ListItem.DBType,video) | String.IsEqual(ListItem.DBType,episode)]] + !String.IsEmpty(ListItem.DBID) + !String.IsEmpty(ListItem.Property(Item.Info))</visible>
+											</control>
+											<control type="image" id="">
+												<bordersize>20</bordersize>
+												<texture>af3/indicator/movieset.png</texture>
+												<visible>!ListItem.IsPlaying + ![!Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !Integer.IsEqual(ListItem.Property(WatchedEpisodes),0) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]] + ![ListItem.IsRecording | ListItem.HasTimer] + ![!ListItem.IsCollection + [ListItem.IsResumable | !String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0) + !Integer.IsEqual(ListItem.Property(WatchedProgress),100)]] + ![String.IsEqual(ListItem.Overlay,OverlayWatched.png) | !Integer.IsEqual(ListItem.PlayCount,0) + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,set) | String.IsEqual(ListItem.DBType,video) | String.IsEqual(ListItem.DBType,episode)]] + ![!String.IsEmpty(ListItem.DBID) + !String.IsEmpty(ListItem.Property(Item.Info))] + ListItem.IsCollection</visible>
+											</control>
+											<control type="group" id="">
+												<control type="image">
+													<bordersize>20</bordersize>
+													<texture>af3/indicator/play.png</texture>
+												</control>
+												<visible>ListItem.IsPlaying</visible>
+											</control>
+										</control>
+									</control>
+								</control>
+							</control>
+						</control>
+					</focusedlayout>
+				</control>
+				<control type="group">
+					<visible>Integer.IsEqual(Container(11).NumItems,0)</visible>
+					<height>450</height>
+					<bottom>100</bottom>
+					<control type="group">
+						<left>80</left>
+						<top>80</top>
+						<width>410</width>
+						<height>230.625</height>
+						<control type="image">
+							<left>-40</left>
+							<right>-40</right>
+							<top>-40</top>
+							<bottom>-40</bottom>
+							<bordersize>40</bordersize>
+							<bordertexture border="60" colordiffuse="af3_shadow_hard">af3/shadows/shadow-40.png</bordertexture>
+							<texture colordiffuse="af3_main_fg_12" border="20">af3/common/box.png</texture>
+						</control>
+						<control type="image">
+							<width>128</width>
+							<height>128</height>
+							<centerleft>50%</centerleft>
+							<centertop>50%</centertop>
+							<texture colordiffuse="af3_panel_fg_70">af3/extras/icons/image.png</texture>
+						</control>
+						<control type="group">
+							<top>230.625</top>
+							<control type="group">
+								<top>10</top>
+								<height>80</height>
+								<right>40</right>
+								<control type="label" id="">
+									<wrapmultiline>true</wrapmultiline>
+									<top>6</top>
+									<height>67</height>
+									<aligny>top</aligny>
+									<font>af3_font_mini</font>
+									<label>$LOCALIZE[31049] [COLOR=af3_panel_fg_30]•[/COLOR] $LOCALIZE[31050]</label>
+									<align>left</align>
+									<textcolor>af3_panel_fg_70</textcolor>
+									<selectedcolor>af3_main_fg_70</selectedcolor>
+									<scrollsuffix> </scrollsuffix>
+									<scrollspeed>40</scrollspeed>
+									<disabledcolor>60FFFFFF</disabledcolor>
+								</control>
+							</control>
+						</control>
+					</control>
+				</control>
+				<control type="grouplist" id="4000">
+					<top>-290</top>
+					<itemgap>0</itemgap>
+					<orientation>horizontal</orientation>
+					<left>10</left>
+					<onup>Close</onup>
+					<ondown>11</ondown>
+					<control type="button" id="2">
+						<left>10</left>
+						<height>160</height>
+						<width>160</width>
+						<texturefocus colordiffuse="ffffffff" border="80">af3/common/circlebutton.png</texturefocus>
+						<texturenofocus/>
+						<visible>Control.IsEnabled(2)</visible>
+						<textcolor>00ffffff</textcolor>
+						<selectedcolor>00ffffff</selectedcolor>
+						<radiowidth>100</radiowidth>
+						<radioheight>14</radioheight>
+						<radioposy>56</radioposy>
+						<textureradioondisabled colordiffuse="af3_main_fg_30">af3/buttons/check-on.png</textureradioondisabled>
+						<textureradioonfocus colordiffuse="ff272727">af3/buttons/check-on.png</textureradioonfocus>
+						<textureradioonnofocus colordiffuse="af3_main_fg_70">af3/buttons/check-on.png</textureradioonnofocus>
+						<textureradiooffdisabled colordiffuse="00ffffff">af3/buttons/check-off.png</textureradiooffdisabled>
+						<textureradioofffocus colordiffuse="00ffffff">af3/buttons/check-off.png</textureradioofffocus>
+						<textureradiooffnofocus colordiffuse="00ffffff">af3/buttons/check-off.png</textureradiooffnofocus>
+						<label>$LOCALIZE[15019]</label>
+						<focusedcolor>ff272727</focusedcolor>
+						<font>af3_font_hint</font>
+						<align>center</align>
+						<aligny>top</aligny>
+						<textoffsetx>48</textoffsetx>
+						<textoffsety>84</textoffsety>
+						<disabledcolor>af3_main_fg_30</disabledcolor>
+						<pulseonselect>false</pulseonselect>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+					</control>
+					<control type="group" id="9002">
+						<top>50</top>
+						<left>-100</left>
+						<width>40</width>
+						<height>40</height>
+						<visible>Control.IsEnabled(2)</visible>
+						<control type="group">
+							<top>10</top>
+							<animation effect="slide" start="0" end="0,-10" condition="Control.HasFocus(2)">Conditional</animation>
+							<height>40</height>
+							<control type="image">
+								<texture colordiffuse="af3_main_fg_70">af3/extras/icons/plus.png</texture>
+								<aspectratio>keep</aspectratio>
+								<bordersize>-8</bordersize>
+								<width>40</width>
+								<visible>!Control.HasFocus(2)</visible>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ff272727">af3/extras/icons/plus.png</texture>
+								<aspectratio>keep</aspectratio>
+								<bordersize>-8</bordersize>
+								<width>40</width>
+								<visible>Control.HasFocus(2)</visible>
+							</control>
+						</control>
+					</control>
+					<control type="button" id="3">
+						<left>10</left>
+						<height>160</height>
+						<width>160</width>
+						<texturefocus colordiffuse="ffffffff" border="80">af3/common/circlebutton.png</texturefocus>
+						<texturenofocus/>
+						<visible>Control.IsEnabled(3) + !Integer.IsEqual(Container(11).NumItems,0)</visible>
+						<textcolor>00ffffff</textcolor>
+						<selectedcolor>00ffffff</selectedcolor>
+						<radiowidth>100</radiowidth>
+						<radioheight>14</radioheight>
+						<radioposy>56</radioposy>
+						<textureradioondisabled colordiffuse="af3_main_fg_30">af3/buttons/check-on.png</textureradioondisabled>
+						<textureradioonfocus colordiffuse="ff272727">af3/buttons/check-on.png</textureradioonfocus>
+						<textureradioonnofocus colordiffuse="af3_main_fg_70">af3/buttons/check-on.png</textureradioonnofocus>
+						<textureradiooffdisabled colordiffuse="00ffffff">af3/buttons/check-off.png</textureradiooffdisabled>
+						<textureradioofffocus colordiffuse="00ffffff">af3/buttons/check-off.png</textureradioofffocus>
+						<textureradiooffnofocus colordiffuse="00ffffff">af3/buttons/check-off.png</textureradiooffnofocus>
+						<label>$LOCALIZE[192]</label>
+						<focusedcolor>ff272727</focusedcolor>
+						<font>af3_font_hint</font>
+						<align>center</align>
+						<aligny>top</aligny>
+						<textoffsetx>48</textoffsetx>
+						<textoffsety>84</textoffsety>
+						<disabledcolor>af3_main_fg_30</disabledcolor>
+						<pulseonselect>false</pulseonselect>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+					</control>
+					<control type="group" id="9003">
+						<top>50</top>
+						<left>-100</left>
+						<width>40</width>
+						<height>40</height>
+						<visible>Control.IsEnabled(3) + !Integer.IsEqual(Container(11).NumItems,0)</visible>
+						<control type="group">
+							<top>10</top>
+							<animation effect="slide" start="0" end="0,-10" condition="Control.HasFocus(3)">Conditional</animation>
+							<height>40</height>
+							<control type="image">
+								<texture colordiffuse="af3_main_fg_70">af3/extras/icons/triangle-exclamation.png</texture>
+								<aspectratio>keep</aspectratio>
+								<bordersize>-8</bordersize>
+								<width>40</width>
+								<visible>!Control.HasFocus(3)</visible>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ff272727">af3/extras/icons/triangle-exclamation.png</texture>
+								<aspectratio>keep</aspectratio>
+								<bordersize>-8</bordersize>
+								<width>40</width>
+								<visible>Control.HasFocus(3)</visible>
+							</control>
+						</control>
+					</control>
+					<control type="button" id="4">
+						<left>10</left>
+						<height>160</height>
+						<width>160</width>
+						<texturefocus colordiffuse="ffffffff" border="80">af3/common/circlebutton.png</texturefocus>
+						<texturenofocus/>
+						<visible>Control.IsEnabled(4)</visible>
+						<textcolor>00ffffff</textcolor>
+						<selectedcolor>00ffffff</selectedcolor>
+						<radiowidth>100</radiowidth>
+						<radioheight>14</radioheight>
+						<radioposy>56</radioposy>
+						<textureradioondisabled colordiffuse="af3_main_fg_30">af3/buttons/check-on.png</textureradioondisabled>
+						<textureradioonfocus colordiffuse="ff272727">af3/buttons/check-on.png</textureradioonfocus>
+						<textureradioonnofocus colordiffuse="af3_main_fg_70">af3/buttons/check-on.png</textureradioonnofocus>
+						<textureradiooffdisabled colordiffuse="00ffffff">af3/buttons/check-off.png</textureradiooffdisabled>
+						<textureradioofffocus colordiffuse="00ffffff">af3/buttons/check-off.png</textureradioofffocus>
+						<textureradiooffnofocus colordiffuse="00ffffff">af3/buttons/check-off.png</textureradiooffnofocus>
+						<label>$LOCALIZE[39123]</label>
+						<focusedcolor>ff272727</focusedcolor>
+						<font>af3_font_hint</font>
+						<align>center</align>
+						<aligny>top</aligny>
+						<textoffsetx>48</textoffsetx>
+						<textoffsety>84</textoffsety>
+						<disabledcolor>af3_main_fg_30</disabledcolor>
+						<pulseonselect>false</pulseonselect>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+					</control>
+					<control type="group" id="9004">
+						<top>50</top>
+						<left>-100</left>
+						<width>40</width>
+						<height>40</height>
+						<visible>Control.IsEnabled(4)</visible>
+						<control type="group">
+							<top>10</top>
+							<animation effect="slide" start="0" end="0,-10" condition="Control.HasFocus(4)">Conditional</animation>
+							<height>40</height>
+							<control type="image">
+								<texture colordiffuse="af3_main_fg_70">af3/extras/icons/image.png</texture>
+								<aspectratio>keep</aspectratio>
+								<bordersize>-8</bordersize>
+								<width>40</width>
+								<visible>!Control.HasFocus(4)</visible>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ff272727">af3/extras/icons/image.png</texture>
+								<aspectratio>keep</aspectratio>
+								<bordersize>-8</bordersize>
+								<width>40</width>
+								<visible>Control.HasFocus(4)</visible>
+							</control>
+						</control>
+					</control>
+					<scrolltime tween="quadratic">400</scrolltime>
+					<usecontrolcoords>true</usecontrolcoords>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

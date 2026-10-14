@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dex Hub theme Pure Black (skin.dexhub.tvos 3.14.0): the colours over defaults.xml -->
+<colors>
+	<color name="primary_background">FF000000</color>
+	<color name="secondary_background">33141414</color>
+	<color name="dialog_tint">FF0A0A0A</color>
+	<color name="background">FF000000</color>
+	<color name="white">FFF5F5F5</color>
+	<color name="grey">FF8A8A8A</color>
+	<color name="blue">FFB3B3B3</color>
+	<color name="button_focus">FFF5F5F5</color>
+	<color name="button_alt_focus">80F5F5F5</color>
+	<color name="selected">FFF8F8F8</color>
+	<color name="dh_accent">FFF5F5F5</color>
+	<color name="dh_accent_dim">47F5F5F5</color>
+	<color name="dh_secondary">FFB3B3B3</color>
+	<color name="dh_surface">FF000000</color>
+	<color name="dh_card">FF141414</color>
+	<color name="dh_text">FFF5F5F5</color>
+	<color name="dh_muted">FF8A8A8A</color>
+	<color name="dh_on_accent">FF000000</color>
+	<color name="dh_glow_a">5CF5F5F5</color>
+	<color name="dh_glow_b">40B3B3B3</color>
+	<color name="dh_glow_focus">99F5F5F5</color>
+</colors>

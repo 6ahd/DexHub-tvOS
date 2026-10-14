@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dex Hub theme Rose Noir (skin.dexhub.tvos 3.14.0): the colours over defaults.xml -->
+<colors>
+	<color name="primary_background">FF130A10</color>
+	<color name="secondary_background">3323131D</color>
+	<color name="dialog_tint">FF1B0E16</color>
+	<color name="background">FF0A0609</color>
+	<color name="white">FFFBEFF5</color>
+	<color name="grey">FFA3889A</color>
+	<color name="blue">FFFBCFE8</color>
+	<color name="button_focus">FFF472B6</color>
+	<color name="button_alt_focus">80F472B6</color>
+	<color name="selected">FFF795C8</color>
+	<color name="dh_accent">FFF472B6</color>
+	<color name="dh_accent_dim">47F472B6</color>
+	<color name="dh_secondary">FFFBCFE8</color>
+	<color name="dh_surface">FF130A10</color>
+	<color name="dh_card">FF23131D</color>
+	<color name="dh_text">FFFBEFF5</color>
+	<color name="dh_muted">FFA3889A</color>
+	<color name="dh_on_accent">FF130A10</color>
+	<color name="dh_glow_a">5CF472B6</color>
+	<color name="dh_glow_b">40FBCFE8</color>
+	<color name="dh_glow_focus">99F472B6</color>
+</colors>

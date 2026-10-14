@@ -1,0 +1,377 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<window>
+	<zorder>0</zorder>
+	<visible>Window.IsActive(VideoFullScreen.xml) | Window.IsActive(MusicVisualisation.xml)</visible>
+	<visible>Player.Paused + [![System.IdleTime(3) | System.IdleTime(2) + Skin.String(OSD.AutoOnPause.Delay,2s) | System.IdleTime(1) + Skin.String(OSD.AutoOnPause.Delay,1s) | System.IdleTime(0) + Skin.String(OSD.AutoOnPause.Delay,0s)] | !Skin.String(OSD.AutoOnPause,Hide)] | Player.Caching | Player.Seeking | Player.HasPerformedSeek(2) | Player.Forwarding | Player.Rewinding | !String.IsEmpty(Player.SeekNumeric) | !String.IsEmpty(PVR.ChannelNumberInput) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml) | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsActive(1140) | Window.IsActive(1141) | Window.IsActive(1142) | Window.IsActive(1143) | Window.IsActive(1144) | Window.IsActive(1145) | Window.IsActive(1146) | Window.IsActive(1147) | Window.IsActive(1148) | Window.IsActive(1149) | Window.IsActive(1152) | Window.IsActive(1159) | Window.IsVisible(videobookmarks) | Window.IsVisible(pvrosdguide) | Window.IsVisible(pvrosdchannels) | Window.IsVisible(script-cu-lrclyrics-main.xml) + Player.ShowInfo</visible>
+	<visible>!Window.IsActive(DialogSlider.xml)</visible>
+	<visible>!Player.HasGame</visible>
+	<visible>!Window.IsVisible(DialogPlayerProcessInfo.xml)</visible>
+	<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
+	<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+	<controls>
+		<control type="group">
+			<visible>Window.IsActive(VideoFullScreen.xml) | Window.IsActive(MusicVisualisation.xml)</visible>
+			<control type="image">
+				<bottom>0</bottom>
+				<height>256</height>
+				<texture colordiffuse="af3_panel_bg_70" border="4,0,4,0">af3/common/gradient-v.png</texture>
+				<animation effect="fade" start="0" end="100" time="300">VisibleChange</animation>
+				<visible>Window.IsActive(DialogSeekBar.xml) | Window.IsVisible(1152)</visible>
+			</control>
+			<control type="image">
+				<bottom>0</bottom>
+				<height>768</height>
+				<texture colordiffuse="af3_panel_bg_70" border="4,0,4,0">af3/common/gradient-v.png</texture>
+				<animation effect="fade" start="0" end="100" time="300">VisibleChange</animation>
+				<visible>Window.IsActive(DialogSeekBar.xml) | Window.IsVisible(1152)</visible>
+				<visible>Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsActive(1140) | Window.IsActive(1141) | Window.IsActive(1142) | Window.IsActive(1143) | Window.IsActive(1144) | Window.IsActive(1145) | Window.IsActive(1146) | Window.IsActive(1147) | Window.IsActive(1148) | Window.IsActive(1149) | Window.IsActive(1159) | Window.IsVisible(videobookmarks) | Window.IsVisible(pvrosdguide) | Window.IsVisible(pvrosdchannels) | Window.IsVisible(1152) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml)</visible>
+			</control>
+			<!-- 3.28.37 (issue #18): the badges come after the two dark gradients, which were drawn over them and dimmed them -->
+			<include condition="String.IsEqual(Skin.String(DexHub.BadgesPlace),info)">af3_dyn_1</include>
+			<include condition="!String.IsEqual(Skin.String(DexHub.BadgesPlace),info)">DhBadgesAboveSeekbar</include>
+			<control type="group">
+				<visible>!Window.IsVisible(1152)</visible>
+				<animation effect="fade" start="0" end="100" time="300">VisibleChange</animation>
+				<control type="group">
+					<visible>!Window.IsActive(1193)</visible>
+					<visible>![Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml)]</visible>
+					<animation type="Hidden" reversible="false" condition="true">
+						<effect type="zoom" start="100" end="85" center="auto" tween="sine" delay="0" easing="out" time="300" />
+						<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
+					</animation>
+					<animation type="Visible" reversible="false" condition="true">
+						<effect type="fade" start="0" end="100" time="300" delay="200" tween="sine" easing="in" />
+						<effect type="zoom" start="85" end="100" time="300" delay="200" center="auto" tween="sine" easing="out" />
+					</animation>
+					<control type="group">
+						<animation effect="slide" start="0" end="0,80" time="300" tween="sine" easing="inout" condition="![Window.IsVisible(videoosd) | Window.IsVisible(musicosd) | Window.IsActive(1140) | Window.IsActive(1141) | Window.IsActive(1142) | Window.IsActive(videobookmarks) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml)]">Conditional</animation>
+						<control type="label">
+							<height>12</height>
+							<left>80</left>
+							<right>80</right>
+							<centerbottom>182</centerbottom>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$VAR[AF3_Label_OSD_Time]</label>
+							<textcolor>af3_panel_fg_100</textcolor>
+							<font>af3_font_main</font>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<height>12</height>
+							<left>80</left>
+							<right>80</right>
+							<centerbottom>182</centerbottom>
+							<align>right</align>
+							<aligny>center</aligny>
+							<label>$VAR[AF3_Label_OSD_Duration]</label>
+							<textcolor>af3_panel_fg_100</textcolor>
+							<font>af3_font_main</font>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="group">
+							<left>240</left>
+							<right>240</right>
+							<bottom>120</bottom>
+							<height>80</height>
+							<control type="group">
+								<centerbottom>60</centerbottom>
+								<height>12</height>
+								<control type="group">
+									<height>12</height>
+									<control type="image">
+										<texture colordiffuse="af3_main_back">af3/common/white.png</texture>
+										<height>1</height>
+										<centertop>50%</centertop>
+									</control>
+									<control type="progress" description="cache">
+										<width>100%</width>
+										<height>8</height>
+										<centertop>50%</centertop>
+										<info>Player.ProgressCache</info>
+										<texturebg colordiffuse="00ffffff" border="12,0,12,0">af3/progress/progress-nib.png</texturebg>
+										<midtexture colordiffuse="af3_main_back" border="12,0,12,0">af3/progress/progress-nib.png</midtexture>
+										<visible>Player.Playing | Player.Paused | Player.Caching</visible>
+										<visible>!Player.Seeking</visible>
+										<visible>Player.HasMedia</visible>
+										<lefttexture />
+										<righttexture />
+										<overlaytexture />
+									</control>
+								</control>
+								<control type="progress" id="499">
+									<width>100%</width>
+									<height>12</height>
+									<info>Player.Progress</info>
+									<visible>Player.HasMedia + !Pvr.IsPlayingTv</visible>
+									<texturebg colordiffuse="00ffffff" border="12,0,12,0">af3/progress/progress-nib.png</texturebg>
+									<lefttexture />
+									<midtexture colordiffuse="ffffffff" border="12,0,12,0">af3/progress/progress-nib.png</midtexture>
+									<righttexture />
+									<overlaytexture />
+								</control>
+								<control type="progress" id="498">
+									<width>100%</width>
+									<height>12</height>
+									<info>PVR.EpgEventProgress</info>
+									<visible>Pvr.IsPlayingTv</visible>
+									<texturebg colordiffuse="00ffffff" border="12,0,12,0">af3/progress/progress-nib.png</texturebg>
+									<lefttexture />
+									<midtexture colordiffuse="ffffffff" border="12,0,12,0">af3/progress/progress-nib.png</midtexture>
+									<righttexture />
+									<overlaytexture />
+								</control>
+								<control type="ranges">
+									<width>100%</width>
+									<height>12</height>
+									<texturebg colordiffuse="00ffffff">af3/progress/marker-bg.png</texturebg>
+									<righttexture colordiffuse="af3_panel_fg_50">af3/progress/marker.png</righttexture>
+									<info>Player.CutList</info>
+								</control>
+								<control type="ranges">
+									<width>100%</width>
+									<height>12</height>
+									<texturebg colordiffuse="00ffffff">af3/progress/marker-bg.png</texturebg>
+									<righttexture colordiffuse="af3_panel_fg_50">af3/progress/marker.png</righttexture>
+									<info>Player.Chapters</info>
+								</control>
+								<control type="progress" id="401">
+									<visible>Player.HasMedia</visible>
+									<animation effect="fade" start="100" end="0" condition="!Player.Seeking" reversible="false" delay="300" time="0">Conditional</animation>
+									<animation effect="fade" start="0" end="100" condition="Player.Seeking" reversible="false" time="0">Conditional</animation>
+									<left>-56</left>
+									<right>-56</right>
+									<height>112</height>
+									<centertop>50%</centertop>
+									<texturebg colordiffuse="00ffffff">af3/progress/slider_bg.png</texturebg>
+									<righttexture colordiffuse="af3_panel_fg_100">af3/progress/slider_nib.png</righttexture>
+									<lefttexture />
+									<midtexture />
+									<visible>Player.SeekEnabled + !Pvr.IsPlayingTv + !Player.ChannelPreviewActive</visible>
+									<overlaytexture />
+								</control>
+								<control type="progress" id="402">
+									<visible>Player.HasMedia</visible>
+									<animation effect="fade" start="100" end="0" condition="!Player.Seeking" reversible="false" delay="300" time="0">Conditional</animation>
+									<animation effect="fade" start="0" end="100" condition="Player.Seeking" reversible="false" time="0">Conditional</animation>
+									<width>100%</width>
+									<left>-56</left>
+									<right>-56</right>
+									<height>112</height>
+									<centertop>50%</centertop>
+									<info>Player.Progress</info>
+									<texturebg colordiffuse="00ffffff">af3/progress/slider_bg.png</texturebg>
+									<righttexture colordiffuse="af3_panel_fg_100">af3/progress/slider_nib.png</righttexture>
+									<lefttexture />
+									<midtexture />
+									<visible>Player.SeekEnabled + Pvr.IsPlayingTv + !Player.ChannelPreviewActive</visible>
+									<overlaytexture />
+								</control>
+							</control>
+						</control>
+						<control type="group">
+							<animation effect="fade" time="200" start="100" end="0" condition="Window.IsActive(1140) | Window.IsActive(1141) | Window.IsActive(1142) | Window.IsActive(videobookmarks) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml)" reversible="false">Conditional</animation>
+							<animation effect="fade" time="200" delay="200" end="100" start="0" condition="![Window.IsActive(1140) | Window.IsActive(1141) | Window.IsActive(1142) | Window.IsActive(videobookmarks) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml)]" reversible="false">Conditional</animation>
+							<control type="group">
+								<visible>!$EXP[DhOSDBadgesOn]</visible>
+								<bottom>220</bottom>
+								<height>80</height>
+								<left>80</left>
+								<right>80</right>
+								<control type="group">
+									<left>0</left>
+									<width>720</width>
+									<control type="image">
+										<height>1</height>
+										<centerbottom>10</centerbottom>
+										<width>720</width>
+										<left>0</left>
+										<texture colordiffuse="af3_main_fg_12" flipx="true">af3/common/gradient-box.png</texture>
+									</control>
+									<control type="label">
+										<label>$VAR[AF3_Label_OSD_Header]</label>
+										<align>left</align>
+										<aligny>center</aligny>
+										<textcolor>af3_panel_fg_90</textcolor>
+										<font>af3_font_midi_bold</font>
+										<height>80</height>
+										<right>0</right>
+										<selectedcolor>af3_main_fg_70</selectedcolor>
+										<scrollsuffix> </scrollsuffix>
+										<scrollspeed>40</scrollspeed>
+										<disabledcolor>60FFFFFF</disabledcolor>
+										<visible>!Window.IsVisible(1153)</visible>
+									</control>
+								</control>
+							</control>
+							<control type="label">
+								<visible>$EXP[DhOSDBadgesOn]</visible>
+								<label>$VAR[AF3_Label_OSD_Header]</label>
+								<font>af3_font_midi_bold</font>
+								<textcolor>af3_panel_fg_90</textcolor>
+								<height>40</height>
+								<bottom>260</bottom>
+								<left>80</left>
+								<right>80</right>
+								<align>right</align>
+								<scroll>true</scroll>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+								<visible>!Window.IsVisible(1153)</visible>
+							</control>
+						</control>
+					</control>
+					<control type="group">
+						<centerbottom>20</centerbottom>
+						<height>40</height>
+						<visible>[Window.IsActive(videoosd) | Window.IsVisible(1140) | Window.IsVisible(1141) | Window.IsVisible(videobookmarks)] + !Window.IsVisible(1141)</visible>
+						<animation effect="fade" start="0" end="100" delay="0" time="400" tween="sine" easing="in" reversible="true" condition="true">Visible</animation>
+						<animation effect="fade" start="100" end="0" delay="0" time="300" tween="sine" easing="in" reversible="true" condition="true">Hidden</animation>
+						<control type="grouplist">
+							<left>68</left>
+							<orientation>horizontal</orientation>
+							<align>left</align>
+							<control type="image">
+								<height>40</height>
+								<width>40</width>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="af3_main_fg_30">af3/extras/icons/arrow-down.png</texture>
+							</control>
+							<control type="label">
+								<textcolor>af3_main_fg_30</textcolor>
+								<width>auto</width>
+								<font>af3_font_tiny_bold</font>
+								<label>$LOCALIZE[31040]:  </label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="label">
+								<top>-2</top>
+								<textcolor>af3_main_fg_30</textcolor>
+								<width>auto</width>
+								<font>af3_font_tiny</font>
+								<label>$VAR[AF3_Label_OSD_HintText]</label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<scrolltime tween="quadratic">400</scrolltime>
+							<usecontrolcoords>true</usecontrolcoords>
+							<itemgap>0</itemgap>
+						</control>
+					</control>
+					<control type="group">
+						<centerbottom>20</centerbottom>
+						<height>40</height>
+						<visible>Window.IsActive(musicosd) + !Window.IsVisible(1142) + !Window.IsVisible(script-cu-lrclyrics-main.xml)</visible>
+						<animation effect="fade" start="0" end="100" delay="0" time="400" tween="sine" easing="in" reversible="true" condition="true">Visible</animation>
+						<animation effect="fade" start="100" end="0" delay="0" time="300" tween="sine" easing="in" reversible="true" condition="true">Hidden</animation>
+						<control type="grouplist">
+							<left>68</left>
+							<orientation>horizontal</orientation>
+							<align>left</align>
+							<control type="image">
+								<height>40</height>
+								<width>40</width>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="af3_main_fg_30">af3/extras/icons/arrow-down.png</texture>
+							</control>
+							<control type="label">
+								<textcolor>af3_main_fg_30</textcolor>
+								<width>auto</width>
+								<font>af3_font_tiny_bold</font>
+								<label>$LOCALIZE[31040]:  </label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="label">
+								<top>-2</top>
+								<textcolor>af3_main_fg_30</textcolor>
+								<width>auto</width>
+								<font>af3_font_tiny</font>
+								<label>$LOCALIZE[31047]</label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<scrolltime tween="quadratic">400</scrolltime>
+							<usecontrolcoords>true</usecontrolcoords>
+							<itemgap>0</itemgap>
+						</control>
+					</control>
+				</control>
+				<control type="group">
+					<top>40</top>
+					<height>80</height>
+					<left>80</left>
+					<right>80</right>
+					<control type="group">
+						<right>0</right>
+						<width>370</width>
+						<visible />
+						<control type="image">
+							<height>1</height>
+							<centerbottom>10</centerbottom>
+							<width>720</width>
+							<right>0</right>
+							<texture colordiffuse="af3_main_fg_12" flipx="false">af3/common/gradient-box.png</texture>
+						</control>
+						<control type="grouplist">
+							<orientation>horizontal</orientation>
+							<align>right</align>
+							<aligny>center</aligny>
+							<itemgap>8</itemgap>
+							<height>80</height>
+							<control type="label">
+								<label>‭$INFO[System.Time]$VAR[AF3_Furniture_Header_Right_Temperature, •,]‬</label>
+								<align>right</align>
+								<aligny>center</aligny>
+								<textcolor>af3_main_fg_100</textcolor>
+								<font>af3_font_midi_bold</font>
+								<height>80</height>
+								<width>auto</width>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="image">
+								<height>40</height>
+								<width>40</width>
+								<aspectratio>keep</aspectratio>
+								<centertop>50%</centertop>
+								<texture>$INFO[Weather.FanartCode,resource://resource.images.weathericons.white/,.png]</texture>
+								<visible>Weather.IsFetched</visible>
+							</control>
+							<scrolltime tween="quadratic">400</scrolltime>
+							<usecontrolcoords>true</usecontrolcoords>
+						</control>
+					</control>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

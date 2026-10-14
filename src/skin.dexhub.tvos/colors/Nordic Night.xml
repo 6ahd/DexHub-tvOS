@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dex Hub theme Nordic Night (skin.dexhub.tvos 3.14.0): the colours over defaults.xml -->
+<colors>
+	<color name="primary_background">FF0E1218</color>
+	<color name="secondary_background">331A212B</color>
+	<color name="dialog_tint">FF141A22</color>
+	<color name="background">FF080A0D</color>
+	<color name="white">FFECEFF4</color>
+	<color name="grey">FF8C97A8</color>
+	<color name="blue">FF81A1C1</color>
+	<color name="button_focus">FF88C0D0</color>
+	<color name="button_alt_focus">8088C0D0</color>
+	<color name="selected">FFA6D0DC</color>
+	<color name="dh_accent">FF88C0D0</color>
+	<color name="dh_accent_dim">4788C0D0</color>
+	<color name="dh_secondary">FF81A1C1</color>
+	<color name="dh_surface">FF0E1218</color>
+	<color name="dh_card">FF1A212B</color>
+	<color name="dh_text">FFECEFF4</color>
+	<color name="dh_muted">FF8C97A8</color>
+	<color name="dh_on_accent">FF0E1218</color>
+	<color name="dh_glow_a">5C88C0D0</color>
+	<color name="dh_glow_b">4081A1C1</color>
+	<color name="dh_glow_focus">9988C0D0</color>
+</colors>

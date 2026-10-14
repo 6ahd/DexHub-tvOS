@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dex Hub theme Black Gold (skin.dexhub.tvos 3.14.0): the colours over defaults.xml -->
+<colors>
+	<color name="primary_background">FF000000</color>
+	<color name="secondary_background">3315130F</color>
+	<color name="dialog_tint">FF0A0A08</color>
+	<color name="background">FF000000</color>
+	<color name="white">FFFAF7F0</color>
+	<color name="grey">FF948C7C</color>
+	<color name="blue">FFF5D58A</color>
+	<color name="button_focus">FFE6B450</color>
+	<color name="button_alt_focus">80E6B450</color>
+	<color name="selected">FFECC77C</color>
+	<color name="dh_accent">FFE6B450</color>
+	<color name="dh_accent_dim">47E6B450</color>
+	<color name="dh_secondary">FFF5D58A</color>
+	<color name="dh_surface">FF000000</color>
+	<color name="dh_card">FF15130F</color>
+	<color name="dh_text">FFFAF7F0</color>
+	<color name="dh_muted">FF948C7C</color>
+	<color name="dh_on_accent">FF000000</color>
+	<color name="dh_glow_a">5CE6B450</color>
+	<color name="dh_glow_b">40F5D58A</color>
+	<color name="dh_glow_focus">99E6B450</color>
+</colors>

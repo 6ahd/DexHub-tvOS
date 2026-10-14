@@ -1,0 +1,1626 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<window>
+	<defaultcontrol always="true">5</defaultcontrol>
+	<onload>SetProperty(TMDbHelper.Blur.SourceImage,Art(fanart)|Property(fanart)||EPGEventIcon||PicturePath,Home)</onload>
+	<onload>SetProperty(TMDbHelper.Blur.Fallback,$VAR[AF3P_Image_Blur_Fallback],Home)</onload>
+	<onload>Skin.SetBool(TMDbHelper.Service)</onload>
+	<onload>ClearProperty(Background.ShowOverlay,Home)</onload>
+	<onload>ClearProperty(InfoPanel.FullSwitch,Home)</onload>
+	<controls>
+		<control type="image">
+			<description>Dex Hub: the theme's surface</description>
+			<texture colordiffuse="$VAR[DhSurface]">dexhub/white.png</texture>
+		</control>
+		<control type="image">
+			<description>the accent's glow</description>
+			<texture colordiffuse="$VAR[DhGlowA]">dexhub/page_glow_a.png</texture>
+		<visible>!String.IsEqual(Skin.String(dh.glow),off)</visible></control>
+		<control type="image">
+			<texture colordiffuse="$VAR[DhGlowB]">dexhub/page_glow_b.png</texture>
+		<visible>!String.IsEqual(Skin.String(dh.glow),off)</visible></control>
+		<control type="group">
+			<visible>Player.HasVideo + String.IsEmpty(Window(Home).Property(dexhub.trailer.active))</visible>
+			<control type="videowindow"/>
+			<control type="image">
+				<texture colordiffuse="D9000000">dexhub/white.png</texture>
+			</control>
+		</control>
+		<control type="group">
+			<visible>![Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml)]</visible>
+			<animation type="Visible" reversible="false" condition="true">
+				<effect type="fade" start="0" end="100" time="300" delay="0" tween="sine" easing="in"/>
+				<effect type="zoom" start="85" end="100" time="300" delay="0" center="auto" tween="sine" easing="out"/>
+			</animation>
+			<animation type="Hidden" reversible="false" condition="true">
+				<effect type="zoom" start="100" end="85" center="auto" tween="sine" delay="0" easing="out" time="300"/>
+				<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300"/>
+			</animation>
+			<control type="group">
+				<top>40</top>
+				<height>80</height>
+				<left>80</left>
+				<right>80</right>
+				<control type="group">
+					<left>0</left>
+					<width>720</width>
+					<control type="image">
+						<height>1</height>
+						<centerbottom>10</centerbottom>
+						<width>720</width>
+						<left>0</left>
+						<texture colordiffuse="af3_main_fg_12" flipx="true">af3/common/gradient-box.png</texture>
+					</control>
+					<control type="label">
+						<label>$VAR[AF3P_Label_Header_Main]</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>af3_main_fg_90</textcolor>
+						<font>af3_font_midi_bold</font>
+						<height>80</height>
+						<right>0</right>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+				</control>
+				<control type="group">
+					<right>0</right>
+					<width>370</width>
+					<visible/>
+					<control type="image">
+						<height>1</height>
+						<centerbottom>10</centerbottom>
+						<width>720</width>
+						<right>0</right>
+						<texture colordiffuse="af3_main_fg_12" flipx="false">af3/common/gradient-box.png</texture>
+					</control>
+					<control type="grouplist">
+						<orientation>horizontal</orientation>
+						<align>right</align>
+						<aligny>center</aligny>
+						<itemgap>8</itemgap>
+						<height>80</height>
+						<control type="label">
+							<label>‭$INFO[System.Time]$VAR[AF3P_Furniture_Header_Right_Temperature, •,]‬</label>
+							<align>right</align>
+							<aligny>center</aligny>
+							<textcolor>af3_main_fg_100</textcolor>
+							<font>af3_font_midi_bold</font>
+							<height>80</height>
+							<width>auto</width>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="image">
+							<height>40</height>
+							<width>40</width>
+							<aspectratio>keep</aspectratio>
+							<centertop>50%</centertop>
+							<texture>$INFO[Weather.FanartCode,resource://resource.images.weathericons.white/,.png]</texture>
+							<visible>Weather.IsFetched</visible>
+						</control>
+						<scrolltime tween="quadratic">400</scrolltime>
+						<usecontrolcoords>true</usecontrolcoords>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<control type="group">
+					<control type="group">
+						<control type="list" id="3">
+<onup>601</onup>
+							<onright>5</onright>
+							<right>40</right>
+							<content>
+								<item id="1">
+									<label>$LOCALIZE[744]</label>
+								</item>
+								<item id="2">
+									<label>$LOCALIZE[39031]</label>
+								</item>
+							</content>
+							<itemlayout height="80">
+								<control type="label">
+									<textoffsetx>40</textoffsetx>
+									<textcolor>af3_main_fg_70</textcolor>
+									<label>$INFO[ListItem.Label]</label>
+									<align>left</align>
+									<aligny>center</aligny>
+									<font>af3_font_main</font>
+									<selectedcolor>af3_main_fg_70</selectedcolor>
+									<scrollsuffix> </scrollsuffix>
+									<scrollspeed>40</scrollspeed>
+									<disabledcolor>60FFFFFF</disabledcolor>
+								</control>
+							</itemlayout>
+							<focusedlayout height="80">
+								<control type="group">
+									<control type="image">
+										<texture border="40" colordiffuse="ffffffff">af3/common/menu.png</texture>
+									</control>
+									<control type="label">
+										<textcolor>ff272727</textcolor>
+										<selectedcolor>ff272727</selectedcolor>
+										<textoffsetx>40</textoffsetx>
+										<label>$INFO[ListItem.Label]</label>
+										<align>left</align>
+										<aligny>center</aligny>
+										<font>af3_font_main</font>
+										<scrollsuffix> </scrollsuffix>
+										<scrollspeed>40</scrollspeed>
+										<disabledcolor>60FFFFFF</disabledcolor>
+									</control>
+								</control>
+							</focusedlayout>
+						</control>
+						<top>180</top>
+						<bottom>100</bottom>
+						<left>40</left>
+						<right>-100</right>
+					</control>
+					<width>380</width>
+				</control>
+				<control type="group">
+					<control type="image">
+						<texture border="20" colordiffuse="af3_main_fg_12">af3/common/dialog.png</texture>
+					</control>
+					<control type="group" id="5">
+						<control type="group">
+							<visible>Container(3).HasFocus(1)</visible>
+							<control type="group">
+								<width>50%</width>
+								<control type="list" id="20">
+									<pagecontrol>60</pagecontrol>
+									<onright>60</onright>
+									<onleft>3</onleft>
+									<left>20</left>
+									<right>20</right>
+									<top>20</top>
+									<bottom>20</bottom>
+									<orientation>vertical</orientation>
+									<preloaditems>2</preloaditems>
+									<scrolltime tween="quadratic">400</scrolltime>
+									<itemlayout width="" height="80">
+										<control type="group">
+											<left>0</left>
+											<right>-0</right>
+											<top>0</top>
+											<bottom>-0</bottom>
+											<control type="group">
+												<height>80</height>
+												<control type="group">
+													<right>40</right>
+													<control type="group">
+														<left>20</left>
+														<width>80</width>
+														<control type="image">
+															<texture background="true" fallback="DefaultFolder.png" diffuse="af3/diffuse/circle/provider_circle.png">$INFO[ListItem.Icon]</texture>
+															<aspectratio>keep</aspectratio>
+															<bordersize>20</bordersize>
+															<visible>![String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)]</visible>
+														</control>
+														<control type="group">
+															<visible>String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)</visible>
+															<control type="image" id="">
+																<texture background="true" colordiffuse="af3_main_fg_70" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
+																<aspectratio>keep</aspectratio>
+																<bordersize>0</bordersize>
+															</control>
+														</control>
+													</control>
+													<control type="group">
+														<left>80</left>
+														<control type="label">
+															<right>40</right>
+															<textcolor>af3_main_fg_70</textcolor>
+															<selectedcolor>af3_main_fg_70</selectedcolor>
+															<label>$INFO[ListItem.Label]</label>
+															<textoffsetx>0</textoffsetx>
+															<left>20</left>
+															<align>left</align>
+															<font>af3_font_main</font>
+															<aligny>center</aligny>
+															<scrollsuffix> </scrollsuffix>
+															<scrollspeed>40</scrollspeed>
+															<disabledcolor>60FFFFFF</disabledcolor>
+														</control>
+														<control type="label">
+															<right>40</right>
+															<textcolor>af3_main_fg_70</textcolor>
+															<selectedcolor>af3_main_fg_70</selectedcolor>
+															<label>$INFO[ListItem.Label2]</label>
+															<textoffsetx>0</textoffsetx>
+															<left>100</left>
+															<align>right</align>
+															<font>af3_font_main</font>
+															<aligny>center</aligny>
+															<scrollsuffix> </scrollsuffix>
+															<scrollspeed>40</scrollspeed>
+															<disabledcolor>60FFFFFF</disabledcolor>
+														</control>
+													</control>
+												</control>
+												<control type="group" id="">
+													<right>40</right>
+													<width>24</width>
+													<control type="image">
+														<centerleft>20</centerleft>
+														<centertop>50%</centertop>
+														<texture colordiffuse="af3_main_fg_30">af3/buttons/check-off.png</texture>
+														<width>28</width>
+														<height>28</height>
+														<visible>!ListItem.IsSelected</visible>
+													</control>
+													<control type="image">
+														<centerleft>20</centerleft>
+														<centertop>50%</centertop>
+														<texture colordiffuse="af3_main_fg_70">af3/buttons/check-on.png</texture>
+														<width>28</width>
+														<height>28</height>
+														<visible>ListItem.IsSelected</visible>
+													</control>
+												</control>
+											</control>
+										</control>
+									</itemlayout>
+									<focusedlayout width="" height="80">
+										<control type="group">
+											<left>0</left>
+											<right>-0</right>
+											<top>0</top>
+											<bottom>-0</bottom>
+											<control type="group">
+												<animation effect="fade" start="100" end="0" condition="Control.HasFocus(20)">Conditional</animation>
+												<control type="group">
+													<height>80</height>
+													<control type="group">
+														<right>40</right>
+														<control type="group">
+															<left>20</left>
+															<width>80</width>
+															<control type="image">
+																<texture background="true" fallback="DefaultFolder.png" diffuse="af3/diffuse/circle/provider_circle.png">$INFO[ListItem.Icon]</texture>
+																<aspectratio>keep</aspectratio>
+																<bordersize>20</bordersize>
+																<visible>![String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)]</visible>
+															</control>
+															<control type="group">
+																<visible>String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)</visible>
+																<control type="image" id="">
+																	<texture background="true" colordiffuse="af3_main_fg_70" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
+																	<aspectratio>keep</aspectratio>
+																	<bordersize>0</bordersize>
+																</control>
+															</control>
+														</control>
+														<control type="group">
+															<left>80</left>
+															<control type="label">
+																<right>40</right>
+																<textcolor>af3_main_fg_70</textcolor>
+																<selectedcolor>af3_main_fg_70</selectedcolor>
+																<label>$INFO[ListItem.Label]</label>
+																<textoffsetx>0</textoffsetx>
+																<left>20</left>
+																<align>left</align>
+																<font>af3_font_main</font>
+																<aligny>center</aligny>
+																<scrollsuffix> </scrollsuffix>
+																<scrollspeed>40</scrollspeed>
+																<disabledcolor>60FFFFFF</disabledcolor>
+															</control>
+															<control type="label">
+																<right>40</right>
+																<textcolor>af3_main_fg_70</textcolor>
+																<selectedcolor>af3_main_fg_70</selectedcolor>
+																<label>$INFO[ListItem.Label2]</label>
+																<textoffsetx>0</textoffsetx>
+																<left>100</left>
+																<align>right</align>
+																<font>af3_font_main</font>
+																<aligny>center</aligny>
+																<scrollsuffix> </scrollsuffix>
+																<scrollspeed>40</scrollspeed>
+																<disabledcolor>60FFFFFF</disabledcolor>
+															</control>
+														</control>
+													</control>
+													<control type="group" id="">
+														<right>40</right>
+														<width>24</width>
+														<control type="image">
+															<centerleft>20</centerleft>
+															<centertop>50%</centertop>
+															<texture colordiffuse="af3_main_fg_30">af3/buttons/check-off.png</texture>
+															<width>28</width>
+															<height>28</height>
+															<visible>!ListItem.IsSelected</visible>
+														</control>
+														<control type="image">
+															<centerleft>20</centerleft>
+															<centertop>50%</centertop>
+															<texture colordiffuse="af3_main_fg_70">af3/buttons/check-on.png</texture>
+															<width>28</width>
+															<height>28</height>
+															<visible>ListItem.IsSelected</visible>
+														</control>
+													</control>
+												</control>
+											</control>
+											<control type="group">
+												<animation effect="fade" start="100" end="0" condition="!Control.HasFocus(20)">Conditional</animation>
+												<control type="group">
+													<height>80</height>
+													<control type="image" id="">
+														<texture border="40" colordiffuse="ffffffff">af3/common/menu.png</texture>
+													</control>
+													<control type="group">
+														<right>40</right>
+														<control type="group">
+															<left>20</left>
+															<width>80</width>
+															<control type="image">
+																<texture background="true" fallback="DefaultFolder.png" diffuse="af3/diffuse/circle/provider_circle.png">$INFO[ListItem.Icon]</texture>
+																<aspectratio>keep</aspectratio>
+																<bordersize>20</bordersize>
+																<visible>![String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)]</visible>
+															</control>
+															<control type="group">
+																<visible>String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)</visible>
+																<control type="image" id="">
+																	<colordiffuse>ff272727</colordiffuse>
+																	<texture background="true" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
+																	<aspectratio>keep</aspectratio>
+																	<bordersize>0</bordersize>
+																</control>
+															</control>
+														</control>
+														<control type="group">
+															<left>80</left>
+															<control type="label">
+																<right>40</right>
+																<textcolor>ff272727</textcolor>
+																<selectedcolor>ff272727</selectedcolor>
+																<label>$INFO[ListItem.Label]</label>
+																<textoffsetx>0</textoffsetx>
+																<left>20</left>
+																<align>left</align>
+																<font>af3_font_main</font>
+																<aligny>center</aligny>
+																<scrollsuffix> </scrollsuffix>
+																<scrollspeed>40</scrollspeed>
+																<disabledcolor>60FFFFFF</disabledcolor>
+															</control>
+															<control type="label">
+																<right>40</right>
+																<textcolor>ff272727</textcolor>
+																<selectedcolor>ff272727</selectedcolor>
+																<label>$INFO[ListItem.Label2]</label>
+																<textoffsetx>0</textoffsetx>
+																<left>100</left>
+																<align>right</align>
+																<font>af3_font_main</font>
+																<aligny>center</aligny>
+																<scrollsuffix> </scrollsuffix>
+																<scrollspeed>40</scrollspeed>
+																<disabledcolor>60FFFFFF</disabledcolor>
+															</control>
+														</control>
+													</control>
+													<control type="group" id="">
+														<right>40</right>
+														<width>24</width>
+														<control type="image">
+															<centerleft>20</centerleft>
+															<centertop>50%</centertop>
+															<texture colordiffuse="ff272727">af3/buttons/check-off.png</texture>
+															<width>28</width>
+															<height>28</height>
+															<visible>!ListItem.IsSelected</visible>
+														</control>
+														<control type="image">
+															<centerleft>20</centerleft>
+															<centertop>50%</centertop>
+															<texture colordiffuse="ff272727">af3/buttons/check-on.png</texture>
+															<width>28</width>
+															<height>28</height>
+															<visible>ListItem.IsSelected</visible>
+														</control>
+													</control>
+												</control>
+											</control>
+										</control>
+									</focusedlayout>
+								</control>
+								<control type="group">
+									<centerright>0</centerright>
+									<bottom>20</bottom>
+									<top>20</top>
+									<width>10</width>
+									<control type="image">
+										<width>1</width>
+										<centerleft>50%</centerleft>
+										<texture colordiffuse="af3_main_fg_12">af3/common/white.png</texture>
+									</control>
+									<control type="scrollbar" id="60">
+										<orientation>vertical</orientation>
+										<showonepage>false</showonepage>
+										<texturesliderbackground/>
+										<texturesliderbar colordiffuse="af3_main_logo" border="4">af3/scrollbar/scrollv_line.png</texturesliderbar>
+										<texturesliderbarfocus border="4" colordiffuse="ffffffff">af3/common/scrollv.png</texturesliderbarfocus>
+										<onleft>20</onleft>
+										<onright>21</onright>
+										<textureslidernib/>
+										<textureslidernibfocus/>
+									</control>
+								</control>
+								<control type="group">
+									<left>40</left>
+									<right>40</right>
+									<control type="label" id="101">
+										<font>af3_font_hint_bold</font>
+										<wrapmultiline>false</wrapmultiline>
+										<haspath>true</haspath>
+										<height>10</height>
+										<centertop>-20</centertop>
+										<align>left</align>
+										<aligny>center</aligny>
+										<textcolor>af3_main_fg_70</textcolor>
+										<selectedcolor>af3_main_fg_70</selectedcolor>
+										<scrollsuffix> </scrollsuffix>
+										<scrollspeed>40</scrollspeed>
+										<disabledcolor>60FFFFFF</disabledcolor>
+									</control>
+									<control type="label" id="12">
+										<font>af3_font_hint_bold</font>
+										<wrapmultiline>false</wrapmultiline>
+										<haspath>true</haspath>
+										<height>10</height>
+										<centerbottom>-20</centerbottom>
+										<align>right</align>
+										<aligny>center</aligny>
+										<textcolor>af3_main_fg_70</textcolor>
+										<selectedcolor>af3_main_fg_70</selectedcolor>
+										<scrollsuffix> </scrollsuffix>
+										<scrollspeed>40</scrollspeed>
+										<disabledcolor>60FFFFFF</disabledcolor>
+									</control>
+								</control>
+							</control>
+							<control type="group">
+								<right>0</right>
+								<width>50%</width>
+								<control type="list" id="21">
+									<onleft>60</onleft>
+									<pagecontrol>61</pagecontrol>
+									<onright>61</onright>
+									<left>20</left>
+									<right>20</right>
+									<top>20</top>
+									<bottom>20</bottom>
+									<orientation>vertical</orientation>
+									<preloaditems>2</preloaditems>
+									<scrolltime tween="quadratic">400</scrolltime>
+									<itemlayout width="" height="80">
+										<control type="group">
+											<left>0</left>
+											<right>-0</right>
+											<top>0</top>
+											<bottom>-0</bottom>
+											<control type="group">
+												<height>80</height>
+												<control type="group">
+													<right>40</right>
+													<control type="group">
+														<left>20</left>
+														<width>80</width>
+														<control type="image">
+															<texture background="true" fallback="DefaultFolder.png" diffuse="af3/diffuse/circle/provider_circle.png">$INFO[ListItem.Icon]</texture>
+															<aspectratio>keep</aspectratio>
+															<bordersize>20</bordersize>
+															<visible>![String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)]</visible>
+														</control>
+														<control type="group">
+															<visible>String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)</visible>
+															<control type="image" id="">
+																<texture background="true" colordiffuse="af3_main_fg_70" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
+																<aspectratio>keep</aspectratio>
+																<bordersize>0</bordersize>
+															</control>
+														</control>
+													</control>
+													<control type="group">
+														<left>80</left>
+														<control type="label">
+															<right>40</right>
+															<textcolor>af3_main_fg_70</textcolor>
+															<selectedcolor>af3_main_fg_70</selectedcolor>
+															<label>$INFO[ListItem.Label]</label>
+															<textoffsetx>0</textoffsetx>
+															<left>20</left>
+															<align>left</align>
+															<font>af3_font_main</font>
+															<aligny>center</aligny>
+															<scrollsuffix> </scrollsuffix>
+															<scrollspeed>40</scrollspeed>
+															<disabledcolor>60FFFFFF</disabledcolor>
+														</control>
+														<control type="label">
+															<right>40</right>
+															<textcolor>af3_main_fg_70</textcolor>
+															<selectedcolor>af3_main_fg_70</selectedcolor>
+															<label>$INFO[ListItem.Label2]</label>
+															<textoffsetx>0</textoffsetx>
+															<left>100</left>
+															<align>right</align>
+															<font>af3_font_main</font>
+															<aligny>center</aligny>
+															<scrollsuffix> </scrollsuffix>
+															<scrollspeed>40</scrollspeed>
+															<disabledcolor>60FFFFFF</disabledcolor>
+														</control>
+													</control>
+												</control>
+												<control type="group" id="">
+													<right>40</right>
+													<width>24</width>
+													<control type="image">
+														<centerleft>20</centerleft>
+														<centertop>50%</centertop>
+														<texture colordiffuse="af3_main_fg_30">af3/buttons/check-off.png</texture>
+														<width>28</width>
+														<height>28</height>
+														<visible>!ListItem.IsSelected</visible>
+													</control>
+													<control type="image">
+														<centerleft>20</centerleft>
+														<centertop>50%</centertop>
+														<texture colordiffuse="af3_main_fg_70">af3/buttons/check-on.png</texture>
+														<width>28</width>
+														<height>28</height>
+														<visible>ListItem.IsSelected</visible>
+													</control>
+												</control>
+											</control>
+										</control>
+									</itemlayout>
+									<focusedlayout width="" height="80">
+										<control type="group">
+											<left>0</left>
+											<right>-0</right>
+											<top>0</top>
+											<bottom>-0</bottom>
+											<control type="group">
+												<animation effect="fade" start="100" end="0" condition="Control.HasFocus(21)">Conditional</animation>
+												<control type="group">
+													<height>80</height>
+													<control type="group">
+														<right>40</right>
+														<control type="group">
+															<left>20</left>
+															<width>80</width>
+															<control type="image">
+																<texture background="true" fallback="DefaultFolder.png" diffuse="af3/diffuse/circle/provider_circle.png">$INFO[ListItem.Icon]</texture>
+																<aspectratio>keep</aspectratio>
+																<bordersize>20</bordersize>
+																<visible>![String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)]</visible>
+															</control>
+															<control type="group">
+																<visible>String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)</visible>
+																<control type="image" id="">
+																	<texture background="true" colordiffuse="af3_main_fg_70" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
+																	<aspectratio>keep</aspectratio>
+																	<bordersize>0</bordersize>
+																</control>
+															</control>
+														</control>
+														<control type="group">
+															<left>80</left>
+															<control type="label">
+																<right>40</right>
+																<textcolor>af3_main_fg_70</textcolor>
+																<selectedcolor>af3_main_fg_70</selectedcolor>
+																<label>$INFO[ListItem.Label]</label>
+																<textoffsetx>0</textoffsetx>
+																<left>20</left>
+																<align>left</align>
+																<font>af3_font_main</font>
+																<aligny>center</aligny>
+																<scrollsuffix> </scrollsuffix>
+																<scrollspeed>40</scrollspeed>
+																<disabledcolor>60FFFFFF</disabledcolor>
+															</control>
+															<control type="label">
+																<right>40</right>
+																<textcolor>af3_main_fg_70</textcolor>
+																<selectedcolor>af3_main_fg_70</selectedcolor>
+																<label>$INFO[ListItem.Label2]</label>
+																<textoffsetx>0</textoffsetx>
+																<left>100</left>
+																<align>right</align>
+																<font>af3_font_main</font>
+																<aligny>center</aligny>
+																<scrollsuffix> </scrollsuffix>
+																<scrollspeed>40</scrollspeed>
+																<disabledcolor>60FFFFFF</disabledcolor>
+															</control>
+														</control>
+													</control>
+													<control type="group" id="">
+														<right>40</right>
+														<width>24</width>
+														<control type="image">
+															<centerleft>20</centerleft>
+															<centertop>50%</centertop>
+															<texture colordiffuse="af3_main_fg_30">af3/buttons/check-off.png</texture>
+															<width>28</width>
+															<height>28</height>
+															<visible>!ListItem.IsSelected</visible>
+														</control>
+														<control type="image">
+															<centerleft>20</centerleft>
+															<centertop>50%</centertop>
+															<texture colordiffuse="af3_main_fg_70">af3/buttons/check-on.png</texture>
+															<width>28</width>
+															<height>28</height>
+															<visible>ListItem.IsSelected</visible>
+														</control>
+													</control>
+												</control>
+											</control>
+											<control type="group">
+												<animation effect="fade" start="100" end="0" condition="!Control.HasFocus(21)">Conditional</animation>
+												<control type="group">
+													<height>80</height>
+													<control type="image" id="">
+														<texture border="40" colordiffuse="ffffffff">af3/common/menu.png</texture>
+													</control>
+													<control type="group">
+														<right>40</right>
+														<control type="group">
+															<left>20</left>
+															<width>80</width>
+															<control type="image">
+																<texture background="true" fallback="DefaultFolder.png" diffuse="af3/diffuse/circle/provider_circle.png">$INFO[ListItem.Icon]</texture>
+																<aspectratio>keep</aspectratio>
+																<bordersize>20</bordersize>
+																<visible>![String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)]</visible>
+															</control>
+															<control type="group">
+																<visible>String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)</visible>
+																<control type="image" id="">
+																	<colordiffuse>ff272727</colordiffuse>
+																	<texture background="true" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
+																	<aspectratio>keep</aspectratio>
+																	<bordersize>0</bordersize>
+																</control>
+															</control>
+														</control>
+														<control type="group">
+															<left>80</left>
+															<control type="label">
+																<right>40</right>
+																<textcolor>ff272727</textcolor>
+																<selectedcolor>ff272727</selectedcolor>
+																<label>$INFO[ListItem.Label]</label>
+																<textoffsetx>0</textoffsetx>
+																<left>20</left>
+																<align>left</align>
+																<font>af3_font_main</font>
+																<aligny>center</aligny>
+																<scrollsuffix> </scrollsuffix>
+																<scrollspeed>40</scrollspeed>
+																<disabledcolor>60FFFFFF</disabledcolor>
+															</control>
+															<control type="label">
+																<right>40</right>
+																<textcolor>ff272727</textcolor>
+																<selectedcolor>ff272727</selectedcolor>
+																<label>$INFO[ListItem.Label2]</label>
+																<textoffsetx>0</textoffsetx>
+																<left>100</left>
+																<align>right</align>
+																<font>af3_font_main</font>
+																<aligny>center</aligny>
+																<scrollsuffix> </scrollsuffix>
+																<scrollspeed>40</scrollspeed>
+																<disabledcolor>60FFFFFF</disabledcolor>
+															</control>
+														</control>
+													</control>
+													<control type="group" id="">
+														<right>40</right>
+														<width>24</width>
+														<control type="image">
+															<centerleft>20</centerleft>
+															<centertop>50%</centertop>
+															<texture colordiffuse="ff272727">af3/buttons/check-off.png</texture>
+															<width>28</width>
+															<height>28</height>
+															<visible>!ListItem.IsSelected</visible>
+														</control>
+														<control type="image">
+															<centerleft>20</centerleft>
+															<centertop>50%</centertop>
+															<texture colordiffuse="ff272727">af3/buttons/check-on.png</texture>
+															<width>28</width>
+															<height>28</height>
+															<visible>ListItem.IsSelected</visible>
+														</control>
+													</control>
+												</control>
+											</control>
+										</control>
+									</focusedlayout>
+								</control>
+								<control type="group">
+									<centerright>0</centerright>
+									<bottom>20</bottom>
+									<top>20</top>
+									<width>10</width>
+									<control type="scrollbar" id="61">
+										<orientation>vertical</orientation>
+										<texturesliderbackground/>
+										<texturesliderbar colordiffuse="af3_main_logo" border="4">af3/scrollbar/scrollv_line.png</texturesliderbar>
+										<texturesliderbarfocus border="4" colordiffuse="ffffffff">af3/common/scrollv.png</texturesliderbarfocus>
+										<showonepage>false</showonepage>
+										<onleft>21</onleft>
+										<textureslidernib/>
+										<textureslidernibfocus/>
+									</control>
+								</control>
+								<control type="group">
+									<left>40</left>
+									<right>40</right>
+									<control type="label" id="102">
+										<font>af3_font_hint_bold</font>
+										<wrapmultiline>false</wrapmultiline>
+										<haspath>true</haspath>
+										<height>10</height>
+										<centertop>-20</centertop>
+										<align>left</align>
+										<aligny>center</aligny>
+										<textcolor>af3_main_fg_70</textcolor>
+										<selectedcolor>af3_main_fg_70</selectedcolor>
+										<scrollsuffix> </scrollsuffix>
+										<scrollspeed>40</scrollspeed>
+										<disabledcolor>60FFFFFF</disabledcolor>
+									</control>
+									<control type="label" id="13">
+										<font>af3_font_hint_bold</font>
+										<wrapmultiline>false</wrapmultiline>
+										<haspath>true</haspath>
+										<height>10</height>
+										<centerbottom>-20</centerbottom>
+										<align>right</align>
+										<aligny>center</aligny>
+										<textcolor>af3_main_fg_70</textcolor>
+										<selectedcolor>af3_main_fg_70</selectedcolor>
+										<scrollsuffix> </scrollsuffix>
+										<scrollspeed>40</scrollspeed>
+										<disabledcolor>60FFFFFF</disabledcolor>
+									</control>
+								</control>
+							</control>
+						</control>
+						<control type="group">
+							<visible>Container(3).HasFocus(2)</visible>
+							<control type="group">
+								<width>50%</width>
+								<control type="list" id="8000">
+									<onleft>3</onleft>
+									<onright>8001</onright>
+									<left>20</left>
+									<right>20</right>
+									<top>20</top>
+									<bottom>20</bottom>
+									<content>
+										<item>
+											<label>$LOCALIZE[3]</label>
+											<property name="path">sources://video/</property>
+											<property name="target">videos</property>
+											<onclick>ActivateWindow(videos,sources://video/,return)</onclick>
+										</item>
+										<item>
+											<label>$LOCALIZE[2]</label>
+											<property name="path">sources://music/</property>
+											<property name="target">music</property>
+											<onclick>ActivateWindow(music,sources://music/,return)</onclick>
+										</item>
+										<item>
+											<label>$LOCALIZE[1]</label>
+											<property name="path">sources://pictures/</property>
+											<property name="target">pictures</property>
+											<onclick>ActivateWindow(pictures,sources://pictures/,return)</onclick>
+										</item>
+										<item>
+											<label>$LOCALIZE[0]</label>
+											<property name="path">sources://programs/</property>
+											<property name="target">programs</property>
+											<onclick>ActivateWindow(programs,sources://programs/,return)</onclick>
+										</item>
+										<item>
+											<label>$LOCALIZE[10821]</label>
+											<property name="path">sources://games/</property>
+											<property name="target">games</property>
+											<onclick>ActivateWindow(games,sources://games/,return)</onclick>
+										</item>
+									</content>
+									<orientation>vertical</orientation>
+									<preloaditems>2</preloaditems>
+									<scrolltime tween="quadratic">400</scrolltime>
+									<itemlayout width="" height="80">
+										<control type="group">
+											<left>0</left>
+											<right>-0</right>
+											<top>0</top>
+											<bottom>-0</bottom>
+											<control type="group">
+												<height>80</height>
+												<control type="group">
+													<right>40</right>
+													<control type="group">
+														<left>20</left>
+														<width>80</width>
+														<control type="image">
+															<texture background="true" fallback="DefaultFolder.png" diffuse="af3/diffuse/circle/provider_circle.png">$INFO[ListItem.Icon]</texture>
+															<aspectratio>keep</aspectratio>
+															<bordersize>20</bordersize>
+															<visible>![String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)]</visible>
+														</control>
+														<control type="group">
+															<visible>String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)</visible>
+															<control type="image" id="">
+																<texture background="true" colordiffuse="af3_main_fg_70" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
+																<aspectratio>keep</aspectratio>
+																<bordersize>0</bordersize>
+															</control>
+														</control>
+													</control>
+													<control type="group">
+														<left>80</left>
+														<control type="label">
+															<right>40</right>
+															<textcolor>af3_main_fg_70</textcolor>
+															<selectedcolor>af3_main_fg_70</selectedcolor>
+															<label>$INFO[ListItem.Label]</label>
+															<textoffsetx>0</textoffsetx>
+															<left>20</left>
+															<align>left</align>
+															<font>af3_font_main</font>
+															<aligny>center</aligny>
+															<scrollsuffix> </scrollsuffix>
+															<scrollspeed>40</scrollspeed>
+															<disabledcolor>60FFFFFF</disabledcolor>
+														</control>
+														<control type="label">
+															<right>40</right>
+															<textcolor>af3_main_fg_70</textcolor>
+															<selectedcolor>af3_main_fg_70</selectedcolor>
+															<label>$INFO[ListItem.Label2]</label>
+															<textoffsetx>0</textoffsetx>
+															<left>100</left>
+															<align>right</align>
+															<font>af3_font_main</font>
+															<aligny>center</aligny>
+															<scrollsuffix> </scrollsuffix>
+															<scrollspeed>40</scrollspeed>
+															<disabledcolor>60FFFFFF</disabledcolor>
+														</control>
+													</control>
+												</control>
+												<control type="group" id="">
+													<right>40</right>
+													<width>24</width>
+													<control type="image">
+														<centerleft>20</centerleft>
+														<centertop>50%</centertop>
+														<texture colordiffuse="af3_main_fg_30">af3/buttons/check-off.png</texture>
+														<width>28</width>
+														<height>28</height>
+														<visible>!ListItem.IsSelected</visible>
+													</control>
+													<control type="image">
+														<centerleft>20</centerleft>
+														<centertop>50%</centertop>
+														<texture colordiffuse="af3_main_fg_70">af3/buttons/check-on.png</texture>
+														<width>28</width>
+														<height>28</height>
+														<visible>ListItem.IsSelected</visible>
+													</control>
+												</control>
+											</control>
+										</control>
+									</itemlayout>
+									<focusedlayout width="" height="80">
+										<control type="group">
+											<left>0</left>
+											<right>-0</right>
+											<top>0</top>
+											<bottom>-0</bottom>
+											<control type="group">
+												<animation effect="fade" start="100" end="0" condition="Control.HasFocus(8000)">Conditional</animation>
+												<control type="group">
+													<height>80</height>
+													<control type="group">
+														<right>40</right>
+														<control type="group">
+															<left>20</left>
+															<width>80</width>
+															<control type="image">
+																<texture background="true" fallback="DefaultFolder.png" diffuse="af3/diffuse/circle/provider_circle.png">$INFO[ListItem.Icon]</texture>
+																<aspectratio>keep</aspectratio>
+																<bordersize>20</bordersize>
+																<visible>![String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)]</visible>
+															</control>
+															<control type="group">
+																<visible>String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)</visible>
+																<control type="image" id="">
+																	<texture background="true" colordiffuse="af3_main_fg_70" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
+																	<aspectratio>keep</aspectratio>
+																	<bordersize>0</bordersize>
+																</control>
+															</control>
+														</control>
+														<control type="group">
+															<left>80</left>
+															<control type="label">
+																<right>40</right>
+																<textcolor>af3_main_fg_70</textcolor>
+																<selectedcolor>af3_main_fg_70</selectedcolor>
+																<label>$INFO[ListItem.Label]</label>
+																<textoffsetx>0</textoffsetx>
+																<left>20</left>
+																<align>left</align>
+																<font>af3_font_main</font>
+																<aligny>center</aligny>
+																<scrollsuffix> </scrollsuffix>
+																<scrollspeed>40</scrollspeed>
+																<disabledcolor>60FFFFFF</disabledcolor>
+															</control>
+															<control type="label">
+																<right>40</right>
+																<textcolor>af3_main_fg_70</textcolor>
+																<selectedcolor>af3_main_fg_70</selectedcolor>
+																<label>$INFO[ListItem.Label2]</label>
+																<textoffsetx>0</textoffsetx>
+																<left>100</left>
+																<align>right</align>
+																<font>af3_font_main</font>
+																<aligny>center</aligny>
+																<scrollsuffix> </scrollsuffix>
+																<scrollspeed>40</scrollspeed>
+																<disabledcolor>60FFFFFF</disabledcolor>
+															</control>
+														</control>
+													</control>
+													<control type="group" id="">
+														<right>40</right>
+														<width>24</width>
+														<control type="image">
+															<centerleft>20</centerleft>
+															<centertop>50%</centertop>
+															<texture colordiffuse="af3_main_fg_30">af3/buttons/check-off.png</texture>
+															<width>28</width>
+															<height>28</height>
+															<visible>!ListItem.IsSelected</visible>
+														</control>
+														<control type="image">
+															<centerleft>20</centerleft>
+															<centertop>50%</centertop>
+															<texture colordiffuse="af3_main_fg_70">af3/buttons/check-on.png</texture>
+															<width>28</width>
+															<height>28</height>
+															<visible>ListItem.IsSelected</visible>
+														</control>
+													</control>
+												</control>
+											</control>
+											<control type="group">
+												<animation effect="fade" start="100" end="0" condition="!Control.HasFocus(8000)">Conditional</animation>
+												<control type="group">
+													<height>80</height>
+													<control type="image" id="">
+														<texture border="40" colordiffuse="ffffffff">af3/common/menu.png</texture>
+													</control>
+													<control type="group">
+														<right>40</right>
+														<control type="group">
+															<left>20</left>
+															<width>80</width>
+															<control type="image">
+																<texture background="true" fallback="DefaultFolder.png" diffuse="af3/diffuse/circle/provider_circle.png">$INFO[ListItem.Icon]</texture>
+																<aspectratio>keep</aspectratio>
+																<bordersize>20</bordersize>
+																<visible>![String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)]</visible>
+															</control>
+															<control type="group">
+																<visible>String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)</visible>
+																<control type="image" id="">
+																	<colordiffuse>ff272727</colordiffuse>
+																	<texture background="true" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
+																	<aspectratio>keep</aspectratio>
+																	<bordersize>0</bordersize>
+																</control>
+															</control>
+														</control>
+														<control type="group">
+															<left>80</left>
+															<control type="label">
+																<right>40</right>
+																<textcolor>ff272727</textcolor>
+																<selectedcolor>ff272727</selectedcolor>
+																<label>$INFO[ListItem.Label]</label>
+																<textoffsetx>0</textoffsetx>
+																<left>20</left>
+																<align>left</align>
+																<font>af3_font_main</font>
+																<aligny>center</aligny>
+																<scrollsuffix> </scrollsuffix>
+																<scrollspeed>40</scrollspeed>
+																<disabledcolor>60FFFFFF</disabledcolor>
+															</control>
+															<control type="label">
+																<right>40</right>
+																<textcolor>ff272727</textcolor>
+																<selectedcolor>ff272727</selectedcolor>
+																<label>$INFO[ListItem.Label2]</label>
+																<textoffsetx>0</textoffsetx>
+																<left>100</left>
+																<align>right</align>
+																<font>af3_font_main</font>
+																<aligny>center</aligny>
+																<scrollsuffix> </scrollsuffix>
+																<scrollspeed>40</scrollspeed>
+																<disabledcolor>60FFFFFF</disabledcolor>
+															</control>
+														</control>
+													</control>
+													<control type="group" id="">
+														<right>40</right>
+														<width>24</width>
+														<control type="image">
+															<centerleft>20</centerleft>
+															<centertop>50%</centertop>
+															<texture colordiffuse="ff272727">af3/buttons/check-off.png</texture>
+															<width>28</width>
+															<height>28</height>
+															<visible>!ListItem.IsSelected</visible>
+														</control>
+														<control type="image">
+															<centerleft>20</centerleft>
+															<centertop>50%</centertop>
+															<texture colordiffuse="ff272727">af3/buttons/check-on.png</texture>
+															<width>28</width>
+															<height>28</height>
+															<visible>ListItem.IsSelected</visible>
+														</control>
+													</control>
+												</control>
+											</control>
+										</control>
+									</focusedlayout>
+								</control>
+								<control type="group">
+									<height>40</height>
+									<centerbottom>-60</centerbottom>
+									<left>40</left>
+									<right>20</right>
+									<control type="label">
+										<font>af3_font_hint_bold</font>
+										<height>10</height>
+										<textcolor>af3_main_fg_30</textcolor>
+										<label>$INFO[Container(8000).NumItems,, $LOCALIZE[127]]</label>
+										<align>left</align>
+										<aligny>center</aligny>
+										<selectedcolor>af3_main_fg_70</selectedcolor>
+										<scrollsuffix> </scrollsuffix>
+										<scrollspeed>40</scrollspeed>
+										<disabledcolor>60FFFFFF</disabledcolor>
+									</control>
+									<control type="label">
+										<top>25</top>
+										<width>auto</width>
+										<aligny>center</aligny>
+										<height>20</height>
+										<textcolor>af3_main_fg_70</textcolor>
+										<font>af3_font_tiny</font>
+										<textoffsetx>0</textoffsetx>
+										<wrapmultiline>false</wrapmultiline>
+										<label>$LOCALIZE[20108]</label>
+										<haspath>true</haspath>
+										<align>left</align>
+										<selectedcolor>af3_main_fg_70</selectedcolor>
+										<scrollsuffix> </scrollsuffix>
+										<scrollspeed>40</scrollspeed>
+										<disabledcolor>60FFFFFF</disabledcolor>
+									</control>
+								</control>
+								<control type="group">
+									<centerright>0</centerright>
+									<bottom>20</bottom>
+									<top>20</top>
+									<width>10</width>
+									<control type="image">
+										<texture colordiffuse="af3_main_fg_12" border="4">af3/scrollbar/scrollv_line.png</texture>
+									</control>
+								</control>
+							</control>
+							<control type="group">
+								<right>0</right>
+								<width>50%</width>
+								<control type="list" id="8001">
+									<onleft>8000</onleft>
+									<pagecontrol>62</pagecontrol>
+									<onright>62</onright>
+									<left>20</left>
+									<right>20</right>
+									<top>20</top>
+									<bottom>20</bottom>
+									<content target="$INFO[Container(8000).ListItem.Property(target)]">$INFO[Container(8000).ListItem.Property(path)]</content>
+									<orientation>vertical</orientation>
+									<preloaditems>2</preloaditems>
+									<scrolltime tween="quadratic">400</scrolltime>
+									<itemlayout width="" height="80">
+										<control type="group">
+											<left>0</left>
+											<right>-0</right>
+											<top>0</top>
+											<bottom>-0</bottom>
+											<control type="group">
+												<height>80</height>
+												<control type="group">
+													<right>40</right>
+													<control type="group">
+														<left>20</left>
+														<width>80</width>
+														<control type="image">
+															<texture background="true" fallback="DefaultFolder.png" diffuse="af3/diffuse/circle/provider_circle.png">$INFO[ListItem.Icon]</texture>
+															<aspectratio>keep</aspectratio>
+															<bordersize>20</bordersize>
+															<visible>![String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)]</visible>
+														</control>
+														<control type="group">
+															<visible>String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)</visible>
+															<control type="image" id="">
+																<texture background="true" colordiffuse="af3_main_fg_70" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
+																<aspectratio>keep</aspectratio>
+																<bordersize>0</bordersize>
+															</control>
+														</control>
+													</control>
+													<control type="group">
+														<left>80</left>
+														<control type="label">
+															<right>40</right>
+															<textcolor>af3_main_fg_70</textcolor>
+															<selectedcolor>af3_main_fg_70</selectedcolor>
+															<label>$INFO[ListItem.Label]</label>
+															<textoffsetx>0</textoffsetx>
+															<left>20</left>
+															<align>left</align>
+															<font>af3_font_main</font>
+															<aligny>center</aligny>
+															<scrollsuffix> </scrollsuffix>
+															<scrollspeed>40</scrollspeed>
+															<disabledcolor>60FFFFFF</disabledcolor>
+														</control>
+														<control type="label">
+															<right>40</right>
+															<textcolor>af3_main_fg_70</textcolor>
+															<selectedcolor>af3_main_fg_70</selectedcolor>
+															<label>$INFO[ListItem.Label2]</label>
+															<textoffsetx>0</textoffsetx>
+															<left>100</left>
+															<align>right</align>
+															<font>af3_font_main</font>
+															<aligny>center</aligny>
+															<scrollsuffix> </scrollsuffix>
+															<scrollspeed>40</scrollspeed>
+															<disabledcolor>60FFFFFF</disabledcolor>
+														</control>
+													</control>
+												</control>
+												<control type="group" id="">
+													<right>40</right>
+													<width>24</width>
+													<control type="image">
+														<centerleft>20</centerleft>
+														<centertop>50%</centertop>
+														<texture colordiffuse="af3_main_fg_30">af3/buttons/check-off.png</texture>
+														<width>28</width>
+														<height>28</height>
+														<visible>!ListItem.IsSelected</visible>
+													</control>
+													<control type="image">
+														<centerleft>20</centerleft>
+														<centertop>50%</centertop>
+														<texture colordiffuse="af3_main_fg_70">af3/buttons/check-on.png</texture>
+														<width>28</width>
+														<height>28</height>
+														<visible>ListItem.IsSelected</visible>
+													</control>
+												</control>
+											</control>
+										</control>
+									</itemlayout>
+									<focusedlayout width="" height="80">
+										<control type="group">
+											<left>0</left>
+											<right>-0</right>
+											<top>0</top>
+											<bottom>-0</bottom>
+											<control type="group">
+												<animation effect="fade" start="100" end="0" condition="Control.HasFocus(8001)">Conditional</animation>
+												<control type="group">
+													<height>80</height>
+													<control type="group">
+														<right>40</right>
+														<control type="group">
+															<left>20</left>
+															<width>80</width>
+															<control type="image">
+																<texture background="true" fallback="DefaultFolder.png" diffuse="af3/diffuse/circle/provider_circle.png">$INFO[ListItem.Icon]</texture>
+																<aspectratio>keep</aspectratio>
+																<bordersize>20</bordersize>
+																<visible>![String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)]</visible>
+															</control>
+															<control type="group">
+																<visible>String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)</visible>
+																<control type="image" id="">
+																	<texture background="true" colordiffuse="af3_main_fg_70" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
+																	<aspectratio>keep</aspectratio>
+																	<bordersize>0</bordersize>
+																</control>
+															</control>
+														</control>
+														<control type="group">
+															<left>80</left>
+															<control type="label">
+																<right>40</right>
+																<textcolor>af3_main_fg_70</textcolor>
+																<selectedcolor>af3_main_fg_70</selectedcolor>
+																<label>$INFO[ListItem.Label]</label>
+																<textoffsetx>0</textoffsetx>
+																<left>20</left>
+																<align>left</align>
+																<font>af3_font_main</font>
+																<aligny>center</aligny>
+																<scrollsuffix> </scrollsuffix>
+																<scrollspeed>40</scrollspeed>
+																<disabledcolor>60FFFFFF</disabledcolor>
+															</control>
+															<control type="label">
+																<right>40</right>
+																<textcolor>af3_main_fg_70</textcolor>
+																<selectedcolor>af3_main_fg_70</selectedcolor>
+																<label>$INFO[ListItem.Label2]</label>
+																<textoffsetx>0</textoffsetx>
+																<left>100</left>
+																<align>right</align>
+																<font>af3_font_main</font>
+																<aligny>center</aligny>
+																<scrollsuffix> </scrollsuffix>
+																<scrollspeed>40</scrollspeed>
+																<disabledcolor>60FFFFFF</disabledcolor>
+															</control>
+														</control>
+													</control>
+													<control type="group" id="">
+														<right>40</right>
+														<width>24</width>
+														<control type="image">
+															<centerleft>20</centerleft>
+															<centertop>50%</centertop>
+															<texture colordiffuse="af3_main_fg_30">af3/buttons/check-off.png</texture>
+															<width>28</width>
+															<height>28</height>
+															<visible>!ListItem.IsSelected</visible>
+														</control>
+														<control type="image">
+															<centerleft>20</centerleft>
+															<centertop>50%</centertop>
+															<texture colordiffuse="af3_main_fg_70">af3/buttons/check-on.png</texture>
+															<width>28</width>
+															<height>28</height>
+															<visible>ListItem.IsSelected</visible>
+														</control>
+													</control>
+												</control>
+											</control>
+											<control type="group">
+												<animation effect="fade" start="100" end="0" condition="!Control.HasFocus(8001)">Conditional</animation>
+												<control type="group">
+													<height>80</height>
+													<control type="image" id="">
+														<texture border="40" colordiffuse="ffffffff">af3/common/menu.png</texture>
+													</control>
+													<control type="group">
+														<right>40</right>
+														<control type="group">
+															<left>20</left>
+															<width>80</width>
+															<control type="image">
+																<texture background="true" fallback="DefaultFolder.png" diffuse="af3/diffuse/circle/provider_circle.png">$INFO[ListItem.Icon]</texture>
+																<aspectratio>keep</aspectratio>
+																<bordersize>20</bordersize>
+																<visible>![String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)]</visible>
+															</control>
+															<control type="group">
+																<visible>String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)</visible>
+																<control type="image" id="">
+																	<colordiffuse>ff272727</colordiffuse>
+																	<texture background="true" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
+																	<aspectratio>keep</aspectratio>
+																	<bordersize>0</bordersize>
+																</control>
+															</control>
+														</control>
+														<control type="group">
+															<left>80</left>
+															<control type="label">
+																<right>40</right>
+																<textcolor>ff272727</textcolor>
+																<selectedcolor>ff272727</selectedcolor>
+																<label>$INFO[ListItem.Label]</label>
+																<textoffsetx>0</textoffsetx>
+																<left>20</left>
+																<align>left</align>
+																<font>af3_font_main</font>
+																<aligny>center</aligny>
+																<scrollsuffix> </scrollsuffix>
+																<scrollspeed>40</scrollspeed>
+																<disabledcolor>60FFFFFF</disabledcolor>
+															</control>
+															<control type="label">
+																<right>40</right>
+																<textcolor>ff272727</textcolor>
+																<selectedcolor>ff272727</selectedcolor>
+																<label>$INFO[ListItem.Label2]</label>
+																<textoffsetx>0</textoffsetx>
+																<left>100</left>
+																<align>right</align>
+																<font>af3_font_main</font>
+																<aligny>center</aligny>
+																<scrollsuffix> </scrollsuffix>
+																<scrollspeed>40</scrollspeed>
+																<disabledcolor>60FFFFFF</disabledcolor>
+															</control>
+														</control>
+													</control>
+													<control type="group" id="">
+														<right>40</right>
+														<width>24</width>
+														<control type="image">
+															<centerleft>20</centerleft>
+															<centertop>50%</centertop>
+															<texture colordiffuse="ff272727">af3/buttons/check-off.png</texture>
+															<width>28</width>
+															<height>28</height>
+															<visible>!ListItem.IsSelected</visible>
+														</control>
+														<control type="image">
+															<centerleft>20</centerleft>
+															<centertop>50%</centertop>
+															<texture colordiffuse="ff272727">af3/buttons/check-on.png</texture>
+															<width>28</width>
+															<height>28</height>
+															<visible>ListItem.IsSelected</visible>
+														</control>
+													</control>
+												</control>
+											</control>
+										</control>
+									</focusedlayout>
+								</control>
+								<control type="group">
+									<centerright>-20</centerright>
+									<bottom>20</bottom>
+									<top>20</top>
+									<width>10</width>
+									<control type="scrollbar" id="62">
+										<orientation>vertical</orientation>
+										<texturesliderbackground colordiffuse="af3_main_fg_12" border="4">af3/scrollbar/scrollv_line.png</texturesliderbackground>
+										<texturesliderbar colordiffuse="af3_main_logo" border="4">af3/scrollbar/scrollv.png</texturesliderbar>
+										<showonepage>false</showonepage>
+										<texturesliderbarfocus border="4" colordiffuse="ffffffff">af3/common/scrollv.png</texturesliderbarfocus>
+										<onleft>8001</onleft>
+										<textureslidernib/>
+										<textureslidernibfocus/>
+									</control>
+								</control>
+								<control type="group">
+									<height>40</height>
+									<centerbottom>-60</centerbottom>
+									<left>40</left>
+									<right>20</right>
+									<control type="label">
+										<font>af3_font_hint_bold</font>
+										<height>10</height>
+										<textcolor>af3_main_fg_30</textcolor>
+										<label>$INFO[Container(8001).NumItems,, $LOCALIZE[127]]</label>
+										<align>left</align>
+										<aligny>center</aligny>
+										<selectedcolor>af3_main_fg_70</selectedcolor>
+										<scrollsuffix> </scrollsuffix>
+										<scrollspeed>40</scrollspeed>
+										<disabledcolor>60FFFFFF</disabledcolor>
+									</control>
+									<control type="label">
+										<top>25</top>
+										<width>auto</width>
+										<aligny>center</aligny>
+										<height>20</height>
+										<textcolor>af3_main_fg_70</textcolor>
+										<font>af3_font_tiny</font>
+										<textoffsetx>0</textoffsetx>
+										<wrapmultiline>false</wrapmultiline>
+										<label>$INFO[Container(8000).ListItem.Property(path)]</label>
+										<haspath>true</haspath>
+										<align>left</align>
+										<selectedcolor>af3_main_fg_70</selectedcolor>
+										<scrollsuffix> </scrollsuffix>
+										<scrollspeed>40</scrollspeed>
+										<disabledcolor>60FFFFFF</disabledcolor>
+									</control>
+								</control>
+							</control>
+						</control>
+					</control>
+					<left>460</left>
+					<right>80</right>
+					<bottom>160</bottom>
+					<top>160</top>
+				</control>
+			</control>
+			<control type="group">
+				<left>80</left>
+				<right>80</right>
+				<height>40</height>
+				<bottom>80</bottom>
+				<include condition="Window.IsMedia + !Window.IsVisible(addonbrowser) + !Window.IsVisible(eventlog) + !Window.IsVisible(MyMusicPlaylistEditor.xml)">af3p_dyn_1</include>
+				<include condition="Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(SkinSettings.xml) | Window.IsVisible(SettingsProfile.xml) | Window.IsVisible(SettingsSystemInfo.xml) | Window.IsVisible(addonbrowser) | Window.IsVisible(filemanager) | Window.IsVisible(Settings.xml) | Window.IsVisible(eventlog) | Window.IsVisible(SettingsScreenCalibration.xml) | Window.IsVisible(MyMusicPlaylistEditor.xml)">af3p_dyn_2</include>
+			</control>
+			<control type="group">
+				<left>80</left>
+				<right>80</right>
+				<height>40</height>
+				<bottom>80</bottom>
+				<control type="group">
+					<animation effect="fade" start="100" end="0" time="150" reversible="false" condition="Window.IsVisible(DialogExtendedProgressBar.xml) | Window.IsVisible(DialogNotification.xml)">Conditional</animation>
+					<animation effect="fade" start="0" end="100" time="300" reversible="false" condition="![Window.IsVisible(DialogExtendedProgressBar.xml) | Window.IsVisible(DialogNotification.xml)]">Conditional</animation>
+					<control type="group">
+						<height>80</height>
+						<centertop>50%</centertop>
+						<control type="group">
+							<height>80</height>
+							<top>-5</top>
+							<control type="grouplist">
+								<align>right</align>
+								<orientation>horizontal</orientation>
+								<itemgap>20</itemgap>
+								<animation effect="slide" start="0" end="-80" tween="back" easing="out" time="400" reversible="false" condition="Window.IsVisible(DialogBusy.xml) | Window.IsVisible(DialogVolumeBar.xml)">Conditional</animation>
+								<animation effect="slide" start="-80" end="0" tween="back" easing="out" time="400" reversible="false" condition="![Window.IsVisible(DialogBusy.xml) | Window.IsVisible(DialogVolumeBar.xml)]">Conditional</animation>
+								<visible>![Player.HasMedia + String.IsEmpty(Window(Home).Property(dexhub.trailer.active))]</visible>
+								<control type="image">
+									<width>290</width>
+									<height>100</height>
+									<aspectratio align="right">keep</aspectratio>
+									<texture background="true">$VAR[AF3P_Image_CombinedStudio]</texture>
+									<centertop>50%</centertop>
+								</control>
+								<scrolltime tween="quadratic">400</scrolltime>
+								<usecontrolcoords>true</usecontrolcoords>
+							</control>
+							<control type="group">
+								<width>720</width>
+								<right>-20</right>
+								<visible>Player.HasMedia + String.IsEmpty(Window(Home).Property(dexhub.trailer.active))</visible>
+								<control type="group">
+									<right>0</right>
+									<visible>!Window.IsActive(DialogVolumeBar.xml)</visible>
+									<animation type="Visible" reversible="false" condition="true">
+										<effect type="fade" start="0" end="100" time="300" delay="150"/>
+										<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="150"/>
+									</animation>
+									<control type="group">
+										<centertop>50%</centertop>
+										<width>50</width>
+										<height>50</height>
+										<right>15</right>
+										<control type="image">
+											<left>-40</left>
+											<right>-40</right>
+											<top>-40</top>
+											<bottom>-40</bottom>
+											<bordersize>40</bordersize>
+											<bordertexture colordiffuse="af3_shadow_soft">af3/shadows/circle_provider.png</bordertexture>
+											<texture colordiffuse="af3_main_fg_100">af3/diffuse/circle/provider_circle.png</texture>
+										</control>
+										<control type="image">
+											<aspectratio>keep</aspectratio>
+											<texture colordiffuse="af3_main_bg_90" diffuse="af3/diffuse/circle/provider_circle.png">$VAR[AF3P_Image_NowPlaying_PlayPause]</texture>
+											<bordersize>0</bordersize>
+										</control>
+									</control>
+									<control type="group">
+										<centerright>40</centerright>
+										<centertop>50%</centertop>
+										<width>100</width>
+										<height>100</height>
+										<control type="image">
+											<bordersize>-4</bordersize>
+											<texture colordiffuse="ffffffff">$INFO[Player.Progress,af3/progress/circle/p,.png]</texture>
+											<aspectratio align="center" aligny="center">keep</aspectratio>
+										</control>
+									</control>
+								</control>
+								<control type="group">
+									<top>25</top>
+									<height>40</height>
+									<right>100</right>
+									<control type="grouplist">
+										<orientation>horizontal</orientation>
+										<align>right</align>
+										<itemgap>8</itemgap>
+										<control type="image">
+											<height>1</height>
+											<centerbottom>10</centerbottom>
+											<width>320</width>
+											<right>0</right>
+											<texture colordiffuse="af3_main_fg_12" flipx="false">af3/common/gradient-box.png</texture>
+										</control>
+										<control type="label">
+											<font>af3_font_hint_bold</font>
+											<textcolor>af3_main_fg_100</textcolor>
+											<shadowcolor>af3_main_bg_30</shadowcolor>
+											<label>$VAR[AF3P_Label_NowPlayingSubLabel]</label>
+											<width>auto</width>
+											<align>right</align>
+											<height>40</height>
+											<centertop>30</centertop>
+											<aligny>center</aligny>
+											<selectedcolor>af3_main_fg_70</selectedcolor>
+											<scrollsuffix> </scrollsuffix>
+											<scrollspeed>40</scrollspeed>
+											<disabledcolor>60FFFFFF</disabledcolor>
+										</control>
+										<scrolltime tween="quadratic">400</scrolltime>
+										<usecontrolcoords>true</usecontrolcoords>
+									</control>
+									<control type="label">
+										<height>40</height>
+										<centertop>0</centertop>
+										<font>af3_font_main_bold</font>
+										<textcolor>af3_main_fg_90</textcolor>
+										<shadowcolor>af3_main_bg_30</shadowcolor>
+										<label>$VAR[AF3P_Label_NowPlayingTitle]</label>
+										<align>right</align>
+										<aligny>center</aligny>
+										<selectedcolor>af3_main_fg_70</selectedcolor>
+										<scrollsuffix> </scrollsuffix>
+										<scrollspeed>40</scrollspeed>
+										<disabledcolor>60FFFFFF</disabledcolor>
+									</control>
+								</control>
+							</control>
+						</control>
+					</control>
+				</control>
+			</control>
+		</control>
+	
+<control type="button" id="601">
+ <left>40</left><bottom>20</bottom><width>650</width><height>60</height>
+ <label>ربط بالجوال • ملفات وباك أب / Phone • Files &amp; Backup</label>
+ <font>af3_font_main</font><textcolor>af3_main_fg_90</textcolor><focusedcolor>ff272727</focusedcolor>
+ <texturefocus border="20">af3/common/menu.png</texturefocus><texturenofocus border="20" colordiffuse="af3_main_fg_12">af3/common/menu.png</texturenofocus>
+ <onup>3</onup><ondown>3</ondown><onright>5</onright><onleft>3</onleft>
+ <onclick>ActivateWindow(Videos,plugin://plugin.video.dexhub.tvos/?action=phone_setup&amp;section=files,return)</onclick>
+ <visible>System.Platform.TVOS</visible>
+</control>
+</controls>
+</window>

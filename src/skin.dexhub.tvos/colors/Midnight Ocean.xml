@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dex Hub theme Midnight Ocean (skin.dexhub.tvos 3.14.0): the colours over defaults.xml -->
+<colors>
+	<color name="primary_background">FF070B14</color>
+	<color name="secondary_background">33121B2E</color>
+	<color name="dialog_tint">FF0C1321</color>
+	<color name="background">FF04060B</color>
+	<color name="white">FFEAF4FF</color>
+	<color name="grey">FF7C8AA6</color>
+	<color name="blue">FF7DD3FC</color>
+	<color name="button_focus">FF38BDF8</color>
+	<color name="button_alt_focus">8038BDF8</color>
+	<color name="selected">FF6ACEFA</color>
+	<color name="dh_accent">FF38BDF8</color>
+	<color name="dh_accent_dim">4738BDF8</color>
+	<color name="dh_secondary">FF7DD3FC</color>
+	<color name="dh_surface">FF070B14</color>
+	<color name="dh_card">FF121B2E</color>
+	<color name="dh_text">FFEAF4FF</color>
+	<color name="dh_muted">FF7C8AA6</color>
+	<color name="dh_on_accent">FF070B14</color>
+	<color name="dh_glow_a">5C38BDF8</color>
+	<color name="dh_glow_b">407DD3FC</color>
+	<color name="dh_glow_focus">9938BDF8</color>
+</colors>

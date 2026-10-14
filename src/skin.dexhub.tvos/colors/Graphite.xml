@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dex Hub theme Graphite (skin.dexhub.tvos 3.14.0): the colours over defaults.xml -->
+<colors>
+	<color name="primary_background">FF101113</color>
+	<color name="secondary_background">331C1E22</color>
+	<color name="dialog_tint">FF16181A</color>
+	<color name="background">FF09090A</color>
+	<color name="white">FFEDEEF0</color>
+	<color name="grey">FF8E939C</color>
+	<color name="blue">FFBAC8E0</color>
+	<color name="button_focus">FF8AB4F8</color>
+	<color name="button_alt_focus">808AB4F8</color>
+	<color name="selected">FFA7C7FA</color>
+	<color name="dh_accent">FF8AB4F8</color>
+	<color name="dh_accent_dim">478AB4F8</color>
+	<color name="dh_secondary">FFBAC8E0</color>
+	<color name="dh_surface">FF101113</color>
+	<color name="dh_card">FF1C1E22</color>
+	<color name="dh_text">FFEDEEF0</color>
+	<color name="dh_muted">FF8E939C</color>
+	<color name="dh_on_accent">FF101113</color>
+	<color name="dh_glow_a">5C8AB4F8</color>
+	<color name="dh_glow_b">40BAC8E0</color>
+	<color name="dh_glow_focus">998AB4F8</color>
+</colors>

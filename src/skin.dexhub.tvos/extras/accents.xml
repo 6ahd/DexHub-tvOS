@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dex Hub focus colours for Configure skin > Appearance > Focus colour > Another colour -->
+<colors>
+	<color name="Pure white">FFF5F5F5</color>
+	<color name="Aqua">FF00B8D4</color>
+	<color name="Tropical">FFF4511E</color>
+	<color name="Vaporwave">FFE91E63</color>
+	<color name="Ocean">FF0091EA</color>
+	<color name="Midnight">FF5528A8</color>
+	<color name="Nuvio red">FFE5484D</color>
+	<color name="Violet">FF9B6BFF</color>
+	<color name="Royal">FF8B5CF6</color>
+	<color name="Periwinkle">FF8C9BFF</color>
+	<color name="Sky">FF38BDF8</color>
+	<color name="Blue">FF5B8DEF</color>
+	<color name="Ice">FF8AB4F8</color>
+	<color name="Frost">FF88C0D0</color>
+	<color name="Teal">FF2DD4BF</color>
+	<color name="Emerald">FF34C495</color>
+	<color name="Lime">FFA3E635</color>
+	<color name="Amber">FFF2A93B</color>
+	<color name="Orange">FFFB923C</color>
+	<color name="Coral">FFF87171</color>
+	<color name="Crimson">FFE04355</color>
+	<color name="Rose">FFF472B6</color>
+	<color name="Orchid">FFD08CF0</color>
+	<color name="Silver">FFC9CED6</color>
+	<color name="White">FFE5E7EB</color>
+	<color name="Gold">FFE6C36A</color>
+	<color name="Mint">FF7EE0C0</color>
+</colors>

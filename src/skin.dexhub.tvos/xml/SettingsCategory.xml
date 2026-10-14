@@ -1,0 +1,565 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<window>
+	<defaultcontrol always="true">3</defaultcontrol>
+	<onload>ClearProperty(Background.ShowOverlay,Home)</onload>
+	<onload>ClearProperty(Background.ShowOverlay,Home)</onload>
+	<onload>ClearProperty(InfoPanel.FullSwitch,Home)</onload>
+	<menucontrol>30000</menucontrol>
+	<controls>
+		<control type="image">
+			<description>Dex Hub: the theme's surface</description>
+			<texture colordiffuse="$VAR[DhSurface]">dexhub/white.png</texture>
+		</control>
+		<control type="image">
+			<description>the accent's glow</description>
+			<texture colordiffuse="$VAR[DhGlowA]">dexhub/page_glow_a.png</texture>
+		<visible>!String.IsEqual(Skin.String(dh.glow),off)</visible></control>
+		<control type="image">
+			<texture colordiffuse="$VAR[DhGlowB]">dexhub/page_glow_b.png</texture>
+		<visible>!String.IsEqual(Skin.String(dh.glow),off)</visible></control>
+		<control type="group">
+			<visible>Player.HasVideo + String.IsEmpty(Window(Home).Property(dexhub.trailer.active))</visible>
+			<control type="videowindow"/>
+			<control type="image">
+				<texture colordiffuse="D9000000">dexhub/white.png</texture>
+			</control>
+		</control>
+		<control type="group">
+			<visible>![Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml)]</visible>
+			<animation type="Visible" reversible="false" condition="true">
+				<effect type="fade" start="0" end="100" time="300" delay="0" tween="sine" easing="in"/>
+				<effect type="zoom" start="85" end="100" time="300" delay="0" center="auto" tween="sine" easing="out"/>
+			</animation>
+			<animation type="Hidden" reversible="false" condition="true">
+				<effect type="zoom" start="100" end="85" center="auto" tween="sine" delay="0" easing="out" time="300"/>
+				<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300"/>
+			</animation>
+			<control type="group">
+				<top>40</top>
+				<height>80</height>
+				<left>80</left>
+				<right>80</right>
+				<control type="group">
+					<left>0</left>
+					<width>720</width>
+					<control type="image">
+						<height>1</height>
+						<centerbottom>10</centerbottom>
+						<width>720</width>
+						<left>0</left>
+						<texture colordiffuse="af3_main_fg_12" flipx="true">af3/common/gradient-box.png</texture>
+					</control>
+					<control type="label">
+						<label>$VAR[AF3P_Label_Header_Main]</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>af3_main_fg_90</textcolor>
+						<font>af3_font_midi_bold</font>
+						<height>80</height>
+						<right>0</right>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+				</control>
+				<control type="group">
+					<right>0</right>
+					<width>370</width>
+					<visible/>
+					<control type="image">
+						<height>1</height>
+						<centerbottom>10</centerbottom>
+						<width>720</width>
+						<right>0</right>
+						<texture colordiffuse="af3_main_fg_12" flipx="false">af3/common/gradient-box.png</texture>
+					</control>
+					<control type="grouplist">
+						<orientation>horizontal</orientation>
+						<align>right</align>
+						<aligny>center</aligny>
+						<itemgap>8</itemgap>
+						<height>80</height>
+						<control type="label">
+							<label>‭$INFO[System.Time]$VAR[AF3P_Furniture_Header_Right_Temperature, •,]‬</label>
+							<align>right</align>
+							<aligny>center</aligny>
+							<textcolor>af3_main_fg_100</textcolor>
+							<font>af3_font_midi_bold</font>
+							<height>80</height>
+							<width>auto</width>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="image">
+							<height>40</height>
+							<width>40</width>
+							<aspectratio>keep</aspectratio>
+							<centertop>50%</centertop>
+							<texture>$INFO[Weather.FanartCode,resource://resource.images.weathericons.white/,.png]</texture>
+							<visible>Weather.IsFetched</visible>
+						</control>
+						<scrolltime tween="quadratic">400</scrolltime>
+						<usecontrolcoords>true</usecontrolcoords>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<control type="group">
+					<control type="group">
+						<control type="grouplist" id="3">
+							<onright>5</onright>
+							<onup>20</onup>
+							<ondown>20</ondown>
+							<bottom>160</bottom>
+							<scrolltime tween="quadratic">400</scrolltime>
+							<usecontrolcoords>true</usecontrolcoords>
+							<itemgap>0</itemgap>
+						</control>
+						<control type="button" id="20">
+							<description>Default Setting Button</description>
+							<width>400</width>
+							<bottom>80</bottom>
+							<left>0</left>
+							<onup>3</onup>
+							<onup>SetFocus(-200)</onup>
+							<onup>SetFocus(-199)</onup>
+							<onup>SetFocus(-198)</onup>
+							<onup>SetFocus(-197)</onup>
+							<onup>SetFocus(-196)</onup>
+							<onup>SetFocus(-195)</onup>
+							<onup>SetFocus(-194)</onup>
+							<onup>SetFocus(-193)</onup>
+							<onup>SetFocus(-192)</onup>
+							<onup>SetFocus(-191)</onup>
+							<onright>5</onright>
+							<ondown>3</ondown>
+							<ondown>SetFocus(-200)</ondown>
+							<onclick>settingslevelchange</onclick>
+							<align>left</align>
+							<font>af3_font_main</font>
+							<height>80</height>
+							<textoffsetx>40</textoffsetx>
+							<texturenofocus/>
+							<alttexturenofocus/>
+							<description>None</description>
+							<aligny>center</aligny>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<focusedcolor>ff272727</focusedcolor>
+							<disabledcolor>af3_main_fg_30</disabledcolor>
+							<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+							<pulseonselect>false</pulseonselect>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+						</control>
+						<control type="group">
+							<height>80</height>
+							<width>80</width>
+							<right>50</right>
+							<bottom>80</bottom>
+							<control type="image">
+								<texture colordiffuse="af3_main_fg_70">$VAR[AF3P_Image_Settings_Level]</texture>
+								<bordersize>10</bordersize>
+								<visible>!Control.HasFocus(20)</visible>
+							</control>
+							<control type="image">
+								<texture colordiffuse="ff272727">$VAR[AF3P_Image_Settings_Level]</texture>
+								<bordersize>10</bordersize>
+								<visible>Control.HasFocus(20)</visible>
+							</control>
+						</control>
+						<top>180</top>
+						<bottom>100</bottom>
+						<left>40</left>
+						<right>-100</right>
+					</control>
+					<width>380</width>
+				</control>
+				<control type="group">
+					<control type="image">
+						<texture border="20" colordiffuse="af3_main_fg_12">af3/common/dialog.png</texture>
+					</control>
+					<control type="scrollbar" id="60">
+						<centerright>0</centerright>
+						<bottom>20</bottom>
+						<top>20</top>
+						<width>10</width>
+						<orientation>vertical</orientation>
+						<texturesliderbackground/>
+						<texturesliderbar colordiffuse="af3_main_logo" border="4">af3/scrollbar/scrollv_line.png</texturesliderbar>
+						<texturesliderbarfocus border="4" colordiffuse="ffffffff">af3/common/scrollv.png</texturesliderbarfocus>
+						<showonepage>false</showonepage>
+						<onleft>5</onleft>
+						<textureslidernib/>
+						<textureslidernibfocus/>
+					</control>
+					<control type="grouplist" id="5">
+						<onleft>3</onleft>
+						<bottom>100</bottom>
+						<onright>60</onright>
+						<pagecontrol>60</pagecontrol>
+						<top>20</top>
+						<left>20</left>
+						<right>20</right>
+						<scrolltime tween="quadratic">400</scrolltime>
+						<usecontrolcoords>true</usecontrolcoords>
+						<itemgap>0</itemgap>
+					</control>
+					<control type="group">
+						<height>40</height>
+						<centerbottom>40</centerbottom>
+						<left>20</left>
+						<right>20</right>
+						<control type="image">
+							<centertop>-20</centertop>
+							<height>1</height>
+							<left>20</left>
+							<right>20</right>
+							<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+						</control>
+						<control type="image">
+							<centerleft>50</centerleft>
+							<width>40</width>
+							<bordersize>-12</bordersize>
+							<texture colordiffuse="af3_main_fg_70">af3/extras/icons/info2.png</texture>
+						</control>
+						<control type="group">
+							<left>90</left>
+							<right>20</right>
+							<height>55</height>
+							<centertop>50%</centertop>
+							<control type="textbox" id="6">
+								<font>af3_font_tiny</font>
+								<aligny>center</aligny>
+								<textcolor>af3_main_fg_70</textcolor>
+								<label fallback="$INFO[System.BuildVersion,Kodi ,]$INFO[System.AddonVersion(skin.dexhub.tvos), • Dex Hub v,]">$VAR[AF3P_Label_Settings_InfoText]</label>
+								<align>left</align>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<autoscroll delay="6000" time="3000" repeat="10000">!Skin.HasSetting(Textboxes.DisableAutoscroll)</autoscroll>
+							</control>
+						</control>
+					</control>
+					<left>460</left>
+					<right>80</right>
+					<bottom>160</bottom>
+					<top>160</top>
+				</control>
+			</control>
+			<control type="group">
+				<left>80</left>
+				<right>80</right>
+				<height>40</height>
+				<bottom>80</bottom>
+				<include condition="Window.IsMedia + !Window.IsVisible(addonbrowser) + !Window.IsVisible(eventlog) + !Window.IsVisible(MyMusicPlaylistEditor.xml)">af3p_dyn_1</include>
+				<include condition="Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(SkinSettings.xml) | Window.IsVisible(SettingsProfile.xml) | Window.IsVisible(SettingsSystemInfo.xml) | Window.IsVisible(addonbrowser) | Window.IsVisible(filemanager) | Window.IsVisible(Settings.xml) | Window.IsVisible(eventlog) | Window.IsVisible(SettingsScreenCalibration.xml) | Window.IsVisible(MyMusicPlaylistEditor.xml)">af3p_dyn_2</include>
+			</control>
+			<control type="group">
+				<left>80</left>
+				<right>80</right>
+				<height>40</height>
+				<bottom>80</bottom>
+				<control type="group">
+					<animation effect="fade" start="100" end="0" time="150" reversible="false" condition="Window.IsVisible(DialogExtendedProgressBar.xml) | Window.IsVisible(DialogNotification.xml)">Conditional</animation>
+					<animation effect="fade" start="0" end="100" time="300" reversible="false" condition="![Window.IsVisible(DialogExtendedProgressBar.xml) | Window.IsVisible(DialogNotification.xml)]">Conditional</animation>
+					<control type="group">
+						<height>80</height>
+						<centertop>50%</centertop>
+						<control type="group">
+							<height>80</height>
+							<top>-5</top>
+							<control type="grouplist">
+								<align>right</align>
+								<orientation>horizontal</orientation>
+								<itemgap>20</itemgap>
+								<animation effect="slide" start="0" end="-80" tween="back" easing="out" time="400" reversible="false" condition="Window.IsVisible(DialogBusy.xml) | Window.IsVisible(DialogVolumeBar.xml)">Conditional</animation>
+								<animation effect="slide" start="-80" end="0" tween="back" easing="out" time="400" reversible="false" condition="![Window.IsVisible(DialogBusy.xml) | Window.IsVisible(DialogVolumeBar.xml)]">Conditional</animation>
+								<visible>![Player.HasMedia + String.IsEmpty(Window(Home).Property(dexhub.trailer.active))]</visible>
+								<control type="image">
+									<width>290</width>
+									<height>100</height>
+									<aspectratio align="right">keep</aspectratio>
+									<texture background="true">$VAR[AF3P_Image_CombinedStudio]</texture>
+									<centertop>50%</centertop>
+								</control>
+								<scrolltime tween="quadratic">400</scrolltime>
+								<usecontrolcoords>true</usecontrolcoords>
+							</control>
+							<control type="group">
+								<width>720</width>
+								<right>-20</right>
+								<visible>Player.HasMedia + String.IsEmpty(Window(Home).Property(dexhub.trailer.active))</visible>
+								<control type="group">
+									<right>0</right>
+									<visible>!Window.IsActive(DialogVolumeBar.xml)</visible>
+									<animation type="Visible" reversible="false" condition="true">
+										<effect type="fade" start="0" end="100" time="300" delay="150"/>
+										<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="150"/>
+									</animation>
+									<control type="group">
+										<centertop>50%</centertop>
+										<width>50</width>
+										<height>50</height>
+										<right>15</right>
+										<control type="image">
+											<left>-40</left>
+											<right>-40</right>
+											<top>-40</top>
+											<bottom>-40</bottom>
+											<bordersize>40</bordersize>
+											<bordertexture colordiffuse="af3_shadow_soft">af3/shadows/circle_provider.png</bordertexture>
+											<texture colordiffuse="af3_main_fg_100">af3/diffuse/circle/provider_circle.png</texture>
+										</control>
+										<control type="image">
+											<aspectratio>keep</aspectratio>
+											<texture colordiffuse="af3_main_bg_90" diffuse="af3/diffuse/circle/provider_circle.png">$VAR[AF3P_Image_NowPlaying_PlayPause]</texture>
+											<bordersize>0</bordersize>
+										</control>
+									</control>
+									<control type="group">
+										<centerright>40</centerright>
+										<centertop>50%</centertop>
+										<width>100</width>
+										<height>100</height>
+										<control type="image">
+											<bordersize>-4</bordersize>
+											<texture colordiffuse="ffffffff">$INFO[Player.Progress,af3/progress/circle/p,.png]</texture>
+											<aspectratio align="center" aligny="center">keep</aspectratio>
+										</control>
+									</control>
+								</control>
+								<control type="group">
+									<top>25</top>
+									<height>40</height>
+									<right>100</right>
+									<control type="grouplist">
+										<orientation>horizontal</orientation>
+										<align>right</align>
+										<itemgap>8</itemgap>
+										<control type="image">
+											<height>1</height>
+											<centerbottom>10</centerbottom>
+											<width>320</width>
+											<right>0</right>
+											<texture colordiffuse="af3_main_fg_12" flipx="false">af3/common/gradient-box.png</texture>
+										</control>
+										<control type="label">
+											<font>af3_font_hint_bold</font>
+											<textcolor>af3_main_fg_100</textcolor>
+											<shadowcolor>af3_main_bg_30</shadowcolor>
+											<label>$VAR[AF3P_Label_NowPlayingSubLabel]</label>
+											<width>auto</width>
+											<align>right</align>
+											<height>40</height>
+											<centertop>30</centertop>
+											<aligny>center</aligny>
+											<selectedcolor>af3_main_fg_70</selectedcolor>
+											<scrollsuffix> </scrollsuffix>
+											<scrollspeed>40</scrollspeed>
+											<disabledcolor>60FFFFFF</disabledcolor>
+										</control>
+										<scrolltime tween="quadratic">400</scrolltime>
+										<usecontrolcoords>true</usecontrolcoords>
+									</control>
+									<control type="label">
+										<height>40</height>
+										<centertop>0</centertop>
+										<font>af3_font_main_bold</font>
+										<textcolor>af3_main_fg_90</textcolor>
+										<shadowcolor>af3_main_bg_30</shadowcolor>
+										<label>$VAR[AF3P_Label_NowPlayingTitle]</label>
+										<align>right</align>
+										<aligny>center</aligny>
+										<selectedcolor>af3_main_fg_70</selectedcolor>
+										<scrollsuffix> </scrollsuffix>
+										<scrollspeed>40</scrollspeed>
+										<disabledcolor>60FFFFFF</disabledcolor>
+									</control>
+								</control>
+							</control>
+						</control>
+					</control>
+				</control>
+			</control>
+		</control>
+		<control type="togglebutton" id="10">
+			<texturefocus colordiffuse="$VAR[AF3P_ColorSettingsToggleButtonHighlight]" border="40">af3/common/menu.png</texturefocus>
+			<alttexturefocus colordiffuse="$VAR[AF3P_ColorSettingsToggleButtonHighlight]" border="40">af3/common/menu.png</alttexturefocus>
+			<focusedcolor>$VAR[AF3P_ColorSettingsToggleButtonText]</focusedcolor>
+			<altfocusedcolor>$VAR[AF3P_ColorSettingsToggleButtonText]</altfocusedcolor>
+			<width>400</width>
+			<description>Default Category Button</description>
+			<align>left</align>
+			<font>af3_font_main</font>
+			<height>80</height>
+			<textoffsetx>40</textoffsetx>
+			<texturenofocus/>
+			<alttexturenofocus/>
+			<description>None</description>
+			<aligny>center</aligny>
+			<textcolor>af3_main_fg_70</textcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button" id="7">
+			<description>Default Setting Button</description>
+			<align>left</align>
+			<font>af3_font_main</font>
+			<height>80</height>
+			<textoffsetx>40</textoffsetx>
+			<texturenofocus/>
+			<alttexturenofocus/>
+			<description>None</description>
+			<aligny>center</aligny>
+			<textcolor>af3_main_fg_70</textcolor>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="radiobutton" id="8">
+			<description>Default Setting Button</description>
+			<align>left</align>
+			<font>af3_font_main</font>
+			<height>80</height>
+			<textoffsetx>40</textoffsetx>
+			<texturenofocus/>
+			<alttexturenofocus/>
+			<description>None</description>
+			<aligny>center</aligny>
+			<textcolor>af3_main_fg_70</textcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+			<pulseonselect>false</pulseonselect>
+			<radiowidth>86</radiowidth>
+			<radioheight>28</radioheight>
+			<textureradioondisabled colordiffuse="af3_main_fg_12">af3/buttons/check-on.png</textureradioondisabled>
+			<textureradiooffdisabled colordiffuse="af3_main_fg_12">af3/buttons/check-off.png</textureradiooffdisabled>
+			<textureradioonfocus colordiffuse="ff272727">af3/buttons/check-on.png</textureradioonfocus>
+			<textureradioofffocus colordiffuse="ff272727">af3/buttons/check-off.png</textureradioofffocus>
+			<textureradioonnofocus colordiffuse="af3_main_fg_70">af3/buttons/check-on.png</textureradioonnofocus>
+			<textureradiooffnofocus colordiffuse="af3_main_fg_70">af3/buttons/check-off.png</textureradiooffnofocus>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="spincontrolex" id="9">
+			<description>Default Setting Button</description>
+			<textwidth>760</textwidth>
+			<align>left</align>
+			<font>af3_font_main</font>
+			<height>80</height>
+			<textoffsetx>40</textoffsetx>
+			<texturenofocus/>
+			<alttexturenofocus/>
+			<description>None</description>
+			<aligny>center</aligny>
+			<textcolor>af3_main_fg_70</textcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+			<pulseonselect>false</pulseonselect>
+			<textureup flipy="true" colordiffuse="af3_main_soft">af3/buttons/triangle-down.png</textureup>
+			<texturedown colordiffuse="af3_main_soft">af3/buttons/triangle-down.png</texturedown>
+			<textureupfocus flipy="true" colordiffuse="ff272727">af3/buttons/triangle-down.png</textureupfocus>
+			<texturedownfocus colordiffuse="ff272727">af3/buttons/triangle-down.png</texturedownfocus>
+			<textureupdisabled flipy="true" colordiffuse="af3_main_soft">af3/buttons/triangle-down.png</textureupdisabled>
+			<texturedowndisabled colordiffuse="af3_main_soft">af3/buttons/triangle-down.png</texturedowndisabled>
+			<reverse>yes</reverse>
+			<spinwidth>30</spinwidth>
+			<spinheight>30</spinheight>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="edit" id="12">
+			<description>Default Setting Button</description>
+			<align>left</align>
+			<font>af3_font_main</font>
+			<height>80</height>
+			<textoffsetx>40</textoffsetx>
+			<texturenofocus/>
+			<alttexturenofocus/>
+			<description>None</description>
+			<aligny>center</aligny>
+			<textcolor>af3_main_fg_70</textcolor>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+			<invalidcolor>FFFFFFFF</invalidcolor>
+		</control>
+		<control type="sliderex" id="13">
+			<description>Default Setting Button</description>
+			<textwidth>560</textwidth>
+			<align>left</align>
+			<font>af3_font_main</font>
+			<height>80</height>
+			<textoffsetx>40</textoffsetx>
+			<texturenofocus/>
+			<alttexturenofocus/>
+			<description>None</description>
+			<aligny>center</aligny>
+			<textcolor>af3_main_fg_70</textcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+			<pulseonselect>false</pulseonselect>
+			<sliderwidth>120</sliderwidth>
+			<sliderheight>12</sliderheight>
+			<texturesliderbar colordiffuse="af3_main_soft" border="6">af3/slider/slider_bg.png</texturesliderbar>
+			<textureslidernib colordiffuse="af3_main_hard" border="6">af3/slider/slider_nib.png</textureslidernib>
+			<textureslidernibfocus colordiffuse="ff272727" border="6">af3/slider/slider_nib.png</textureslidernibfocus>
+			<orientation>horizontal</orientation>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="label" id="14">
+			<description>Default Setting Label</description>
+			<align>left</align>
+			<font>af3_font_hint_bold</font>
+			<top>40</top>
+			<height>40</height>
+			<textoffsetx>40</textoffsetx>
+			<textcolor>af3_main_fg_30</textcolor>
+			<description>None</description>
+			<aligny>center</aligny>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+			<disabledcolor>60FFFFFF</disabledcolor>
+		</control>
+		<control type="colorbutton" id="15">
+			<description>Default Setting Button</description>
+			<align>left</align>
+			<font>af3_font_main</font>
+			<height>80</height>
+			<textoffsetx>40</textoffsetx>
+			<texturenofocus/>
+			<alttexturenofocus/>
+			<description>None</description>
+			<aligny>center</aligny>
+			<textcolor>af3_main_fg_70</textcolor>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+			<colorwidth>84</colorwidth>
+			<colorheight>24</colorheight>
+			<texturecolormask>af3/buttons/colorpicker.png</texturecolormask>
+			<texturecolordisabledmask colordiffuse="af3_main_fg_30">af3/buttons/colorpicker.png</texturecolordisabledmask>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+	</controls>
+</window>

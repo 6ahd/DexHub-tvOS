@@ -6,7 +6,68 @@ Dolby Vision, HDR10, Dolby Atmos, Arabic subtitles, and the Dex Hub interface in
 > **Unofficial build.** Not made or supported by Team Kodi or the XBMC Foundation.
 > Kodi® is a registered trademark of the XBMC Foundation.
 
-[العربية](#بالعربي) · [English](#english)
+[English](#english) · [العربية](#بالعربي)
+
+## English
+
+### What it is
+A modified Kodi 22 for Apple TV with:
+- **Aether 7.35.1** as the default player: Dolby Vision, HDR10 and HLG (source and display permitting), H.264, HEVC and AV1, automatic frame rate matching.
+- **Dolby Atmos:** E-AC-3 JOC automatically. TrueHD Atmos is rendered to Apple spatial audio (APAC) and output as Dolby MAT, with your real speaker layout picked in settings (5.1.2 to 9.1.6). This is not raw TrueHD passthrough.
+- **Three ways to play:** Aether, Kodi's own player, or an external app (Infuse or VidHub) with resume, subtitle hand-off and return.
+- **Dex Hub add-on and skin** installed on first launch, with Arabic subtitle fonts.
+- **Performance:** Release build; the interface runs in the Apple TV's own mode (60 Hz).
+
+### Requirements
+- Apple TV 4K on **tvOS 26** or later.
+- To install: a signing tool and an Apple account (see below).
+- To build from source only: an Apple Silicon Mac with Xcode 26 or later and at least 20 GB free.
+
+### ⚠️ The app must be signed
+The IPA on the Releases page is **unsigned**. Apple TV will not install an unsigned app, so you sign it yourself before installing:
+
+1. Download `Kodi-DexHub-AetherOnly-*-unsigned.ipa` from [Releases](../../releases).
+2. Sign it with an Apple TV capable signing tool (Sideloadly or whatever you use) and an Apple account:
+   - **Free Apple account:** the signature expires after 7 days; sign again.
+   - **Paid developer account:** valid for a year.
+3. **Sign the whole app including the Frameworks folder.** It carries the Aether and FFmpeg libraries; one unsigned library stops the install.
+4. To update an installed copy and keep its data, use the same bundle ID and account.
+
+**If you get** `ApplicationVerificationFailed ... invalid signature` on an `Aether*.framework`, run on a Mac:
+```bash
+bash FIX-SIGNING.command /path/to/file.ipa
+```
+Sign and install the `-fixed.ipa` it writes. Builds from v20 on do this already.
+
+### Repository layout
+| Path | What |
+|---|---|
+| `src/plugin.video.dexhub.tvos` | Dex Hub add-on for Apple TV (5.10.294) |
+| `src/skin.dexhub.tvos` | Dex Hub skin for Apple TV (3.28.42) |
+| `native/`, `apply_bridge.py`, `native_player_adapter.py` | Kodi source changes |
+| `DexAetherEmbedded.swift` | Swift bridge between Kodi and Aether |
+| `script.dexhub.tvos.players`, `script.module.dexhub.tvos.compat` | player choice and tvOS compatibility add-ons |
+| `assets/` | third-party add-ons bundled in the app |
+| `tests/` | Linux tests for the scripts and add-on parts |
+
+### Build from source (Mac)
+First time on a Mac (downloads Kodi 22 RC1 and builds its dependencies once; this takes a while):
+```bash
+git clone https://github.com/6ahd/DexHub-tvOS.git ~/Developer/DexHub-tvOS/DexHub-tvOS
+bash ~/Developer/DexHub-tvOS/DexHub-tvOS/update-kodi.sh 22.0rc1-Piers
+```
+Every build after that:
+```bash
+bash ~/Developer/DexHub-tvOS/DexHub-tvOS/BUILD.command
+```
+The unsigned IPA lands in Downloads; sign it as above.
+
+The build pins Aether 7.35.1 (commit `60ac862`) and its packages, builds the small Swift bridge, applies the Kodi changes in `native/` through `apply_bridge.py` (with a backup and `--restore`), builds Kodi in Release, bundles the add-ons in `assets/`, prepares the frameworks for signing and writes the IPA. The Dex Hub add-on and skin are built from their source in `src/` by `release_assets.py` (if `src/` is missing, `get-dexhub.sh` downloads them from Releases).
+
+### Licence
+- Build scripts, Kodi changes and the Aether bridge in this repository: **GPL-2.0-or-later**, © 2026 DexWorld.
+- **The Dex Hub add-on and skin in `src/` are not covered by this licence.** Their source is published so you can read and build it, under their own licences: `src/plugin.video.dexhub.tvos/LICENSE.txt` (proprietary, source available: redistributing, modifying, rebranding or selling it needs written permission) and the skin's licence files (Estuary GPL-2.0, Arctic Fuse 3 CC BY-NC-SA 4.0).
+- Other components keep their own licences; see [NOTICE.md](NOTICE.md).
 
 ---
 
@@ -41,6 +102,17 @@ bash FIX-SIGNING.command /path/to/file.ipa
 ```
 يطلع ملف جديد ينتهي بـ `-fixed.ipa`، وقّعه وثبّته. الإصدارات من v20 فما فوق تطلع جاهزة بدون هذه الخطوة.
 
+### محتوى المستودع
+| المسار | المحتوى |
+|---|---|
+| `src/plugin.video.dexhub.tvos` | إضافة Dex Hub لـ Apple TV (5.10.294) |
+| `src/skin.dexhub.tvos` | سكين Dex Hub لـ Apple TV (3.28.42) |
+| `native/` و`apply_bridge.py` و`native_player_adapter.py` | تعديلات سورس Kodi |
+| `DexAetherEmbedded.swift` | جسر Swift بين Kodi وAether |
+| `script.dexhub.tvos.players` و`script.module.dexhub.tvos.compat` | اختيار المشغل وتوافق tvOS |
+| `assets/` | إضافات خارجية مضمّنة في التطبيق |
+| `tests/` | اختبارات Linux للسكربتات والإضافة |
+
 ### البناء من السورس (ماك)
 أول مرة على الماك (ينزل Kodi 22 RC1 ويبني اعتمادياته مرة واحدة، ويطول):
 ```bash
@@ -59,61 +131,10 @@ bash ~/Developer/DexHub-tvOS/DexHub-tvOS/BUILD.command
 3. يطبّق تعديلات Kodi من مجلد `native/` عبر `apply_bridge.py`، مع نسخة احتياطية، ويقدر يرجعها.
 4. يبني Kodi بوضع Release، ويضيف الإضافات من `assets/`، ويجهّز المكتبات للتوقيع، ثم يطلع IPA.
 
-إضافة Dex Hub والسكين ينزلون تلقائيا من Releases عن طريق `get-dexhub.sh`.
+إضافة Dex Hub والسكين يتبنون من السورس في `src/` عن طريق `release_assets.py`. لو `src/` مو موجود، ينزلهم `get-dexhub.sh` من Releases.
 
 ### الحقوق
 - سكربتات البناء وتعديلات Kodi وجسر Aether في هذا المستودع: **GPL-2.0-or-later**، © 2026 DexWorld.
-- **إضافة Dex Hub وسكين Dex Hub ليست ضمن هذا الترخيص.** تُنشر كملفات إصدار فقط، ولكل واحد ترخيصه داخل ملفه. إعادة توزيع إضافة Dex Hub أو تعديلها أو بيعها تحتاج إذنا مكتوبا.
+- **سورس إضافة Dex Hub والسكين في `src/` ليس ضمن هذا الترخيص.** منشور للقراءة والبناء، ولكل واحد ترخيصه: `src/plugin.video.dexhub.tvos/LICENSE.txt` (ملكية خاصة مع إتاحة السورس: إعادة التوزيع أو التعديل أو تغيير الاسم أو البيع تحتاج إذنا مكتوبا)، وملفات ترخيص السكين (Estuary بترخيص GPL-2.0، وArctic Fuse 3 بترخيص CC BY-NC-SA 4.0).
 - المكونات الأخرى لها تراخيصها، والتفاصيل في [NOTICE.md](NOTICE.md).
 
----
-
-## English
-
-### What it is
-A modified Kodi 22 for Apple TV with:
-- **Aether 7.35.1** as the default player: Dolby Vision, HDR10 and HLG (source and display permitting), H.264, HEVC and AV1, automatic frame rate matching.
-- **Dolby Atmos:** E-AC-3 JOC automatically. TrueHD Atmos is rendered to Apple spatial audio (APAC) and output as Dolby MAT, with your real speaker layout picked in settings (5.1.2 to 9.1.6). This is not raw TrueHD passthrough.
-- **Three ways to play:** Aether, Kodi's own player, or an external app (Infuse or VidHub) with resume, subtitle hand-off and return.
-- **Dex Hub add-on and skin** installed on first launch, with Arabic subtitle fonts.
-- **Performance:** Release build; the interface runs in the Apple TV's own mode (60 Hz).
-
-### Requirements
-- Apple TV 4K on **tvOS 26** or later.
-- To install: a signing tool and an Apple account (see below).
-- To build from source only: an Apple Silicon Mac with Xcode 26 or later and at least 20 GB free.
-
-### ⚠️ The app must be signed
-The IPA on the Releases page is **unsigned**. Apple TV will not install an unsigned app, so you sign it yourself before installing:
-
-1. Download `Kodi-DexHub-AetherOnly-*-unsigned.ipa` from [Releases](../../releases).
-2. Sign it with an Apple TV capable signing tool (Sideloadly or whatever you use) and an Apple account:
-   - **Free Apple account:** the signature expires after 7 days; sign again.
-   - **Paid developer account:** valid for a year.
-3. **Sign the whole app including the Frameworks folder.** It carries the Aether and FFmpeg libraries; one unsigned library stops the install.
-4. To update an installed copy and keep its data, use the same bundle ID and account.
-
-**If you get** `ApplicationVerificationFailed ... invalid signature` on an `Aether*.framework`, run on a Mac:
-```bash
-bash FIX-SIGNING.command /path/to/file.ipa
-```
-Sign and install the `-fixed.ipa` it writes. Builds from v20 on do this already.
-
-### Build from source (Mac)
-First time on a Mac (downloads Kodi 22 RC1 and builds its dependencies once; this takes a while):
-```bash
-git clone https://github.com/6ahd/DexHub-tvOS.git ~/Developer/DexHub-tvOS/DexHub-tvOS
-bash ~/Developer/DexHub-tvOS/DexHub-tvOS/update-kodi.sh 22.0rc1-Piers
-```
-Every build after that:
-```bash
-bash ~/Developer/DexHub-tvOS/DexHub-tvOS/BUILD.command
-```
-The unsigned IPA lands in Downloads; sign it as above.
-
-The build pins Aether 7.35.1 (commit `60ac862`) and its packages, builds the small Swift bridge, applies the Kodi changes in `native/` through `apply_bridge.py` (with a backup and `--restore`), builds Kodi in Release, bundles the add-ons in `assets/`, prepares the frameworks for signing and writes the IPA. The Dex Hub add-on and skin are fetched from Releases by `get-dexhub.sh`.
-
-### Licence
-- Build scripts, Kodi changes and the Aether bridge in this repository: **GPL-2.0-or-later**, © 2026 DexWorld.
-- **The Dex Hub add-on and skin are not covered by this licence.** They are published as release files only, each with its own licence inside. Redistributing, modifying or selling the Dex Hub add-on needs written permission.
-- Other components keep their own licences; see [NOTICE.md](NOTICE.md).

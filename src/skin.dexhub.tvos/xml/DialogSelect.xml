@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol>3</defaultcontrol>
+	<controls>
+		<include condition="!Window.IsActive(selectvideoversion)">af3p_dyn_3</include>
+		<include condition="Window.IsActive(selectvideoversion)">af3p_dyn_4</include>
+		<control type="button" id="5">
+			<onfocus>SetFocus(9001)</onfocus>
+			<top>-3840</top>
+			<left>-3840</left>
+			<width>1</width>
+			<height>1</height>
+			<texturefocus/>
+			<texturenofocus/>
+			<font/>
+			<align>center</align>
+			<aligny>center</aligny>
+			<textoffsetx>30</textoffsetx>
+			<textcolor>af3_main_fg_70</textcolor>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button" id="7">
+			<onfocus>SetFocus(9002)</onfocus>
+			<top>-3840</top>
+			<left>-3840</left>
+			<width>1</width>
+			<height>1</height>
+			<texturefocus/>
+			<texturenofocus/>
+			<font/>
+			<align>center</align>
+			<aligny>center</aligny>
+			<textoffsetx>30</textoffsetx>
+			<textcolor>af3_main_fg_70</textcolor>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+		<control type="button" id="8">
+			<onfocus>SetFocus(9003)</onfocus>
+			<top>-3840</top>
+			<left>-3840</left>
+			<width>1</width>
+			<height>1</height>
+			<texturefocus/>
+			<texturenofocus/>
+			<font/>
+			<align>center</align>
+			<aligny>center</aligny>
+			<textoffsetx>30</textoffsetx>
+			<textcolor>af3_main_fg_70</textcolor>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<focusedcolor>ff272727</focusedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+		</control>
+	</controls>
+</window>

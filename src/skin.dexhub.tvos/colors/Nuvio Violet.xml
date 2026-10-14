@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dex Hub theme Nuvio Violet (skin.dexhub.tvos 3.14.0): the colours over defaults.xml -->
+<colors>
+	<color name="primary_background">FF0D0D0F</color>
+	<color name="secondary_background">331F1A24</color>
+	<color name="dialog_tint">FF16141A</color>
+	<color name="background">FF070708</color>
+	<color name="white">FFFFFFFF</color>
+	<color name="grey">FFB3B3B3</color>
+	<color name="blue">FFAB47BC</color>
+	<color name="button_focus">FF8E24AA</color>
+	<color name="button_alt_focus">808E24AA</color>
+	<color name="selected">FFAA5BBF</color>
+	<color name="dh_accent">FF8E24AA</color>
+	<color name="dh_accent_dim">478E24AA</color>
+	<color name="dh_secondary">FFAB47BC</color>
+	<color name="dh_surface">FF0D0D0F</color>
+	<color name="dh_card">FF1F1A24</color>
+	<color name="dh_text">FFFFFFFF</color>
+	<color name="dh_muted">FFB3B3B3</color>
+	<color name="dh_on_accent">FFFFFFFF</color>
+	<color name="dh_glow_a">5C8E24AA</color>
+	<color name="dh_glow_b">40AB47BC</color>
+	<color name="dh_glow_focus">998E24AA</color>
+</colors>

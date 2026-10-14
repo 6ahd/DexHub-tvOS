@@ -1,0 +1,793 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- skin.dexhub.tvos 3.19: the player badge page. The focused item's badges show on the right
+     (a pack's or the folder's from their properties); OK chooses it and the page stays. -->
+<window id="1194" type="dialog">
+	<defaultcontrol always="true">3</defaultcontrol>
+	<onload>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=player_badge_preview)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dhs.osd.badge.key),colorful)">SetFocus(3,0,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dhs.osd.badge.key),elite)">SetFocus(3,1,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dhs.osd.badge.key),gold)">SetFocus(3,2,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dhs.osd.badge.key),white)">SetFocus(3,3,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dhs.osd.badge.key),folder)">SetFocus(3,4,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dhs.osd.badge.key),minimal)">SetFocus(3,5,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dhs.osd.badge.key),compact)">SetFocus(3,6,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dhs.osd.badge.key),url)">SetFocus(3,7,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dhs.osd.badge.key),packs)">SetFocus(3,8,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dhs.osd.badge.key),off)">SetFocus(3,9,absolute)</onload>
+	<controls>
+		<control type="image">
+			<width>1920</width>
+			<height>1080</height>
+			<texture>af3/common/white.png</texture>
+			<colordiffuse>BB000000</colordiffuse>
+		</control>
+		<control type="group">
+			<left>170</left>
+			<top>130</top>
+			<width>1580</width>
+			<height>800</height>
+			<include>DhAF3DialogFrame</include>
+			<include>DhAF3DialogOpen</include>
+			<control type="label">
+				<left>45</left>
+				<top>30</top>
+				<width>1490</width>
+				<height>55</height>
+				<font>af3_font_midi_bold</font>
+				<textcolor>af3_dialog_fg_90</textcolor>
+				<label>$VAR[DhSettingsString31949]</label>
+			</control>
+			<control type="label">
+				<left>45</left>
+				<top>88</top>
+				<width>1490</width>
+				<height>45</height>
+				<font>af3_font_mini</font>
+				<textcolor>af3_dialog_fg_70</textcolor>
+				<label>$VAR[DhSettingsString32012]</label>
+			</control>
+			<control type="list" id="3">
+				<left>25</left>
+				<top>150</top>
+				<width>350</width>
+				<height>594</height>
+				<onup>3</onup>
+				<ondown>3</ondown>
+				<onleft>3</onleft>
+				<onright>11</onright>
+				<scrolltime>150</scrolltime>
+				<itemlayout height="59" width="350">
+					<control type="label">
+						<left>22</left>
+						<width>270</width>
+						<height>54</height>
+						<font>af3_font_main</font>
+						<aligny>center</aligny>
+						<textcolor>af3_dialog_fg_70</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="image">
+						<left>302</left>
+						<top>12</top>
+						<width>30</width>
+						<height>30</height>
+						<texture>dexhub/lay_done.png</texture>
+						<colordiffuse>$VAR[DhAccent]</colordiffuse>
+						<visible>String.IsEqual(ListItem.Property(key),Window(Home).Property(dhs.osd.badge.key))</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="59" width="350">
+					<control type="image">
+						<width>350</width>
+						<height>54</height>
+						<texture border="30">af3/common/menu.png</texture>
+						<colordiffuse>$VAR[DhAccent]</colordiffuse>
+					</control>
+					<control type="label">
+						<left>22</left>
+						<width>270</width>
+						<height>54</height>
+						<font>af3_font_main</font>
+						<aligny>center</aligny>
+						<textcolor>$VAR[DhOnAccent]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="image">
+						<left>302</left>
+						<top>12</top>
+						<width>30</width>
+						<height>30</height>
+						<texture>dexhub/lay_done.png</texture>
+						<colordiffuse>$VAR[DhOnAccent]</colordiffuse>
+						<visible>String.IsEqual(ListItem.Property(key),Window(Home).Property(dhs.osd.badge.key))</visible>
+					</control>
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<label>$VAR[DhSettingsString31955]</label>
+						<property name="key">colorful</property>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=player_badge_select&amp;style=colorful)</onclick>
+					</item>
+					<item id="2">
+						<label>$VAR[DhSettingsString32060]</label>
+						<property name="key">elite</property>
+						<property name="x0">$INFO[Window(Home).Property(dhs.preview.elite.lead)]</property>
+						<property name="p1">$INFO[Window(Home).Property(dhs.preview.elite.1.w)]</property>
+						<property name="x1">$INFO[Window(Home).Property(dhs.preview.elite.1.x)]</property>
+						<property name="i1">$INFO[Window(Home).Property(dhs.preview.elite.1.image)]</property>
+						<property name="t1">$INFO[Window(Home).Property(dhs.preview.elite.1.text)]</property>
+						<property name="l1">$INFO[Window(Home).Property(dhs.preview.elite.1.look)]</property>
+						<property name="f1">$INFO[Window(Home).Property(dhs.preview.elite.1.fill)]</property>
+						<property name="b1">$INFO[Window(Home).Property(dhs.preview.elite.1.border)]</property>
+						<property name="c1">$INFO[Window(Home).Property(dhs.preview.elite.1.color)]</property>
+						<property name="p2">$INFO[Window(Home).Property(dhs.preview.elite.2.w)]</property>
+						<property name="x2">$INFO[Window(Home).Property(dhs.preview.elite.2.x)]</property>
+						<property name="i2">$INFO[Window(Home).Property(dhs.preview.elite.2.image)]</property>
+						<property name="t2">$INFO[Window(Home).Property(dhs.preview.elite.2.text)]</property>
+						<property name="l2">$INFO[Window(Home).Property(dhs.preview.elite.2.look)]</property>
+						<property name="f2">$INFO[Window(Home).Property(dhs.preview.elite.2.fill)]</property>
+						<property name="b2">$INFO[Window(Home).Property(dhs.preview.elite.2.border)]</property>
+						<property name="c2">$INFO[Window(Home).Property(dhs.preview.elite.2.color)]</property>
+						<property name="p3">$INFO[Window(Home).Property(dhs.preview.elite.3.w)]</property>
+						<property name="x3">$INFO[Window(Home).Property(dhs.preview.elite.3.x)]</property>
+						<property name="i3">$INFO[Window(Home).Property(dhs.preview.elite.3.image)]</property>
+						<property name="t3">$INFO[Window(Home).Property(dhs.preview.elite.3.text)]</property>
+						<property name="l3">$INFO[Window(Home).Property(dhs.preview.elite.3.look)]</property>
+						<property name="f3">$INFO[Window(Home).Property(dhs.preview.elite.3.fill)]</property>
+						<property name="b3">$INFO[Window(Home).Property(dhs.preview.elite.3.border)]</property>
+						<property name="c3">$INFO[Window(Home).Property(dhs.preview.elite.3.color)]</property>
+						<property name="p4">$INFO[Window(Home).Property(dhs.preview.elite.4.w)]</property>
+						<property name="x4">$INFO[Window(Home).Property(dhs.preview.elite.4.x)]</property>
+						<property name="i4">$INFO[Window(Home).Property(dhs.preview.elite.4.image)]</property>
+						<property name="t4">$INFO[Window(Home).Property(dhs.preview.elite.4.text)]</property>
+						<property name="l4">$INFO[Window(Home).Property(dhs.preview.elite.4.look)]</property>
+						<property name="f4">$INFO[Window(Home).Property(dhs.preview.elite.4.fill)]</property>
+						<property name="b4">$INFO[Window(Home).Property(dhs.preview.elite.4.border)]</property>
+						<property name="c4">$INFO[Window(Home).Property(dhs.preview.elite.4.color)]</property>
+						<property name="p5">$INFO[Window(Home).Property(dhs.preview.elite.5.w)]</property>
+						<property name="x5">$INFO[Window(Home).Property(dhs.preview.elite.5.x)]</property>
+						<property name="i5">$INFO[Window(Home).Property(dhs.preview.elite.5.image)]</property>
+						<property name="t5">$INFO[Window(Home).Property(dhs.preview.elite.5.text)]</property>
+						<property name="l5">$INFO[Window(Home).Property(dhs.preview.elite.5.look)]</property>
+						<property name="f5">$INFO[Window(Home).Property(dhs.preview.elite.5.fill)]</property>
+						<property name="b5">$INFO[Window(Home).Property(dhs.preview.elite.5.border)]</property>
+						<property name="c5">$INFO[Window(Home).Property(dhs.preview.elite.5.color)]</property>
+						<property name="p6">$INFO[Window(Home).Property(dhs.preview.elite.6.w)]</property>
+						<property name="x6">$INFO[Window(Home).Property(dhs.preview.elite.6.x)]</property>
+						<property name="i6">$INFO[Window(Home).Property(dhs.preview.elite.6.image)]</property>
+						<property name="t6">$INFO[Window(Home).Property(dhs.preview.elite.6.text)]</property>
+						<property name="l6">$INFO[Window(Home).Property(dhs.preview.elite.6.look)]</property>
+						<property name="f6">$INFO[Window(Home).Property(dhs.preview.elite.6.fill)]</property>
+						<property name="b6">$INFO[Window(Home).Property(dhs.preview.elite.6.border)]</property>
+						<property name="c6">$INFO[Window(Home).Property(dhs.preview.elite.6.color)]</property>
+						<property name="p7">$INFO[Window(Home).Property(dhs.preview.elite.7.w)]</property>
+						<property name="x7">$INFO[Window(Home).Property(dhs.preview.elite.7.x)]</property>
+						<property name="i7">$INFO[Window(Home).Property(dhs.preview.elite.7.image)]</property>
+						<property name="t7">$INFO[Window(Home).Property(dhs.preview.elite.7.text)]</property>
+						<property name="l7">$INFO[Window(Home).Property(dhs.preview.elite.7.look)]</property>
+						<property name="f7">$INFO[Window(Home).Property(dhs.preview.elite.7.fill)]</property>
+						<property name="b7">$INFO[Window(Home).Property(dhs.preview.elite.7.border)]</property>
+						<property name="c7">$INFO[Window(Home).Property(dhs.preview.elite.7.color)]</property>
+						<property name="p8">$INFO[Window(Home).Property(dhs.preview.elite.8.w)]</property>
+						<property name="x8">$INFO[Window(Home).Property(dhs.preview.elite.8.x)]</property>
+						<property name="i8">$INFO[Window(Home).Property(dhs.preview.elite.8.image)]</property>
+						<property name="t8">$INFO[Window(Home).Property(dhs.preview.elite.8.text)]</property>
+						<property name="l8">$INFO[Window(Home).Property(dhs.preview.elite.8.look)]</property>
+						<property name="f8">$INFO[Window(Home).Property(dhs.preview.elite.8.fill)]</property>
+						<property name="b8">$INFO[Window(Home).Property(dhs.preview.elite.8.border)]</property>
+						<property name="c8">$INFO[Window(Home).Property(dhs.preview.elite.8.color)]</property>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=player_badge_preset&amp;preset=elite)</onclick>
+					</item>
+					<item id="3">
+						<label>$VAR[DhSettingsString32061]</label>
+						<property name="key">gold</property>
+						<property name="x0">$INFO[Window(Home).Property(dhs.preview.gold.lead)]</property>
+						<property name="p1">$INFO[Window(Home).Property(dhs.preview.gold.1.w)]</property>
+						<property name="x1">$INFO[Window(Home).Property(dhs.preview.gold.1.x)]</property>
+						<property name="i1">$INFO[Window(Home).Property(dhs.preview.gold.1.image)]</property>
+						<property name="t1">$INFO[Window(Home).Property(dhs.preview.gold.1.text)]</property>
+						<property name="l1">$INFO[Window(Home).Property(dhs.preview.gold.1.look)]</property>
+						<property name="f1">$INFO[Window(Home).Property(dhs.preview.gold.1.fill)]</property>
+						<property name="b1">$INFO[Window(Home).Property(dhs.preview.gold.1.border)]</property>
+						<property name="c1">$INFO[Window(Home).Property(dhs.preview.gold.1.color)]</property>
+						<property name="p2">$INFO[Window(Home).Property(dhs.preview.gold.2.w)]</property>
+						<property name="x2">$INFO[Window(Home).Property(dhs.preview.gold.2.x)]</property>
+						<property name="i2">$INFO[Window(Home).Property(dhs.preview.gold.2.image)]</property>
+						<property name="t2">$INFO[Window(Home).Property(dhs.preview.gold.2.text)]</property>
+						<property name="l2">$INFO[Window(Home).Property(dhs.preview.gold.2.look)]</property>
+						<property name="f2">$INFO[Window(Home).Property(dhs.preview.gold.2.fill)]</property>
+						<property name="b2">$INFO[Window(Home).Property(dhs.preview.gold.2.border)]</property>
+						<property name="c2">$INFO[Window(Home).Property(dhs.preview.gold.2.color)]</property>
+						<property name="p3">$INFO[Window(Home).Property(dhs.preview.gold.3.w)]</property>
+						<property name="x3">$INFO[Window(Home).Property(dhs.preview.gold.3.x)]</property>
+						<property name="i3">$INFO[Window(Home).Property(dhs.preview.gold.3.image)]</property>
+						<property name="t3">$INFO[Window(Home).Property(dhs.preview.gold.3.text)]</property>
+						<property name="l3">$INFO[Window(Home).Property(dhs.preview.gold.3.look)]</property>
+						<property name="f3">$INFO[Window(Home).Property(dhs.preview.gold.3.fill)]</property>
+						<property name="b3">$INFO[Window(Home).Property(dhs.preview.gold.3.border)]</property>
+						<property name="c3">$INFO[Window(Home).Property(dhs.preview.gold.3.color)]</property>
+						<property name="p4">$INFO[Window(Home).Property(dhs.preview.gold.4.w)]</property>
+						<property name="x4">$INFO[Window(Home).Property(dhs.preview.gold.4.x)]</property>
+						<property name="i4">$INFO[Window(Home).Property(dhs.preview.gold.4.image)]</property>
+						<property name="t4">$INFO[Window(Home).Property(dhs.preview.gold.4.text)]</property>
+						<property name="l4">$INFO[Window(Home).Property(dhs.preview.gold.4.look)]</property>
+						<property name="f4">$INFO[Window(Home).Property(dhs.preview.gold.4.fill)]</property>
+						<property name="b4">$INFO[Window(Home).Property(dhs.preview.gold.4.border)]</property>
+						<property name="c4">$INFO[Window(Home).Property(dhs.preview.gold.4.color)]</property>
+						<property name="p5">$INFO[Window(Home).Property(dhs.preview.gold.5.w)]</property>
+						<property name="x5">$INFO[Window(Home).Property(dhs.preview.gold.5.x)]</property>
+						<property name="i5">$INFO[Window(Home).Property(dhs.preview.gold.5.image)]</property>
+						<property name="t5">$INFO[Window(Home).Property(dhs.preview.gold.5.text)]</property>
+						<property name="l5">$INFO[Window(Home).Property(dhs.preview.gold.5.look)]</property>
+						<property name="f5">$INFO[Window(Home).Property(dhs.preview.gold.5.fill)]</property>
+						<property name="b5">$INFO[Window(Home).Property(dhs.preview.gold.5.border)]</property>
+						<property name="c5">$INFO[Window(Home).Property(dhs.preview.gold.5.color)]</property>
+						<property name="p6">$INFO[Window(Home).Property(dhs.preview.gold.6.w)]</property>
+						<property name="x6">$INFO[Window(Home).Property(dhs.preview.gold.6.x)]</property>
+						<property name="i6">$INFO[Window(Home).Property(dhs.preview.gold.6.image)]</property>
+						<property name="t6">$INFO[Window(Home).Property(dhs.preview.gold.6.text)]</property>
+						<property name="l6">$INFO[Window(Home).Property(dhs.preview.gold.6.look)]</property>
+						<property name="f6">$INFO[Window(Home).Property(dhs.preview.gold.6.fill)]</property>
+						<property name="b6">$INFO[Window(Home).Property(dhs.preview.gold.6.border)]</property>
+						<property name="c6">$INFO[Window(Home).Property(dhs.preview.gold.6.color)]</property>
+						<property name="p7">$INFO[Window(Home).Property(dhs.preview.gold.7.w)]</property>
+						<property name="x7">$INFO[Window(Home).Property(dhs.preview.gold.7.x)]</property>
+						<property name="i7">$INFO[Window(Home).Property(dhs.preview.gold.7.image)]</property>
+						<property name="t7">$INFO[Window(Home).Property(dhs.preview.gold.7.text)]</property>
+						<property name="l7">$INFO[Window(Home).Property(dhs.preview.gold.7.look)]</property>
+						<property name="f7">$INFO[Window(Home).Property(dhs.preview.gold.7.fill)]</property>
+						<property name="b7">$INFO[Window(Home).Property(dhs.preview.gold.7.border)]</property>
+						<property name="c7">$INFO[Window(Home).Property(dhs.preview.gold.7.color)]</property>
+						<property name="p8">$INFO[Window(Home).Property(dhs.preview.gold.8.w)]</property>
+						<property name="x8">$INFO[Window(Home).Property(dhs.preview.gold.8.x)]</property>
+						<property name="i8">$INFO[Window(Home).Property(dhs.preview.gold.8.image)]</property>
+						<property name="t8">$INFO[Window(Home).Property(dhs.preview.gold.8.text)]</property>
+						<property name="l8">$INFO[Window(Home).Property(dhs.preview.gold.8.look)]</property>
+						<property name="f8">$INFO[Window(Home).Property(dhs.preview.gold.8.fill)]</property>
+						<property name="b8">$INFO[Window(Home).Property(dhs.preview.gold.8.border)]</property>
+						<property name="c8">$INFO[Window(Home).Property(dhs.preview.gold.8.color)]</property>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=player_badge_preset&amp;preset=gold)</onclick>
+					</item>
+					<item id="4">
+						<label>$VAR[DhSettingsString32062]</label>
+						<property name="key">white</property>
+						<property name="x0">$INFO[Window(Home).Property(dhs.preview.white.lead)]</property>
+						<property name="p1">$INFO[Window(Home).Property(dhs.preview.white.1.w)]</property>
+						<property name="x1">$INFO[Window(Home).Property(dhs.preview.white.1.x)]</property>
+						<property name="i1">$INFO[Window(Home).Property(dhs.preview.white.1.image)]</property>
+						<property name="t1">$INFO[Window(Home).Property(dhs.preview.white.1.text)]</property>
+						<property name="l1">$INFO[Window(Home).Property(dhs.preview.white.1.look)]</property>
+						<property name="f1">$INFO[Window(Home).Property(dhs.preview.white.1.fill)]</property>
+						<property name="b1">$INFO[Window(Home).Property(dhs.preview.white.1.border)]</property>
+						<property name="c1">$INFO[Window(Home).Property(dhs.preview.white.1.color)]</property>
+						<property name="p2">$INFO[Window(Home).Property(dhs.preview.white.2.w)]</property>
+						<property name="x2">$INFO[Window(Home).Property(dhs.preview.white.2.x)]</property>
+						<property name="i2">$INFO[Window(Home).Property(dhs.preview.white.2.image)]</property>
+						<property name="t2">$INFO[Window(Home).Property(dhs.preview.white.2.text)]</property>
+						<property name="l2">$INFO[Window(Home).Property(dhs.preview.white.2.look)]</property>
+						<property name="f2">$INFO[Window(Home).Property(dhs.preview.white.2.fill)]</property>
+						<property name="b2">$INFO[Window(Home).Property(dhs.preview.white.2.border)]</property>
+						<property name="c2">$INFO[Window(Home).Property(dhs.preview.white.2.color)]</property>
+						<property name="p3">$INFO[Window(Home).Property(dhs.preview.white.3.w)]</property>
+						<property name="x3">$INFO[Window(Home).Property(dhs.preview.white.3.x)]</property>
+						<property name="i3">$INFO[Window(Home).Property(dhs.preview.white.3.image)]</property>
+						<property name="t3">$INFO[Window(Home).Property(dhs.preview.white.3.text)]</property>
+						<property name="l3">$INFO[Window(Home).Property(dhs.preview.white.3.look)]</property>
+						<property name="f3">$INFO[Window(Home).Property(dhs.preview.white.3.fill)]</property>
+						<property name="b3">$INFO[Window(Home).Property(dhs.preview.white.3.border)]</property>
+						<property name="c3">$INFO[Window(Home).Property(dhs.preview.white.3.color)]</property>
+						<property name="p4">$INFO[Window(Home).Property(dhs.preview.white.4.w)]</property>
+						<property name="x4">$INFO[Window(Home).Property(dhs.preview.white.4.x)]</property>
+						<property name="i4">$INFO[Window(Home).Property(dhs.preview.white.4.image)]</property>
+						<property name="t4">$INFO[Window(Home).Property(dhs.preview.white.4.text)]</property>
+						<property name="l4">$INFO[Window(Home).Property(dhs.preview.white.4.look)]</property>
+						<property name="f4">$INFO[Window(Home).Property(dhs.preview.white.4.fill)]</property>
+						<property name="b4">$INFO[Window(Home).Property(dhs.preview.white.4.border)]</property>
+						<property name="c4">$INFO[Window(Home).Property(dhs.preview.white.4.color)]</property>
+						<property name="p5">$INFO[Window(Home).Property(dhs.preview.white.5.w)]</property>
+						<property name="x5">$INFO[Window(Home).Property(dhs.preview.white.5.x)]</property>
+						<property name="i5">$INFO[Window(Home).Property(dhs.preview.white.5.image)]</property>
+						<property name="t5">$INFO[Window(Home).Property(dhs.preview.white.5.text)]</property>
+						<property name="l5">$INFO[Window(Home).Property(dhs.preview.white.5.look)]</property>
+						<property name="f5">$INFO[Window(Home).Property(dhs.preview.white.5.fill)]</property>
+						<property name="b5">$INFO[Window(Home).Property(dhs.preview.white.5.border)]</property>
+						<property name="c5">$INFO[Window(Home).Property(dhs.preview.white.5.color)]</property>
+						<property name="p6">$INFO[Window(Home).Property(dhs.preview.white.6.w)]</property>
+						<property name="x6">$INFO[Window(Home).Property(dhs.preview.white.6.x)]</property>
+						<property name="i6">$INFO[Window(Home).Property(dhs.preview.white.6.image)]</property>
+						<property name="t6">$INFO[Window(Home).Property(dhs.preview.white.6.text)]</property>
+						<property name="l6">$INFO[Window(Home).Property(dhs.preview.white.6.look)]</property>
+						<property name="f6">$INFO[Window(Home).Property(dhs.preview.white.6.fill)]</property>
+						<property name="b6">$INFO[Window(Home).Property(dhs.preview.white.6.border)]</property>
+						<property name="c6">$INFO[Window(Home).Property(dhs.preview.white.6.color)]</property>
+						<property name="p7">$INFO[Window(Home).Property(dhs.preview.white.7.w)]</property>
+						<property name="x7">$INFO[Window(Home).Property(dhs.preview.white.7.x)]</property>
+						<property name="i7">$INFO[Window(Home).Property(dhs.preview.white.7.image)]</property>
+						<property name="t7">$INFO[Window(Home).Property(dhs.preview.white.7.text)]</property>
+						<property name="l7">$INFO[Window(Home).Property(dhs.preview.white.7.look)]</property>
+						<property name="f7">$INFO[Window(Home).Property(dhs.preview.white.7.fill)]</property>
+						<property name="b7">$INFO[Window(Home).Property(dhs.preview.white.7.border)]</property>
+						<property name="c7">$INFO[Window(Home).Property(dhs.preview.white.7.color)]</property>
+						<property name="p8">$INFO[Window(Home).Property(dhs.preview.white.8.w)]</property>
+						<property name="x8">$INFO[Window(Home).Property(dhs.preview.white.8.x)]</property>
+						<property name="i8">$INFO[Window(Home).Property(dhs.preview.white.8.image)]</property>
+						<property name="t8">$INFO[Window(Home).Property(dhs.preview.white.8.text)]</property>
+						<property name="l8">$INFO[Window(Home).Property(dhs.preview.white.8.look)]</property>
+						<property name="f8">$INFO[Window(Home).Property(dhs.preview.white.8.fill)]</property>
+						<property name="b8">$INFO[Window(Home).Property(dhs.preview.white.8.border)]</property>
+						<property name="c8">$INFO[Window(Home).Property(dhs.preview.white.8.color)]</property>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=player_badge_preset&amp;preset=white)</onclick>
+					</item>
+					<item id="5">
+						<label>$VAR[DhSettingsString32063]</label>
+						<property name="key">folder</property>
+						<property name="x0">$INFO[Window(Home).Property(dhs.preview.folder.lead)]</property>
+						<property name="p1">$INFO[Window(Home).Property(dhs.preview.folder.1.w)]</property>
+						<property name="x1">$INFO[Window(Home).Property(dhs.preview.folder.1.x)]</property>
+						<property name="i1">$INFO[Window(Home).Property(dhs.preview.folder.1.image)]</property>
+						<property name="t1">$INFO[Window(Home).Property(dhs.preview.folder.1.text)]</property>
+						<property name="l1">$INFO[Window(Home).Property(dhs.preview.folder.1.look)]</property>
+						<property name="f1">$INFO[Window(Home).Property(dhs.preview.folder.1.fill)]</property>
+						<property name="b1">$INFO[Window(Home).Property(dhs.preview.folder.1.border)]</property>
+						<property name="c1">$INFO[Window(Home).Property(dhs.preview.folder.1.color)]</property>
+						<property name="p2">$INFO[Window(Home).Property(dhs.preview.folder.2.w)]</property>
+						<property name="x2">$INFO[Window(Home).Property(dhs.preview.folder.2.x)]</property>
+						<property name="i2">$INFO[Window(Home).Property(dhs.preview.folder.2.image)]</property>
+						<property name="t2">$INFO[Window(Home).Property(dhs.preview.folder.2.text)]</property>
+						<property name="l2">$INFO[Window(Home).Property(dhs.preview.folder.2.look)]</property>
+						<property name="f2">$INFO[Window(Home).Property(dhs.preview.folder.2.fill)]</property>
+						<property name="b2">$INFO[Window(Home).Property(dhs.preview.folder.2.border)]</property>
+						<property name="c2">$INFO[Window(Home).Property(dhs.preview.folder.2.color)]</property>
+						<property name="p3">$INFO[Window(Home).Property(dhs.preview.folder.3.w)]</property>
+						<property name="x3">$INFO[Window(Home).Property(dhs.preview.folder.3.x)]</property>
+						<property name="i3">$INFO[Window(Home).Property(dhs.preview.folder.3.image)]</property>
+						<property name="t3">$INFO[Window(Home).Property(dhs.preview.folder.3.text)]</property>
+						<property name="l3">$INFO[Window(Home).Property(dhs.preview.folder.3.look)]</property>
+						<property name="f3">$INFO[Window(Home).Property(dhs.preview.folder.3.fill)]</property>
+						<property name="b3">$INFO[Window(Home).Property(dhs.preview.folder.3.border)]</property>
+						<property name="c3">$INFO[Window(Home).Property(dhs.preview.folder.3.color)]</property>
+						<property name="p4">$INFO[Window(Home).Property(dhs.preview.folder.4.w)]</property>
+						<property name="x4">$INFO[Window(Home).Property(dhs.preview.folder.4.x)]</property>
+						<property name="i4">$INFO[Window(Home).Property(dhs.preview.folder.4.image)]</property>
+						<property name="t4">$INFO[Window(Home).Property(dhs.preview.folder.4.text)]</property>
+						<property name="l4">$INFO[Window(Home).Property(dhs.preview.folder.4.look)]</property>
+						<property name="f4">$INFO[Window(Home).Property(dhs.preview.folder.4.fill)]</property>
+						<property name="b4">$INFO[Window(Home).Property(dhs.preview.folder.4.border)]</property>
+						<property name="c4">$INFO[Window(Home).Property(dhs.preview.folder.4.color)]</property>
+						<property name="p5">$INFO[Window(Home).Property(dhs.preview.folder.5.w)]</property>
+						<property name="x5">$INFO[Window(Home).Property(dhs.preview.folder.5.x)]</property>
+						<property name="i5">$INFO[Window(Home).Property(dhs.preview.folder.5.image)]</property>
+						<property name="t5">$INFO[Window(Home).Property(dhs.preview.folder.5.text)]</property>
+						<property name="l5">$INFO[Window(Home).Property(dhs.preview.folder.5.look)]</property>
+						<property name="f5">$INFO[Window(Home).Property(dhs.preview.folder.5.fill)]</property>
+						<property name="b5">$INFO[Window(Home).Property(dhs.preview.folder.5.border)]</property>
+						<property name="c5">$INFO[Window(Home).Property(dhs.preview.folder.5.color)]</property>
+						<property name="p6">$INFO[Window(Home).Property(dhs.preview.folder.6.w)]</property>
+						<property name="x6">$INFO[Window(Home).Property(dhs.preview.folder.6.x)]</property>
+						<property name="i6">$INFO[Window(Home).Property(dhs.preview.folder.6.image)]</property>
+						<property name="t6">$INFO[Window(Home).Property(dhs.preview.folder.6.text)]</property>
+						<property name="l6">$INFO[Window(Home).Property(dhs.preview.folder.6.look)]</property>
+						<property name="f6">$INFO[Window(Home).Property(dhs.preview.folder.6.fill)]</property>
+						<property name="b6">$INFO[Window(Home).Property(dhs.preview.folder.6.border)]</property>
+						<property name="c6">$INFO[Window(Home).Property(dhs.preview.folder.6.color)]</property>
+						<property name="p7">$INFO[Window(Home).Property(dhs.preview.folder.7.w)]</property>
+						<property name="x7">$INFO[Window(Home).Property(dhs.preview.folder.7.x)]</property>
+						<property name="i7">$INFO[Window(Home).Property(dhs.preview.folder.7.image)]</property>
+						<property name="t7">$INFO[Window(Home).Property(dhs.preview.folder.7.text)]</property>
+						<property name="l7">$INFO[Window(Home).Property(dhs.preview.folder.7.look)]</property>
+						<property name="f7">$INFO[Window(Home).Property(dhs.preview.folder.7.fill)]</property>
+						<property name="b7">$INFO[Window(Home).Property(dhs.preview.folder.7.border)]</property>
+						<property name="c7">$INFO[Window(Home).Property(dhs.preview.folder.7.color)]</property>
+						<property name="p8">$INFO[Window(Home).Property(dhs.preview.folder.8.w)]</property>
+						<property name="x8">$INFO[Window(Home).Property(dhs.preview.folder.8.x)]</property>
+						<property name="i8">$INFO[Window(Home).Property(dhs.preview.folder.8.image)]</property>
+						<property name="t8">$INFO[Window(Home).Property(dhs.preview.folder.8.text)]</property>
+						<property name="l8">$INFO[Window(Home).Property(dhs.preview.folder.8.look)]</property>
+						<property name="f8">$INFO[Window(Home).Property(dhs.preview.folder.8.fill)]</property>
+						<property name="b8">$INFO[Window(Home).Property(dhs.preview.folder.8.border)]</property>
+						<property name="c8">$INFO[Window(Home).Property(dhs.preview.folder.8.color)]</property>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=player_badge_select&amp;style=folder)</onclick>
+					</item>
+					<item id="6">
+						<label>$VAR[DhSettingsString31956]</label>
+						<property name="key">minimal</property>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=player_badge_select&amp;style=minimal)</onclick>
+					</item>
+					<item id="7">
+						<label>$VAR[DhSettingsString31957]</label>
+						<property name="key">compact</property>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=player_badge_select&amp;style=compact)</onclick>
+					</item>
+					<item id="8">
+						<label>$VAR[DhSettingsString32064]</label>
+						<property name="key">url</property>
+						<property name="x0">$INFO[Window(Home).Property(dhs.preview.url.lead)]</property>
+						<property name="p1">$INFO[Window(Home).Property(dhs.preview.url.1.w)]</property>
+						<property name="x1">$INFO[Window(Home).Property(dhs.preview.url.1.x)]</property>
+						<property name="i1">$INFO[Window(Home).Property(dhs.preview.url.1.image)]</property>
+						<property name="t1">$INFO[Window(Home).Property(dhs.preview.url.1.text)]</property>
+						<property name="l1">$INFO[Window(Home).Property(dhs.preview.url.1.look)]</property>
+						<property name="f1">$INFO[Window(Home).Property(dhs.preview.url.1.fill)]</property>
+						<property name="b1">$INFO[Window(Home).Property(dhs.preview.url.1.border)]</property>
+						<property name="c1">$INFO[Window(Home).Property(dhs.preview.url.1.color)]</property>
+						<property name="p2">$INFO[Window(Home).Property(dhs.preview.url.2.w)]</property>
+						<property name="x2">$INFO[Window(Home).Property(dhs.preview.url.2.x)]</property>
+						<property name="i2">$INFO[Window(Home).Property(dhs.preview.url.2.image)]</property>
+						<property name="t2">$INFO[Window(Home).Property(dhs.preview.url.2.text)]</property>
+						<property name="l2">$INFO[Window(Home).Property(dhs.preview.url.2.look)]</property>
+						<property name="f2">$INFO[Window(Home).Property(dhs.preview.url.2.fill)]</property>
+						<property name="b2">$INFO[Window(Home).Property(dhs.preview.url.2.border)]</property>
+						<property name="c2">$INFO[Window(Home).Property(dhs.preview.url.2.color)]</property>
+						<property name="p3">$INFO[Window(Home).Property(dhs.preview.url.3.w)]</property>
+						<property name="x3">$INFO[Window(Home).Property(dhs.preview.url.3.x)]</property>
+						<property name="i3">$INFO[Window(Home).Property(dhs.preview.url.3.image)]</property>
+						<property name="t3">$INFO[Window(Home).Property(dhs.preview.url.3.text)]</property>
+						<property name="l3">$INFO[Window(Home).Property(dhs.preview.url.3.look)]</property>
+						<property name="f3">$INFO[Window(Home).Property(dhs.preview.url.3.fill)]</property>
+						<property name="b3">$INFO[Window(Home).Property(dhs.preview.url.3.border)]</property>
+						<property name="c3">$INFO[Window(Home).Property(dhs.preview.url.3.color)]</property>
+						<property name="p4">$INFO[Window(Home).Property(dhs.preview.url.4.w)]</property>
+						<property name="x4">$INFO[Window(Home).Property(dhs.preview.url.4.x)]</property>
+						<property name="i4">$INFO[Window(Home).Property(dhs.preview.url.4.image)]</property>
+						<property name="t4">$INFO[Window(Home).Property(dhs.preview.url.4.text)]</property>
+						<property name="l4">$INFO[Window(Home).Property(dhs.preview.url.4.look)]</property>
+						<property name="f4">$INFO[Window(Home).Property(dhs.preview.url.4.fill)]</property>
+						<property name="b4">$INFO[Window(Home).Property(dhs.preview.url.4.border)]</property>
+						<property name="c4">$INFO[Window(Home).Property(dhs.preview.url.4.color)]</property>
+						<property name="p5">$INFO[Window(Home).Property(dhs.preview.url.5.w)]</property>
+						<property name="x5">$INFO[Window(Home).Property(dhs.preview.url.5.x)]</property>
+						<property name="i5">$INFO[Window(Home).Property(dhs.preview.url.5.image)]</property>
+						<property name="t5">$INFO[Window(Home).Property(dhs.preview.url.5.text)]</property>
+						<property name="l5">$INFO[Window(Home).Property(dhs.preview.url.5.look)]</property>
+						<property name="f5">$INFO[Window(Home).Property(dhs.preview.url.5.fill)]</property>
+						<property name="b5">$INFO[Window(Home).Property(dhs.preview.url.5.border)]</property>
+						<property name="c5">$INFO[Window(Home).Property(dhs.preview.url.5.color)]</property>
+						<property name="p6">$INFO[Window(Home).Property(dhs.preview.url.6.w)]</property>
+						<property name="x6">$INFO[Window(Home).Property(dhs.preview.url.6.x)]</property>
+						<property name="i6">$INFO[Window(Home).Property(dhs.preview.url.6.image)]</property>
+						<property name="t6">$INFO[Window(Home).Property(dhs.preview.url.6.text)]</property>
+						<property name="l6">$INFO[Window(Home).Property(dhs.preview.url.6.look)]</property>
+						<property name="f6">$INFO[Window(Home).Property(dhs.preview.url.6.fill)]</property>
+						<property name="b6">$INFO[Window(Home).Property(dhs.preview.url.6.border)]</property>
+						<property name="c6">$INFO[Window(Home).Property(dhs.preview.url.6.color)]</property>
+						<property name="p7">$INFO[Window(Home).Property(dhs.preview.url.7.w)]</property>
+						<property name="x7">$INFO[Window(Home).Property(dhs.preview.url.7.x)]</property>
+						<property name="i7">$INFO[Window(Home).Property(dhs.preview.url.7.image)]</property>
+						<property name="t7">$INFO[Window(Home).Property(dhs.preview.url.7.text)]</property>
+						<property name="l7">$INFO[Window(Home).Property(dhs.preview.url.7.look)]</property>
+						<property name="f7">$INFO[Window(Home).Property(dhs.preview.url.7.fill)]</property>
+						<property name="b7">$INFO[Window(Home).Property(dhs.preview.url.7.border)]</property>
+						<property name="c7">$INFO[Window(Home).Property(dhs.preview.url.7.color)]</property>
+						<property name="p8">$INFO[Window(Home).Property(dhs.preview.url.8.w)]</property>
+						<property name="x8">$INFO[Window(Home).Property(dhs.preview.url.8.x)]</property>
+						<property name="i8">$INFO[Window(Home).Property(dhs.preview.url.8.image)]</property>
+						<property name="t8">$INFO[Window(Home).Property(dhs.preview.url.8.text)]</property>
+						<property name="l8">$INFO[Window(Home).Property(dhs.preview.url.8.look)]</property>
+						<property name="f8">$INFO[Window(Home).Property(dhs.preview.url.8.fill)]</property>
+						<property name="b8">$INFO[Window(Home).Property(dhs.preview.url.8.border)]</property>
+						<property name="c8">$INFO[Window(Home).Property(dhs.preview.url.8.color)]</property>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=player_badge_pack)</onclick>
+					</item>
+					<item id="10">
+						<label>$VAR[DhSettingsString32082]</label>
+						<property name="key">packs</property>
+						<property name="x0">$INFO[Window(Home).Property(dhs.preview.packs.lead)]</property>
+						<property name="p1">$INFO[Window(Home).Property(dhs.preview.packs.1.w)]</property>
+						<property name="x1">$INFO[Window(Home).Property(dhs.preview.packs.1.x)]</property>
+						<property name="i1">$INFO[Window(Home).Property(dhs.preview.packs.1.image)]</property>
+						<property name="t1">$INFO[Window(Home).Property(dhs.preview.packs.1.text)]</property>
+						<property name="l1">$INFO[Window(Home).Property(dhs.preview.packs.1.look)]</property>
+						<property name="f1">$INFO[Window(Home).Property(dhs.preview.packs.1.fill)]</property>
+						<property name="b1">$INFO[Window(Home).Property(dhs.preview.packs.1.border)]</property>
+						<property name="c1">$INFO[Window(Home).Property(dhs.preview.packs.1.color)]</property>
+						<property name="p2">$INFO[Window(Home).Property(dhs.preview.packs.2.w)]</property>
+						<property name="x2">$INFO[Window(Home).Property(dhs.preview.packs.2.x)]</property>
+						<property name="i2">$INFO[Window(Home).Property(dhs.preview.packs.2.image)]</property>
+						<property name="t2">$INFO[Window(Home).Property(dhs.preview.packs.2.text)]</property>
+						<property name="l2">$INFO[Window(Home).Property(dhs.preview.packs.2.look)]</property>
+						<property name="f2">$INFO[Window(Home).Property(dhs.preview.packs.2.fill)]</property>
+						<property name="b2">$INFO[Window(Home).Property(dhs.preview.packs.2.border)]</property>
+						<property name="c2">$INFO[Window(Home).Property(dhs.preview.packs.2.color)]</property>
+						<property name="p3">$INFO[Window(Home).Property(dhs.preview.packs.3.w)]</property>
+						<property name="x3">$INFO[Window(Home).Property(dhs.preview.packs.3.x)]</property>
+						<property name="i3">$INFO[Window(Home).Property(dhs.preview.packs.3.image)]</property>
+						<property name="t3">$INFO[Window(Home).Property(dhs.preview.packs.3.text)]</property>
+						<property name="l3">$INFO[Window(Home).Property(dhs.preview.packs.3.look)]</property>
+						<property name="f3">$INFO[Window(Home).Property(dhs.preview.packs.3.fill)]</property>
+						<property name="b3">$INFO[Window(Home).Property(dhs.preview.packs.3.border)]</property>
+						<property name="c3">$INFO[Window(Home).Property(dhs.preview.packs.3.color)]</property>
+						<property name="p4">$INFO[Window(Home).Property(dhs.preview.packs.4.w)]</property>
+						<property name="x4">$INFO[Window(Home).Property(dhs.preview.packs.4.x)]</property>
+						<property name="i4">$INFO[Window(Home).Property(dhs.preview.packs.4.image)]</property>
+						<property name="t4">$INFO[Window(Home).Property(dhs.preview.packs.4.text)]</property>
+						<property name="l4">$INFO[Window(Home).Property(dhs.preview.packs.4.look)]</property>
+						<property name="f4">$INFO[Window(Home).Property(dhs.preview.packs.4.fill)]</property>
+						<property name="b4">$INFO[Window(Home).Property(dhs.preview.packs.4.border)]</property>
+						<property name="c4">$INFO[Window(Home).Property(dhs.preview.packs.4.color)]</property>
+						<property name="p5">$INFO[Window(Home).Property(dhs.preview.packs.5.w)]</property>
+						<property name="x5">$INFO[Window(Home).Property(dhs.preview.packs.5.x)]</property>
+						<property name="i5">$INFO[Window(Home).Property(dhs.preview.packs.5.image)]</property>
+						<property name="t5">$INFO[Window(Home).Property(dhs.preview.packs.5.text)]</property>
+						<property name="l5">$INFO[Window(Home).Property(dhs.preview.packs.5.look)]</property>
+						<property name="f5">$INFO[Window(Home).Property(dhs.preview.packs.5.fill)]</property>
+						<property name="b5">$INFO[Window(Home).Property(dhs.preview.packs.5.border)]</property>
+						<property name="c5">$INFO[Window(Home).Property(dhs.preview.packs.5.color)]</property>
+						<property name="p6">$INFO[Window(Home).Property(dhs.preview.packs.6.w)]</property>
+						<property name="x6">$INFO[Window(Home).Property(dhs.preview.packs.6.x)]</property>
+						<property name="i6">$INFO[Window(Home).Property(dhs.preview.packs.6.image)]</property>
+						<property name="t6">$INFO[Window(Home).Property(dhs.preview.packs.6.text)]</property>
+						<property name="l6">$INFO[Window(Home).Property(dhs.preview.packs.6.look)]</property>
+						<property name="f6">$INFO[Window(Home).Property(dhs.preview.packs.6.fill)]</property>
+						<property name="b6">$INFO[Window(Home).Property(dhs.preview.packs.6.border)]</property>
+						<property name="c6">$INFO[Window(Home).Property(dhs.preview.packs.6.color)]</property>
+						<property name="p7">$INFO[Window(Home).Property(dhs.preview.packs.7.w)]</property>
+						<property name="x7">$INFO[Window(Home).Property(dhs.preview.packs.7.x)]</property>
+						<property name="i7">$INFO[Window(Home).Property(dhs.preview.packs.7.image)]</property>
+						<property name="t7">$INFO[Window(Home).Property(dhs.preview.packs.7.text)]</property>
+						<property name="l7">$INFO[Window(Home).Property(dhs.preview.packs.7.look)]</property>
+						<property name="f7">$INFO[Window(Home).Property(dhs.preview.packs.7.fill)]</property>
+						<property name="b7">$INFO[Window(Home).Property(dhs.preview.packs.7.border)]</property>
+						<property name="c7">$INFO[Window(Home).Property(dhs.preview.packs.7.color)]</property>
+						<property name="p8">$INFO[Window(Home).Property(dhs.preview.packs.8.w)]</property>
+						<property name="x8">$INFO[Window(Home).Property(dhs.preview.packs.8.x)]</property>
+						<property name="i8">$INFO[Window(Home).Property(dhs.preview.packs.8.image)]</property>
+						<property name="t8">$INFO[Window(Home).Property(dhs.preview.packs.8.text)]</property>
+						<property name="l8">$INFO[Window(Home).Property(dhs.preview.packs.8.look)]</property>
+						<property name="f8">$INFO[Window(Home).Property(dhs.preview.packs.8.fill)]</property>
+						<property name="b8">$INFO[Window(Home).Property(dhs.preview.packs.8.border)]</property>
+						<property name="c8">$INFO[Window(Home).Property(dhs.preview.packs.8.color)]</property>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=player_badge_packs)</onclick>
+					</item>
+					<item id="9">
+						<label>$VAR[DhSettingsString31959]</label>
+						<property name="key">off</property>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=player_badge_select&amp;style=off)</onclick>
+					</item>
+				</content>
+			</control>
+			<control type="group">
+				<left>405</left>
+				<top>150</top>
+				<width>1140</width>
+				<height>520</height>
+				<control type="label">
+					<height>50</height>
+					<width>1090</width>
+					<font>af3_font_midi_bold</font>
+					<textcolor>af3_dialog_fg_90</textcolor>
+					<label>$INFO[Container(3).ListItem.Label]</label>
+				</control>
+				<control type="textbox">
+					<top>56</top>
+					<height>96</height>
+					<width>1080</width>
+					<font>af3_font_mini</font>
+					<textcolor>af3_dialog_fg_70</textcolor>
+					<label>$VAR[DhBadgeDesc]</label>
+				</control>
+				<control type="label">
+					<top>160</top>
+					<height>30</height>
+					<width>1080</width>
+					<font>af3_font_tiny</font>
+					<textcolor>af3_dialog_fg_70</textcolor>
+					<label>$VAR[DhSettingsString32011]</label>
+					<visible>!String.IsEqual(Container(3).ListItem.Property(key),off)</visible>
+				</control>
+				<control type="group">
+					<top>198</top>
+					<height>50</height>
+					<visible>String.IsEqual(Container(3).ListItem.Property(key),colorful)</visible>
+					<include>DhBadgeSample</include>
+				</control>
+				<control type="grouplist">
+					<top>195</top>
+					<height>60</height>
+					<width>1000</width>
+					<orientation>horizontal</orientation>
+					<itemgap>14</itemgap>
+					<usecontrolcoords>true</usecontrolcoords>
+					<visible>String.IsEqual(Container(3).ListItem.Property(key),minimal)</visible>
+					<control type="group">
+						<width>140</width>
+						<height>54</height>
+						<control type="image">
+							<width>140</width>
+							<height>54</height>
+							<texture>af3/common/menu.png</texture>
+							<colordiffuse>af3_dialog_fg_12</colordiffuse>
+						</control>
+						<control type="label">
+							<width>140</width>
+							<height>54</height>
+							<align>center</align>
+							<aligny>center</aligny>
+							<font>af3_font_main</font>
+							<textcolor>af3_dialog_fg_90</textcolor>
+							<label>4K</label>
+						</control>
+					</control>
+					<control type="group">
+						<width>200</width>
+						<height>54</height>
+						<control type="image">
+							<width>200</width>
+							<height>54</height>
+							<texture>af3/common/menu.png</texture>
+							<colordiffuse>af3_dialog_fg_12</colordiffuse>
+						</control>
+						<control type="label">
+							<width>200</width>
+							<height>54</height>
+							<align>center</align>
+							<aligny>center</aligny>
+							<font>af3_font_main</font>
+							<textcolor>af3_dialog_fg_90</textcolor>
+							<label>Dolby Vision</label>
+						</control>
+					</control>
+					<control type="group">
+						<width>130</width>
+						<height>54</height>
+						<control type="image">
+							<width>130</width>
+							<height>54</height>
+							<texture>af3/common/menu.png</texture>
+							<colordiffuse>af3_dialog_fg_12</colordiffuse>
+						</control>
+						<control type="label">
+							<width>130</width>
+							<height>54</height>
+							<align>center</align>
+							<aligny>center</aligny>
+							<font>af3_font_main</font>
+							<textcolor>af3_dialog_fg_90</textcolor>
+							<label>HEVC</label>
+						</control>
+					</control>
+					<control type="group">
+						<width>210</width>
+						<height>54</height>
+						<control type="image">
+							<width>210</width>
+							<height>54</height>
+							<texture>af3/common/menu.png</texture>
+							<colordiffuse>af3_dialog_fg_12</colordiffuse>
+						</control>
+						<control type="label">
+							<width>210</width>
+							<height>54</height>
+							<align>center</align>
+							<aligny>center</aligny>
+							<font>af3_font_main</font>
+							<textcolor>af3_dialog_fg_90</textcolor>
+							<label>TrueHD Atmos</label>
+						</control>
+					</control>
+					<control type="group">
+						<width>110</width>
+						<height>54</height>
+						<control type="image">
+							<width>110</width>
+							<height>54</height>
+							<texture>af3/common/menu.png</texture>
+							<colordiffuse>af3_dialog_fg_12</colordiffuse>
+						</control>
+						<control type="label">
+							<width>110</width>
+							<height>54</height>
+							<align>center</align>
+							<aligny>center</aligny>
+							<font>af3_font_main</font>
+							<textcolor>af3_dialog_fg_90</textcolor>
+							<label>7.1</label>
+						</control>
+					</control>
+				</control>
+				<control type="label">
+					<top>195</top>
+					<height>60</height>
+					<width>1000</width>
+					<font>af3_font_main</font>
+					<textcolor>af3_dialog_fg_90</textcolor>
+					<label>4K • Dolby Vision • HEVC • TrueHD Atmos • 7.1</label>
+					<visible>String.IsEqual(Container(3).ListItem.Property(key),compact)</visible>
+				</control>
+				<control type="group">
+					<top>203</top>
+					<height>40</height>
+					<visible>!String.IsEmpty(Container(3).ListItem.Property(p1)) | !String.IsEmpty(Container(3).ListItem.Property(t1))</visible>
+					<include>DhPackPreview</include>
+				</control>
+				<control type="label">
+					<top>196</top>
+					<width>1080</width>
+					<height>56</height>
+					<font>af3_font_main</font>
+					<textcolor>af3_dialog_fg_90</textcolor>
+					<label>$VAR[DhSettingsString32073]</label>
+					<visible>[String.IsEqual(Container(3).ListItem.Property(key),elite) + String.IsEmpty(Window(Home).Property(dhs.preview.elite.ready))] | [String.IsEqual(Container(3).ListItem.Property(key),gold) + String.IsEmpty(Window(Home).Property(dhs.preview.gold.ready))] | [String.IsEqual(Container(3).ListItem.Property(key),white) + String.IsEmpty(Window(Home).Property(dhs.preview.white.ready))]</visible>
+				</control>
+				<control type="label">
+					<top>196</top>
+					<width>1080</width>
+					<height>56</height>
+					<font>af3_font_main</font>
+					<textcolor>af3_dialog_fg_70</textcolor>
+					<label>$VAR[DhSettingsString32015]</label>
+					<visible>String.IsEqual(Container(3).ListItem.Property(key),url) + String.IsEmpty(Window(Home).Property(dhs.preview.url.count))</visible>
+				</control>
+				<control type="label">
+					<top>196</top>
+					<width>1080</width>
+					<height>56</height>
+					<font>af3_font_main</font>
+					<textcolor>af3_dialog_fg_70</textcolor>
+					<label>$VAR[DhSettingsString32084]</label>
+					<visible>String.IsEqual(Container(3).ListItem.Property(key),packs) + String.IsEmpty(Window(Home).Property(dhs.preview.packs.ready))</visible>
+				</control>
+				<control type="label">
+					<top>196</top>
+					<width>1080</width>
+					<height>56</height>
+					<font>af3_font_midi_bold</font>
+					<textcolor>af3_dialog_fg_90</textcolor>
+					<label>$VAR[DhSettingsString32016]</label>
+					<visible>String.IsEqual(Container(3).ListItem.Property(key),off)</visible>
+				</control>
+				<control type="label">
+					<top>268</top>
+					<width>1080</width>
+					<height>34</height>
+					<font>af3_font_tiny</font>
+					<textcolor>af3_dialog_fg_70</textcolor>
+					<label>$VAR[DhSettingsString32075]</label>
+					<visible>String.IsEqual(Container(3).ListItem.Property(key),folder)</visible>
+				</control>
+				<control type="label">
+					<top>300</top>
+					<width>1080</width>
+					<height>36</height>
+					<font>af3_font_mini</font>
+					<textcolor>af3_dialog_fg_70</textcolor>
+					<label>$INFO[Window(Home).Property(dhs.preview.folderpath)]</label>
+					<visible>String.IsEqual(Container(3).ListItem.Property(key),folder)</visible>
+				</control>
+				<control type="textbox">
+					<top>360</top>
+					<width>1080</width>
+					<height>90</height>
+					<font>af3_font_mini</font>
+					<textcolor>af3_dialog_fg_70</textcolor>
+					<label>$VAR[DhSettingsString32046]</label>
+				</control>
+			</control>
+			<control type="button" id="11">
+				<left>405</left>
+				<top>690</top>
+				<width>520</width>
+				<height>70</height>
+				<label>$VAR[DhSettingsString32074]</label>
+				<onleft>3</onleft>
+				<onright>12</onright>
+				<onup>3</onup>
+				<ondown>11</ondown>
+				<include>DhSettingButton</include>
+				<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=player_badge_folder)</onclick>
+			</control>
+			<control type="button" id="12">
+				<left>965</left>
+				<top>690</top>
+				<width>300</width>
+				<height>70</height>
+				<label>$VAR[DhSettingsString32081]</label>
+				<onleft>11</onleft>
+				<onright>3</onright>
+				<onup>3</onup>
+				<ondown>12</ondown>
+				<include>DhSettingButton</include>
+				<onclick>Dialog.Close(1194)</onclick>
+			</control>
+		</control>
+	</controls>
+</window>

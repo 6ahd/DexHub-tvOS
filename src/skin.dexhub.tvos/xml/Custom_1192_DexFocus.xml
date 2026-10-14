@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- skin.dexhub.tvos 3.14.0: focus colours (Configure skin > Appearance), in the AF3 dialog style -->
+<window id="1192" type="dialog">
+	<defaultcontrol always="true">3</defaultcontrol>
+	<onload condition="String.IsEmpty(Skin.String(dh.accent.custom))">SetFocus(3,0,absolute)</onload>
+	<onload condition="String.IsEqual(Skin.String(dh.accent.custom),FFF5F5F5)">SetFocus(3,1,absolute)</onload>
+	<onload condition="String.IsEqual(Skin.String(dh.accent.custom),FF00B8D4)">SetFocus(3,2,absolute)</onload>
+	<onload condition="String.IsEqual(Skin.String(dh.accent.custom),FFF4511E)">SetFocus(3,3,absolute)</onload>
+	<onload condition="String.IsEqual(Skin.String(dh.accent.custom),FFE91E63)">SetFocus(3,4,absolute)</onload>
+	<onload condition="String.IsEqual(Skin.String(dh.accent.custom),FF0091EA)">SetFocus(3,5,absolute)</onload>
+	<onload condition="String.IsEqual(Skin.String(dh.accent.custom),FF5528A8)">SetFocus(3,6,absolute)</onload>
+	<onload condition="String.IsEqual(Skin.String(dh.accent.custom),FFE5484D)">SetFocus(3,7,absolute)</onload>
+	<onload condition="String.IsEqual(Skin.String(dh.accent.custom),FFE6B450)">SetFocus(3,8,absolute)</onload>
+	<onload condition="String.IsEqual(Skin.String(dh.accent.custom),FF34C495)">SetFocus(3,9,absolute)</onload>
+	<onload condition="String.IsEqual(Skin.String(dh.accent.custom),FF9B6BFF)">SetFocus(3,10,absolute)</onload>
+	<controls>
+		<control type="image">
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<texture colordiffuse="B3000000">af3/common/white.png</texture>
+			<animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+		</control>
+		<control type="group">
+			<left>540</left>
+			<top>110</top>
+			<width>840</width>
+			<height>860</height>
+			<include>DhAF3DialogOpen</include>
+			<include>DhAF3DialogFrame</include>
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>840</width>
+				<height>860</height>
+				<texture border="20">af3/common/dialog.png</texture>
+				<colordiffuse>$VAR[DhCard]</colordiffuse>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>840</width>
+				<height>860</height>
+				<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog-outline.png</texture>
+			</control>
+			<control type="label">
+				<left>40</left>
+				<top>36</top>
+				<width>760</width>
+				<height>44</height>
+				<font>af3_font_midi_bold</font>
+				<textcolor>af3_dialog_fg_90</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>$LOCALIZE[31888]</label>
+			</control>
+			<control type="label">
+				<left>40</left>
+				<top>82</top>
+				<width>760</width>
+				<height>30</height>
+				<font>af3_font_mini</font>
+				<textcolor>af3_dialog_fg_30</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>$LOCALIZE[31914]</label>
+			</control>
+			<control type="image">
+				<left>40</left>
+				<top>124</top>
+				<width>760</width>
+				<height>1</height>
+				<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+			</control>
+			<control type="list" id="3">
+				<left>20</left>
+				<top>140</top>
+				<width>800</width>
+				<height>700</height>
+				<onleft>3</onleft>
+				<onright>3</onright>
+				<onup>3</onup>
+				<ondown>3</ondown>
+				<scrolltime tween="quadratic">240</scrolltime>
+				<itemlayout height="80" width="800">
+					<control type="image">
+						<left>30</left>
+						<top>33</top>
+						<width>14</width>
+						<height>14</height>
+						<texture colordiffuse="af3_dialog_fg_70">dexhub/circle.png</texture>
+						<visible>String.IsEqual(ListItem.Property(value),Skin.String(dh.accent.custom))</visible>
+					</control>
+					<control type="label">
+						<left>72</left>
+						<top>0</top>
+						<width>560</width>
+						<height>80</height>
+						<font>af3_font_main</font>
+						<textcolor>af3_dialog_fg_70</textcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="image">
+						<left>712</left>
+						<top>20</top>
+						<width>40</width>
+						<height>40</height>
+						<texture colordiffuse="$INFO[ListItem.Property(value)]">dexhub/circle.png</texture>
+						<visible>!String.IsEmpty(ListItem.Property(value)) + !String.IsEqual(ListItem.Property(value),other)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="80" width="800">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>800</width>
+						<height>80</height>
+						<texture border="40">af3/common/menu.png</texture>
+						<colordiffuse>$VAR[DhAccent]</colordiffuse>
+					</control>
+					<control type="image">
+						<left>30</left>
+						<top>33</top>
+						<width>14</width>
+						<height>14</height>
+						<texture colordiffuse="$VAR[DhOnAccent]">dexhub/circle.png</texture>
+						<visible>String.IsEqual(ListItem.Property(value),Skin.String(dh.accent.custom))</visible>
+					</control>
+					<control type="label">
+						<left>72</left>
+						<top>0</top>
+						<width>560</width>
+						<height>80</height>
+						<font>af3_font_main</font>
+						<textcolor>$VAR[DhOnAccent]</textcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="image">
+						<left>712</left>
+						<top>20</top>
+						<width>40</width>
+						<height>40</height>
+						<texture colordiffuse="$INFO[ListItem.Property(value)]">dexhub/circle.png</texture>
+						<visible>!String.IsEmpty(ListItem.Property(value)) + !String.IsEqual(ListItem.Property(value),other)</visible>
+					</control>
+				</focusedlayout>
+				<content>
+					<item>
+						<label>$LOCALIZE[31885]</label>
+						<property name="value"></property>
+						<onclick>Skin.Reset(dh.accent.custom)</onclick>
+						<onclick>Skin.Reset(dh.accent.name)</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[31891]</label>
+						<property name="value">FFF5F5F5</property>
+						<onclick>Skin.SetString(dh.accent.custom,FFF5F5F5)</onclick>
+						<onclick>Skin.SetString(dh.accent.name,$LOCALIZE[31891])</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[31899]</label>
+						<property name="value">FF00B8D4</property>
+						<onclick>Skin.SetString(dh.accent.custom,FF00B8D4)</onclick>
+						<onclick>Skin.SetString(dh.accent.name,$LOCALIZE[31899])</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[31900]</label>
+						<property name="value">FFF4511E</property>
+						<onclick>Skin.SetString(dh.accent.custom,FFF4511E)</onclick>
+						<onclick>Skin.SetString(dh.accent.name,$LOCALIZE[31900])</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[31901]</label>
+						<property name="value">FFE91E63</property>
+						<onclick>Skin.SetString(dh.accent.custom,FFE91E63)</onclick>
+						<onclick>Skin.SetString(dh.accent.name,$LOCALIZE[31901])</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[31902]</label>
+						<property name="value">FF0091EA</property>
+						<onclick>Skin.SetString(dh.accent.custom,FF0091EA)</onclick>
+						<onclick>Skin.SetString(dh.accent.name,$LOCALIZE[31902])</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[31903]</label>
+						<property name="value">FF5528A8</property>
+						<onclick>Skin.SetString(dh.accent.custom,FF5528A8)</onclick>
+						<onclick>Skin.SetString(dh.accent.name,$LOCALIZE[31903])</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[31904]</label>
+						<property name="value">FFE5484D</property>
+						<onclick>Skin.SetString(dh.accent.custom,FFE5484D)</onclick>
+						<onclick>Skin.SetString(dh.accent.name,$LOCALIZE[31904])</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[31905]</label>
+						<property name="value">FFE6B450</property>
+						<onclick>Skin.SetString(dh.accent.custom,FFE6B450)</onclick>
+						<onclick>Skin.SetString(dh.accent.name,$LOCALIZE[31905])</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[31906]</label>
+						<property name="value">FF34C495</property>
+						<onclick>Skin.SetString(dh.accent.custom,FF34C495)</onclick>
+						<onclick>Skin.SetString(dh.accent.name,$LOCALIZE[31906])</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[31907]</label>
+						<property name="value">FF9B6BFF</property>
+						<onclick>Skin.SetString(dh.accent.custom,FF9B6BFF)</onclick>
+						<onclick>Skin.SetString(dh.accent.name,$LOCALIZE[31907])</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[31915]</label>
+						<property name="value">other</property>
+						<onclick>Skin.Reset(dh.accent.name)</onclick>
+						<onclick>Skin.SetColor(dh.accent.custom,31888,$INFO[Window(Home).Property(dexhub.tvos.theme.accent)],special://skin/extras/accents.xml)</onclick>
+					</item>
+				</content>
+			</control>
+		</control>
+	</controls>
+</window>

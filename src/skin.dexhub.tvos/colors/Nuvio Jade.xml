@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dex Hub theme Nuvio Jade (skin.dexhub.tvos 3.14.0): the colours over defaults.xml -->
+<colors>
+	<color name="primary_background">FF0B0F0D</color>
+	<color name="secondary_background">3316251D</color>
+	<color name="dialog_tint">FF101A15</color>
+	<color name="background">FF060807</color>
+	<color name="white">FFFFFFFF</color>
+	<color name="grey">FFB3B3B3</color>
+	<color name="blue">FF7BF08D</color>
+	<color name="button_focus">FF22D37C</color>
+	<color name="button_alt_focus">8022D37C</color>
+	<color name="selected">FF59DE9D</color>
+	<color name="dh_accent">FF22D37C</color>
+	<color name="dh_accent_dim">4722D37C</color>
+	<color name="dh_secondary">FF7BF08D</color>
+	<color name="dh_surface">FF0B0F0D</color>
+	<color name="dh_card">FF16251D</color>
+	<color name="dh_text">FFFFFFFF</color>
+	<color name="dh_muted">FFB3B3B3</color>
+	<color name="dh_on_accent">FF0B0F0D</color>
+	<color name="dh_glow_a">5C22D37C</color>
+	<color name="dh_glow_b">407BF08D</color>
+	<color name="dh_glow_focus">9922D37C</color>
+</colors>

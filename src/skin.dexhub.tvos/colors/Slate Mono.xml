@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dex Hub theme Slate Mono (skin.dexhub.tvos 3.14.0): the colours over defaults.xml -->
+<colors>
+	<color name="primary_background">FF0C0D0F</color>
+	<color name="secondary_background">331A1C21</color>
+	<color name="dialog_tint">FF131418</color>
+	<color name="background">FF070708</color>
+	<color name="white">FFF5F5F6</color>
+	<color name="grey">FF71717A</color>
+	<color name="blue">FFA1A1AA</color>
+	<color name="button_focus">FFE5E7EB</color>
+	<color name="button_alt_focus">80E5E7EB</color>
+	<color name="selected">FFECEDF0</color>
+	<color name="dh_accent">FFE5E7EB</color>
+	<color name="dh_accent_dim">47E5E7EB</color>
+	<color name="dh_secondary">FFA1A1AA</color>
+	<color name="dh_surface">FF0C0D0F</color>
+	<color name="dh_card">FF1A1C21</color>
+	<color name="dh_text">FFF5F5F6</color>
+	<color name="dh_muted">FF71717A</color>
+	<color name="dh_on_accent">FF0C0D0F</color>
+	<color name="dh_glow_a">5CE5E7EB</color>
+	<color name="dh_glow_b">40A1A1AA</color>
+	<color name="dh_glow_focus">99E5E7EB</color>
+</colors>

@@ -1,0 +1,3 @@
+Font Awesome Free 6 (fa-solid-900.ttf) by Fonticons, Inc. https://fontawesome.com
+The font is licensed under the SIL Open Font License 1.1 (https://scripts.sil.org/OFL);
+the icons under CC BY 4.0 (https://fontawesome.com/license/free).

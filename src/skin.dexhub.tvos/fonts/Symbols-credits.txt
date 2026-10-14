@@ -1,0 +1,7 @@
+Dex Hub supplementary glyphs
+Existing outlines, Arabic shaping and text metrics are retained.
+Missing symbols only: Noto Sans Math, Noto Sans Symbols 2 and Noto Emoji
+(Google / Noto Project, SIL OFL 1.1), plus DejaVu Sans modifier letters
+(Bitstream Vera licence; DejaVu changes are public domain).
+See the accompanying licence files. Symbols are monochrome; this is
+not a complete colour emoji or flag-sequence renderer.

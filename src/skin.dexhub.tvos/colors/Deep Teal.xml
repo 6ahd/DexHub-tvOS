@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dex Hub theme Deep Teal (skin.dexhub.tvos 3.14.0): the colours over defaults.xml -->
+<colors>
+	<color name="primary_background">FF061214</color>
+	<color name="secondary_background">330F2226</color>
+	<color name="dialog_tint">FF0A1A1D</color>
+	<color name="background">FF030A0B</color>
+	<color name="white">FFE8F7F5</color>
+	<color name="grey">FF7FA3A0</color>
+	<color name="blue">FF99F6E4</color>
+	<color name="button_focus">FF2DD4BF</color>
+	<color name="button_alt_focus">802DD4BF</color>
+	<color name="selected">FF62DFCF</color>
+	<color name="dh_accent">FF2DD4BF</color>
+	<color name="dh_accent_dim">472DD4BF</color>
+	<color name="dh_secondary">FF99F6E4</color>
+	<color name="dh_surface">FF061214</color>
+	<color name="dh_card">FF0F2226</color>
+	<color name="dh_text">FFE8F7F5</color>
+	<color name="dh_muted">FF7FA3A0</color>
+	<color name="dh_on_accent">FF061214</color>
+	<color name="dh_glow_a">5C2DD4BF</color>
+	<color name="dh_glow_b">4099F6E4</color>
+	<color name="dh_glow_focus">992DD4BF</color>
+</colors>

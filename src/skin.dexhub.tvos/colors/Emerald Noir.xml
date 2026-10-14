@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dex Hub theme Emerald Noir (skin.dexhub.tvos 3.14.0): the colours over defaults.xml -->
+<colors>
+	<color name="primary_background">FF08110D</color>
+	<color name="secondary_background">3312211A</color>
+	<color name="dialog_tint">FF0D1914</color>
+	<color name="background">FF040907</color>
+	<color name="white">FFECFDF5</color>
+	<color name="grey">FF7FA695</color>
+	<color name="blue">FF6EE7B7</color>
+	<color name="button_focus">FF34C495</color>
+	<color name="button_alt_focus">8034C495</color>
+	<color name="selected">FF67D3B0</color>
+	<color name="dh_accent">FF34C495</color>
+	<color name="dh_accent_dim">4734C495</color>
+	<color name="dh_secondary">FF6EE7B7</color>
+	<color name="dh_surface">FF08110D</color>
+	<color name="dh_card">FF12211A</color>
+	<color name="dh_text">FFECFDF5</color>
+	<color name="dh_muted">FF7FA695</color>
+	<color name="dh_on_accent">FF08110D</color>
+	<color name="dh_glow_a">5C34C495</color>
+	<color name="dh_glow_b">406EE7B7</color>
+	<color name="dh_glow_focus">9934C495</color>
+</colors>

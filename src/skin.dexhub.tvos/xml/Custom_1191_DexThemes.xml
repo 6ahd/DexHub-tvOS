@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- skin.dexhub.tvos 3.14.0: themes (Configure skin > Appearance), in the AF3 dialog style -->
+<window id="1191" type="dialog">
+	<defaultcontrol always="true">3</defaultcontrol>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Nuvio White)">SetFocus(3,0,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Nuvio Crimson)">SetFocus(3,1,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Nuvio Ocean)">SetFocus(3,2,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Nuvio Violet)">SetFocus(3,3,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Nuvio Emerald)">SetFocus(3,4,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Nuvio Amber)">SetFocus(3,5,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Nuvio Rose)">SetFocus(3,6,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Nuvio Gold)">SetFocus(3,7,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Nuvio Jade)">SetFocus(3,8,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Nuvio Rose Gold)">SetFocus(3,9,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Nuvio Arctic Blue)">SetFocus(3,10,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Nuvio Graphite)">SetFocus(3,11,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Nuvio Black)">SetFocus(3,12,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Pure Black)">SetFocus(3,13,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Black Gold)">SetFocus(3,14,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Black Aqua)">SetFocus(3,15,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Dex Infinity)">SetFocus(3,16,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),OLED Black)">SetFocus(3,17,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Graphite)">SetFocus(3,18,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Deep Teal)">SetFocus(3,19,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Rose Noir)">SetFocus(3,20,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Nordic Night)">SetFocus(3,21,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Dex Crimson)">SetFocus(3,22,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Midnight Ocean)">SetFocus(3,23,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Royal Violet)">SetFocus(3,24,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Emerald Noir)">SetFocus(3,25,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Amber Cinema)">SetFocus(3,26,absolute)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(dexhub.tvos.theme.name),Slate Mono)">SetFocus(3,27,absolute)</onload>
+	<controls>
+		<control type="image">
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<texture colordiffuse="B3000000">af3/common/white.png</texture>
+			<animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+		</control>
+		<control type="group">
+			<left>540</left>
+			<top>110</top>
+			<width>840</width>
+			<height>860</height>
+			<include>DhAF3DialogOpen</include>
+			<include>DhAF3DialogFrame</include>
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>840</width>
+				<height>860</height>
+				<texture border="20">af3/common/dialog.png</texture>
+				<colordiffuse>$VAR[DhCard]</colordiffuse>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>840</width>
+				<height>860</height>
+				<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog-outline.png</texture>
+			</control>
+			<control type="label">
+				<left>40</left>
+				<top>36</top>
+				<width>760</width>
+				<height>44</height>
+				<font>af3_font_midi_bold</font>
+				<textcolor>af3_dialog_fg_90</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>$LOCALIZE[31878]</label>
+			</control>
+			<control type="label">
+				<left>40</left>
+				<top>82</top>
+				<width>760</width>
+				<height>30</height>
+				<font>af3_font_mini</font>
+				<textcolor>af3_dialog_fg_30</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>$LOCALIZE[31897]</label>
+			</control>
+			<control type="image">
+				<left>40</left>
+				<top>124</top>
+				<width>760</width>
+				<height>1</height>
+				<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+			</control>
+			<control type="list" id="3">
+				<left>20</left>
+				<top>140</top>
+				<width>800</width>
+				<height>700</height>
+				<onleft>3</onleft>
+				<onright>3</onright>
+				<onup>3</onup>
+				<ondown>3</ondown>
+				<scrolltime tween="quadratic">240</scrolltime>
+				<itemlayout height="80" width="800">
+					<control type="image">
+						<left>30</left>
+						<top>33</top>
+						<width>14</width>
+						<height>14</height>
+						<texture colordiffuse="af3_dialog_fg_70">dexhub/circle.png</texture>
+						<visible>String.IsEqual(ListItem.Label,Window(Home).Property(dexhub.tvos.theme.name))</visible>
+					</control>
+					<control type="label">
+						<left>72</left>
+						<top>0</top>
+						<width>520</width>
+						<height>80</height>
+						<font>af3_font_main</font>
+						<textcolor>af3_dialog_fg_70</textcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="image">
+						<left>620</left>
+						<top>14</top>
+						<width>150</width>
+						<height>52</height>
+						<texture border="16" colordiffuse="$INFO[ListItem.Property(surface)]">dexhub/tile_bg.png</texture>
+					</control>
+					<control type="image">
+						<left>620</left>
+						<top>14</top>
+						<width>150</width>
+						<height>52</height>
+						<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog-outline.png</texture>
+					</control>
+					<control type="image">
+						<left>632</left>
+						<top>26</top>
+						<width>70</width>
+						<height>28</height>
+						<texture border="12" colordiffuse="$INFO[ListItem.Property(card)]">dexhub/tile_bg.png</texture>
+					</control>
+					<control type="image">
+						<left>722</left>
+						<top>26</top>
+						<width>28</width>
+						<height>28</height>
+						<texture colordiffuse="$INFO[ListItem.Property(accent)]">dexhub/circle.png</texture>
+					</control>
+				</itemlayout>
+				<focusedlayout height="80" width="800">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>800</width>
+						<height>80</height>
+						<texture border="40">af3/common/menu.png</texture>
+						<colordiffuse>$VAR[DhAccent]</colordiffuse>
+					</control>
+					<control type="image">
+						<left>30</left>
+						<top>33</top>
+						<width>14</width>
+						<height>14</height>
+						<texture colordiffuse="$VAR[DhOnAccent]">dexhub/circle.png</texture>
+						<visible>String.IsEqual(ListItem.Label,Window(Home).Property(dexhub.tvos.theme.name))</visible>
+					</control>
+					<control type="label">
+						<left>72</left>
+						<top>0</top>
+						<width>520</width>
+						<height>80</height>
+						<font>af3_font_main</font>
+						<textcolor>$VAR[DhOnAccent]</textcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="image">
+						<left>620</left>
+						<top>14</top>
+						<width>150</width>
+						<height>52</height>
+						<texture border="16" colordiffuse="$INFO[ListItem.Property(surface)]">dexhub/tile_bg.png</texture>
+					</control>
+					<control type="image">
+						<left>620</left>
+						<top>14</top>
+						<width>150</width>
+						<height>52</height>
+						<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog-outline.png</texture>
+					</control>
+					<control type="image">
+						<left>632</left>
+						<top>26</top>
+						<width>70</width>
+						<height>28</height>
+						<texture border="12" colordiffuse="$INFO[ListItem.Property(card)]">dexhub/tile_bg.png</texture>
+					</control>
+					<control type="image">
+						<left>722</left>
+						<top>26</top>
+						<width>28</width>
+						<height>28</height>
+						<texture colordiffuse="$INFO[ListItem.Property(accent)]">dexhub/circle.png</texture>
+					</control>
+				</focusedlayout>
+				<content>
+					<item>
+						<label>Nuvio White</label>
+						<property name="surface">FF0D0D0D</property>
+						<property name="card">FF222222</property>
+						<property name="accent">FFF5F5F5</property>
+						<onclick>SetProperty(dhs.theme.want,17,home)</onclick>
+					</item>
+					<item>
+						<label>Nuvio Crimson</label>
+						<property name="surface">FF0D0D0D</property>
+						<property name="card">FF241A1A</property>
+						<property name="accent">FFE53935</property>
+						<onclick>SetProperty(dhs.theme.want,18,home)</onclick>
+					</item>
+					<item>
+						<label>Nuvio Ocean</label>
+						<property name="surface">FF0D0D0F</property>
+						<property name="card">FF1A1F24</property>
+						<property name="accent">FF1E88E5</property>
+						<onclick>SetProperty(dhs.theme.want,19,home)</onclick>
+					</item>
+					<item>
+						<label>Nuvio Violet</label>
+						<property name="surface">FF0D0D0F</property>
+						<property name="card">FF1F1A24</property>
+						<property name="accent">FF8E24AA</property>
+						<onclick>SetProperty(dhs.theme.want,20,home)</onclick>
+					</item>
+					<item>
+						<label>Nuvio Emerald</label>
+						<property name="surface">FF0D0D0D</property>
+						<property name="card">FF1A241A</property>
+						<property name="accent">FF43A047</property>
+						<onclick>SetProperty(dhs.theme.want,21,home)</onclick>
+					</item>
+					<item>
+						<label>Nuvio Amber</label>
+						<property name="surface">FF0F0D0D</property>
+						<property name="card">FF24201A</property>
+						<property name="accent">FFFB8C00</property>
+						<onclick>SetProperty(dhs.theme.want,22,home)</onclick>
+					</item>
+					<item>
+						<label>Nuvio Rose</label>
+						<property name="surface">FF0D0D0D</property>
+						<property name="card">FF241A1F</property>
+						<property name="accent">FFD81B60</property>
+						<onclick>SetProperty(dhs.theme.want,23,home)</onclick>
+					</item>
+					<item>
+						<label>Nuvio Gold</label>
+						<property name="surface">FF0F0E0B</property>
+						<property name="card">FF262116</property>
+						<property name="accent">FFE8A91C</property>
+						<onclick>SetProperty(dhs.theme.want,24,home)</onclick>
+					</item>
+					<item>
+						<label>Nuvio Jade</label>
+						<property name="surface">FF0B0F0D</property>
+						<property name="card">FF16251D</property>
+						<property name="accent">FF22D37C</property>
+						<onclick>SetProperty(dhs.theme.want,25,home)</onclick>
+					</item>
+					<item>
+						<label>Nuvio Rose Gold</label>
+						<property name="surface">FF100C0F</property>
+						<property name="card">FF281A24</property>
+						<property name="accent">FFEC70A9</property>
+						<onclick>SetProperty(dhs.theme.want,26,home)</onclick>
+					</item>
+					<item>
+						<label>Nuvio Arctic Blue</label>
+						<property name="surface">FF0B0E14</property>
+						<property name="card">FF161E2A</property>
+						<property name="accent">FF3185F5</property>
+						<onclick>SetProperty(dhs.theme.want,27,home)</onclick>
+					</item>
+					<item>
+						<label>Nuvio Graphite</label>
+						<property name="surface">FF0C0D0F</property>
+						<property name="card">FF20242A</property>
+						<property name="accent">FFAAB2BE</property>
+						<onclick>SetProperty(dhs.theme.want,28,home)</onclick>
+					</item>
+					<item>
+						<label>Nuvio Black</label>
+						<property name="surface">FF000000</property>
+						<property name="card">FF121212</property>
+						<property name="accent">FFE5484D</property>
+						<onclick>SetProperty(dhs.theme.want,13,home)</onclick>
+					</item>
+					<item>
+						<label>Pure Black</label>
+						<property name="surface">FF000000</property>
+						<property name="card">FF141414</property>
+						<property name="accent">FFF5F5F5</property>
+						<onclick>SetProperty(dhs.theme.want,14,home)</onclick>
+					</item>
+					<item>
+						<label>Black Gold</label>
+						<property name="surface">FF000000</property>
+						<property name="card">FF15130F</property>
+						<property name="accent">FFE6B450</property>
+						<onclick>SetProperty(dhs.theme.want,15,home)</onclick>
+					</item>
+					<item>
+						<label>Black Aqua</label>
+						<property name="surface">FF000000</property>
+						<property name="card">FF0E1416</property>
+						<property name="accent">FF00B8D4</property>
+						<onclick>SetProperty(dhs.theme.want,16,home)</onclick>
+					</item>
+					<item>
+						<label>Dex Infinity</label>
+						<property name="surface">FF0B0E1C</property>
+						<property name="card">FF161B30</property>
+						<property name="accent">FF9B6BFF</property>
+						<onclick>SetProperty(dhs.theme.want,7,home)</onclick>
+					</item>
+					<item>
+						<label>OLED Black</label>
+						<property name="surface">FF000000</property>
+						<property name="card">FF111216</property>
+						<property name="accent">FF8C9BFF</property>
+						<onclick>SetProperty(dhs.theme.want,8,home)</onclick>
+					</item>
+					<item>
+						<label>Graphite</label>
+						<property name="surface">FF101113</property>
+						<property name="card">FF1C1E22</property>
+						<property name="accent">FF8AB4F8</property>
+						<onclick>SetProperty(dhs.theme.want,9,home)</onclick>
+					</item>
+					<item>
+						<label>Deep Teal</label>
+						<property name="surface">FF061214</property>
+						<property name="card">FF0F2226</property>
+						<property name="accent">FF2DD4BF</property>
+						<onclick>SetProperty(dhs.theme.want,10,home)</onclick>
+					</item>
+					<item>
+						<label>Rose Noir</label>
+						<property name="surface">FF130A10</property>
+						<property name="card">FF23131D</property>
+						<property name="accent">FFF472B6</property>
+						<onclick>SetProperty(dhs.theme.want,11,home)</onclick>
+					</item>
+					<item>
+						<label>Nordic Night</label>
+						<property name="surface">FF0E1218</property>
+						<property name="card">FF1A212B</property>
+						<property name="accent">FF88C0D0</property>
+						<onclick>SetProperty(dhs.theme.want,12,home)</onclick>
+					</item>
+					<item>
+						<label>Dex Crimson</label>
+						<property name="surface">FF0D0D12</property>
+						<property name="card">FF1B1B24</property>
+						<property name="accent">FFE04355</property>
+						<onclick>SetProperty(dhs.theme.want,1,home)</onclick>
+					</item>
+					<item>
+						<label>Midnight Ocean</label>
+						<property name="surface">FF070B14</property>
+						<property name="card">FF121B2E</property>
+						<property name="accent">FF38BDF8</property>
+						<onclick>SetProperty(dhs.theme.want,2,home)</onclick>
+					</item>
+					<item>
+						<label>Royal Violet</label>
+						<property name="surface">FF0E0A16</property>
+						<property name="card">FF1D1430</property>
+						<property name="accent">FF8B5CF6</property>
+						<onclick>SetProperty(dhs.theme.want,3,home)</onclick>
+					</item>
+					<item>
+						<label>Emerald Noir</label>
+						<property name="surface">FF08110D</property>
+						<property name="card">FF12211A</property>
+						<property name="accent">FF34C495</property>
+						<onclick>SetProperty(dhs.theme.want,4,home)</onclick>
+					</item>
+					<item>
+						<label>Amber Cinema</label>
+						<property name="surface">FF120F0A</property>
+						<property name="card">FF241C12</property>
+						<property name="accent">FFF2A93B</property>
+						<onclick>SetProperty(dhs.theme.want,5,home)</onclick>
+					</item>
+					<item>
+						<label>Slate Mono</label>
+						<property name="surface">FF0C0D0F</property>
+						<property name="card">FF1A1C21</property>
+						<property name="accent">FFE5E7EB</property>
+						<onclick>SetProperty(dhs.theme.want,6,home)</onclick>
+					</item>
+				</content>
+			</control>
+		</control>
+	</controls>
+</window>

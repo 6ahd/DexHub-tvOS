@@ -1,0 +1,2826 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<depth>DepthOSD</depth>
+	<defaultcontrol always="true">5553</defaultcontrol>
+	<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
+	<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+	<onunload>ClearProperty(PlayerInfoDialogFocus,Home)</onunload>
+	<controls>
+		<control type="image" id="">
+			<texture>dexhub/scrim_bottom.png</texture>
+		</control>
+		<control type="group">
+			<control type="group">
+				<bottom>15</bottom>
+				<height>300</height>
+				<animation effect="slide" end="0,-20" time="150" condition="VideoPlayer.Content(LiveTV)">conditional</animation>
+				<control type="image">
+					<left>20</left>
+					<top>-260</top>
+					<right>20</right>
+					<height>450</height>
+					<texture colordiffuse="af3_main_fg_70">af3/extras/backgrounds/overlay/coal_blur.png</texture>
+				</control>
+				<control type="grouplist">
+					<left>50</left>
+					<top>-240</top>
+					<visible>Control.HasFocus(5551)</visible>
+					<control type="label">
+						<width>1200</width>
+						<height>50</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[PVR.ActStreamServiceName,$LOCALIZE[19099]: ]</label>
+						<font>af3_font_tiny_iconic_regular1</font>
+						<textcolor>grey</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+					<control type="label">
+						<width>1200</width>
+						<height>50</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[PVR.ActStreamProviderName,$LOCALIZE[19101]: ]</label>
+						<font>af3_font_tiny_iconic_regular1</font>
+						<textcolor>grey</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+					<control type="label">
+						<width>1200</width>
+						<height>50</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[PVR.ActStreamClient,$LOCALIZE[19012]: ]</label>
+						<font>af3_font_tiny_iconic_regular1</font>
+						<textcolor>grey</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+					<control type="label">
+						<width>1200</width>
+						<height>50</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[PVR.ActStreamDevice,$LOCALIZE[19006]: ]</label>
+						<font>af3_font_tiny_iconic_regular1</font>
+						<textcolor>grey</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+					<control type="label">
+						<width>1200</width>
+						<height>50</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[PVR.ActStreamStatus,$LOCALIZE[19007]: ]</label>
+						<font>af3_font_tiny_iconic_regular1</font>
+						<textcolor>grey</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+					<control type="label">
+						<width>1200</width>
+						<height>50</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[PVR.ActStreamEncryptionName,$LOCALIZE[19015]: ]</label>
+						<font>af3_font_tiny_iconic_regular1</font>
+						<textcolor>grey</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+					<scrolltime tween="quadratic">400</scrolltime>
+					<usecontrolcoords>true</usecontrolcoords>
+					<itemgap>0</itemgap>
+				</control>
+				<control type="grouplist">
+					<left>1250</left>
+					<top>-240</top>
+					<visible>Control.HasFocus(5551)</visible>
+					<usecontrolcoords>true</usecontrolcoords>
+					<control type="label">
+						<width>600</width>
+						<height>50</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[PVR.ActStreamBer,$LOCALIZE[19010]: ]</label>
+						<font>af3_font_tiny_iconic_regular1</font>
+						<textcolor>grey</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+					<control type="label">
+						<width>600</width>
+						<height>50</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[PVR.ActStreamUnc,$LOCALIZE[19011]: ]</label>
+						<font>af3_font_tiny_iconic_regular1</font>
+						<textcolor>grey</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+					<control type="label">
+						<width>600</width>
+						<height>50</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[PVR.ActStreamMux,$LOCALIZE[19100]: ]</label>
+						<font>af3_font_tiny_iconic_regular1</font>
+						<textcolor>grey</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+					<control type="label">
+						<width>600</width>
+						<height>50</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[PVR.ActStreamSignal,$LOCALIZE[19008]: ]</label>
+						<font>af3_font_tiny_iconic_regular1</font>
+						<textcolor>grey</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+					<control type="progress">
+						<top>5</top>
+						<width>600</width>
+						<height>18</height>
+						<info>PVR.ActStreamProgrSignal</info>
+						<texturebg colordiffuse="2f5f5f5f" border="12,0,12,0">af3/progress/progress-nib.png</texturebg>
+						<lefttexture/>
+						<midtexture colordiffuse="ffffffff" border="12,0,12,0">af3/progress/progress-nib.png</midtexture>
+						<righttexture/>
+						<overlaytexture/>
+					</control>
+					<control type="label">
+						<top>5</top>
+						<width>1600</width>
+						<height>50</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[PVR.ActStreamSNR,$LOCALIZE[19009]: ]</label>
+						<font>af3_font_tiny_iconic_regular1</font>
+						<textcolor>grey</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+					<control type="progress">
+						<top>0</top>
+						<width>600</width>
+						<height>18</height>
+						<info>PVR.ActStreamProgrSNR</info>
+						<texturebg colordiffuse="2f5f5f5f" border="12,0,12,0">af3/progress/progress-nib.png</texturebg>
+						<lefttexture/>
+						<midtexture colordiffuse="ffffffff" border="12,0,12,0">af3/progress/progress-nib.png</midtexture>
+						<righttexture/>
+						<overlaytexture/>
+					</control>
+					<scrolltime tween="quadratic">400</scrolltime>
+					<itemgap>0</itemgap>
+				</control>
+				<control type="grouplist">
+					<left>60</left>
+					<top>-260</top>
+					<visible>Control.HasFocus(5552)</visible>
+					<visible>String.IsEqual(Player.Process(video.dovi.has.config),1)</visible>
+					<control type="group">
+						<width>400</width>
+						<height>50</height>
+						<control type="image">
+							<top>4</top>
+							<left>-15</left>
+							<width>110</width>
+							<height>54</height>
+							<texture colordiffuse="af3_main_fg_100">af3/flags/color/hdr/dolbyvision.png</texture>
+						</control>
+						<control type="label">
+							<width>300</width>
+							<top>5</top>
+							<left>180</left>
+							<height>50</height>
+							<aligny>bottom</aligny>
+							<label>[COLOR blue]DV Configuration[/COLOR]</label>
+							<font>af3_font10_bold</font>
+							<align>left</align>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>400</width>
+						<height>36</height>
+						<control type="label">
+							<width>300</width>
+							<height>36</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Version:</label>
+							<textcolor>grey</textcolor>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>250</left>
+							<width>200</width>
+							<height>36</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(video.dovi.version.major)]$INFO[Player.Process(video.dovi.version.minor),.]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>400</width>
+						<height>36</height>
+						<control type="label">
+							<width>300</width>
+							<height>36</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Profile:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>250</left>
+							<width>200</width>
+							<height>36</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(video.dovi.profile)]$INFO[Player.Process(video.dovi.bl.signal.compatibility),.]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>460</left>
+							<width>40</width>
+							<height>36</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(video.dovi.version.major)]$INFO[Player.Process(video.dovi.version.minor),.]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<visible>!String.IsEqual(Player.Process(video.source.dovi.profile),Player.Process(video.dovi.profile))</visible>
+							<visible>!String.IsEqual(Player.Process(video.source.dovi.profile),0)</visible>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>400</width>
+						<height>36</height>
+						<control type="label">
+							<width>300</width>
+							<height>36</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Level:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>250</left>
+							<width>200</width>
+							<height>36</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(video.dovi.level)]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>400</width>
+						<height>36</height>
+						<control type="label">
+							<width>300</width>
+							<height>36</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>RPU:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>250</left>
+							<width>200</width>
+							<height>36</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$VAR[AF3P_RPUPresentVar]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>400</width>
+						<height>36</height>
+						<control type="label">
+							<width>300</width>
+							<height>36</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Base Layer:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>250</left>
+							<width>200</width>
+							<height>36</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR lightgreen]$VAR[AF3P_BLPresentVar][/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>400</width>
+						<height>36</height>
+						<control type="label">
+							<width>350</width>
+							<height>36</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Enhancement Layer:</label>
+							<textcolor>grey</textcolor>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>250</left>
+							<width>200</width>
+							<height>36</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$VAR[AF3P_ELPresentVar]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>460</left>
+							<width>50</width>
+							<height>36</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$VAR[AF3P_ELSourcePresentVar]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<visible>!String.IsEqual(Player.Process(video.source.dovi.el.present),Player.Process(video.dovi.el.present))</visible>
+							<visible>!String.IsEqual(Player.Process(video.source.dovi.profile),0)</visible>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>400</width>
+						<height>36</height>
+						<control type="label">
+							<width>400</width>
+							<height>36</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Enhancement Layer Type:</label>
+							<textcolor>grey</textcolor>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>250</left>
+							<width>200</width>
+							<height>36</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$VAR[AF3P_DVELVar]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>460</left>
+							<width>40</width>
+							<height>36</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$VAR[AF3P_DVSourceELVar]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<visible>!String.IsEqual(Player.Process(video.source.dovi.el.type),Player.Process(video.dovi.el.type))</visible>
+							<visible>!String.IsEqual(Player.Process(video.source.dovi.profile),0)</visible>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>400</width>
+						<height>40</height>
+						<control type="label">
+							<width>300</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Metadata:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>250</left>
+							<width>200</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(video.dovi.meta.version)]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<scrolltime tween="quadratic">400</scrolltime>
+					<usecontrolcoords>true</usecontrolcoords>
+					<itemgap>0</itemgap>
+				</control>
+				<control type="grouplist">
+					<left>600</left>
+					<top>-260</top>
+					<visible>Control.HasFocus(5552)</visible>
+					<visible>String.IsEqual(Player.Process(video.dovi.has.header),1)</visible>
+					<control type="group">
+						<width>400</width>
+						<height>55</height>
+						<control type="image">
+							<left>-15</left>
+							<top>4</top>
+							<width>110</width>
+							<height>54</height>
+							<texture colordiffuse="af3_main_fg_100">af3/flags/color/hdr/dolbyvision.png</texture>
+						</control>
+						<control type="label">
+							<left>250</left>
+							<width>300</width>
+							<height>45</height>
+							<top>5</top>
+							<aligny>bottom</aligny>
+							<label>[COLOR blue]DV Levels Metadata[/COLOR]</label>
+							<font>af3_font10_bold</font>
+							<align>left</align>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<visible>String.IsEqual(Player.Process(video.dovi.has.l6),1)</visible>
+						<width>400</width>
+						<height>40</height>
+						<control type="label">
+							<width>250</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>L6 Max CLL/FALL:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>250</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(video.dovi.l6.max.cll)]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>350</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(video.dovi.l6.max.fall)]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>570</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>[COLOR dimgrey]cd/m²[/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<visible>String.IsEqual(Player.Process(video.dovi.has.l6),1)</visible>
+						<width>400</width>
+						<height>40</height>
+						<control type="label">
+							<width>250</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>L6 Min/Max:</label>
+							<textcolor>grey</textcolor>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>250</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(video.dovi.l6.min.lum)]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>350</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(video.dovi.l6.max.lum)]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>570</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>[COLOR dimgrey]cd/m²[/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>400</width>
+						<height>40</height>
+						<control type="label">
+							<width>250</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Source Min/Max:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>250</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR lightgreen]$INFO[Player.Process(video.dovi.source.min.nits)][/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>350</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR lightgreen]$INFO[Player.Process(video.dovi.source.max.nits)][/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>570</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>[COLOR dimgrey]cd/m²[/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>400</width>
+						<height>40</height>
+						<control type="label">
+							<width>250</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>L1 Min/Max/Avg:</label>
+							<textcolor>grey</textcolor>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>250</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR lightgreen]$INFO[Player.Process(video.dovi.l1.min.nits)][/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>350</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR lightgreen]$INFO[Player.Process(video.dovi.l1.max.nits)][/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>450</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR lightgreen]$INFO[Player.Process(video.dovi.l1.avg.nits)][/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>570</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>[COLOR dimgrey]cd/m²[/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="label">
+						<width>250</width>
+						<height>20</height>
+						<aligny>bottom</aligny>
+						<align>left</align>
+						<label/>
+						<font>af3_font_tiny_iconic_regular1</font>
+						<textcolor>grey</textcolor>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+					<control type="group">
+						<width>400</width>
+						<height>40</height>
+						<control type="label">
+							<width>250</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Source Min/Max:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>250</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR lightgreen]$INFO[Player.Process(video.dovi.source.min.pq)][/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>350</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR lightgreen]$INFO[Player.Process(video.dovi.source.max.pq)][/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>570</left>
+							<width>120</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>[COLOR dimgrey]12-bit PQ[/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>400</width>
+						<height>40</height>
+						<control type="label">
+							<width>250</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>L1 Min/Max/Avg:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>250</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR lightgreen]$INFO[Player.Process(video.dovi.l1.min.pq)][/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>350</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR lightgreen]$INFO[Player.Process(video.dovi.l1.max.pq)][/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>450</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR lightgreen]$INFO[Player.Process(video.dovi.l1.avg.pq)][/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>570</left>
+							<width>120</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>[COLOR dimgrey]12-bit PQ[/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="label">
+						<width>250</width>
+						<height>20</height>
+						<aligny>bottom</aligny>
+						<align>left</align>
+						<label/>
+						<font>af3_font_tiny_iconic_regular1</font>
+						<textcolor>grey</textcolor>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+					<control type="group">
+						<visible>String.IsEqual(Player.Process(video.dovi.has.l5),1)</visible>
+						<width>500</width>
+						<height>40</height>
+						<control type="label">
+							<width>250</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>L5 Active Offsets:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>250</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(video.dovi.l5.left.offset)]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>350</left>
+							<width>20</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR dimgrey]L[/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>350</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(video.dovi.l5.right.offset)]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>450</left>
+							<width>20</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR dimgrey]R[/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>450</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(video.dovi.l5.top.offset)]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>550</left>
+							<width>20</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR dimgrey]T[/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>550</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(video.dovi.l5.bottom.offset)]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>650</left>
+							<width>20</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR dimgrey]B[/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<scrolltime tween="quadratic">400</scrolltime>
+					<usecontrolcoords>true</usecontrolcoords>
+					<itemgap>0</itemgap>
+				</control>
+				<control type="grouplist">
+					<left>1320</left>
+					<top>-260</top>
+					<visible>Control.HasFocus(5552)</visible>
+					<control type="group">
+						<width>700</width>
+						<height>50</height>
+						<control type="image">
+							<left>-15</left>
+							<top>4</top>
+							<width>110</width>
+							<height>54</height>
+							<texture colordiffuse="af3_main_fg_100">af3/flags/color/hdr/hdr10.png</texture>
+						</control>
+						<control type="label">
+							<top>5</top>
+							<width>320</width>
+							<height>50</height>
+							<aligny>bottom</aligny>
+							<left>200</left>
+							<label>[COLOR blue]HDR Static Metadata[/COLOR]</label>
+							<font>af3_font10_bold</font>
+							<align>left</align>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<visible>String.IsEqual(Player.Process(video.hdr.has.cll),1)</visible>
+						<width>400</width>
+						<height>40</height>
+						<control type="label">
+							<width>250</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Max CLL/FALL:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>250</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(video.hdr.max.cll)]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>350</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(video.hdr.max.fall)]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>470</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>[COLOR dimgrey]cd/m²[/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<visible>String.IsEqual(Player.Process(video.hdr.has.mdcv),1)</visible>
+						<width>400</width>
+						<height>40</height>
+						<control type="label">
+							<width>250</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Min/Max:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>250</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(video.hdr.min.lum)]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>350</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(video.hdr.max.lum)]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>470</left>
+							<width>100</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>[COLOR dimgrey]cd/m²[/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<visible>String.IsEqual(Player.Process(video.hdr.has.mdcv),1)</visible>
+						<width>400</width>
+						<height>40</height>
+						<control type="label">
+							<width>250</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Colour Primaries:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="textbox">
+							<left>250</left>
+							<width>200</width>
+							<height>300</height>
+							<wrapmultiline>true</wrapmultiline>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$VAR[AF3P_ColorSpaceVar]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<autoscroll delay="6000" time="3000" repeat="10000">!Skin.HasSetting(Textboxes.DisableAutoscroll)</autoscroll>
+						</control>
+					</control>
+					<scrolltime tween="quadratic">400</scrolltime>
+					<usecontrolcoords>true</usecontrolcoords>
+					<itemgap>0</itemgap>
+				</control>
+				<control type="grouplist">
+					<left>50</left>
+					<top>-260</top>
+					<visible>Control.HasFocus(5553)</visible>
+					<control type="group">
+						<width>640</width>
+						<height>40</height>
+						<visible>Player.HasVideo</visible>
+						<control type="label">
+							<width>220</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Video source type:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>420</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR darkorange]$INFO[Player.Process(video.source.hdr.type)][/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<visible>String.IsEqual(Player.Process(video.source.hdr.type.raw),0)</visible>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>420</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR darkorange]$INFO[Player.Process(video.source.hdr.type)][/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<visible>!String.IsEqual(Player.Process(video.source.hdr.type.raw),0)</visible>
+							<visible>String.IsEqual(Player.Process(video.source.additional.hdr.type.raw),0)</visible>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>420</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR darkorange]$INFO[Player.Process(video.source.hdr.type)][/COLOR]  [COLOR dimgrey]$INFO[Player.Process(video.source.additional.hdr.type)][/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<visible>!String.IsEqual(Player.Process(video.source.hdr.type.raw),0)</visible>
+							<visible>!String.IsEqual(Player.Process(video.source.additional.hdr.type.raw),0)</visible>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>640</width>
+						<height>40</height>
+						<visible>Player.HasVideo</visible>
+						<control type="label">
+							<width>220</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Video encoding:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>420</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[VideoPlayer.VideoCodec]  $INFO[VideoPlayer.VideoResolution]  $INFO[VideoPlayer.VideoAspect]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>640</width>
+						<height>40</height>
+						<control type="label">
+							<width>220</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Screen resolution:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>420</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[System.ScreenResolution]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>640</width>
+						<height>40</height>
+						<control type="label">
+							<width>220</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Kodi fps:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>420</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[System.FPS]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>640</width>
+						<height>40</height>
+						<control type="label">
+							<width>250</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Decoder|Deinterlace:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>250</left>
+							<width>390</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[UPPERCASE]$INFO[Player.Process(videodecoder)][/UPPERCASE] $VAR[AF3P_VideoDecoder,[COLOR af3_dialog_fg_70](,)[/COLOR]]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>640</width>
+						<height>40</height>
+						<control type="label">
+							<width>220</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>A|V bit rate:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>240</left>
+							<width>200</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$VAR[AF3P_BridgeAVBitrate]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<visible>!String.IsEmpty(VideoPlayer.AudioMibitRate)</visible>
+							<visible>!String.IsEmpty(VideoPlayer.VideoMibitRate)</visible>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>440</left>
+							<width>200</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(audio.live.mibit.rate),,]  $INFO[Player.Process(video.live.mibit.rate),,]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>640</width>
+						<height>40</height>
+						<control type="label">
+							<width>250</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Audio input:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>250</left>
+							<width>390</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$VAR[AF3P_AudioChannelsInputVar]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>640</width>
+						<height>40</height>
+						<control type="label">
+							<width>250</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Audio encoding:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>250</left>
+							<width>390</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR darkorange]$VAR[AF3P_AudioCodecVar] $VAR[AF3P_AudioChannelsVar][/COLOR] [COLOR af3_dialog_fg_90]$VAR[AF3P_AudioCodecSpatialVar][/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<visible>String.IsEmpty(VideoPlayer.AudioCodec)</visible>
+							<left>250</left>
+							<width>390</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR dimgrey]No audio codec[/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>640</width>
+						<height>40</height>
+						<control type="label">
+							<width>240</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>CPU:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>240</left>
+							<width>400</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[System.CpuFrequency] [COLOR limegreen]($INFO[System.CPUTemperature])[/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>640</width>
+						<height>46</height>
+						<visible>System.SupportsCPUUsage</visible>
+						<control type="label">
+							<width>340</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>CPU Usage:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>240</left>
+							<width>400</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[System.CpuAltUsage]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="progress">
+						<description>CPU BAR</description>
+						<width>640</width>
+						<height>14</height>
+						<info>System.CPUUsage</info>
+						<visible>System.SupportsCPUUsage</visible>
+						<texturebg colordiffuse="af3_panel_fg_12" border="6">af3/progress/progress-bg.png</texturebg>
+						<midtexture colordiffuse="af3_dialog_fg_90" border="6">af3/progress/progress-bg.png</midtexture>
+						<lefttexture/>
+						<righttexture/>
+						<overlaytexture/>
+					</control>
+					<scrolltime tween="quadratic">400</scrolltime>
+					<usecontrolcoords>true</usecontrolcoords>
+					<itemgap>0</itemgap>
+				</control>
+				<control type="grouplist">
+					<left>710</left>
+					<top>-260</top>
+					<visible>Control.HasFocus(5553)</visible>
+					<control type="group">
+						<width>620</width>
+						<height>40</height>
+						<control type="label">
+							<width>220</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Display mode:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>400</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(amlogic.displaymode)]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>620</width>
+						<height>40</height>
+						<visible>Player.HasVideo</visible>
+						<control type="label">
+							<width>220</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>EOTF  Gamut:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>400</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(amlogic.eoft_gamut)]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>620</width>
+						<height>40</height>
+						<visible>Player.HasVideo</visible>
+						<control type="label">
+							<width>220</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Video Depth:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>400</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$VAR[AF3P_VideoBitDepth]-bit  $INFO[Player.Process(video.width.raw)]x$INFO[Player.Process(video.height.raw)]$INFO[Player.Process(videoscantype)]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>620</width>
+						<height>40</height>
+						<visible>Player.HasVideo</visible>
+						<control type="label">
+							<width>220</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Video source fps:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>400</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(videofps),, fps]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>620</width>
+						<height>40</height>
+						<visible>Player.HasVideo</visible>
+						<control type="label">
+							<width>200</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Video colour:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>200</left>
+							<width>420</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(video.hdr.colour.primaries)]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>200</left>
+							<width>420</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>N/A</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<visible>String.IsEmpty(Player.Process(video.hdr.colour.primaries))</visible>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>620</width>
+						<height>40</height>
+						<control type="label">
+							<width>220</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Audio sampling:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>400</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$VAR[AF3P_BridgeAudioSampling]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>620</width>
+						<height>40</height>
+						<control type="label">
+							<width>220</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Audio output:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>400</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(audiochannelssink),]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<visible>!Player.Passthrough</visible>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>400</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>Passthrough</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<visible>Player.Passthrough</visible>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<visible>String.IsEmpty(VideoPlayer.AudioCodec)</visible>
+							<left>220</left>
+							<width>400</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR dimgrey]No channels[/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>620</width>
+						<height>40</height>
+						<visible>Player.HasVideo</visible>
+						<control type="label">
+							<width>220</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Audio language:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<visible>!String.IsEmpty(VideoPlayer.AudioLanguage)</visible>
+							<left>220</left>
+							<width>400</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[VideoPlayer.AudioLanguage]  $INFO[VideoPlayer.AudioLanguageEx]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<visible>String.IsEmpty(VideoPlayer.AudioLanguage)</visible>
+							<left>220</left>
+							<width>400</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR dimgrey]Unknown[/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>620</width>
+						<height>40</height>
+						<visible>Player.HasVideo</visible>
+						<control type="label">
+							<width>220</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Subtitle language:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>400</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[VideoPlayer.SubtitlesName]  $INFO[VideoPlayer.SubtitlesLanguage]  $INFO[VideoPlayer.SubtitlesLangEx]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<visible>VideoPlayer.HasSubtitles + VideoPlayer.SubtitlesEnabled</visible>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>400</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR dimgrey]$INFO[VideoPlayer.SubtitlesLanguage][/COLOR]  [COLOR dimgrey]$INFO[VideoPlayer.SubtitlesLangEx][/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<visible>VideoPlayer.HasSubtitles + !VideoPlayer.SubtitlesEnabled</visible>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<visible>!VideoPlayer.HasSubtitles</visible>
+							<left>220</left>
+							<width>400</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR dimgrey]No subtitle[/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>620</width>
+						<height>46</height>
+						<control type="label">
+							<width>320</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Memory:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>400</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[system.memory(used.percent)] [COLOR dimgrey]([/COLOR]$INFO[system.memory(used)] [COLOR dimgrey]/[/COLOR] $INFO[system.memory(total)][COLOR dimgrey])[/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="progress">
+						<description>RAM BAR</description>
+						<width>620</width>
+						<height>14</height>
+						<info>system.memory(used)</info>
+						<texturebg colordiffuse="af3_panel_fg_12" border="6">af3/progress/progress-bg.png</texturebg>
+						<midtexture colordiffuse="af3_dialog_fg_90" border="6">af3/progress/progress-bg.png</midtexture>
+						<lefttexture/>
+						<righttexture/>
+						<overlaytexture/>
+					</control>
+					<scrolltime tween="quadratic">400</scrolltime>
+					<usecontrolcoords>true</usecontrolcoords>
+					<itemgap>0</itemgap>
+				</control>
+				<control type="grouplist">
+					<left>1350</left>
+					<top>-260</top>
+					<visible>Control.HasFocus(5553)</visible>
+					<control type="group">
+						<width>520</width>
+						<height>40</height>
+						<visible>Player.HasVideo</visible>
+						<visible>String.Contains(Player.Process(video.hdr.type),dolby vision)</visible>
+						<visible>!String.Contains(Player.Process(video.hdr.type),hdr)</visible>
+						<control type="label">
+							<width>240</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Dolby Vision Profile:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>240</left>
+							<width>280</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$VAR[AF3P_DVProfileExtVar]$VAR[AF3P_DVELVar, ] $INFO[Player.Process(video.dovi.codec.string),[COLOR dimgrey][,][/COLOR]]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<visible>!String.IsEqual(VideoPlayer.VideoCodec,av1)</visible>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>280</left>
+							<width>240</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>10.0 [COLOR dimgrey][----][/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<visible>String.IsEqual(VideoPlayer.VideoCodec,av1)</visible>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>520</width>
+						<height>40</height>
+						<visible>Player.HasVideo</visible>
+						<visible>String.Contains(Player.Process(video.hdr.type),dolby vision)</visible>
+						<visible>!String.Contains(Player.Process(video.hdr.type),hdr)</visible>
+						<control type="label">
+							<width>280</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Dolby Vision Metadata:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>280</left>
+							<width>240</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(video.dovi.meta.version)]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<visible>!String.IsEqual(VideoPlayer.VideoCodec,av1)</visible>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>280</left>
+							<width>240</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>[COLOR dimgrey]None[/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<visible>String.IsEqual(VideoPlayer.VideoCodec,av1)</visible>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>520</width>
+						<height>40</height>
+						<visible>Player.HasVideo</visible>
+						<visible>!String.Contains(Player.Process(amlogic.vs10.mode),bypass)</visible>
+						<control type="label">
+							<width>220</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>VS10 mode:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>300</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$VAR[AF3P_DVVS10Var]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>520</width>
+						<height>40</height>
+						<visible>Player.HasVideo</visible>
+						<control type="label">
+							<width>240</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Pixel format:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>300</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$VAR[AF3P_VideoPixelFormat] $VAR[AF3P_DVTunnelVar,-&gt; [COLOR af3_dialog_fg_70](,)[/COLOR]]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>520</width>
+						<height>40</height>
+						<visible>Player.HasVideo</visible>
+						<visible>Player.Process(videohwdecoder)</visible>
+						<control type="label">
+							<width>210</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>AML fps:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>308</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>$INFO[Player.Process(amlogic.video.fps.info)][COLOR orange]$INFO[Player.Process(amlogic.video.fps.drop),	- ][/COLOR]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="group">
+						<width>520</width>
+						<height>40</height>
+						<control type="label">
+							<width>160</width>
+							<height>18</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Audio Queue:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>300</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(audio.queue.level)]%</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="group">
+							<left>180</left>
+							<align>left</align>
+							<width>260</width>
+							<top>16</top>
+							<height>40</height>
+							<control type="progress">
+								<description>AUDIO QUEUE BAR</description>
+								<width>260</width>
+								<height>14</height>
+								<centertop>25%</centertop>
+								<info>Player.Process(audio.queue.level)</info>
+								<texturebg colordiffuse="af3_panel_fg_12" border="6">af3/progress/progress-bg.png</texturebg>
+								<midtexture colordiffuse="af3_dialog_fg_90" border="6">af3/progress/progress-bg.png</midtexture>
+								<lefttexture/>
+								<righttexture/>
+								<overlaytexture/>
+							</control>
+						</control>
+					</control>
+					<control type="group">
+						<width>520</width>
+						<height>40</height>
+						<control type="label">
+							<width>160</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Audio Data:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>300</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(audio.queue.data.level)]%</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="group">
+							<left>180</left>
+							<align>left</align>
+							<width>260</width>
+							<top>16</top>
+							<height>40</height>
+							<control type="progress">
+								<description>AUDIO DATA QUEUE BAR</description>
+								<width>260</width>
+								<height>14</height>
+								<centertop>25%</centertop>
+								<info>Player.Process(audio.queue.data.level)</info>
+								<texturebg colordiffuse="af3_panel_fg_12" border="6">af3/progress/progress-bg.png</texturebg>
+								<midtexture colordiffuse="af3_dialog_fg_90" border="6">af3/progress/progress-bg.png</midtexture>
+								<lefttexture/>
+								<righttexture/>
+								<overlaytexture/>
+							</control>
+						</control>
+					</control>
+					<control type="group">
+						<width>520</width>
+						<height>40</height>
+						<control type="label">
+							<width>160</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Video Queue:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>300</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(video.queue.level)]%</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="group">
+							<left>180</left>
+							<align>left</align>
+							<width>260</width>
+							<top>16</top>
+							<height>40</height>
+							<control type="progress">
+								<description>VIDEO QUEUE BAR</description>
+								<width>260</width>
+								<height>14</height>
+								<centertop>25%</centertop>
+								<info>Player.Process(video.queue.level)</info>
+								<texturebg colordiffuse="af3_panel_fg_12" border="6">af3/progress/progress-bg.png</texturebg>
+								<midtexture colordiffuse="af3_dialog_fg_90" border="6">af3/progress/progress-bg.png</midtexture>
+								<lefttexture/>
+								<righttexture/>
+								<overlaytexture/>
+							</control>
+						</control>
+					</control>
+					<control type="group">
+						<width>520</width>
+						<height>40</height>
+						<control type="label">
+							<width>160</width>
+							<height>18</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Video Data:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>300</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.Process(video.queue.data.level)]%</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="group">
+							<left>180</left>
+							<align>left</align>
+							<width>260</width>
+							<top>16</top>
+							<height>40</height>
+							<control type="progress">
+								<description>VIDEO DATA QUEUE BAR</description>
+								<width>260</width>
+								<height>14</height>
+								<centertop>25%</centertop>
+								<info>Player.Process(video.queue.data.level)</info>
+								<texturebg colordiffuse="af3_panel_fg_12" border="6">af3/progress/progress-bg.png</texturebg>
+								<midtexture colordiffuse="af3_dialog_fg_90" border="6">af3/progress/progress-bg.png</midtexture>
+								<lefttexture/>
+								<righttexture/>
+								<overlaytexture/>
+							</control>
+						</control>
+					</control>
+					<control type="group">
+						<width>520</width>
+						<height>46</height>
+						<control type="label">
+							<width>220</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<label>Kodi Video cache:</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>300</width>
+							<height>40</height>
+							<aligny>bottom</aligny>
+							<align>right</align>
+							<label>$INFO[Player.CacheLevel,,%]</label>
+							<font>af3_font_tiny_iconic_regular1</font>
+							<shadowcolor>black</shadowcolor>
+							<textcolor>af3_main_fg_70</textcolor>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+					</control>
+					<control type="progress">
+						<description>Cache BAR</description>
+						<width>520</width>
+						<height>14</height>
+						<info>Player.CacheLevel</info>
+						<texturebg colordiffuse="af3_panel_fg_12" border="6">af3/progress/progress-bg.png</texturebg>
+						<midtexture colordiffuse="af3_dialog_fg_90" border="6">af3/progress/progress-bg.png</midtexture>
+						<lefttexture/>
+						<righttexture/>
+						<overlaytexture/>
+					</control>
+					<scrolltime tween="quadratic">400</scrolltime>
+					<usecontrolcoords>true</usecontrolcoords>
+					<itemgap>0</itemgap>
+				</control>
+				<control type="grouplist" id="5550">
+					<right>20</right>
+					<top>-310</top>
+					<width>1000</width>
+					<height>50</height>
+					<align>right</align>
+					<orientation>horizontal</orientation>
+					<itemgap>-10</itemgap>
+					<onup>Close</onup>
+					<ondown>Close</ondown>
+					<usecontrolcoords>true</usecontrolcoords>
+					<control type="button" id="5551">
+						<width>auto</width>
+						<height>100</height>
+						<textoffsetx>40</textoffsetx>
+						<label>$LOCALIZE[31187]</label>
+						<visible>VideoPlayer.Content(livetv)</visible>
+						<onfocus>SetProperty(PlayerInfoDialogFocus,5551,Home)</onfocus>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>af3_font_mini</font>
+						<textcolor>af3_main_fg_70</textcolor>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<focusedcolor>ff272727</focusedcolor>
+						<disabledcolor>af3_main_fg_30</disabledcolor>
+						<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
+						<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+						<pulseonselect>false</pulseonselect>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+					</control>
+					<control type="button" id="5552">
+						<visible>!String.Contains(Player.Process(amlogic.vs10.mode),sdr)</visible>
+						<visible>String.IsEqual(Player.Process(video.dovi.has.config),1) | String.IsEqual(Player.Process(video.dovi.has.header),1) | String.IsEqual(Player.Process(video.hdr.has.cll),1) | String.IsEqual(Player.Process(video.hdr.has.mdcv),1)</visible>
+						<width>auto</width>
+						<height>55</height>
+						<textoffsetx>40</textoffsetx>
+						<label>Dolby Vision - HDR</label>
+						<onfocus>SetProperty(PlayerInfoDialogFocus,5552,Home)</onfocus>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>af3_font_mini</font>
+						<textcolor>af3_main_fg_70</textcolor>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<focusedcolor>ff272727</focusedcolor>
+						<disabledcolor>af3_main_fg_30</disabledcolor>
+						<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
+						<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+						<pulseonselect>false</pulseonselect>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+					</control>
+					<control type="button" id="5553">
+						<width>auto</width>
+						<height>55</height>
+						<textoffsetx>40</textoffsetx>
+						<label>Player</label>
+						<onfocus>SetProperty(PlayerInfoDialogFocus,5553,Home)</onfocus>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>af3_font_mini</font>
+						<textcolor>af3_main_fg_70</textcolor>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<focusedcolor>ff272727</focusedcolor>
+						<disabledcolor>af3_main_fg_30</disabledcolor>
+						<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
+						<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+						<pulseonselect>false</pulseonselect>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+					</control>
+					<scrolltime tween="quadratic">400</scrolltime>
+				</control>
+				<control type="group">
+					<centerbottom>60</centerbottom>
+					<center>view_pad</center>
+					<height>110</height>
+					<control type="group">
+						<centertop>50%</centertop>
+						<height>80</height>
+						<control type="grouplist">
+							<visible>!String.IsEmpty(VideoPlayer.VideoResolution) + !Skin.HasSetting(Furniture.DisableCodecLogos)</visible>
+							<orientation>horizontal</orientation>
+							<align>center</align>
+							<itemgap>15</itemgap>
+							<control type="image">
+								<texture background="true" colordiffuse="af3_panel_fg_90">$INFO[VideoPlayer.VideoResolution,af3/flags/colorful/resolution/,.png]</texture>
+								<aspectratio>keep</aspectratio>
+								<height>110</height>
+								<width>110</width>
+								<centertop>50%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.VideoResolution)</visible>
+							</control>
+							<control type="image">
+								<texture background="true" colordiffuse="af3_panel_fg_90">$INFO[VideoPlayer.VideoAspect,af3/flags/colorful/aspectratio/,.png]</texture>
+								<aspectratio>keep</aspectratio>
+								<height>80</height>
+								<width>80</width>
+								<centertop>50%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.VideoAspect)</visible>
+							</control>
+							<control type="image">
+								<texture background="true" colordiffuse="af3_panel_fg_90">$INFO[VideoPlayer.VideoCodec,af3/flags/colorful/source/,.png]</texture>
+								<aspectratio>keep</aspectratio>
+								<height>48</height>
+								<width>71</width>
+								<centertop>50%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.VideoCodec)</visible>
+							</control>
+							<control type="image">
+								<texture background="true" colordiffuse="af3_panel_fg_90">$INFO[VideoPlayer.AudioCodec,af3/flags/colorful/audio/,.png]</texture>
+								<aspectratio>keep</aspectratio>
+								<height>48</height>
+								<width>71</width>
+								<centertop>50%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.AudioCodec)</visible>
+							</control>
+							<control type="image" id="77881">
+								<fadetime>100</fadetime>
+								<centertop>50%</centertop>
+								<width>95</width>
+								<height>100</height>
+								<aspectratio align="left">keep</aspectratio>
+								<texture background="true" colordiffuse="af3_panel_fg_90">$VAR[AF3P_Image_RipSource]</texture>
+								<visible>!String.IsEmpty(Control.GetLabel(77881))</visible>
+							</control>
+							<control type="image">
+								<texture background="true" colordiffuse="af3_panel_fg_90">$INFO[VideoPlayer.AudioChannels,af3/flags/colorful/channels/,.png]</texture>
+								<aspectratio>keep</aspectratio>
+								<height>43</height>
+								<width>65</width>
+								<centertop>50%</centertop>
+								<visible>!String.IsEmpty(VideoPlayer.AudioChannels)</visible>
+							</control>
+							<scrolltime tween="quadratic">400</scrolltime>
+							<usecontrolcoords>true</usecontrolcoords>
+						</control>
+					</control>
+					<control type="group" id="">
+						<height>120</height>
+						<control type="label">
+							<label></label>
+							<textoffsetx>40</textoffsetx>
+							<font>af3_font_midi_bold</font>
+							<aligny>center</aligny>
+							<textcolor>af3_dialog_fg_90</textcolor>
+							<align>left</align>
+							<selectedcolor>af3_main_fg_70</selectedcolor>
+							<scrollsuffix> </scrollsuffix>
+							<scrollspeed>40</scrollspeed>
+							<disabledcolor>60FFFFFF</disabledcolor>
+						</control>
+						<control type="group" id="">
+							<right>40</right>
+							<centertop>50%</centertop>
+							<height>40</height>
+							<width>40</width>
+							<control type="image">
+								<bordersize>-8</bordersize>
+								<texture colordiffuse="af3_dialog_fg_90">af3/extras/icons/ppi1.png</texture>
+							</control>
+						</control>
+						<control type="image">
+							<bottom>0</bottom>
+							<height>1</height>
+							<left>40</left>
+							<right>40</right>
+							<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+						</control>
+					</control>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

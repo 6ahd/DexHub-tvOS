@@ -1,0 +1,2269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<variable name="AF3P_AudioChannelsInputVar">
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,1)">Mono</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,2)">FL, FR</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,3)">FL, FR, LFE</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,4)">FL, FR, BL, BR</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,5)">FL, FR, LFE, BL, BR</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,6)">FL, FR, FC, LFE, SL, SR</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,7)">FL, FR, FC, LFE, BC, SL, SR</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,8)">FL, FR, FC, LFE, BL, BR, SL, SR</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,9)">FL, FR, FC, LFE, BL, BR, SL, SR, FWL</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,10)">FL, FR, FC, LFE, BL, BR, SL, SR, FWL, FWR</value>
+		<value>$LOCALIZE[13205]</value>
+	</variable>
+	<variable name="AF3P_AudioChannelsVar">
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,1)">1.0</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,2)">2.0</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,4)">4.0</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,5)">5.0</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,6)">5.1</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,7)">6.1</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,8)">7.1</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,10)">9.1</value>
+	</variable>
+	<variable name="AF3P_AudioCodecSpatialVar">
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x_imax)">(IMAX)</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,eac3_ddp_atmos)">(Atmos)</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,truehd_atmos)">(Atmos)</value>
+	</variable>
+	<variable name="AF3P_AudioCodecVar">
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,aac)">AAC</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,aac_latm)">AAC</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,aac_lc)">AAC</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,he_aac)">AAC</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,he_aac_v2)">AAC</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,aac_ssr)">AAC</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,aac_ltp)">AAC</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,ac3)">Dolby Digital</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,aif)">AIFF</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,aifc)">AIFF</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,aiff)">AIFF</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,alac)">ALAC</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,ape)">APE</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,avc)">AVC</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,cdda)">CDDA</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dca)">DTS</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dolbydigital)">Dolby Digital</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd)">DTS-HD</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma)">DTS-HD MA</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_hra)">DTS-HD HRA</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x)">DTS:X MA</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x_imax)">DTS:X</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,eac3)">Dolby Digital Plus</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,eac3_ddp_atmos)">Dolby Digital Plus</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,flac)">FLAC</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,mp1)">MP1</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,mp2)">MP2</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,mp3)">MP3</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,mp3float)">MP3</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,ogg)">OGG</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,opus)">OPUS</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,pcm)">PCM</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,pcm_bluray)">PCM</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,pcm_s16le)">PCM</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,pcm_s24le)">PCM</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,truehd)">Dolby TrueHD</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,truehd_atmos)">Dolby TrueHD</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,vorbis)">Vorbis</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,wav)">WAV</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,wavpack)">WAVP</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,wmapro)">WMA-PRO</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,wmav2)">WMA</value>
+		<value condition="String.IsEmpty(VideoPlayer.AudioCodec)">$LOCALIZE[13205]</value>
+	</variable>
+	<variable name="AF3P_BLPresentVar">
+		<value condition="String.IsEqual(Player.Process(video.dovi.bl.present),1)">[COLOR palegreen]⬤[/COLOR]</value>
+		<value>[COLOR tomato]⬤[/COLOR]</value>
+	</variable>
+	<variable name="AF3P_BridgeAVBitrate">
+		<value condition="!String.IsEmpty(Window(10000).Property(AudioLiveBitrateVar)) | !String.IsEmpty(Window(10000).Property(VideoLiveBitrateVar))">$INFO[Window(10000).Property(AudioLiveBitrateVar)]$INFO[Window(10000).Property(VideoLiveBitrateVar)]</value>
+		<value>$INFO[VideoPlayer.AudioMibitRate,[COLOR dimgrey],[/COLOR]]$INFO[VideoPlayer.VideoMibitRate,[COLOR dimgrey],[/COLOR]]</value>
+	</variable>
+	<variable name="AF3P_BridgeAudioSampling">
+		<value condition="!String.IsEmpty(Window(10000).Property(AudioSampleRateVar))">$INFO[Window(10000).Property(AudioSampleRateVar)]$INFO[Window(10000).Property(AudioBitDepthVar)]</value>
+		<value>$INFO[Player.Process(audio.sample.rate),, kHz]$INFO[Player.Process(audiobitspersample),,-bit]</value>
+	</variable>
+	<variable name="AF3P_ColorHighlight">
+		<value>ffffffff</value>
+	</variable>
+	<variable name="AF3P_ColorSelected">
+		<value>ff272727</value>
+	</variable>
+	<variable name="AF3P_ColorSelected_30">
+		<value>4d272727</value>
+	</variable>
+	<variable name="AF3P_ColorSettingsToggleButtonHighlight">
+		<value condition="Control.HasFocus(20) + !System.HasVisibleModalDialog">00ffffff</value>
+		<value>ffffffff</value>
+	</variable>
+	<variable name="AF3P_ColorSettingsToggleButtonText">
+		<value condition="Control.HasFocus(20) + !System.HasVisibleModalDialog">af3_main_fg_70</value>
+		<value>ff272727</value>
+	</variable>
+	<variable name="AF3P_ColorSpaceVar">
+		<value condition="String.Contains(Player.Process(video.source.hdr.type),SDR) + Integer.IsGreater(Player.Process(video.height.raw),479)">BT.709</value>
+		<value condition="String.Contains(Player.Process(video.dovi.profile),5)">IPTPQc2/IPT</value>
+		<value condition="String.IsEmpty(Player.Process(video.hdr.colour.primaries))">$LOCALIZE[31192]</value>
+		<value condition="!String.IsEmpty(Player.Process(video.hdr.colour.primaries))">$INFO[Player.Process(video.hdr.colour.primaries)]</value>
+	</variable>
+	<variable name="AF3P_Color_DialogBorder">
+		<value>af3_dialog_fg_06</value>
+	</variable>
+	<variable name="AF3P_DVELVar">
+		<value condition="String.Contains(Player.Process(video.dovi.el.type),minimum)">[COLOR orange] MEL[/COLOR]</value>
+		<value condition="String.Contains(Player.Process(video.dovi.el.type),full)">[COLOR palegreen] FEL[/COLOR]</value>
+		<value condition="String.IsEqual(Player.Process(video.dovi.el.type),none)"/>
+	</variable>
+	<variable name="AF3P_DVProfileExtVar">
+		<value condition="Integer.IsEqual(Player.Process(video.dovi.bl.signal.compatibility),0)"/>
+		<value condition="Integer.IsEqual(Player.Process(video.dovi.bl.signal.compatibility),1)">.1</value>
+		<value condition="Integer.IsEqual(Player.Process(video.dovi.bl.signal.compatibility),2)">.2</value>
+		<value condition="Integer.IsEqual(Player.Process(video.dovi.bl.signal.compatibility),3)">.3</value>
+		<value condition="Integer.IsEqual(Player.Process(video.dovi.bl.signal.compatibility),6)"/>
+		<value condition="Integer.IsEqual(Player.Process(video.dovi.bl.signal.compatibility),8)">.8</value>
+	</variable>
+	<variable name="AF3P_DVSourceELVar">
+		<value condition="String.Contains(Player.Process(video.dovi.el.present),true) | Integer.IsGreater(Player.Process(video.dovi.el.type),0)">EL</value>
+	</variable>
+	<variable name="AF3P_DVTunnelVar">
+		<value condition="Integer.IsEqual(Player.Process(amlogic.vs10.mode.raw),1)">DV Tunnel</value>
+	</variable>
+	<variable name="AF3P_DVVS10Var">
+		<value condition="String.Contains(Player.Process(amlogic.vs10.mode),dolby vision)">Dolby Vision</value>
+		<value condition="String.Contains(Player.Process(amlogic.vs10.mode),hdr10)">HDR10</value>
+		<value condition="String.Contains(Player.Process(amlogic.vs10.mode),sdr)">SDR</value>
+		<value condition="String.Contains(Player.Process(amlogic.vs10.mode),bypass)">bypass</value>
+	</variable>
+	<variable name="AF3P_DialogContextMenu_HeaderLabel">
+		<value>$LOCALIZE[10106]</value>
+	</variable>
+	<variable name="AF3P_DialogSelect_SideButtons_Image_5">
+		<value condition="String.IsEqual(Control.GetLabel(5),$LOCALIZE[21335])">af3/extras/icons/filebox.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(5),$LOCALIZE[186])">af3/extras/icons/circle-check.png</value>
+		<value>af3/extras/icons/circle-plus.png</value>
+	</variable>
+	<variable name="AF3P_DialogSelect_SideButtons_Image_8">
+		<value condition="String.IsEqual(Control.GetLabel(5),$LOCALIZE[21335])">af3/extras/icons/book.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(8),$LOCALIZE[186])">af3/extras/icons/circle-check.png</value>
+		<value>af3/extras/icons/circle-plus.png</value>
+	</variable>
+	<variable name="AF3P_DialogSelect_SideButtons_Label_5">
+		<value condition="String.IsEqual(Control.GetLabel(5),$LOCALIZE[21335])">$LOCALIZE[744]</value>
+		<value condition="String.IsEqual(Control.GetLabel(5),$LOCALIZE[13516])">$LOCALIZE[467]</value>
+		<value condition="String.IsEqual(Control.GetLabel(5),$LOCALIZE[21452])">$LOCALIZE[15019]</value>
+		<value>$INFO[Control.GetLabel(5)]</value>
+	</variable>
+	<variable name="AF3P_DialogSelect_SideButtons_Label_7">
+		<value condition="String.IsEqual(Control.GetLabel(7),$LOCALIZE[222])">$LOCALIZE[15067]</value>
+		<value>$INFO[Control.GetLabel(7)]</value>
+	</variable>
+	<variable name="AF3P_DialogSelect_SideButtons_Label_8">
+		<value condition="String.IsEqual(Control.GetLabel(5),$LOCALIZE[21335])">$LOCALIZE[14022]</value>
+		<value>$INFO[Control.GetLabel(8)]</value>
+	</variable>
+	<variable name="AF3P_ELPresentVar">
+		<value condition="String.IsEqual(Player.Process(video.dovi.el.present),1)">[COLOR palegreen]⬤[/COLOR]</value>
+		<value>[COLOR tomato]⬤[/COLOR]</value>
+	</variable>
+	<variable name="AF3P_ELSourcePresentVar">
+		<value condition="String.IsEqual(Player.Process(video.source.dovi.el.present),1)">[COLOR 8098FB98]⬤[/COLOR]</value>
+		<value>[COLOR 80FF6347]⬤[/COLOR]</value>
+	</variable>
+	<variable name="AF3P_Furniture_Header_Right_Temperature">
+		<value condition="!String.IsEmpty(Weather.Plugin) + Weather.IsFetched"> $INFO[Weather.Temperature]</value>
+	</variable>
+	<variable name="AF3P_Image_AddonInfo_Enable">
+		<value condition="String.IsEqual(Control.GetLabel(7),$LOCALIZE[24021])">af3/extras/icons/enabled.png</value>
+		<value>af3/extras/icons/disabled.png</value>
+	</variable>
+	<variable name="AF3P_Image_AddonInfo_Install">
+		<value condition="String.IsEqual(Control.GetLabel(6),$LOCALIZE[24037])">af3/extras/icons/uninstall.png</value>
+		<value>af3/extras/icons/download.png</value>
+	</variable>
+	<variable name="AF3P_Image_AddonStatus">
+		<value condition="!String.IsEmpty(ListItem.AddonBroken)">af3/indicator/broken.png</value>
+		<value condition="ListItem.Property(addon.orphaned)">af3/indicator/orphaned.png</value>
+		<value condition="ListItem.Property(addon.downloading)">af3/indicator/download.png</value>
+		<value condition="ListItem.Property(addon.isinstalled) + !ListItem.Property(addon.isenabled)">af3/indicator/disabled.png</value>
+		<value condition="ListItem.Property(addon.hasupdate)">af3/indicator/update.png</value>
+		<value condition="ListItem.Property(addon.isinstalled)">af3/indicator/library.png</value>
+	</variable>
+	<variable name="AF3P_Image_Blur_Fallback">
+		<value>af3/extras/backgrounds/blur/purple_blur.jpg</value>
+	</variable>
+	<variable name="AF3P_Image_CombinedStudio">
+		<value condition="!String.IsEmpty(ListItem.Studio) + !String.Contains(ListItem.Studio,/)">$INFO[ListItem.Studio,resource://resource.images.studios.coloured/,.png]</value>
+	</variable>
+	<variable name="AF3P_Image_Current_Background">
+		<value condition="Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(SkinSettings.xml) | Window.IsVisible(SettingsProfile.xml) | Window.IsVisible(SettingsSystemInfo.xml) | Window.IsVisible(addonbrowser) | Window.IsVisible(filemanager) | Window.IsVisible(Settings.xml) | Window.IsVisible(eventlog) | Window.IsVisible(SettingsScreenCalibration.xml) | Window.IsVisible(MyMusicPlaylistEditor.xml) | Window.IsMedia + Window.IsVisible(DialogBusy.xml) + Integer.IsEqual(Container.NumItems,0)"></value>
+		<value></value>
+	</variable>
+	<variable name="AF3P_Image_DialogConfirm_10">
+		<value condition="String.IsEqual(Control.GetLabel(10),$LOCALIZE[222])">af3/extras/icons/circle-xmark.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(10),$LOCALIZE[15067])">af3/extras/icons/circle-xmark.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(10),$LOCALIZE[106])">af3/extras/icons/circle-xmark.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(10),$LOCALIZE[107])">af3/extras/icons/circle-check.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(10),$LOCALIZE[186])">af3/extras/icons/circle-check.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(10),$LOCALIZE[31186])">af3/extras/icons/circle-check.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(10),$LOCALIZE[13007])">af3/extras/icons/triangle-exclamation.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(10),$LOCALIZE[571])">af3/extras/icons/triangle-exclamation.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(10),$LOCALIZE[409])">af3/extras/icons/triangle-exclamation.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(10),$LOCALIZE[1024])">af3/extras/icons/circle-plus.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(10),$LOCALIZE[15019])">af3/extras/icons/circle-plus.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(10),$LOCALIZE[31186])">af3/extras/icons/circle-plus.png</value>
+		<value>af3/extras/icons/circle-dot.png</value>
+	</variable>
+	<variable name="AF3P_Image_DialogConfirm_11">
+		<value condition="String.IsEqual(Control.GetLabel(11),$LOCALIZE[222])">af3/extras/icons/circle-xmark.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(11),$LOCALIZE[15067])">af3/extras/icons/circle-xmark.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(11),$LOCALIZE[106])">af3/extras/icons/circle-xmark.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(11),$LOCALIZE[107])">af3/extras/icons/circle-check.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(11),$LOCALIZE[186])">af3/extras/icons/circle-check.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(11),$LOCALIZE[31186])">af3/extras/icons/circle-check.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(11),$LOCALIZE[13007])">af3/extras/icons/triangle-exclamation.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(11),$LOCALIZE[571])">af3/extras/icons/triangle-exclamation.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(11),$LOCALIZE[409])">af3/extras/icons/triangle-exclamation.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(11),$LOCALIZE[1024])">af3/extras/icons/circle-plus.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(11),$LOCALIZE[15019])">af3/extras/icons/circle-plus.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(11),$LOCALIZE[31186])">af3/extras/icons/circle-plus.png</value>
+		<value>af3/extras/icons/circle-dot.png</value>
+	</variable>
+	<variable name="AF3P_Image_DialogConfirm_12">
+		<value condition="String.IsEqual(Control.GetLabel(12),$LOCALIZE[222])">af3/extras/icons/circle-xmark.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(12),$LOCALIZE[15067])">af3/extras/icons/circle-xmark.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(12),$LOCALIZE[106])">af3/extras/icons/circle-xmark.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(12),$LOCALIZE[107])">af3/extras/icons/circle-check.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(12),$LOCALIZE[186])">af3/extras/icons/circle-check.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(12),$LOCALIZE[31186])">af3/extras/icons/circle-check.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(12),$LOCALIZE[13007])">af3/extras/icons/triangle-exclamation.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(12),$LOCALIZE[571])">af3/extras/icons/triangle-exclamation.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(12),$LOCALIZE[409])">af3/extras/icons/triangle-exclamation.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(12),$LOCALIZE[1024])">af3/extras/icons/circle-plus.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(12),$LOCALIZE[15019])">af3/extras/icons/circle-plus.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(12),$LOCALIZE[31186])">af3/extras/icons/circle-plus.png</value>
+		<value>af3/extras/icons/circle-dot.png</value>
+	</variable>
+	<variable name="AF3P_Image_NowPlaying_PlayPause">
+		<value condition="Player.Paused">af3/extras/icons/pause.png</value>
+		<value condition="Player.Forwarding">af3/extras/icons/forward.png</value>
+		<value condition="Player.Rewinding">af3/extras/icons/backward.png</value>
+		<value>af3/extras/icons/play2.png</value>
+	</variable>
+	<variable name="AF3P_Image_Poster">
+		<value condition="!String.IsEmpty(ListItem.Property(override_poster))">$INFO[ListItem.Property(override_poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
+		<value condition="!String.IsEmpty(ListItem.Property(fallback.icon))">$INFO[ListItem.Property(fallback.icon)]</value>
+	</variable>
+	<variable name="AF3P_Image_ProfileIcon">
+		<value condition="!String.IsEqual(ListItem.Icon,DefaultUser.png) + !String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
+		<value>DefaultUser.png</value>
+	</variable>
+	<variable name="AF3P_Image_RipSource">
+		<value condition="![String.Contains(ListItem.FileNameAndPath,2160p) | String.Contains(ListItem.FileNameAndPath,UHD) | String.Contains(ListItem.FileNameAndPath,UltraHD) | String.Contains(ListItem.FileNameAndPath,Ultra-HD) | String.Contains(ListItem.FileNameAndPath,4K)] + [String.Contains(ListItem.FileNameAndPath,web-dl) | String.Contains(ListItem.FileNameAndPath,webdl) | String.Contains(ListItem.FileNameAndPath,WEBRip)]">af3/flags/colorful/other/web-dl.png</value>
+		<value condition="[String.Contains(ListItem.FileNameAndPath,2160p) | String.Contains(ListItem.FileNameAndPath,UHD) | String.Contains(ListItem.FileNameAndPath,UltraHD) | String.Contains(ListItem.FileNameAndPath,Ultra-HD) | String.Contains(ListItem.FileNameAndPath,4K)] + [String.Contains(ListItem.FileNameAndPath,web-dl) | String.Contains(ListItem.FileNameAndPath,webdl) | String.Contains(ListItem.FileNameAndPath,WEBRip)]">flags/colorful/other/4K_web-dl.png</value>
+		<value condition="String.Contains(ListItem.FileNameAndPath,blu-ray) | String.Contains(ListItem.FileNameAndPath,bluray) | String.Contains(ListItem.FileNameAndPath,bdrip) | String.Contains(ListItem.FileNameAndPath,bd25) | String.Contains(ListItem.FileNameAndPath,bd50)">af3/flags/colorful/other/bluray.png</value>
+		<value condition="[String.Contains(ListItem.FileNameAndPath,2160p) | String.Contains(ListItem.FileNameAndPath,UHD) | String.Contains(ListItem.FileNameAndPath,UltraHD) | String.Contains(ListItem.FileNameAndPath,Ultra-HD) | String.Contains(ListItem.FileNameAndPath,4K)] + ![String.Contains(ListItem.FileNameAndPath,web-dl) | String.Contains(ListItem.FileNameAndPath,webdl) | String.Contains(ListItem.FileNameAndPath,WEBRip)]">flags/colorful/other/4K.png</value>
+		<value condition="String.Contains(ListItem.FileNameAndPath,hddvd) | String.Contains(ListItem.FileNameAndPath,hd-dvd)">flags/colorful/other/hddvd.png</value>
+		<value condition="String.Contains(ListItem.FileNameAndPath,dvd)">af3/flags/colorful/other/dvd.png</value>
+		<value condition="String.Contains(ListItem.FileNameAndPath,vhs) | String.Contains(ListItem.FileNameAndPath,vhsrip)">af3/flags/colorful/other/vhs.png</value>
+		<value condition="String.Contains(ListItem.FileNameAndPath,hdtv) | String.Contains(ListItem.FileNameAndPath,pdtv) | String.Contains(ListItem.FileNameAndPath,dsr)">af3/flags/colorful/other/hdtv.png</value>
+		<value condition="String.Contains(ListItem.FileNameAndPath,sdtv)">flags/colorful/other/sdtv.png</value>
+		<value></value>
+	</variable>
+	<variable name="AF3P_Image_Settings_Level">
+		<value condition="String.IsEqual(Control.GetLabel(20),$LOCALIZE[10039])">af3/extras/icons/settings-expert.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(20),$LOCALIZE[10038])">af3/extras/icons/settings-advanced.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(20),$LOCALIZE[10037])">af3/extras/icons/settings-standard.png</value>
+		<value condition="String.IsEqual(Control.GetLabel(20),$LOCALIZE[10036])">af3/extras/icons/settings-basic.png</value>
+	</variable>
+	<variable name="AF3P_Image_VideoVersion_Poster">
+		<value condition="Control.IsVisible(50) + !String.IsEmpty(Container(50).ListItem.Art(poster))">$INFO[Container(50).ListItem.Art(poster)]</value>
+		<value condition="Control.IsVisible(6) + !String.IsEmpty(Container(6).ListItem.Art(poster))">$INFO[Container(6).ListItem.Art(poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+		<value condition="!String.IsEmpty(Window.Property(poster))">$INFO[Window.Property(poster)]</value>
+	</variable>
+	<variable name="AF3P_Image_VolumeIcon">
+		<value condition="Player.Muted">af3/extras/icons/volume-xmark.png</value>
+		<value>af3/extras/icons/volume-low.png</value>
+	</variable>
+	<variable name="AF3P_Label_AddonInfo_Enable">
+		<value condition="String.IsEqual(Control.GetLabel(7),$LOCALIZE[24021])">$LOCALIZE[449]</value>
+		<value>$LOCALIZE[13106]</value>
+	</variable>
+	<variable name="AF3P_Label_AddonInfo_LastUpdated">
+		<value condition="!String.IsEmpty(ListItem.AddonLastUpdated)">$INFO[ListItem.AddonLastUpdated]</value>
+		<value condition="!String.IsEmpty(ListItem.AddonInstallDate)">$INFO[ListItem.AddonInstallDate]</value>
+	</variable>
+	<variable name="AF3P_Label_AudioLanguages">
+		<value condition="!String.IsEmpty(ListItem.Property(AudioLanguage.1)) + String.IsEmpty(ListItem.Property(AudioLanguage.4))">$LOCALIZE[248]: $INFO[ListItem.Property(AudioLanguage.1)]$INFO[ListItem.Property(AudioLanguage.2), | ,]$INFO[ListItem.Property(AudioLanguage.3), | ,]</value>
+		<value condition="!String.IsEmpty(ListItem.Property(AudioLanguage.1)) + !String.IsEmpty(ListItem.Property(AudioLanguage.4))">$LOCALIZE[248]: $INFO[ListItem.Property(AudioLanguage.1)]$INFO[ListItem.Property(AudioLanguage.2), | ,]$INFO[ListItem.Property(AudioLanguage.3), | ,] +</value>
+	</variable>
+	<variable name="AF3P_Label_Header_Main">
+		<value condition="Window.IsVisible(addonbrowser)">$LOCALIZE[24001]</value>
+		<value condition="Window.IsVisible(interfacesettings)">$LOCALIZE[14206] $LOCALIZE[5]</value>
+		<value condition="Window.IsVisible(skinsettings)">$LOCALIZE[166] $LOCALIZE[5]</value>
+		<value condition="Window.IsVisible(mediasettings)">$LOCALIZE[14211] $LOCALIZE[5]</value>
+		<value condition="Window.IsVisible(playersettings)">$LOCALIZE[14200] $LOCALIZE[5]</value>
+		<value condition="Window.IsVisible(systemsettings)">$LOCALIZE[13000] $LOCALIZE[5]</value>
+		<value condition="Window.IsVisible(servicesettings)">$LOCALIZE[14036] $LOCALIZE[5]</value>
+		<value condition="Window.IsVisible(pvrsettings)">$LOCALIZE[14204] $LOCALIZE[5]</value>
+		<value condition="Window.IsVisible(systeminfo)">[CAPITALIZE]$LOCALIZE[138][/CAPITALIZE]</value>
+		<value condition="Window.IsVisible(SettingsProfile.xml)">$LOCALIZE[31191] $LOCALIZE[5]</value>
+		<value condition="Window.IsVisible(filemanager)">$LOCALIZE[10003]</value>
+		<value condition="Window.IsVisible(eventlog)">[CAPITALIZE]$LOCALIZE[10050][/CAPITALIZE]</value>
+		<value condition="Window.IsVisible(musicplaylisteditor)">[CAPITALIZE]$LOCALIZE[10503][/CAPITALIZE]</value>
+		<value condition="Window.IsVisible(settings)">$LOCALIZE[5]</value>
+		<value condition="Window.IsVisible(videoplaylist)">$LOCALIZE[559]</value>
+		<value condition="Window.IsVisible(musicplaylist)">$LOCALIZE[559]</value>
+		<value condition="Window.IsVisible(weather)">$LOCALIZE[8]</value>
+		<value condition="Window.IsVisible(filemanager)">$LOCALIZE[7]</value>
+		<value condition="Window.IsVisible(MyMusicPlaylistEditor.xml)">$LOCALIZE[10503]</value>
+		<value condition="Window.IsVisible(tvchannels)">$LOCALIZE[10700]</value>
+		<value condition="Window.IsVisible(tvguide)">$LOCALIZE[10702]</value>
+		<value condition="Window.IsVisible(tvrecordings)">$LOCALIZE[10701]</value>
+		<value condition="Window.IsVisible(tvsearch)">$LOCALIZE[10704]</value>
+		<value condition="Window.IsVisible(tvtimers)">$LOCALIZE[10703]</value>
+		<value condition="Window.IsVisible(favouritesbrowser)">$LOCALIZE[1036]</value>
+		<value condition="Window.IsMedia + String.IsEqual(Container.PluginName,plugin.video.themoviedb.helper)">TMDb</value>
+		<value condition="Window.IsMedia + !String.IsEmpty(Container.PluginName)">$LOCALIZE[24000]</value>
+		<value condition="Window.IsMedia + Container.Content(addons)">$LOCALIZE[24001]</value>
+		<value condition="Window.IsMedia + Container.Content(files)">$LOCALIZE[744]</value>
+		<value condition="Window.IsVisible(pictures)">$LOCALIZE[10002]</value>
+		<value condition="Window.IsMedia">$LOCALIZE[14022]</value>
+	</variable>
+	<variable name="AF3P_Label_ListItem_AudioChannels">
+		<value condition="Integer.IsEqual(ListItem.AudioChannels,10)">9.1</value>
+		<value condition="Integer.IsEqual(ListItem.AudioChannels,9)">8.1</value>
+		<value condition="Integer.IsEqual(ListItem.AudioChannels,8)">7.1</value>
+		<value condition="Integer.IsEqual(ListItem.AudioChannels,7)">6.1</value>
+		<value condition="Integer.IsEqual(ListItem.AudioChannels,6)">5.1</value>
+		<value condition="Integer.IsEqual(ListItem.AudioChannels,5)">4.1</value>
+		<value condition="Integer.IsEqual(ListItem.AudioChannels,3)">2.1</value>
+		<value>$INFO[ListItem.AudioChannels,,.0]</value>
+	</variable>
+	<variable name="AF3P_Label_NowPlayingSubLabel">
+		<value condition="!String.IsEmpty(MusicPlayer.Artist)">$INFO[MusicPlayer.Artist]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.TvShowTitle)">$INFO[VideoPlayer.TvShowTitle]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.ChannelNumberLabel)">$INFO[VideoPlayer.ChannelNumberLabel,$LOCALIZE[19029] ,]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Director)">$INFO[VideoPlayer.Director]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Studio)">$INFO[VideoPlayer.Studio]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Premiered)">$INFO[VideoPlayer.Premiered]</value>
+	</variable>
+	<variable name="AF3P_Label_NowPlayingTitle">
+		<value condition="!String.IsEmpty(MusicPlayer.Artist)">$INFO[Player.Title]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.TvShowTitle)">$VAR[AF3P_Label_OSD_Plot_Episode_Number,,. ]$INFO[Player.Title]</value>
+		<value>$INFO[Player.Title]</value>
+	</variable>
+	<variable name="AF3P_Label_OSD_Plot_Episode_Number">
+		<value condition="String.IsEmpty(VideoPlayer.Season) | String.IsEmpty(VideoPlayer.Episode)"/>
+		<value condition="!Integer.IsLess(VideoPlayer.Episode,10)">$INFO[VideoPlayer.Season]$INFO[VideoPlayer.Episode,x,]</value>
+		<value>$INFO[VideoPlayer.Season]$INFO[VideoPlayer.Episode,x0,]</value>
+	</variable>
+	<variable name="AF3P_Label_ProfileName">
+		<value>$INFO[System.ProfileName]</value>
+	</variable>
+	<variable name="AF3P_Label_Settings_InfoText">
+		<value condition="System.HasVisibleModalDialog | Control.HasFocus(60) | Control.HasFocus(20)">$INFO[System.BuildVersion,Kodi ,]$INFO[System.AddonVersion(skin.dexhub.tvos), • Dex Hub v,]</value>
+		<value condition="Window.IsVisible(SettingsCategory.xml) + [ControlGroup(3).HasFocus() | ControlGroup(5).HasFocus()]">$INFO[Control.GetLabel(6)]</value>
+		<value condition="Window.IsVisible(SkinSettings.xml) + [Control.HasFocus(10000) | String.IsEmpty(Window.Property(InfoText.Header))]">$INFO[Container(10000).ListItem.Label2]</value>
+		<value condition="Window.IsVisible(SkinSettings.xml) + !String.IsEmpty(Window.Property(InfoText.Header))">$INFO[Window.Property(InfoText.Message)]</value>
+		<value condition="Window.IsVisible(addonbrowser) + Control.HasFocus(50)">$INFO[Container(50).ListItem.AddonName,, • ]$INFO[Container(50).ListItem.AddonVersion,v,]$INFO[Container(50).ListItem.AddonOrigin, • ,]</value>
+		<value>$INFO[System.BuildVersion,Kodi ,]$INFO[System.AddonVersion(skin.dexhub.tvos), • Dex Hub v,]</value>
+	</variable>
+	<variable name="AF3P_Label_SubtitleLanguages">
+		<value condition="!String.IsEmpty(ListItem.Property(SubtitleLanguage.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.4))">$LOCALIZE[459]: $INFO[ListItem.Property(SubtitleLanguage.1)]$INFO[ListItem.Property(SubtitleLanguage.2), | ,]$INFO[ListItem.Property(SubtitleLanguage.3), | ,]</value>
+		<value condition="!String.IsEmpty(ListItem.Property(SubtitleLanguage.1)) + !String.IsEmpty(ListItem.Property(SubtitleLanguage.4))">$LOCALIZE[459]: $INFO[ListItem.Property(SubtitleLanguage.1)]$INFO[ListItem.Property(SubtitleLanguage.2), | ,]$INFO[ListItem.Property(SubtitleLanguage.3), | ,] +</value>
+	</variable>
+	<variable name="AF3P_Label_Version_Title">
+		<value condition="!String.IsEmpty(ListItem.VideoVersionName)">$INFO[ListItem.VideoVersionName]</value>
+		<value>$INFO[ListItem.Label]</value>
+	</variable>
+	<variable name="AF3P_Label_VideoQuality">
+		<value condition="Integer.IsGreater(Container.ListItem.VideoResolution,2160) | String.IsEqual(Container.ListItem.VideoResolution,8K)">8K</value>
+		<value condition="Integer.IsGreater(Container.ListItem.VideoResolution,1080) | String.IsEqual(Container.ListItem.VideoResolution,4K)">4K</value>
+		<value condition="Integer.IsGreater(Container.ListItem.VideoResolution,720)">HD</value>
+		<value condition="Integer.IsGreater(Container.ListItem.VideoResolution,719)">HD</value>
+		<value condition="!String.IsEmpty(Container.ListItem.VideoResolution)">SD</value>
+	</variable>
+	<variable name="AF3P_RPUPresentVar">
+		<value condition="String.IsEqual(Player.Process(video.dovi.rpu.present),1)">[COLOR palegreen]⬤[/COLOR]</value>
+		<value>[COLOR tomato]⬤[/COLOR]</value>
+	</variable>
+	<variable name="AF3P_VideoBitDepth">
+		<value condition="!String.IsEmpty(Player.Process(video.bitdepth))">$INFO[Player.Process(video.bitdepth)]</value>
+		<value condition="String.Contains(Player.Process(amlogic.pixformat),12bit)">12</value>
+		<value condition="String.Contains(Player.Process(amlogic.pixformat),10bit)">10</value>
+		<value condition="String.Contains(Player.Process(amlogic.pixformat),8bit)">8</value>
+		<value condition="!String.IsEmpty(Player.Process(video.source.hdr.type)) + !String.Contains(Player.Process(video.source.hdr.type),SDR)">10</value>
+		<value>8</value>
+	</variable>
+	<variable name="AF3P_VideoDecoder">
+		<value condition="Player.Process(videohwdecoder)">HW</value>
+		<value>SW</value>
+	</variable>
+	<variable name="AF3P_VideoPixelFormat">
+		<value condition="!String.IsEmpty(Window(10000).Property(VideoPixelFormatVar))">$INFO[Window(10000).Property(VideoPixelFormatVar)]</value>
+		<value condition="!String.IsEmpty(Player.Process(amlogic.pixformat))">$INFO[Player.Process(amlogic.pixformat)]</value>
+		<value condition="!String.IsEmpty(Player.Process(pixformat))">$INFO[Player.Process(pixformat)]</value>
+	</variable>
+	<include name="af3p_dyn_1">
+		<control type="group">
+			<control type="group">
+				<top>0</top>
+				<height>40</height>
+				<left>0</left>
+				<right>0</right>
+				<control type="group">
+					<centertop>0</centertop>
+					<height>80</height>
+					<control type="label">
+						<label fallback="">$INFO[Container.NumItems,, $LOCALIZE[31185]]</label>
+						<align></align>
+						<haspath>false</haspath>
+						<textcolor>af3_main_fg_30</textcolor>
+						<aligny>center</aligny>
+						<font>af3_font_main_bold</font>
+						<width>auto</width>
+						<height>80</height>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+				</control>
+				<control type="grouplist">
+					<orientation>horizontal</orientation>
+					<align></align>
+					<itemgap>8</itemgap>
+					<width>720</width>
+					<control type="label">
+						<label fallback="">$LOCALIZE[31184]$INFO[Container.CurrentPage, , $LOCALIZE[20163] ]$INFO[Container.NumPages]</label>
+						<align></align>
+						<haspath>false</haspath>
+						<textcolor>af3_main_fg_30</textcolor>
+						<aligny>center</aligny>
+						<font>af3_font_hint_bold</font>
+						<width>auto</width>
+						<centertop>30</centertop>
+						<height>40</height>
+						<visible>Control.HasFocus(60) | Control.HasFocus(610)</visible>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+					<control type="image">
+						<height>1</height>
+						<centerbottom>10</centerbottom>
+						<width>720</width>
+						<left>0</left>
+						<texture colordiffuse="af3_main_fg_12" flipx="true">af3/common/gradient-box.png</texture>
+					</control>
+					<scrolltime tween="quadratic">400</scrolltime>
+					<usecontrolcoords>true</usecontrolcoords>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="af3p_dyn_2">
+		<control type="group">
+			<control type="group">
+				<top>0</top>
+				<height>40</height>
+				<left>0</left>
+				<right>0</right>
+				<control type="group">
+					<centertop>0</centertop>
+					<height>80</height>
+					<control type="label">
+						<label fallback="">$INFO[System.AddonVersion(skin.dexhub.tvos),Dex Hub v,]</label>
+						<align></align>
+						<haspath>false</haspath>
+						<textcolor>af3_main_fg_30</textcolor>
+						<aligny>center</aligny>
+						<font>af3_font_main_bold</font>
+						<width>auto</width>
+						<height>80</height>
+						<selectedcolor>af3_main_fg_70</selectedcolor>
+						<scrollsuffix> </scrollsuffix>
+						<scrollspeed>40</scrollspeed>
+						<disabledcolor>60FFFFFF</disabledcolor>
+					</control>
+				</control>
+				<control type="grouplist">
+					<orientation>horizontal</orientation>
+					<align></align>
+					<itemgap>8</itemgap>
+					<width>720</width>
+					<control type="image">
+						<height>1</height>
+						<centerbottom>10</centerbottom>
+						<width>720</width>
+						<left>0</left>
+						<texture colordiffuse="af3_main_fg_12" flipx="true">af3/common/gradient-box.png</texture>
+					</control>
+					<scrolltime tween="quadratic">400</scrolltime>
+					<usecontrolcoords>true</usecontrolcoords>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="af3p_dyn_3">
+		<control type="image">
+			<animation effect="fade" start="0" end="100" delay="0" time="400" tween="sine" easing="in" reversible="false" condition="true">Visible</animation>
+			<animation effect="fade" start="0" end="100" delay="0" time="400" tween="sine" easing="in" reversible="false" condition="true">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" delay="0" time="300" tween="sine" easing="in" reversible="false" condition="true">Hidden</animation>
+			<animation effect="fade" start="100" end="0" delay="0" time="300" tween="sine" easing="in" reversible="false" condition="true">WindowClose</animation>
+			<texture colordiffuse="af3_shadow_back">af3/common/white.png</texture>
+		</control>
+		<control type="group">
+			<animation type="Visible" reversible="false" condition="true">
+				<effect type="fade" start="0" end="100" time="300" delay="200"/>
+				<effect type="slide" start="0,-80" end="0" center="auto" tween="back" easing="out" time="600" delay="200"/>
+			</animation>
+			<animation type="WindowOpen" reversible="false" condition="true">
+				<effect type="fade" start="0" end="100" time="300" delay="200"/>
+				<effect type="slide" start="0,-80" end="0" center="auto" tween="back" easing="out" time="600" delay="200"/>
+			</animation>
+			<animation type="Hidden" reversible="false" condition="true">
+				<effect type="zoom" start="100" end="95" center="auto" tween="sine" delay="0" easing="out" time="300"/>
+				<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300"/>
+			</animation>
+			<animation type="WindowClose" reversible="false" condition="true">
+				<effect type="zoom" start="100" end="95" center="auto" tween="sine" delay="0" easing="out" time="300"/>
+				<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300"/>
+			</animation>
+			<control type="group">
+				<visible>![Control.IsEnabled(5) + Control.IsVisible(5) | Control.IsEnabled(8) + Control.IsVisible(8)]</visible>
+				<width>960</width>
+				<centerleft>50%</centerleft>
+				<top>100</top>
+				<bottom>100</bottom>
+				<control type="group">
+					<control type="group">
+						<left>40</left>
+						<right>40</right>
+						<top>40</top>
+						<bottom>40</bottom>
+						<control type="group">
+							<control type="group">
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3P_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+						</control>
+						<control type="image">
+							<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<right>80</right>
+						<left>80</left>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Control.IsEnabled(5) + Control.IsVisible(5) | Control.IsEnabled(8) + Control.IsVisible(8)</visible>
+				<width>1280</width>
+				<centerleft>50%</centerleft>
+				<top>100</top>
+				<bottom>100</bottom>
+				<control type="group">
+					<control type="group">
+						<left>40</left>
+						<right>40</right>
+						<top>40</top>
+						<bottom>40</bottom>
+						<control type="group">
+							<control type="group">
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3P_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+						</control>
+						<control type="image">
+							<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<right>80</right>
+						<left>80</left>
+					</control>
+				</control>
+				<control type="group">
+					<left>40</left>
+					<right>40</right>
+					<top>40</top>
+					<bottom>40</bottom>
+					<control type="group">
+						<visible>Control.IsEnabled(5) + Control.IsVisible(5) | Control.IsEnabled(8) + Control.IsVisible(8)</visible>
+						<width>320</width>
+						<right>0</right>
+						<control type="image">
+							<bordersize>1</bordersize>
+							<texture border="20" colordiffuse="af3_dialog_bg_12">af3/common/dialog_overlay.png</texture>
+						</control>
+						<control type="image">
+							<width>1</width>
+							<top>1</top>
+							<bottom>1</bottom>
+							<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+						</control>
+						<control type="grouplist" id="9000">
+							<onleft>61</onleft>
+							<ondown>9000</ondown>
+							<itemgap>20</itemgap>
+							<orientation>vertical</orientation>
+							<left>20</left>
+							<right>20</right>
+							<top>20</top>
+							<bottom>20</bottom>
+							<control type="button" id="9001">
+								<radioposx>-2</radioposx>
+								<font/>
+								<label>$VAR[AF3P_DialogSelect_SideButtons_Label_5]</label>
+								<visible>Control.IsEnabled(5) + Control.IsVisible(5)</visible>
+								<onclick>SetFocus(5)</onclick>
+								<onclick>Action(Select)</onclick>
+								<align>left</align>
+								<height>80</height>
+								<textoffsetx>80</textoffsetx>
+								<textcolor>af3_dialog_fg_70</textcolor>
+								<selectedcolor>af3_dialog_fg_70</selectedcolor>
+								<disabledcolor>af3_dialog_fg_30</disabledcolor>
+								<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
+								<description>None</description>
+								<aligny>center</aligny>
+								<focusedcolor>ff272727</focusedcolor>
+								<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+								<pulseonselect>false</pulseonselect>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+							</control>
+							<control type="group" id="9101">
+								<top>-100</top>
+								<height>80</height>
+								<visible>Control.IsVisible(9001)</visible>
+								<control type="group">
+									<centertop>50%</centertop>
+									<left>20</left>
+									<width>40</width>
+									<height>40</height>
+									<control type="image">
+										<bordersize>-8</bordersize>
+										<texture colordiffuse="af3_dialog_fg_70">$VAR[AF3P_DialogSelect_SideButtons_Image_5]</texture>
+										<visible>!Control.HasFocus(9001)</visible>
+									</control>
+									<control type="image">
+										<bordersize>-8</bordersize>
+										<texture colordiffuse="ff272727">$VAR[AF3P_DialogSelect_SideButtons_Image_5]</texture>
+										<visible>Control.HasFocus(9001)</visible>
+									</control>
+								</control>
+								<control type="group">
+									<left>20</left>
+									<control type="group">
+										<centertop>50%</centertop>
+										<left>60</left>
+										<height>80</height>
+										<right>30</right>
+										<control type="textbox">
+											<aligny>center</aligny>
+											<align>left</align>
+											<font>af3_font_mini_bold</font>
+											<textcolor>af3_dialog_fg_70</textcolor>
+											<label>$INFO[Control.GetLabel(9001)]</label>
+											<visible>!Control.HasFocus(9001)</visible>
+											<selectedcolor>af3_main_fg_70</selectedcolor>
+											<autoscroll delay="6000" time="3000" repeat="10000">!Skin.HasSetting(Textboxes.DisableAutoscroll)</autoscroll>
+										</control>
+										<control type="textbox">
+											<aligny>center</aligny>
+											<align>left</align>
+											<font>af3_font_mini_bold</font>
+											<textcolor>ff272727</textcolor>
+											<label>$INFO[Control.GetLabel(9001)]</label>
+											<visible>Control.HasFocus(9001)</visible>
+											<selectedcolor>af3_main_fg_70</selectedcolor>
+											<autoscroll delay="6000" time="3000" repeat="10000">!Skin.HasSetting(Textboxes.DisableAutoscroll)</autoscroll>
+										</control>
+									</control>
+								</control>
+							</control>
+							<control type="button" id="9002">
+								<radioposx>-2</radioposx>
+								<font/>
+								<label>$VAR[AF3P_DialogSelect_SideButtons_Label_8]</label>
+								<visible>Control.IsEnabled(8) + Control.IsVisible(8)</visible>
+								<onclick>SetFocus(8)</onclick>
+								<onclick>Action(Select)</onclick>
+								<align>left</align>
+								<height>80</height>
+								<textoffsetx>80</textoffsetx>
+								<textcolor>af3_dialog_fg_70</textcolor>
+								<selectedcolor>af3_dialog_fg_70</selectedcolor>
+								<disabledcolor>af3_dialog_fg_30</disabledcolor>
+								<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
+								<description>None</description>
+								<aligny>center</aligny>
+								<focusedcolor>ff272727</focusedcolor>
+								<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+								<pulseonselect>false</pulseonselect>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+							</control>
+							<control type="group" id="9102">
+								<top>-100</top>
+								<height>80</height>
+								<visible>Control.IsVisible(9002)</visible>
+								<control type="group">
+									<centertop>50%</centertop>
+									<left>20</left>
+									<width>40</width>
+									<height>40</height>
+									<control type="image">
+										<bordersize>-8</bordersize>
+										<texture colordiffuse="af3_dialog_fg_70">$VAR[AF3P_DialogSelect_SideButtons_Image_8]</texture>
+										<visible>!Control.HasFocus(9002)</visible>
+									</control>
+									<control type="image">
+										<bordersize>-8</bordersize>
+										<texture colordiffuse="ff272727">$VAR[AF3P_DialogSelect_SideButtons_Image_8]</texture>
+										<visible>Control.HasFocus(9002)</visible>
+									</control>
+								</control>
+								<control type="group">
+									<left>20</left>
+									<control type="group">
+										<centertop>50%</centertop>
+										<left>60</left>
+										<height>80</height>
+										<right>30</right>
+										<control type="textbox">
+											<aligny>center</aligny>
+											<align>left</align>
+											<font>af3_font_mini_bold</font>
+											<textcolor>af3_dialog_fg_70</textcolor>
+											<label>$INFO[Control.GetLabel(9002)]</label>
+											<visible>!Control.HasFocus(9002)</visible>
+											<selectedcolor>af3_main_fg_70</selectedcolor>
+											<autoscroll delay="6000" time="3000" repeat="10000">!Skin.HasSetting(Textboxes.DisableAutoscroll)</autoscroll>
+										</control>
+										<control type="textbox">
+											<aligny>center</aligny>
+											<align>left</align>
+											<font>af3_font_mini_bold</font>
+											<textcolor>ff272727</textcolor>
+											<label>$INFO[Control.GetLabel(9002)]</label>
+											<visible>Control.HasFocus(9002)</visible>
+											<selectedcolor>af3_main_fg_70</selectedcolor>
+											<autoscroll delay="6000" time="3000" repeat="10000">!Skin.HasSetting(Textboxes.DisableAutoscroll)</autoscroll>
+										</control>
+									</control>
+								</control>
+							</control>
+							<control type="button" id="9003">
+								<radioposx>-2</radioposx>
+								<font/>
+								<label>$VAR[AF3P_DialogSelect_SideButtons_Label_7]</label>
+								<visible>Control.IsEnabled(7) + Control.IsVisible(7)</visible>
+								<onclick>SetFocus(7)</onclick>
+								<onclick>Action(Select)</onclick>
+								<align>left</align>
+								<height>80</height>
+								<textoffsetx>80</textoffsetx>
+								<textcolor>af3_dialog_fg_70</textcolor>
+								<selectedcolor>af3_dialog_fg_70</selectedcolor>
+								<disabledcolor>af3_dialog_fg_30</disabledcolor>
+								<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
+								<description>None</description>
+								<aligny>center</aligny>
+								<focusedcolor>ff272727</focusedcolor>
+								<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+								<pulseonselect>false</pulseonselect>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+							</control>
+							<control type="group" id="9103">
+								<top>-100</top>
+								<height>80</height>
+								<visible>Control.IsVisible(9003)</visible>
+								<control type="group">
+									<centertop>50%</centertop>
+									<left>20</left>
+									<width>40</width>
+									<height>40</height>
+									<control type="image">
+										<bordersize>-8</bordersize>
+										<texture colordiffuse="af3_dialog_fg_70">af3/extras/icons/circle-xmark.png</texture>
+										<visible>!Control.HasFocus(9003)</visible>
+									</control>
+									<control type="image">
+										<bordersize>-8</bordersize>
+										<texture colordiffuse="ff272727">af3/extras/icons/circle-xmark.png</texture>
+										<visible>Control.HasFocus(9003)</visible>
+									</control>
+								</control>
+								<control type="group">
+									<left>20</left>
+									<control type="group">
+										<centertop>50%</centertop>
+										<left>60</left>
+										<height>80</height>
+										<right>30</right>
+										<control type="textbox">
+											<aligny>center</aligny>
+											<align>left</align>
+											<font>af3_font_mini_bold</font>
+											<textcolor>af3_dialog_fg_70</textcolor>
+											<label>$INFO[Control.GetLabel(9003)]</label>
+											<visible>!Control.HasFocus(9003)</visible>
+											<selectedcolor>af3_main_fg_70</selectedcolor>
+											<autoscroll delay="6000" time="3000" repeat="10000">!Skin.HasSetting(Textboxes.DisableAutoscroll)</autoscroll>
+										</control>
+										<control type="textbox">
+											<aligny>center</aligny>
+											<align>left</align>
+											<font>af3_font_mini_bold</font>
+											<textcolor>ff272727</textcolor>
+											<label>$INFO[Control.GetLabel(9003)]</label>
+											<visible>Control.HasFocus(9003)</visible>
+											<selectedcolor>af3_main_fg_70</selectedcolor>
+											<autoscroll delay="6000" time="3000" repeat="10000">!Skin.HasSetting(Textboxes.DisableAutoscroll)</autoscroll>
+										</control>
+									</control>
+								</control>
+							</control>
+							<control type="button" id="9004">
+								<radioposx>-2</radioposx>
+								<font/>
+								<label>$LOCALIZE[1000]</label>
+								<visible>Control.IsEnabled(6) + Control.IsVisible(6)</visible>
+								<onclick>SetFocus(99001)</onclick>
+								<align>left</align>
+								<height>80</height>
+								<textoffsetx>80</textoffsetx>
+								<textcolor>af3_dialog_fg_70</textcolor>
+								<selectedcolor>af3_dialog_fg_70</selectedcolor>
+								<disabledcolor>af3_dialog_fg_30</disabledcolor>
+								<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
+								<description>None</description>
+								<aligny>center</aligny>
+								<focusedcolor>ff272727</focusedcolor>
+								<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+								<pulseonselect>false</pulseonselect>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+							</control>
+							<control type="group" id="9104">
+								<top>-100</top>
+								<height>80</height>
+								<visible>Control.IsVisible(9004)</visible>
+								<control type="group">
+									<centertop>50%</centertop>
+									<left>20</left>
+									<width>40</width>
+									<height>40</height>
+									<control type="image">
+										<bordersize>-8</bordersize>
+										<texture colordiffuse="af3_dialog_fg_70">af3/extras/icons/images.png</texture>
+										<visible>!Control.HasFocus(9004)</visible>
+									</control>
+									<control type="image">
+										<bordersize>-8</bordersize>
+										<texture colordiffuse="ff272727">af3/extras/icons/images.png</texture>
+										<visible>Control.HasFocus(9004)</visible>
+									</control>
+								</control>
+								<control type="group">
+									<left>20</left>
+									<control type="group">
+										<centertop>50%</centertop>
+										<left>60</left>
+										<height>80</height>
+										<right>30</right>
+										<control type="textbox">
+											<aligny>center</aligny>
+											<align>left</align>
+											<font>af3_font_mini_bold</font>
+											<textcolor>af3_dialog_fg_70</textcolor>
+											<label>$INFO[Control.GetLabel(9004)]</label>
+											<visible>!Control.HasFocus(9004)</visible>
+											<selectedcolor>af3_main_fg_70</selectedcolor>
+											<autoscroll delay="6000" time="3000" repeat="10000">!Skin.HasSetting(Textboxes.DisableAutoscroll)</autoscroll>
+										</control>
+										<control type="textbox">
+											<aligny>center</aligny>
+											<align>left</align>
+											<font>af3_font_mini_bold</font>
+											<textcolor>ff272727</textcolor>
+											<label>$INFO[Control.GetLabel(9004)]</label>
+											<visible>Control.HasFocus(9004)</visible>
+											<selectedcolor>af3_main_fg_70</selectedcolor>
+											<autoscroll delay="6000" time="3000" repeat="10000">!Skin.HasSetting(Textboxes.DisableAutoscroll)</autoscroll>
+										</control>
+									</control>
+								</control>
+							</control>
+							<scrolltime tween="quadratic">400</scrolltime>
+							<usecontrolcoords>true</usecontrolcoords>
+						</control>
+						<description>Empty include to pass to params</description>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<width>960</width>
+				<centerleft>50%</centerleft>
+				<top>100</top>
+				<bottom>100</bottom>
+				<animation effect="slide" start="0" end="-160" condition="Control.IsEnabled(5) + Control.IsVisible(5) | Control.IsEnabled(8) + Control.IsVisible(8)">Conditional</animation>
+				<control type="group" id="8000">
+					<left>40</left>
+					<right>40</right>
+					<top>40</top>
+					<bottom>40</bottom>
+					<control type="group">
+						<height>120</height>
+						<control type="group">
+							<right>120</right>
+							<height>40</height>
+							<top>40</top>
+							<left>40</left>
+							<visible>!Control.IsVisible(6)</visible>
+							<control type="label" id="1">
+								<label>$VAR[AF3P_Label_ProfileName]</label>
+								<font>af3_font_midi_bold</font>
+								<textcolor>af3_dialog_fg_90</textcolor>
+								<height>40</height>
+								<centertop>50%</centertop>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+						</control>
+						<control type="group">
+							<right>120</right>
+							<height>40</height>
+							<top>40</top>
+							<left>40</left>
+							<visible>Control.IsVisible(6)</visible>
+							<control type="label" id="0">
+								<label>$INFO[Control.GetLabel(1)]</label>
+								<font>af3_font_midi_bold</font>
+								<textcolor>af3_dialog_fg_90</textcolor>
+								<height>40</height>
+								<centertop>50%</centertop>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+						</control>
+						<control type="grouplist">
+							<height>20</height>
+							<left>40</left>
+							<right>40</right>
+							<centertop>120</centertop>
+							<orientation>horizontal</orientation>
+							<itemgap>20</itemgap>
+							<align>left</align>
+							<visible>Control.IsVisible(3)</visible>
+							<control type="label" id="">
+								<width>auto</width>
+								<aligny>center</aligny>
+								<align>left</align>
+								<font>af3_font_hint_bold</font>
+								<textcolor>af3_dialog_fg_30</textcolor>
+								<label>$INFO[Container(3).NumItems,, $LOCALIZE[31185]]$INFO[Container(3).CurrentPage,  •  $LOCALIZE[31184] ,]$INFO[Container(3).NumPages, $LOCALIZE[20163] ,]</label>
+								<haspath>false</haspath>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="image">
+								<height>1</height>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+								<centertop>50%</centertop>
+								<width>2000</width>
+							</control>
+							<scrolltime tween="quadratic">400</scrolltime>
+							<usecontrolcoords>true</usecontrolcoords>
+						</control>
+						<control type="grouplist">
+							<height>20</height>
+							<left>40</left>
+							<right>40</right>
+							<centertop>120</centertop>
+							<orientation>horizontal</orientation>
+							<itemgap>20</itemgap>
+							<align>left</align>
+							<visible>Control.IsVisible(6)</visible>
+							<control type="label" id="">
+								<width>auto</width>
+								<aligny>center</aligny>
+								<align>left</align>
+								<font>af3_font_hint_bold</font>
+								<textcolor>af3_dialog_fg_30</textcolor>
+								<label>$INFO[Container(6).NumItems,, $LOCALIZE[31185]]$INFO[Container(6).CurrentPage,  •  $LOCALIZE[31184] ,]$INFO[Container(6).NumPages, $LOCALIZE[20163] ,]</label>
+								<haspath>false</haspath>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="image">
+								<height>1</height>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+								<centertop>50%</centertop>
+								<width>2000</width>
+							</control>
+							<scrolltime tween="quadratic">400</scrolltime>
+							<usecontrolcoords>true</usecontrolcoords>
+						</control>
+						<control type="group">
+							<centerright>60</centerright>
+							<centertop>50%</centertop>
+							<height>80</height>
+							<width>80</width>
+							<control type="button" id="90001">
+								<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+								<texturenofocus/>
+								<onclick>Close</onclick>
+								<onleft></onleft>
+								<onright></onright>
+								<onup></onup>
+								<ondown></ondown>
+								<oninfo></oninfo>
+								<onback></onback>
+								<align>center</align>
+								<aligny>center</aligny>
+								<font>af3_font_mini</font>
+								<textoffsetx>30</textoffsetx>
+								<textcolor>af3_main_fg_70</textcolor>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<focusedcolor>ff272727</focusedcolor>
+								<disabledcolor>af3_main_fg_30</disabledcolor>
+								<pulseonselect>false</pulseonselect>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+							</control>
+							<control type="group" id="90101">
+								<animation effect="fade" start="100" end="30" condition="!Control.IsEnabled(90001)" reversible="false">Conditional</animation>
+								<left>80</left>
+								<width>0</width>
+								<control type="group">
+									<left>-80</left>
+									<control type="image">
+										<bordersize>12</bordersize>
+										<height>80</height>
+										<width>80</width>
+										<texture colordiffuse="af3_dialog_fg_70" flipx="false">af3/extras/icons/xmark.png</texture>
+										<visible>!Control.HasFocus(90001)</visible>
+									</control>
+									<control type="image">
+										<bordersize>12</bordersize>
+										<height>80</height>
+										<width>80</width>
+										<texture colordiffuse="ff272727" flipx="false">af3/extras/icons/xmark.png</texture>
+										<visible>Control.HasFocus(90001)</visible>
+									</control>
+								</control>
+							</control>
+						</control>
+					</control>
+					<control type="group">
+						<top>120</top>
+						<control type="list" id="3">
+							<pagecontrol>61</pagecontrol>
+							<onright>61</onright>
+							<left>20</left>
+							<right>20</right>
+							<top>20</top>
+							<bottom>20</bottom>
+							<orientation>vertical</orientation>
+							<preloaditems>2</preloaditems>
+							<scrolltime tween="quadratic">400</scrolltime>
+							<itemlayout width="" height="80">
+								<control type="group">
+									<left>0</left>
+									<right>-0</right>
+									<top>0</top>
+									<bottom>-0</bottom>
+									<control type="group">
+										<left>40</left>
+										<right>40</right>
+										<control type="image">
+											<centerleft>0</centerleft>
+											<centertop>50%</centertop>
+											<texture colordiffuse="af3_dialog_fg_30">af3/buttons/check-off.png</texture>
+											<width>28</width>
+											<height>28</height>
+											<visible>!ListItem.IsSelected</visible>
+										</control>
+										<control type="image">
+											<centerleft>0</centerleft>
+											<centertop>50%</centertop>
+											<texture colordiffuse="af3_dialog_fg_70">af3/buttons/check-on.png</texture>
+											<width>28</width>
+											<height>28</height>
+											<visible>ListItem.IsSelected</visible>
+										</control>
+										<control type="label">
+											<textcolor>af3_dialog_fg_70</textcolor>
+											<selectedcolor>af3_dialog_fg_70</selectedcolor>
+											<disabledcolor>af3_dialog_fg_30</disabledcolor>
+											<label>$INFO[ListItem.Label]</label>
+											<left>40</left>
+											<align>left</align>
+											<aligny>center</aligny>
+											<font>af3_font_main</font>
+											<scrollsuffix> </scrollsuffix>
+											<scrollspeed>40</scrollspeed>
+										</control>
+									</control>
+								</control>
+							</itemlayout>
+							<focusedlayout width="" height="80">
+								<control type="group">
+									<left>0</left>
+									<right>-0</right>
+									<top>0</top>
+									<bottom>-0</bottom>
+									<control type="group">
+										<animation effect="fade" start="100" end="0" condition="Control.HasFocus(3)">Conditional</animation>
+										<control type="group">
+											<left>40</left>
+											<right>40</right>
+											<control type="image">
+												<centerleft>0</centerleft>
+												<centertop>50%</centertop>
+												<texture colordiffuse="af3_dialog_fg_30">af3/buttons/check-off.png</texture>
+												<width>28</width>
+												<height>28</height>
+												<visible>!ListItem.IsSelected</visible>
+											</control>
+											<control type="image">
+												<centerleft>0</centerleft>
+												<centertop>50%</centertop>
+												<texture colordiffuse="af3_dialog_fg_70">af3/buttons/check-on.png</texture>
+												<width>28</width>
+												<height>28</height>
+												<visible>ListItem.IsSelected</visible>
+											</control>
+											<control type="label">
+												<textcolor>af3_dialog_fg_70</textcolor>
+												<selectedcolor>af3_dialog_fg_70</selectedcolor>
+												<disabledcolor>af3_dialog_fg_30</disabledcolor>
+												<label>$INFO[ListItem.Label]</label>
+												<left>40</left>
+												<align>left</align>
+												<aligny>center</aligny>
+												<font>af3_font_main</font>
+												<scrollsuffix> </scrollsuffix>
+												<scrollspeed>40</scrollspeed>
+											</control>
+										</control>
+									</control>
+									<control type="group">
+										<animation effect="fade" start="100" end="0" condition="!Control.HasFocus(3)">Conditional</animation>
+										<control type="image">
+											<texture border="40" colordiffuse="ffffffff">af3/common/menu.png</texture>
+										</control>
+										<control type="group">
+											<left>40</left>
+											<right>40</right>
+											<control type="image">
+												<centerleft>0</centerleft>
+												<centertop>50%</centertop>
+												<texture colordiffuse="ff272727">af3/buttons/check-off.png</texture>
+												<width>28</width>
+												<height>28</height>
+												<visible>!ListItem.IsSelected</visible>
+											</control>
+											<control type="image">
+												<centerleft>0</centerleft>
+												<centertop>50%</centertop>
+												<texture colordiffuse="ff272727">af3/buttons/check-on.png</texture>
+												<width>28</width>
+												<height>28</height>
+												<visible>ListItem.IsSelected</visible>
+											</control>
+											<control type="label">
+												<textcolor>ff272727</textcolor>
+												<selectedcolor>ff272727</selectedcolor>
+												<disabledcolor>af3_dialog_fg_30</disabledcolor>
+												<label>$INFO[ListItem.Label]</label>
+												<left>40</left>
+												<align>left</align>
+												<aligny>center</aligny>
+												<font>af3_font_main</font>
+												<scrollsuffix> </scrollsuffix>
+												<scrollspeed>40</scrollspeed>
+											</control>
+										</control>
+									</control>
+								</control>
+							</focusedlayout>
+						</control>
+						<control type="list" id="6">
+							<pagecontrol>62</pagecontrol>
+							<onright>62</onright>
+							<left>20</left>
+							<right>20</right>
+							<top>20</top>
+							<bottom>20</bottom>
+							<oninfo>SetFocus(99001)</oninfo>
+							<onleft>SetFocus(99001)</onleft>
+							<orientation>vertical</orientation>
+							<preloaditems>2</preloaditems>
+							<scrolltime tween="quadratic">400</scrolltime>
+							<itemlayout width="" height="128">
+								<control type="group">
+									<left>0</left>
+									<right>-0</right>
+									<top>0</top>
+									<bottom>-0</bottom>
+									<control type="group">
+										<left>40</left>
+										<right>40</right>
+										<control type="image">
+											<centerleft>0</centerleft>
+											<centertop>50%</centertop>
+											<texture colordiffuse="af3_dialog_fg_30">af3/buttons/check-off.png</texture>
+											<width>28</width>
+											<height>28</height>
+											<visible>!ListItem.IsSelected</visible>
+										</control>
+										<control type="image">
+											<centerleft>0</centerleft>
+											<centertop>50%</centertop>
+											<texture colordiffuse="af3_dialog_fg_70">af3/buttons/check-on.png</texture>
+											<width>28</width>
+											<height>28</height>
+											<visible>ListItem.IsSelected</visible>
+										</control>
+										<control type="group">
+											<left>40</left>
+											<control type="group">
+												<width>128</width>
+												<control type="group">
+													<left>0</left>
+													<top>20</top>
+													<bottom>20</bottom>
+													<right>40</right>
+													<control type="image">
+														<aspectratio>keep</aspectratio>
+														<texture background="true" fallback="" diffuse="af3/diffuse/square_w120_h120.png">$INFO[ListItem.Icon]</texture>
+														<visible>![String.StartsWith(ListItem.Icon,Default) | String.StartsWith(ListItem.Icon,af3/extras/icons/)]</visible>
+													</control>
+													<control type="image">
+														<aspectratio>keep</aspectratio>
+														<texture background="true" fallback="" diffuse="af3/diffuse/square_w120_h120.png">$INFO[ListItem.Icon]</texture>
+														<colordiffuse>af3_dialog_fg_90</colordiffuse>
+														<visible>String.StartsWith(ListItem.Icon,Default) | String.StartsWith(ListItem.Icon,af3/extras/icons/)</visible>
+													</control>
+												</control>
+											</control>
+											<control type="group">
+												<left>128</left>
+												<height>60</height>
+												<centertop>50%</centertop>
+												<control type="label">
+													<left>-10</left>
+													<textcolor>af3_dialog_fg_70</textcolor>
+													<selectedcolor>af3_dialog_fg_70</selectedcolor>
+													<disabledcolor>af3_dialog_fg_30</disabledcolor>
+													<label fallback="">$INFO[ListItem.Label]</label>
+													<visible>String.IsEmpty(ListItem.Label2)</visible>
+													<align>left</align>
+													<aligny>center</aligny>
+													<font>af3_font_main</font>
+													<scrollsuffix> </scrollsuffix>
+													<scrollspeed>40</scrollspeed>
+												</control>
+												<control type="label">
+													<left>-10</left>
+													<textcolor>af3_dialog_fg_70</textcolor>
+													<selectedcolor>af3_dialog_fg_70</selectedcolor>
+													<disabledcolor>af3_dialog_fg_30</disabledcolor>
+													<font>af3_font_main_bold</font>
+													<label fallback="">$INFO[ListItem.Label]</label>
+													<visible>!String.IsEmpty(ListItem.Label2)</visible>
+													<height>30</height>
+													<top>0</top>
+													<align>left</align>
+													<aligny>center</aligny>
+													<scrollsuffix> </scrollsuffix>
+													<scrollspeed>40</scrollspeed>
+												</control>
+												<control type="label">
+													<left>-10</left>
+													<textcolor>af3_dialog_fg_70</textcolor>
+													<selectedcolor>af3_dialog_fg_70</selectedcolor>
+													<disabledcolor>af3_dialog_fg_30</disabledcolor>
+													<font>af3_font_tiny</font>
+													<label>$INFO[ListItem.Label2]</label>
+													<visible>!String.IsEmpty(ListItem.Label2)</visible>
+													<height>30</height>
+													<bottom>0</bottom>
+													<align>left</align>
+													<aligny>center</aligny>
+													<scrollsuffix> </scrollsuffix>
+													<scrollspeed>40</scrollspeed>
+												</control>
+											</control>
+										</control>
+									</control>
+								</control>
+							</itemlayout>
+							<focusedlayout width="" height="128">
+								<control type="group">
+									<left>0</left>
+									<right>-0</right>
+									<top>0</top>
+									<bottom>-0</bottom>
+									<control type="group">
+										<animation effect="fade" start="100" end="0" condition="Control.HasFocus(6)">Conditional</animation>
+										<control type="group">
+											<left>40</left>
+											<right>40</right>
+											<control type="image">
+												<centerleft>0</centerleft>
+												<centertop>50%</centertop>
+												<texture colordiffuse="af3_dialog_fg_30">af3/buttons/check-off.png</texture>
+												<width>28</width>
+												<height>28</height>
+												<visible>!ListItem.IsSelected</visible>
+											</control>
+											<control type="image">
+												<centerleft>0</centerleft>
+												<centertop>50%</centertop>
+												<texture colordiffuse="af3_dialog_fg_70">af3/buttons/check-on.png</texture>
+												<width>28</width>
+												<height>28</height>
+												<visible>ListItem.IsSelected</visible>
+											</control>
+											<control type="group">
+												<left>40</left>
+												<control type="group">
+													<width>128</width>
+													<control type="group">
+														<left>0</left>
+														<top>20</top>
+														<bottom>20</bottom>
+														<right>40</right>
+														<control type="image">
+															<aspectratio>keep</aspectratio>
+															<texture background="true" fallback="" diffuse="af3/diffuse/square_w120_h120.png">$INFO[ListItem.Icon]</texture>
+															<visible>![String.StartsWith(ListItem.Icon,Default) | String.StartsWith(ListItem.Icon,af3/extras/icons/)]</visible>
+														</control>
+														<control type="image">
+															<aspectratio>keep</aspectratio>
+															<texture background="true" fallback="" diffuse="af3/diffuse/square_w120_h120.png">$INFO[ListItem.Icon]</texture>
+															<colordiffuse>af3_dialog_fg_90</colordiffuse>
+															<visible>String.StartsWith(ListItem.Icon,Default) | String.StartsWith(ListItem.Icon,af3/extras/icons/)</visible>
+														</control>
+													</control>
+												</control>
+												<control type="group">
+													<left>128</left>
+													<height>60</height>
+													<centertop>50%</centertop>
+													<control type="label">
+														<left>-10</left>
+														<textcolor>af3_dialog_fg_70</textcolor>
+														<selectedcolor>af3_dialog_fg_70</selectedcolor>
+														<disabledcolor>af3_dialog_fg_30</disabledcolor>
+														<label fallback="">$INFO[ListItem.Label]</label>
+														<visible>String.IsEmpty(ListItem.Label2)</visible>
+														<align>left</align>
+														<aligny>center</aligny>
+														<font>af3_font_main</font>
+														<scrollsuffix> </scrollsuffix>
+														<scrollspeed>40</scrollspeed>
+													</control>
+													<control type="label">
+														<left>-10</left>
+														<textcolor>af3_dialog_fg_70</textcolor>
+														<selectedcolor>af3_dialog_fg_70</selectedcolor>
+														<disabledcolor>af3_dialog_fg_30</disabledcolor>
+														<font>af3_font_main_bold</font>
+														<label fallback="">$INFO[ListItem.Label]</label>
+														<visible>!String.IsEmpty(ListItem.Label2)</visible>
+														<height>30</height>
+														<top>0</top>
+														<align>left</align>
+														<aligny>center</aligny>
+														<scrollsuffix> </scrollsuffix>
+														<scrollspeed>40</scrollspeed>
+													</control>
+													<control type="label">
+														<left>-10</left>
+														<textcolor>af3_dialog_fg_70</textcolor>
+														<selectedcolor>af3_dialog_fg_70</selectedcolor>
+														<disabledcolor>af3_dialog_fg_30</disabledcolor>
+														<font>af3_font_tiny</font>
+														<label>$INFO[ListItem.Label2]</label>
+														<visible>!String.IsEmpty(ListItem.Label2)</visible>
+														<height>30</height>
+														<bottom>0</bottom>
+														<align>left</align>
+														<aligny>center</aligny>
+														<scrollsuffix> </scrollsuffix>
+														<scrollspeed>40</scrollspeed>
+													</control>
+												</control>
+											</control>
+										</control>
+									</control>
+									<control type="group">
+										<animation effect="fade" start="100" end="0" condition="!Control.HasFocus(6)">Conditional</animation>
+										<control type="image">
+											<texture border="40" colordiffuse="ffffffff">af3/common/menu.png</texture>
+										</control>
+										<control type="group">
+											<left>40</left>
+											<right>40</right>
+											<control type="image">
+												<centerleft>0</centerleft>
+												<centertop>50%</centertop>
+												<texture colordiffuse="ff272727">af3/buttons/check-off.png</texture>
+												<width>28</width>
+												<height>28</height>
+												<visible>!ListItem.IsSelected</visible>
+											</control>
+											<control type="image">
+												<centerleft>0</centerleft>
+												<centertop>50%</centertop>
+												<texture colordiffuse="ff272727">af3/buttons/check-on.png</texture>
+												<width>28</width>
+												<height>28</height>
+												<visible>ListItem.IsSelected</visible>
+											</control>
+											<control type="group">
+												<left>40</left>
+												<control type="group">
+													<width>128</width>
+													<control type="group">
+														<left>0</left>
+														<top>20</top>
+														<bottom>20</bottom>
+														<right>40</right>
+														<control type="image">
+															<aspectratio>keep</aspectratio>
+															<texture background="true" fallback="" diffuse="af3/diffuse/square_w120_h120.png">$INFO[ListItem.Icon]</texture>
+															<visible>![String.StartsWith(ListItem.Icon,Default) | String.StartsWith(ListItem.Icon,af3/extras/icons/)]</visible>
+														</control>
+														<control type="image">
+															<aspectratio>keep</aspectratio>
+															<texture background="true" fallback="" diffuse="af3/diffuse/square_w120_h120.png">$INFO[ListItem.Icon]</texture>
+															<colordiffuse>ff272727</colordiffuse>
+															<visible>String.StartsWith(ListItem.Icon,Default) | String.StartsWith(ListItem.Icon,af3/extras/icons/)</visible>
+														</control>
+													</control>
+												</control>
+												<control type="group">
+													<left>128</left>
+													<height>60</height>
+													<centertop>50%</centertop>
+													<control type="label">
+														<left>-10</left>
+														<textcolor>ff272727</textcolor>
+														<selectedcolor>ff272727</selectedcolor>
+														<disabledcolor>af3_dialog_fg_30</disabledcolor>
+														<label fallback="">$INFO[ListItem.Label]</label>
+														<visible>String.IsEmpty(ListItem.Label2)</visible>
+														<align>left</align>
+														<aligny>center</aligny>
+														<font>af3_font_main</font>
+														<scrollsuffix> </scrollsuffix>
+														<scrollspeed>40</scrollspeed>
+													</control>
+													<control type="label">
+														<left>-10</left>
+														<textcolor>ff272727</textcolor>
+														<selectedcolor>ff272727</selectedcolor>
+														<disabledcolor>af3_dialog_fg_30</disabledcolor>
+														<font>af3_font_main_bold</font>
+														<label fallback="">$INFO[ListItem.Label]</label>
+														<visible>!String.IsEmpty(ListItem.Label2)</visible>
+														<height>30</height>
+														<top>0</top>
+														<align>left</align>
+														<aligny>center</aligny>
+														<scrollsuffix> </scrollsuffix>
+														<scrollspeed>40</scrollspeed>
+													</control>
+													<control type="label">
+														<left>-10</left>
+														<textcolor>ff272727</textcolor>
+														<selectedcolor>ff272727</selectedcolor>
+														<disabledcolor>af3_dialog_fg_30</disabledcolor>
+														<font>af3_font_tiny</font>
+														<label>$INFO[ListItem.Label2]</label>
+														<visible>!String.IsEmpty(ListItem.Label2)</visible>
+														<height>30</height>
+														<bottom>0</bottom>
+														<align>left</align>
+														<aligny>center</aligny>
+														<scrollsuffix> </scrollsuffix>
+														<scrollspeed>40</scrollspeed>
+													</control>
+												</control>
+											</control>
+										</control>
+									</control>
+								</control>
+							</focusedlayout>
+						</control>
+					</control>
+					<control type="group">
+						<control type="scrollbar" id="61">
+							<visible>Control.IsVisible(3)</visible>
+							<onleft>3</onleft>
+							<onright>9000</onright>
+							<top>140</top>
+							<bottom>20</bottom>
+							<centerright>0</centerright>
+							<width>10</width>
+							<showonepage>false</showonepage>
+							<texturesliderbackground/>
+							<texturesliderbar colordiffuse="af3_dialog_fg_70" border="4">af3/scrollbar/scrollv_line.png</texturesliderbar>
+							<texturesliderbarfocus border="4" colordiffuse="ffffffff">af3/common/scrollv.png</texturesliderbarfocus>
+							<textureslidernib/>
+							<textureslidernibfocus/>
+							<orientation>vertical</orientation>
+						</control>
+						<control type="scrollbar" id="62">
+							<visible>Control.IsVisible(6)</visible>
+							<onleft>6</onleft>
+							<onright>9000</onright>
+							<top>140</top>
+							<bottom>20</bottom>
+							<centerright>0</centerright>
+							<width>10</width>
+							<showonepage>false</showonepage>
+							<texturesliderbackground/>
+							<texturesliderbar colordiffuse="af3_dialog_fg_70" border="4">af3/scrollbar/scrollv_line.png</texturesliderbar>
+							<texturesliderbarfocus border="4" colordiffuse="ffffffff">af3/common/scrollv.png</texturesliderbarfocus>
+							<textureslidernib/>
+							<textureslidernibfocus/>
+							<orientation>vertical</orientation>
+						</control>
+					</control>
+				</control>
+			</control>
+		</control>
+		<control type="group">
+			<control type="button" id="99003">
+				<texturenofocus/>
+				<texturefocus/>
+				<onclick>SetFocus(6)</onclick>
+				<oninfo>SetFocus(6)</oninfo>
+				<onback>6</onback>
+				<visible>Control.HasFocus(99001) | Control.HasFocus(99002) | Control.HasFocus(99003)</visible>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>af3_font_mini</font>
+				<textoffsetx>30</textoffsetx>
+				<textcolor>af3_main_fg_70</textcolor>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<focusedcolor>ff272727</focusedcolor>
+				<disabledcolor>af3_main_fg_30</disabledcolor>
+				<pulseonselect>false</pulseonselect>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+			</control>
+			<control type="image">
+				<visible>Control.HasFocus(99001) | Control.HasFocus(99002) | Control.HasFocus(99003)</visible>
+				<animation effect="fade" start="0" end="100" delay="0" time="400" tween="sine" easing="in" reversible="false" condition="true">Visible</animation>
+				<animation effect="fade" start="0" end="100" delay="0" time="400" tween="sine" easing="in" reversible="false" condition="true">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" delay="0" time="300" tween="sine" easing="in" reversible="false" condition="true">Hidden</animation>
+				<animation effect="fade" start="100" end="0" delay="0" time="300" tween="sine" easing="in" reversible="false" condition="true">WindowClose</animation>
+				<texture colordiffuse="af3_shadow_back">af3/common/white.png</texture>
+			</control>
+			<control type="group">
+				<visible>Control.HasFocus(99001) | Control.HasFocus(99002) | Control.HasFocus(99003)</visible>
+				<centerleft>50%</centerleft>
+				<centertop>50%</centertop>
+				<height>960</height>
+				<width>1080</width>
+				<animation type="Visible" reversible="false" condition="true">
+					<effect type="fade" start="0" end="100" time="300" delay="200"/>
+					<effect type="slide" start="0,-80" end="0" center="auto" tween="back" easing="out" time="600" delay="200"/>
+				</animation>
+				<animation type="WindowOpen" reversible="false" condition="true">
+					<effect type="fade" start="0" end="100" time="300" delay="200"/>
+					<effect type="slide" start="0,-80" end="0" center="auto" tween="back" easing="out" time="600" delay="200"/>
+				</animation>
+				<animation type="Hidden" reversible="false" condition="true">
+					<effect type="zoom" start="100" end="95" center="auto" tween="sine" delay="0" easing="out" time="300"/>
+					<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300"/>
+				</animation>
+				<animation type="WindowClose" reversible="false" condition="true">
+					<effect type="zoom" start="100" end="95" center="auto" tween="sine" delay="0" easing="out" time="300"/>
+					<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300"/>
+				</animation>
+				<control type="group">
+					<control type="group">
+						<left>40</left>
+						<right>40</right>
+						<top>40</top>
+						<bottom>40</bottom>
+						<control type="group">
+							<control type="group">
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3P_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+						</control>
+						<control type="image">
+							<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<right>80</right>
+						<left>80</left>
+					</control>
+				</control>
+				<control type="group">
+					<left>40</left>
+					<right>40</right>
+					<top>40</top>
+					<bottom>40</bottom>
+					<control type="group">
+						<height>120</height>
+						<control type="group">
+							<right>120</right>
+							<height>40</height>
+							<top>40</top>
+							<left>40</left>
+							<control type="label" id="99002">
+								<label>$INFO[Container(6).ListItem.Label]</label>
+								<font>af3_font_midi_bold</font>
+								<textcolor>af3_dialog_fg_90</textcolor>
+								<height>40</height>
+								<centertop>50%</centertop>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+						</control>
+						<control type="group">
+							<centerright>60</centerright>
+							<centertop>50%</centertop>
+							<height>80</height>
+							<width>80</width>
+							<control type="button" id="99001">
+								<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+								<texturenofocus/>
+								<onclick>SetFocus(6)</onclick>
+								<onleft></onleft>
+								<onright></onright>
+								<onup></onup>
+								<ondown></ondown>
+								<oninfo>SetFocus(6)</oninfo>
+								<onback>6</onback>
+								<align>center</align>
+								<aligny>center</aligny>
+								<font>af3_font_mini</font>
+								<textoffsetx>30</textoffsetx>
+								<textcolor>af3_main_fg_70</textcolor>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<focusedcolor>ff272727</focusedcolor>
+								<disabledcolor>af3_main_fg_30</disabledcolor>
+								<pulseonselect>false</pulseonselect>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+							</control>
+							<control type="group" id="99101">
+								<animation effect="fade" start="100" end="30" condition="!Control.IsEnabled(99001)" reversible="false">Conditional</animation>
+								<left>80</left>
+								<width>0</width>
+								<control type="group">
+									<left>-80</left>
+									<control type="image">
+										<bordersize>12</bordersize>
+										<height>80</height>
+										<width>80</width>
+										<texture colordiffuse="af3_dialog_fg_70" flipx="false">af3/extras/icons/xmark.png</texture>
+										<visible>!Control.HasFocus(99001)</visible>
+									</control>
+									<control type="image">
+										<bordersize>12</bordersize>
+										<height>80</height>
+										<width>80</width>
+										<texture colordiffuse="ff272727" flipx="false">af3/extras/icons/xmark.png</texture>
+										<visible>Control.HasFocus(99001)</visible>
+									</control>
+								</control>
+							</control>
+						</control>
+						<control type="image">
+							<height>1</height>
+							<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							<centerbottom>0</centerbottom>
+							<left>40</left>
+							<right>40</right>
+						</control>
+					</control>
+					<control type="group">
+						<top>120</top>
+						<control type="group">
+							<control type="image">
+								<texture colordiffuse="af3_panel_bg_12" border="20">af3/common/dialog.png</texture>
+							</control>
+							<left>40</left>
+							<right>40</right>
+							<top>40</top>
+							<bottom>40</bottom>
+							<control type="image">
+								<texture background="true">$INFO[Container(6).ListItem.Icon]</texture>
+								<aspectratio>keep</aspectratio>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+						</control>
+					</control>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="af3p_dyn_4">
+		<control type="image">
+			<animation effect="fade" start="0" end="100" delay="0" time="400" tween="sine" easing="in" reversible="false" condition="true">Visible</animation>
+			<animation effect="fade" start="0" end="100" delay="0" time="400" tween="sine" easing="in" reversible="false" condition="true">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" delay="0" time="300" tween="sine" easing="in" reversible="false" condition="true">Hidden</animation>
+			<animation effect="fade" start="100" end="0" delay="0" time="300" tween="sine" easing="in" reversible="false" condition="true">WindowClose</animation>
+			<texture colordiffuse="af3_shadow_back">af3/common/white.png</texture>
+		</control>
+		<control type="group">
+			<width>1600</width>
+			<centerleft>50%</centerleft>
+			<top>100</top>
+			<bottom>100</bottom>
+			<animation type="Visible" reversible="false" condition="true">
+				<effect type="fade" start="0" end="100" time="300" delay="200"/>
+				<effect type="slide" start="0,-80" end="0" center="auto" tween="back" easing="out" time="600" delay="200"/>
+			</animation>
+			<animation type="WindowOpen" reversible="false" condition="true">
+				<effect type="fade" start="0" end="100" time="300" delay="200"/>
+				<effect type="slide" start="0,-80" end="0" center="auto" tween="back" easing="out" time="600" delay="200"/>
+			</animation>
+			<animation type="Hidden" reversible="false" condition="true">
+				<effect type="zoom" start="100" end="95" center="auto" tween="sine" delay="0" easing="out" time="300"/>
+				<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300"/>
+			</animation>
+			<animation type="WindowClose" reversible="false" condition="true">
+				<effect type="zoom" start="100" end="95" center="auto" tween="sine" delay="0" easing="out" time="300"/>
+				<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300"/>
+			</animation>
+			<control type="group">
+				<control type="group">
+					<left>40</left>
+					<right>40</right>
+					<top>40</top>
+					<bottom>40</bottom>
+					<control type="group">
+						<control type="group">
+							<control type="image">
+								<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+								<left>-80</left>
+								<right>-80</right>
+								<top>-80</top>
+								<bottom>-80</bottom>
+								<bordersize>80</bordersize>
+								<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+							</control>
+							<control type="image">
+								<fadetime>400</fadetime>
+								<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3P_Image_Current_Background,,-diffuse-20.jpg]</texture>
+							</control>
+						</control>
+						<control type="image">
+							<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+						</control>
+					</control>
+					<control type="image">
+						<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog.png</texture>
+					</control>
+				</control>
+				<control type="group">
+					<right>80</right>
+					<left>80</left>
+				</control>
+			</control>
+			<control type="group" id="8000">
+				<left>40</left>
+				<right>40</right>
+				<top>40</top>
+				<bottom>40</bottom>
+				<control type="group">
+					<width>560</width>
+					<control type="group">
+						<left>40</left>
+						<right>40</right>
+						<top>40</top>
+						<bottom>40</bottom>
+						<control type="image" id="99981">
+							<texture background="true" colordiffuse="00ffffff">$VAR[AF3P_Image_VideoVersion_Poster]</texture>
+						</control>
+						<control type="image" id="99982">
+							<texture background="true" colordiffuse="00ffffff"></texture>
+						</control>
+						<control type="grouplist">
+							<orientation>vertical</orientation>
+							<itemgap>40</itemgap>
+							<control type="group">
+								<height>720</height>
+								<visible>!String.IsEmpty(Control.GetLabel(99981))</visible>
+								<control type="group">
+									<control type="image">
+										<texture colordiffuse="af3_panel_bg_12" border="20">af3/common/dialog.png</texture>
+									</control>
+									<control type="image">
+										<aspectratio scalediffuse="false">scale</aspectratio>
+										<texture background="true" diffuse="af3/diffuse/poster_w480_h720.png">$VAR[AF3P_Image_VideoVersion_Poster]</texture>
+									</control>
+									<control type="image">
+										<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+									</control>
+								</control>
+							</control>
+							<control type="group">
+								<height>480</height>
+								<visible>String.IsEmpty(Control.GetLabel(99981))</visible>
+								<visible>!String.IsEmpty(Control.GetLabel(99982))</visible>
+								<control type="group">
+									<control type="image">
+										<texture colordiffuse="af3_panel_bg_12" border="20">af3/common/dialog.png</texture>
+									</control>
+									<control type="image">
+										<aspectratio scalediffuse="false">keep</aspectratio>
+										<texture background="true" diffuse="af3/diffuse/square_w480_h480.png"></texture>
+									</control>
+									<control type="image">
+										<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+									</control>
+								</control>
+							</control>
+							<control type="group">
+								<height>200</height>
+								<visible>String.IsEmpty(Control.GetLabel(99981))</visible>
+								<control type="image">
+									<aspectratio scalediffuse="false" aligny="center">keep</aspectratio>
+									<texture background="true"></texture>
+								</control>
+							</control>
+							<scrolltime tween="quadratic">400</scrolltime>
+							<usecontrolcoords>true</usecontrolcoords>
+						</control>
+					</control>
+				</control>
+				<control type="group">
+					<control type="image">
+						<bordersize>1</bordersize>
+						<texture border="20" colordiffuse="af3_dialog_bg_12">af3/common/dialog_overlay.png</texture>
+					</control>
+					<control type="image">
+						<width>1</width>
+						<top>1</top>
+						<bottom>1</bottom>
+						<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+					</control>
+					<left>560</left>
+					<control type="group">
+						<height>120</height>
+						<control type="group">
+							<right>120</right>
+							<height>40</height>
+							<top>40</top>
+							<left>40</left>
+							<control type="label" id="1">
+								<label>$VAR[AF3P_Label_ProfileName]</label>
+								<font>af3_font_midi_bold</font>
+								<textcolor>af3_dialog_fg_90</textcolor>
+								<height>40</height>
+								<centertop>50%</centertop>
+								<align>left</align>
+								<aligny>center</aligny>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+						</control>
+						<control type="grouplist">
+							<height>20</height>
+							<left>40</left>
+							<right>40</right>
+							<centertop>120</centertop>
+							<orientation>horizontal</orientation>
+							<itemgap>20</itemgap>
+							<align>left</align>
+							<visible>Control.IsVisible(6)</visible>
+							<control type="label" id="">
+								<width>auto</width>
+								<aligny>center</aligny>
+								<align>left</align>
+								<font>af3_font_hint_bold</font>
+								<textcolor>af3_dialog_fg_30</textcolor>
+								<label>$INFO[Container(6).NumItems,, $LOCALIZE[31185]]$INFO[Container(6).CurrentPage,  •  $LOCALIZE[31184] ,]$INFO[Container(6).NumPages, $LOCALIZE[20163] ,]</label>
+								<haspath>false</haspath>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="image">
+								<height>1</height>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+								<centertop>50%</centertop>
+								<width>2000</width>
+							</control>
+							<scrolltime tween="quadratic">400</scrolltime>
+							<usecontrolcoords>true</usecontrolcoords>
+						</control>
+						<control type="group">
+							<centerright>60</centerright>
+							<centertop>50%</centertop>
+							<height>80</height>
+							<width>80</width>
+							<control type="button" id="90001">
+								<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+								<texturenofocus/>
+								<onclick>Close</onclick>
+								<onleft></onleft>
+								<onright></onright>
+								<onup></onup>
+								<ondown></ondown>
+								<oninfo></oninfo>
+								<onback></onback>
+								<align>center</align>
+								<aligny>center</aligny>
+								<font>af3_font_mini</font>
+								<textoffsetx>30</textoffsetx>
+								<textcolor>af3_main_fg_70</textcolor>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<focusedcolor>ff272727</focusedcolor>
+								<disabledcolor>af3_main_fg_30</disabledcolor>
+								<pulseonselect>false</pulseonselect>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+							</control>
+							<control type="group" id="90101">
+								<animation effect="fade" start="100" end="30" condition="!Control.IsEnabled(90001)" reversible="false">Conditional</animation>
+								<left>80</left>
+								<width>0</width>
+								<control type="group">
+									<left>-80</left>
+									<control type="image">
+										<bordersize>12</bordersize>
+										<height>80</height>
+										<width>80</width>
+										<texture colordiffuse="af3_dialog_fg_70" flipx="false">af3/extras/icons/xmark.png</texture>
+										<visible>!Control.HasFocus(90001)</visible>
+									</control>
+									<control type="image">
+										<bordersize>12</bordersize>
+										<height>80</height>
+										<width>80</width>
+										<texture colordiffuse="ff272727" flipx="false">af3/extras/icons/xmark.png</texture>
+										<visible>Control.HasFocus(90001)</visible>
+									</control>
+								</control>
+							</control>
+						</control>
+					</control>
+					<control type="group">
+						<top>120</top>
+						<control type="list" id="3">
+							<top>-3840</top>
+							<left>-3840</left>
+							<width>1</width>
+							<height>1</height>
+							<itemlayout width="1" height="1"/>
+							<focusedlayout width="1" height="1"/>
+							<orientation>vertical</orientation>
+						</control>
+						<control type="list" id="6">
+							<pagecontrol>61</pagecontrol>
+							<onright>61</onright>
+							<left>20</left>
+							<right>20</right>
+							<top>20</top>
+							<bottom>20</bottom>
+							<itemlayout height="160">
+								<control type="group">
+									<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(6)">Conditional</animation>
+								</control>
+								<control type="group">
+									<left>40</left>
+									<right>40</right>
+									<control type="group">
+										<control type="group">
+											<width>160</width>
+											<control type="group">
+												<left>0</left>
+												<top>20</top>
+												<bottom>20</bottom>
+												<right>40</right>
+												<control type="image">
+													<aspectratio>keep</aspectratio>
+													<texture background="true" fallback="" diffuse="af3/diffuse/square_w120_h120.png">$VAR[AF3P_Image_Poster]</texture>
+												</control>
+											</control>
+										</control>
+										<control type="group">
+											<control type="group">
+												<left>160</left>
+												<height>60</height>
+												<centertop>50%</centertop>
+												<control type="label">
+													<left>-10</left>
+													<textcolor>af3_dialog_fg_70</textcolor>
+													<selectedcolor>af3_dialog_fg_70</selectedcolor>
+													<disabledcolor>af3_dialog_fg_30</disabledcolor>
+													<label fallback="">$VAR[AF3P_Label_Version_Title]</label>
+													<visible>String.IsEmpty(ListItem.VideoCodec)</visible>
+													<align>left</align>
+													<aligny>center</aligny>
+													<font>af3_font_main</font>
+													<scrollsuffix> </scrollsuffix>
+													<scrollspeed>40</scrollspeed>
+												</control>
+												<control type="label">
+													<left>-10</left>
+													<textcolor>af3_dialog_fg_70</textcolor>
+													<selectedcolor>af3_dialog_fg_70</selectedcolor>
+													<disabledcolor>af3_dialog_fg_30</disabledcolor>
+													<font>af3_font_main_bold</font>
+													<label fallback="">$VAR[AF3P_Label_Version_Title]</label>
+													<visible>!String.IsEmpty(ListItem.VideoCodec)</visible>
+													<height>30</height>
+													<top>0</top>
+													<align>left</align>
+													<aligny>center</aligny>
+													<scrollsuffix> </scrollsuffix>
+													<scrollspeed>40</scrollspeed>
+												</control>
+												<control type="label">
+													<left>-10</left>
+													<textcolor>af3_dialog_fg_70</textcolor>
+													<selectedcolor>af3_dialog_fg_70</selectedcolor>
+													<disabledcolor>af3_dialog_fg_30</disabledcolor>
+													<font>af3_font_tiny</font>
+													<label>[UPPERCASE]$VAR[AF3P_Label_VideoQuality]$INFO[ListItem.VideoCodec, • ,]$INFO[ListItem.HdrType, • ,]$INFO[ListItem.VideoAspect, • ,:1]$INFO[ListItem.AudioCodec, • ,]$VAR[AF3P_Label_ListItem_AudioChannels, • ,][/UPPERCASE]</label>
+													<visible>!String.IsEmpty(ListItem.VideoCodec)</visible>
+													<height>30</height>
+													<bottom>0</bottom>
+													<align>left</align>
+													<aligny>center</aligny>
+													<scrollsuffix> </scrollsuffix>
+													<scrollspeed>40</scrollspeed>
+												</control>
+											</control>
+											<animation effect="slide" start="0" end="0,-20" condition="!String.IsEmpty(ListItem.Property(AudioLanguage.1)) | !String.IsEmpty(ListItem.Property(SubtitleLanguage.1))">Conditional</animation>
+										</control>
+										<control type="group">
+											<left>160</left>
+											<height>60</height>
+											<centertop>50%</centertop>
+											<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.1)) | !String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
+											<animation effect="slide" start="0" end="0,20" condition="true">Conditional</animation>
+											<control type="label">
+												<left>-10</left>
+												<textcolor>af3_dialog_fg_70</textcolor>
+												<selectedcolor>af3_dialog_fg_70</selectedcolor>
+												<disabledcolor>af3_dialog_fg_30</disabledcolor>
+												<font>af3_font_tiny</font>
+												<label>$VAR[AF3P_Label_AudioLanguages,,  ]$VAR[AF3P_Label_SubtitleLanguages]</label>
+												<height>30</height>
+												<bottom>0</bottom>
+												<align>left</align>
+												<aligny>center</aligny>
+												<scrollsuffix> </scrollsuffix>
+												<scrollspeed>40</scrollspeed>
+											</control>
+										</control>
+									</control>
+								</control>
+							</itemlayout>
+							<focusedlayout height="160">
+								<control type="group">
+									<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(6)">Conditional</animation>
+									<control type="image">
+										<texture border="40" colordiffuse="ffffffff">af3/common/menu.png</texture>
+									</control>
+								</control>
+								<control type="group">
+									<left>40</left>
+									<right>40</right>
+									<control type="group">
+										<control type="group">
+											<width>160</width>
+											<control type="group">
+												<left>0</left>
+												<top>20</top>
+												<bottom>20</bottom>
+												<right>40</right>
+												<control type="image">
+													<aspectratio>keep</aspectratio>
+													<texture background="true" fallback="" diffuse="af3/diffuse/square_w120_h120.png">$VAR[AF3P_Image_Poster]</texture>
+												</control>
+											</control>
+										</control>
+										<control type="group">
+											<control type="group">
+												<left>160</left>
+												<height>60</height>
+												<centertop>50%</centertop>
+												<control type="label">
+													<left>-10</left>
+													<textcolor>ff272727</textcolor>
+													<selectedcolor>ff272727</selectedcolor>
+													<disabledcolor>af3_dialog_fg_30</disabledcolor>
+													<label fallback="">$VAR[AF3P_Label_Version_Title]</label>
+													<visible>String.IsEmpty(ListItem.VideoCodec)</visible>
+													<align>left</align>
+													<aligny>center</aligny>
+													<font>af3_font_main</font>
+													<scrollsuffix> </scrollsuffix>
+													<scrollspeed>40</scrollspeed>
+												</control>
+												<control type="label">
+													<left>-10</left>
+													<textcolor>ff272727</textcolor>
+													<selectedcolor>ff272727</selectedcolor>
+													<disabledcolor>af3_dialog_fg_30</disabledcolor>
+													<font>af3_font_main_bold</font>
+													<label fallback="">$VAR[AF3P_Label_Version_Title]</label>
+													<visible>!String.IsEmpty(ListItem.VideoCodec)</visible>
+													<height>30</height>
+													<top>0</top>
+													<align>left</align>
+													<aligny>center</aligny>
+													<scrollsuffix> </scrollsuffix>
+													<scrollspeed>40</scrollspeed>
+												</control>
+												<control type="label">
+													<left>-10</left>
+													<textcolor>ff272727</textcolor>
+													<selectedcolor>ff272727</selectedcolor>
+													<disabledcolor>af3_dialog_fg_30</disabledcolor>
+													<font>af3_font_tiny</font>
+													<label>[UPPERCASE]$VAR[AF3P_Label_VideoQuality]$INFO[ListItem.VideoCodec, • ,]$INFO[ListItem.HdrType, • ,]$INFO[ListItem.VideoAspect, • ,:1]$INFO[ListItem.AudioCodec, • ,]$VAR[AF3P_Label_ListItem_AudioChannels, • ,][/UPPERCASE]</label>
+													<visible>!String.IsEmpty(ListItem.VideoCodec)</visible>
+													<height>30</height>
+													<bottom>0</bottom>
+													<align>left</align>
+													<aligny>center</aligny>
+													<scrollsuffix> </scrollsuffix>
+													<scrollspeed>40</scrollspeed>
+												</control>
+											</control>
+											<animation effect="slide" start="0" end="0,-20" condition="!String.IsEmpty(ListItem.Property(AudioLanguage.1)) | !String.IsEmpty(ListItem.Property(SubtitleLanguage.1))">Conditional</animation>
+										</control>
+										<control type="group">
+											<left>160</left>
+											<height>60</height>
+											<centertop>50%</centertop>
+											<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.1)) | !String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
+											<animation effect="slide" start="0" end="0,20" condition="true">Conditional</animation>
+											<control type="label">
+												<left>-10</left>
+												<textcolor>ff272727</textcolor>
+												<selectedcolor>ff272727</selectedcolor>
+												<disabledcolor>af3_dialog_fg_30</disabledcolor>
+												<font>af3_font_tiny</font>
+												<label>$VAR[AF3P_Label_AudioLanguages,,  ]$VAR[AF3P_Label_SubtitleLanguages]</label>
+												<height>30</height>
+												<bottom>0</bottom>
+												<align>left</align>
+												<aligny>center</aligny>
+												<scrollsuffix> </scrollsuffix>
+												<scrollspeed>40</scrollspeed>
+											</control>
+										</control>
+									</control>
+								</control>
+							</focusedlayout>
+						</control>
+					</control>
+					<control type="group">
+						<control type="scrollbar" id="61">
+							<onleft>6</onleft>
+							<onright>9000</onright>
+							<top>140</top>
+							<bottom>20</bottom>
+							<centerright>0</centerright>
+							<width>10</width>
+							<showonepage>false</showonepage>
+							<texturesliderbackground/>
+							<texturesliderbar colordiffuse="af3_dialog_fg_70" border="4">af3/scrollbar/scrollv_line.png</texturesliderbar>
+							<texturesliderbarfocus border="4" colordiffuse="ffffffff">af3/common/scrollv.png</texturesliderbarfocus>
+							<textureslidernib/>
+							<textureslidernibfocus/>
+							<orientation>vertical</orientation>
+						</control>
+					</control>
+				</control>
+			</control>
+		</control>
+	</include>
+</includes>

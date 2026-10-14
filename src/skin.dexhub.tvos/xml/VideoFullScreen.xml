@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<window>
+	<onload condition="!String.IsEmpty(Window(Home).Property(TinyPPI.Running)) + !Window.IsVisible(script-tinyppi-main.xml) + !Window.IsVisible(script-tinyppi-dialog.xml) + !Window.IsVisible(script-tinyppi-dialog-single.xml) + !Window.IsVisible(script-tinyppi-dialog-bar.xml) + !Window.IsVisible(script-tinyppi-dv-metadata.xml)">ClearProperty(TinyPPI.Running,home)</onload>
+	<onload condition="!String.IsEmpty(Window(Home).Property(TinyPPI.Active)) + !Window.IsVisible(script-tinyppi-main.xml) + !Window.IsVisible(script-tinyppi-dialog.xml) + !Window.IsVisible(script-tinyppi-dialog-single.xml) + !Window.IsVisible(script-tinyppi-dialog-bar.xml) + !Window.IsVisible(script-tinyppi-dv-metadata.xml)">ClearProperty(TinyPPI.Active,home)</onload>
+	<onload condition="!String.IsEmpty(Window(Home).Property(TinyPPI.DialogMode)) + !Window.IsVisible(script-tinyppi-main.xml) + !Window.IsVisible(script-tinyppi-dialog.xml) + !Window.IsVisible(script-tinyppi-dialog-single.xml) + !Window.IsVisible(script-tinyppi-dialog-bar.xml) + !Window.IsVisible(script-tinyppi-dv-metadata.xml)">ClearProperty(TinyPPI.DialogMode,home)</onload>
+	<onload>ClearProperty(OSDRelaunchFullscreen,Home)</onload>
+	<controls>
+		<control type="grouplist" id="0">
+			<orientation>vertical</orientation>
+			<centertop>100</centertop>
+			<height>120</height>
+			<left>80</left>
+			<control type="button" id="10">
+				<textcolor>af3_panel_fg_100</textcolor>
+				<textoffsetx>10</textoffsetx>
+				<font>af3_font_mini</font>
+				<texturenofocus colordiffuse="af3_panel_bg_70">af3/common/white.png</texturenofocus>
+				<aligny>center</aligny>
+				<height>40</height>
+				<align>left</align>
+				<width>auto</width>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<focusedcolor>ff272727</focusedcolor>
+				<disabledcolor>af3_main_fg_30</disabledcolor>
+				<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+				<pulseonselect>false</pulseonselect>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+			</control>
+			<control type="button" id="11">
+				<textcolor>af3_panel_fg_100</textcolor>
+				<textoffsetx>10</textoffsetx>
+				<font>af3_font_mini</font>
+				<texturenofocus colordiffuse="af3_panel_bg_70">af3/common/white.png</texturenofocus>
+				<aligny>center</aligny>
+				<height>40</height>
+				<align>left</align>
+				<width>auto</width>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<focusedcolor>ff272727</focusedcolor>
+				<disabledcolor>af3_main_fg_30</disabledcolor>
+				<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+				<pulseonselect>false</pulseonselect>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+			</control>
+			<control type="button" id="12">
+				<textcolor>af3_panel_fg_100</textcolor>
+				<textoffsetx>10</textoffsetx>
+				<font>af3_font_mini</font>
+				<texturenofocus colordiffuse="af3_panel_bg_70">af3/common/white.png</texturenofocus>
+				<aligny>center</aligny>
+				<height>40</height>
+				<align>left</align>
+				<width>auto</width>
+				<selectedcolor>af3_main_fg_70</selectedcolor>
+				<focusedcolor>ff272727</focusedcolor>
+				<disabledcolor>af3_main_fg_30</disabledcolor>
+				<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+				<pulseonselect>false</pulseonselect>
+				<scrollsuffix> </scrollsuffix>
+				<scrollspeed>40</scrollspeed>
+			</control>
+			<scrolltime tween="quadratic">400</scrolltime>
+			<usecontrolcoords>true</usecontrolcoords>
+			<itemgap>0</itemgap>
+		</control>
+	</controls>
+</window>

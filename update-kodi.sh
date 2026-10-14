@@ -24,5 +24,5 @@ cd "$KODI_SRC/tools/depends"
 # Release dependencies (optimized). Debug ones left SQLite and others unoptimized.
 ./configure --host=aarch64-apple-darwin --with-platform=tvos --enable-debug=no
 make -j"${DEX_JOBS:-$(sysctl -n hw.ncpu)}"
-bash "$BASE/get-dexhub.sh"
+if [ -d "$BASE/src/plugin.video.dexhub.tvos" ]; then python3 "$BASE/release_assets.py"; else bash "$BASE/get-dexhub.sh"; fi
 bash "$BASE/all.sh"

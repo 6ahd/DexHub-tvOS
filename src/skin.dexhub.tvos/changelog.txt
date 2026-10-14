@@ -1,0 +1,235 @@
+3.28.42: Long press on Play in a title page passes the title to the player choice directly (Aether, Kodi, Infuse, VidHub). Pairs with Dex Hub 5.10.292.
+
+3.28.41: Sync subtitle and Next subtitle always shown in the player bar; they call Dex Hub, which uses DexSubtitles when it is installed. Pairs with Dex Hub 5.10.290. Apple TV player dependencies are retained.
+
+3.28.40: Player bar: buttons in slots ordered from Dex Hub's Player buttons choice, Episodes button for every series, Sync subtitle and Next subtitle buttons, seasons on a dark plate. Wide card shelf loads and shows more rows at once (no empty space under the second row); Hero with one row sits lower at small Home sizes. Sidebar as icons only and the top bar that hides while scrolling the rows. Pairs with Dex Hub 5.10.288. Apple TV player dependencies are retained.
+
+3.28.39: Home layouts cinema, netflix and shelf (Cinematic full screen, Hero with one row, Wide card shelf); collection showcase, ranking and cinematic feature cards re-laid; the hero plot shows two whole lines. Pairs with Dex Hub 5.10.287. Apple TV player dependencies are retained.
+
+3.28.38: Collection showcase keeps its banner whole at 16:9 beside the name, with three 16:9 previews and their titles. Collection ranking is a numbered list with a 16:9 thumbnail per title (the numbers showed Pictures, Music, Videos, read by Kodi as string ids). Cinematic feature shows a poster-only title whole beside a dimmed fill instead of a cut poster. The title logo no longer sits over the My Library and My Servers header. Pairs with Dex Hub 5.10.286.
+
+3.28.37: Library tab design: the source chips fade out when a title takes the hero instead of sliding over the rows; a soft header shade replaces the hard-edged band; chips sit on dark glass so they read on bright backdrops; a row drawn as one collection banner no longer repeats its title above it; the compact collection's numbers are no longer cut to dots; the hero logo hides while the side menu is open. Runtimes read once as seconds (a 2h 30m film showed 150h 0m). GitHub #17 and #7: Spotlight More info and Nuvio-synced Continue Watching titles keep TMDb and AIOMetadata plot, genres, rating and art in Like Nuvio mode, and found art is saved with the progress. #15: See all only on rows that can show more. #13: Show row source switch in Look and Home options. #18: player badges drawn above the OSD shade at full strength, with a Badge opacity choice (100, 85, 70). #14: an explicit trailer always ends up full screen; a trailer left behind the GUI comes back to the front. #16: Floppy lists split into movies and series too, with a Films and series filter on library rows. #12: a profile opened for the first time starts from the current Home rows. Pairs with Dex Hub 5.10.286. Apple TV player dependencies are retained.
+
+3.28.36: Preview: Polished six row styles with original focus motion, balanced artwork and readable labels; compact side navigation keeps cards clickable; Spotlight More combines exact-title artwork, metadata and ratings and the detail dialog follows late ClearLogo. Includes custom Home size 50-200 percent, prior Auto metadata, library, trailer and profile fixes. Requires real-device validation. Apple TV player dependencies are retained.
+
+3.28.36: New cards inherit the original zoom/lift/pop focus motion, glow and border proportions, artwork fade and readable line heights. Side navigation is a compact icon rail with animated labels on focus, leaving Home cards reachable. The info dialog draws late ClearLogo and title ratings. Pairs with Dex Hub 5.10.285.
+
+3.28.15: Consistent source and episode slots across the player overlays; each Left/Right press moves to the adjacent visible button. Existing player layout, artwork and actions retained.
+3.27.10: OK on a season of a title page moves to its episodes (Kodi tried to play the season card, an empty file). Pairs with Dex Hub 5.10.213.
+
+3.27.9: My watching opens inside the Library tab: its sections are the tab's own rows (Pick up where you left off, Next episode, Watchlist, Coming up, Because you watched) with this month's numbers in the header, so it shows at once with the skin's backdrops and trailers. Pairs with Dex Hub 5.10.212.
+
+3.27.8: My Library opens with a My watching chip: one page for what you left half way, your watchlists, new episodes by day and picks from your last title. Pairs with Dex Hub 5.10.208.
+
+3.22.3: Settings use the same section order as Dex Hub, with playback mode, replay last version, known-source resume and library playback directly available. Remove looping and duplicate shortcuts, group Kodi options under Advanced, correct player focus navigation, and keep hero ratings in a fixed row below compact metadata. Pairs with Dex Hub 5.10.160.
+
+3.22.1: Player badges use a balanced default size with Small and Original choices in the Badges settings; both OSD positions respect the size. My Library adds Nuvio and Stremio source chips. Pairs with Dex Hub 5.10.158 for server discovery, shared Library access and lighter background work.
+
+3.20.6
+- Skin settings, Badges: under the list, in place of the help line, the chosen badges' sample (slot set by dhs.badges.sample.mode: six 150 or 190 apart, four 285 apart, or two 560 wide for a one- or two-picture sample; or the word sample), from dhs.badges.sample.1-6 / .mode / .pair / .text that Dex Hub 5.10.152 publishes.
+
+3.20.5
+- Home, Add-ons tab: the Videos row (5102) content has sortby="playlist" like every Dex Hub row, so Kodi does not read it again at each play, resume and stop (a sort of none did).
+
+3.20.4
+- DialogSeekBar: af3_dyn_1 and DhBadgesAboveSeekbar included by condition on dhs.pref.player_badges_place (one badge row loaded instead of two places); Dex Hub 5.10.149 reloads the skin when the place changes.
+
+3.20.3
+- Player: af3_dyn_1 and DhBadgesAboveSeekbar groups use bottom 0 with height 540 / 519 instead of top 540 / 561, and DialogSeekBar's header group and label bottom 220 / 260 instead of top 780: with the 1920x1200 (16:10) and other taller resolutions the seek bar (centerbottom) moved down while the badge row stayed, so it landed on the ratings line.
+
+3.20.2
+- Player: DhBadgesAboveSeekbar (DialogSeekBar, af3_dyn_1's badge group 21 px down: the row ends 34 px above the seek bar's time) unless dhs.pref.player_badges_place is info; af3_dyn_1 shows only then.
+- Skin settings, Badges: Badges place (7706, ui_option player_badges_place), label DhOSDBadgePlaceLabel; Badges on every link (7707, badge_option badges_sources_rows, dhs.badges.rows).
+- Home, Add-ons tab: the Videos row (5102) reads plugin://plugin.video.dexhub.tvos/?action=addons_row (video add-ons by name, then Dex Hub's Stremio sources, then a + tile that adds one); needs Dex Hub 5.10.146.
+
+3.20.1
+- Skin settings: Badges (id 11, after Player & Quality): the player's style, packs from the repository, the servers page switch, the sources page switches and its JSON link; each switch runs the add-on's badge_option and shows at once (dhs.pref.badges_home, dhs.badges.sources, dhs.badges.follow). The style button left Player & Quality.
+- The badge style's label names the repository pack in use (it said Custom Badger pack).
+- The page opens at a section when dhs.skinsettings.section is player or badges; the settings page's Player item opens Player & Quality, a new Badges item opens Badges.
+- Player: DhPackRowSmall, the pack row at 72 % (made from DhPackRow), centred in the row's height when dhs.osd.badge.scale is 72; Dex Hub 5.10.145 names 72 for Kometa and jmxd, so their lettering matches the Colorful flags.
+
+3.20.0
+- Servers page: the focused copy's facts ([ 1080p ] • [ H.264 ] • [ DCA-MA 5.1 ] • [ 15.7 GB ]) drawn as badges in the player's style (DhHeroBadgeRow, dhs.hr.badge.*, 36 px), the size last as a framed word, on the Home's spotlight, its rows and folder pages; the story moves down under them. Dex Hub 5.10.144 publishes them; with an older Dex Hub nothing changes.
+- Badge page: "Packs from the repository" (key packs): the pack in use or the first installed previewed; OK lists the installed packs and opens the repository for more. Ten rows in the list's height.
+
+3.19.1
+- The colourful badge images are gone: Arctic Fuse 3's colorful flags (media/af3/flags/colorful) and the badges trimmed from them (media/dexhub/badges) are replaced by Dex Hub's own framed white words, same names; the style is called Framed.
+- Installs in any order with Dex Hub: the import asks for any Dex Hub 5.10 (Kodi refused 3.19.0, which asked for 5.10.141, when its zip was installed first, and 3.18 stayed with its grey plates).
+- A pack's or the folder's row shows once the add-on has named the first badge (width class or word); until then (an older Dex Hub) the colourful badges show.
+
+3.19.0
+- Player badges: the Elite pack (official logos), Gold and Minimalist white, downloaded once and kept on the device; each image drawn at one height in a box as wide as its shape, cut to its drawing (no grey plate).
+- SVG badges (Kodi cannot draw them) shown as framed words in the pack's colours.
+- Even gaps: the empty width beside each drawing (sent by the add-on per slot) is taken back from the gap.
+- Badges from your folder: the skin's badges unless the folder has an image of the same name.
+- Badge page: every choice with a live preview; the chosen one ticked; folder options.
+- Unfocused rows on the Home and collection pages fade to 85 percent (was 60, which looked grey); setting in Home and widgets: light, none or strong.
+- Badge page texts in Dex Hub's language (Close included); works best with Dex Hub 5.10.141 or later.
+
+3.18.0
+- Player info overlays back to the 3.14 (Arctic Fuse 3) layout: the work logo above the details,
+  plot and the bottom line, with Dex Hub's ratings and their logos added to that line.
+- Network/studio logo without a plate, at the right end of the bottom line (white pack first).
+- Work logo "top left" / "top right" drawn at fixed places (3.17 used $VAR positions Kodi ignores);
+  "logo off" shows the title in words.
+- Colourful badges: Arctic Fuse 3's clear flags, trimmed and sized per badge (media/dexhub/badges),
+  no tint, first match per group: source, resolution, HDR/Dolby Vision, codec, audio, channels.
+  Fixes 4K/8K and 3D images that never loaded (case and paths).
+- Badges show unless their style is Off (no longer hidden behind the ExtraOSD option).
+- Minimal and compact styles name things plainly (4K, 1080p, HDR10, DD+ Atmos, 5.1).
+- Player & Quality settings: "Details over the player controls" toggle, pack import moved to
+  the badges page, AF3 player options last; one help line (two texts overlapped).
+- Dialog frames: shadow outside the dialog, so its edges are no longer see-through.
+- Pair with Dex Hub 5.10.140.
+
+3.17.0
+- Gate native Home and collection rows near the visible row; avoid crawling every catalog while idle.
+- Retain visited rows and legacy fallback when an older addon is used.
+- Read focused rating/studio properties with title identity guards.
+- Pause carousel rotation from trailer startup; retain the existing moving clearlogo and animated backdrop switches.
+- All bundled fonts/media, Arabic shaping and source channel names are retained.
+- Pair with Dex Hub 5.10.139.
+
+3.16.1
+- Native TTF coverage for IPTV names: mathematical styled letters, modifier
+  letters (such as HD, MAX and UHD), superscripts, arrows and common symbols.
+- Common IPTV emoji, including the soccer ball, use monochrome outlines.
+  This is not a complete colour emoji or multi-codepoint flag renderer.
+- Missing glyphs added to 20 bundled fonts; existing Arabic/Latin outlines,
+  shaping tables and line metrics retained. No runtime conversion or requests.
+- Source names, identifiers and cached catalogs remain unchanged.
+- Use Default or a bundled Arabic font set; Arial uses the system font.
+- Pair with Dex Hub 5.10.138; no add-on update is required from that version.
+
+3.16.0
+- Direct shared settings for Home, player appearance, metadata, favorites and IPTV.
+- Visual badge selector: Colorful, Minimal, Compact, cached Badger pack or Off.
+- Player work logo visibility and placement; independent plot, metadata, rating
+  and network logo controls, using one shared player overlay.
+- Preserve source artwork and text in the Like Nuvio profile while allowing
+  optional rating and network supplements.
+- EPG switch stops Dex Hub guide fetching and XMLTV reads. Independent channels,
+  VOD, movie and series switches hide unused sections and skip their requests.
+- Appearance changes publish small shared properties without rebuilding Home
+  catalogs. Existing source configurations remain saved when sections are hidden.
+- Pair with Dex Hub 5.10.138.
+
+3.15.0
+- Player badge styles: Colorful, Minimal, Compact, custom Badger JSON or Off.
+- Custom packs are configured explicitly and read from local cache at OSD open;
+  stream changes update badges from Kodi's actual video/audio metadata.
+- Configure skin: ten AF3-style categories, shared options available from the
+  add-on as well; player badge changes do not reload the skin or rebuild Home.
+- Favorites open as source lists; Nuvio, Trakt, Simkl Plan to Watch and MDBList
+  stay independent. Widgets remain flat and can select their own source.
+- Like Nuvio metadata profile: preserve source data, posters and language;
+  stop metadata enrichment and poster replacements across native/custom Home.
+- Pair with Dex Hub 5.10.137.
+
+3.14.0
+- Home: the first four rows load at once, rows up to three below the cursor are always
+  loaded, and the next ones load one at a time while the user rests; the collection
+  page loads all its rows one after another.
+- Configure skin in the Arctic Fuse 3 dialog style; Appearance picks everything inside
+  the skin: theme, focus colour, text on the focus, focus glow, pure black, page light.
+- Nuvio's themes as colour themes: White, Crimson, Ocean, Violet, Emerald, Amber, Rose,
+  Gold, Jade, Rose Gold, Arctic Blue, Graphite.
+- Pair with Dex Hub 5.10.133.
+
+3.13.0
+- Home and collection page: only the rows near the focused one are processed each frame;
+  the others keep their titles loaded.
+- The theme surface is the window clear colour (Home, collection page, grids): two full
+  screen fills less; the left and bottom shades are one picture.
+- Dex Hub grids no longer draw Kodi's Videos background under their own; the collection
+  page is not drawn under the title page.
+- Black themes as Nuvio draws its pages: Nuvio Black, Pure Black, Black Gold, Black Aqua.
+- Configure skin > Appearance: focus colour by name (Arctic Fuse 3's highlight colours,
+  Nuvio's red) or any other, text on the focus (automatic, white, dark), focus glow.
+- Pair with Dex Hub 5.10.132.
+
+3.12.0
+- Dex Hub's themes are the skin's colour themes (Interface > Skin > Colours), with five new dark
+  ones; Dex Hub follows the colour theme and a theme picked in Dex Hub becomes it.
+- Calmer page lights (accent and second colour at a soft strength), off, soft or vivid.
+- Configure skin > Dex Hub themes: theme, an accent of your own, glow strength.
+- Dark text on a light accent (focused buttons and lists).
+- Power menu: Reboot to Android on CoreELEC.
+- Pair with Dex Hub 5.10.131.
+
+3.11.0
+- Idle drift: the backdrop zooms once after six seconds without a key, then holds still; no full
+  screen redraw at every frame while browsing the Home or a folder page.
+- The Home is not drawn under Dex Hub's title page (it is opaque).
+- The streaming platform's logo beside the title shows on the Home and the title page, and the
+  immersive title of a title without a logo (their conditions were refused by Kodi).
+- A hidden pulse (the folder page's empty state, the trailer badge's dot) no longer keeps
+  redrawing its area at every frame.
+- Pair with Dex Hub 5.10.130.
+
+3.10.0
+- Streaming platform symbol beside the title on Home and details.
+- Plot autoscroll follows the add-on and skin switches.
+- Pair with Dex Hub 5.10.126 for focus-only animated covers and VOD.
+
+3.9.1
+- Banner backgrounds keep calm movement in light mode.
+- Pair with Dex Hub 5.10.125 for collection banner video previews.
+
+3.9.0
+- One continuous trailer video surface and one moving clearlogo.
+- AF3 colored rating symbols and network/studio badges on Home and title pages.
+- Default light mode in Dex Hub 5.10.124 reduces ongoing animation work.
+- Pair with Dex Hub 5.10.124.
+
+3.7.0
+- Compact hero, complete first row, two primary ratings on Home.
+- Framed trailer previews while browsing; full immersive video on idle.
+- Calm focus, compact episode section and consistent source rows.
+- Pair with Dex Hub 5.10.122.
+
+3.6.1
+- Shorter Home scroll and background transitions.
+- Pair with Dex Hub 5.10.121 for staged title data and active-tab prefetch.
+
+[B]3.6.0[/B]
+- Rows loading or empty take no room (any number of them); placeholders on the first row only.
+- The rows under an empty row load at once; Down passes over it and waits for a row still loading.
+- Cards keep their place while a row scrolls; Interface size (normal, large, extra large) applies to the rows.
+- The now playing card shows the title's logo, its buttons dark over the video; the seek bar line is the player's own again.
+- Title page: More like this reachable, in the cast's place when there is no cast.
+
+[B]3.5.0[/B]
+- TinyPPI fonts as TinyPPI writes them: the PPI and VS10 buttons open at once.
+- The OSD timeout closes the OSD without script.skinvariables.
+- The title's logo on the line over the seek bar.
+- Folder pages: the folder's name no longer over the title's logo.
+- Settings, Dex Hub: Change skin.
+
+[B]3.4.1[/B]
+- An icon of its own: a screen with the Dex Hub mark and SKIN, on lavender.
+
+[B]3.4.0[/B]
+- Player options: info line, seek bar time, pause, OSD timeout and panels, Down in the player.
+- A Sources entry in Settings and in the Dex Hub menu.
+- Lighter fonts (no Korean or Chinese glyphs).
+
+[B]3.3.0[/B]
+- Settings pages and Kodi's dialogs from Arctic Fuse 3, with a Dex Hub section in Settings.
+- The player from ABUKARIM's Arctic Fuse 3: PPI button and window, Dolby Vision VS10 picker (CoreELEC).
+- Arabic font sets: مهند, الجزيرة, منادي, APPLE, امازون, حسن, تونس, RobotoNotoCondensed.
+
+[B]3.2.0[/B]
+- An Add-ons page: program add-ons and video add-ons in two rows.
+- A collection folder opens as a page of rows, one per catalog, with the trailer behind.
+- Ratings with their logos on the Home, folder pages, grids and the title page.
+- A Trailer button on the spotlight.
+
+[B]3.1.0[/B]
+- The video player is Arctic Fuse 3's (jurialmunkey, CC BY-NC-SA 4.0), served by Dex Hub.
+- The video playing behind the Home fills the page; the now playing card replaces the mini player.
+- Catalog titles open their page and show their logo, plot and backdrop.
+- The Nuvio profile on the Home.
+
+[B]3.0.0[/B]
+- Dex Hub skin on Estuary: spotlight with trailers, rows, mini player, player controls, rounded modern textures.
