@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <colors>
+	<!-- 3.28.44: the af3 colours in this theme (Kodi's own windows match the skin) -->
 	<color name="primary_background">FF0B0E1C</color>
 	<color name="secondary_background">33161B30</color>
 	<color name="dialog_tint">FF101426</color>
@@ -26,24 +27,24 @@
 	<color name="dh_text">FFF3F5FF</color>
 	<color name="dh_muted">FF9AA3C4</color>
 	<color name="dh_ok">FF34D399</color>
-	<color name="af3_dialog_bg_100">ff000000</color>
-	<color name="af3_dialog_bg_12">1f000000</color>
-	<color name="af3_dialog_bg_30">4d000000</color>
-	<color name="af3_dialog_fg_06">0fededed</color>
-	<color name="af3_dialog_fg_100">ffededed</color>
-	<color name="af3_dialog_fg_12">1fededed</color>
-	<color name="af3_dialog_fg_30">4dededed</color>
-	<color name="af3_dialog_fg_70">b3ededed</color>
-	<color name="af3_dialog_fg_90">e7ededed</color>
+	<color name="af3_dialog_bg_100">ff101426</color>
+	<color name="af3_dialog_bg_12">1f101426</color>
+	<color name="af3_dialog_bg_30">4d101426</color>
+	<color name="af3_dialog_fg_06">0fF3F5FF</color>
+	<color name="af3_dialog_fg_100">ffF3F5FF</color>
+	<color name="af3_dialog_fg_12">1fF3F5FF</color>
+	<color name="af3_dialog_fg_30">4dF3F5FF</color>
+	<color name="af3_dialog_fg_70">b3F3F5FF</color>
+	<color name="af3_dialog_fg_90">e7F3F5FF</color>
 	<color name="af3_main_back">ff4d4d4d</color>
-	<color name="af3_main_bg_12">1f000000</color>
-	<color name="af3_main_bg_30">4d000000</color>
-	<color name="af3_main_bg_90">e7000000</color>
-	<color name="af3_main_fg_100">ffededed</color>
-	<color name="af3_main_fg_12">1fededed</color>
-	<color name="af3_main_fg_30">4dededed</color>
-	<color name="af3_main_fg_70">b3ededed</color>
-	<color name="af3_main_fg_90">e7ededed</color>
+	<color name="af3_main_bg_12">1f0B0E1C</color>
+	<color name="af3_main_bg_30">4d0B0E1C</color>
+	<color name="af3_main_bg_90">e70B0E1C</color>
+	<color name="af3_main_fg_100">ffF3F5FF</color>
+	<color name="af3_main_fg_12">1fF3F5FF</color>
+	<color name="af3_main_fg_30">4dF3F5FF</color>
+	<color name="af3_main_fg_70">b3F3F5FF</color>
+	<color name="af3_main_fg_90">e7F3F5FF</color>
 	<color name="af3_main_hard">b34d4d4d</color>
 	<color name="af3_main_logo">ffb3b3b3</color>
 	<color name="af3_main_soft">4d4d4d4d</color>

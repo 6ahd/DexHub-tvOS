@@ -128,7 +128,7 @@
 					<control type="slider" id="11">
 						<texturesliderbar colordiffuse="af3_dialog_fg_06" border="6">af3/slider/slider_bg.png</texturesliderbar>
 						<textureslidernib colordiffuse="af3_dialog_fg_30" border="6">af3/slider/slider_nib.png</textureslidernib>
-						<textureslidernibfocus colordiffuse="ffffffff" border="6">af3/slider/slider_nib.png</textureslidernibfocus>
+						<textureslidernibfocus colordiffuse="$VAR[DhKodiFocus]" border="6">af3/slider/slider_nib.png</textureslidernibfocus>
 						<ondown>Close</ondown>
 						<onup>Close</onup>
 						<align>center</align>
@@ -136,10 +136,10 @@
 						<font>af3_font_mini</font>
 						<textoffsetx>30</textoffsetx>
 						<textcolor>af3_main_fg_70</textcolor>
-						<focusedcolor>ff272727</focusedcolor>
+						<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 						<disabledcolor>af3_main_fg_30</disabledcolor>
 						<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-						<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+						<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
 						<pulseonselect>false</pulseonselect>
 						<sliderwidth>192</sliderwidth>
 						<sliderheight>12</sliderheight>

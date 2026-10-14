@@ -706,11 +706,11 @@
 						<top>0</top>
 						<width>262</width>
 						<height>62</height>
-						<texturefocus border="30" colordiffuse="FFFFFFFF">dexhub/pill.png</texturefocus>
+						<texturefocus border="30" colordiffuse="$VAR[DhKodiFocus]">dexhub/pill.png</texturefocus>
 						<texturenofocus border="30" colordiffuse="33FFFFFF">dexhub/pill.png</texturenofocus>
 						<font>font12</font>
 						<textcolor>FFFFFFFF</textcolor>
-						<focusedcolor>FF101010</focusedcolor>
+						<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 						<textoffsetx>62</textoffsetx>
 						<textwidth>182</textwidth>
 						<aligny>center</aligny>
@@ -731,7 +731,7 @@
 						<width>28</width>
 						<height>28</height>
 						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="FF101010">dexhub/btn_play.png</texture>
+						<texture colordiffuse="$VAR[DhKodiOnFocus]">dexhub/btn_play.png</texture>
 						<visible>Control.HasFocus(8101)</visible>
 					</control>
 					<control type="image">
@@ -748,11 +748,11 @@
 						<top>0</top>
 						<width>232</width>
 						<height>62</height>
-						<texturefocus border="30" colordiffuse="FFFFFFFF">dexhub/pill.png</texturefocus>
+						<texturefocus border="30" colordiffuse="$VAR[DhKodiFocus]">dexhub/pill.png</texturefocus>
 						<texturenofocus border="30" colordiffuse="33FFFFFF">dexhub/pill.png</texturenofocus>
 						<font>font12</font>
 						<textcolor>FFFFFFFF</textcolor>
-						<focusedcolor>FF101010</focusedcolor>
+						<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 						<textoffsetx>62</textoffsetx>
 						<textwidth>152</textwidth>
 						<aligny>center</aligny>
@@ -772,7 +772,7 @@
 						<width>28</width>
 						<height>28</height>
 						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="FF101010">dexhub/btn_sources.png</texture>
+						<texture colordiffuse="$VAR[DhKodiOnFocus]">dexhub/btn_sources.png</texture>
 						<visible>Control.HasFocus(8102)</visible>
 					</control>
 					<control type="image">
@@ -789,11 +789,11 @@
 						<top>0</top>
 						<width>232</width>
 						<height>62</height>
-						<texturefocus border="30" colordiffuse="FFFFFFFF">dexhub/pill.png</texturefocus>
+						<texturefocus border="30" colordiffuse="$VAR[DhKodiFocus]">dexhub/pill.png</texturefocus>
 						<texturenofocus border="30" colordiffuse="33FFFFFF">dexhub/pill.png</texturenofocus>
 						<font>font12</font>
 						<textcolor>FFFFFFFF</textcolor>
-						<focusedcolor>FF101010</focusedcolor>
+						<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 						<textoffsetx>62</textoffsetx>
 						<textwidth>152</textwidth>
 						<aligny>center</aligny>
@@ -813,7 +813,7 @@
 						<width>28</width>
 						<height>28</height>
 						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="FF101010">dexhub/btn_trailer.png</texture>
+						<texture colordiffuse="$VAR[DhKodiOnFocus]">dexhub/btn_trailer.png</texture>
 						<visible>Control.HasFocus(8103)</visible>
 					</control>
 					<control type="image">
@@ -830,11 +830,11 @@
 						<top>0</top>
 						<width>232</width>
 						<height>62</height>
-						<texturefocus border="30" colordiffuse="FFFFFFFF">dexhub/pill.png</texturefocus>
+						<texturefocus border="30" colordiffuse="$VAR[DhKodiFocus]">dexhub/pill.png</texturefocus>
 						<texturenofocus border="30" colordiffuse="33FFFFFF">dexhub/pill.png</texturenofocus>
 						<font>font12</font>
 						<textcolor>FFFFFFFF</textcolor>
-						<focusedcolor>FF101010</focusedcolor>
+						<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 						<textoffsetx>62</textoffsetx>
 						<textwidth>152</textwidth>
 						<aligny>center</aligny>
@@ -854,7 +854,7 @@
 						<width>28</width>
 						<height>28</height>
 						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="FF101010">dexhub/btn_fav.png</texture>
+						<texture colordiffuse="$VAR[DhKodiOnFocus]">dexhub/btn_fav.png</texture>
 						<visible>Control.HasFocus(8104) + ![[String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + String.IsEqual(Window(Home).Property(dhs.tp.fav),1)] | [!String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + String.IsEqual(ListItem.Property(dhs.fav),1)]]</visible>
 					</control>
 					<control type="image">
@@ -863,7 +863,7 @@
 						<width>28</width>
 						<height>28</height>
 						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="FF101010">dexhub/btn_fav_on.png</texture>
+						<texture colordiffuse="$VAR[DhKodiOnFocus]">dexhub/btn_fav_on.png</texture>
 						<visible>Control.HasFocus(8104) + [[String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + String.IsEqual(Window(Home).Property(dhs.tp.fav),1)] | [!String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + String.IsEqual(ListItem.Property(dhs.fav),1)]]</visible>
 					</control>
 					<control type="image">
@@ -889,11 +889,11 @@
 						<top>0</top>
 						<width>280</width>
 						<height>62</height>
-						<texturefocus border="30" colordiffuse="FFFFFFFF">dexhub/pill.png</texturefocus>
+						<texturefocus border="30" colordiffuse="$VAR[DhKodiFocus]">dexhub/pill.png</texturefocus>
 						<texturenofocus border="30" colordiffuse="33FFFFFF">dexhub/pill.png</texturenofocus>
 						<font>font12</font>
 						<textcolor>FFFFFFFF</textcolor>
-						<focusedcolor>FF101010</focusedcolor>
+						<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 						<textoffsetx>62</textoffsetx>
 						<textwidth>200</textwidth>
 						<aligny>center</aligny>
@@ -913,7 +913,7 @@
 						<width>28</width>
 						<height>28</height>
 						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="FF101010">dexhub/btn_track.png</texture>
+						<texture colordiffuse="$VAR[DhKodiOnFocus]">dexhub/btn_track.png</texture>
 						<visible>Control.HasFocus(8106)</visible>
 					</control>
 					<control type="image">
@@ -930,11 +930,11 @@
 						<top>0</top>
 						<width>232</width>
 						<height>62</height>
-						<texturefocus border="30" colordiffuse="FFFFFFFF">dexhub/pill.png</texturefocus>
+						<texturefocus border="30" colordiffuse="$VAR[DhKodiFocus]">dexhub/pill.png</texturefocus>
 						<texturenofocus border="30" colordiffuse="33FFFFFF">dexhub/pill.png</texturenofocus>
 						<font>font12</font>
 						<textcolor>FFFFFFFF</textcolor>
-						<focusedcolor>FF101010</focusedcolor>
+						<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 						<textoffsetx>62</textoffsetx>
 						<textwidth>152</textwidth>
 						<aligny>center</aligny>
@@ -954,7 +954,7 @@
 						<width>28</width>
 						<height>28</height>
 						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="FF101010">dexhub/btn_more.png</texture>
+						<texture colordiffuse="$VAR[DhKodiOnFocus]">dexhub/btn_more.png</texture>
 						<visible>Control.HasFocus(8105)</visible>
 					</control>
 					<control type="image">

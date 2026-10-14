@@ -14,7 +14,7 @@ Dolby Vision, HDR10, Dolby Atmos, Arabic subtitles, and the Dex Hub interface in
 A modified Kodi 22 for Apple TV with:
 - **Aether 7.35.1** as the default player: Dolby Vision, HDR10 and HLG (source and display permitting), H.264, HEVC and AV1, automatic frame rate matching.
 - **Dolby Atmos:** E-AC-3 JOC automatically. TrueHD Atmos is rendered to Apple spatial audio (APAC) and output as Dolby MAT, with your real speaker layout picked in settings (5.1.2 to 9.1.6). This is not raw TrueHD passthrough.
-- **Three ways to play:** Aether, Kodi's own player, or an external app (Infuse or VidHub) with resume, subtitle hand-off and return.
+- **Three ways to play:** Aether, Kodi's own player, or an external app (Infuse, VidHub, SenPlayer, VLC, Native Player, Outplayer or nPlayer) with resume and subtitle hand-off where the app takes them.
 - **Dex Hub add-on and skin** installed on first launch, with Arabic subtitle fonts.
 - **Performance:** Release build; the interface runs in the Apple TV's own mode (60 Hz).
 - **Set up from your phone.** tvOS has no file browser and typing with the remote is slow, so Dex Hub shows a QR code on the TV. Scan it and a page opens on your phone (same Wi‑Fi) where you link accounts (Nuvio, Trakt, Stremio, Plex, Emby, Jellyfin, IPTV), pick the Home layout, arrange rows, choose one of 28 themes and the language, and move files both ways: add-on ZIPs, subtitles, fonts, backups and restores. Every change reaches the TV right away.
@@ -43,8 +43,8 @@ Sign and install the `-fixed.ipa` it writes. Builds from v20 on do this already.
 ### Repository layout
 | Path | What |
 |---|---|
-| `src/plugin.video.dexhub.tvos` | Dex Hub add-on for Apple TV (5.10.294) |
-| `src/skin.dexhub.tvos` | Dex Hub skin for Apple TV (3.28.42) |
+| `src/plugin.video.dexhub.tvos` | Dex Hub add-on for Apple TV (5.10.300) |
+| `src/skin.dexhub.tvos` | Dex Hub skin for Apple TV (3.28.47) |
 | `native/`, `apply_bridge.py`, `native_player_adapter.py` | Kodi source changes |
 | `DexAetherEmbedded.swift` | Swift bridge between Kodi and Aether |
 | `script.dexhub.tvos.players`, `script.module.dexhub.tvos.compat` | player choice and tvOS compatibility add-ons |
@@ -78,7 +78,7 @@ The build pins Aether 7.35.1 (commit `60ac862`) and its packages, builds the sma
 تطبيق Kodi 22 معدّل لـ Apple TV، فيه:
 - **مشغل Aether 7.35.1** افتراضي: Dolby Vision وHDR10 وHLG حسب المصدر والشاشة، H.264 وHEVC وAV1، ومطابقة معدل الإطارات تلقائيا.
 - **Dolby Atmos:** صيغة E-AC-3 JOC تلقائيا. صيغة TrueHD Atmos تتحول إلى صوت مكاني (APAC) يخرج كـ Dolby MAT، وتختار توزيع سماعاتك من الإعدادات (5.1.2 إلى 9.1.6). هذا ليس تمرير TrueHD خام.
-- **ثلاثة خيارات تشغيل:** Aether، ومشغل Kodi الأصلي، أو تطبيق خارجي (Infuse أو VidHub) مع تمرير الوقت والترجمة والعودة.
+- **ثلاثة خيارات تشغيل:** Aether، ومشغل Kodi الأصلي، أو تطبيق خارجي (Infuse، VidHub، SenPlayer، VLC، Native Player، Outplayer أو nPlayer) مع تمرير الوقت والترجمة للتطبيقات اللي تقبلها.
 - **إضافة Dex Hub وسكين Dex Hub** مثبتة داخل التطبيق من أول تشغيل، مع خطوط عربية للترجمة.
 - **أداء:** بناء Release، والواجهة على معدل Apple TV نفسه (60Hz).
 - **الإعداد من الجوال.** Apple TV ما فيه متصفح ملفات، والكتابة بالريموت بطيئة، فـ Dex Hub يعرض رمز QR على التلفزيون. امسحه وتفتح صفحة على جوالك (نفس شبكة الواي فاي) تربط منها الحسابات (Nuvio وTrakt وStremio وPlex وEmby وJellyfin وIPTV)، وتختار شكل الرئيسية، وترتب الصفوف، وتختار من 28 ثيم واللغة، وتنقل الملفات بالاتجاهين: إضافات ZIP والترجمات والخطوط والنسخ الاحتياطية والاسترجاع. أي تغيير يوصل التلفزيون فورا.
@@ -107,8 +107,8 @@ bash FIX-SIGNING.command /path/to/file.ipa
 ### محتوى المستودع
 | المسار | المحتوى |
 |---|---|
-| `src/plugin.video.dexhub.tvos` | إضافة Dex Hub لـ Apple TV (5.10.294) |
-| `src/skin.dexhub.tvos` | سكين Dex Hub لـ Apple TV (3.28.42) |
+| `src/plugin.video.dexhub.tvos` | إضافة Dex Hub لـ Apple TV (5.10.300) |
+| `src/skin.dexhub.tvos` | سكين Dex Hub لـ Apple TV (3.28.47) |
 | `native/` و`apply_bridge.py` و`native_player_adapter.py` | تعديلات سورس Kodi |
 | `DexAetherEmbedded.swift` | جسر Swift بين Kodi وAether |
 | `script.dexhub.tvos.players` و`script.module.dexhub.tvos.compat` | اختيار المشغل وتوافق tvOS |
@@ -125,7 +125,7 @@ bash ~/Developer/DexHub-tvOS/DexHub-tvOS/update-kodi.sh 22.0rc1-Piers
 ```bash
 bash ~/Developer/DexHub-tvOS/DexHub-tvOS/BUILD.command
 ```
-الناتج في Downloads باسم `Kodi-DexHub-AetherOnly-v20-TEST-unsigned-<وقت>.ipa`، ثم وقّعه كما فوق.
+الناتج في Downloads باسم `Kodi-DexHub-AetherOnly-v21.7-TEST-unsigned-<وقت>.ipa`، ثم وقّعه كما فوق.
 
 ما يسويه البناء:
 1. ينزل محرك Aether 7.35.1 ويثبت إصدارات مكتباته (FFmpegBuild وLibDovi وLibTrueHD وSMBClient).

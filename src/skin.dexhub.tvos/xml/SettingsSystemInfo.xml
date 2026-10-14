@@ -533,7 +533,7 @@
 						<orientation>vertical</orientation>
 						<texturesliderbackground/>
 						<texturesliderbar colordiffuse="af3_main_logo" border="4">af3/scrollbar/scrollv_line.png</texturesliderbar>
-						<texturesliderbarfocus border="4" colordiffuse="ffffffff">af3/common/scrollv.png</texturesliderbarfocus>
+						<texturesliderbarfocus border="4" colordiffuse="$VAR[DhKodiFocus]">af3/common/scrollv.png</texturesliderbarfocus>
 						<showonepage>false</showonepage>
 						<onleft>3</onleft>
 						<visible>Control.IsVisible(30)</visible>
@@ -695,7 +695,7 @@
 			<textoffsetx>30</textoffsetx>
 			<textcolor>af3_main_fg_70</textcolor>
 			<selectedcolor>af3_main_fg_70</selectedcolor>
-			<focusedcolor>ff272727</focusedcolor>
+			<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 			<disabledcolor>af3_main_fg_30</disabledcolor>
 			<pulseonselect>false</pulseonselect>
 			<scrollsuffix> </scrollsuffix>
@@ -714,7 +714,7 @@
 			<textoffsetx>30</textoffsetx>
 			<textcolor>af3_main_fg_70</textcolor>
 			<selectedcolor>af3_main_fg_70</selectedcolor>
-			<focusedcolor>ff272727</focusedcolor>
+			<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 			<disabledcolor>af3_main_fg_30</disabledcolor>
 			<pulseonselect>false</pulseonselect>
 			<scrollsuffix> </scrollsuffix>

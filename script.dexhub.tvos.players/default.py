@@ -26,6 +26,10 @@ if mode in ('home-back', 'install-navigation'):
 addon = xbmcaddon.Addon('plugin.video.dexhub.tvos')
 sys.path.insert(0, xbmcvfs.translatePath(addon.getAddonInfo('path')))
 from resources.lib.tvos_players import choose_once, external_link, media_filename, preference, stop_for_external, SESSION
+try:
+    from resources.lib.tvos_players import EXTERNALS
+except ImportError:
+    EXTERNALS = ('Infuse', 'VidHub')
 
 if mode == 'preferences':
     choices = ['Kodi', 'Aether', 'External']
@@ -35,11 +39,11 @@ if mode == 'preferences':
                                       ['Kodi', 'Aether', 'خارجي / External'], preselect=index)
     if selected >= 0:
         if choices[selected] == 'External':
-            pick = xbmcgui.Dialog().select('المشغل الخارجي / External player',
-                                          ['Infuse', 'VidHub'], preselect=1 if external == 'VidHub' else 0)
+            pick = xbmcgui.Dialog().select('المشغل الخارجي / External player', list(EXTERNALS),
+                                          preselect=EXTERNALS.index(external) if external in EXTERNALS else 0)
             if pick < 0:
                 raise SystemExit()
-            external = ['Infuse', 'VidHub'][pick]
+            external = EXTERNALS[pick]
         addon.setSetting('tvos_player', choices[selected])
         addon.setSetting('tvos_external_player', external)
         for setting, value in [('videoplayer.dexhubexternal', 1 if external == 'VidHub' else 0),
@@ -100,7 +104,7 @@ if xbmc.getCondVisibility('System.Platform.TVOS'):
                 dialog.ok('DexHub', 'هذا المصدر يحتاج المشغل الداخلي. / This source requires internal playback.')
             else:
                 _, external = preference(xbmc, addon)
-                selected = dialog.select('المشغل الخارجي / External player', ['Infuse', 'VidHub'], preselect=1 if external == 'VidHub' else 0)
+                selected = dialog.select('المشغل الخارجي / External player', list(EXTERNALS), preselect=EXTERNALS.index(external) if external in EXTERNALS else 0)
                 if selected >= 0:
                     props = json.loads(xbmc.executeJSONRPC(json.dumps({'jsonrpc': '2.0', 'id': 1, 'method': 'Player.GetProperties', 'params': {'playerid': 1, 'properties': ['currentsubtitle', 'subtitleenabled']}}))).get('result', {})
                     subtitle = ''
@@ -121,11 +125,15 @@ if xbmc.getCondVisibility('System.Platform.TVOS'):
                         item = json.loads(xbmc.executeJSONRPC(json.dumps({'jsonrpc': '2.0', 'id': 2, 'method': 'Player.GetItem', 'params': {'playerid': 1, 'properties': ['title', 'showtitle', 'season', 'episode', 'year']}}))).get('result', {}).get('item', {})
                         filename = media_filename(metadata=item, video=video)
                     callbacks = None
-                    if selected == 0:
+                    app = EXTERNALS[selected]
+                    if app == 'Infuse':
                         from resources.lib.infuse_progress import prepare
                         total = player.getTotalTime()
                         callbacks = prepare(video, position, filename, session.get('context'), total)
-                    target = external_link(video, position, [subtitle] if subtitle else [], ['Infuse', 'VidHub'][selected], filename, callbacks)
+                    # the chosen subtitle first, then the others found for this video
+                    others = [row['url'] for row in session.get('tracks') or []
+                              if props.get('subtitleenabled') and row.get('url') and row['url'] != subtitle]
+                    target = external_link(video, position, ([subtitle] if subtitle else []) + others, app, filename, callbacks)
                     if not stop_for_external(xbmc, player):
                         dialog.ok('DexHub', 'تعذر إيقاف الفيديو؛ لم يُفتح المشغل الخارجي. / Video did not stop; external player not opened.')
                         raise SystemExit()

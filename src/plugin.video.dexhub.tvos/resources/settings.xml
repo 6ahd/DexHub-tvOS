@@ -4,7 +4,7 @@
         <setting type="action" label="المشغل المفضل / Preferred player" action="RunScript(script.dexhub.tvos.players,preferences)" />
         <setting id="tvos_player" type="labelenum" label="المشغل المفضل / Preferred player" values="Aether|Kodi|External" default="Aether" visible="false" />
         <setting type="action" label="جودة صور الواجهة 4K / 4K artwork quality" action="RunScript(script.dexhub.tvos.players,ui-quality)" />
-        <setting id="tvos_external_player" type="labelenum" label="المشغل الخارجي / External app" values="Infuse|VidHub" default="Infuse" visible="false" />
+        <setting id="tvos_external_player" type="labelenum" label="المشغل الخارجي / External app" values="Infuse|VidHub|SenPlayer|VLC|Native Player|Outplayer|nPlayer" default="Infuse" visible="false" />
         <setting type="action" label="إضافة خطوط السكين لترجمة Kodi / Install subtitle fonts" action="RunScript(script.dexhub.tvos.players,fonts)" />
     </category>
 	<category label="30930">
@@ -148,6 +148,10 @@
 		<setting id="player_badges_place" type="text" default="seekbar" visible="false" />
 		<!-- v5.10.286 (issue #18): the player badges opacity, 100 % by default -->
 		<setting id="player_badges_opacity" type="text" default="100" visible="false" />
+		<!-- v5.10.298: the player bar's look (osd_look.py) -->
+		<setting id="player_osd_style" type="text" default="classic" visible="false" />
+		<setting id="player_osd_dim" type="text" default="70" visible="false" />
+		<setting id="player_osd_accent" type="text" default="white" visible="false" />
 		<!-- v5.10.288: the player bar's buttons in order, a hidden one as -key (osd_buttons.py) -->
 		<setting id="osd_buttons" type="text" default="" visible="false" />
 		<setting type="lsep" label="31144" />

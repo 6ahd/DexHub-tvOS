@@ -14273,25 +14273,46 @@
 		<param name="fg">af3_dialog_fg_90</param>
 		<param name="dim">af3_dialog_fg_70</param>
 		<definition>
+			<!-- 3.28.44: Nuvio-style row: the add-on's own name line, its two
+			     description lines under it, and the size and quality chips -->
 			<control type="label">
 				<left>40</left>
-				<right>330</right>
-				<top>12</top>
-				<height>46</height>
+				<right>440</right>
+				<top>10</top>
+				<height>48</height>
 				<font>af3_font_main</font>
+				<scroll>true</scroll>
 				<textcolor>$PARAM[fg]</textcolor>
 				<aligny>center</aligny>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
-			<control type="label">
+			<control type="textbox">
 				<left>40</left>
-				<right>330</right>
-				<top>56</top>
-				<height>36</height>
+				<right>440</right>
+				<top>58</top>
+				<height>80</height>
 				<font>af3_font_mini</font>
 				<textcolor>$PARAM[dim]</textcolor>
 				<aligny>center</aligny>
 				<label>$INFO[ListItem.Label2]</label>
+			</control>
+			<control type="group">
+				<right>280</right>
+				<width>130</width>
+				<centertop>50%</centertop>
+				<height>44</height>
+				<visible>!String.IsEmpty(ListItem.Property(size))</visible>
+				<control type="image">
+					<texture border="20" colordiffuse="$PARAM[dim]">af3/common/box.png</texture>
+					<animation effect="fade" start="100" end="25" condition="true">Conditional</animation>
+				</control>
+				<control type="label">
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>af3_font_tiny_bold</font>
+					<textcolor>$PARAM[fg]</textcolor>
+					<label>$INFO[ListItem.Property(size)]</label>
+				</control>
 			</control>
 			<control type="group">
 				<right>150</right>
@@ -14498,7 +14519,6 @@
 	<variable name="DhOsdSlotLabel_1">
 		<value condition="$EXP[DhOsdIs_1_audio]">$INFO[VideoPlayer.AudioLanguage,[UPPERCASE],[/UPPERCASE]]</value>
 		<value condition="$EXP[DhOsdIs_1_subtitles]">$VAR[AF3_Label_OSD_SubtitlesLanguage]</value>
-		<value condition="$EXP[DhOsdIs_1_external]">خارجي / External</value>
 		<value />
 	</variable>
 	<variable name="DhOsdSlotIcon_2">
@@ -14516,7 +14536,6 @@
 	<variable name="DhOsdSlotLabel_2">
 		<value condition="$EXP[DhOsdIs_2_audio]">$INFO[VideoPlayer.AudioLanguage,[UPPERCASE],[/UPPERCASE]]</value>
 		<value condition="$EXP[DhOsdIs_2_subtitles]">$VAR[AF3_Label_OSD_SubtitlesLanguage]</value>
-		<value condition="$EXP[DhOsdIs_2_external]">خارجي / External</value>
 		<value />
 	</variable>
 	<variable name="DhOsdSlotIcon_3">
@@ -14534,7 +14553,6 @@
 	<variable name="DhOsdSlotLabel_3">
 		<value condition="$EXP[DhOsdIs_3_audio]">$INFO[VideoPlayer.AudioLanguage,[UPPERCASE],[/UPPERCASE]]</value>
 		<value condition="$EXP[DhOsdIs_3_subtitles]">$VAR[AF3_Label_OSD_SubtitlesLanguage]</value>
-		<value condition="$EXP[DhOsdIs_3_external]">خارجي / External</value>
 		<value />
 	</variable>
 	<variable name="DhOsdSlotIcon_4">
@@ -14552,7 +14570,6 @@
 	<variable name="DhOsdSlotLabel_4">
 		<value condition="$EXP[DhOsdIs_4_audio]">$INFO[VideoPlayer.AudioLanguage,[UPPERCASE],[/UPPERCASE]]</value>
 		<value condition="$EXP[DhOsdIs_4_subtitles]">$VAR[AF3_Label_OSD_SubtitlesLanguage]</value>
-		<value condition="$EXP[DhOsdIs_4_external]">خارجي / External</value>
 		<value />
 	</variable>
 	<variable name="DhOsdSlotIcon_5">
@@ -14570,7 +14587,6 @@
 	<variable name="DhOsdSlotLabel_5">
 		<value condition="$EXP[DhOsdIs_5_audio]">$INFO[VideoPlayer.AudioLanguage,[UPPERCASE],[/UPPERCASE]]</value>
 		<value condition="$EXP[DhOsdIs_5_subtitles]">$VAR[AF3_Label_OSD_SubtitlesLanguage]</value>
-		<value condition="$EXP[DhOsdIs_5_external]">خارجي / External</value>
 		<value />
 	</variable>
 	<variable name="DhOsdSlotIcon_6">
@@ -14588,7 +14604,6 @@
 	<variable name="DhOsdSlotLabel_6">
 		<value condition="$EXP[DhOsdIs_6_audio]">$INFO[VideoPlayer.AudioLanguage,[UPPERCASE],[/UPPERCASE]]</value>
 		<value condition="$EXP[DhOsdIs_6_subtitles]">$VAR[AF3_Label_OSD_SubtitlesLanguage]</value>
-		<value condition="$EXP[DhOsdIs_6_external]">خارجي / External</value>
 		<value />
 	</variable>
 	<variable name="DhOsdSlotIcon_7">
@@ -14606,7 +14621,6 @@
 	<variable name="DhOsdSlotLabel_7">
 		<value condition="$EXP[DhOsdIs_7_audio]">$INFO[VideoPlayer.AudioLanguage,[UPPERCASE],[/UPPERCASE]]</value>
 		<value condition="$EXP[DhOsdIs_7_subtitles]">$VAR[AF3_Label_OSD_SubtitlesLanguage]</value>
-		<value condition="$EXP[DhOsdIs_7_external]">خارجي / External</value>
 		<value />
 	</variable>
 	<variable name="DhOsdSlotIcon_8">
@@ -14624,7 +14638,6 @@
 	<variable name="DhOsdSlotLabel_8">
 		<value condition="$EXP[DhOsdIs_8_audio]">$INFO[VideoPlayer.AudioLanguage,[UPPERCASE],[/UPPERCASE]]</value>
 		<value condition="$EXP[DhOsdIs_8_subtitles]">$VAR[AF3_Label_OSD_SubtitlesLanguage]</value>
-		<value condition="$EXP[DhOsdIs_8_external]">خارجي / External</value>
 		<value />
 	</variable>
 	<variable name="DhOsdSlotIcon_9">
@@ -14642,7 +14655,6 @@
 	<variable name="DhOsdSlotLabel_9">
 		<value condition="$EXP[DhOsdIs_9_audio]">$INFO[VideoPlayer.AudioLanguage,[UPPERCASE],[/UPPERCASE]]</value>
 		<value condition="$EXP[DhOsdIs_9_subtitles]">$VAR[AF3_Label_OSD_SubtitlesLanguage]</value>
-		<value condition="$EXP[DhOsdIs_9_external]">خارجي / External</value>
 		<value />
 	</variable>
 	<variable name="DhOsdSlotIcon_10">
@@ -14660,7 +14672,6 @@
 	<variable name="DhOsdSlotLabel_10">
 		<value condition="$EXP[DhOsdIs_10_audio]">$INFO[VideoPlayer.AudioLanguage,[UPPERCASE],[/UPPERCASE]]</value>
 		<value condition="$EXP[DhOsdIs_10_subtitles]">$VAR[AF3_Label_OSD_SubtitlesLanguage]</value>
-		<value condition="$EXP[DhOsdIs_10_external]">خارجي / External</value>
 		<value />
 	</variable>
 	<variable name="DhOsdPrev_info">
@@ -15143,18 +15154,39 @@
 		<value condition="$EXP[DhOsdIs_9_ppi] + $EXP[DhOsdSlotVis_10]">6510</value>
 		<value>6001</value>
 	</variable>
+	<!-- v5.10.298: the player bar's look (osd_look.py); the old colours without it -->
+	<variable name="DhOsdBg">
+		<value condition="!String.IsEmpty(Window(Home).Property(dhs.osd.bg))">$INFO[Window(Home).Property(dhs.osd.bg)]</value>
+		<value>af3_panel_bg_70</value>
+	</variable>
+	<variable name="DhOsdGlass">
+		<value condition="!String.IsEmpty(Window(Home).Property(dhs.osd.glass))">$INFO[Window(Home).Property(dhs.osd.glass)]</value>
+		<value>99101318</value>
+	</variable>
+	<variable name="DhOsdAccent">
+		<value condition="!String.IsEmpty(Window(Home).Property(dhs.osd.accent))">$INFO[Window(Home).Property(dhs.osd.accent)]</value>
+		<value>ffffffff</value>
+	</variable>
+	<variable name="DhOsdOnAccent">
+		<value condition="!String.IsEmpty(Window(Home).Property(dhs.osd.on_accent))">$INFO[Window(Home).Property(dhs.osd.on_accent)]</value>
+		<value>ff272727</value>
+	</variable>
+	<variable name="DhOsdBar">
+		<value condition="!String.IsEmpty(Window(Home).Property(dhs.osd.bar))">$INFO[Window(Home).Property(dhs.osd.bar)]</value>
+		<value>ffffffff</value>
+	</variable>
 	<include name="DhOsdSlots">
 		<control type="button" id="6501">
 			<visible>$EXP[DhOsdSlotVis_1]</visible>
 			<height>80</height>
 			<width>80</width>
-			<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+			<texturefocus colordiffuse="$VAR[DhOsdAccent]">af3/common/circle.png</texturefocus>
 			<texturenofocus colordiffuse="00ffffff">af3/common/circle.png</texturenofocus>
 			<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
 			<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
 			<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
 			<textcolor>af3_panel_fg_70</textcolor>
-			<focusedcolor>ff272727</focusedcolor>
+			<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
 			<font>af3_font_hint</font>
 			<align>center</align>
 			<aligny>top</aligny>
@@ -15212,7 +15244,7 @@
 					<bordersize>12</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="ff272727" flipx="false">$VAR[DhOsdSlotIcon_1]</texture>
+					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIcon_1]</texture>
 					<visible>Control.HasFocus(6501)</visible>
 				</control>
 			</control>
@@ -15221,13 +15253,13 @@
 			<visible>$EXP[DhOsdSlotVis_2]</visible>
 			<height>80</height>
 			<width>80</width>
-			<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+			<texturefocus colordiffuse="$VAR[DhOsdAccent]">af3/common/circle.png</texturefocus>
 			<texturenofocus colordiffuse="00ffffff">af3/common/circle.png</texturenofocus>
 			<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
 			<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
 			<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
 			<textcolor>af3_panel_fg_70</textcolor>
-			<focusedcolor>ff272727</focusedcolor>
+			<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
 			<font>af3_font_hint</font>
 			<align>center</align>
 			<aligny>top</aligny>
@@ -15285,7 +15317,7 @@
 					<bordersize>12</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="ff272727" flipx="false">$VAR[DhOsdSlotIcon_2]</texture>
+					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIcon_2]</texture>
 					<visible>Control.HasFocus(6502)</visible>
 				</control>
 			</control>
@@ -15294,13 +15326,13 @@
 			<visible>$EXP[DhOsdSlotVis_3]</visible>
 			<height>80</height>
 			<width>80</width>
-			<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+			<texturefocus colordiffuse="$VAR[DhOsdAccent]">af3/common/circle.png</texturefocus>
 			<texturenofocus colordiffuse="00ffffff">af3/common/circle.png</texturenofocus>
 			<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
 			<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
 			<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
 			<textcolor>af3_panel_fg_70</textcolor>
-			<focusedcolor>ff272727</focusedcolor>
+			<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
 			<font>af3_font_hint</font>
 			<align>center</align>
 			<aligny>top</aligny>
@@ -15358,7 +15390,7 @@
 					<bordersize>12</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="ff272727" flipx="false">$VAR[DhOsdSlotIcon_3]</texture>
+					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIcon_3]</texture>
 					<visible>Control.HasFocus(6503)</visible>
 				</control>
 			</control>
@@ -15367,13 +15399,13 @@
 			<visible>$EXP[DhOsdSlotVis_4]</visible>
 			<height>80</height>
 			<width>80</width>
-			<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+			<texturefocus colordiffuse="$VAR[DhOsdAccent]">af3/common/circle.png</texturefocus>
 			<texturenofocus colordiffuse="00ffffff">af3/common/circle.png</texturenofocus>
 			<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
 			<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
 			<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
 			<textcolor>af3_panel_fg_70</textcolor>
-			<focusedcolor>ff272727</focusedcolor>
+			<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
 			<font>af3_font_hint</font>
 			<align>center</align>
 			<aligny>top</aligny>
@@ -15431,7 +15463,7 @@
 					<bordersize>12</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="ff272727" flipx="false">$VAR[DhOsdSlotIcon_4]</texture>
+					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIcon_4]</texture>
 					<visible>Control.HasFocus(6504)</visible>
 				</control>
 			</control>
@@ -15440,13 +15472,13 @@
 			<visible>$EXP[DhOsdSlotVis_5]</visible>
 			<height>80</height>
 			<width>80</width>
-			<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+			<texturefocus colordiffuse="$VAR[DhOsdAccent]">af3/common/circle.png</texturefocus>
 			<texturenofocus colordiffuse="00ffffff">af3/common/circle.png</texturenofocus>
 			<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
 			<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
 			<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
 			<textcolor>af3_panel_fg_70</textcolor>
-			<focusedcolor>ff272727</focusedcolor>
+			<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
 			<font>af3_font_hint</font>
 			<align>center</align>
 			<aligny>top</aligny>
@@ -15504,7 +15536,7 @@
 					<bordersize>12</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="ff272727" flipx="false">$VAR[DhOsdSlotIcon_5]</texture>
+					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIcon_5]</texture>
 					<visible>Control.HasFocus(6505)</visible>
 				</control>
 			</control>
@@ -15513,13 +15545,13 @@
 			<visible>$EXP[DhOsdSlotVis_6]</visible>
 			<height>80</height>
 			<width>80</width>
-			<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+			<texturefocus colordiffuse="$VAR[DhOsdAccent]">af3/common/circle.png</texturefocus>
 			<texturenofocus colordiffuse="00ffffff">af3/common/circle.png</texturenofocus>
 			<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
 			<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
 			<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
 			<textcolor>af3_panel_fg_70</textcolor>
-			<focusedcolor>ff272727</focusedcolor>
+			<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
 			<font>af3_font_hint</font>
 			<align>center</align>
 			<aligny>top</aligny>
@@ -15577,7 +15609,7 @@
 					<bordersize>12</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="ff272727" flipx="false">$VAR[DhOsdSlotIcon_6]</texture>
+					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIcon_6]</texture>
 					<visible>Control.HasFocus(6506)</visible>
 				</control>
 			</control>
@@ -15586,13 +15618,13 @@
 			<visible>$EXP[DhOsdSlotVis_7]</visible>
 			<height>80</height>
 			<width>80</width>
-			<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+			<texturefocus colordiffuse="$VAR[DhOsdAccent]">af3/common/circle.png</texturefocus>
 			<texturenofocus colordiffuse="00ffffff">af3/common/circle.png</texturenofocus>
 			<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
 			<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
 			<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
 			<textcolor>af3_panel_fg_70</textcolor>
-			<focusedcolor>ff272727</focusedcolor>
+			<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
 			<font>af3_font_hint</font>
 			<align>center</align>
 			<aligny>top</aligny>
@@ -15650,7 +15682,7 @@
 					<bordersize>12</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="ff272727" flipx="false">$VAR[DhOsdSlotIcon_7]</texture>
+					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIcon_7]</texture>
 					<visible>Control.HasFocus(6507)</visible>
 				</control>
 			</control>
@@ -15659,13 +15691,13 @@
 			<visible>$EXP[DhOsdSlotVis_8]</visible>
 			<height>80</height>
 			<width>80</width>
-			<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+			<texturefocus colordiffuse="$VAR[DhOsdAccent]">af3/common/circle.png</texturefocus>
 			<texturenofocus colordiffuse="00ffffff">af3/common/circle.png</texturenofocus>
 			<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
 			<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
 			<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
 			<textcolor>af3_panel_fg_70</textcolor>
-			<focusedcolor>ff272727</focusedcolor>
+			<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
 			<font>af3_font_hint</font>
 			<align>center</align>
 			<aligny>top</aligny>
@@ -15723,7 +15755,7 @@
 					<bordersize>12</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="ff272727" flipx="false">$VAR[DhOsdSlotIcon_8]</texture>
+					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIcon_8]</texture>
 					<visible>Control.HasFocus(6508)</visible>
 				</control>
 			</control>
@@ -15732,13 +15764,13 @@
 			<visible>$EXP[DhOsdSlotVis_9]</visible>
 			<height>80</height>
 			<width>80</width>
-			<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+			<texturefocus colordiffuse="$VAR[DhOsdAccent]">af3/common/circle.png</texturefocus>
 			<texturenofocus colordiffuse="00ffffff">af3/common/circle.png</texturenofocus>
 			<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
 			<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
 			<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
 			<textcolor>af3_panel_fg_70</textcolor>
-			<focusedcolor>ff272727</focusedcolor>
+			<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
 			<font>af3_font_hint</font>
 			<align>center</align>
 			<aligny>top</aligny>
@@ -15796,7 +15828,7 @@
 					<bordersize>12</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="ff272727" flipx="false">$VAR[DhOsdSlotIcon_9]</texture>
+					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIcon_9]</texture>
 					<visible>Control.HasFocus(6509)</visible>
 				</control>
 			</control>
@@ -15805,13 +15837,13 @@
 			<visible>$EXP[DhOsdSlotVis_10]</visible>
 			<height>80</height>
 			<width>80</width>
-			<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+			<texturefocus colordiffuse="$VAR[DhOsdAccent]">af3/common/circle.png</texturefocus>
 			<texturenofocus colordiffuse="00ffffff">af3/common/circle.png</texturenofocus>
 			<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
 			<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
 			<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
 			<textcolor>af3_panel_fg_70</textcolor>
-			<focusedcolor>ff272727</focusedcolor>
+			<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
 			<font>af3_font_hint</font>
 			<align>center</align>
 			<aligny>top</aligny>
@@ -15869,7 +15901,7 @@
 					<bordersize>12</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="ff272727" flipx="false">$VAR[DhOsdSlotIcon_10]</texture>
+					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIcon_10]</texture>
 					<visible>Control.HasFocus(6510)</visible>
 				</control>
 			</control>

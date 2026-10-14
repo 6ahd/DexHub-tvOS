@@ -32,7 +32,7 @@ if [ "$AVAILABLE_KB" -lt "$NEED_KB" ]; then
   df -h "$WORK"
   exit 1
 fi
-echo "Kodi AetherOnly v20 TEST: Aether 7.35.1 / DexHub 5.10.294 / Skin 3.28.42 / Players 1.0.13 / Release"
+echo "Kodi AetherOnly v21.7 TEST: Aether 7.35.1 / DexHub 5.10.300 / Skin 3.28.47 / Players 1.0.14 / Release / idle GUI while playing"
 echo "The Apple TV addon does not need to be running to build on this Mac."
 cd "$BASE"
 if [ -d "$BASE/src/plugin.video.dexhub.tvos" ] && [ -d "$BASE/src/skin.dexhub.tvos" ]; then

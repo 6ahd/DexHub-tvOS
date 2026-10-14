@@ -15,8 +15,8 @@
 				<effect type="fade" start="100" end="0" time="150"/>
 			</animation>
 			<right>80</right>
-			<width>1040</width>
-			<bottom>220</bottom>
+			<width>1440</width>
+			<bottom>200</bottom>
 			<height>820</height>
 			<control type="group">
 				<animation effect="fade" start="100" end="92" condition="true">Conditional</animation>
@@ -98,7 +98,7 @@
 				<pagecontrol>6309</pagecontrol>
 				<orientation>vertical</orientation>
 				<scrolltime tween="quadratic">250</scrolltime>
-				<itemlayout height="104">
+				<itemlayout height="150">
 					<control type="group">
 						<left>20</left>
 						<right>20</right>
@@ -108,7 +108,7 @@
 						</include>
 					</control>
 				</itemlayout>
-				<focusedlayout height="104">
+				<focusedlayout height="150">
 					<control type="group">
 						<left>20</left>
 						<right>20</right>

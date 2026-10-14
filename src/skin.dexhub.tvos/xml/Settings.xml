@@ -145,11 +145,11 @@
 							<focusedlayout height="80">
 								<control type="group">
 									<control type="image">
-										<texture border="40" colordiffuse="ffffffff">af3/common/menu.png</texture>
+										<texture border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texture>
 									</control>
 									<control type="label">
-										<textcolor>ff272727</textcolor>
-										<selectedcolor>ff272727</selectedcolor>
+										<textcolor>$VAR[DhKodiOnFocus]</textcolor>
+										<selectedcolor>$VAR[DhKodiOnFocus]</selectedcolor>
 										<textoffsetx>40</textoffsetx>
 										<label>$INFO[ListItem.Label]</label>
 										<align>left</align>
@@ -523,7 +523,7 @@
 										<control type="group">
 											<animation effect="fade" start="100" end="0" condition="!Control.HasFocus(8000)">Conditional</animation>
 											<control type="image" id="">
-												<texture border="40" colordiffuse="ffffffff">af3/common/menu.png</texture>
+												<texture border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texture>
 											</control>
 											<control type="group">
 												<left>40</left>
@@ -535,7 +535,7 @@
 													<height>56</height>
 													<control type="group">
 														<control type="image">
-															<colordiffuse>ff272727</colordiffuse>
+															<colordiffuse>$VAR[DhKodiOnFocus]</colordiffuse>
 															<centerright>20</centerright>
 															<centertop>50%</centertop>
 															<texture>af3/common/_none.png</texture>
@@ -560,7 +560,7 @@
 															</control>
 															<control type="image">
 																<aspectratio align="left">keep</aspectratio>
-																<texture background="true" fallback="" colordiffuse="ff272727" diffuse="af3/diffuse/square_w120_h120.png">$INFO[ListItem.Icon]</texture>
+																<texture background="true" fallback="" colordiffuse="$VAR[DhKodiOnFocus]" diffuse="af3/diffuse/square_w120_h120.png">$INFO[ListItem.Icon]</texture>
 																<visible>String.StartsWith(ListItem.Icon,Default) | String.StartsWith(ListItem.Icon,af3/extras/icons/)</visible>
 															</control>
 														</control>
@@ -568,8 +568,8 @@
 													<control type="group">
 														<left>120</left>
 														<control type="textbox">
-															<textcolor>ff272727</textcolor>
-															<selectedcolor>ff272727</selectedcolor>
+															<textcolor>$VAR[DhKodiOnFocus]</textcolor>
+															<selectedcolor>$VAR[DhKodiOnFocus]</selectedcolor>
 															<right>80</right>
 															<font>af3_font_main_plot</font>
 															<aligny>center</aligny>
@@ -587,8 +587,8 @@
 															<visible>![String.IsEmpty(ListItem.Label2) + String.IsEmpty(ListItem.Property(Event.Description))]</visible>
 															<control type="label">
 																<height>30</height>
-																<textcolor>ff272727</textcolor>
-																<selectedcolor>ff272727</selectedcolor>
+																<textcolor>$VAR[DhKodiOnFocus]</textcolor>
+																<selectedcolor>$VAR[DhKodiOnFocus]</selectedcolor>
 																<font>af3_font_main_bold</font>
 																<label>$INFO[ListItem.Label]</label>
 																<align>left</align>
@@ -603,8 +603,8 @@
 																	<height>30</height>
 																	<font>af3_font_tiny</font>
 																	<bottom>0</bottom>
-																	<textcolor>ff272727</textcolor>
-																	<selectedcolor>ff272727</selectedcolor>
+																	<textcolor>$VAR[DhKodiOnFocus]</textcolor>
+																	<selectedcolor>$VAR[DhKodiOnFocus]</selectedcolor>
 																	<label>$INFO[ListItem.Label2]</label>
 																	<visible>String.IsEmpty(ListItem.Property(Event.Description))</visible>
 																	<align>left</align>
@@ -617,8 +617,8 @@
 																	<height>30</height>
 																	<font>af3_font_tiny</font>
 																	<bottom>0</bottom>
-																	<textcolor>ff272727</textcolor>
-																	<selectedcolor>ff272727</selectedcolor>
+																	<textcolor>$VAR[DhKodiOnFocus]</textcolor>
+																	<selectedcolor>$VAR[DhKodiOnFocus]</selectedcolor>
 																	<label>$INFO[ListItem.Property(Event.Description)]</label>
 																	<visible>!String.IsEmpty(ListItem.Property(Event.Description))</visible>
 																	<align>left</align>
@@ -632,8 +632,8 @@
 																	<font>af3_font_tiny</font>
 																	<bottom>0</bottom>
 																	<align>right</align>
-																	<textcolor>ff272727</textcolor>
-																	<selectedcolor>ff272727</selectedcolor>
+																	<textcolor>$VAR[DhKodiOnFocus]</textcolor>
+																	<selectedcolor>$VAR[DhKodiOnFocus]</selectedcolor>
 																	<label>$INFO[ListItem.Label2]</label>
 																	<visible>!String.IsEmpty(ListItem.Property(Event.Description))</visible>
 																	<aligny>center</aligny>
@@ -1274,7 +1274,7 @@
 										<control type="group">
 											<animation effect="fade" start="100" end="0" condition="!Control.HasFocus(8001)">Conditional</animation>
 											<control type="image" id="">
-												<texture border="40" colordiffuse="ffffffff">af3/common/menu.png</texture>
+												<texture border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texture>
 											</control>
 											<control type="group">
 												<left>40</left>
@@ -1286,7 +1286,7 @@
 													<height>56</height>
 													<control type="group">
 														<control type="image">
-															<colordiffuse>ff272727</colordiffuse>
+															<colordiffuse>$VAR[DhKodiOnFocus]</colordiffuse>
 															<centerright>20</centerright>
 															<centertop>50%</centertop>
 															<texture>af3/common/_none.png</texture>
@@ -1311,7 +1311,7 @@
 															</control>
 															<control type="image">
 																<aspectratio align="left">keep</aspectratio>
-																<texture background="true" fallback="" colordiffuse="ff272727" diffuse="af3/diffuse/square_w120_h120.png">$INFO[ListItem.Icon]</texture>
+																<texture background="true" fallback="" colordiffuse="$VAR[DhKodiOnFocus]" diffuse="af3/diffuse/square_w120_h120.png">$INFO[ListItem.Icon]</texture>
 																<visible>String.StartsWith(ListItem.Icon,Default) | String.StartsWith(ListItem.Icon,af3/extras/icons/)</visible>
 															</control>
 														</control>
@@ -1319,8 +1319,8 @@
 													<control type="group">
 														<left>120</left>
 														<control type="textbox">
-															<textcolor>ff272727</textcolor>
-															<selectedcolor>ff272727</selectedcolor>
+															<textcolor>$VAR[DhKodiOnFocus]</textcolor>
+															<selectedcolor>$VAR[DhKodiOnFocus]</selectedcolor>
 															<right>80</right>
 															<font>af3_font_main_plot</font>
 															<aligny>center</aligny>
@@ -1338,8 +1338,8 @@
 															<visible>![String.IsEmpty(ListItem.Label2) + String.IsEmpty(ListItem.Property(Event.Description))]</visible>
 															<control type="label">
 																<height>30</height>
-																<textcolor>ff272727</textcolor>
-																<selectedcolor>ff272727</selectedcolor>
+																<textcolor>$VAR[DhKodiOnFocus]</textcolor>
+																<selectedcolor>$VAR[DhKodiOnFocus]</selectedcolor>
 																<font>af3_font_main_bold</font>
 																<label>$INFO[ListItem.Label]</label>
 																<align>left</align>
@@ -1354,8 +1354,8 @@
 																	<height>30</height>
 																	<font>af3_font_tiny</font>
 																	<bottom>0</bottom>
-																	<textcolor>ff272727</textcolor>
-																	<selectedcolor>ff272727</selectedcolor>
+																	<textcolor>$VAR[DhKodiOnFocus]</textcolor>
+																	<selectedcolor>$VAR[DhKodiOnFocus]</selectedcolor>
 																	<label>$INFO[ListItem.Label2]</label>
 																	<visible>String.IsEmpty(ListItem.Property(Event.Description))</visible>
 																	<align>left</align>
@@ -1368,8 +1368,8 @@
 																	<height>30</height>
 																	<font>af3_font_tiny</font>
 																	<bottom>0</bottom>
-																	<textcolor>ff272727</textcolor>
-																	<selectedcolor>ff272727</selectedcolor>
+																	<textcolor>$VAR[DhKodiOnFocus]</textcolor>
+																	<selectedcolor>$VAR[DhKodiOnFocus]</selectedcolor>
 																	<label>$INFO[ListItem.Property(Event.Description)]</label>
 																	<visible>!String.IsEmpty(ListItem.Property(Event.Description))</visible>
 																	<align>left</align>
@@ -1383,8 +1383,8 @@
 																	<font>af3_font_tiny</font>
 																	<bottom>0</bottom>
 																	<align>right</align>
-																	<textcolor>ff272727</textcolor>
-																	<selectedcolor>ff272727</selectedcolor>
+																	<textcolor>$VAR[DhKodiOnFocus]</textcolor>
+																	<selectedcolor>$VAR[DhKodiOnFocus]</selectedcolor>
 																	<label>$INFO[ListItem.Label2]</label>
 																	<visible>!String.IsEmpty(ListItem.Property(Event.Description))</visible>
 																	<aligny>center</aligny>
@@ -1679,7 +1679,7 @@
 										<control type="group">
 											<animation effect="fade" start="100" end="0" condition="!Control.HasFocus(8004)">Conditional</animation>
 											<control type="image" id="">
-												<texture border="40" colordiffuse="ffffffff">af3/common/menu.png</texture>
+												<texture border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texture>
 											</control>
 											<control type="group">
 												<left>40</left>
@@ -1691,7 +1691,7 @@
 													<height>56</height>
 													<control type="group">
 														<control type="image">
-															<colordiffuse>ff272727</colordiffuse>
+															<colordiffuse>$VAR[DhKodiOnFocus]</colordiffuse>
 															<centerright>20</centerright>
 															<centertop>50%</centertop>
 															<texture>$VAR[AF3P_Image_AddonStatus]</texture>
@@ -1716,7 +1716,7 @@
 															</control>
 															<control type="image">
 																<aspectratio align="left">keep</aspectratio>
-																<texture background="true" fallback="" colordiffuse="ff272727" diffuse="af3/diffuse/square_w120_h120.png">$INFO[ListItem.Icon]</texture>
+																<texture background="true" fallback="" colordiffuse="$VAR[DhKodiOnFocus]" diffuse="af3/diffuse/square_w120_h120.png">$INFO[ListItem.Icon]</texture>
 																<visible>String.StartsWith(ListItem.Icon,Default) | String.StartsWith(ListItem.Icon,af3/extras/icons/)</visible>
 															</control>
 														</control>
@@ -1724,8 +1724,8 @@
 													<control type="group">
 														<left>120</left>
 														<control type="textbox">
-															<textcolor>ff272727</textcolor>
-															<selectedcolor>ff272727</selectedcolor>
+															<textcolor>$VAR[DhKodiOnFocus]</textcolor>
+															<selectedcolor>$VAR[DhKodiOnFocus]</selectedcolor>
 															<right>80</right>
 															<font>af3_font_main_plot</font>
 															<aligny>center</aligny>
@@ -1743,8 +1743,8 @@
 															<visible>![String.IsEmpty(ListItem.Label2) + String.IsEmpty(ListItem.Property(Event.Description))]</visible>
 															<control type="label">
 																<height>30</height>
-																<textcolor>ff272727</textcolor>
-																<selectedcolor>ff272727</selectedcolor>
+																<textcolor>$VAR[DhKodiOnFocus]</textcolor>
+																<selectedcolor>$VAR[DhKodiOnFocus]</selectedcolor>
 																<font>af3_font_main_bold</font>
 																<label>$INFO[ListItem.Label]</label>
 																<align>left</align>
@@ -1759,8 +1759,8 @@
 																	<height>30</height>
 																	<font>af3_font_tiny</font>
 																	<bottom>0</bottom>
-																	<textcolor>ff272727</textcolor>
-																	<selectedcolor>ff272727</selectedcolor>
+																	<textcolor>$VAR[DhKodiOnFocus]</textcolor>
+																	<selectedcolor>$VAR[DhKodiOnFocus]</selectedcolor>
 																	<label>$INFO[ListItem.Label2]</label>
 																	<visible>String.IsEmpty(ListItem.Property(Event.Description))</visible>
 																	<align>left</align>
@@ -1773,8 +1773,8 @@
 																	<height>30</height>
 																	<font>af3_font_tiny</font>
 																	<bottom>0</bottom>
-																	<textcolor>ff272727</textcolor>
-																	<selectedcolor>ff272727</selectedcolor>
+																	<textcolor>$VAR[DhKodiOnFocus]</textcolor>
+																	<selectedcolor>$VAR[DhKodiOnFocus]</selectedcolor>
 																	<label>$INFO[ListItem.Property(Event.Description)]</label>
 																	<visible>!String.IsEmpty(ListItem.Property(Event.Description))</visible>
 																	<align>left</align>
@@ -1788,8 +1788,8 @@
 																	<font>af3_font_tiny</font>
 																	<bottom>0</bottom>
 																	<align>right</align>
-																	<textcolor>ff272727</textcolor>
-																	<selectedcolor>ff272727</selectedcolor>
+																	<textcolor>$VAR[DhKodiOnFocus]</textcolor>
+																	<selectedcolor>$VAR[DhKodiOnFocus]</selectedcolor>
 																	<label>$INFO[ListItem.Label2]</label>
 																	<visible>!String.IsEmpty(ListItem.Property(Event.Description))</visible>
 																	<aligny>center</aligny>

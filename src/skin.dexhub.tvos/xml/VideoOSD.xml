@@ -38,13 +38,13 @@
 						<control type="button" id="6001">
 							<height>80</height>
 							<width>80</width>
-							<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+							<texturefocus colordiffuse="$VAR[DhOsdAccent]">af3/common/circle.png</texturefocus>
 							<texturenofocus colordiffuse="00ffffff">af3/common/circle.png</texturenofocus>
 							<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
 							<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
 							<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
 							<textcolor>af3_panel_fg_70</textcolor>
-							<focusedcolor>ff272727</focusedcolor>
+							<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
 							<font>af3_font_hint</font>
 							<align>center</align>
 							<aligny>top</aligny>
@@ -77,7 +77,7 @@
 									<bordersize>12</bordersize>
 									<height>80</height>
 									<width>80</width>
-									<texture colordiffuse="ff272727" flipx="false">$VAR[AF3_Image_OSD_PlayPause]</texture>
+									<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[AF3_Image_OSD_PlayPause]</texture>
 									<visible>Control.HasFocus(6001)</visible>
 								</control>
 							</control>
@@ -86,13 +86,13 @@
 							<onlongclick condition="System.Platform.TVOS">Action(SwitchPlayer)</onlongclick>
 							<height>80</height>
 							<width>80</width>
-							<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+							<texturefocus colordiffuse="$VAR[DhOsdAccent]">af3/common/circle.png</texturefocus>
 							<texturenofocus colordiffuse="00ffffff">af3/common/circle.png</texturenofocus>
 							<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
 							<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
 							<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
 							<textcolor>af3_panel_fg_70</textcolor>
-							<focusedcolor>ff272727</focusedcolor>
+							<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
 							<font>af3_font_hint</font>
 							<align>center</align>
 							<aligny>top</aligny>
@@ -114,13 +114,13 @@
 						<control type="button" id="6003">
 							<height>80</height>
 							<width>80</width>
-							<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+							<texturefocus colordiffuse="$VAR[DhOsdAccent]">af3/common/circle.png</texturefocus>
 							<texturenofocus colordiffuse="00ffffff">af3/common/circle.png</texturenofocus>
 							<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
 							<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
 							<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
 							<textcolor>af3_panel_fg_70</textcolor>
-							<focusedcolor>ff272727</focusedcolor>
+							<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
 							<font>af3_font_hint</font>
 							<align>center</align>
 							<aligny>top</aligny>
@@ -142,13 +142,13 @@
 						<control type="button" id="6004">
 							<height>80</height>
 							<width>80</width>
-							<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+							<texturefocus colordiffuse="$VAR[DhOsdAccent]">af3/common/circle.png</texturefocus>
 							<texturenofocus colordiffuse="00ffffff">af3/common/circle.png</texturenofocus>
 							<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
 							<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
 							<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
 							<textcolor>af3_panel_fg_70</textcolor>
-							<focusedcolor>ff272727</focusedcolor>
+							<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
 							<font>af3_font_hint</font>
 							<align>center</align>
 							<aligny>top</aligny>
@@ -180,7 +180,7 @@
 									<bordersize>12</bordersize>
 									<height>80</height>
 									<width>80</width>
-									<texture colordiffuse="ff272727" flipx="false">af3/extras/icons/stop.png</texture>
+									<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">af3/extras/icons/stop.png</texture>
 									<visible>Control.HasFocus(6004)</visible>
 								</control>
 							</control>
@@ -214,7 +214,7 @@
 					<right>-56</right>
 					<control type="progress">
 						<texturebg colordiffuse="00ffffff">af3/progress/slider_bg.png</texturebg>
-						<righttexture colordiffuse="af3_panel_fg_100">af3/progress/slider_nib.png</righttexture>
+						<righttexture colordiffuse="$VAR[DhOsdAccent]">af3/progress/slider_nib.png</righttexture>
 						<lefttexture/>
 						<midtexture/>
 						<info>Player.Progress</info>
@@ -224,7 +224,7 @@
 					</control>
 					<control type="progress">
 						<texturebg colordiffuse="00ffffff">af3/progress/slider_bg.png</texturebg>
-						<righttexture colordiffuse="af3_panel_fg_100">af3/progress/slider_nib.png</righttexture>
+						<righttexture colordiffuse="$VAR[DhOsdAccent]">af3/progress/slider_nib.png</righttexture>
 						<lefttexture/>
 						<midtexture/>
 						<info>PVR.EpgEventProgress</info>
@@ -244,10 +244,10 @@
 						<font>af3_font_mini</font>
 						<textoffsetx>30</textoffsetx>
 						<textcolor>af3_main_fg_70</textcolor>
-						<focusedcolor>ff272727</focusedcolor>
+						<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
 						<disabledcolor>af3_main_fg_30</disabledcolor>
 						<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-						<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+						<texturefocus border="40" colordiffuse="$VAR[DhOsdAccent]">af3/common/menu.png</texturefocus>
 						<pulseonselect>false</pulseonselect>
 						<sliderwidth>192</sliderwidth>
 						<sliderheight>12</sliderheight>

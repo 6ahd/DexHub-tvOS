@@ -44,6 +44,17 @@
 		<animation effect="slide" start="0,0" end="0,40" time="300" tween="cubic" easing="out" condition="$EXP[dhs_roomy_home] + $EXP[dhs_size_xlarge] + $EXP[dhs_spot] + !Integer.IsGreater(Window(Home).Property(dhs.home.poster_scale),110)">Conditional</animation>
 	</include>
 
+	<!-- 3.28.44: Kodi's own windows take the focus colour (dh.kodifocus white: the classic white) -->
+	<variable name="DhKodiFocus">
+		<value condition="String.IsEqual(Skin.String(dh.kodifocus),white)">ffffffff</value>
+		<value condition="!String.IsEmpty(Window(Home).Property(dexhub.tvos.theme.accent))">$INFO[Window(Home).Property(dexhub.tvos.theme.accent)]</value>
+		<value>dh_accent</value>
+	</variable>
+	<variable name="DhKodiOnFocus">
+		<value condition="String.IsEqual(Skin.String(dh.kodifocus),white)">ff272727</value>
+		<value condition="!String.IsEmpty(Window(Home).Property(dexhub.tvos.theme.on_accent))">$INFO[Window(Home).Property(dexhub.tvos.theme.on_accent)]</value>
+		<value>dh_on_accent</value>
+	</variable>
 	<variable name="DhOnAccent">
 		<value condition="!String.IsEmpty(Window(Home).Property(dexhub.tvos.theme.on_accent))">$INFO[Window(Home).Property(dexhub.tvos.theme.on_accent)]</value>
 		<value>dh_on_accent</value>
@@ -3250,7 +3261,7 @@
 					<top>0</top>
 					<width>240</width>
 					<height>64</height>
-					<texture border="30" colordiffuse="FFFFFFFF">dexhub/pill.png</texture>
+					<texture border="30" colordiffuse="$VAR[DhKodiFocus]">dexhub/pill.png</texture>
 					<visible>Control.HasFocus(9100)</visible>
 				</control>
 				<control type="image">
@@ -3267,7 +3278,7 @@
 					<width>28</width>
 					<height>28</height>
 					<aspectratio>keep</aspectratio>
-					<texture colordiffuse="FF101010">$INFO[ListItem.Icon]</texture>
+					<texture colordiffuse="$VAR[DhKodiOnFocus]">$INFO[ListItem.Icon]</texture>
 					<visible>Control.HasFocus(9100)</visible>
 				</control>
 				<control type="image">
@@ -3309,7 +3320,7 @@
 					<width>170</width>
 					<height>30</height>
 					<font>font12</font>
-					<textcolor>FF101010</textcolor>
+					<textcolor>$VAR[DhKodiOnFocus]</textcolor>
 					<align>left</align>
 					<aligny>center</aligny>
 					<label>[B]$INFO[ListItem.Label2][/B]</label>
@@ -3595,6 +3606,26 @@
 			<effect type="fade" start="100" end="0" time="200" />
 		</animation>
 	</include>
+	<variable name="DhSettingsString32151">
+		<value condition="!String.IsEmpty(Window(Home).Property(dhs.s.32151))">$INFO[Window(Home).Property(dhs.s.32151)]</value>
+		<value>$LOCALIZE[32151]</value>
+	</variable>
+	<variable name="DhSettingsString32152">
+		<value condition="!String.IsEmpty(Window(Home).Property(dhs.s.32152))">$INFO[Window(Home).Property(dhs.s.32152)]</value>
+		<value>$LOCALIZE[32152]</value>
+	</variable>
+	<variable name="DhSettingsString32153">
+		<value condition="!String.IsEmpty(Window(Home).Property(dhs.s.32153))">$INFO[Window(Home).Property(dhs.s.32153)]</value>
+		<value>$LOCALIZE[32153]</value>
+	</variable>
+	<variable name="DhSettingsString32154">
+		<value condition="!String.IsEmpty(Window(Home).Property(dhs.s.32154))">$INFO[Window(Home).Property(dhs.s.32154)]</value>
+		<value>$LOCALIZE[32154]</value>
+	</variable>
+	<variable name="DhSettingsString32155">
+		<value condition="!String.IsEmpty(Window(Home).Property(dhs.s.32155))">$INFO[Window(Home).Property(dhs.s.32155)]</value>
+		<value>$LOCALIZE[32155]</value>
+	</variable>
 	<variable name="DhSettingsString31878">
 		<value condition="!String.IsEmpty(Window(Home).Property(dhs.s.31878))">$INFO[Window(Home).Property(dhs.s.31878)]</value>
 		<value>$LOCALIZE[31878]</value>

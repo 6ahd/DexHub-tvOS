@@ -5,6 +5,19 @@ import time
 from urllib.parse import parse_qsl, quote, urlencode, urlsplit
 
 OVERRIDE = 'dexhub.tvos.player.override'
+# v5.10.296: every tvOS player that takes a video by link. Each entry says what
+# it receives: time (resume position) and subtitles. The first two keep Kodi's
+# own setting values (videoplayer.dexhubexternal 0 and 1).
+EXTERNALS = ('Infuse', 'VidHub', 'SenPlayer', 'VLC', 'Native Player', 'Outplayer', 'nPlayer')
+EXTERNAL_DETAIL = {
+    'Infuse': 'الوقت والترجمة / Time and subtitles',
+    'VidHub': 'الوقت والترجمة / Time and subtitles',
+    'SenPlayer': 'الوقت والترجمة / Time and subtitles',
+    'Native Player': 'الوقت والترجمة / Time and subtitles',
+    'VLC': 'الترجمة فقط / Subtitles only',
+    'Outplayer': 'الرابط فقط / Link only',
+    'nPlayer': 'الرابط فقط / Link only',
+}
 SESSION = 'dexhub.tvos.player.session'
 
 
@@ -17,11 +30,21 @@ def preference(xbmc, addon):
         engine = value('videoplayer.dexhubengine')
         external = value('videoplayer.dexhubexternal')
         if engine in (0, 1, 2, 3, 4) and external in (0, 1):
-            return (['Kodi', 'Aether', 'External'][engine] if engine < 3 else 'Aether'), ['Infuse', 'VidHub'][external]
+            return (['Kodi', 'Aether', 'External'][engine] if engine < 3 else 'Aether'), _external_app(addon, ['Infuse', 'VidHub'][external])
     except (AttributeError, ValueError, TypeError):
         pass
     engine = addon.getSetting('tvos_player') or 'Aether'
-    return engine if engine in ('Kodi', 'Aether', 'External', 'Infuse', 'VidHub') else 'Aether', addon.getSetting('tvos_external_player') or 'Infuse'
+    return (engine if engine in ('Kodi', 'Aether', 'External') + EXTERNALS else 'Aether'), _external_app(addon, 'Infuse')
+
+
+def _external_app(addon, fallback):
+    """The chosen external app. Kodi's own setting only knows Infuse and VidHub,
+    so a newer app lives in the add-on setting."""
+    try:
+        chosen = addon.getSetting('tvos_external_player')
+    except AttributeError:
+        chosen = ''
+    return chosen if chosen in EXTERNALS[2:] else fallback
 
 
 def choose_once(xbmc, xbmcgui, xbmcaddon):
@@ -29,14 +52,13 @@ def choose_once(xbmc, xbmcgui, xbmcaddon):
         return False
     dialog = xbmcgui.Dialog()
     choices = [('Aether', 'داخلي • تشغيل بتصميم السكين / Internal', 'Aether'),
-               ('Kodi', 'داخلي • توافق Kodi / Internal', 'Kodi'),
-               ('Infuse', 'خارجي • يرسل الوقت والترجمة / External', 'External'),
-               ('VidHub', 'خارجي • يرسل الوقت والترجمة / External', 'External')]
+               ('Kodi', 'داخلي • توافق Kodi / Internal', 'Kodi')]
+    choices += [(name, 'خارجي • ' + EXTERNAL_DETAIL[name], 'External') for name in EXTERNALS]
     rows = []
     for title, detail, _ in choices:
         row = xbmcgui.ListItem(label=title, label2=detail)
         row.setArt({'icon': 'special://home/addons/skin.dexhub.tvos/media/dexhub/' +
-                    ('external-player.png' if title in ('Infuse', 'VidHub') else 'btn_play.png')})
+                    ('external-player.png' if title in EXTERNALS else 'btn_play.png')})
         rows.append(row)
     selected = dialog.select('اختر المشغل — يبدأ البحث مباشرة / Play using', rows, useDetails=True)
     if selected < 0:
@@ -90,17 +112,39 @@ def media_filename(item=None, metadata=None, video=''):
     return title + '.' + (extension if extension in ('mkv', 'mp4', 'm4v', 'mov', 'ts', 'avi', 'webm') else 'mkv')
 
 
-def external_link(video, position, subtitles, external, filename='', callbacks=None):
-    query = [('url', video), ('position', str(int(max(0, float(position or 0)))))]
-    # Both apps accept an external subtitle; preserve a single selected track.
-    if subtitles:
-        query.append(('sub', subtitles[0]))
+def external_link(video, position, subtitles, external, filename='', callbacks=None, title=''):
+    """The app's own link: video, resume time and subtitles where it takes them.
+
+    The selected subtitle is always first; Infuse and SenPlayer get the others
+    too (up to eight) so they can be switched inside the app."""
+    seconds = str(int(max(0, float(position or 0))))
+    subtitles = [s for s in (subtitles or []) if s]
+    encode = lambda query: urlencode(query, quote_via=quote)
+    if external == 'VLC':
+        query = [('url', video)] + [('sub', s) for s in subtitles[:1]]
+        return 'vlc-x-callback://x-callback-url/stream?' + encode(query)
+    if external == 'Outplayer':
+        query = [('url', video)] + ([('filename', filename)] if filename else [])
+        return 'outplayer://x-callback-url/play?' + encode(query)
+    if external == 'nPlayer':
+        scheme, _sep, rest = video.partition('://')
+        return 'nplayer-%s://%s' % (scheme.lower(), quote(rest, safe=":/?&=%@+;,~!$'()*[]#"))
+    if external == 'Native Player':
+        query = [('url', video), ('position', seconds)]
+        if title or filename:
+            query.append(('name', title or filename))
+        query += [('sub', s) for s in subtitles
+                  if s.lower().split('?', 1)[0].endswith(('.srt', '.sub'))][:8]
+        return 'nativeplayer://play?' + encode(query)
+    query = [('url', video), ('position', seconds)]
+    many = external in ('Infuse', 'SenPlayer')
+    query += [('sub', s) for s in (subtitles[:8] if many else subtitles[:1])]
     if filename:
         query.append(('filename', filename))
     if external == 'Infuse' and callbacks:
         query.extend((key, callbacks[key]) for key in ('x-success', 'x-error'))
-    scheme = 'open-vidhub' if external == 'VidHub' else 'infuse'
-    return scheme + '://x-callback-url/play?' + urlencode(query, quote_via=quote)
+    scheme = {'VidHub': 'open-vidhub', 'SenPlayer': 'senplayer'}.get(external, 'infuse')
+    return scheme + '://x-callback-url/play?' + encode(query)
 
 
 def _positive(value):
@@ -177,7 +221,7 @@ def handoff(api, stream_url, rows, selected_path, position, item, ctx=None):
         return False
     addon = xbmcaddon.Addon('plugin.video.dexhub.tvos')
     engine, external = preference(api.xbmc, addon)
-    if engine in ('Infuse', 'VidHub'):
+    if engine in EXTERNALS:
         external, engine = engine, 'External'
     home = api.xbmcgui.Window(10000)
     raw = home.getProperty(OVERRIDE)
@@ -218,7 +262,9 @@ def handoff(api, stream_url, rows, selected_path, position, item, ctx=None):
         if external == 'Infuse':
             from .infuse_progress import prepare
             callbacks = prepare(video, position, filename, ctx, duration)
-        link = 'dex-external://play?' + urlencode({'target': external_link(video, position, [selected] if selected else [], external, filename, callbacks)}, quote_via=quote)
+        # v5.10.296: the selected subtitle first, then the other found ones
+        ordered = ([selected] if selected else []) + [row['url'] for row in tracks if row['url'] != selected]
+        link = 'dex-external://play?' + urlencode({'target': external_link(video, position, ordered, external, filename, callbacks, title=filename.rsplit('.', 1)[0])}, quote_via=quote)
         if not stop_for_external(api.xbmc):
             api.xbmcgui.Dialog().ok('DexHub', 'تعذر إيقاف الفيديو؛ لم يُفتح المشغل الخارجي. / Video did not stop; external player not opened.')
             return True

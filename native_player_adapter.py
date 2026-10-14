@@ -272,6 +272,77 @@ def plan_native(root, base, planned, replace_one):
             '#else\n' + anchor + '\n#endif', relative)
     planned[relative] = value
 
+    # v21: idle frame pacing. With Aether the video lives on its own surface below
+    # Kodi, so a frame where nothing in the GUI changed is skipped. Without this
+    # sleep the skipped frames would spin the main loop (PresentRender only sleeps
+    # when no video layer is active).
+    if '// DexHub idle frame pacing v21.' not in value:
+        anchor = '  CTimeUtils::UpdateFrameTime(hasRendered);\n}'
+        value = replace_one(value, anchor,
+            '#if defined(TARGET_DARWIN_TVOS)\n'
+            '  // DexHub idle frame pacing v21.\n'
+            '  if (!hasRendered && appPlayer->GetCurrentPlayer() == "Aether")\n'
+            '    KODI::TIME::Sleep(std::chrono::milliseconds(16));\n'
+            '#endif\n' + anchor, relative)
+    planned[relative] = value
+
+    # v21: redraw the Kodi layer above Aether only when something changed (subtitle
+    # text, video size, start) instead of every frame. Menus and the OSD still mark
+    # themselves dirty as usual.
+    redraw = (
+        '  if (!appPlayer->IsRenderingVideoLayer())\n'
+        '    MarkDirtyRegion();\n'
+        '#if defined(TARGET_DARWIN_TVOS)\n'
+        '  // DexHub redraw on change v21.\n'
+        '  else if (appPlayer->GetCurrentPlayer() == "Aether")\n'
+        '  {\n'
+        '    static unsigned int dexSeen = 0;\n'
+        '    const unsigned int dexNow = DexAetherRedrawRevision();\n'
+        '    if (dexNow != dexSeen)\n'
+        '    {\n'
+        '      dexSeen = dexNow;\n'
+        '      MarkDirtyRegion();\n'
+        '    }\n'
+        '  }\n'
+        '#endif')
+    declare = '\n#if defined(TARGET_DARWIN_TVOS)\nunsigned int DexAetherRedrawRevision();\n#endif'
+    for relative, include, old in (
+        ('xbmc/video/windows/GUIWindowFullScreen.cpp', '#include "GUIWindowFullScreen.h"',
+         '  // DexHub native subtitle updates.\n  if (!appPlayer->IsRenderingVideoLayer() || appPlayer->GetCurrentPlayer() == "Aether")\n    MarkDirtyRegion();'),
+        ('xbmc/guilib/GUIVideoControl.cpp', '#include "GUIVideoControl.h"',
+         '  if (!appPlayer->IsRenderingVideoLayer() || appPlayer->GetCurrentPlayer() == "Aether")\n    MarkDirtyRegion();')):
+        value = read(relative)
+        if '// DexHub redraw on change v21.' not in value:
+            marker = '  // DexHub native subtitle updates.\n' if old.startswith('  // DexHub native subtitle updates.') else ''
+            value = replace_one(value, old, marker + redraw, relative)
+            value = replace_one(value, include, include + declare, relative)
+        planned[relative] = value
+
+    # v21.4: the new external players are Kodi player cores too ("Play using").
+    more = ' || m_name == "SenPlayer" || m_name == "VLC" || m_name == "Native Player" || m_name == "Outplayer" || m_name == "nPlayer"'
+    relative = 'xbmc/cores/playercorefactory/PlayerCoreConfig.cpp'
+    value = read(relative)
+    if '"SenPlayer"' not in value:
+        value = replace_one(value, 'm_name == "Aether" || m_name == "Infuse" || m_name == "VidHub"',
+                            'm_name == "Aether" || m_name == "Infuse" || m_name == "VidHub"' + more, relative)
+    planned[relative] = value
+    relative = 'xbmc/cores/playercorefactory/PlayerCoreFactory.cpp'
+    value = read(relative)
+    if '"SenPlayer"' not in value:
+        value = replace_one(value, '{"Aether", "Infuse", "VidHub"}',
+                            '{"Aether", "Infuse", "VidHub", "SenPlayer", "VLC", "Native Player", "Outplayer", "nPlayer"}', relative)
+    planned[relative] = value
+    relative = 'xbmc/application/ApplicationPlayer.cpp'
+    value = read(relative)
+    if '"SenPlayer"' not in value:
+        value = replace_one(value, 'dexCore == "Infuse" || dexCore == "VidHub"',
+                            'dexCore == "Infuse" || dexCore == "VidHub" || dexCore == "SenPlayer" || dexCore == "VLC" || '
+                            'dexCore == "Native Player" || dexCore == "Outplayer" || dexCore == "nPlayer"', relative)
+        value = replace_one(value, '(newPlayer == "Infuse" || newPlayer == "VidHub")',
+                            '(newPlayer == "Infuse" || newPlayer == "VidHub" || newPlayer == "SenPlayer" || newPlayer == "VLC" || '
+                            'newPlayer == "Native Player" || newPlayer == "Outplayer" || newPlayer == "nPlayer")', relative)
+    planned[relative] = value
+
     relative = 'xbmc/interfaces/builtins/AddonBuiltins.cpp'
     value = read(relative)
     if '// DexHub uploaded ZIP install v13.' not in value:
@@ -288,8 +359,9 @@ def plan_native(root, base, planned, replace_one):
     if 'videoplayer.dexhubnativeversion' not in value:
         anchor = '    <category id="videoplayer">'
         # Internal level hides the UI control while retaining JSON-RPC visibility.
-        value = replace_one(value, anchor, anchor + '\n      <group id="9"><setting id="videoplayer.dexhubnativeversion" type="integer">\n        <level>4</level><default>19</default>\n        <control type="edit" format="integer" />\n      </setting></group>', relative)
-    value = value.replace('<level>4</level><default>14</default>', '<level>4</level><default>19</default>')
+        value = replace_one(value, anchor, anchor + '\n      <group id="9"><setting id="videoplayer.dexhubnativeversion" type="integer">\n        <level>4</level><default>21</default>\n        <control type="edit" format="integer" />\n      </setting></group>', relative)
+    for previous in ('13', '14', '19'):
+        value = value.replace('<level>4</level><default>' + previous + '</default>', '<level>4</level><default>21</default>')
     planned[relative] = value
     relative = 'xbmc/ServiceManager.cpp'
     value = read(relative)

@@ -2198,3 +2198,25 @@ msgstr ""
 msgctxt "#32150"
 msgid "Player buttons"
 msgstr ""
+
+# 3.28.44: the one Appearance place (Dex Hub 5.10.299)
+msgctxt "#32151"
+msgid "All appearance options"
+msgstr ""
+
+msgctxt "#32152"
+msgid "One place: theme, colours, Home, cards, motion"
+msgstr ""
+
+msgctxt "#32153"
+msgid "Theme and colours"
+msgstr ""
+
+msgctxt "#32154"
+msgid "Home and cards"
+msgstr ""
+
+msgctxt "#32155"
+msgid "Motion and trailers"
+msgstr ""
+

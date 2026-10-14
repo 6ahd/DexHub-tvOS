@@ -148,9 +148,9 @@
 							<aligny>center</aligny>
 							<textcolor>af3_main_fg_70</textcolor>
 							<selectedcolor>af3_main_fg_70</selectedcolor>
-							<focusedcolor>ff272727</focusedcolor>
+							<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 							<disabledcolor>af3_main_fg_30</disabledcolor>
-							<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+							<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
 							<pulseonselect>false</pulseonselect>
 							<scrollsuffix> </scrollsuffix>
 							<scrollspeed>40</scrollspeed>
@@ -166,7 +166,7 @@
 								<visible>!Control.HasFocus(20)</visible>
 							</control>
 							<control type="image">
-								<texture colordiffuse="ff272727">$VAR[AF3P_Image_Settings_Level]</texture>
+								<texture colordiffuse="$VAR[DhKodiOnFocus]">$VAR[AF3P_Image_Settings_Level]</texture>
 								<bordersize>10</bordersize>
 								<visible>Control.HasFocus(20)</visible>
 							</control>
@@ -190,7 +190,7 @@
 						<orientation>vertical</orientation>
 						<texturesliderbackground/>
 						<texturesliderbar colordiffuse="af3_main_logo" border="4">af3/scrollbar/scrollv_line.png</texturesliderbar>
-						<texturesliderbarfocus border="4" colordiffuse="ffffffff">af3/common/scrollv.png</texturesliderbarfocus>
+						<texturesliderbarfocus border="4" colordiffuse="$VAR[DhKodiFocus]">af3/common/scrollv.png</texturesliderbarfocus>
 						<showonepage>false</showonepage>
 						<onleft>5</onleft>
 						<textureslidernib/>
@@ -417,9 +417,9 @@
 			<aligny>center</aligny>
 			<textcolor>af3_main_fg_70</textcolor>
 			<selectedcolor>af3_main_fg_70</selectedcolor>
-			<focusedcolor>ff272727</focusedcolor>
+			<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 			<disabledcolor>af3_main_fg_30</disabledcolor>
-			<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+			<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
 			<pulseonselect>false</pulseonselect>
 			<scrollsuffix> </scrollsuffix>
 			<scrollspeed>40</scrollspeed>
@@ -435,16 +435,16 @@
 			<description>None</description>
 			<aligny>center</aligny>
 			<textcolor>af3_main_fg_70</textcolor>
-			<focusedcolor>ff272727</focusedcolor>
+			<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 			<disabledcolor>af3_main_fg_30</disabledcolor>
-			<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+			<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
 			<pulseonselect>false</pulseonselect>
 			<radiowidth>86</radiowidth>
 			<radioheight>28</radioheight>
 			<textureradioondisabled colordiffuse="af3_main_fg_12">af3/buttons/check-on.png</textureradioondisabled>
 			<textureradiooffdisabled colordiffuse="af3_main_fg_12">af3/buttons/check-off.png</textureradiooffdisabled>
-			<textureradioonfocus colordiffuse="ff272727">af3/buttons/check-on.png</textureradioonfocus>
-			<textureradioofffocus colordiffuse="ff272727">af3/buttons/check-off.png</textureradioofffocus>
+			<textureradioonfocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-on.png</textureradioonfocus>
+			<textureradioofffocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-off.png</textureradioofffocus>
 			<textureradioonnofocus colordiffuse="af3_main_fg_70">af3/buttons/check-on.png</textureradioonnofocus>
 			<textureradiooffnofocus colordiffuse="af3_main_fg_70">af3/buttons/check-off.png</textureradiooffnofocus>
 			<scrollsuffix> </scrollsuffix>
@@ -462,14 +462,14 @@
 			<description>None</description>
 			<aligny>center</aligny>
 			<textcolor>af3_main_fg_70</textcolor>
-			<focusedcolor>ff272727</focusedcolor>
+			<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 			<disabledcolor>af3_main_fg_30</disabledcolor>
-			<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+			<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
 			<pulseonselect>false</pulseonselect>
 			<textureup flipy="true" colordiffuse="af3_main_soft">af3/buttons/triangle-down.png</textureup>
 			<texturedown colordiffuse="af3_main_soft">af3/buttons/triangle-down.png</texturedown>
-			<textureupfocus flipy="true" colordiffuse="ff272727">af3/buttons/triangle-down.png</textureupfocus>
-			<texturedownfocus colordiffuse="ff272727">af3/buttons/triangle-down.png</texturedownfocus>
+			<textureupfocus flipy="true" colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/triangle-down.png</textureupfocus>
+			<texturedownfocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/triangle-down.png</texturedownfocus>
 			<textureupdisabled flipy="true" colordiffuse="af3_main_soft">af3/buttons/triangle-down.png</textureupdisabled>
 			<texturedowndisabled colordiffuse="af3_main_soft">af3/buttons/triangle-down.png</texturedowndisabled>
 			<reverse>yes</reverse>
@@ -490,9 +490,9 @@
 			<aligny>center</aligny>
 			<textcolor>af3_main_fg_70</textcolor>
 			<selectedcolor>af3_main_fg_70</selectedcolor>
-			<focusedcolor>ff272727</focusedcolor>
+			<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 			<disabledcolor>af3_main_fg_30</disabledcolor>
-			<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+			<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
 			<pulseonselect>false</pulseonselect>
 			<scrollsuffix> </scrollsuffix>
 			<scrollspeed>40</scrollspeed>
@@ -510,15 +510,15 @@
 			<description>None</description>
 			<aligny>center</aligny>
 			<textcolor>af3_main_fg_70</textcolor>
-			<focusedcolor>ff272727</focusedcolor>
+			<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 			<disabledcolor>af3_main_fg_30</disabledcolor>
-			<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+			<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
 			<pulseonselect>false</pulseonselect>
 			<sliderwidth>120</sliderwidth>
 			<sliderheight>12</sliderheight>
 			<texturesliderbar colordiffuse="af3_main_soft" border="6">af3/slider/slider_bg.png</texturesliderbar>
 			<textureslidernib colordiffuse="af3_main_hard" border="6">af3/slider/slider_nib.png</textureslidernib>
-			<textureslidernibfocus colordiffuse="ff272727" border="6">af3/slider/slider_nib.png</textureslidernibfocus>
+			<textureslidernibfocus colordiffuse="$VAR[DhKodiOnFocus]" border="6">af3/slider/slider_nib.png</textureslidernibfocus>
 			<orientation>horizontal</orientation>
 			<scrollsuffix> </scrollsuffix>
 			<scrollspeed>40</scrollspeed>
@@ -550,9 +550,9 @@
 			<aligny>center</aligny>
 			<textcolor>af3_main_fg_70</textcolor>
 			<selectedcolor>af3_main_fg_70</selectedcolor>
-			<focusedcolor>ff272727</focusedcolor>
+			<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 			<disabledcolor>af3_main_fg_30</disabledcolor>
-			<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+			<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
 			<colorwidth>84</colorwidth>
 			<colorheight>24</colorheight>
 			<texturecolormask>af3/buttons/colorpicker.png</texturecolormask>

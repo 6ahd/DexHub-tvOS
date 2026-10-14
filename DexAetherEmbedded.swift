@@ -35,7 +35,7 @@ public final class DexAetherBridge: NSObject {
         session?.stop()
         session = nil
         snapshots.begin(token)
-        if let engine = request["engine"] as? String, ["Infuse", "VidHub"].contains(engine) {
+        if let engine = request["engine"] as? String, Self.externalEngines.contains(engine) {
             openExternal(request, engine: engine, token: token)
             return
         }
@@ -64,6 +64,10 @@ public final class DexAetherBridge: NSObject {
         }
     }
 
+    // v21.4: every external player Kodi's "Play using" offers. Each gets the
+    // resume time and the subtitle where its link takes them.
+    static let externalEngines: Set<String> = ["Infuse", "VidHub", "SenPlayer", "VLC", "Native Player", "Outplayer", "nPlayer"]
+
     private static func openExternal(_ request: NSDictionary, engine: String, token: String) {
         guard let raw = request["url"] as? String,
               let media = URL(string: raw), ["http", "https"].contains(media.scheme?.lowercased() ?? ""),
@@ -72,17 +76,49 @@ public final class DexAetherBridge: NSObject {
             return
         }
         var target = URLComponents()
-        target.scheme = engine == "VidHub" ? "open-vidhub" : "infuse"
-        target.host = "x-callback-url"
-        target.path = "/play"
         let position = max(0, (request["position"] as? NSNumber)?.doubleValue ?? 0)
-        var query = [URLQueryItem(name: "url", value: raw), URLQueryItem(name: "position", value: String(Int(position)))]
-        if let filename = request["filename"] as? String, !filename.isEmpty {
-            query.append(URLQueryItem(name: "filename", value: filename))
+        let filename = (request["filename"] as? String) ?? ""
+        let remoteSubs = ((request["subtitles"] as? [String]) ?? []).filter {
+            ["http", "https"].contains(URL(string: $0)?.scheme?.lowercased() ?? "")
         }
-        if let subtitle = (request["subtitles"] as? [String])?.first,
-           let url = URL(string: subtitle), ["http", "https"].contains(url.scheme?.lowercased() ?? "") {
-            query.append(URLQueryItem(name: "sub", value: subtitle))
+        if engine == "nPlayer" {
+            // nPlayer takes the address itself under its own scheme
+            let rest = raw.components(separatedBy: "://").dropFirst().joined(separator: "://")
+            let scheme = media.scheme?.lowercased() == "http" ? "nplayer-http" : "nplayer-https"
+            guard let url = URL(string: scheme + "://" + (rest.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed.union(.urlPathAllowed)) ?? rest)) else { return }
+            UIApplication.shared.open(url, options: [:]) { success in
+                snapshots.set(token, success ? ["state": "external", "position": position] :
+                    ["state": "error", "message": "External app could not be opened. Check that it is installed."])
+            }
+            return
+        }
+        var query = [URLQueryItem(name: "url", value: raw)]
+        switch engine {
+        case "VLC":
+            target.scheme = "vlc-x-callback"; target.host = "x-callback-url"; target.path = "/stream"
+            if let sub = remoteSubs.first { query.append(URLQueryItem(name: "sub", value: sub)) }
+        case "Outplayer":
+            target.scheme = "outplayer"; target.host = "x-callback-url"; target.path = "/play"
+            if !filename.isEmpty { query.append(URLQueryItem(name: "filename", value: filename)) }
+        case "Native Player":
+            target.scheme = "nativeplayer"; target.host = "play"; target.path = ""
+            query.append(URLQueryItem(name: "position", value: String(Int(position))))
+            if !filename.isEmpty {
+                query.append(URLQueryItem(name: "name", value: (filename as NSString).deletingPathExtension))
+            }
+            for sub in remoteSubs.filter({ ["srt", "sub"].contains(URL(string: $0)?.pathExtension.lowercased() ?? "") }).prefix(8) {
+                query.append(URLQueryItem(name: "sub", value: sub))
+            }
+        default:
+            // Infuse, VidHub and SenPlayer share the x-callback form
+            target.scheme = engine == "VidHub" ? "open-vidhub" : (engine == "SenPlayer" ? "senplayer" : "infuse")
+            target.host = "x-callback-url"
+            target.path = "/play"
+            query.append(URLQueryItem(name: "position", value: String(Int(position))))
+            if !filename.isEmpty { query.append(URLQueryItem(name: "filename", value: filename)) }
+            for sub in remoteSubs.prefix(engine == "VidHub" ? 1 : 8) {
+                query.append(URLQueryItem(name: "sub", value: sub))
+            }
         }
         if engine == "Infuse", let home = request["home"] as? String {
             let path = URL(fileURLWithPath: home).appendingPathComponent("dexhub-infuse-pending.json")

@@ -26,7 +26,7 @@
 			<top>0</top>
 			<width>128</width>
 			<height>128</height>
-			<texturefocus colordiffuse="ffffffff">af3/calibrate/cal_tl.png</texturefocus>
+			<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/calibrate/cal_tl.png</texturefocus>
 			<texturenofocus colordiffuse="af3_main_fg_100">af3/calibrate/cal_tl.png</texturenofocus>
 			<movingspeed acceleration="180" maxvelocity="300" resettimeout="200" delta="1">
 				<eventconfig type="up"/>
@@ -41,7 +41,7 @@
 			<top>500</top>
 			<width>128</width>
 			<height>128</height>
-			<texturefocus colordiffuse="ffffffff">af3/calibrate/cal_br.png</texturefocus>
+			<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/calibrate/cal_br.png</texturefocus>
 			<texturenofocus colordiffuse="af3_main_fg_100">af3/calibrate/cal_br.png</texturenofocus>
 			<movingspeed acceleration="180" maxvelocity="300" resettimeout="200" delta="1">
 				<eventconfig type="up"/>
@@ -56,7 +56,7 @@
 			<top>390</top>
 			<width>500</width>
 			<height>500</height>
-			<texturefocus colordiffuse="ffffffff">af3/calibrate/cal_ratio.png</texturefocus>
+			<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/calibrate/cal_ratio.png</texturefocus>
 			<texturenofocus colordiffuse="af3_main_fg_100">af3/calibrate/cal_ratio.png</texturenofocus>
 			<movingspeed acceleration="140" maxvelocity="300" resettimeout="180" delta="1">
 				<eventconfig type="left"/>
@@ -69,7 +69,7 @@
 			<top>500</top>
 			<width>380</width>
 			<height>90</height>
-			<texturefocus colordiffuse="ffffffff">af3/calibrate/cal_sub.png</texturefocus>
+			<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/calibrate/cal_sub.png</texturefocus>
 			<texturenofocus colordiffuse="af3_main_fg_100">af3/calibrate/cal_sub.png</texturenofocus>
 			<movingspeed acceleration="180" maxvelocity="300" resettimeout="200" delta="1">
 				<eventconfig type="up"/>
@@ -82,7 +82,7 @@
 			<top>900</top>
 			<width>100</width>
 			<height>100</height>
-			<texturefocus colordiffuse="ffffffff">af3/calibrate/reset.png</texturefocus>
+			<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/calibrate/reset.png</texturefocus>
 			<texturenofocus colordiffuse="af3_main_fg_100">af3/calibrate/reset.png</texturenofocus>
 		</control>
 		<control type="group">

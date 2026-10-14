@@ -22,4 +22,22 @@
 	<color name="dh_glow_a">5C00B8D4</color>
 	<color name="dh_glow_b">4080DEEA</color>
 	<color name="dh_glow_focus">9900B8D4</color>
+	<!-- 3.28.44: the af3 colours in this theme (Kodi's own windows match the skin) -->
+	<color name="af3_dialog_fg_06">0fF0FAFB</color>
+	<color name="af3_dialog_fg_100">ffF0FAFB</color>
+	<color name="af3_dialog_fg_12">1fF0FAFB</color>
+	<color name="af3_dialog_fg_30">4dF0FAFB</color>
+	<color name="af3_dialog_fg_70">b3F0FAFB</color>
+	<color name="af3_dialog_fg_90">e7F0FAFB</color>
+	<color name="af3_main_fg_100">ffF0FAFB</color>
+	<color name="af3_main_fg_12">1fF0FAFB</color>
+	<color name="af3_main_fg_30">4dF0FAFB</color>
+	<color name="af3_main_fg_70">b3F0FAFB</color>
+	<color name="af3_main_fg_90">e7F0FAFB</color>
+	<color name="af3_dialog_bg_100">ff070A0B</color>
+	<color name="af3_dialog_bg_12">1f070A0B</color>
+	<color name="af3_dialog_bg_30">4d070A0B</color>
+	<color name="af3_main_bg_12">1f000000</color>
+	<color name="af3_main_bg_30">4d000000</color>
+	<color name="af3_main_bg_90">e7000000</color>
 </colors>

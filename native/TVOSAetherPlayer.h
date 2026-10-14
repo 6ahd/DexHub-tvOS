@@ -8,6 +8,10 @@
 #include <memory>
 #include <mutex>
 
+// DexHub v21: bumps when the Kodi layer above Aether must redraw (subtitle text,
+// video size or start). The GUI stays idle otherwise.
+unsigned int DexAetherRedrawRevision();
+
 class CTVOSAetherPlayer final : public IPlayer, private CThread
 {
 public:
@@ -61,6 +65,7 @@ private:
   void Process() override;
   void Command(const std::string& name, double value = 0, const std::string& text = "");
   struct State;
+  static std::string ActiveText(const State& state);
   std::unique_ptr<State> m_state;
   mutable std::mutex m_lock;
   std::atomic<bool> m_playing{false};

@@ -2672,10 +2672,10 @@
 						<font>af3_font_mini</font>
 						<textcolor>af3_main_fg_70</textcolor>
 						<selectedcolor>af3_main_fg_70</selectedcolor>
-						<focusedcolor>ff272727</focusedcolor>
+						<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 						<disabledcolor>af3_main_fg_30</disabledcolor>
 						<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-						<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+						<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
 						<pulseonselect>false</pulseonselect>
 						<scrollsuffix> </scrollsuffix>
 						<scrollspeed>40</scrollspeed>
@@ -2693,10 +2693,10 @@
 						<font>af3_font_mini</font>
 						<textcolor>af3_main_fg_70</textcolor>
 						<selectedcolor>af3_main_fg_70</selectedcolor>
-						<focusedcolor>ff272727</focusedcolor>
+						<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 						<disabledcolor>af3_main_fg_30</disabledcolor>
 						<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-						<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+						<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
 						<pulseonselect>false</pulseonselect>
 						<scrollsuffix> </scrollsuffix>
 						<scrollspeed>40</scrollspeed>
@@ -2712,10 +2712,10 @@
 						<font>af3_font_mini</font>
 						<textcolor>af3_main_fg_70</textcolor>
 						<selectedcolor>af3_main_fg_70</selectedcolor>
-						<focusedcolor>ff272727</focusedcolor>
+						<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 						<disabledcolor>af3_main_fg_30</disabledcolor>
 						<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-						<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+						<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
 						<pulseonselect>false</pulseonselect>
 						<scrollsuffix> </scrollsuffix>
 						<scrollspeed>40</scrollspeed>

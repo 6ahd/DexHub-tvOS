@@ -151,7 +151,7 @@
 								<height>80</height>
 								<width>80</width>
 								<control type="button" id="90001">
-									<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+									<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 									<texturenofocus/>
 									<onclick>Close</onclick>
 									<onleft></onleft>
@@ -166,7 +166,7 @@
 									<textoffsetx>30</textoffsetx>
 									<textcolor>af3_main_fg_70</textcolor>
 									<selectedcolor>af3_main_fg_70</selectedcolor>
-									<focusedcolor>ff272727</focusedcolor>
+									<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 									<disabledcolor>af3_main_fg_30</disabledcolor>
 									<pulseonselect>false</pulseonselect>
 									<scrollsuffix> </scrollsuffix>
@@ -189,7 +189,7 @@
 											<bordersize>12</bordersize>
 											<height>80</height>
 											<width>80</width>
-											<texture colordiffuse="ff272727" flipx="false">af3/extras/icons/xmark.png</texture>
+											<texture colordiffuse="$VAR[DhKodiOnFocus]" flipx="false">af3/extras/icons/xmark.png</texture>
 											<visible>Control.HasFocus(90001)</visible>
 										</control>
 									</control>
@@ -522,7 +522,7 @@
 											<control type="group">
 												<animation effect="fade" start="100" end="0" condition="!Control.HasFocus(120)">Conditional</animation>
 												<control type="image" id="">
-													<texture border="40" colordiffuse="ffffffff">af3/common/menu.png</texture>
+													<texture border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texture>
 												</control>
 												<control type="group">
 													<control type="group">
@@ -535,8 +535,8 @@
 															<aspectratio>keep</aspectratio>
 														</control>
 														<control type="label">
-															<textcolor>ff272727</textcolor>
-															<selectedcolor>ff272727</selectedcolor>
+															<textcolor>$VAR[DhKodiOnFocus]</textcolor>
+															<selectedcolor>$VAR[DhKodiOnFocus]</selectedcolor>
 															<align>center</align>
 															<textoffsetx>20</textoffsetx>
 															<centertop>50%</centertop>
@@ -557,7 +557,7 @@
 																<height>32</height>
 																<animation effect="fade" start="100" end="25" condition="Integer.IsLess(ListItem.ActualIcon,5)">Conditional</animation>
 																<right>0</right>
-																<colordiffuse>ff272727</colordiffuse>
+																<colordiffuse>$VAR[DhKodiOnFocus]</colordiffuse>
 																<centertop>50%</centertop>
 																<aspectratio>keep</aspectratio>
 																<texture>af3/flags/star10.png</texture>
@@ -567,7 +567,7 @@
 																<height>32</height>
 																<animation effect="fade" start="100" end="25" condition="Integer.IsLess(ListItem.ActualIcon,4)">Conditional</animation>
 																<right>20</right>
-																<colordiffuse>ff272727</colordiffuse>
+																<colordiffuse>$VAR[DhKodiOnFocus]</colordiffuse>
 																<centertop>50%</centertop>
 																<aspectratio>keep</aspectratio>
 																<texture>af3/flags/star10.png</texture>
@@ -577,7 +577,7 @@
 																<height>32</height>
 																<animation effect="fade" start="100" end="25" condition="Integer.IsLess(ListItem.ActualIcon,3)">Conditional</animation>
 																<right>40</right>
-																<colordiffuse>ff272727</colordiffuse>
+																<colordiffuse>$VAR[DhKodiOnFocus]</colordiffuse>
 																<centertop>50%</centertop>
 																<aspectratio>keep</aspectratio>
 																<texture>af3/flags/star10.png</texture>
@@ -587,7 +587,7 @@
 																<height>32</height>
 																<animation effect="fade" start="100" end="25" condition="Integer.IsLess(ListItem.ActualIcon,2)">Conditional</animation>
 																<right>60</right>
-																<colordiffuse>ff272727</colordiffuse>
+																<colordiffuse>$VAR[DhKodiOnFocus]</colordiffuse>
 																<centertop>50%</centertop>
 																<aspectratio>keep</aspectratio>
 																<texture>af3/flags/star10.png</texture>
@@ -597,7 +597,7 @@
 																<height>32</height>
 																<animation effect="fade" start="100" end="25" condition="Integer.IsLess(ListItem.ActualIcon,1)">Conditional</animation>
 																<right>80</right>
-																<colordiffuse>ff272727</colordiffuse>
+																<colordiffuse>$VAR[DhKodiOnFocus]</colordiffuse>
 																<centertop>50%</centertop>
 																<aspectratio>keep</aspectratio>
 																<texture>af3/flags/star10.png</texture>
@@ -610,7 +610,7 @@
 																<font>af3_font_hint_bold</font>
 																<label>SYNC [COLOR=4d272727]•[/COLOR] CC</label>
 																<align>center</align>
-																<textcolor>ff272727</textcolor>
+																<textcolor>$VAR[DhKodiOnFocus]</textcolor>
 																<visible>ListItem.property(hearing_imp) + ListItem.property(sync)</visible>
 																<aligny>center</aligny>
 																<selectedcolor>af3_main_fg_70</selectedcolor>
@@ -622,7 +622,7 @@
 																<font>af3_font_hint_bold</font>
 																<label>[COLOR=4d272727]SYNC • [/COLOR]CC</label>
 																<align>center</align>
-																<textcolor>ff272727</textcolor>
+																<textcolor>$VAR[DhKodiOnFocus]</textcolor>
 																<visible>ListItem.property(hearing_imp) + !ListItem.property(sync)</visible>
 																<aligny>center</aligny>
 																<selectedcolor>af3_main_fg_70</selectedcolor>
@@ -634,7 +634,7 @@
 																<font>af3_font_hint_bold</font>
 																<label>SYNC [COLOR=4d272727]• CC[/COLOR]</label>
 																<align>center</align>
-																<textcolor>ff272727</textcolor>
+																<textcolor>$VAR[DhKodiOnFocus]</textcolor>
 																<visible>!ListItem.property(hearing_imp) + ListItem.property(sync)</visible>
 																<aligny>center</aligny>
 																<selectedcolor>af3_main_fg_70</selectedcolor>
@@ -646,7 +646,7 @@
 																<font>af3_font_hint_bold</font>
 																<label>[COLOR=4d272727]SYNC • CC[/COLOR]</label>
 																<align>center</align>
-																<textcolor>ff272727</textcolor>
+																<textcolor>$VAR[DhKodiOnFocus]</textcolor>
 																<visible>!ListItem.property(hearing_imp) + !ListItem.property(sync)</visible>
 																<aligny>center</aligny>
 																<selectedcolor>af3_main_fg_70</selectedcolor>
@@ -657,8 +657,8 @@
 														</control>
 													</control>
 													<control type="textbox" id="">
-														<textcolor>ff272727</textcolor>
-														<selectedcolor>ff272727</selectedcolor>
+														<textcolor>$VAR[DhKodiOnFocus]</textcolor>
+														<selectedcolor>$VAR[DhKodiOnFocus]</selectedcolor>
 														<left>150</left>
 														<right>30</right>
 														<aligny>center</aligny>
@@ -684,7 +684,7 @@
 									<showonepage>false</showonepage>
 									<texturesliderbackground/>
 									<texturesliderbar colordiffuse="af3_dialog_fg_70" border="4">af3/scrollbar/scrollv_line.png</texturesliderbar>
-									<texturesliderbarfocus border="4" colordiffuse="ffffffff">af3/common/scrollv.png</texturesliderbarfocus>
+									<texturesliderbarfocus border="4" colordiffuse="$VAR[DhKodiFocus]">af3/common/scrollv.png</texturesliderbarfocus>
 									<textureslidernib/>
 									<textureslidernibfocus/>
 									<orientation>vertical</orientation>
@@ -783,8 +783,8 @@
 								<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
 								<description>None</description>
 								<aligny>center</aligny>
-								<focusedcolor>ff272727</focusedcolor>
-								<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+								<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
+								<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
 								<pulseonselect>false</pulseonselect>
 								<scrollsuffix> </scrollsuffix>
 								<scrollspeed>40</scrollspeed>
@@ -805,7 +805,7 @@
 									</control>
 									<control type="image">
 										<bordersize>-8</bordersize>
-										<texture colordiffuse="ff272727">af3/extras/icons/search.png</texture>
+										<texture colordiffuse="$VAR[DhKodiOnFocus]">af3/extras/icons/search.png</texture>
 										<visible>Control.HasFocus(160)</visible>
 									</control>
 								</control>
@@ -830,7 +830,7 @@
 											<aligny>center</aligny>
 											<align>left</align>
 											<font>af3_font_mini_bold</font>
-											<textcolor>ff272727</textcolor>
+											<textcolor>$VAR[DhKodiOnFocus]</textcolor>
 											<label>$INFO[Control.GetLabel(160)]</label>
 											<visible>Control.HasFocus(160)</visible>
 											<selectedcolor>af3_main_fg_70</selectedcolor>
@@ -859,13 +859,13 @@
 								<textureradiooffnofocus colordiffuse="af3_dialog_fg_70">af3/buttons/check-off.png</textureradiooffnofocus>
 								<description>None</description>
 								<aligny>center</aligny>
-								<focusedcolor>ff272727</focusedcolor>
-								<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+								<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
+								<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
 								<pulseonselect>false</pulseonselect>
 								<radiowidth>86</radiowidth>
 								<radioheight>28</radioheight>
-								<textureradioonfocus colordiffuse="ff272727">af3/buttons/check-on.png</textureradioonfocus>
-								<textureradioofffocus colordiffuse="ff272727">af3/buttons/check-off.png</textureradioofffocus>
+								<textureradioonfocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-on.png</textureradioonfocus>
+								<textureradioofffocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-off.png</textureradioofffocus>
 								<scrollsuffix> </scrollsuffix>
 								<scrollspeed>40</scrollspeed>
 							</control>
@@ -894,7 +894,7 @@
 											<aligny>center</aligny>
 											<align>left</align>
 											<font>af3_font_mini_bold</font>
-											<textcolor>ff272727</textcolor>
+											<textcolor>$VAR[DhKodiOnFocus]</textcolor>
 											<label>$INFO[Container(150).ListItemAbsolute(0).Label]</label>
 											<visible>Control.HasFocus(9001)</visible>
 											<selectedcolor>af3_main_fg_70</selectedcolor>
@@ -923,13 +923,13 @@
 								<textureradiooffnofocus colordiffuse="af3_dialog_fg_70">af3/buttons/check-off.png</textureradiooffnofocus>
 								<description>None</description>
 								<aligny>center</aligny>
-								<focusedcolor>ff272727</focusedcolor>
-								<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+								<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
+								<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
 								<pulseonselect>false</pulseonselect>
 								<radiowidth>86</radiowidth>
 								<radioheight>28</radioheight>
-								<textureradioonfocus colordiffuse="ff272727">af3/buttons/check-on.png</textureradioonfocus>
-								<textureradioofffocus colordiffuse="ff272727">af3/buttons/check-off.png</textureradioofffocus>
+								<textureradioonfocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-on.png</textureradioonfocus>
+								<textureradioofffocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-off.png</textureradioofffocus>
 								<scrollsuffix> </scrollsuffix>
 								<scrollspeed>40</scrollspeed>
 							</control>
@@ -958,7 +958,7 @@
 											<aligny>center</aligny>
 											<align>left</align>
 											<font>af3_font_mini_bold</font>
-											<textcolor>ff272727</textcolor>
+											<textcolor>$VAR[DhKodiOnFocus]</textcolor>
 											<label>$INFO[Container(150).ListItemAbsolute(1).Label]</label>
 											<visible>Control.HasFocus(9002)</visible>
 											<selectedcolor>af3_main_fg_70</selectedcolor>
@@ -987,13 +987,13 @@
 								<textureradiooffnofocus colordiffuse="af3_dialog_fg_70">af3/buttons/check-off.png</textureradiooffnofocus>
 								<description>None</description>
 								<aligny>center</aligny>
-								<focusedcolor>ff272727</focusedcolor>
-								<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+								<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
+								<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
 								<pulseonselect>false</pulseonselect>
 								<radiowidth>86</radiowidth>
 								<radioheight>28</radioheight>
-								<textureradioonfocus colordiffuse="ff272727">af3/buttons/check-on.png</textureradioonfocus>
-								<textureradioofffocus colordiffuse="ff272727">af3/buttons/check-off.png</textureradioofffocus>
+								<textureradioonfocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-on.png</textureradioonfocus>
+								<textureradioofffocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-off.png</textureradioofffocus>
 								<scrollsuffix> </scrollsuffix>
 								<scrollspeed>40</scrollspeed>
 							</control>
@@ -1022,7 +1022,7 @@
 											<aligny>center</aligny>
 											<align>left</align>
 											<font>af3_font_mini_bold</font>
-											<textcolor>ff272727</textcolor>
+											<textcolor>$VAR[DhKodiOnFocus]</textcolor>
 											<label>$INFO[Container(150).ListItemAbsolute(2).Label]</label>
 											<visible>Control.HasFocus(9003)</visible>
 											<selectedcolor>af3_main_fg_70</selectedcolor>
@@ -1051,13 +1051,13 @@
 								<textureradiooffnofocus colordiffuse="af3_dialog_fg_70">af3/buttons/check-off.png</textureradiooffnofocus>
 								<description>None</description>
 								<aligny>center</aligny>
-								<focusedcolor>ff272727</focusedcolor>
-								<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+								<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
+								<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
 								<pulseonselect>false</pulseonselect>
 								<radiowidth>86</radiowidth>
 								<radioheight>28</radioheight>
-								<textureradioonfocus colordiffuse="ff272727">af3/buttons/check-on.png</textureradioonfocus>
-								<textureradioofffocus colordiffuse="ff272727">af3/buttons/check-off.png</textureradioofffocus>
+								<textureradioonfocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-on.png</textureradioonfocus>
+								<textureradioofffocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-off.png</textureradioofffocus>
 								<scrollsuffix> </scrollsuffix>
 								<scrollspeed>40</scrollspeed>
 							</control>
@@ -1086,7 +1086,7 @@
 											<aligny>center</aligny>
 											<align>left</align>
 											<font>af3_font_mini_bold</font>
-											<textcolor>ff272727</textcolor>
+											<textcolor>$VAR[DhKodiOnFocus]</textcolor>
 											<label>$INFO[Container(150).ListItemAbsolute(3).Label]</label>
 											<visible>Control.HasFocus(9004)</visible>
 											<selectedcolor>af3_main_fg_70</selectedcolor>
@@ -1115,13 +1115,13 @@
 								<textureradiooffnofocus colordiffuse="af3_dialog_fg_70">af3/buttons/check-off.png</textureradiooffnofocus>
 								<description>None</description>
 								<aligny>center</aligny>
-								<focusedcolor>ff272727</focusedcolor>
-								<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+								<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
+								<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
 								<pulseonselect>false</pulseonselect>
 								<radiowidth>86</radiowidth>
 								<radioheight>28</radioheight>
-								<textureradioonfocus colordiffuse="ff272727">af3/buttons/check-on.png</textureradioonfocus>
-								<textureradioofffocus colordiffuse="ff272727">af3/buttons/check-off.png</textureradioofffocus>
+								<textureradioonfocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-on.png</textureradioonfocus>
+								<textureradioofffocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-off.png</textureradioofffocus>
 								<scrollsuffix> </scrollsuffix>
 								<scrollspeed>40</scrollspeed>
 							</control>
@@ -1150,7 +1150,7 @@
 											<aligny>center</aligny>
 											<align>left</align>
 											<font>af3_font_mini_bold</font>
-											<textcolor>ff272727</textcolor>
+											<textcolor>$VAR[DhKodiOnFocus]</textcolor>
 											<label>$INFO[Container(150).ListItemAbsolute(4).Label]</label>
 											<visible>Control.HasFocus(9005)</visible>
 											<selectedcolor>af3_main_fg_70</selectedcolor>
@@ -1179,13 +1179,13 @@
 								<textureradiooffnofocus colordiffuse="af3_dialog_fg_70">af3/buttons/check-off.png</textureradiooffnofocus>
 								<description>None</description>
 								<aligny>center</aligny>
-								<focusedcolor>ff272727</focusedcolor>
-								<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+								<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
+								<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
 								<pulseonselect>false</pulseonselect>
 								<radiowidth>86</radiowidth>
 								<radioheight>28</radioheight>
-								<textureradioonfocus colordiffuse="ff272727">af3/buttons/check-on.png</textureradioonfocus>
-								<textureradioofffocus colordiffuse="ff272727">af3/buttons/check-off.png</textureradioofffocus>
+								<textureradioonfocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-on.png</textureradioonfocus>
+								<textureradioofffocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-off.png</textureradioofffocus>
 								<scrollsuffix> </scrollsuffix>
 								<scrollspeed>40</scrollspeed>
 							</control>
@@ -1214,7 +1214,7 @@
 											<aligny>center</aligny>
 											<align>left</align>
 											<font>af3_font_mini_bold</font>
-											<textcolor>ff272727</textcolor>
+											<textcolor>$VAR[DhKodiOnFocus]</textcolor>
 											<label>$INFO[Container(150).ListItemAbsolute(5).Label]</label>
 											<visible>Control.HasFocus(9006)</visible>
 											<selectedcolor>af3_main_fg_70</selectedcolor>
@@ -1243,13 +1243,13 @@
 								<textureradiooffnofocus colordiffuse="af3_dialog_fg_70">af3/buttons/check-off.png</textureradiooffnofocus>
 								<description>None</description>
 								<aligny>center</aligny>
-								<focusedcolor>ff272727</focusedcolor>
-								<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+								<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
+								<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
 								<pulseonselect>false</pulseonselect>
 								<radiowidth>86</radiowidth>
 								<radioheight>28</radioheight>
-								<textureradioonfocus colordiffuse="ff272727">af3/buttons/check-on.png</textureradioonfocus>
-								<textureradioofffocus colordiffuse="ff272727">af3/buttons/check-off.png</textureradioofffocus>
+								<textureradioonfocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-on.png</textureradioonfocus>
+								<textureradioofffocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-off.png</textureradioofffocus>
 								<scrollsuffix> </scrollsuffix>
 								<scrollspeed>40</scrollspeed>
 							</control>
@@ -1278,7 +1278,7 @@
 											<aligny>center</aligny>
 											<align>left</align>
 											<font>af3_font_mini_bold</font>
-											<textcolor>ff272727</textcolor>
+											<textcolor>$VAR[DhKodiOnFocus]</textcolor>
 											<label>$INFO[Container(150).ListItemAbsolute(6).Label]</label>
 											<visible>Control.HasFocus(9007)</visible>
 											<selectedcolor>af3_main_fg_70</selectedcolor>
@@ -1307,13 +1307,13 @@
 								<textureradiooffnofocus colordiffuse="af3_dialog_fg_70">af3/buttons/check-off.png</textureradiooffnofocus>
 								<description>None</description>
 								<aligny>center</aligny>
-								<focusedcolor>ff272727</focusedcolor>
-								<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+								<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
+								<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
 								<pulseonselect>false</pulseonselect>
 								<radiowidth>86</radiowidth>
 								<radioheight>28</radioheight>
-								<textureradioonfocus colordiffuse="ff272727">af3/buttons/check-on.png</textureradioonfocus>
-								<textureradioofffocus colordiffuse="ff272727">af3/buttons/check-off.png</textureradioofffocus>
+								<textureradioonfocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-on.png</textureradioonfocus>
+								<textureradioofffocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-off.png</textureradioofffocus>
 								<scrollsuffix> </scrollsuffix>
 								<scrollspeed>40</scrollspeed>
 							</control>
@@ -1342,7 +1342,7 @@
 											<aligny>center</aligny>
 											<align>left</align>
 											<font>af3_font_mini_bold</font>
-											<textcolor>ff272727</textcolor>
+											<textcolor>$VAR[DhKodiOnFocus]</textcolor>
 											<label>$INFO[Container(150).ListItemAbsolute(7).Label]</label>
 											<visible>Control.HasFocus(9008)</visible>
 											<selectedcolor>af3_main_fg_70</selectedcolor>
@@ -1371,13 +1371,13 @@
 								<textureradiooffnofocus colordiffuse="af3_dialog_fg_70">af3/buttons/check-off.png</textureradiooffnofocus>
 								<description>None</description>
 								<aligny>center</aligny>
-								<focusedcolor>ff272727</focusedcolor>
-								<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+								<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
+								<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
 								<pulseonselect>false</pulseonselect>
 								<radiowidth>86</radiowidth>
 								<radioheight>28</radioheight>
-								<textureradioonfocus colordiffuse="ff272727">af3/buttons/check-on.png</textureradioonfocus>
-								<textureradioofffocus colordiffuse="ff272727">af3/buttons/check-off.png</textureradioofffocus>
+								<textureradioonfocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-on.png</textureradioonfocus>
+								<textureradioofffocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-off.png</textureradioofffocus>
 								<scrollsuffix> </scrollsuffix>
 								<scrollspeed>40</scrollspeed>
 							</control>
@@ -1406,7 +1406,7 @@
 											<aligny>center</aligny>
 											<align>left</align>
 											<font>af3_font_mini_bold</font>
-											<textcolor>ff272727</textcolor>
+											<textcolor>$VAR[DhKodiOnFocus]</textcolor>
 											<label>$INFO[Container(150).ListItemAbsolute(8).Label]</label>
 											<visible>Control.HasFocus(9009)</visible>
 											<selectedcolor>af3_main_fg_70</selectedcolor>
@@ -1435,13 +1435,13 @@
 								<textureradiooffnofocus colordiffuse="af3_dialog_fg_70">af3/buttons/check-off.png</textureradiooffnofocus>
 								<description>None</description>
 								<aligny>center</aligny>
-								<focusedcolor>ff272727</focusedcolor>
-								<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+								<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
+								<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
 								<pulseonselect>false</pulseonselect>
 								<radiowidth>86</radiowidth>
 								<radioheight>28</radioheight>
-								<textureradioonfocus colordiffuse="ff272727">af3/buttons/check-on.png</textureradioonfocus>
-								<textureradioofffocus colordiffuse="ff272727">af3/buttons/check-off.png</textureradioofffocus>
+								<textureradioonfocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-on.png</textureradioonfocus>
+								<textureradioofffocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-off.png</textureradioofffocus>
 								<scrollsuffix> </scrollsuffix>
 								<scrollspeed>40</scrollspeed>
 							</control>
@@ -1470,7 +1470,7 @@
 											<aligny>center</aligny>
 											<align>left</align>
 											<font>af3_font_mini_bold</font>
-											<textcolor>ff272727</textcolor>
+											<textcolor>$VAR[DhKodiOnFocus]</textcolor>
 											<label>$INFO[Container(150).ListItemAbsolute(9).Label]</label>
 											<visible>Control.HasFocus(9010)</visible>
 											<selectedcolor>af3_main_fg_70</selectedcolor>

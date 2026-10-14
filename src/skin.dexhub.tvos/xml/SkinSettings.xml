@@ -205,81 +205,35 @@
 					<onup>700</onup>
 					<ondown>700</ondown>
 					<visible>Container(9000).HasFocus(1)</visible>
-					<control type="button" id="641">
-						<label>$VAR[DhSettingsString31878]</label>
-						<label2>$INFO[Window(Home).Property(dexhub.tvos.theme.name)]</label2>
+					<!-- 3.28.44: every look in one place, Dex Hub's Menu (Appearance);
+					     each choice shows at once there -->
+					<control type="button" id="640">
+						<label>$VAR[DhSettingsString32151]</label>
+						<label2>$VAR[DhSettingsString32152]</label2>
 						<include>DhSettingButton</include>
-						<onclick>ActivateWindow(1191)</onclick>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_menu&amp;key=look_theme)</onclick>
 					</control>
-					<control type="button" id="642">
-						<label>$VAR[DhSettingsString31888]</label>
-						<label2>$VAR[DhAccentLabel2]</label2>
+					<control type="button" id="647">
+						<label>$VAR[DhSettingsString32153]</label>
+						<label2>$INFO[Skin.CurrentColourTheme]</label2>
 						<include>DhSettingButton</include>
-						<onclick>ActivateWindow(1192)</onclick>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_menu&amp;key=look_theme)</onclick>
 					</control>
-					<control type="button" id="643">
-						<label>$VAR[DhSettingsString31889]</label>
-						<label2>$VAR[DhOnTextLabel2]</label2>
+					<control type="button" id="648">
+						<label>$VAR[DhSettingsString32154]</label>
+						<label2></label2>
 						<include>DhSettingButton</include>
-						<onclick condition="String.IsEmpty(Skin.String(dh.ontext))">Skin.SetString(dh.ontext,white)</onclick>
-						<onclick condition="String.IsEqual(Skin.String(dh.ontext),white)">Skin.SetString(dh.ontext,dark)</onclick>
-						<onclick condition="String.IsEqual(Skin.String(dh.ontext),dark)">Skin.Reset(dh.ontext)</onclick>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_menu&amp;key=look_layout)</onclick>
 					</control>
-					<control type="radiobutton" id="645">
-						<label>$VAR[DhSettingsString31893]</label>
-						<include>DhSettingRadio</include>
-						<selected>!String.IsEqual(Skin.String(dh.focusglow),off)</selected>
-						<onclick condition="!String.IsEqual(Skin.String(dh.focusglow),off)">Skin.SetString(dh.focusglow,off)</onclick>
-						<onclick condition="String.IsEqual(Skin.String(dh.focusglow),off)">Skin.Reset(dh.focusglow)</onclick>
-					</control>
-					<control type="radiobutton" id="646">
-						<label>$VAR[DhSettingsString31895]</label>
-						<include>DhSettingRadio</include>
-						<selected>String.IsEqual(Skin.String(dh.amoled),on)</selected>
-						<onclick condition="!String.IsEqual(Skin.String(dh.amoled),on)">Skin.SetString(dh.amoled,on)</onclick>
-						<onclick condition="String.IsEqual(Skin.String(dh.amoled),on)">Skin.Reset(dh.amoled)</onclick>
-					</control>
-					<control type="button" id="644">
-						<label>$VAR[DhSettingsString31881]</label>
-						<label2>$VAR[DhGlowLabel2]</label2>
+					<control type="button" id="649">
+						<label>$VAR[DhSettingsString32155]</label>
+						<label2></label2>
 						<include>DhSettingButton</include>
-						<onclick condition="String.IsEmpty(Skin.String(dh.glow)) | String.IsEqual(Skin.String(dh.glow),soft)">Skin.SetString(dh.glow,vivid)</onclick>
-						<onclick condition="String.IsEqual(Skin.String(dh.glow),vivid)">Skin.SetString(dh.glow,off)</onclick>
-						<onclick condition="String.IsEqual(Skin.String(dh.glow),off)">Skin.Reset(dh.glow)</onclick>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_menu&amp;key=look_motion)</onclick>
 					</control>
 					<height>620</height>
 					<pagecontrol>60</pagecontrol>
-				<control type="button" id="8125">
-						<label>$VAR[DhSettingsString32134]</label>
-						<include>DhSettingButton</include>
-						<label2>$VAR[DhMotionLabel]</label2>
-						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=homeui_focus_motion)</onclick>
-					</control>
-					<control type="radiobutton" id="8126">
-						<label>$VAR[DhSettingsString32144]</label>
-						<include>DhSettingRadio</include>
-						<selected>String.IsEqual(Window(Home).Property(dhs.pref.homeui_nav_names),true)</selected>
-						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=homeui_nav_names)</onclick>
-					</control>
-					<control type="button" id="8123">
-						<label>$VAR[DhSettingsString32076]</label>
-						<include>DhSettingButton</include>
-						<label2>$VAR[DhRowDimLabel]</label2>
-						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=homeui_row_dim)</onclick>
-					</control>
-					<control type="radiobutton" id="8114">
-						<label>$VAR[DhSettingsString32033]</label>
-						<include>DhSettingRadio</include>
-						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.homeui_kenburns),false)</selected>
-						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=homeui_kenburns)</onclick>
-					</control>
-					<control type="radiobutton" id="8115">
-						<label>$VAR[DhSettingsString32034]</label>
-						<include>DhSettingRadio</include>
-						<selected>!String.IsEqual(Window(Home).Property(dhs.pref.homeui_focus_gif),false)</selected>
-						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=ui_option&amp;key=homeui_focus_gif)</onclick>
-					</control>
-					</control>
+				</control>
 				<control type="grouplist" id="600">
 					<onback>9000</onback>
 					<onleft>9000</onleft>

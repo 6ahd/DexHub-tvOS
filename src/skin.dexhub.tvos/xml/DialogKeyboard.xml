@@ -105,7 +105,7 @@
 							<height>80</height>
 							<width>80</width>
 							<control type="button" id="90001">
-								<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+								<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 								<texturenofocus/>
 								<onclick>Close</onclick>
 								<onleft></onleft>
@@ -120,7 +120,7 @@
 								<textoffsetx>30</textoffsetx>
 								<textcolor>af3_main_fg_70</textcolor>
 								<selectedcolor>af3_main_fg_70</selectedcolor>
-								<focusedcolor>ff272727</focusedcolor>
+								<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 								<disabledcolor>af3_main_fg_30</disabledcolor>
 								<pulseonselect>false</pulseonselect>
 								<scrollsuffix> </scrollsuffix>
@@ -143,7 +143,7 @@
 										<bordersize>12</bordersize>
 										<height>80</height>
 										<width>80</width>
-										<texture colordiffuse="ff272727" flipx="false">af3/extras/icons/xmark.png</texture>
+										<texture colordiffuse="$VAR[DhKodiOnFocus]" flipx="false">af3/extras/icons/xmark.png</texture>
 										<visible>Control.HasFocus(90001)</visible>
 									</control>
 								</control>
@@ -165,7 +165,7 @@
 									<visible>!Control.HasFocus(312)</visible>
 								</control>
 								<control type="image">
-									<texture border="40" colordiffuse="ffffffff">af3/common/menu.png</texture>
+									<texture border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texture>
 									<visible>Control.HasFocus(312)</visible>
 								</control>
 								<control type="edit" id="312">
@@ -180,7 +180,7 @@
 									<aligny>center</aligny>
 									<textcolor>af3_main_fg_70</textcolor>
 									<selectedcolor>af3_main_fg_70</selectedcolor>
-									<focusedcolor>ff272727</focusedcolor>
+									<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 									<disabledcolor>af3_main_fg_30</disabledcolor>
 									<pulseonselect>false</pulseonselect>
 									<scrollsuffix> </scrollsuffix>
@@ -238,7 +238,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>312</onup>
 											<ondown>120</ondown>
 											<width>80</width>
@@ -246,7 +246,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -256,7 +256,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>312</onup>
 											<ondown>121</ondown>
 											<width>80</width>
@@ -264,7 +264,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -274,7 +274,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>312</onup>
 											<ondown>122</ondown>
 											<width>80</width>
@@ -282,7 +282,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -292,7 +292,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>312</onup>
 											<ondown>123</ondown>
 											<width>80</width>
@@ -300,7 +300,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -310,7 +310,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>312</onup>
 											<ondown>124</ondown>
 											<width>80</width>
@@ -318,7 +318,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -328,7 +328,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>312</onup>
 											<ondown>125</ondown>
 											<width>80</width>
@@ -336,7 +336,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -346,7 +346,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>312</onup>
 											<ondown>126</ondown>
 											<width>80</width>
@@ -354,7 +354,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -364,7 +364,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>312</onup>
 											<ondown>127</ondown>
 											<width>80</width>
@@ -372,7 +372,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -382,7 +382,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>312</onup>
 											<ondown>128</ondown>
 											<width>80</width>
@@ -390,7 +390,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -400,7 +400,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>312</onup>
 											<ondown>129</ondown>
 											<width>80</width>
@@ -408,7 +408,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -418,7 +418,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>312</onup>
 											<ondown>130</ondown>
 											<width>80</width>
@@ -426,7 +426,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -436,7 +436,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>312</onup>
 											<ondown>131</ondown>
 											<width>80</width>
@@ -444,7 +444,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -466,7 +466,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>100</onup>
 											<ondown>140</ondown>
 											<width>80</width>
@@ -474,7 +474,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -484,7 +484,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>101</onup>
 											<ondown>141</ondown>
 											<width>80</width>
@@ -492,7 +492,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -502,7 +502,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>102</onup>
 											<ondown>142</ondown>
 											<width>80</width>
@@ -510,7 +510,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -520,7 +520,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>103</onup>
 											<ondown>143</ondown>
 											<width>80</width>
@@ -528,7 +528,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -538,7 +538,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>104</onup>
 											<ondown>144</ondown>
 											<width>80</width>
@@ -546,7 +546,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -556,7 +556,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>105</onup>
 											<ondown>145</ondown>
 											<width>80</width>
@@ -564,7 +564,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -574,7 +574,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>106</onup>
 											<ondown>146</ondown>
 											<width>80</width>
@@ -582,7 +582,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -592,7 +592,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>107</onup>
 											<ondown>147</ondown>
 											<width>80</width>
@@ -600,7 +600,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -610,7 +610,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>108</onup>
 											<ondown>148</ondown>
 											<width>80</width>
@@ -618,7 +618,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -628,7 +628,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>109</onup>
 											<ondown>149</ondown>
 											<width>80</width>
@@ -636,7 +636,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -646,7 +646,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>110</onup>
 											<ondown>150</ondown>
 											<width>80</width>
@@ -654,7 +654,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -664,7 +664,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>111</onup>
 											<ondown>151</ondown>
 											<width>80</width>
@@ -672,7 +672,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -694,7 +694,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>120</onup>
 											<ondown>160</ondown>
 											<width>80</width>
@@ -702,7 +702,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -712,7 +712,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>121</onup>
 											<ondown>161</ondown>
 											<width>80</width>
@@ -720,7 +720,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -730,7 +730,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>122</onup>
 											<ondown>162</ondown>
 											<width>80</width>
@@ -738,7 +738,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -748,7 +748,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>123</onup>
 											<ondown>163</ondown>
 											<width>80</width>
@@ -756,7 +756,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -766,7 +766,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>124</onup>
 											<ondown>164</ondown>
 											<width>80</width>
@@ -774,7 +774,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -784,7 +784,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>125</onup>
 											<ondown>165</ondown>
 											<width>80</width>
@@ -792,7 +792,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -802,7 +802,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>126</onup>
 											<ondown>166</ondown>
 											<width>80</width>
@@ -810,7 +810,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -820,7 +820,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>127</onup>
 											<ondown>167</ondown>
 											<width>80</width>
@@ -828,7 +828,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -838,7 +838,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>128</onup>
 											<ondown>168</ondown>
 											<width>80</width>
@@ -846,7 +846,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -856,7 +856,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>129</onup>
 											<ondown>169</ondown>
 											<width>80</width>
@@ -864,7 +864,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -874,7 +874,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>130</onup>
 											<ondown>170</ondown>
 											<width>80</width>
@@ -882,7 +882,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -892,7 +892,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>131</onup>
 											<ondown>171</ondown>
 											<width>80</width>
@@ -900,7 +900,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -922,7 +922,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>140</onup>
 											<ondown>300</ondown>
 											<width>80</width>
@@ -930,7 +930,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -940,7 +940,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>141</onup>
 											<ondown>301</ondown>
 											<width>80</width>
@@ -948,7 +948,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -958,7 +958,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>142</onup>
 											<ondown>302</ondown>
 											<width>80</width>
@@ -966,7 +966,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -976,7 +976,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>143</onup>
 											<ondown>303</ondown>
 											<width>80</width>
@@ -984,7 +984,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -994,7 +994,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>144</onup>
 											<ondown>304</ondown>
 											<width>80</width>
@@ -1002,7 +1002,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -1012,7 +1012,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>145</onup>
 											<ondown>307</ondown>
 											<width>80</width>
@@ -1020,7 +1020,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -1030,7 +1030,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>146</onup>
 											<ondown>32</ondown>
 											<width>80</width>
@@ -1038,7 +1038,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -1048,7 +1048,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>147</onup>
 											<ondown>32</ondown>
 											<width>80</width>
@@ -1056,7 +1056,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -1066,7 +1066,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>148</onup>
 											<ondown>32</ondown>
 											<width>80</width>
@@ -1074,7 +1074,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -1084,7 +1084,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>149</onup>
 											<ondown>8</ondown>
 											<width>80</width>
@@ -1092,7 +1092,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -1102,7 +1102,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>150</onup>
 											<ondown>305</ondown>
 											<width>80</width>
@@ -1110,7 +1110,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -1120,7 +1120,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<onup>151</onup>
 											<ondown>306</ondown>
 											<width>80</width>
@@ -1128,7 +1128,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -1150,7 +1150,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<font>af3_font_midi_iconic</font>
 											<label></label>
 											<onup>160</onup>
@@ -1158,7 +1158,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -1168,7 +1168,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<font>af3_font_midi_iconic</font>
 											<label></label>
 											<onup>161</onup>
@@ -1176,7 +1176,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -1190,7 +1190,7 @@
 											<textureradiooffdisabled colordiffuse="af3_dialog_fg_06">af3/buttons/check-off.png</textureradiooffdisabled>
 											<textureradioonnofocus colordiffuse="af3_dialog_fg_70">af3/buttons/check-on.png</textureradioonnofocus>
 											<textureradiooffnofocus colordiffuse="af3_dialog_fg_70">af3/buttons/check-off.png</textureradiooffnofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<font>af3_font_main_iconic</font>
 											<label></label>
 											<radiowidth>16</radiowidth>
@@ -1203,10 +1203,10 @@
 											<width>80</width>
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
-											<textureradioonfocus colordiffuse="ff272727">af3/buttons/check-on.png</textureradioonfocus>
-											<textureradioofffocus colordiffuse="ff272727">af3/buttons/check-off.png</textureradioofffocus>
+											<textureradioonfocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-on.png</textureradioonfocus>
+											<textureradioofffocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-off.png</textureradioofffocus>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
 										</control>
@@ -1219,7 +1219,7 @@
 											<textureradiooffdisabled colordiffuse="af3_dialog_fg_06">af3/buttons/check-off.png</textureradiooffdisabled>
 											<textureradioonnofocus colordiffuse="af3_dialog_fg_70">af3/buttons/check-on.png</textureradioonnofocus>
 											<textureradiooffnofocus colordiffuse="af3_dialog_fg_70">af3/buttons/check-off.png</textureradiooffnofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<font>af3_font_main_iconic</font>
 											<label></label>
 											<radiowidth>16</radiowidth>
@@ -1232,10 +1232,10 @@
 											<width>80</width>
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
-											<textureradioonfocus colordiffuse="ff272727">af3/buttons/check-on.png</textureradioonfocus>
-											<textureradioofffocus colordiffuse="ff272727">af3/buttons/check-off.png</textureradioofffocus>
+											<textureradioonfocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-on.png</textureradioonfocus>
+											<textureradioofffocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-off.png</textureradioofffocus>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
 										</control>
@@ -1248,7 +1248,7 @@
 											<textureradiooffdisabled colordiffuse="af3_dialog_fg_06">af3/buttons/check-off.png</textureradiooffdisabled>
 											<textureradioonnofocus colordiffuse="af3_dialog_fg_70">af3/buttons/check-on.png</textureradioonnofocus>
 											<textureradiooffnofocus colordiffuse="af3_dialog_fg_70">af3/buttons/check-off.png</textureradiooffnofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<font>af3_font_main_iconic</font>
 											<label></label>
 											<radiowidth>16</radiowidth>
@@ -1261,10 +1261,10 @@
 											<width>80</width>
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
-											<textureradioonfocus colordiffuse="ff272727">af3/buttons/check-on.png</textureradioonfocus>
-											<textureradioofffocus colordiffuse="ff272727">af3/buttons/check-off.png</textureradioofffocus>
+											<textureradioonfocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-on.png</textureradioonfocus>
+											<textureradioofffocus colordiffuse="$VAR[DhKodiOnFocus]">af3/buttons/check-off.png</textureradioofffocus>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
 										</control>
@@ -1273,7 +1273,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<font>af3_font_midi_iconic</font>
 											<label></label>
 											<onup>165</onup>
@@ -1281,7 +1281,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -1298,8 +1298,8 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
-											<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
+											<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -1309,7 +1309,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<font>af3_font_midi_iconic</font>
 											<label></label>
 											<onup>169</onup>
@@ -1317,7 +1317,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -1327,7 +1327,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<font>af3_font_midi_iconic</font>
 											<label></label>
 											<onup>170</onup>
@@ -1335,7 +1335,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -1345,7 +1345,7 @@
 											<selectedcolor>af3_dialog_fg_70</selectedcolor>
 											<disabledcolor>af3_dialog_fg_30</disabledcolor>
 											<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
-											<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+											<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
 											<font>af3_font_midi_iconic</font>
 											<label></label>
 											<onup>171</onup>
@@ -1353,7 +1353,7 @@
 											<textoffsetx>0</textoffsetx>
 											<align>center</align>
 											<aligny>center</aligny>
-											<focusedcolor>ff272727</focusedcolor>
+											<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 											<pulseonselect>false</pulseonselect>
 											<scrollsuffix> </scrollsuffix>
 											<scrollspeed>40</scrollspeed>
@@ -1402,8 +1402,8 @@
 							<texturenofocus colordiffuse="af3_dialog_fg_06" border="40">af3/common/menu.png</texturenofocus>
 							<description>None</description>
 							<aligny>center</aligny>
-							<focusedcolor>ff272727</focusedcolor>
-							<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+							<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
+							<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
 							<pulseonselect>false</pulseonselect>
 							<scrollsuffix> </scrollsuffix>
 							<scrollspeed>40</scrollspeed>
@@ -1424,7 +1424,7 @@
 								</control>
 								<control type="image">
 									<bordersize>-8</bordersize>
-									<texture colordiffuse="ff272727">af3/extras/icons/language.png</texture>
+									<texture colordiffuse="$VAR[DhKodiOnFocus]">af3/extras/icons/language.png</texture>
 									<visible>Control.HasFocus(309)</visible>
 								</control>
 							</control>
@@ -1449,7 +1449,7 @@
 										<aligny>center</aligny>
 										<align>left</align>
 										<font>af3_font_mini_bold</font>
-										<textcolor>ff272727</textcolor>
+										<textcolor>$VAR[DhKodiOnFocus]</textcolor>
 										<label>$INFO[Control.GetLabel(309)]</label>
 										<visible>Control.HasFocus(309)</visible>
 										<selectedcolor>af3_main_fg_70</selectedcolor>
@@ -1532,11 +1532,11 @@
 									<control type="group">
 										<animation effect="fade" start="100" end="0" condition="!Control.HasFocus(3)">Conditional</animation>
 										<control type="image" id="">
-											<texture border="40" colordiffuse="ffffffff">af3/common/menu.png</texture>
+											<texture border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texture>
 										</control>
 										<control type="label">
-											<textcolor>ff272727</textcolor>
-											<selectedcolor>ff272727</selectedcolor>
+											<textcolor>$VAR[DhKodiOnFocus]</textcolor>
+											<selectedcolor>$VAR[DhKodiOnFocus]</selectedcolor>
 											<left>30</left>
 											<right>30</right>
 											<label>$INFO[ListItem.Label]</label>

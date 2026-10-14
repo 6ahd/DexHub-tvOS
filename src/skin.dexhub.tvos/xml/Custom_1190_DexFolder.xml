@@ -8334,7 +8334,7 @@
 						<top>0</top>
 						<width>176</width>
 						<height>52</height>
-						<texture border="26" colordiffuse="FFFFFFFF">dexhub/pill.png</texture>
+						<texture border="26" colordiffuse="$VAR[DhKodiFocus]">dexhub/pill.png</texture>
 						<visible>Control.HasFocus(9500)</visible>
 					</control>
 					<control type="image">
@@ -8351,7 +8351,7 @@
 						<width>24</width>
 						<height>24</height>
 						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="FF101010">$INFO[ListItem.Icon]</texture>
+						<texture colordiffuse="$VAR[DhKodiOnFocus]">$INFO[ListItem.Icon]</texture>
 						<visible>Control.HasFocus(9500) + ![String.IsEqual(ListItem.Property(key),pause) + Player.Paused]</visible>
 					</control>
 					<control type="image">
@@ -8360,7 +8360,7 @@
 						<width>24</width>
 						<height>24</height>
 						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="FF101010">dexhub/np_play.png</texture>
+						<texture colordiffuse="$VAR[DhKodiOnFocus]">dexhub/np_play.png</texture>
 						<visible>Control.HasFocus(9500) + String.IsEqual(ListItem.Property(key),pause) + Player.Paused</visible>
 					</control>
 					<control type="label">
@@ -8369,7 +8369,7 @@
 						<width>128</width>
 						<height>52</height>
 						<font>dh_small_b</font>
-						<textcolor>FF101010</textcolor>
+						<textcolor>$VAR[DhKodiOnFocus]</textcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -8381,7 +8381,7 @@
 						<width>128</width>
 						<height>52</height>
 						<font>dh_small_b</font>
-						<textcolor>FF101010</textcolor>
+						<textcolor>$VAR[DhKodiOnFocus]</textcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$VAR[DhsS31815]</label>

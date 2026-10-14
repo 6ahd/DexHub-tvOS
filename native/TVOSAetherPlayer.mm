@@ -3,6 +3,7 @@
 
 #include "FileItem.h"
 #include "ServiceBroker.h"
+#include "Util.h"
 #include "cores/AudioEngine/Interfaces/AE.h"
 #include "cores/DataCacheCore.h"
 #include "cores/VideoPlayer/DVDSubtitles/SubtitlesAdapter.h"
@@ -61,6 +62,10 @@ struct Track
   std::string name, language, codec;
   int channels, samplerate, bits;
   bool external;
+  // v21.2: name, language and flags Kodi reads from the sidecar's file name,
+  // the same way VideoPlayer labels an external subtitle.
+  bool labelled{false};
+  ExternalStreamInfo label;
 };
 std::vector<Track> Tracks(NSArray* rows)
 {
@@ -72,6 +77,8 @@ std::vector<Track> Tracks(NSArray* rows)
                       [row[@"external"] boolValue]});
   return result;
 }
+std::atomic<unsigned int> g_redraw{1};
+void RequestRedraw() { g_redraw.fetch_add(1, std::memory_order_relaxed); }
 int TrackIndex(const std::vector<Track>& tracks, int id)
 {
   for (size_t index = 0; index < tracks.size(); ++index)
@@ -87,6 +94,7 @@ struct CTVOSAetherPlayer::State
   std::string token;
   std::string status{"loading"}, codec, hdr;
   std::vector<Track> audio, subtitles;
+  std::vector<std::string> externalPaths;
   int audioId{-1}, subtitleId{-1}, savedSubtitle{-1}, width{0}, height{0};
   int trackRevision{-1};
   double position{0}, duration{0}, sourceTime{0};
@@ -97,10 +105,27 @@ struct CTVOSAetherPlayer::State
   CSubtitlesAdapter text;
   OVERLAY::CRenderer overlays;
   std::shared_ptr<CDVDOverlay> overlay;
-  std::string lastText;
+  std::string lastText, polledText;
   bool renderReported{false};
   NSArray* __strong cues{nil};
 };
+
+unsigned int DexAetherRedrawRevision() { return g_redraw.load(std::memory_order_relaxed); }
+
+std::string CTVOSAetherPlayer::ActiveText(const State& state)
+{
+  std::string text;
+  if (!state.visible)
+    return text;
+  const double time = state.sourceTime + state.settings.m_SubtitleDelay;
+  for (NSDictionary* cue in state.cues)
+    if (time >= [cue[@"start"] doubleValue] && time < [cue[@"end"] doubleValue])
+    {
+      auto line = String(cue[@"text"]);
+      if (!line.empty()) { if (!text.empty()) text += "\n"; text += line; }
+    }
+  return text;
+}
 
 CTVOSAetherPlayer::CTVOSAetherPlayer(IPlayerCallback& callback)
   : IPlayer(callback), CThread("DexAetherPlayer"), m_state(std::make_unique<State>())
@@ -117,7 +142,9 @@ bool CTVOSAetherPlayer::OpenFile(const CFileItem& file, const CPlayerOptions& op
     m_state = std::make_unique<State>();
     auto& state = *m_state;
     state.file = file;
-    state.external = m_name == "Infuse" || m_name == "VidHub";
+    // v21.4: every external player core hands the video to its app
+    state.external = m_name == "Infuse" || m_name == "VidHub" || m_name == "SenPlayer" || m_name == "VLC" ||
+                     m_name == "Native Player" || m_name == "Outplayer" || m_name == "nPlayer";
     state.fullscreen = options.fullscreen;
     state.position = std::max(0.0, options.starttime);
     state.token = String([[NSUUID UUID] UUIDString]);
@@ -188,6 +215,8 @@ bool CTVOSAetherPlayer::OpenFile(const CFileItem& file, const CPlayerOptions& op
       if (![paths containsObject:path]) [paths addObject:path];
     }
     request[@"subtitles"] = paths;
+    for (NSString* path in paths)
+      state.externalPaths.push_back(String(path));
     const std::string engineName = m_name;
     dispatch_async(dispatch_get_main_queue(), ^{
       Class bridge = Bridge(engineName);
@@ -200,6 +229,18 @@ bool CTVOSAetherPlayer::OpenFile(const CFileItem& file, const CPlayerOptions& op
     m_playing = true;
     Create();
   }
+  // v21.1: the same order as VideoPlayer. Kodi and its Python add-ons hear
+  // "playback started" when the file opens and "AV started" when the first
+  // frame shows. v11 to v21 sent both together only once Aether drew its
+  // first frame, often seconds after the add-on that started playback had
+  // ended; Python's callback queue then ran a stale callback and the app was
+  // killed (EXC_BAD_ACCESS in RetardedAsyncCallbackHandler::makePendingCalls).
+  CFileItem started;
+  {
+    std::lock_guard lock(m_lock);
+    started = m_state->file;
+  }
+  m_callback.OnPlayBackStarted(started);
   return true;
 }
 
@@ -266,15 +307,33 @@ void CTVOSAetherPlayer::Process()
           state.audio = Tracks(snapshot[@"audio"]);
           state.subtitles = Tracks(snapshot[@"subtitles"]);
           state.trackRevision = revision;
+          size_t sidecar = 0;
+          for (auto& track : state.subtitles)
+            if (track.external && sidecar < state.externalPaths.size())
+            {
+              track.label = CUtil::GetExternalStreamDetailsFromFilename(
+                  state.file.GetDynPath(), state.externalPaths[sidecar++]);
+              track.labelled = true;
+            }
         }
         state.audioId = snapshot[@"audioId"] ? [snapshot[@"audioId"] intValue] : -1;
         state.subtitleId = snapshot[@"subtitleId"] ? [snapshot[@"subtitleId"] intValue] : -1;
-        state.width = [snapshot[@"width"] intValue];
-        state.height = [snapshot[@"height"] intValue];
+        const int width = [snapshot[@"width"] intValue];
+        const int height = [snapshot[@"height"] intValue];
+        if (width != state.width || height != state.height)
+          RequestRedraw();
+        state.width = width;
+        state.height = height;
         state.fps = [snapshot[@"fps"] floatValue];
         state.codec = String(snapshot[@"codec"]);
         state.hdr = String(snapshot[@"hdr"]);
         state.cues = snapshot[@"cues"];
+        std::string text = ActiveText(state);
+        if (text != state.polledText)
+        {
+          state.polledText = std::move(text);
+          RequestRedraw();
+        }
         auto& cache = CDataCacheCore::GetInstance();
         cache.SetVideoRender(!state.external);
         cache.SetPlayTimes(0, state.position * 1000, 0, state.duration * 1000);
@@ -291,6 +350,7 @@ void CTVOSAetherPlayer::Process()
                     [snapshot[@"surfaceWidth"] doubleValue], [snapshot[@"surfaceHeight"] doubleValue],
                     [snapshot[@"surfaceLayers"] intValue]);
           start = state.started = true;
+          RequestRedraw();
         }
         ended = state.status == "ended";
         failed = state.status == "error";
@@ -302,7 +362,6 @@ void CTVOSAetherPlayer::Process()
     }
     if (start)
     {
-      m_callback.OnPlayBackStarted(m_state->file);
       m_callback.OnAVStarted(m_state->file);
       m_callback.RequestVideoSettings(m_state->file);
       if (!m_state->external && m_state->fullscreen)
@@ -319,7 +378,17 @@ void CTVOSAetherPlayer::Process()
       CLog::Log(LOGERROR, "Aether startup timed out");
       break;
     }
-    Sleep(std::chrono::milliseconds(100));
+    // v21: 10 Hz while starting or while subtitles are on screen (cue timing),
+    // 4 Hz otherwise. Kodi's seek bar and clock only change once a second.
+    int wait = 100;
+    {
+      std::lock_guard lock(m_lock);
+      const auto& state = *m_state;
+      const bool subtitles = state.visible && state.subtitleId >= 0 && state.cues.count > 0;
+      if (state.started && !subtitles && (state.status == "playing" || state.status == "paused"))
+        wait = 250;
+    }
+    Sleep(std::chrono::milliseconds(wait));
   }
   CBookmark bookmark;
   {
@@ -396,7 +465,7 @@ void CTVOSAetherPlayer::SetAVDelay(float delay)
 { { std::lock_guard lock(m_lock); m_state->settings.m_AudioDelay = delay; } Command("audioDelay", delay); }
 float CTVOSAetherPlayer::GetAVDelay() { std::lock_guard lock(m_lock); return m_state->settings.m_AudioDelay; }
 void CTVOSAetherPlayer::SetSubTitleDelay(float delay)
-{ { std::lock_guard lock(m_lock); m_state->settings.m_SubtitleDelay = delay; } Command("subtitleDelay", delay); }
+{ { std::lock_guard lock(m_lock); m_state->settings.m_SubtitleDelay = delay; } Command("subtitleDelay", delay); RequestRedraw(); }
 float CTVOSAetherPlayer::GetSubTitleDelay() { std::lock_guard lock(m_lock); return m_state->settings.m_SubtitleDelay; }
 int CTVOSAetherPlayer::GetSubtitleCount() const { std::lock_guard lock(m_lock); return m_state->subtitles.size(); }
 int CTVOSAetherPlayer::GetSubtitle() { std::lock_guard lock(m_lock); return TrackIndex(m_state->subtitles, m_state->subtitleId); }
@@ -407,6 +476,13 @@ void CTVOSAetherPlayer::GetSubtitleStreamInfo(int index, SubtitleStreamInfo& inf
   const auto& track = m_state->subtitles[index];
   info.valid = true; info.name = track.name; info.codecName = track.codec;
   info.language = KODI::UTILS::CLanguageTag::Parse(track.language); info.isExternal = track.external;
+  if (track.labelled)
+  {
+    info.name = track.label.name;
+    if (!track.label.language.IsEmpty())
+      info.language = track.label.language;
+    info.flags = static_cast<StreamFlags>(track.label.flag);
+  }
 }
 void CTVOSAetherPlayer::SetSubtitle(int index)
 {
@@ -417,6 +493,7 @@ void CTVOSAetherPlayer::SetSubtitle(int index)
     m_state->settings.m_SubtitleStream = index; m_state->settings.m_SubtitleOn = true;
   }
   Command("subtitle", id);
+  RequestRedraw();
 }
 bool CTVOSAetherPlayer::GetSubtitleVisible() const { std::lock_guard lock(m_lock); return m_state->visible && m_state->subtitleId >= 0; }
 void CTVOSAetherPlayer::SetSubtitleVisible(bool visible)
@@ -428,9 +505,14 @@ void CTVOSAetherPlayer::SetSubtitleVisible(bool visible)
     if (visible) id = m_state->savedSubtitle >= 0 ? m_state->savedSubtitle : (m_state->subtitles.empty() ? -1 : m_state->subtitles.front().id);
   }
   Command("subtitle", id);
+  RequestRedraw();
 }
 void CTVOSAetherPlayer::AddSubtitle(const std::string& path)
-{ Command("addSubtitle", 0, CSpecialProtocol::TranslatePath(path)); }
+{
+  const std::string translated = CSpecialProtocol::TranslatePath(path);
+  { std::lock_guard lock(m_lock); m_state->externalPaths.push_back(translated); }
+  Command("addSubtitle", 0, translated);
+}
 int CTVOSAetherPlayer::GetAudioStreamCount() const { std::lock_guard lock(m_lock); return m_state->audio.size(); }
 int CTVOSAetherPlayer::GetAudioStream() { std::lock_guard lock(m_lock); return TrackIndex(m_state->audio, m_state->audioId); }
 void CTVOSAetherPlayer::GetAudioStreamInfo(int index, AudioStreamInfo& info) const
@@ -525,17 +607,7 @@ void CTVOSAetherPlayer::Render(bool clear, uint32_t alpha, bool gui)
       const std::string engineName = m_name;
       dispatch_async(dispatch_get_main_queue(), ^{ [Bridge(engineName, false) command:request]; });
     }
-    std::string text;
-    if (state.visible)
-      for (NSDictionary* cue in state.cues)
-      {
-        double time = state.sourceTime + state.settings.m_SubtitleDelay;
-        if (time >= [cue[@"start"] doubleValue] && time < [cue[@"end"] doubleValue])
-        {
-          auto line = String(cue[@"text"]);
-          if (!line.empty()) { if (!text.empty()) text += "\n"; text += line; }
-        }
-      }
+    const std::string text = ActiveText(state);
     if (text != state.lastText)
     {
       state.text.FlushSubtitles();

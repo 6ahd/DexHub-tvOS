@@ -18,7 +18,7 @@
 			<textoffsetx>30</textoffsetx>
 			<textcolor>af3_main_fg_70</textcolor>
 			<selectedcolor>af3_main_fg_70</selectedcolor>
-			<focusedcolor>ff272727</focusedcolor>
+			<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 			<disabledcolor>af3_main_fg_30</disabledcolor>
 			<pulseonselect>false</pulseonselect>
 			<scrollsuffix> </scrollsuffix>
@@ -38,7 +38,7 @@
 			<textoffsetx>30</textoffsetx>
 			<textcolor>af3_main_fg_70</textcolor>
 			<selectedcolor>af3_main_fg_70</selectedcolor>
-			<focusedcolor>ff272727</focusedcolor>
+			<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 			<disabledcolor>af3_main_fg_30</disabledcolor>
 			<pulseonselect>false</pulseonselect>
 			<scrollsuffix> </scrollsuffix>
@@ -58,7 +58,7 @@
 			<textoffsetx>30</textoffsetx>
 			<textcolor>af3_main_fg_70</textcolor>
 			<selectedcolor>af3_main_fg_70</selectedcolor>
-			<focusedcolor>ff272727</focusedcolor>
+			<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
 			<disabledcolor>af3_main_fg_30</disabledcolor>
 			<pulseonselect>false</pulseonselect>
 			<scrollsuffix> </scrollsuffix>

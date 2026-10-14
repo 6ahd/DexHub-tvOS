@@ -14,17 +14,43 @@
 			<control type="image">
 				<bottom>0</bottom>
 				<height>256</height>
-				<texture colordiffuse="af3_panel_bg_70" border="4,0,4,0">af3/common/gradient-v.png</texture>
+				<texture colordiffuse="$VAR[DhOsdBg]" border="4,0,4,0">af3/common/gradient-v.png</texture>
 				<animation effect="fade" start="0" end="100" time="300">VisibleChange</animation>
 				<visible>Window.IsActive(DialogSeekBar.xml) | Window.IsVisible(1152)</visible>
 			</control>
 			<control type="image">
 				<bottom>0</bottom>
 				<height>768</height>
-				<texture colordiffuse="af3_panel_bg_70" border="4,0,4,0">af3/common/gradient-v.png</texture>
+				<texture colordiffuse="$VAR[DhOsdBg]" border="4,0,4,0">af3/common/gradient-v.png</texture>
+				<visible>![String.IsEqual(Window(Home).Property(dhs.osd.style),glass) | String.IsEqual(Window(Home).Property(dhs.osd.style),minimal)]</visible>
 				<animation effect="fade" start="0" end="100" time="300">VisibleChange</animation>
 				<visible>Window.IsActive(DialogSeekBar.xml) | Window.IsVisible(1152)</visible>
 				<visible>Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsActive(1140) | Window.IsActive(1141) | Window.IsActive(1142) | Window.IsActive(1143) | Window.IsActive(1144) | Window.IsActive(1145) | Window.IsActive(1146) | Window.IsActive(1147) | Window.IsActive(1148) | Window.IsActive(1149) | Window.IsActive(1159) | Window.IsVisible(videobookmarks) | Window.IsVisible(pvrosdguide) | Window.IsVisible(pvrosdchannels) | Window.IsVisible(1152) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml)</visible>
+			</control>
+			<!-- v5.10.298: the glass style's panel and the cinematic style's top shade -->
+			<control type="image">
+				<left>48</left>
+				<right>48</right>
+				<bottom>28</bottom>
+				<height>300</height>
+				<texture colordiffuse="$VAR[DhOsdGlass]" border="40">af3/common/dialog.png</texture>
+				<animation effect="fade" start="0" end="100" time="300">VisibleChange</animation>
+				<visible>String.IsEqual(Window(Home).Property(dhs.osd.style),glass) + [Window.IsActive(videoosd) | Window.IsActive(musicosd)]</visible>
+			</control>
+			<control type="image">
+				<left>48</left>
+				<right>48</right>
+				<bottom>28</bottom>
+				<height>300</height>
+				<texture colordiffuse="1FFFFFFF" border="40">af3/common/dialog-outline.png</texture>
+				<visible>String.IsEqual(Window(Home).Property(dhs.osd.style),glass) + [Window.IsActive(videoosd) | Window.IsActive(musicosd)]</visible>
+			</control>
+			<control type="image">
+				<top>0</top>
+				<height>320</height>
+				<texture colordiffuse="$VAR[DhOsdBg]" border="4,0,4,0" flipy="true">af3/common/gradient-v.png</texture>
+				<animation effect="fade" start="0" end="100" time="300">VisibleChange</animation>
+				<visible>String.IsEqual(Window(Home).Property(dhs.osd.style),cinematic) + [Window.IsActive(videoosd) | Window.IsActive(musicosd) | Player.Paused]</visible>
 			</control>
 			<!-- 3.28.37 (issue #18): the badges come after the two dark gradients, which were drawn over them and dimmed them -->
 			<include condition="String.IsEqual(Skin.String(DexHub.BadgesPlace),info)">af3_dyn_1</include>
@@ -112,7 +138,7 @@
 									<visible>Player.HasMedia + !Pvr.IsPlayingTv</visible>
 									<texturebg colordiffuse="00ffffff" border="12,0,12,0">af3/progress/progress-nib.png</texturebg>
 									<lefttexture />
-									<midtexture colordiffuse="ffffffff" border="12,0,12,0">af3/progress/progress-nib.png</midtexture>
+									<midtexture colordiffuse="$VAR[DhOsdBar]" border="12,0,12,0">af3/progress/progress-nib.png</midtexture>
 									<righttexture />
 									<overlaytexture />
 								</control>
@@ -123,7 +149,7 @@
 									<visible>Pvr.IsPlayingTv</visible>
 									<texturebg colordiffuse="00ffffff" border="12,0,12,0">af3/progress/progress-nib.png</texturebg>
 									<lefttexture />
-									<midtexture colordiffuse="ffffffff" border="12,0,12,0">af3/progress/progress-nib.png</midtexture>
+									<midtexture colordiffuse="$VAR[DhOsdBar]" border="12,0,12,0">af3/progress/progress-nib.png</midtexture>
 									<righttexture />
 									<overlaytexture />
 								</control>
@@ -150,7 +176,7 @@
 									<height>112</height>
 									<centertop>50%</centertop>
 									<texturebg colordiffuse="00ffffff">af3/progress/slider_bg.png</texturebg>
-									<righttexture colordiffuse="af3_panel_fg_100">af3/progress/slider_nib.png</righttexture>
+									<righttexture colordiffuse="$VAR[DhOsdAccent]">af3/progress/slider_nib.png</righttexture>
 									<lefttexture />
 									<midtexture />
 									<visible>Player.SeekEnabled + !Pvr.IsPlayingTv + !Player.ChannelPreviewActive</visible>
@@ -167,7 +193,7 @@
 									<centertop>50%</centertop>
 									<info>Player.Progress</info>
 									<texturebg colordiffuse="00ffffff">af3/progress/slider_bg.png</texturebg>
-									<righttexture colordiffuse="af3_panel_fg_100">af3/progress/slider_nib.png</righttexture>
+									<righttexture colordiffuse="$VAR[DhOsdAccent]">af3/progress/slider_nib.png</righttexture>
 									<lefttexture />
 									<midtexture />
 									<visible>Player.SeekEnabled + Pvr.IsPlayingTv + !Player.ChannelPreviewActive</visible>
