@@ -50,7 +50,8 @@
 				<height>320</height>
 				<texture colordiffuse="$VAR[DhOsdBg]" border="4,0,4,0" flipy="true">af3/common/gradient-v.png</texture>
 				<animation effect="fade" start="0" end="100" time="300">VisibleChange</animation>
-				<visible>String.IsEqual(Window(Home).Property(dhs.osd.style),cinematic) + [Window.IsActive(videoosd) | Window.IsActive(musicosd) | Player.Paused]</visible>
+				<!-- v5.10.302: above the bar too when chosen (dhs.osd.top 1), always in the cinematic style -->
+				<visible>[String.IsEqual(Window(Home).Property(dhs.osd.top),1) | [String.IsEmpty(Window(Home).Property(dhs.osd.top)) + String.IsEqual(Window(Home).Property(dhs.osd.style),cinematic)]] + [Window.IsActive(videoosd) | Window.IsActive(musicosd) | Player.Paused]</visible>
 			</control>
 			<!-- 3.28.37 (issue #18): the badges come after the two dark gradients, which were drawn over them and dimmed them -->
 			<include condition="String.IsEqual(Skin.String(DexHub.BadgesPlace),info)">af3_dyn_1</include>
@@ -75,12 +76,12 @@
 							<height>12</height>
 							<left>80</left>
 							<right>80</right>
-							<centerbottom>182</centerbottom>
+							<centerbottom>146</centerbottom>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$VAR[AF3_Label_OSD_Time]</label>
-							<textcolor>af3_panel_fg_100</textcolor>
-							<font>af3_font_main</font>
+							<textcolor>af3_panel_fg_90</textcolor>
+							<font>af3_font_mini_bold</font>
 							<selectedcolor>af3_main_fg_70</selectedcolor>
 							<scrollsuffix> </scrollsuffix>
 							<scrollspeed>40</scrollspeed>
@@ -90,20 +91,20 @@
 							<height>12</height>
 							<left>80</left>
 							<right>80</right>
-							<centerbottom>182</centerbottom>
+							<centerbottom>146</centerbottom>
 							<align>right</align>
 							<aligny>center</aligny>
 							<label>$VAR[AF3_Label_OSD_Duration]</label>
-							<textcolor>af3_panel_fg_100</textcolor>
-							<font>af3_font_main</font>
+							<textcolor>af3_panel_fg_70</textcolor>
+							<font>af3_font_mini</font>
 							<selectedcolor>af3_main_fg_70</selectedcolor>
 							<scrollsuffix> </scrollsuffix>
 							<scrollspeed>40</scrollspeed>
 							<disabledcolor>60FFFFFF</disabledcolor>
 						</control>
 						<control type="group">
-							<left>240</left>
-							<right>240</right>
+							<left>80</left>
+							<right>80</right>
 							<bottom>120</bottom>
 							<height>80</height>
 							<control type="group">
@@ -112,8 +113,8 @@
 								<control type="group">
 									<height>12</height>
 									<control type="image">
-										<texture colordiffuse="af3_main_back">af3/common/white.png</texture>
-										<height>1</height>
+										<texture colordiffuse="33FFFFFF" border="12,0,12,0">af3/progress/progress-nib.png</texture>
+										<height>8</height>
 										<centertop>50%</centertop>
 									</control>
 									<control type="progress" description="cache">
@@ -122,7 +123,7 @@
 										<centertop>50%</centertop>
 										<info>Player.ProgressCache</info>
 										<texturebg colordiffuse="00ffffff" border="12,0,12,0">af3/progress/progress-nib.png</texturebg>
-										<midtexture colordiffuse="af3_main_back" border="12,0,12,0">af3/progress/progress-nib.png</midtexture>
+										<midtexture colordiffuse="59FFFFFF" border="12,0,12,0">af3/progress/progress-nib.png</midtexture>
 										<visible>Player.Playing | Player.Paused | Player.Caching</visible>
 										<visible>!Player.Seeking</visible>
 										<visible>Player.HasMedia</visible>
@@ -133,7 +134,8 @@
 								</control>
 								<control type="progress" id="499">
 									<width>100%</width>
-									<height>12</height>
+									<height>8</height>
+									<centertop>50%</centertop>
 									<info>Player.Progress</info>
 									<visible>Player.HasMedia + !Pvr.IsPlayingTv</visible>
 									<texturebg colordiffuse="00ffffff" border="12,0,12,0">af3/progress/progress-nib.png</texturebg>
@@ -144,7 +146,8 @@
 								</control>
 								<control type="progress" id="498">
 									<width>100%</width>
-									<height>12</height>
+									<height>8</height>
+									<centertop>50%</centertop>
 									<info>PVR.EpgEventProgress</info>
 									<visible>Pvr.IsPlayingTv</visible>
 									<texturebg colordiffuse="00ffffff" border="12,0,12,0">af3/progress/progress-nib.png</texturebg>
@@ -221,7 +224,7 @@
 										<texture colordiffuse="af3_main_fg_12" flipx="true">af3/common/gradient-box.png</texture>
 									</control>
 									<control type="label">
-										<label>$VAR[AF3_Label_OSD_Header]</label>
+										<label>$VAR[DhOsdHeader]</label>
 										<align>left</align>
 										<aligny>center</aligny>
 										<textcolor>af3_panel_fg_90</textcolor>
@@ -238,7 +241,7 @@
 							</control>
 							<control type="label">
 								<visible>$EXP[DhOSDBadgesOn]</visible>
-								<label>$VAR[AF3_Label_OSD_Header]</label>
+								<label>$VAR[DhOsdHeader]</label>
 								<font>af3_font_midi_bold</font>
 								<textcolor>af3_panel_fg_90</textcolor>
 								<height>40</height>

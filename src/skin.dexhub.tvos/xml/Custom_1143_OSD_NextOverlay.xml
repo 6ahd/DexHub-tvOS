@@ -136,13 +136,13 @@
 					<control type="button" id="6003">
 						<height>80</height>
 						<width>80</width>
-						<texturefocus colordiffuse="ffffffff">af3/common/circle.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
 						<texturenofocus colordiffuse="00ffffff">af3/common/circle.png</texturenofocus>
 						<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
 						<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
 						<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
 						<textcolor>af3_panel_fg_70</textcolor>
-						<focusedcolor>ff272727</focusedcolor>
+						<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
 						<font>af3_font_hint</font>
 						<align>center</align>
 						<aligny>top</aligny>
@@ -166,17 +166,17 @@
 						<control type="group">
 							<left>-80</left>
 							<control type="image">
-								<bordersize>12</bordersize>
+								<bordersize>16</bordersize>
 								<height>80</height>
 								<width>80</width>
 								<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[AF3_Image_OSD_SkipNext]</texture>
 								<visible>!Control.HasFocus(6003)</visible>
 							</control>
 							<control type="image">
-								<bordersize>12</bordersize>
+								<bordersize>16</bordersize>
 								<height>80</height>
 								<width>80</width>
-								<texture colordiffuse="ff272727" flipx="false">$VAR[AF3_Image_OSD_SkipNext]</texture>
+								<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[AF3_Image_OSD_SkipNext]</texture>
 								<visible>Control.HasFocus(6003)</visible>
 							</control>
 						</control>

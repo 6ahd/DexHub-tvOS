@@ -38,8 +38,8 @@
 						<control type="button" id="6001">
 							<height>80</height>
 							<width>80</width>
-							<texturefocus colordiffuse="$VAR[DhOsdAccent]">af3/common/circle.png</texturefocus>
-							<texturenofocus colordiffuse="00ffffff">af3/common/circle.png</texturenofocus>
+							<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
+							<texturenofocus colordiffuse="$VAR[DhOsdBtnBg]">$VAR[DhOsdNoFocusTex]</texturenofocus>
 							<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
 							<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
 							<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
@@ -67,14 +67,14 @@
 							<control type="group">
 								<left>-80</left>
 								<control type="image">
-									<bordersize>12</bordersize>
+									<bordersize>16</bordersize>
 									<height>80</height>
 									<width>80</width>
 									<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[AF3_Image_OSD_PlayPause]</texture>
 									<visible>!Control.HasFocus(6001)</visible>
 								</control>
 								<control type="image">
-									<bordersize>12</bordersize>
+									<bordersize>16</bordersize>
 									<height>80</height>
 									<width>80</width>
 									<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[AF3_Image_OSD_PlayPause]</texture>
@@ -86,8 +86,8 @@
 							<onlongclick condition="System.Platform.TVOS">Action(SwitchPlayer)</onlongclick>
 							<height>80</height>
 							<width>80</width>
-							<texturefocus colordiffuse="$VAR[DhOsdAccent]">af3/common/circle.png</texturefocus>
-							<texturenofocus colordiffuse="00ffffff">af3/common/circle.png</texturenofocus>
+							<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
+							<texturenofocus colordiffuse="$VAR[DhOsdBtnBg]">$VAR[DhOsdNoFocusTex]</texturenofocus>
 							<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
 							<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
 							<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
@@ -114,8 +114,8 @@
 						<control type="button" id="6003">
 							<height>80</height>
 							<width>80</width>
-							<texturefocus colordiffuse="$VAR[DhOsdAccent]">af3/common/circle.png</texturefocus>
-							<texturenofocus colordiffuse="00ffffff">af3/common/circle.png</texturenofocus>
+							<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
+							<texturenofocus colordiffuse="$VAR[DhOsdBtnBg]">$VAR[DhOsdNoFocusTex]</texturenofocus>
 							<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
 							<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
 							<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
@@ -142,8 +142,8 @@
 						<control type="button" id="6004">
 							<height>80</height>
 							<width>80</width>
-							<texturefocus colordiffuse="$VAR[DhOsdAccent]">af3/common/circle.png</texturefocus>
-							<texturenofocus colordiffuse="00ffffff">af3/common/circle.png</texturenofocus>
+							<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
+							<texturenofocus colordiffuse="$VAR[DhOsdBtnBg]">$VAR[DhOsdNoFocusTex]</texturenofocus>
 							<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
 							<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
 							<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
@@ -170,14 +170,14 @@
 							<control type="group">
 								<left>-80</left>
 								<control type="image">
-									<bordersize>12</bordersize>
+									<bordersize>16</bordersize>
 									<height>80</height>
 									<width>80</width>
 									<texture colordiffuse="af3_panel_fg_70" flipx="false">af3/extras/icons/stop.png</texture>
 									<visible>!Control.HasFocus(6004)</visible>
 								</control>
 								<control type="image">
-									<bordersize>12</bordersize>
+									<bordersize>16</bordersize>
 									<height>80</height>
 									<width>80</width>
 									<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">af3/extras/icons/stop.png</texture>
@@ -205,8 +205,8 @@
 				</control>
 			</control>
 			<control type="group">
-				<left>240</left>
-				<right>240</right>
+				<left>80</left>
+				<right>80</right>
 				<height>112</height>
 				<centerbottom>180</centerbottom>
 				<control type="group">

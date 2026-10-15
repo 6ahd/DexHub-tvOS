@@ -113,11 +113,11 @@
 						<left>20</left>
 						<right>20</right>
 						<control type="image">
-							<texture border="40" colordiffuse="ffffffff">af3/common/menu.png</texture>
+							<texture border="40" colordiffuse="$VAR[DhOsdAccent]">af3/common/menu.png</texture>
 						</control>
 						<include content="DhSourceRow">
-							<param name="fg">ff272727</param>
-							<param name="dim">aa272727</param>
+							<param name="fg">$VAR[DhOsdOnFill]</param>
+							<param name="dim">$VAR[DhOsdOnFill]</param>
 						</include>
 					</control>
 				</focusedlayout>
@@ -134,7 +134,7 @@
 				<showonepage>false</showonepage>
 				<texturesliderbackground/>
 				<texturesliderbar colordiffuse="af3_dialog_fg_70" border="4">af3/scrollbar/scrollv_line.png</texturesliderbar>
-				<texturesliderbarfocus border="4" colordiffuse="ffffffff">af3/common/scrollv.png</texturesliderbarfocus>
+				<texturesliderbarfocus border="4" colordiffuse="$VAR[DhOsdAccent]">af3/common/scrollv.png</texturesliderbarfocus>
 				<textureslidernib/>
 				<textureslidernibfocus/>
 				<orientation>vertical</orientation>

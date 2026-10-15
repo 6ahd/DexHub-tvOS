@@ -47,7 +47,7 @@ xcrun swift-stdlib-tool --copy --platform appletvos \
   --scan-folder "$APP/Frameworks" --destination "$APP/Frameworks"
 bash "$BASE/normalize_frameworks.sh" "$APP"
 
-OUT="$HOME/Downloads/Kodi-DexHub-AetherOnly-v21.7-TEST-unsigned-$(date +%Y%m%d-%H%M%S).ipa"
+OUT="$HOME/Downloads/Kodi-DexHub-AetherOnly-v21.13-TEST-unsigned-$(date +%Y%m%d-%H%M%S).ipa"
 ditto -c -k --keepParent "$STAGE/Payload" "$OUT"
 unzip -t "$OUT" >/dev/null
 for ASSET in "$BASE"/assets/*.zip; do

@@ -995,17 +995,17 @@
 			<control type="group">
 				<left>-80</left>
 				<control type="image">
-					<bordersize>12</bordersize>
+					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
 					<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[AF3_Image_OSD_SkipPrev]</texture>
 					<visible>!Control.HasFocus(6002)</visible>
 				</control>
 				<control type="image">
-					<bordersize>12</bordersize>
+					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="ff272727" flipx="false">$VAR[AF3_Image_OSD_SkipPrev]</texture>
+					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[AF3_Image_OSD_SkipPrev]</texture>
 					<visible>Control.HasFocus(6002)</visible>
 				</control>
 			</control>
@@ -1019,17 +1019,17 @@
 			<control type="group">
 				<left>-80</left>
 				<control type="image">
-					<bordersize>12</bordersize>
+					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
 					<texture colordiffuse="af3_panel_fg_70" flipx="false">af3/extras/icons/list.png</texture>
 					<visible>!Control.HasFocus(6002)</visible>
 				</control>
 				<control type="image">
-					<bordersize>12</bordersize>
+					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="ff272727" flipx="false">af3/extras/icons/list.png</texture>
+					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">af3/extras/icons/list.png</texture>
 					<visible>Control.HasFocus(6002)</visible>
 				</control>
 			</control>
@@ -1043,17 +1043,17 @@
 			<control type="group">
 				<left>-80</left>
 				<control type="image">
-					<bordersize>12</bordersize>
+					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
 					<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[AF3_Image_OSD_SkipNext]</texture>
 					<visible>!Control.HasFocus(6003)</visible>
 				</control>
 				<control type="image">
-					<bordersize>12</bordersize>
+					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="ff272727" flipx="false">$VAR[AF3_Image_OSD_SkipNext]</texture>
+					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[AF3_Image_OSD_SkipNext]</texture>
 					<visible>Control.HasFocus(6003)</visible>
 				</control>
 			</control>
@@ -1068,17 +1068,17 @@
 				<animation effect="slide" start="0" end="0,-8" condition="PVR.IsRecordingPlayingChannel + PVR.CanRecordPlayingChannel">Conditional</animation>
 				<left>-80</left>
 				<control type="image">
-					<bordersize>12</bordersize>
+					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
 					<texture colordiffuse="af3_panel_fg_70" flipx="false">af3/extras/icons/record-vinyl.png</texture>
 					<visible>!Control.HasFocus(6003)</visible>
 				</control>
 				<control type="image">
-					<bordersize>12</bordersize>
+					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="ff272727" flipx="false">af3/extras/icons/record-vinyl.png</texture>
+					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">af3/extras/icons/record-vinyl.png</texture>
 					<visible>Control.HasFocus(6003)</visible>
 				</control>
 			</control>

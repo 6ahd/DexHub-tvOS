@@ -377,13 +377,13 @@
 									<left>20</left>
 									<right>20</right>
 									<control type="image" id="">
-										<texture border="40" colordiffuse="ffffffff">af3/common/menu.png</texture>
+										<texture border="40" colordiffuse="$VAR[DhOsdAccent]">af3/common/menu.png</texture>
 									</control>
 									<control type="group">
 										<left>40</left>
 										<right>20</right>
 										<control type="label">
-											<textcolor>ff272727</textcolor>
+											<textcolor>$VAR[DhOsdOnFill]</textcolor>
 											<label>$VAR[AF3_Label_StreamLanguage,[UPPERCASE],[/UPPERCASE]]$INFO[ListItem.Label2, | ,]</label>
 											<width/>
 											<align>left</align>
@@ -400,7 +400,7 @@
 											<label>$VAR[AF3_Label_PlayerStream_IsForced,  ,]$VAR[AF3_Label_PlayerStream_IsDefault,  ,]$VAR[AF3_Label_PlayerStream_IsOriginal,  ,]$INFO[ListItem.Property(codec),  ,]$INFO[ListItem.Property(channels),  , $LOCALIZE[10127]]$INFO[ListItem.Property(bitrate),  , bps]</label>
 											<bottom>2</bottom>
 											<font>af3_font_tiny_bold</font>
-											<textcolor>ff272727</textcolor>
+											<textcolor>$VAR[DhOsdOnFill]</textcolor>
 											<aligny>center</aligny>
 											<selectedcolor>af3_main_fg_70</selectedcolor>
 											<scrollsuffix> </scrollsuffix>
@@ -414,7 +414,7 @@
 											<width>80</width>
 											<bordersize>22</bordersize>
 											<aspectratio align="right">keep</aspectratio>
-											<texture colordiffuse="ff272727">af3/flags/cc.png</texture>
+											<texture colordiffuse="$VAR[DhOsdOnFill]">af3/flags/cc.png</texture>
 											<animation effect="fade" end="33" condition="String.IsEmpty(ListItem.Property(isimpaired))">Conditional</animation>
 										</control>
 										<control type="image">
@@ -422,7 +422,7 @@
 											<width>80</width>
 											<bordersize>28</bordersize>
 											<aspectratio align="right">keep</aspectratio>
-											<texture colordiffuse="ff272727">$VAR[AF3_Image_IsCurrentStream]</texture>
+											<texture colordiffuse="$VAR[DhOsdOnFill]">$VAR[AF3_Image_IsCurrentStream]</texture>
 											<visible>VideoPlayer.SubtitlesEnabled</visible>
 										</control>
 										<control type="image">
@@ -430,7 +430,7 @@
 											<width>80</width>
 											<bordersize>28</bordersize>
 											<aspectratio align="right">keep</aspectratio>
-											<texture colordiffuse="ff272727">af3/buttons/check-off.png</texture>
+											<texture colordiffuse="$VAR[DhOsdOnFill]">af3/buttons/check-off.png</texture>
 											<visible>!VideoPlayer.SubtitlesEnabled</visible>
 										</control>
 										<control type="image">
@@ -458,7 +458,7 @@
 						<showonepage>false</showonepage>
 						<texturesliderbackground/>
 						<texturesliderbar colordiffuse="af3_dialog_fg_70" border="4">af3/scrollbar/scrollv_line.png</texturesliderbar>
-						<texturesliderbarfocus border="4" colordiffuse="ffffffff">af3/common/scrollv.png</texturesliderbarfocus>
+						<texturesliderbarfocus border="4" colordiffuse="$VAR[DhOsdAccent]">af3/common/scrollv.png</texturesliderbarfocus>
 						<textureslidernib/>
 						<textureslidernibfocus/>
 						<orientation>vertical</orientation>

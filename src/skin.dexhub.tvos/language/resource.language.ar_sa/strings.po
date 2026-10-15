@@ -2058,3 +2058,14 @@ msgctxt "#32155"
 msgid "Motion and trailers"
 msgstr "الحركة والتريلرات"
 
+msgctxt "#32156"
+msgid "No chapters or bookmarks in this video"
+msgstr "ما فيه فصول ولا علامات في هذا الفيديو"
+
+msgctxt "#32157"
+msgid "Add a bookmark with the button above"
+msgstr "أضف علامة بالزر اللي فوق"
+
+msgctxt "#32158"
+msgid "Now"
+msgstr "الآن"

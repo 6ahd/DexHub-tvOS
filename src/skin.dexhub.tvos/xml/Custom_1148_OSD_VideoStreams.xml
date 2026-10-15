@@ -110,9 +110,9 @@
 							<aligny>center</aligny>
 							<textcolor>af3_main_fg_70</textcolor>
 							<selectedcolor>af3_main_fg_70</selectedcolor>
-							<focusedcolor>ff272727</focusedcolor>
+							<focusedcolor>$VAR[DhOsdOnFill]</focusedcolor>
 							<disabledcolor>af3_main_fg_30</disabledcolor>
-							<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+							<texturefocus border="40" colordiffuse="$VAR[DhOsdAccent]">af3/common/menu.png</texturefocus>
 							<pulseonselect>false</pulseonselect>
 							<scrollsuffix> </scrollsuffix>
 							<scrollspeed>40</scrollspeed>
@@ -197,7 +197,7 @@
 										<align>center</align>
 										<itemgap>15</itemgap>
 										<control type="image">
-											<texture background="true" colordiffuse="ff272727">$INFO[VideoPlayer.VideoResolution,af3/flags/colorful/resolution/,.png]</texture>
+											<texture background="true" colordiffuse="$VAR[DhOsdOnFill]">$INFO[VideoPlayer.VideoResolution,af3/flags/colorful/resolution/,.png]</texture>
 											<aspectratio>keep</aspectratio>
 											<height>110</height>
 											<width>110</width>
@@ -205,7 +205,7 @@
 											<visible>!String.IsEmpty(VideoPlayer.VideoResolution)</visible>
 										</control>
 										<control type="image">
-											<texture background="true" colordiffuse="ff272727">$INFO[VideoPlayer.VideoAspect,af3/flags/colorful/aspectratio/,.png]</texture>
+											<texture background="true" colordiffuse="$VAR[DhOsdOnFill]">$INFO[VideoPlayer.VideoAspect,af3/flags/colorful/aspectratio/,.png]</texture>
 											<aspectratio>keep</aspectratio>
 											<height>80</height>
 											<width>80</width>
@@ -213,7 +213,7 @@
 											<visible>!String.IsEmpty(VideoPlayer.VideoAspect)</visible>
 										</control>
 										<control type="image">
-											<texture background="true" colordiffuse="ff272727">$INFO[VideoPlayer.VideoCodec,af3/flags/colorful/source/,.png]</texture>
+											<texture background="true" colordiffuse="$VAR[DhOsdOnFill]">$INFO[VideoPlayer.VideoCodec,af3/flags/colorful/source/,.png]</texture>
 											<aspectratio>keep</aspectratio>
 											<height>48</height>
 											<width>71</width>
@@ -221,7 +221,7 @@
 											<visible>!String.IsEmpty(VideoPlayer.VideoCodec)</visible>
 										</control>
 										<control type="image">
-											<texture background="true" colordiffuse="ff272727">$INFO[VideoPlayer.AudioCodec,af3/flags/colorful/audio/,.png]</texture>
+											<texture background="true" colordiffuse="$VAR[DhOsdOnFill]">$INFO[VideoPlayer.AudioCodec,af3/flags/colorful/audio/,.png]</texture>
 											<aspectratio>keep</aspectratio>
 											<height>48</height>
 											<width>71</width>
@@ -234,11 +234,11 @@
 											<width>95</width>
 											<height>100</height>
 											<aspectratio align="left">keep</aspectratio>
-											<texture background="true" colordiffuse="ff272727">$VAR[AF3_Image_RipSource]</texture>
+											<texture background="true" colordiffuse="$VAR[DhOsdOnFill]">$VAR[AF3_Image_RipSource]</texture>
 											<visible>!String.IsEmpty(Control.GetLabel(77881))</visible>
 										</control>
 										<control type="image">
-											<texture background="true" colordiffuse="ff272727">$INFO[VideoPlayer.AudioChannels,af3/flags/colorful/channels/,.png]</texture>
+											<texture background="true" colordiffuse="$VAR[DhOsdOnFill]">$INFO[VideoPlayer.AudioChannels,af3/flags/colorful/channels/,.png]</texture>
 											<aspectratio>keep</aspectratio>
 											<height>43</height>
 											<width>65</width>
@@ -286,9 +286,9 @@
 							<textoffsetx>30</textoffsetx>
 							<textcolor>af3_main_fg_70</textcolor>
 							<selectedcolor>af3_main_fg_70</selectedcolor>
-							<focusedcolor>ff272727</focusedcolor>
+							<focusedcolor>$VAR[DhOsdOnFill]</focusedcolor>
 							<disabledcolor>af3_main_fg_30</disabledcolor>
-							<texturefocus border="40" colordiffuse="ffffffff">af3/common/menu.png</texturefocus>
+							<texturefocus border="40" colordiffuse="$VAR[DhOsdAccent]">af3/common/menu.png</texturefocus>
 							<pulseonselect>false</pulseonselect>
 							<scrollsuffix> </scrollsuffix>
 							<scrollspeed>40</scrollspeed>
@@ -358,7 +358,7 @@
 							<control type="label">
 								<font>af3_font_tiny_bold</font>
 								<label>$LOCALIZE[31064]</label>
-								<textcolor>ff272727</textcolor>
+								<textcolor>$VAR[DhOsdOnFill]</textcolor>
 								<align>left</align>
 								<height>70</height>
 								<top>0</top>
@@ -400,7 +400,7 @@
 								<animation effect="slide" end="334" condition="!Player.TempoEnabled + Player.Forwarding16x">Conditional</animation>
 								<animation effect="slide" end="372" condition="!Player.TempoEnabled + Player.Forwarding32x">Conditional</animation>
 								<control type="image">
-									<colordiffuse>ff272727</colordiffuse>
+									<colordiffuse>$VAR[DhOsdOnFill]</colordiffuse>
 									<texture>af3/common/circle.png</texture>
 								</control>
 								<control type="image">
@@ -408,7 +408,7 @@
 									<bottom>-12</bottom>
 									<height>16</height>
 									<width>16</width>
-									<colordiffuse>ff272727</colordiffuse>
+									<colordiffuse>$VAR[DhOsdOnFill]</colordiffuse>
 									<texture flipy="true">af3/arrows/arrow-menu-up.png</texture>
 								</control>
 							</control>
@@ -436,7 +436,7 @@
 					<textoffsetx>30</textoffsetx>
 					<textcolor>af3_main_fg_70</textcolor>
 					<selectedcolor>af3_main_fg_70</selectedcolor>
-					<focusedcolor>ff272727</focusedcolor>
+					<focusedcolor>$VAR[DhOsdOnFill]</focusedcolor>
 					<disabledcolor>af3_main_fg_30</disabledcolor>
 					<pulseonselect>false</pulseonselect>
 					<scrollsuffix> </scrollsuffix>
@@ -455,7 +455,7 @@
 					<textoffsetx>30</textoffsetx>
 					<textcolor>af3_main_fg_70</textcolor>
 					<selectedcolor>af3_main_fg_70</selectedcolor>
-					<focusedcolor>ff272727</focusedcolor>
+					<focusedcolor>$VAR[DhOsdOnFill]</focusedcolor>
 					<disabledcolor>af3_main_fg_30</disabledcolor>
 					<pulseonselect>false</pulseonselect>
 					<scrollsuffix> </scrollsuffix>
@@ -474,7 +474,7 @@
 					<textoffsetx>30</textoffsetx>
 					<textcolor>af3_main_fg_70</textcolor>
 					<selectedcolor>af3_main_fg_70</selectedcolor>
-					<focusedcolor>ff272727</focusedcolor>
+					<focusedcolor>$VAR[DhOsdOnFill]</focusedcolor>
 					<disabledcolor>af3_main_fg_30</disabledcolor>
 					<pulseonselect>false</pulseonselect>
 					<scrollsuffix> </scrollsuffix>
@@ -493,7 +493,7 @@
 					<textoffsetx>30</textoffsetx>
 					<textcolor>af3_main_fg_70</textcolor>
 					<selectedcolor>af3_main_fg_70</selectedcolor>
-					<focusedcolor>ff272727</focusedcolor>
+					<focusedcolor>$VAR[DhOsdOnFill]</focusedcolor>
 					<disabledcolor>af3_main_fg_30</disabledcolor>
 					<pulseonselect>false</pulseonselect>
 					<scrollsuffix> </scrollsuffix>

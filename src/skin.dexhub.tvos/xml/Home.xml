@@ -43239,6 +43239,17 @@
 <property name="src">stremio</property><property name="tone">FF8B5CF6</property>
 <onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=lib_src&amp;src=stremio)</onclick>
 <visible>!String.IsEmpty(Window(Home).Property(dhs.lib.chip.8.label))</visible></item>
+<!-- v5.10.303: Type and Sort, chips that cycle on OK (after nuvio-native-legacy's library) -->
+<item><label>$INFO[Window(Home).Property(dhs.lib.type.value)]</label>
+<label2>$INFO[Window(Home).Property(dhs.lib.type.label)]</label2>
+<property name="src">type</property><property name="tone">FF9AA4B2</property>
+<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=lib_cycle&amp;what=type)</onclick>
+<visible>!String.IsEmpty(Window(Home).Property(dhs.lib.type.value)) + !String.IsEqual(Window(Home).Property(dhs.lib.src),follow)</visible></item>
+<item><label>$INFO[Window(Home).Property(dhs.lib.sort.value)]</label>
+<label2>$INFO[Window(Home).Property(dhs.lib.sort.label)]</label2>
+<property name="src">sort</property><property name="tone">FF9AA4B2</property>
+<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=lib_cycle&amp;what=sort)</onclick>
+<visible>!String.IsEmpty(Window(Home).Property(dhs.lib.sort.value)) + !String.IsEqual(Window(Home).Property(dhs.lib.src),follow)</visible></item>
 </content>
 			<onfocus>SetProperty(dhs.fr,0,home)</onfocus><animation effect="fade" start="100" end="0" time="160" condition="$EXP[dhs_section_preview]">Conditional</animation></control>
 		</control></control>
@@ -45001,7 +45012,7 @@
 			<include>DhRoomyHero</include>
 			<animation effect="fade" start="100" end="0" time="120" condition="ControlGroup(9100).HasFocus() + !$EXP[dhs_nav_icons]">Conditional</animation>
 			<animation effect="fade" start="100" end="0" time="20" delay="320" condition="$EXP[dhs_tp_covers]">Conditional</animation>
-			<visible>!String.IsEmpty(Window(Home).Property(dhs.ready)) + !String.IsEqual(Window(Home).Property(dhs.tab),addons) + !$EXP[dhs_playing] + [!$EXP[dhs_section] | $EXP[dhs_section_preview]] + ![[String.IsEqual(Window(Home).Property(dhs.tab),library) | String.IsEqual(Window(Home).Property(dhs.tab),servers)] + !$EXP[dhs_section_preview]]</visible><!-- 3.28.37 cards -->
+			<visible>!String.IsEmpty(Window(Home).Property(dhs.ready)) + !String.IsEqual(Window(Home).Property(dhs.tab),addons) + [!$EXP[dhs_section] | $EXP[dhs_section_preview]] + ![[String.IsEqual(Window(Home).Property(dhs.tab),library) | String.IsEqual(Window(Home).Property(dhs.tab),servers)] + !$EXP[dhs_section_preview]]</visible><!-- 3.28.37 cards -->
 			<animation effect="slide" start="0,0" end="24,640" time="650" tween="sine" easing="inout" condition="$EXP[dhs_immersive]">Conditional</animation>
 			<control type="image">
 				<left>96</left>

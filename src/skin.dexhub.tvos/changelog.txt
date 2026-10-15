@@ -1,3 +1,9 @@
+3.28.51: Player chapters: Kodi never draws a chapter picture for a stream from the internet, so every chapter came as an empty grey card. A chapter without its own picture now shows the playing title's backdrop, its number large, its time and its name, with the chapter playing now marked; a video with no chapters says so. Lighter cards (the old ones checked a dozen library conditions each). Pairs with Dex Hub 5.10.305. Apple TV player dependencies are retained.
+
+3.28.50: Home: the browsed title's clear logo stays on the hero while a video plays behind it. Player: Previous, Next, the panels (episodes, audio, subtitles, video, sources, bookmarks) and the player's settings take the player colour; the title as the bar's heading; the progress bar across the width with the times under it and one bar height; lighter icons. Library: Type and Sort chips. Pairs with Dex Hub 5.10.303. Apple TV player dependencies are retained.
+
+3.28.49: The Home shows the clear logo of the title playing behind it in the top corner while you browse. Player: the shade above the bar when chosen, the cursor's own colour (the see-through circle), a soft shape or an outline behind each button, a dot cursor. Pairs with Dex Hub 5.10.302. Apple TV player dependencies are retained.
+
 3.28.42: Long press on Play in a title page passes the title to the player choice directly (Aether, Kodi, Infuse, VidHub). Pairs with Dex Hub 5.10.292.
 
 3.28.41: Sync subtitle and Next subtitle always shown in the player bar; they call Dex Hub, which uses DexSubtitles when it is installed. Pairs with Dex Hub 5.10.290. Apple TV player dependencies are retained.

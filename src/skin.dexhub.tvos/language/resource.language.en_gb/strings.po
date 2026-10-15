@@ -2220,3 +2220,14 @@ msgctxt "#32155"
 msgid "Motion and trailers"
 msgstr ""
 
+msgctxt "#32156"
+msgid "No chapters or bookmarks in this video"
+msgstr ""
+
+msgctxt "#32157"
+msgid "Add a bookmark with the button above"
+msgstr ""
+
+msgctxt "#32158"
+msgid "Now"
+msgstr ""

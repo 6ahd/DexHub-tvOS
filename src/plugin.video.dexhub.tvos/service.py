@@ -19,6 +19,19 @@ restore_startup()
 from resources.lib.profile_scope import initialize as initialize_profiles
 initialize_profiles()
 
+# v5.10.301: one settings snapshot for the service's watchers (they built a
+# fresh xbmcaddon.Addon every second or two; on Apple TV each one reads and
+# parses the whole settings file)
+from resources.lib.settings_cache import install_shared as _install_shared_settings
+_install_shared_settings(60.0)
+
+# v5.10.301: the shipped default metadata source becomes TMDb in one language
+try:
+    from resources.lib.meta_mode import migrate_to_tmdb as _migrate_to_tmdb
+    _migrate_to_tmdb()
+except Exception:
+    pass
+
 import xbmcgui
 
 
@@ -657,7 +670,21 @@ def _stop_threads(budget=2.0):
         pass
 
 
-if __name__ == '__main__':
+def _not_apple_tv():
+    """v5.10.305: Dex Hub (Apple TV) is the Apple TV app's add-on. Installed
+    on another device beside Dex Hub, its service ran a second Home worker,
+    theme writer and keymap writer against Dex Hub's own (the CoreELEC log:
+    two services, two accent colours, a keymap read half written)."""
+    try:
+        return not xbmc.getCondVisibility('System.Platform.Darwin | System.Platform.TVOS')
+    except Exception:
+        return False
+
+
+if __name__ == '__main__' and _not_apple_tv():
+    xbmc.log('[DexHub] Dex Hub (Apple TV) is for the Apple TV app; its service stays off on this device',
+             xbmc.LOGINFO)
+elif __name__ == '__main__':
     try:
         import xbmcaddon
         _service_addon = xbmcaddon.Addon()

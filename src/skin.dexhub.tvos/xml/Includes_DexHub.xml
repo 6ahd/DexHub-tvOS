@@ -46,11 +46,13 @@
 
 	<!-- 3.28.44: Kodi's own windows take the focus colour (dh.kodifocus white: the classic white) -->
 	<variable name="DhKodiFocus">
+		<value condition="Window.IsActive(fullscreenvideo) + !String.IsEmpty(Window(Home).Property(dhs.osd.accent))">$INFO[Window(Home).Property(dhs.osd.accent)]</value>
 		<value condition="String.IsEqual(Skin.String(dh.kodifocus),white)">ffffffff</value>
 		<value condition="!String.IsEmpty(Window(Home).Property(dexhub.tvos.theme.accent))">$INFO[Window(Home).Property(dexhub.tvos.theme.accent)]</value>
 		<value>dh_accent</value>
 	</variable>
 	<variable name="DhKodiOnFocus">
+		<value condition="Window.IsActive(fullscreenvideo) + !String.IsEmpty(Window(Home).Property(dhs.osd.on_fill))">$INFO[Window(Home).Property(dhs.osd.on_fill)]</value>
 		<value condition="String.IsEqual(Skin.String(dh.kodifocus),white)">ff272727</value>
 		<value condition="!String.IsEmpty(Window(Home).Property(dexhub.tvos.theme.on_accent))">$INFO[Window(Home).Property(dexhub.tvos.theme.on_accent)]</value>
 		<value>dh_on_accent</value>
@@ -148,7 +150,7 @@
 	<expression name="dhs_hr_badges">[$EXP[dhs_hr_spot] | $EXP[dhs_hr_rows]] + !String.IsEmpty(Window(Home).Property(dhs.hr.badge.count)) + !String.IsEqual(Window(Home).Property(dhs.pref.badges_home),false)</expression>
 	<expression name="dhs_hr_badges_fold">[[[[String.IsEmpty(Window(Home).Property(dhs.ffr)) | String.IsEqual(Window(Home).Property(dhs.ffr),1)] + [!String.IsEmpty(Window(Home).Property(dhs.hr.id)) + String.IsEqual(Window(Home).Property(dhs.hr.id),Container(7001).ListItem.Property(dhs.id))]] | [String.IsEqual(Window(Home).Property(dhs.ffr),2) + [!String.IsEmpty(Window(Home).Property(dhs.hr.id)) + String.IsEqual(Window(Home).Property(dhs.hr.id),Container(7002).ListItem.Property(dhs.id))]] | [String.IsEqual(Window(Home).Property(dhs.ffr),3) + [!String.IsEmpty(Window(Home).Property(dhs.hr.id)) + String.IsEqual(Window(Home).Property(dhs.hr.id),Container(7003).ListItem.Property(dhs.id))]] | [String.IsEqual(Window(Home).Property(dhs.ffr),4) + [!String.IsEmpty(Window(Home).Property(dhs.hr.id)) + String.IsEqual(Window(Home).Property(dhs.hr.id),Container(7004).ListItem.Property(dhs.id))]] | [String.IsEqual(Window(Home).Property(dhs.ffr),5) + [!String.IsEmpty(Window(Home).Property(dhs.hr.id)) + String.IsEqual(Window(Home).Property(dhs.hr.id),Container(7005).ListItem.Property(dhs.id))]] | [String.IsEqual(Window(Home).Property(dhs.ffr),6) + [!String.IsEmpty(Window(Home).Property(dhs.hr.id)) + String.IsEqual(Window(Home).Property(dhs.hr.id),Container(7006).ListItem.Property(dhs.id))]] | [String.IsEqual(Window(Home).Property(dhs.ffr),7) + [!String.IsEmpty(Window(Home).Property(dhs.hr.id)) + String.IsEqual(Window(Home).Property(dhs.hr.id),Container(7007).ListItem.Property(dhs.id))]] | [String.IsEqual(Window(Home).Property(dhs.ffr),8) + [!String.IsEmpty(Window(Home).Property(dhs.hr.id)) + String.IsEqual(Window(Home).Property(dhs.hr.id),Container(7008).ListItem.Property(dhs.id))]]]] + !String.IsEmpty(Window(Home).Property(dhs.hr.badge.count)) + !String.IsEqual(Window(Home).Property(dhs.pref.badges_home),false)</expression>
 	<expression name="dhs_hr_item">[[[!String.IsEmpty(Window(Home).Property(dhs.hr.id)) + String.IsEqual(Window(Home).Property(dhs.hr.id),ListItem.Property(dhs.id))] | [!String.IsEmpty(Window(Home).Property(dhs.hr.id)) + String.IsEqual(Window(Home).Property(dhs.hr.id),ListItem.Property(dhs.gid))]]] + !String.IsEqual(Window(Home).Property(dhs.pref.metadata_badges),false)</expression>
-	<expression name="dhs_np_logo">[!String.IsEmpty(Player.Art(clearlogo)) | !String.IsEmpty(Player.Art(tvshow.clearlogo))]</expression>
+	<expression name="dhs_np_logo">[!String.IsEmpty(Player.Art(clearlogo)) | !String.IsEmpty(Player.Art(tvshow.clearlogo)) | !String.IsEmpty(Window(Home).Property(dexhub.np.logo)) | !String.IsEmpty(Window(Home).Property(dexhub.source.clearlogo))]</expression>
 	<expression name="dhs_size_large">String.IsEqual(Skin.String(DexHub.CardSize),large)</expression>
 	<expression name="dhs_size_xlarge">String.IsEqual(Skin.String(DexHub.CardSize),xlarge)</expression>
 	<expression name="dhs_has_1">[[String.IsEmpty(Window(Home).Property(dhs.tab)) | String.IsEqual(Window(Home).Property(dhs.tab),all)] + !String.IsEmpty(Window(Home).Property(dhs.all.1.path))] | [String.IsEqual(Window(Home).Property(dhs.tab),movie) + !String.IsEmpty(Window(Home).Property(dhs.movie.1.path))] | [String.IsEqual(Window(Home).Property(dhs.tab),series) + !String.IsEmpty(Window(Home).Property(dhs.series.1.path))] | [String.IsEqual(Window(Home).Property(dhs.tab),servers) + !String.IsEmpty(Window(Home).Property(dhs.servers.1.path))] | [String.IsEqual(Window(Home).Property(dhs.tab),library) + !String.IsEmpty(Window(Home).Property(dhs.library.1.path))]</expression>
@@ -1575,7 +1577,11 @@
 	</variable>
 	<variable name="DhsNpLogo">
 		<value condition="!String.IsEmpty(Player.Art(clearlogo))">$INFO[Player.Art(clearlogo)]</value>
-		<value>$INFO[Player.Art(tvshow.clearlogo)]</value>
+		<value condition="!String.IsEmpty(Player.Art(tvshow.clearlogo))">$INFO[Player.Art(tvshow.clearlogo)]</value>
+		<!-- 3.28.48: the logo Dex Hub found for what plays (the player's item often has none) -->
+		<!-- 3.28.49: kept by the add-on from start to stop of the playback -->
+		<value condition="!String.IsEmpty(Window(Home).Property(dexhub.np.logo))">$INFO[Window(Home).Property(dexhub.np.logo)]</value>
+		<value>$INFO[Window(Home).Property(dexhub.source.clearlogo)]</value>
 	</variable>
 	<variable name="DhsNavText_all">
 		<value condition="[String.IsEmpty(Window(Home).Property(dhs.tab)) | String.IsEqual(Window(Home).Property(dhs.tab),all)]">FFFFFFFF</value>

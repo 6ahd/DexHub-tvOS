@@ -27,8 +27,8 @@ with tempfile.TemporaryDirectory() as directory:
     assert (app/'Assets.car').read_bytes()==b'Original Kodi icon fixture'
     manifest=json.loads((app/'AppData/DexHubBundle.json').read_text())
     managed={row['id']:row['version'] for row in manifest['addons']}
-    assert managed['plugin.video.dexhub.tvos']=='5.10.300'
-    assert managed['skin.dexhub.tvos']=='3.28.47'
+    assert managed['plugin.video.dexhub.tvos']=='5.10.306'
+    assert managed['skin.dexhub.tvos']=='3.28.51'
     assert managed['script.dexhub.tvos.players']=='1.0.14'
     assert manifest['revision']==20
     assert (app/'AppData/AppHome/addons/plugin.video.dexhub.tvos/resources/lib/phone_files.py').is_file()

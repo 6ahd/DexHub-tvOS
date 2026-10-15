@@ -90,7 +90,7 @@
 							</control>
 							<control type="image">
 								<left>0</left><top>6</top><width>214</width><height>48</height>
-								<texture border="36" colordiffuse="$VAR[DhAccent]">dexhub/ring.png</texture>
+								<texture border="36" colordiffuse="$VAR[DhOsdAccent]">dexhub/ring.png</texture>
 								<visible>String.IsEqual(ListItem.Property(season),Window(Home).Property(dhs.osd.season)) | [String.IsEmpty(Window(Home).Property(dhs.osd.season)) + String.IsEqual(ListItem.Property(season),Window(Home).Property(dhs.osd.s.now))]</visible>
 							</control>
 							<control type="label">
@@ -108,12 +108,12 @@
 							</control>
 							<control type="image">
 								<left>0</left><top>6</top><width>214</width><height>48</height>
-								<texture border="24" colordiffuse="FFFFFFFF">dexhub/pill.png</texture>
+								<texture border="24" colordiffuse="$VAR[DhOsdAccent]">dexhub/pill.png</texture>
 								<visible>Control.HasFocus(7100)</visible>
 							</control>
 							<control type="label">
 								<left>12</left><top>6</top><width>190</width><height>48</height>
-								<font>af3_font_mini_bold</font><textcolor>FF101010</textcolor>
+								<font>af3_font_mini_bold</font><textcolor>$VAR[DhOsdOnFill]</textcolor>
 								<align>center</align><aligny>center</aligny>
 								<label>$INFO[ListItem.Label]</label>
 								<visible>Control.HasFocus(7100)</visible>
@@ -603,7 +603,7 @@
 												<texture border="60" colordiffuse="af3_shadow_hard">af3/shadows/shadow-40.png</texture>
 											</control>
 											<control type="image">
-												<texture border="20" colordiffuse="ffffffff">af3/common/selectbox_thin.png</texture>
+												<texture border="20" colordiffuse="$VAR[DhOsdAccent]">af3/common/selectbox_thin.png</texture>
 											</control>
 										</control>
 										<control type="group">
