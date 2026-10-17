@@ -1,3 +1,5 @@
+5.10.330: The power buttons leave the Menu (the Power icon in the side menu and the top bar opens the power menu). Pairs with skin 3.28.75.
+
 5.10.329: Hide the menu while scrolling now hides the side menu too (Left brings it back). A new option opens a section when the focus rests on its icon, without a press. The Menu has power buttons at the bottom: power options, restart, power off and sleep. Pairs with skin 3.28.74.
 
 5.10.328: The Legacy Home's wait for its first row ends as soon as the focus is anywhere but the hidden hero buttons (it watched for 15 seconds after every refresh). Pairs with skin 3.28.72.

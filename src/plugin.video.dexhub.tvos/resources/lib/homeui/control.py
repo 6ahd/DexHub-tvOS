@@ -30,8 +30,6 @@ import xbmcgui
 
 ADDON_ID = 'plugin.video.dexhub.tvos'
 SECTIONS, ENTRIES = 100, 200
-# v5.10.329: the power buttons under the sections (None: the power menu)
-POWER_BUTTONS = {301: None, 302: 'Reset()', 303: 'Powerdown()', 304: 'Suspend()'}
 A_BACK = {9, 10, 92, 216, 247, 257, 275, 61448, 61467}
 LAST_PROP = 'dexhub.control.section'
 
@@ -610,10 +608,6 @@ class ControlCentre(xbmcgui.WindowXMLDialog):
         self.setProperty('cc.caption', tr('مركز التحكم'))
         self.setProperty('cc.version', 'Dex Hub %s' % self.version if self.version else 'Dex Hub')
         self.setProperty('cc.hint', tr('اضغط OK للفتح أو التغيير  \u2022  يسار للأقسام  \u2022  رجوع للإغلاق'))
-        # v5.10.329: the power buttons under the sections
-        for prop, name in (('cc.pw1', 'خيارات الطاقة'), ('cc.pw2', 'إعادة تشغيل الجهاز'),
-                           ('cc.pw3', 'إطفاء الجهاز'), ('cc.pw4', 'وضع السكون')):
-            self.setProperty(prop, tr(name))
         self._read()
         items = []
         for sid, icon, title, line, entries in self.sections:
@@ -688,17 +682,6 @@ class ControlCentre(xbmcgui.WindowXMLDialog):
     def onClick(self, control_id):
         if control_id == SECTIONS:
             self.setFocusId(ENTRIES)
-            return
-        if control_id in POWER_BUTTONS:
-            # v5.10.329: the power buttons (the options open the power menu)
-            builtin = POWER_BUTTONS[control_id]
-            self._closing = True
-            if builtin is None:
-                self.choice = 'power'
-                self.close()
-                return
-            self.close()
-            xbmc.executebuiltin(builtin)
             return
         if control_id != ENTRIES:
             return

@@ -44,7 +44,7 @@
 				</focusedlayout>
 				<content>
 					<item>
-						<label>$LOCALIZE[32152]</label>
+						<label>$LOCALIZE[31194]</label>
 						<icon>dexhub/power/skin.png</icon>
 						<onclick>Dialog.Close(shutdownmenu)</onclick>
 						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_menu)</onclick>
@@ -62,7 +62,7 @@
 						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=home_search)</onclick>
 					</item>
 					<item>
-						<label>$LOCALIZE[32153]</label>
+						<label>$LOCALIZE[31195]</label>
 						<icon>dexhub/power/reload.png</icon>
 						<onclick>Dialog.Close(shutdownmenu)</onclick>
 						<onclick>ReloadSkin()</onclick>

@@ -1,3 +1,5 @@
+3.28.75: The power menu shows every name (they were empty), a Power icon of its own in the top bar, and the trailer inside the card plays in landscape and big cards too, the Legacy Home's rows among them. Apple TV player dependencies are retained.
+
 3.28.74: The side menu: the rows sit clear of it so a growing card never covers it, it can hide while you scroll the rows, the current section's icon takes the accent colour, Down on the last row opens the next section, and sections can open on focus. A bigger power menu with icons in two columns: interface settings, Settings, Search, reload skin, system info, file manager, the shutdown timer, restart, power off, sleep. Apple TV player dependencies are retained.
 
 3.28.73: The side menu wraps: Up on its first icon goes to the last and Down on the last to the first. A Power icon closes the menu (Kodi's power menu). Edit Home, alerts, Menu and Power stay at the bottom of the side menu under a thin line, the sections at the top. Apple TV player dependencies are retained.

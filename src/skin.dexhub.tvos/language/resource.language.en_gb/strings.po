@@ -2468,14 +2468,14 @@ msgctxt "#31998"
 msgid "Left and Right change it"
 msgstr ""
 
-msgctxt "#32151"
+msgctxt "#31193"
 msgid "Power"
 msgstr ""
 
-msgctxt "#32152"
+msgctxt "#31194"
 msgid "Interface settings"
 msgstr ""
 
-msgctxt "#32153"
+msgctxt "#31195"
 msgid "Reload skin"
 msgstr ""

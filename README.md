@@ -43,8 +43,8 @@ Sign and install the `-fixed.ipa` it writes. Builds from v20 on do this already.
 ### Repository layout
 | Path | What |
 |---|---|
-| `src/plugin.video.dexhub.tvos` | Dex Hub add-on for Apple TV (5.10.329) |
-| `src/skin.dexhub.tvos` | Dex Hub skin for Apple TV (3.28.74) |
+| `src/plugin.video.dexhub.tvos` | Dex Hub add-on for Apple TV (5.10.306) |
+| `src/skin.dexhub.tvos` | Dex Hub skin for Apple TV (3.28.51) |
 | `native/`, `apply_bridge.py`, `native_player_adapter.py` | Kodi source changes |
 | `DexAetherEmbedded.swift` | Swift bridge between Kodi and Aether |
 | `script.dexhub.tvos.players`, `script.module.dexhub.tvos.compat` | player choice and tvOS compatibility add-ons |
@@ -107,8 +107,8 @@ bash FIX-SIGNING.command /path/to/file.ipa
 ### محتوى المستودع
 | المسار | المحتوى |
 |---|---|
-| `src/plugin.video.dexhub.tvos` | إضافة Dex Hub لـ Apple TV (5.10.329) |
-| `src/skin.dexhub.tvos` | سكين Dex Hub لـ Apple TV (3.28.74) |
+| `src/plugin.video.dexhub.tvos` | إضافة Dex Hub لـ Apple TV (5.10.306) |
+| `src/skin.dexhub.tvos` | سكين Dex Hub لـ Apple TV (3.28.51) |
 | `native/` و`apply_bridge.py` و`native_player_adapter.py` | تعديلات سورس Kodi |
 | `DexAetherEmbedded.swift` | جسر Swift بين Kodi وAether |
 | `script.dexhub.tvos.players` و`script.module.dexhub.tvos.compat` | اختيار المشغل وتوافق tvOS |
@@ -125,7 +125,7 @@ bash ~/Developer/DexHub-tvOS/DexHub-tvOS/update-kodi.sh 22.0rc1-Piers
 ```bash
 bash ~/Developer/DexHub-tvOS/DexHub-tvOS/BUILD.command
 ```
-الناتج في Downloads باسم `Kodi-DexHub-AetherOnly-v21.36-TEST-unsigned-<وقت>.ipa`، ثم وقّعه كما فوق.
+الناتج في Downloads باسم `Kodi-DexHub-AetherOnly-v21.13-TEST-unsigned-<وقت>.ipa`، ثم وقّعه كما فوق.
 
 ما يسويه البناء:
 1. ينزل محرك Aether 7.38.1 ويثبت إصدارات مكتباته (FFmpegBuild وLibDovi وLibTrueHD وLibDTSX وSMBClient).

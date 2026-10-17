@@ -2306,14 +2306,14 @@ msgctxt "#31998"
 msgid "Left and Right change it"
 msgstr "يمين ويسار للتغيير"
 
-msgctxt "#32151"
+msgctxt "#31193"
 msgid "Power"
 msgstr "الطاقة"
 
-msgctxt "#32152"
+msgctxt "#31194"
 msgid "Interface settings"
 msgstr "إعدادات الواجهة"
 
-msgctxt "#32153"
+msgctxt "#31195"
 msgid "Reload skin"
 msgstr "إعادة تحميل الواجهة"

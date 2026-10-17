@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addon id="skin.dexhub.tvos" version="3.28.74" name="Dex Hub Skin (Apple TV)" provider-name="DexWorld">
+<addon id="skin.dexhub.tvos" version="3.28.75" name="Dex Hub Skin (Apple TV)" provider-name="DexWorld">
     <requires>
         <import addon="xbmc.gui" version="5.17.0" />
         <import addon="plugin.video.dexhub.tvos" version="5.10.160" optional="true" />
@@ -24,7 +24,7 @@
         <disclaimer lang="en_GB">Based on Estuary (Team Kodi). The video player, settings pages and dialogs are Arctic Fuse 3's by jurialmunkey (CC BY-NC-SA 4.0), from ABUKARIM's modified copy. Fonts: Inter with IBM Plex Sans Arabic, League Spartan, Font Awesome 6 Free (SIL Open Font License); the Arabic font sets come from that copy under their own terms.</disclaimer>
         <license>CC BY-SA 4.0 (Estuary), CC BY-NC-SA 4.0 (Arctic Fuse 3 player), GNU GENERAL PUBLIC LICENSE Version 2.0</license>
         <forum>https://dexworld.cc</forum>
-        <news>The side menu: the rows sit clear of it so a growing card never covers it, it can hide while you scroll the rows, the current section's icon takes the accent colour, Down on the last row opens the next section, and sections can open on focus. A bigger power menu with icons in two columns: interface settings, Settings, Search, reload skin, system info, file manager, the shutdown timer, restart, power off, sleep. Apple TV player dependencies are retained.</news>
+        <news>The power menu shows every name (they were empty), a Power icon of its own in the top bar, and the trailer inside the card plays in landscape and big cards too, the Legacy Home's rows among them. Apple TV player dependencies are retained.</news>
         <assets>
             <icon>resources/icon.png</icon>
             <fanart>resources/fanart.jpg</fanart>

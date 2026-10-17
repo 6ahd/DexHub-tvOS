@@ -31,7 +31,7 @@ if [ "$AVAILABLE_KB" -lt "$NEED_KB" ]; then
   df -h "$WORK"
   exit 1
 fi
-echo "Kodi AetherOnly v21.36 TEST: Aether 7.38.1 / DexHub 5.10.329 / Skin 3.28.74 / Players 1.0.14 / Release / idle GUI while playing"
+echo "Kodi AetherOnly v21.37 TEST: Aether 7.38.1 / DexHub 5.10.330 / Skin 3.28.75 / Players 1.0.14 / Release / idle GUI while playing"
 echo "The Apple TV addon does not need to be running to build on this Mac."
 cd "$BASE"
 bash "$BASE/all.sh"
