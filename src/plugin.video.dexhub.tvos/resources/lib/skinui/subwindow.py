@@ -750,6 +750,13 @@ class SubtitleWindow(xbmcgui.WindowXMLDialog):
     def onAction(self, action):
         aid = action.getId()
         focus = self.getFocusId()
+        # v5.10.331: the subtitle services' list is filled by Kodi (its
+        # <content>), so Kodi handled OK on it itself: it opened the item
+        # (the Home came up over the video) and onClick never ran. The list
+        # now has a no-op onclick and its pick is taken here.
+        if focus == KODI and aid in (7, 100):
+            self.service_pick()
+            return
         if aid in CLOSE:
             if self.side:
                 self.close_side()

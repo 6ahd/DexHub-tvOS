@@ -4250,7 +4250,7 @@
 						<textoffsetx>34</textoffsetx>
 						<label>$VAR[DhTpPill_8109]</label>
 						<onleft>8108</onleft>
-						<onright>8109</onright>
+						<onright>8110</onright>
 						<onup>ActivateWindow(1195)</onup>
 						<ondown condition="$EXP[dhs_series] + String.IsEmpty(Window(Home).Property(dhs.tp.touched)) + String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + Integer.IsGreater(Container(8200).NumItems,0)">Control.SetFocus(8200,$INFO[Window(Home).Property(dhs.tp.season_idx)],absolute)</ondown>
 						<ondown condition="$EXP[dhs_series]">8200</ondown>
@@ -4277,6 +4277,49 @@
 							<height>48</height>
 							<texture colordiffuse="$VAR[DhKodiOnFocus]">dexhub/osd/legacy/film.png</texture>
 							<visible>Control.HasFocus(8109)</visible>
+						</control>
+					</control>
+				<control type="button" id="8110">
+						<animation type="Focus"><effect type="zoom" start="94" end="100" time="200" tween="cubic" easing="out" center="auto"/></animation>
+						
+						<height>68</height>
+						<width min="68" max="560">auto</width>
+						<texturefocus border="30" colordiffuse="$VAR[DhKodiFocus]">dexhub/pill.png</texturefocus>
+						<texturenofocus border="30" colordiffuse="33FFFFFF">dexhub/pill.png</texturenofocus>
+						<font>font12</font>
+						<textcolor>00FFFFFF</textcolor>
+						<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textoffsetx>34</textoffsetx>
+						<label>$VAR[DhTpPill_8110]</label>
+						<onleft>8109</onleft>
+						<onright>noop</onright>
+						<onup>ActivateWindow(1195)</onup>
+						<ondown condition="$EXP[dhs_series] + String.IsEmpty(Window(Home).Property(dhs.tp.touched)) + String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + Integer.IsGreater(Container(8200).NumItems,0)">Control.SetFocus(8200,$INFO[Window(Home).Property(dhs.tp.season_idx)],absolute)</ondown>
+						<ondown condition="$EXP[dhs_series]">8200</ondown>
+						<ondown condition="Integer.IsGreater(Container(8400).NumItems,0)">8400</ondown>
+						<ondown>8500</ondown>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub/?action=skin_more&amp;$INFO[ListItem.Property(dhs.q)])</onclick>
+					</control>
+					<control type="group" id="8120">
+						<left>0</left>
+						<width>0</width>
+						<control type="image">
+							<left>-64</left>
+							<top>10</top>
+							<width>48</width>
+							<height>48</height>
+							<texture colordiffuse="FFFFFFFF">dexhub/osd/legacy/ellipsis.png</texture>
+							<visible>!Control.HasFocus(8110)</visible>
+						</control>
+						<control type="image">
+							<left>-64</left>
+							<top>10</top>
+							<width>48</width>
+							<height>48</height>
+							<texture colordiffuse="$VAR[DhKodiOnFocus]">dexhub/osd/legacy/ellipsis.png</texture>
+							<visible>Control.HasFocus(8110)</visible>
 						</control>
 					</control>
 				</control>

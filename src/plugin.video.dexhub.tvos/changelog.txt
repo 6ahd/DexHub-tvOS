@@ -1,3 +1,5 @@
+5.10.331: Choosing a subtitle from a subtitle service in the player's subtitle page no longer opens the Home over the video: Kodi handled OK on that list itself, the pick now goes to Dex Hub. Pairs with skin 3.28.76.
+
 5.10.330: The power buttons leave the Menu (the Power icon in the side menu and the top bar opens the power menu). Pairs with skin 3.28.75.
 
 5.10.329: Hide the menu while scrolling now hides the side menu too (Left brings it back). A new option opens a section when the focus rests on its icon, without a press. The Menu has power buttons at the bottom: power options, restart, power off and sleep. Pairs with skin 3.28.74.

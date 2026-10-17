@@ -86,6 +86,10 @@
 		<value condition="Control.HasFocus(8109)">[B]$LOCALIZE[31992]        [/B]</value>
 		<value />
 	</variable>
+	<variable name="DhTpPill_8110">
+		<value condition="Control.HasFocus(8110)">[B]$VAR[DhsS31828]        [/B]</value>
+		<value />
+	</variable>
 	<variable name="DhTpFavIcon">
 		<value condition="[String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + String.IsEqual(Window(Home).Property(dhs.tp.fav),1)] | [!String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + String.IsEqual(ListItem.Property(dhs.fav),1)]">dexhub/osd/legacy/star-f.png</value>
 		<value>dexhub/osd/legacy/star.png</value>
