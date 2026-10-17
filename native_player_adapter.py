@@ -209,7 +209,7 @@ def plan_native(root, base, planned, replace_one):
         block = '''
       <group id="8">
         <setting id="videoplayer.dexhubtruehdatmos" type="integer" label="49999">
-          <level>0</level><default>0</default>
+          <level>0</level><default>4</default>
           <constraints><options>
             <option label="50000">0</option><option label="50001">1</option>
             <option label="50002">2</option><option label="50003">3</option>
@@ -219,9 +219,16 @@ def plan_native(root, base, planned, replace_one):
         </setting>
       </group>'''
         value = replace_one(value, anchor, anchor + block, relative)
+    # v21.31: a source patched by an earlier build moves to 7.1.4 too
+    value = value.replace('<setting id="videoplayer.dexhubtruehdatmos" type="integer" label="49999">\n          <level>0</level><default>0</default>',
+                          '<setting id="videoplayer.dexhubtruehdatmos" type="integer" label="49999">\n          <level>0</level><default>4</default>')
     planned[relative] = value
     value = read(strings)
-    for key, label in {49999: 'Aether TrueHD Atmos / توزيع سماعات Atmos',
+    # v21.31: the setting names DTS:X too (an earlier build's label is replaced)
+    for key, old_label in {49999: 'Aether TrueHD Atmos / توزيع سماعات Atmos'}.items():
+        value = value.replace(f'msgctxt "#{key}"\nmsgid "{old_label}"\nmsgstr ""',
+                              f'msgctxt "#{key}"\nmsgid "Aether Atmos and DTS:X speakers / توزيع سماعات Atmos وDTS:X"\nmsgstr ""')
+    for key, label in {49999: 'Aether Atmos and DTS:X speakers / توزيع سماعات Atmos وDTS:X',
                        50000: 'Off (E-AC-3 Atmos remains automatic)',
                        50001: '5.1.2', 50002: '5.1.4', 50003: '7.1.2',
                        50004: '7.1.4', 50005: '9.1.6'}.items():

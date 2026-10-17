@@ -14505,15 +14505,15 @@
 	<expression name="DhOsdSlotVis_10">[[$EXP[DhOsdIs_10_sources] + $EXP[DhOsdOk_sources]] | [$EXP[DhOsdIs_10_episodes] + $EXP[DhOsdOk_episodes]] | [$EXP[DhOsdIs_10_info] + $EXP[DhOsdOk_info]] | [$EXP[DhOsdIs_10_audio] + $EXP[DhOsdOk_audio]] | [$EXP[DhOsdIs_10_subtitles] + $EXP[DhOsdOk_subtitles]] | [$EXP[DhOsdIs_10_subsync] + $EXP[DhOsdOk_subsync]] | [$EXP[DhOsdIs_10_nextsub] + $EXP[DhOsdOk_nextsub]] | [$EXP[DhOsdIs_10_external] + $EXP[DhOsdOk_external]] | [$EXP[DhOsdIs_10_video] + $EXP[DhOsdOk_video]] | [$EXP[DhOsdIs_10_ppi] + $EXP[DhOsdOk_ppi]]]</expression>
 	<expression name="DhOsdSlotRaise_10">[[$EXP[DhOsdIs_10_audio] + !String.IsEmpty(VideoPlayer.AudioLanguage)] | [$EXP[DhOsdIs_10_subtitles] + VideoPlayer.SubtitlesEnabled + !String.IsEmpty(VideoPlayer.SubtitlesLanguage)]]</expression>
 	<variable name="DhOsdSlotIcon_1">
-		<value condition="$EXP[DhOsdIs_1_sources]">af3/extras/icons/network.png</value>
-		<value condition="$EXP[DhOsdIs_1_episodes]">af3/extras/icons/list-ul.png</value>
-		<value condition="$EXP[DhOsdIs_1_info]">af3/extras/icons/info2.png</value>
-		<value condition="$EXP[DhOsdIs_1_audio]">af3/extras/icons/volume.png</value>
-		<value condition="$EXP[DhOsdIs_1_subtitles]">af3/extras/icons/quote.png</value>
+		<value condition="$EXP[DhOsdIs_1_sources]">dexhub/osd/legacy/layers.png</value>
+		<value condition="$EXP[DhOsdIs_1_episodes]">dexhub/osd/legacy/list-video.png</value>
+		<value condition="$EXP[DhOsdIs_1_info]">dexhub/osd/legacy/info.png</value>
+		<value condition="$EXP[DhOsdIs_1_audio]">dexhub/osd/legacy/audio-lines.png</value>
+		<value condition="$EXP[DhOsdIs_1_subtitles]">dexhub/osd/legacy/captions.png</value>
 		<value condition="$EXP[DhOsdIs_1_subsync]">dexhub/osd/subsync.png</value>
 		<value condition="$EXP[DhOsdIs_1_nextsub]">dexhub/osd/subnext.png</value>
 		<value condition="$EXP[DhOsdIs_1_external]">dexhub/external-player.png</value>
-		<value condition="$EXP[DhOsdIs_1_video]">af3/extras/icons/video.png</value>
+		<value condition="$EXP[DhOsdIs_1_video]">dexhub/osd/legacy/ratio.png</value>
 		<value condition="$EXP[DhOsdIs_1_ppi]">af3/extras/icons/ppi.png</value>
 	</variable>
 	<variable name="DhOsdSlotLabel_1">
@@ -14522,15 +14522,15 @@
 		<value />
 	</variable>
 	<variable name="DhOsdSlotIcon_2">
-		<value condition="$EXP[DhOsdIs_2_sources]">af3/extras/icons/network.png</value>
-		<value condition="$EXP[DhOsdIs_2_episodes]">af3/extras/icons/list-ul.png</value>
-		<value condition="$EXP[DhOsdIs_2_info]">af3/extras/icons/info2.png</value>
-		<value condition="$EXP[DhOsdIs_2_audio]">af3/extras/icons/volume.png</value>
-		<value condition="$EXP[DhOsdIs_2_subtitles]">af3/extras/icons/quote.png</value>
+		<value condition="$EXP[DhOsdIs_2_sources]">dexhub/osd/legacy/layers.png</value>
+		<value condition="$EXP[DhOsdIs_2_episodes]">dexhub/osd/legacy/list-video.png</value>
+		<value condition="$EXP[DhOsdIs_2_info]">dexhub/osd/legacy/info.png</value>
+		<value condition="$EXP[DhOsdIs_2_audio]">dexhub/osd/legacy/audio-lines.png</value>
+		<value condition="$EXP[DhOsdIs_2_subtitles]">dexhub/osd/legacy/captions.png</value>
 		<value condition="$EXP[DhOsdIs_2_subsync]">dexhub/osd/subsync.png</value>
 		<value condition="$EXP[DhOsdIs_2_nextsub]">dexhub/osd/subnext.png</value>
 		<value condition="$EXP[DhOsdIs_2_external]">dexhub/external-player.png</value>
-		<value condition="$EXP[DhOsdIs_2_video]">af3/extras/icons/video.png</value>
+		<value condition="$EXP[DhOsdIs_2_video]">dexhub/osd/legacy/ratio.png</value>
 		<value condition="$EXP[DhOsdIs_2_ppi]">af3/extras/icons/ppi.png</value>
 	</variable>
 	<variable name="DhOsdSlotLabel_2">
@@ -14539,15 +14539,15 @@
 		<value />
 	</variable>
 	<variable name="DhOsdSlotIcon_3">
-		<value condition="$EXP[DhOsdIs_3_sources]">af3/extras/icons/network.png</value>
-		<value condition="$EXP[DhOsdIs_3_episodes]">af3/extras/icons/list-ul.png</value>
-		<value condition="$EXP[DhOsdIs_3_info]">af3/extras/icons/info2.png</value>
-		<value condition="$EXP[DhOsdIs_3_audio]">af3/extras/icons/volume.png</value>
-		<value condition="$EXP[DhOsdIs_3_subtitles]">af3/extras/icons/quote.png</value>
+		<value condition="$EXP[DhOsdIs_3_sources]">dexhub/osd/legacy/layers.png</value>
+		<value condition="$EXP[DhOsdIs_3_episodes]">dexhub/osd/legacy/list-video.png</value>
+		<value condition="$EXP[DhOsdIs_3_info]">dexhub/osd/legacy/info.png</value>
+		<value condition="$EXP[DhOsdIs_3_audio]">dexhub/osd/legacy/audio-lines.png</value>
+		<value condition="$EXP[DhOsdIs_3_subtitles]">dexhub/osd/legacy/captions.png</value>
 		<value condition="$EXP[DhOsdIs_3_subsync]">dexhub/osd/subsync.png</value>
 		<value condition="$EXP[DhOsdIs_3_nextsub]">dexhub/osd/subnext.png</value>
 		<value condition="$EXP[DhOsdIs_3_external]">dexhub/external-player.png</value>
-		<value condition="$EXP[DhOsdIs_3_video]">af3/extras/icons/video.png</value>
+		<value condition="$EXP[DhOsdIs_3_video]">dexhub/osd/legacy/ratio.png</value>
 		<value condition="$EXP[DhOsdIs_3_ppi]">af3/extras/icons/ppi.png</value>
 	</variable>
 	<variable name="DhOsdSlotLabel_3">
@@ -14556,15 +14556,15 @@
 		<value />
 	</variable>
 	<variable name="DhOsdSlotIcon_4">
-		<value condition="$EXP[DhOsdIs_4_sources]">af3/extras/icons/network.png</value>
-		<value condition="$EXP[DhOsdIs_4_episodes]">af3/extras/icons/list-ul.png</value>
-		<value condition="$EXP[DhOsdIs_4_info]">af3/extras/icons/info2.png</value>
-		<value condition="$EXP[DhOsdIs_4_audio]">af3/extras/icons/volume.png</value>
-		<value condition="$EXP[DhOsdIs_4_subtitles]">af3/extras/icons/quote.png</value>
+		<value condition="$EXP[DhOsdIs_4_sources]">dexhub/osd/legacy/layers.png</value>
+		<value condition="$EXP[DhOsdIs_4_episodes]">dexhub/osd/legacy/list-video.png</value>
+		<value condition="$EXP[DhOsdIs_4_info]">dexhub/osd/legacy/info.png</value>
+		<value condition="$EXP[DhOsdIs_4_audio]">dexhub/osd/legacy/audio-lines.png</value>
+		<value condition="$EXP[DhOsdIs_4_subtitles]">dexhub/osd/legacy/captions.png</value>
 		<value condition="$EXP[DhOsdIs_4_subsync]">dexhub/osd/subsync.png</value>
 		<value condition="$EXP[DhOsdIs_4_nextsub]">dexhub/osd/subnext.png</value>
 		<value condition="$EXP[DhOsdIs_4_external]">dexhub/external-player.png</value>
-		<value condition="$EXP[DhOsdIs_4_video]">af3/extras/icons/video.png</value>
+		<value condition="$EXP[DhOsdIs_4_video]">dexhub/osd/legacy/ratio.png</value>
 		<value condition="$EXP[DhOsdIs_4_ppi]">af3/extras/icons/ppi.png</value>
 	</variable>
 	<variable name="DhOsdSlotLabel_4">
@@ -14573,15 +14573,15 @@
 		<value />
 	</variable>
 	<variable name="DhOsdSlotIcon_5">
-		<value condition="$EXP[DhOsdIs_5_sources]">af3/extras/icons/network.png</value>
-		<value condition="$EXP[DhOsdIs_5_episodes]">af3/extras/icons/list-ul.png</value>
-		<value condition="$EXP[DhOsdIs_5_info]">af3/extras/icons/info2.png</value>
-		<value condition="$EXP[DhOsdIs_5_audio]">af3/extras/icons/volume.png</value>
-		<value condition="$EXP[DhOsdIs_5_subtitles]">af3/extras/icons/quote.png</value>
+		<value condition="$EXP[DhOsdIs_5_sources]">dexhub/osd/legacy/layers.png</value>
+		<value condition="$EXP[DhOsdIs_5_episodes]">dexhub/osd/legacy/list-video.png</value>
+		<value condition="$EXP[DhOsdIs_5_info]">dexhub/osd/legacy/info.png</value>
+		<value condition="$EXP[DhOsdIs_5_audio]">dexhub/osd/legacy/audio-lines.png</value>
+		<value condition="$EXP[DhOsdIs_5_subtitles]">dexhub/osd/legacy/captions.png</value>
 		<value condition="$EXP[DhOsdIs_5_subsync]">dexhub/osd/subsync.png</value>
 		<value condition="$EXP[DhOsdIs_5_nextsub]">dexhub/osd/subnext.png</value>
 		<value condition="$EXP[DhOsdIs_5_external]">dexhub/external-player.png</value>
-		<value condition="$EXP[DhOsdIs_5_video]">af3/extras/icons/video.png</value>
+		<value condition="$EXP[DhOsdIs_5_video]">dexhub/osd/legacy/ratio.png</value>
 		<value condition="$EXP[DhOsdIs_5_ppi]">af3/extras/icons/ppi.png</value>
 	</variable>
 	<variable name="DhOsdSlotLabel_5">
@@ -14590,15 +14590,15 @@
 		<value />
 	</variable>
 	<variable name="DhOsdSlotIcon_6">
-		<value condition="$EXP[DhOsdIs_6_sources]">af3/extras/icons/network.png</value>
-		<value condition="$EXP[DhOsdIs_6_episodes]">af3/extras/icons/list-ul.png</value>
-		<value condition="$EXP[DhOsdIs_6_info]">af3/extras/icons/info2.png</value>
-		<value condition="$EXP[DhOsdIs_6_audio]">af3/extras/icons/volume.png</value>
-		<value condition="$EXP[DhOsdIs_6_subtitles]">af3/extras/icons/quote.png</value>
+		<value condition="$EXP[DhOsdIs_6_sources]">dexhub/osd/legacy/layers.png</value>
+		<value condition="$EXP[DhOsdIs_6_episodes]">dexhub/osd/legacy/list-video.png</value>
+		<value condition="$EXP[DhOsdIs_6_info]">dexhub/osd/legacy/info.png</value>
+		<value condition="$EXP[DhOsdIs_6_audio]">dexhub/osd/legacy/audio-lines.png</value>
+		<value condition="$EXP[DhOsdIs_6_subtitles]">dexhub/osd/legacy/captions.png</value>
 		<value condition="$EXP[DhOsdIs_6_subsync]">dexhub/osd/subsync.png</value>
 		<value condition="$EXP[DhOsdIs_6_nextsub]">dexhub/osd/subnext.png</value>
 		<value condition="$EXP[DhOsdIs_6_external]">dexhub/external-player.png</value>
-		<value condition="$EXP[DhOsdIs_6_video]">af3/extras/icons/video.png</value>
+		<value condition="$EXP[DhOsdIs_6_video]">dexhub/osd/legacy/ratio.png</value>
 		<value condition="$EXP[DhOsdIs_6_ppi]">af3/extras/icons/ppi.png</value>
 	</variable>
 	<variable name="DhOsdSlotLabel_6">
@@ -14607,15 +14607,15 @@
 		<value />
 	</variable>
 	<variable name="DhOsdSlotIcon_7">
-		<value condition="$EXP[DhOsdIs_7_sources]">af3/extras/icons/network.png</value>
-		<value condition="$EXP[DhOsdIs_7_episodes]">af3/extras/icons/list-ul.png</value>
-		<value condition="$EXP[DhOsdIs_7_info]">af3/extras/icons/info2.png</value>
-		<value condition="$EXP[DhOsdIs_7_audio]">af3/extras/icons/volume.png</value>
-		<value condition="$EXP[DhOsdIs_7_subtitles]">af3/extras/icons/quote.png</value>
+		<value condition="$EXP[DhOsdIs_7_sources]">dexhub/osd/legacy/layers.png</value>
+		<value condition="$EXP[DhOsdIs_7_episodes]">dexhub/osd/legacy/list-video.png</value>
+		<value condition="$EXP[DhOsdIs_7_info]">dexhub/osd/legacy/info.png</value>
+		<value condition="$EXP[DhOsdIs_7_audio]">dexhub/osd/legacy/audio-lines.png</value>
+		<value condition="$EXP[DhOsdIs_7_subtitles]">dexhub/osd/legacy/captions.png</value>
 		<value condition="$EXP[DhOsdIs_7_subsync]">dexhub/osd/subsync.png</value>
 		<value condition="$EXP[DhOsdIs_7_nextsub]">dexhub/osd/subnext.png</value>
 		<value condition="$EXP[DhOsdIs_7_external]">dexhub/external-player.png</value>
-		<value condition="$EXP[DhOsdIs_7_video]">af3/extras/icons/video.png</value>
+		<value condition="$EXP[DhOsdIs_7_video]">dexhub/osd/legacy/ratio.png</value>
 		<value condition="$EXP[DhOsdIs_7_ppi]">af3/extras/icons/ppi.png</value>
 	</variable>
 	<variable name="DhOsdSlotLabel_7">
@@ -14624,15 +14624,15 @@
 		<value />
 	</variable>
 	<variable name="DhOsdSlotIcon_8">
-		<value condition="$EXP[DhOsdIs_8_sources]">af3/extras/icons/network.png</value>
-		<value condition="$EXP[DhOsdIs_8_episodes]">af3/extras/icons/list-ul.png</value>
-		<value condition="$EXP[DhOsdIs_8_info]">af3/extras/icons/info2.png</value>
-		<value condition="$EXP[DhOsdIs_8_audio]">af3/extras/icons/volume.png</value>
-		<value condition="$EXP[DhOsdIs_8_subtitles]">af3/extras/icons/quote.png</value>
+		<value condition="$EXP[DhOsdIs_8_sources]">dexhub/osd/legacy/layers.png</value>
+		<value condition="$EXP[DhOsdIs_8_episodes]">dexhub/osd/legacy/list-video.png</value>
+		<value condition="$EXP[DhOsdIs_8_info]">dexhub/osd/legacy/info.png</value>
+		<value condition="$EXP[DhOsdIs_8_audio]">dexhub/osd/legacy/audio-lines.png</value>
+		<value condition="$EXP[DhOsdIs_8_subtitles]">dexhub/osd/legacy/captions.png</value>
 		<value condition="$EXP[DhOsdIs_8_subsync]">dexhub/osd/subsync.png</value>
 		<value condition="$EXP[DhOsdIs_8_nextsub]">dexhub/osd/subnext.png</value>
 		<value condition="$EXP[DhOsdIs_8_external]">dexhub/external-player.png</value>
-		<value condition="$EXP[DhOsdIs_8_video]">af3/extras/icons/video.png</value>
+		<value condition="$EXP[DhOsdIs_8_video]">dexhub/osd/legacy/ratio.png</value>
 		<value condition="$EXP[DhOsdIs_8_ppi]">af3/extras/icons/ppi.png</value>
 	</variable>
 	<variable name="DhOsdSlotLabel_8">
@@ -14641,15 +14641,15 @@
 		<value />
 	</variable>
 	<variable name="DhOsdSlotIcon_9">
-		<value condition="$EXP[DhOsdIs_9_sources]">af3/extras/icons/network.png</value>
-		<value condition="$EXP[DhOsdIs_9_episodes]">af3/extras/icons/list-ul.png</value>
-		<value condition="$EXP[DhOsdIs_9_info]">af3/extras/icons/info2.png</value>
-		<value condition="$EXP[DhOsdIs_9_audio]">af3/extras/icons/volume.png</value>
-		<value condition="$EXP[DhOsdIs_9_subtitles]">af3/extras/icons/quote.png</value>
+		<value condition="$EXP[DhOsdIs_9_sources]">dexhub/osd/legacy/layers.png</value>
+		<value condition="$EXP[DhOsdIs_9_episodes]">dexhub/osd/legacy/list-video.png</value>
+		<value condition="$EXP[DhOsdIs_9_info]">dexhub/osd/legacy/info.png</value>
+		<value condition="$EXP[DhOsdIs_9_audio]">dexhub/osd/legacy/audio-lines.png</value>
+		<value condition="$EXP[DhOsdIs_9_subtitles]">dexhub/osd/legacy/captions.png</value>
 		<value condition="$EXP[DhOsdIs_9_subsync]">dexhub/osd/subsync.png</value>
 		<value condition="$EXP[DhOsdIs_9_nextsub]">dexhub/osd/subnext.png</value>
 		<value condition="$EXP[DhOsdIs_9_external]">dexhub/external-player.png</value>
-		<value condition="$EXP[DhOsdIs_9_video]">af3/extras/icons/video.png</value>
+		<value condition="$EXP[DhOsdIs_9_video]">dexhub/osd/legacy/ratio.png</value>
 		<value condition="$EXP[DhOsdIs_9_ppi]">af3/extras/icons/ppi.png</value>
 	</variable>
 	<variable name="DhOsdSlotLabel_9">
@@ -15198,6 +15198,29 @@
 		<value condition="!String.IsEmpty(Window(Home).Property(dhs.osd.glass))">$INFO[Window(Home).Property(dhs.osd.glass)]</value>
 		<value>99101318</value>
 	</variable>
+	<expression name="DhOsdHasLogo">!String.IsEmpty(Player.Art(clearlogo)) | !String.IsEmpty(Player.Art(tvshow.clearlogo)) | !String.IsEmpty(VideoPlayer.Art(clearlogo)) | !String.IsEmpty(Window(Home).Property(dexhub.clearlogo)) | !String.IsEmpty(Window(Home).Property(dexhub.np.logo))</expression>
+	<variable name="DhOsdLogo">
+		<value condition="!String.IsEmpty(Player.Art(clearlogo))">$INFO[Player.Art(clearlogo)]</value>
+		<value condition="!String.IsEmpty(Player.Art(tvshow.clearlogo))">$INFO[Player.Art(tvshow.clearlogo)]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Art(clearlogo))">$INFO[VideoPlayer.Art(clearlogo)]</value>
+		<value condition="!String.IsEmpty(Window(Home).Property(dexhub.clearlogo))">$INFO[Window(Home).Property(dexhub.clearlogo)]</value>
+		<value condition="!String.IsEmpty(Window(Home).Property(dexhub.np.logo))">$INFO[Window(Home).Property(dexhub.np.logo)]</value>
+	</variable>
+	<variable name="DhOsdEpisodeLine">
+		<value condition="!String.IsEmpty(VideoPlayer.TVShowTitle) + !String.IsEmpty(VideoPlayer.Season)">[B]S$INFO[VideoPlayer.Season]E$INFO[VideoPlayer.Episode][/B]$INFO[VideoPlayer.Title,[COLOR 99FFFFFF]  ,[/COLOR]]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.TVShowTitle)">[B]$INFO[VideoPlayer.TVShowTitle][/B]$INFO[VideoPlayer.Title,[COLOR 99FFFFFF]  ,[/COLOR]]</value>
+		<value condition="Pvr.IsPlayingTv">$VAR[AF3_Label_OSD_Header]</value>
+		<value>[COLOR A8FFFFFF]$INFO[VideoPlayer.Year]$INFO[VideoPlayer.Duration,  ·  ,]$INFO[VideoPlayer.Genre,  ·  ,][/COLOR]</value>
+	</variable>
+	<variable name="DhOsdTimeLine">
+		<value condition="Pvr.IsPlayingTv">$VAR[AF3_Label_OSD_Time]</value>
+		<value>$VAR[AF3_Label_OSD_Time][COLOR 80FFFFFF]  /  $VAR[AF3_Label_OSD_Duration][/COLOR]</value>
+	</variable>
+	<!-- the clock island: the time and when the title ends -->
+	<variable name="DhOsdClock">
+		<value condition="!String.IsEmpty(Player.FinishTime(hh:mm)) + !Pvr.IsPlayingTv">$INFO[System.Time][COLOR 8CFFFFFF]   $LOCALIZE[31984] $INFO[Player.FinishTime(hh:mm)][/COLOR]</value>
+		<value>$INFO[System.Time]</value>
+	</variable>
 	<variable name="DhChapterBackdrop">
 		<value condition="!String.IsEmpty(Player.Art(fanart))">$INFO[Player.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Player.Art(tvshow.fanart))">$INFO[Player.Art(tvshow.fanart)]</value>
@@ -15219,9 +15242,381 @@
 		<value condition="!String.IsEmpty(Window(Home).Property(dhs.osd.bar))">$INFO[Window(Home).Property(dhs.osd.bar)]</value>
 		<value>ffffffff</value>
 	</variable>
-	<include name="DhOsdSlots">
+	<!-- DhLegacyPlayer 3.28.50 (main) 3.28.52 (tvOS) -->
+	<variable name="DhOsdPill_1">
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6501) + $EXP[DhOsdIs_1_sources]">$LOCALIZE[31929]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6501) + $EXP[DhOsdIs_1_episodes]">$LOCALIZE[31930]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6501) + $EXP[DhOsdIs_1_info]">$LOCALIZE[31931]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6501) + $EXP[DhOsdIs_1_audio]">$LOCALIZE[31932]$INFO[VideoPlayer.AudioLanguage, · ,]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6501) + $EXP[DhOsdIs_1_subtitles]">$LOCALIZE[31933]$VAR[AF3_Label_OSD_SubtitlesLanguage, · ,]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6501) + $EXP[DhOsdIs_1_subsync]">$LOCALIZE[31934]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6501) + $EXP[DhOsdIs_1_nextsub]">$LOCALIZE[31935]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6501) + $EXP[DhOsdIs_1_video]">$LOCALIZE[31936]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6501) + $EXP[DhOsdIs_1_ppi]">$LOCALIZE[31937]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6501) + $EXP[DhOsdIs_1_external]">$LOCALIZE[31938]         </value>
+		<value />
+	</variable>
+	<variable name="DhOsdPill_2">
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6502) + $EXP[DhOsdIs_2_sources]">$LOCALIZE[31929]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6502) + $EXP[DhOsdIs_2_episodes]">$LOCALIZE[31930]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6502) + $EXP[DhOsdIs_2_info]">$LOCALIZE[31931]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6502) + $EXP[DhOsdIs_2_audio]">$LOCALIZE[31932]$INFO[VideoPlayer.AudioLanguage, · ,]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6502) + $EXP[DhOsdIs_2_subtitles]">$LOCALIZE[31933]$VAR[AF3_Label_OSD_SubtitlesLanguage, · ,]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6502) + $EXP[DhOsdIs_2_subsync]">$LOCALIZE[31934]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6502) + $EXP[DhOsdIs_2_nextsub]">$LOCALIZE[31935]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6502) + $EXP[DhOsdIs_2_video]">$LOCALIZE[31936]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6502) + $EXP[DhOsdIs_2_ppi]">$LOCALIZE[31937]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6502) + $EXP[DhOsdIs_2_external]">$LOCALIZE[31938]         </value>
+		<value />
+	</variable>
+	<variable name="DhOsdPill_3">
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6503) + $EXP[DhOsdIs_3_sources]">$LOCALIZE[31929]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6503) + $EXP[DhOsdIs_3_episodes]">$LOCALIZE[31930]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6503) + $EXP[DhOsdIs_3_info]">$LOCALIZE[31931]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6503) + $EXP[DhOsdIs_3_audio]">$LOCALIZE[31932]$INFO[VideoPlayer.AudioLanguage, · ,]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6503) + $EXP[DhOsdIs_3_subtitles]">$LOCALIZE[31933]$VAR[AF3_Label_OSD_SubtitlesLanguage, · ,]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6503) + $EXP[DhOsdIs_3_subsync]">$LOCALIZE[31934]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6503) + $EXP[DhOsdIs_3_nextsub]">$LOCALIZE[31935]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6503) + $EXP[DhOsdIs_3_video]">$LOCALIZE[31936]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6503) + $EXP[DhOsdIs_3_ppi]">$LOCALIZE[31937]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6503) + $EXP[DhOsdIs_3_external]">$LOCALIZE[31938]         </value>
+		<value />
+	</variable>
+	<variable name="DhOsdPill_4">
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6504) + $EXP[DhOsdIs_4_sources]">$LOCALIZE[31929]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6504) + $EXP[DhOsdIs_4_episodes]">$LOCALIZE[31930]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6504) + $EXP[DhOsdIs_4_info]">$LOCALIZE[31931]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6504) + $EXP[DhOsdIs_4_audio]">$LOCALIZE[31932]$INFO[VideoPlayer.AudioLanguage, · ,]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6504) + $EXP[DhOsdIs_4_subtitles]">$LOCALIZE[31933]$VAR[AF3_Label_OSD_SubtitlesLanguage, · ,]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6504) + $EXP[DhOsdIs_4_subsync]">$LOCALIZE[31934]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6504) + $EXP[DhOsdIs_4_nextsub]">$LOCALIZE[31935]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6504) + $EXP[DhOsdIs_4_video]">$LOCALIZE[31936]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6504) + $EXP[DhOsdIs_4_ppi]">$LOCALIZE[31937]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6504) + $EXP[DhOsdIs_4_external]">$LOCALIZE[31938]         </value>
+		<value />
+	</variable>
+	<variable name="DhOsdPill_5">
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6505) + $EXP[DhOsdIs_5_sources]">$LOCALIZE[31929]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6505) + $EXP[DhOsdIs_5_episodes]">$LOCALIZE[31930]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6505) + $EXP[DhOsdIs_5_info]">$LOCALIZE[31931]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6505) + $EXP[DhOsdIs_5_audio]">$LOCALIZE[31932]$INFO[VideoPlayer.AudioLanguage, · ,]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6505) + $EXP[DhOsdIs_5_subtitles]">$LOCALIZE[31933]$VAR[AF3_Label_OSD_SubtitlesLanguage, · ,]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6505) + $EXP[DhOsdIs_5_subsync]">$LOCALIZE[31934]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6505) + $EXP[DhOsdIs_5_nextsub]">$LOCALIZE[31935]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6505) + $EXP[DhOsdIs_5_video]">$LOCALIZE[31936]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6505) + $EXP[DhOsdIs_5_ppi]">$LOCALIZE[31937]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6505) + $EXP[DhOsdIs_5_external]">$LOCALIZE[31938]         </value>
+		<value />
+	</variable>
+	<variable name="DhOsdPill_6">
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6506) + $EXP[DhOsdIs_6_sources]">$LOCALIZE[31929]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6506) + $EXP[DhOsdIs_6_episodes]">$LOCALIZE[31930]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6506) + $EXP[DhOsdIs_6_info]">$LOCALIZE[31931]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6506) + $EXP[DhOsdIs_6_audio]">$LOCALIZE[31932]$INFO[VideoPlayer.AudioLanguage, · ,]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6506) + $EXP[DhOsdIs_6_subtitles]">$LOCALIZE[31933]$VAR[AF3_Label_OSD_SubtitlesLanguage, · ,]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6506) + $EXP[DhOsdIs_6_subsync]">$LOCALIZE[31934]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6506) + $EXP[DhOsdIs_6_nextsub]">$LOCALIZE[31935]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6506) + $EXP[DhOsdIs_6_video]">$LOCALIZE[31936]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6506) + $EXP[DhOsdIs_6_ppi]">$LOCALIZE[31937]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6506) + $EXP[DhOsdIs_6_external]">$LOCALIZE[31938]         </value>
+		<value />
+	</variable>
+	<variable name="DhOsdPill_7">
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6507) + $EXP[DhOsdIs_7_sources]">$LOCALIZE[31929]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6507) + $EXP[DhOsdIs_7_episodes]">$LOCALIZE[31930]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6507) + $EXP[DhOsdIs_7_info]">$LOCALIZE[31931]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6507) + $EXP[DhOsdIs_7_audio]">$LOCALIZE[31932]$INFO[VideoPlayer.AudioLanguage, · ,]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6507) + $EXP[DhOsdIs_7_subtitles]">$LOCALIZE[31933]$VAR[AF3_Label_OSD_SubtitlesLanguage, · ,]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6507) + $EXP[DhOsdIs_7_subsync]">$LOCALIZE[31934]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6507) + $EXP[DhOsdIs_7_nextsub]">$LOCALIZE[31935]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6507) + $EXP[DhOsdIs_7_video]">$LOCALIZE[31936]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6507) + $EXP[DhOsdIs_7_ppi]">$LOCALIZE[31937]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6507) + $EXP[DhOsdIs_7_external]">$LOCALIZE[31938]         </value>
+		<value />
+	</variable>
+	<variable name="DhOsdPill_8">
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6508) + $EXP[DhOsdIs_8_sources]">$LOCALIZE[31929]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6508) + $EXP[DhOsdIs_8_episodes]">$LOCALIZE[31930]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6508) + $EXP[DhOsdIs_8_info]">$LOCALIZE[31931]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6508) + $EXP[DhOsdIs_8_audio]">$LOCALIZE[31932]$INFO[VideoPlayer.AudioLanguage, · ,]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6508) + $EXP[DhOsdIs_8_subtitles]">$LOCALIZE[31933]$VAR[AF3_Label_OSD_SubtitlesLanguage, · ,]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6508) + $EXP[DhOsdIs_8_subsync]">$LOCALIZE[31934]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6508) + $EXP[DhOsdIs_8_nextsub]">$LOCALIZE[31935]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6508) + $EXP[DhOsdIs_8_video]">$LOCALIZE[31936]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6508) + $EXP[DhOsdIs_8_ppi]">$LOCALIZE[31937]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6508) + $EXP[DhOsdIs_8_external]">$LOCALIZE[31938]         </value>
+		<value />
+	</variable>
+	<variable name="DhOsdPill_9">
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6509) + $EXP[DhOsdIs_9_sources]">$LOCALIZE[31929]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6509) + $EXP[DhOsdIs_9_episodes]">$LOCALIZE[31930]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6509) + $EXP[DhOsdIs_9_info]">$LOCALIZE[31931]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6509) + $EXP[DhOsdIs_9_audio]">$LOCALIZE[31932]$INFO[VideoPlayer.AudioLanguage, · ,]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6509) + $EXP[DhOsdIs_9_subtitles]">$LOCALIZE[31933]$VAR[AF3_Label_OSD_SubtitlesLanguage, · ,]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6509) + $EXP[DhOsdIs_9_subsync]">$LOCALIZE[31934]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6509) + $EXP[DhOsdIs_9_nextsub]">$LOCALIZE[31935]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6509) + $EXP[DhOsdIs_9_video]">$LOCALIZE[31936]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6509) + $EXP[DhOsdIs_9_ppi]">$LOCALIZE[31937]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6509) + $EXP[DhOsdIs_9_external]">$LOCALIZE[31938]         </value>
+		<value />
+	</variable>
+	<variable name="DhOsdPill_10">
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6510) + $EXP[DhOsdIs_10_sources]">$LOCALIZE[31929]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6510) + $EXP[DhOsdIs_10_episodes]">$LOCALIZE[31930]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6510) + $EXP[DhOsdIs_10_info]">$LOCALIZE[31931]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6510) + $EXP[DhOsdIs_10_audio]">$LOCALIZE[31932]$INFO[VideoPlayer.AudioLanguage, · ,]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6510) + $EXP[DhOsdIs_10_subtitles]">$LOCALIZE[31933]$VAR[AF3_Label_OSD_SubtitlesLanguage, · ,]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6510) + $EXP[DhOsdIs_10_subsync]">$LOCALIZE[31934]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6510) + $EXP[DhOsdIs_10_nextsub]">$LOCALIZE[31935]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6510) + $EXP[DhOsdIs_10_video]">$LOCALIZE[31936]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6510) + $EXP[DhOsdIs_10_ppi]">$LOCALIZE[31937]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6510) + $EXP[DhOsdIs_10_external]">$LOCALIZE[31938]         </value>
+		<value />
+	</variable>
+	<variable name="DhOsdPill_6001">
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6001) + Player.Paused">$LOCALIZE[31925]         </value>
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6001)">$LOCALIZE[31924]         </value>
+		<value />
+	</variable>
+	<variable name="DhOsdPill_6002">
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6002)">$LOCALIZE[31926]         </value>
+		<value />
+	</variable>
+	<variable name="DhOsdPill_6003">
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6003)">$LOCALIZE[31927]         </value>
+		<value />
+	</variable>
+	<variable name="DhOsdPill_6004">
+		<value condition="!String.IsEqual(Window(Home).Property(dhs.pref.player_osd_names),false) + Control.HasFocus(6004)">$LOCALIZE[31928]         </value>
+		<value />
+	</variable>
+	<variable name="DhSourceCacheBg">
+		<value condition="String.IsEqual(ListItem.Property(cache),cached)">2E22C55E</value>
+		<value>2EF59E0B</value>
+	</variable>
+	<variable name="DhSourceCacheFg">
+		<value condition="String.IsEqual(ListItem.Property(cache),cached)">FF4ADE80</value>
+		<value>FFFBBF24</value>
+	</variable>
+	<variable name="DhSourceCacheLabel">
+		<value condition="String.IsEqual(ListItem.Property(cache),cached)">$LOCALIZE[31988]</value>
+		<value>$LOCALIZE[31989]</value>
+	</variable>
+	<include name="DhSheetRow">
+		<param name="fg">FFDBDBD8</param>
+		<param name="face">FF20212A</param>
+		<param name="facefg">FFB2B2B0</param>
+		<definition>
+			<control type="image">
+				<left>22</left>
+				<top>18</top>
+				<width>52</width>
+				<height>52</height>
+				<texture border="16" colordiffuse="$PARAM[face]">af3/common/box.png</texture>
+			</control>
+			<control type="image">
+				<left>22</left>
+				<top>18</top>
+				<width>52</width>
+				<height>52</height>
+				<bordersize>12</bordersize>
+				<aspectratio>keep</aspectratio>
+				<texture>$INFO[ListItem.Property(language),af3/flags/color/language/,.png]</texture>
+				<visible>!String.IsEmpty(ListItem.Property(language))</visible>
+			</control>
+			<control type="label">
+				<left>22</left>
+				<top>18</top>
+				<width>52</width>
+				<height>52</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>af3_font_tiny_bold</font>
+				<textcolor>$PARAM[facefg]</textcolor>
+				<label>$INFO[ListItem.Property(index)]</label>
+				<visible>String.IsEmpty(ListItem.Property(language))</visible>
+			</control>
+			<control type="label">
+				<left>92</left>
+				<right>150</right>
+				<top>14</top>
+				<height>34</height>
+				<aligny>center</aligny>
+				<font>af3_font_mini_bold</font>
+				<textcolor>$PARAM[fg]</textcolor>
+				<label>$VAR[AF3_Label_StreamLanguage]</label>
+			</control>
+			<control type="label">
+				<left>92</left>
+				<right>150</right>
+				<top>48</top>
+				<height>28</height>
+				<aligny>center</aligny>
+				<font>af3_font_tiny</font>
+				<textcolor>FF7A7A78</textcolor>
+				<label>$INFO[ListItem.Label2]$VAR[AF3_Label_PlayerStream_IsForced,  ·  ,]$VAR[AF3_Label_PlayerStream_IsDefault,  ·  ,]$INFO[ListItem.Property(codec),  ·  ,]$INFO[ListItem.Property(channels),  ·  , $LOCALIZE[10127]]</label>
+			</control>
+			<control type="image">
+				<right>62</right>
+				<top>30</top>
+				<width>28</width>
+				<height>28</height>
+				<texture colordiffuse="$VAR[DhOsdAccent]">dexhub/osd/legacy/check.png</texture>
+				<visible>!String.IsEmpty(ListItem.Property(iscurrent))</visible>
+			</control>
+			<control type="image">
+				<right>22</right>
+				<top>32</top>
+				<width>24</width>
+				<height>24</height>
+				<texture colordiffuse="80FFFFFF">dexhub/osd/legacy/chevron-right.png</texture>
+			</control>
+		</definition>
+	</include>
+	<!-- DhLegacyPlayer2 3.28.53 -->
+	<variable name="DhOsdPlayPause">
+		<value condition="Player.Forwarding | Player.Rewinding">dexhub/osd/legacy/play-f.png</value>
+		<value condition="Player.Paused">dexhub/osd/legacy/play-f.png</value>
+		<value>dexhub/osd/legacy/pause-f.png</value>
+	</variable>
+	<variable name="DhOsdSkipNext">
+		<value condition="!String.IsEmpty(Player.Chapter) + !String.IsEqual(Player.Chapter,00) + !String.IsEmpty(Player.ChapterCount) + !String.IsEqual(Player.ChapterCount,00) + !String.IsEqual(Player.Chapter,Player.ChapterCount)">dexhub/osd/legacy/skip-forward.png</value>
+		<value condition="Integer.IsLess(VideoPlayer.PlaylistPosition,VideoPlayer.PlaylistLength)">dexhub/osd/legacy/skip-forward.png</value>
+		<value condition="Integer.IsLess(Player.TimeRemaining(mins),10)">dexhub/osd/legacy/skip-forward.png</value>
+		<value>dexhub/osd/legacy/rotate-cw.png</value>
+	</variable>
+	<variable name="DhOsdSkipPrev">
+		<value condition="!String.IsEmpty(Player.Chapter) + !String.IsEqual(Player.Chapter,00) + !String.IsEmpty(Player.ChapterCount) + !String.IsEqual(Player.ChapterCount,00) + !String.IsEqual(Player.Chapter,01)">dexhub/osd/legacy/skip-back.png</value>
+		<value condition="Integer.IsGreater(VideoPlayer.PlaylistPosition,1) + Integer.IsGreater(VideoPlayer.PlaylistLength,1)">dexhub/osd/legacy/skip-back.png</value>
+		<value condition="Integer.IsLess(Player.Time(mins),10)">dexhub/osd/legacy/skip-back.png</value>
+		<value>dexhub/osd/legacy/rotate-ccw.png</value>
+	</variable>
+	<!-- DhLegacyPlayer3 -->
+	<!-- DhLegacyPlayer4 -->
+	<variable name="DhOsdSlotIconClassic_1">
+		<value condition="$EXP[DhOsdIs_1_sources]">af3/extras/icons/network.png</value>
+		<value condition="$EXP[DhOsdIs_1_episodes]">af3/extras/icons/list-ul.png</value>
+		<value condition="$EXP[DhOsdIs_1_info]">af3/extras/icons/info2.png</value>
+		<value condition="$EXP[DhOsdIs_1_audio]">af3/extras/icons/volume.png</value>
+		<value condition="$EXP[DhOsdIs_1_subtitles]">af3/extras/icons/quote.png</value>
+		<value condition="$EXP[DhOsdIs_1_subsync]">dexhub/osd/subsync.png</value>
+		<value condition="$EXP[DhOsdIs_1_nextsub]">dexhub/osd/subnext.png</value>
+		<value condition="$EXP[DhOsdIs_1_external]">dexhub/external-player.png</value>
+		<value condition="$EXP[DhOsdIs_1_video]">af3/extras/icons/video.png</value>
+		<value condition="$EXP[DhOsdIs_1_ppi]">af3/extras/icons/ppi.png</value>
+	</variable>
+	<variable name="DhOsdSlotIconClassic_2">
+		<value condition="$EXP[DhOsdIs_2_sources]">af3/extras/icons/network.png</value>
+		<value condition="$EXP[DhOsdIs_2_episodes]">af3/extras/icons/list-ul.png</value>
+		<value condition="$EXP[DhOsdIs_2_info]">af3/extras/icons/info2.png</value>
+		<value condition="$EXP[DhOsdIs_2_audio]">af3/extras/icons/volume.png</value>
+		<value condition="$EXP[DhOsdIs_2_subtitles]">af3/extras/icons/quote.png</value>
+		<value condition="$EXP[DhOsdIs_2_subsync]">dexhub/osd/subsync.png</value>
+		<value condition="$EXP[DhOsdIs_2_nextsub]">dexhub/osd/subnext.png</value>
+		<value condition="$EXP[DhOsdIs_2_external]">dexhub/external-player.png</value>
+		<value condition="$EXP[DhOsdIs_2_video]">af3/extras/icons/video.png</value>
+		<value condition="$EXP[DhOsdIs_2_ppi]">af3/extras/icons/ppi.png</value>
+	</variable>
+	<variable name="DhOsdSlotIconClassic_3">
+		<value condition="$EXP[DhOsdIs_3_sources]">af3/extras/icons/network.png</value>
+		<value condition="$EXP[DhOsdIs_3_episodes]">af3/extras/icons/list-ul.png</value>
+		<value condition="$EXP[DhOsdIs_3_info]">af3/extras/icons/info2.png</value>
+		<value condition="$EXP[DhOsdIs_3_audio]">af3/extras/icons/volume.png</value>
+		<value condition="$EXP[DhOsdIs_3_subtitles]">af3/extras/icons/quote.png</value>
+		<value condition="$EXP[DhOsdIs_3_subsync]">dexhub/osd/subsync.png</value>
+		<value condition="$EXP[DhOsdIs_3_nextsub]">dexhub/osd/subnext.png</value>
+		<value condition="$EXP[DhOsdIs_3_external]">dexhub/external-player.png</value>
+		<value condition="$EXP[DhOsdIs_3_video]">af3/extras/icons/video.png</value>
+		<value condition="$EXP[DhOsdIs_3_ppi]">af3/extras/icons/ppi.png</value>
+	</variable>
+	<variable name="DhOsdSlotIconClassic_4">
+		<value condition="$EXP[DhOsdIs_4_sources]">af3/extras/icons/network.png</value>
+		<value condition="$EXP[DhOsdIs_4_episodes]">af3/extras/icons/list-ul.png</value>
+		<value condition="$EXP[DhOsdIs_4_info]">af3/extras/icons/info2.png</value>
+		<value condition="$EXP[DhOsdIs_4_audio]">af3/extras/icons/volume.png</value>
+		<value condition="$EXP[DhOsdIs_4_subtitles]">af3/extras/icons/quote.png</value>
+		<value condition="$EXP[DhOsdIs_4_subsync]">dexhub/osd/subsync.png</value>
+		<value condition="$EXP[DhOsdIs_4_nextsub]">dexhub/osd/subnext.png</value>
+		<value condition="$EXP[DhOsdIs_4_external]">dexhub/external-player.png</value>
+		<value condition="$EXP[DhOsdIs_4_video]">af3/extras/icons/video.png</value>
+		<value condition="$EXP[DhOsdIs_4_ppi]">af3/extras/icons/ppi.png</value>
+	</variable>
+	<variable name="DhOsdSlotIconClassic_5">
+		<value condition="$EXP[DhOsdIs_5_sources]">af3/extras/icons/network.png</value>
+		<value condition="$EXP[DhOsdIs_5_episodes]">af3/extras/icons/list-ul.png</value>
+		<value condition="$EXP[DhOsdIs_5_info]">af3/extras/icons/info2.png</value>
+		<value condition="$EXP[DhOsdIs_5_audio]">af3/extras/icons/volume.png</value>
+		<value condition="$EXP[DhOsdIs_5_subtitles]">af3/extras/icons/quote.png</value>
+		<value condition="$EXP[DhOsdIs_5_subsync]">dexhub/osd/subsync.png</value>
+		<value condition="$EXP[DhOsdIs_5_nextsub]">dexhub/osd/subnext.png</value>
+		<value condition="$EXP[DhOsdIs_5_external]">dexhub/external-player.png</value>
+		<value condition="$EXP[DhOsdIs_5_video]">af3/extras/icons/video.png</value>
+		<value condition="$EXP[DhOsdIs_5_ppi]">af3/extras/icons/ppi.png</value>
+	</variable>
+	<variable name="DhOsdSlotIconClassic_6">
+		<value condition="$EXP[DhOsdIs_6_sources]">af3/extras/icons/network.png</value>
+		<value condition="$EXP[DhOsdIs_6_episodes]">af3/extras/icons/list-ul.png</value>
+		<value condition="$EXP[DhOsdIs_6_info]">af3/extras/icons/info2.png</value>
+		<value condition="$EXP[DhOsdIs_6_audio]">af3/extras/icons/volume.png</value>
+		<value condition="$EXP[DhOsdIs_6_subtitles]">af3/extras/icons/quote.png</value>
+		<value condition="$EXP[DhOsdIs_6_subsync]">dexhub/osd/subsync.png</value>
+		<value condition="$EXP[DhOsdIs_6_nextsub]">dexhub/osd/subnext.png</value>
+		<value condition="$EXP[DhOsdIs_6_external]">dexhub/external-player.png</value>
+		<value condition="$EXP[DhOsdIs_6_video]">af3/extras/icons/video.png</value>
+		<value condition="$EXP[DhOsdIs_6_ppi]">af3/extras/icons/ppi.png</value>
+	</variable>
+	<variable name="DhOsdSlotIconClassic_7">
+		<value condition="$EXP[DhOsdIs_7_sources]">af3/extras/icons/network.png</value>
+		<value condition="$EXP[DhOsdIs_7_episodes]">af3/extras/icons/list-ul.png</value>
+		<value condition="$EXP[DhOsdIs_7_info]">af3/extras/icons/info2.png</value>
+		<value condition="$EXP[DhOsdIs_7_audio]">af3/extras/icons/volume.png</value>
+		<value condition="$EXP[DhOsdIs_7_subtitles]">af3/extras/icons/quote.png</value>
+		<value condition="$EXP[DhOsdIs_7_subsync]">dexhub/osd/subsync.png</value>
+		<value condition="$EXP[DhOsdIs_7_nextsub]">dexhub/osd/subnext.png</value>
+		<value condition="$EXP[DhOsdIs_7_external]">dexhub/external-player.png</value>
+		<value condition="$EXP[DhOsdIs_7_video]">af3/extras/icons/video.png</value>
+		<value condition="$EXP[DhOsdIs_7_ppi]">af3/extras/icons/ppi.png</value>
+	</variable>
+	<variable name="DhOsdSlotIconClassic_8">
+		<value condition="$EXP[DhOsdIs_8_sources]">af3/extras/icons/network.png</value>
+		<value condition="$EXP[DhOsdIs_8_episodes]">af3/extras/icons/list-ul.png</value>
+		<value condition="$EXP[DhOsdIs_8_info]">af3/extras/icons/info2.png</value>
+		<value condition="$EXP[DhOsdIs_8_audio]">af3/extras/icons/volume.png</value>
+		<value condition="$EXP[DhOsdIs_8_subtitles]">af3/extras/icons/quote.png</value>
+		<value condition="$EXP[DhOsdIs_8_subsync]">dexhub/osd/subsync.png</value>
+		<value condition="$EXP[DhOsdIs_8_nextsub]">dexhub/osd/subnext.png</value>
+		<value condition="$EXP[DhOsdIs_8_external]">dexhub/external-player.png</value>
+		<value condition="$EXP[DhOsdIs_8_video]">af3/extras/icons/video.png</value>
+		<value condition="$EXP[DhOsdIs_8_ppi]">af3/extras/icons/ppi.png</value>
+	</variable>
+	<variable name="DhOsdSlotIconClassic_9">
+		<value condition="$EXP[DhOsdIs_9_sources]">af3/extras/icons/network.png</value>
+		<value condition="$EXP[DhOsdIs_9_episodes]">af3/extras/icons/list-ul.png</value>
+		<value condition="$EXP[DhOsdIs_9_info]">af3/extras/icons/info2.png</value>
+		<value condition="$EXP[DhOsdIs_9_audio]">af3/extras/icons/volume.png</value>
+		<value condition="$EXP[DhOsdIs_9_subtitles]">af3/extras/icons/quote.png</value>
+		<value condition="$EXP[DhOsdIs_9_subsync]">dexhub/osd/subsync.png</value>
+		<value condition="$EXP[DhOsdIs_9_nextsub]">dexhub/osd/subnext.png</value>
+		<value condition="$EXP[DhOsdIs_9_external]">dexhub/external-player.png</value>
+		<value condition="$EXP[DhOsdIs_9_video]">af3/extras/icons/video.png</value>
+		<value condition="$EXP[DhOsdIs_9_ppi]">af3/extras/icons/ppi.png</value>
+	</variable>
+	<variable name="DhOsdSlotIconClassic_10">
+		<value condition="$EXP[DhOsdIs_10_sources]">af3/extras/icons/network.png</value>
+		<value condition="$EXP[DhOsdIs_10_episodes]">af3/extras/icons/list-ul.png</value>
+		<value condition="$EXP[DhOsdIs_10_info]">af3/extras/icons/info2.png</value>
+		<value condition="$EXP[DhOsdIs_10_audio]">af3/extras/icons/volume.png</value>
+		<value condition="$EXP[DhOsdIs_10_subtitles]">af3/extras/icons/quote.png</value>
+		<value condition="$EXP[DhOsdIs_10_subsync]">dexhub/osd/subsync.png</value>
+		<value condition="$EXP[DhOsdIs_10_nextsub]">dexhub/osd/subnext.png</value>
+		<value condition="$EXP[DhOsdIs_10_external]">dexhub/external-player.png</value>
+		<value condition="$EXP[DhOsdIs_10_video]">af3/extras/icons/video.png</value>
+		<value condition="$EXP[DhOsdIs_10_ppi]">af3/extras/icons/ppi.png</value>
+	</variable>
+	<include name="DhOsdSlotsClassic">
 		<control type="button" id="6501">
 			<visible>$EXP[DhOsdSlotVis_1]</visible>
+			<animation type="Focus"><effect type="zoom" start="94" end="100" time="200" tween="cubic" easing="out" center="auto"/></animation>
 			<height>80</height>
 			<width>80</width>
 			<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
@@ -15239,12 +15634,8 @@
 			<label>$VAR[DhOsdSlotLabel_1]</label>
 			<onup condition="$EXP[DhOsdIs_1_sources]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_1_episodes]">noop</onup>
-			<onfocus condition="$EXP[DhOsdIs_1_info]">ActivateWindow(1145)</onfocus>
+			<onfocus condition="$EXP[DhOsdIs_1_audio]">ActivateWindow(1146)</onfocus><onup condition="$EXP[DhOsdIs_1_audio]">ActivateWindow(1146)</onup><onfocus condition="$EXP[DhOsdIs_1_subtitles]">ActivateWindow(1147)</onfocus><onup condition="$EXP[DhOsdIs_1_subtitles]">ActivateWindow(1147)</onup><onfocus condition="$EXP[DhOsdIs_1_info]">ActivateWindow(1145)</onfocus>
 			<onup condition="$EXP[DhOsdIs_1_info]">ActivateWindow(1145)</onup>
-			<onfocus condition="$EXP[DhOsdIs_1_audio]">ActivateWindow(1146)</onfocus>
-			<onup condition="$EXP[DhOsdIs_1_audio]">ActivateWindow(1146)</onup>
-			<onfocus condition="$EXP[DhOsdIs_1_subtitles]">ActivateWindow(1147)</onfocus>
-			<onup condition="$EXP[DhOsdIs_1_subtitles]">ActivateWindow(1147)</onup>
 			<onup condition="$EXP[DhOsdIs_1_subsync]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_1_nextsub]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_1_external]">noop</onup>
@@ -15281,20 +15672,21 @@
 					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[DhOsdSlotIcon_1]</texture>
+					<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[DhOsdSlotIconClassic_1]</texture>
 					<visible>!Control.HasFocus(6501)</visible>
 				</control>
 				<control type="image">
 					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIcon_1]</texture>
+					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIconClassic_1]</texture>
 					<visible>Control.HasFocus(6501)</visible>
 				</control>
 			</control>
 		</control>
 		<control type="button" id="6502">
 			<visible>$EXP[DhOsdSlotVis_2]</visible>
+			<animation type="Focus"><effect type="zoom" start="94" end="100" time="200" tween="cubic" easing="out" center="auto"/></animation>
 			<height>80</height>
 			<width>80</width>
 			<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
@@ -15312,12 +15704,8 @@
 			<label>$VAR[DhOsdSlotLabel_2]</label>
 			<onup condition="$EXP[DhOsdIs_2_sources]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_2_episodes]">noop</onup>
-			<onfocus condition="$EXP[DhOsdIs_2_info]">ActivateWindow(1145)</onfocus>
+			<onfocus condition="$EXP[DhOsdIs_2_audio]">ActivateWindow(1146)</onfocus><onup condition="$EXP[DhOsdIs_2_audio]">ActivateWindow(1146)</onup><onfocus condition="$EXP[DhOsdIs_2_subtitles]">ActivateWindow(1147)</onfocus><onup condition="$EXP[DhOsdIs_2_subtitles]">ActivateWindow(1147)</onup><onfocus condition="$EXP[DhOsdIs_2_info]">ActivateWindow(1145)</onfocus>
 			<onup condition="$EXP[DhOsdIs_2_info]">ActivateWindow(1145)</onup>
-			<onfocus condition="$EXP[DhOsdIs_2_audio]">ActivateWindow(1146)</onfocus>
-			<onup condition="$EXP[DhOsdIs_2_audio]">ActivateWindow(1146)</onup>
-			<onfocus condition="$EXP[DhOsdIs_2_subtitles]">ActivateWindow(1147)</onfocus>
-			<onup condition="$EXP[DhOsdIs_2_subtitles]">ActivateWindow(1147)</onup>
 			<onup condition="$EXP[DhOsdIs_2_subsync]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_2_nextsub]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_2_external]">noop</onup>
@@ -15354,20 +15742,21 @@
 					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[DhOsdSlotIcon_2]</texture>
+					<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[DhOsdSlotIconClassic_2]</texture>
 					<visible>!Control.HasFocus(6502)</visible>
 				</control>
 				<control type="image">
 					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIcon_2]</texture>
+					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIconClassic_2]</texture>
 					<visible>Control.HasFocus(6502)</visible>
 				</control>
 			</control>
 		</control>
 		<control type="button" id="6503">
 			<visible>$EXP[DhOsdSlotVis_3]</visible>
+			<animation type="Focus"><effect type="zoom" start="94" end="100" time="200" tween="cubic" easing="out" center="auto"/></animation>
 			<height>80</height>
 			<width>80</width>
 			<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
@@ -15385,12 +15774,8 @@
 			<label>$VAR[DhOsdSlotLabel_3]</label>
 			<onup condition="$EXP[DhOsdIs_3_sources]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_3_episodes]">noop</onup>
-			<onfocus condition="$EXP[DhOsdIs_3_info]">ActivateWindow(1145)</onfocus>
+			<onfocus condition="$EXP[DhOsdIs_3_audio]">ActivateWindow(1146)</onfocus><onup condition="$EXP[DhOsdIs_3_audio]">ActivateWindow(1146)</onup><onfocus condition="$EXP[DhOsdIs_3_subtitles]">ActivateWindow(1147)</onfocus><onup condition="$EXP[DhOsdIs_3_subtitles]">ActivateWindow(1147)</onup><onfocus condition="$EXP[DhOsdIs_3_info]">ActivateWindow(1145)</onfocus>
 			<onup condition="$EXP[DhOsdIs_3_info]">ActivateWindow(1145)</onup>
-			<onfocus condition="$EXP[DhOsdIs_3_audio]">ActivateWindow(1146)</onfocus>
-			<onup condition="$EXP[DhOsdIs_3_audio]">ActivateWindow(1146)</onup>
-			<onfocus condition="$EXP[DhOsdIs_3_subtitles]">ActivateWindow(1147)</onfocus>
-			<onup condition="$EXP[DhOsdIs_3_subtitles]">ActivateWindow(1147)</onup>
 			<onup condition="$EXP[DhOsdIs_3_subsync]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_3_nextsub]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_3_external]">noop</onup>
@@ -15427,20 +15812,21 @@
 					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[DhOsdSlotIcon_3]</texture>
+					<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[DhOsdSlotIconClassic_3]</texture>
 					<visible>!Control.HasFocus(6503)</visible>
 				</control>
 				<control type="image">
 					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIcon_3]</texture>
+					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIconClassic_3]</texture>
 					<visible>Control.HasFocus(6503)</visible>
 				</control>
 			</control>
 		</control>
 		<control type="button" id="6504">
 			<visible>$EXP[DhOsdSlotVis_4]</visible>
+			<animation type="Focus"><effect type="zoom" start="94" end="100" time="200" tween="cubic" easing="out" center="auto"/></animation>
 			<height>80</height>
 			<width>80</width>
 			<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
@@ -15458,12 +15844,8 @@
 			<label>$VAR[DhOsdSlotLabel_4]</label>
 			<onup condition="$EXP[DhOsdIs_4_sources]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_4_episodes]">noop</onup>
-			<onfocus condition="$EXP[DhOsdIs_4_info]">ActivateWindow(1145)</onfocus>
+			<onfocus condition="$EXP[DhOsdIs_4_audio]">ActivateWindow(1146)</onfocus><onup condition="$EXP[DhOsdIs_4_audio]">ActivateWindow(1146)</onup><onfocus condition="$EXP[DhOsdIs_4_subtitles]">ActivateWindow(1147)</onfocus><onup condition="$EXP[DhOsdIs_4_subtitles]">ActivateWindow(1147)</onup><onfocus condition="$EXP[DhOsdIs_4_info]">ActivateWindow(1145)</onfocus>
 			<onup condition="$EXP[DhOsdIs_4_info]">ActivateWindow(1145)</onup>
-			<onfocus condition="$EXP[DhOsdIs_4_audio]">ActivateWindow(1146)</onfocus>
-			<onup condition="$EXP[DhOsdIs_4_audio]">ActivateWindow(1146)</onup>
-			<onfocus condition="$EXP[DhOsdIs_4_subtitles]">ActivateWindow(1147)</onfocus>
-			<onup condition="$EXP[DhOsdIs_4_subtitles]">ActivateWindow(1147)</onup>
 			<onup condition="$EXP[DhOsdIs_4_subsync]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_4_nextsub]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_4_external]">noop</onup>
@@ -15500,20 +15882,21 @@
 					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[DhOsdSlotIcon_4]</texture>
+					<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[DhOsdSlotIconClassic_4]</texture>
 					<visible>!Control.HasFocus(6504)</visible>
 				</control>
 				<control type="image">
 					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIcon_4]</texture>
+					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIconClassic_4]</texture>
 					<visible>Control.HasFocus(6504)</visible>
 				</control>
 			</control>
 		</control>
 		<control type="button" id="6505">
 			<visible>$EXP[DhOsdSlotVis_5]</visible>
+			<animation type="Focus"><effect type="zoom" start="94" end="100" time="200" tween="cubic" easing="out" center="auto"/></animation>
 			<height>80</height>
 			<width>80</width>
 			<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
@@ -15531,12 +15914,8 @@
 			<label>$VAR[DhOsdSlotLabel_5]</label>
 			<onup condition="$EXP[DhOsdIs_5_sources]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_5_episodes]">noop</onup>
-			<onfocus condition="$EXP[DhOsdIs_5_info]">ActivateWindow(1145)</onfocus>
+			<onfocus condition="$EXP[DhOsdIs_5_audio]">ActivateWindow(1146)</onfocus><onup condition="$EXP[DhOsdIs_5_audio]">ActivateWindow(1146)</onup><onfocus condition="$EXP[DhOsdIs_5_subtitles]">ActivateWindow(1147)</onfocus><onup condition="$EXP[DhOsdIs_5_subtitles]">ActivateWindow(1147)</onup><onfocus condition="$EXP[DhOsdIs_5_info]">ActivateWindow(1145)</onfocus>
 			<onup condition="$EXP[DhOsdIs_5_info]">ActivateWindow(1145)</onup>
-			<onfocus condition="$EXP[DhOsdIs_5_audio]">ActivateWindow(1146)</onfocus>
-			<onup condition="$EXP[DhOsdIs_5_audio]">ActivateWindow(1146)</onup>
-			<onfocus condition="$EXP[DhOsdIs_5_subtitles]">ActivateWindow(1147)</onfocus>
-			<onup condition="$EXP[DhOsdIs_5_subtitles]">ActivateWindow(1147)</onup>
 			<onup condition="$EXP[DhOsdIs_5_subsync]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_5_nextsub]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_5_external]">noop</onup>
@@ -15573,20 +15952,21 @@
 					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[DhOsdSlotIcon_5]</texture>
+					<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[DhOsdSlotIconClassic_5]</texture>
 					<visible>!Control.HasFocus(6505)</visible>
 				</control>
 				<control type="image">
 					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIcon_5]</texture>
+					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIconClassic_5]</texture>
 					<visible>Control.HasFocus(6505)</visible>
 				</control>
 			</control>
 		</control>
 		<control type="button" id="6506">
 			<visible>$EXP[DhOsdSlotVis_6]</visible>
+			<animation type="Focus"><effect type="zoom" start="94" end="100" time="200" tween="cubic" easing="out" center="auto"/></animation>
 			<height>80</height>
 			<width>80</width>
 			<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
@@ -15604,12 +15984,8 @@
 			<label>$VAR[DhOsdSlotLabel_6]</label>
 			<onup condition="$EXP[DhOsdIs_6_sources]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_6_episodes]">noop</onup>
-			<onfocus condition="$EXP[DhOsdIs_6_info]">ActivateWindow(1145)</onfocus>
+			<onfocus condition="$EXP[DhOsdIs_6_audio]">ActivateWindow(1146)</onfocus><onup condition="$EXP[DhOsdIs_6_audio]">ActivateWindow(1146)</onup><onfocus condition="$EXP[DhOsdIs_6_subtitles]">ActivateWindow(1147)</onfocus><onup condition="$EXP[DhOsdIs_6_subtitles]">ActivateWindow(1147)</onup><onfocus condition="$EXP[DhOsdIs_6_info]">ActivateWindow(1145)</onfocus>
 			<onup condition="$EXP[DhOsdIs_6_info]">ActivateWindow(1145)</onup>
-			<onfocus condition="$EXP[DhOsdIs_6_audio]">ActivateWindow(1146)</onfocus>
-			<onup condition="$EXP[DhOsdIs_6_audio]">ActivateWindow(1146)</onup>
-			<onfocus condition="$EXP[DhOsdIs_6_subtitles]">ActivateWindow(1147)</onfocus>
-			<onup condition="$EXP[DhOsdIs_6_subtitles]">ActivateWindow(1147)</onup>
 			<onup condition="$EXP[DhOsdIs_6_subsync]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_6_nextsub]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_6_external]">noop</onup>
@@ -15646,20 +16022,21 @@
 					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[DhOsdSlotIcon_6]</texture>
+					<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[DhOsdSlotIconClassic_6]</texture>
 					<visible>!Control.HasFocus(6506)</visible>
 				</control>
 				<control type="image">
 					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIcon_6]</texture>
+					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIconClassic_6]</texture>
 					<visible>Control.HasFocus(6506)</visible>
 				</control>
 			</control>
 		</control>
 		<control type="button" id="6507">
 			<visible>$EXP[DhOsdSlotVis_7]</visible>
+			<animation type="Focus"><effect type="zoom" start="94" end="100" time="200" tween="cubic" easing="out" center="auto"/></animation>
 			<height>80</height>
 			<width>80</width>
 			<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
@@ -15677,12 +16054,8 @@
 			<label>$VAR[DhOsdSlotLabel_7]</label>
 			<onup condition="$EXP[DhOsdIs_7_sources]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_7_episodes]">noop</onup>
-			<onfocus condition="$EXP[DhOsdIs_7_info]">ActivateWindow(1145)</onfocus>
+			<onfocus condition="$EXP[DhOsdIs_7_audio]">ActivateWindow(1146)</onfocus><onup condition="$EXP[DhOsdIs_7_audio]">ActivateWindow(1146)</onup><onfocus condition="$EXP[DhOsdIs_7_subtitles]">ActivateWindow(1147)</onfocus><onup condition="$EXP[DhOsdIs_7_subtitles]">ActivateWindow(1147)</onup><onfocus condition="$EXP[DhOsdIs_7_info]">ActivateWindow(1145)</onfocus>
 			<onup condition="$EXP[DhOsdIs_7_info]">ActivateWindow(1145)</onup>
-			<onfocus condition="$EXP[DhOsdIs_7_audio]">ActivateWindow(1146)</onfocus>
-			<onup condition="$EXP[DhOsdIs_7_audio]">ActivateWindow(1146)</onup>
-			<onfocus condition="$EXP[DhOsdIs_7_subtitles]">ActivateWindow(1147)</onfocus>
-			<onup condition="$EXP[DhOsdIs_7_subtitles]">ActivateWindow(1147)</onup>
 			<onup condition="$EXP[DhOsdIs_7_subsync]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_7_nextsub]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_7_external]">noop</onup>
@@ -15719,20 +16092,21 @@
 					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[DhOsdSlotIcon_7]</texture>
+					<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[DhOsdSlotIconClassic_7]</texture>
 					<visible>!Control.HasFocus(6507)</visible>
 				</control>
 				<control type="image">
 					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIcon_7]</texture>
+					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIconClassic_7]</texture>
 					<visible>Control.HasFocus(6507)</visible>
 				</control>
 			</control>
 		</control>
 		<control type="button" id="6508">
 			<visible>$EXP[DhOsdSlotVis_8]</visible>
+			<animation type="Focus"><effect type="zoom" start="94" end="100" time="200" tween="cubic" easing="out" center="auto"/></animation>
 			<height>80</height>
 			<width>80</width>
 			<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
@@ -15750,12 +16124,8 @@
 			<label>$VAR[DhOsdSlotLabel_8]</label>
 			<onup condition="$EXP[DhOsdIs_8_sources]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_8_episodes]">noop</onup>
-			<onfocus condition="$EXP[DhOsdIs_8_info]">ActivateWindow(1145)</onfocus>
+			<onfocus condition="$EXP[DhOsdIs_8_audio]">ActivateWindow(1146)</onfocus><onup condition="$EXP[DhOsdIs_8_audio]">ActivateWindow(1146)</onup><onfocus condition="$EXP[DhOsdIs_8_subtitles]">ActivateWindow(1147)</onfocus><onup condition="$EXP[DhOsdIs_8_subtitles]">ActivateWindow(1147)</onup><onfocus condition="$EXP[DhOsdIs_8_info]">ActivateWindow(1145)</onfocus>
 			<onup condition="$EXP[DhOsdIs_8_info]">ActivateWindow(1145)</onup>
-			<onfocus condition="$EXP[DhOsdIs_8_audio]">ActivateWindow(1146)</onfocus>
-			<onup condition="$EXP[DhOsdIs_8_audio]">ActivateWindow(1146)</onup>
-			<onfocus condition="$EXP[DhOsdIs_8_subtitles]">ActivateWindow(1147)</onfocus>
-			<onup condition="$EXP[DhOsdIs_8_subtitles]">ActivateWindow(1147)</onup>
 			<onup condition="$EXP[DhOsdIs_8_subsync]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_8_nextsub]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_8_external]">noop</onup>
@@ -15792,20 +16162,21 @@
 					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[DhOsdSlotIcon_8]</texture>
+					<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[DhOsdSlotIconClassic_8]</texture>
 					<visible>!Control.HasFocus(6508)</visible>
 				</control>
 				<control type="image">
 					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIcon_8]</texture>
+					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIconClassic_8]</texture>
 					<visible>Control.HasFocus(6508)</visible>
 				</control>
 			</control>
 		</control>
 		<control type="button" id="6509">
 			<visible>$EXP[DhOsdSlotVis_9]</visible>
+			<animation type="Focus"><effect type="zoom" start="94" end="100" time="200" tween="cubic" easing="out" center="auto"/></animation>
 			<height>80</height>
 			<width>80</width>
 			<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
@@ -15823,12 +16194,8 @@
 			<label>$VAR[DhOsdSlotLabel_9]</label>
 			<onup condition="$EXP[DhOsdIs_9_sources]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_9_episodes]">noop</onup>
-			<onfocus condition="$EXP[DhOsdIs_9_info]">ActivateWindow(1145)</onfocus>
+			<onfocus condition="$EXP[DhOsdIs_9_audio]">ActivateWindow(1146)</onfocus><onup condition="$EXP[DhOsdIs_9_audio]">ActivateWindow(1146)</onup><onfocus condition="$EXP[DhOsdIs_9_subtitles]">ActivateWindow(1147)</onfocus><onup condition="$EXP[DhOsdIs_9_subtitles]">ActivateWindow(1147)</onup><onfocus condition="$EXP[DhOsdIs_9_info]">ActivateWindow(1145)</onfocus>
 			<onup condition="$EXP[DhOsdIs_9_info]">ActivateWindow(1145)</onup>
-			<onfocus condition="$EXP[DhOsdIs_9_audio]">ActivateWindow(1146)</onfocus>
-			<onup condition="$EXP[DhOsdIs_9_audio]">ActivateWindow(1146)</onup>
-			<onfocus condition="$EXP[DhOsdIs_9_subtitles]">ActivateWindow(1147)</onfocus>
-			<onup condition="$EXP[DhOsdIs_9_subtitles]">ActivateWindow(1147)</onup>
 			<onup condition="$EXP[DhOsdIs_9_subsync]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_9_nextsub]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_9_external]">noop</onup>
@@ -15865,20 +16232,21 @@
 					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[DhOsdSlotIcon_9]</texture>
+					<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[DhOsdSlotIconClassic_9]</texture>
 					<visible>!Control.HasFocus(6509)</visible>
 				</control>
 				<control type="image">
 					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIcon_9]</texture>
+					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIconClassic_9]</texture>
 					<visible>Control.HasFocus(6509)</visible>
 				</control>
 			</control>
 		</control>
 		<control type="button" id="6510">
 			<visible>$EXP[DhOsdSlotVis_10]</visible>
+			<animation type="Focus"><effect type="zoom" start="94" end="100" time="200" tween="cubic" easing="out" center="auto"/></animation>
 			<height>80</height>
 			<width>80</width>
 			<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
@@ -15896,12 +16264,8 @@
 			<label>$VAR[DhOsdSlotLabel_10]</label>
 			<onup condition="$EXP[DhOsdIs_10_sources]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_10_episodes]">noop</onup>
-			<onfocus condition="$EXP[DhOsdIs_10_info]">ActivateWindow(1145)</onfocus>
+			<onfocus condition="$EXP[DhOsdIs_10_audio]">ActivateWindow(1146)</onfocus><onup condition="$EXP[DhOsdIs_10_audio]">ActivateWindow(1146)</onup><onfocus condition="$EXP[DhOsdIs_10_subtitles]">ActivateWindow(1147)</onfocus><onup condition="$EXP[DhOsdIs_10_subtitles]">ActivateWindow(1147)</onup><onfocus condition="$EXP[DhOsdIs_10_info]">ActivateWindow(1145)</onfocus>
 			<onup condition="$EXP[DhOsdIs_10_info]">ActivateWindow(1145)</onup>
-			<onfocus condition="$EXP[DhOsdIs_10_audio]">ActivateWindow(1146)</onfocus>
-			<onup condition="$EXP[DhOsdIs_10_audio]">ActivateWindow(1146)</onup>
-			<onfocus condition="$EXP[DhOsdIs_10_subtitles]">ActivateWindow(1147)</onfocus>
-			<onup condition="$EXP[DhOsdIs_10_subtitles]">ActivateWindow(1147)</onup>
 			<onup condition="$EXP[DhOsdIs_10_subsync]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_10_nextsub]">noop</onup>
 			<onup condition="$EXP[DhOsdIs_10_external]">noop</onup>
@@ -15938,16 +16302,688 @@
 					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[DhOsdSlotIcon_10]</texture>
+					<texture colordiffuse="af3_panel_fg_70" flipx="false">$VAR[DhOsdSlotIconClassic_10]</texture>
 					<visible>!Control.HasFocus(6510)</visible>
 				</control>
 				<control type="image">
 					<bordersize>16</bordersize>
 					<height>80</height>
 					<width>80</width>
-					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIcon_10]</texture>
+					<texture colordiffuse="$VAR[DhOsdOnAccent]" flipx="false">$VAR[DhOsdSlotIconClassic_10]</texture>
 					<visible>Control.HasFocus(6510)</visible>
 				</control>
+			</control>
+		</control>
+	</include>
+	<include name="DhOsdSlots">
+		<control type="button" id="6501">
+			<visible>$EXP[DhOsdSlotVis_1]</visible>
+			<animation type="Focus"><effect type="zoom" start="94" end="100" time="200" tween="cubic" easing="out" center="auto"/></animation>
+			<height>68</height>
+			<width min="68" max="520">auto</width>
+			<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
+			<texturenofocus colordiffuse="$VAR[DhOsdBtnBg]">$VAR[DhOsdNoFocusTex]</texturenofocus>
+			<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
+			<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
+			<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
+			<textcolor>00ffffff</textcolor>
+			<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
+			<font>af3_font_tiny_bold</font>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textoffsetx>34</textoffsetx>
+			<label>$VAR[DhOsdPill_1]</label>
+			<onup condition="$EXP[DhOsdIs_1_sources]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_1_episodes]">noop</onup>
+			<onfocus condition="$EXP[DhOsdIs_1_audio]">ActivateWindow(1146)</onfocus><onup condition="$EXP[DhOsdIs_1_audio]">ActivateWindow(1146)</onup><onfocus condition="$EXP[DhOsdIs_1_subtitles]">ActivateWindow(1147)</onfocus><onup condition="$EXP[DhOsdIs_1_subtitles]">ActivateWindow(1147)</onup><onfocus condition="$EXP[DhOsdIs_1_info]">ActivateWindow(1145)</onfocus>
+			<onup condition="$EXP[DhOsdIs_1_info]">ActivateWindow(1145)</onup>
+			<onup condition="$EXP[DhOsdIs_1_subsync]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_1_nextsub]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_1_external]">noop</onup>
+			<onfocus condition="$EXP[DhOsdIs_1_video]">ActivateWindow(1148)</onfocus>
+			<onup condition="$EXP[DhOsdIs_1_video]">ActivateWindow(1148)</onup>
+			<onup condition="$EXP[DhOsdIs_1_ppi]">noop</onup>
+			<onclick>CancelAlarm(osd_timeout,true)</onclick>
+			<onclick condition="$EXP[DhOsdIs_1_sources]">ActivateWindow(1149)</onclick>
+			<onclick condition="$EXP[DhOsdIs_1_episodes]">ActivateWindow(1140)</onclick>
+			<onclick condition="$EXP[DhOsdIs_1_info]">$VAR[AF3_Action_OSD_WikiInfo]</onclick>
+			<onclick condition="$EXP[DhOsdIs_1_audio]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles&amp;kind=audio)</onclick><onlongclick condition="$EXP[DhOsdIs_1_audio]">ActivateWindow(osdaudiosettings)</onlongclick>
+			<onclick condition="$EXP[DhOsdIs_1_subtitles]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles)</onclick><onlongclick condition="$EXP[DhOsdIs_1_subtitles]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles&amp;section=look)</onlongclick>
+			<onclick condition="$EXP[DhOsdIs_1_subsync]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=subtitle_sync)</onclick>
+			<onclick condition="$EXP[DhOsdIs_1_nextsub]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=subtitle_next)</onclick>
+			<onclick condition="$EXP[DhOsdIs_1_external]">RunScript(script.dexhub.tvos.players,external)</onclick>
+			<onclick condition="$EXP[DhOsdIs_1_video]">ActivateWindow(osdvideosettings)</onclick>
+			<onclick condition="$EXP[DhOsdIs_1_ppi]">RunScript(script.tinyppi,dialog)</onclick>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+			<onleft>6004</onleft>
+			<onright>6502</onright>
+		</control>
+		<control type="group" id="6601">
+			<visible>$EXP[DhOsdSlotVis_1]</visible>
+			<left>0</left>
+			<width>0</width>
+			<control type="image">
+				<left>-64</left>
+				<top>10</top>
+				<width>48</width>
+				<height>48</height>
+				<texture colordiffuse="af3_panel_fg_70">$VAR[DhOsdSlotIcon_1]</texture>
+				<visible>!Control.HasFocus(6501)</visible>
+			</control>
+			<control type="image">
+				<left>-64</left>
+				<top>10</top>
+				<width>48</width>
+				<height>48</height>
+				<texture colordiffuse="$VAR[DhOsdOnAccent]">$VAR[DhOsdSlotIcon_1]</texture>
+				<visible>Control.HasFocus(6501)</visible>
+			</control>
+		</control>
+		<control type="button" id="6502">
+			<visible>$EXP[DhOsdSlotVis_2]</visible>
+			<animation type="Focus"><effect type="zoom" start="94" end="100" time="200" tween="cubic" easing="out" center="auto"/></animation>
+			<height>68</height>
+			<width min="68" max="520">auto</width>
+			<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
+			<texturenofocus colordiffuse="$VAR[DhOsdBtnBg]">$VAR[DhOsdNoFocusTex]</texturenofocus>
+			<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
+			<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
+			<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
+			<textcolor>00ffffff</textcolor>
+			<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
+			<font>af3_font_tiny_bold</font>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textoffsetx>34</textoffsetx>
+			<label>$VAR[DhOsdPill_2]</label>
+			<onup condition="$EXP[DhOsdIs_2_sources]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_2_episodes]">noop</onup>
+			<onfocus condition="$EXP[DhOsdIs_2_audio]">ActivateWindow(1146)</onfocus><onup condition="$EXP[DhOsdIs_2_audio]">ActivateWindow(1146)</onup><onfocus condition="$EXP[DhOsdIs_2_subtitles]">ActivateWindow(1147)</onfocus><onup condition="$EXP[DhOsdIs_2_subtitles]">ActivateWindow(1147)</onup><onfocus condition="$EXP[DhOsdIs_2_info]">ActivateWindow(1145)</onfocus>
+			<onup condition="$EXP[DhOsdIs_2_info]">ActivateWindow(1145)</onup>
+			<onup condition="$EXP[DhOsdIs_2_subsync]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_2_nextsub]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_2_external]">noop</onup>
+			<onfocus condition="$EXP[DhOsdIs_2_video]">ActivateWindow(1148)</onfocus>
+			<onup condition="$EXP[DhOsdIs_2_video]">ActivateWindow(1148)</onup>
+			<onup condition="$EXP[DhOsdIs_2_ppi]">noop</onup>
+			<onclick>CancelAlarm(osd_timeout,true)</onclick>
+			<onclick condition="$EXP[DhOsdIs_2_sources]">ActivateWindow(1149)</onclick>
+			<onclick condition="$EXP[DhOsdIs_2_episodes]">ActivateWindow(1140)</onclick>
+			<onclick condition="$EXP[DhOsdIs_2_info]">$VAR[AF3_Action_OSD_WikiInfo]</onclick>
+			<onclick condition="$EXP[DhOsdIs_2_audio]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles&amp;kind=audio)</onclick><onlongclick condition="$EXP[DhOsdIs_2_audio]">ActivateWindow(osdaudiosettings)</onlongclick>
+			<onclick condition="$EXP[DhOsdIs_2_subtitles]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles)</onclick><onlongclick condition="$EXP[DhOsdIs_2_subtitles]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles&amp;section=look)</onlongclick>
+			<onclick condition="$EXP[DhOsdIs_2_subsync]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=subtitle_sync)</onclick>
+			<onclick condition="$EXP[DhOsdIs_2_nextsub]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=subtitle_next)</onclick>
+			<onclick condition="$EXP[DhOsdIs_2_external]">RunScript(script.dexhub.tvos.players,external)</onclick>
+			<onclick condition="$EXP[DhOsdIs_2_video]">ActivateWindow(osdvideosettings)</onclick>
+			<onclick condition="$EXP[DhOsdIs_2_ppi]">RunScript(script.tinyppi,dialog)</onclick>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+			<onleft>6501</onleft>
+			<onright>6503</onright>
+		</control>
+		<control type="group" id="6602">
+			<visible>$EXP[DhOsdSlotVis_2]</visible>
+			<left>0</left>
+			<width>0</width>
+			<control type="image">
+				<left>-64</left>
+				<top>10</top>
+				<width>48</width>
+				<height>48</height>
+				<texture colordiffuse="af3_panel_fg_70">$VAR[DhOsdSlotIcon_2]</texture>
+				<visible>!Control.HasFocus(6502)</visible>
+			</control>
+			<control type="image">
+				<left>-64</left>
+				<top>10</top>
+				<width>48</width>
+				<height>48</height>
+				<texture colordiffuse="$VAR[DhOsdOnAccent]">$VAR[DhOsdSlotIcon_2]</texture>
+				<visible>Control.HasFocus(6502)</visible>
+			</control>
+		</control>
+		<control type="button" id="6503">
+			<visible>$EXP[DhOsdSlotVis_3]</visible>
+			<animation type="Focus"><effect type="zoom" start="94" end="100" time="200" tween="cubic" easing="out" center="auto"/></animation>
+			<height>68</height>
+			<width min="68" max="520">auto</width>
+			<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
+			<texturenofocus colordiffuse="$VAR[DhOsdBtnBg]">$VAR[DhOsdNoFocusTex]</texturenofocus>
+			<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
+			<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
+			<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
+			<textcolor>00ffffff</textcolor>
+			<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
+			<font>af3_font_tiny_bold</font>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textoffsetx>34</textoffsetx>
+			<label>$VAR[DhOsdPill_3]</label>
+			<onup condition="$EXP[DhOsdIs_3_sources]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_3_episodes]">noop</onup>
+			<onfocus condition="$EXP[DhOsdIs_3_audio]">ActivateWindow(1146)</onfocus><onup condition="$EXP[DhOsdIs_3_audio]">ActivateWindow(1146)</onup><onfocus condition="$EXP[DhOsdIs_3_subtitles]">ActivateWindow(1147)</onfocus><onup condition="$EXP[DhOsdIs_3_subtitles]">ActivateWindow(1147)</onup><onfocus condition="$EXP[DhOsdIs_3_info]">ActivateWindow(1145)</onfocus>
+			<onup condition="$EXP[DhOsdIs_3_info]">ActivateWindow(1145)</onup>
+			<onup condition="$EXP[DhOsdIs_3_subsync]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_3_nextsub]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_3_external]">noop</onup>
+			<onfocus condition="$EXP[DhOsdIs_3_video]">ActivateWindow(1148)</onfocus>
+			<onup condition="$EXP[DhOsdIs_3_video]">ActivateWindow(1148)</onup>
+			<onup condition="$EXP[DhOsdIs_3_ppi]">noop</onup>
+			<onclick>CancelAlarm(osd_timeout,true)</onclick>
+			<onclick condition="$EXP[DhOsdIs_3_sources]">ActivateWindow(1149)</onclick>
+			<onclick condition="$EXP[DhOsdIs_3_episodes]">ActivateWindow(1140)</onclick>
+			<onclick condition="$EXP[DhOsdIs_3_info]">$VAR[AF3_Action_OSD_WikiInfo]</onclick>
+			<onclick condition="$EXP[DhOsdIs_3_audio]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles&amp;kind=audio)</onclick><onlongclick condition="$EXP[DhOsdIs_3_audio]">ActivateWindow(osdaudiosettings)</onlongclick>
+			<onclick condition="$EXP[DhOsdIs_3_subtitles]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles)</onclick><onlongclick condition="$EXP[DhOsdIs_3_subtitles]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles&amp;section=look)</onlongclick>
+			<onclick condition="$EXP[DhOsdIs_3_subsync]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=subtitle_sync)</onclick>
+			<onclick condition="$EXP[DhOsdIs_3_nextsub]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=subtitle_next)</onclick>
+			<onclick condition="$EXP[DhOsdIs_3_external]">RunScript(script.dexhub.tvos.players,external)</onclick>
+			<onclick condition="$EXP[DhOsdIs_3_video]">ActivateWindow(osdvideosettings)</onclick>
+			<onclick condition="$EXP[DhOsdIs_3_ppi]">RunScript(script.tinyppi,dialog)</onclick>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+			<onleft>6502</onleft>
+			<onright>6504</onright>
+		</control>
+		<control type="group" id="6603">
+			<visible>$EXP[DhOsdSlotVis_3]</visible>
+			<left>0</left>
+			<width>0</width>
+			<control type="image">
+				<left>-64</left>
+				<top>10</top>
+				<width>48</width>
+				<height>48</height>
+				<texture colordiffuse="af3_panel_fg_70">$VAR[DhOsdSlotIcon_3]</texture>
+				<visible>!Control.HasFocus(6503)</visible>
+			</control>
+			<control type="image">
+				<left>-64</left>
+				<top>10</top>
+				<width>48</width>
+				<height>48</height>
+				<texture colordiffuse="$VAR[DhOsdOnAccent]">$VAR[DhOsdSlotIcon_3]</texture>
+				<visible>Control.HasFocus(6503)</visible>
+			</control>
+		</control>
+		<control type="button" id="6504">
+			<visible>$EXP[DhOsdSlotVis_4]</visible>
+			<animation type="Focus"><effect type="zoom" start="94" end="100" time="200" tween="cubic" easing="out" center="auto"/></animation>
+			<height>68</height>
+			<width min="68" max="520">auto</width>
+			<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
+			<texturenofocus colordiffuse="$VAR[DhOsdBtnBg]">$VAR[DhOsdNoFocusTex]</texturenofocus>
+			<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
+			<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
+			<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
+			<textcolor>00ffffff</textcolor>
+			<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
+			<font>af3_font_tiny_bold</font>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textoffsetx>34</textoffsetx>
+			<label>$VAR[DhOsdPill_4]</label>
+			<onup condition="$EXP[DhOsdIs_4_sources]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_4_episodes]">noop</onup>
+			<onfocus condition="$EXP[DhOsdIs_4_audio]">ActivateWindow(1146)</onfocus><onup condition="$EXP[DhOsdIs_4_audio]">ActivateWindow(1146)</onup><onfocus condition="$EXP[DhOsdIs_4_subtitles]">ActivateWindow(1147)</onfocus><onup condition="$EXP[DhOsdIs_4_subtitles]">ActivateWindow(1147)</onup><onfocus condition="$EXP[DhOsdIs_4_info]">ActivateWindow(1145)</onfocus>
+			<onup condition="$EXP[DhOsdIs_4_info]">ActivateWindow(1145)</onup>
+			<onup condition="$EXP[DhOsdIs_4_subsync]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_4_nextsub]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_4_external]">noop</onup>
+			<onfocus condition="$EXP[DhOsdIs_4_video]">ActivateWindow(1148)</onfocus>
+			<onup condition="$EXP[DhOsdIs_4_video]">ActivateWindow(1148)</onup>
+			<onup condition="$EXP[DhOsdIs_4_ppi]">noop</onup>
+			<onclick>CancelAlarm(osd_timeout,true)</onclick>
+			<onclick condition="$EXP[DhOsdIs_4_sources]">ActivateWindow(1149)</onclick>
+			<onclick condition="$EXP[DhOsdIs_4_episodes]">ActivateWindow(1140)</onclick>
+			<onclick condition="$EXP[DhOsdIs_4_info]">$VAR[AF3_Action_OSD_WikiInfo]</onclick>
+			<onclick condition="$EXP[DhOsdIs_4_audio]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles&amp;kind=audio)</onclick><onlongclick condition="$EXP[DhOsdIs_4_audio]">ActivateWindow(osdaudiosettings)</onlongclick>
+			<onclick condition="$EXP[DhOsdIs_4_subtitles]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles)</onclick><onlongclick condition="$EXP[DhOsdIs_4_subtitles]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles&amp;section=look)</onlongclick>
+			<onclick condition="$EXP[DhOsdIs_4_subsync]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=subtitle_sync)</onclick>
+			<onclick condition="$EXP[DhOsdIs_4_nextsub]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=subtitle_next)</onclick>
+			<onclick condition="$EXP[DhOsdIs_4_external]">RunScript(script.dexhub.tvos.players,external)</onclick>
+			<onclick condition="$EXP[DhOsdIs_4_video]">ActivateWindow(osdvideosettings)</onclick>
+			<onclick condition="$EXP[DhOsdIs_4_ppi]">RunScript(script.tinyppi,dialog)</onclick>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+			<onleft>6503</onleft>
+			<onright>6505</onright>
+		</control>
+		<control type="group" id="6604">
+			<visible>$EXP[DhOsdSlotVis_4]</visible>
+			<left>0</left>
+			<width>0</width>
+			<control type="image">
+				<left>-64</left>
+				<top>10</top>
+				<width>48</width>
+				<height>48</height>
+				<texture colordiffuse="af3_panel_fg_70">$VAR[DhOsdSlotIcon_4]</texture>
+				<visible>!Control.HasFocus(6504)</visible>
+			</control>
+			<control type="image">
+				<left>-64</left>
+				<top>10</top>
+				<width>48</width>
+				<height>48</height>
+				<texture colordiffuse="$VAR[DhOsdOnAccent]">$VAR[DhOsdSlotIcon_4]</texture>
+				<visible>Control.HasFocus(6504)</visible>
+			</control>
+		</control>
+		<control type="button" id="6505">
+			<visible>$EXP[DhOsdSlotVis_5]</visible>
+			<animation type="Focus"><effect type="zoom" start="94" end="100" time="200" tween="cubic" easing="out" center="auto"/></animation>
+			<height>68</height>
+			<width min="68" max="520">auto</width>
+			<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
+			<texturenofocus colordiffuse="$VAR[DhOsdBtnBg]">$VAR[DhOsdNoFocusTex]</texturenofocus>
+			<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
+			<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
+			<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
+			<textcolor>00ffffff</textcolor>
+			<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
+			<font>af3_font_tiny_bold</font>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textoffsetx>34</textoffsetx>
+			<label>$VAR[DhOsdPill_5]</label>
+			<onup condition="$EXP[DhOsdIs_5_sources]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_5_episodes]">noop</onup>
+			<onfocus condition="$EXP[DhOsdIs_5_audio]">ActivateWindow(1146)</onfocus><onup condition="$EXP[DhOsdIs_5_audio]">ActivateWindow(1146)</onup><onfocus condition="$EXP[DhOsdIs_5_subtitles]">ActivateWindow(1147)</onfocus><onup condition="$EXP[DhOsdIs_5_subtitles]">ActivateWindow(1147)</onup><onfocus condition="$EXP[DhOsdIs_5_info]">ActivateWindow(1145)</onfocus>
+			<onup condition="$EXP[DhOsdIs_5_info]">ActivateWindow(1145)</onup>
+			<onup condition="$EXP[DhOsdIs_5_subsync]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_5_nextsub]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_5_external]">noop</onup>
+			<onfocus condition="$EXP[DhOsdIs_5_video]">ActivateWindow(1148)</onfocus>
+			<onup condition="$EXP[DhOsdIs_5_video]">ActivateWindow(1148)</onup>
+			<onup condition="$EXP[DhOsdIs_5_ppi]">noop</onup>
+			<onclick>CancelAlarm(osd_timeout,true)</onclick>
+			<onclick condition="$EXP[DhOsdIs_5_sources]">ActivateWindow(1149)</onclick>
+			<onclick condition="$EXP[DhOsdIs_5_episodes]">ActivateWindow(1140)</onclick>
+			<onclick condition="$EXP[DhOsdIs_5_info]">$VAR[AF3_Action_OSD_WikiInfo]</onclick>
+			<onclick condition="$EXP[DhOsdIs_5_audio]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles&amp;kind=audio)</onclick><onlongclick condition="$EXP[DhOsdIs_5_audio]">ActivateWindow(osdaudiosettings)</onlongclick>
+			<onclick condition="$EXP[DhOsdIs_5_subtitles]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles)</onclick><onlongclick condition="$EXP[DhOsdIs_5_subtitles]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles&amp;section=look)</onlongclick>
+			<onclick condition="$EXP[DhOsdIs_5_subsync]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=subtitle_sync)</onclick>
+			<onclick condition="$EXP[DhOsdIs_5_nextsub]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=subtitle_next)</onclick>
+			<onclick condition="$EXP[DhOsdIs_5_external]">RunScript(script.dexhub.tvos.players,external)</onclick>
+			<onclick condition="$EXP[DhOsdIs_5_video]">ActivateWindow(osdvideosettings)</onclick>
+			<onclick condition="$EXP[DhOsdIs_5_ppi]">RunScript(script.tinyppi,dialog)</onclick>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+			<onleft>6504</onleft>
+			<onright>6506</onright>
+		</control>
+		<control type="group" id="6605">
+			<visible>$EXP[DhOsdSlotVis_5]</visible>
+			<left>0</left>
+			<width>0</width>
+			<control type="image">
+				<left>-64</left>
+				<top>10</top>
+				<width>48</width>
+				<height>48</height>
+				<texture colordiffuse="af3_panel_fg_70">$VAR[DhOsdSlotIcon_5]</texture>
+				<visible>!Control.HasFocus(6505)</visible>
+			</control>
+			<control type="image">
+				<left>-64</left>
+				<top>10</top>
+				<width>48</width>
+				<height>48</height>
+				<texture colordiffuse="$VAR[DhOsdOnAccent]">$VAR[DhOsdSlotIcon_5]</texture>
+				<visible>Control.HasFocus(6505)</visible>
+			</control>
+		</control>
+		<control type="button" id="6506">
+			<visible>$EXP[DhOsdSlotVis_6]</visible>
+			<animation type="Focus"><effect type="zoom" start="94" end="100" time="200" tween="cubic" easing="out" center="auto"/></animation>
+			<height>68</height>
+			<width min="68" max="520">auto</width>
+			<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
+			<texturenofocus colordiffuse="$VAR[DhOsdBtnBg]">$VAR[DhOsdNoFocusTex]</texturenofocus>
+			<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
+			<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
+			<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
+			<textcolor>00ffffff</textcolor>
+			<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
+			<font>af3_font_tiny_bold</font>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textoffsetx>34</textoffsetx>
+			<label>$VAR[DhOsdPill_6]</label>
+			<onup condition="$EXP[DhOsdIs_6_sources]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_6_episodes]">noop</onup>
+			<onfocus condition="$EXP[DhOsdIs_6_audio]">ActivateWindow(1146)</onfocus><onup condition="$EXP[DhOsdIs_6_audio]">ActivateWindow(1146)</onup><onfocus condition="$EXP[DhOsdIs_6_subtitles]">ActivateWindow(1147)</onfocus><onup condition="$EXP[DhOsdIs_6_subtitles]">ActivateWindow(1147)</onup><onfocus condition="$EXP[DhOsdIs_6_info]">ActivateWindow(1145)</onfocus>
+			<onup condition="$EXP[DhOsdIs_6_info]">ActivateWindow(1145)</onup>
+			<onup condition="$EXP[DhOsdIs_6_subsync]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_6_nextsub]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_6_external]">noop</onup>
+			<onfocus condition="$EXP[DhOsdIs_6_video]">ActivateWindow(1148)</onfocus>
+			<onup condition="$EXP[DhOsdIs_6_video]">ActivateWindow(1148)</onup>
+			<onup condition="$EXP[DhOsdIs_6_ppi]">noop</onup>
+			<onclick>CancelAlarm(osd_timeout,true)</onclick>
+			<onclick condition="$EXP[DhOsdIs_6_sources]">ActivateWindow(1149)</onclick>
+			<onclick condition="$EXP[DhOsdIs_6_episodes]">ActivateWindow(1140)</onclick>
+			<onclick condition="$EXP[DhOsdIs_6_info]">$VAR[AF3_Action_OSD_WikiInfo]</onclick>
+			<onclick condition="$EXP[DhOsdIs_6_audio]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles&amp;kind=audio)</onclick><onlongclick condition="$EXP[DhOsdIs_6_audio]">ActivateWindow(osdaudiosettings)</onlongclick>
+			<onclick condition="$EXP[DhOsdIs_6_subtitles]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles)</onclick><onlongclick condition="$EXP[DhOsdIs_6_subtitles]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles&amp;section=look)</onlongclick>
+			<onclick condition="$EXP[DhOsdIs_6_subsync]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=subtitle_sync)</onclick>
+			<onclick condition="$EXP[DhOsdIs_6_nextsub]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=subtitle_next)</onclick>
+			<onclick condition="$EXP[DhOsdIs_6_external]">RunScript(script.dexhub.tvos.players,external)</onclick>
+			<onclick condition="$EXP[DhOsdIs_6_video]">ActivateWindow(osdvideosettings)</onclick>
+			<onclick condition="$EXP[DhOsdIs_6_ppi]">RunScript(script.tinyppi,dialog)</onclick>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+			<onleft>6505</onleft>
+			<onright>6507</onright>
+		</control>
+		<control type="group" id="6606">
+			<visible>$EXP[DhOsdSlotVis_6]</visible>
+			<left>0</left>
+			<width>0</width>
+			<control type="image">
+				<left>-64</left>
+				<top>10</top>
+				<width>48</width>
+				<height>48</height>
+				<texture colordiffuse="af3_panel_fg_70">$VAR[DhOsdSlotIcon_6]</texture>
+				<visible>!Control.HasFocus(6506)</visible>
+			</control>
+			<control type="image">
+				<left>-64</left>
+				<top>10</top>
+				<width>48</width>
+				<height>48</height>
+				<texture colordiffuse="$VAR[DhOsdOnAccent]">$VAR[DhOsdSlotIcon_6]</texture>
+				<visible>Control.HasFocus(6506)</visible>
+			</control>
+		</control>
+		<control type="button" id="6507">
+			<visible>$EXP[DhOsdSlotVis_7]</visible>
+			<animation type="Focus"><effect type="zoom" start="94" end="100" time="200" tween="cubic" easing="out" center="auto"/></animation>
+			<height>68</height>
+			<width min="68" max="520">auto</width>
+			<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
+			<texturenofocus colordiffuse="$VAR[DhOsdBtnBg]">$VAR[DhOsdNoFocusTex]</texturenofocus>
+			<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
+			<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
+			<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
+			<textcolor>00ffffff</textcolor>
+			<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
+			<font>af3_font_tiny_bold</font>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textoffsetx>34</textoffsetx>
+			<label>$VAR[DhOsdPill_7]</label>
+			<onup condition="$EXP[DhOsdIs_7_sources]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_7_episodes]">noop</onup>
+			<onfocus condition="$EXP[DhOsdIs_7_audio]">ActivateWindow(1146)</onfocus><onup condition="$EXP[DhOsdIs_7_audio]">ActivateWindow(1146)</onup><onfocus condition="$EXP[DhOsdIs_7_subtitles]">ActivateWindow(1147)</onfocus><onup condition="$EXP[DhOsdIs_7_subtitles]">ActivateWindow(1147)</onup><onfocus condition="$EXP[DhOsdIs_7_info]">ActivateWindow(1145)</onfocus>
+			<onup condition="$EXP[DhOsdIs_7_info]">ActivateWindow(1145)</onup>
+			<onup condition="$EXP[DhOsdIs_7_subsync]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_7_nextsub]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_7_external]">noop</onup>
+			<onfocus condition="$EXP[DhOsdIs_7_video]">ActivateWindow(1148)</onfocus>
+			<onup condition="$EXP[DhOsdIs_7_video]">ActivateWindow(1148)</onup>
+			<onup condition="$EXP[DhOsdIs_7_ppi]">noop</onup>
+			<onclick>CancelAlarm(osd_timeout,true)</onclick>
+			<onclick condition="$EXP[DhOsdIs_7_sources]">ActivateWindow(1149)</onclick>
+			<onclick condition="$EXP[DhOsdIs_7_episodes]">ActivateWindow(1140)</onclick>
+			<onclick condition="$EXP[DhOsdIs_7_info]">$VAR[AF3_Action_OSD_WikiInfo]</onclick>
+			<onclick condition="$EXP[DhOsdIs_7_audio]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles&amp;kind=audio)</onclick><onlongclick condition="$EXP[DhOsdIs_7_audio]">ActivateWindow(osdaudiosettings)</onlongclick>
+			<onclick condition="$EXP[DhOsdIs_7_subtitles]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles)</onclick><onlongclick condition="$EXP[DhOsdIs_7_subtitles]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles&amp;section=look)</onlongclick>
+			<onclick condition="$EXP[DhOsdIs_7_subsync]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=subtitle_sync)</onclick>
+			<onclick condition="$EXP[DhOsdIs_7_nextsub]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=subtitle_next)</onclick>
+			<onclick condition="$EXP[DhOsdIs_7_external]">RunScript(script.dexhub.tvos.players,external)</onclick>
+			<onclick condition="$EXP[DhOsdIs_7_video]">ActivateWindow(osdvideosettings)</onclick>
+			<onclick condition="$EXP[DhOsdIs_7_ppi]">RunScript(script.tinyppi,dialog)</onclick>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+			<onleft>6506</onleft>
+			<onright>6508</onright>
+		</control>
+		<control type="group" id="6607">
+			<visible>$EXP[DhOsdSlotVis_7]</visible>
+			<left>0</left>
+			<width>0</width>
+			<control type="image">
+				<left>-64</left>
+				<top>10</top>
+				<width>48</width>
+				<height>48</height>
+				<texture colordiffuse="af3_panel_fg_70">$VAR[DhOsdSlotIcon_7]</texture>
+				<visible>!Control.HasFocus(6507)</visible>
+			</control>
+			<control type="image">
+				<left>-64</left>
+				<top>10</top>
+				<width>48</width>
+				<height>48</height>
+				<texture colordiffuse="$VAR[DhOsdOnAccent]">$VAR[DhOsdSlotIcon_7]</texture>
+				<visible>Control.HasFocus(6507)</visible>
+			</control>
+		</control>
+		<control type="button" id="6508">
+			<visible>$EXP[DhOsdSlotVis_8]</visible>
+			<animation type="Focus"><effect type="zoom" start="94" end="100" time="200" tween="cubic" easing="out" center="auto"/></animation>
+			<height>68</height>
+			<width min="68" max="520">auto</width>
+			<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
+			<texturenofocus colordiffuse="$VAR[DhOsdBtnBg]">$VAR[DhOsdNoFocusTex]</texturenofocus>
+			<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
+			<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
+			<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
+			<textcolor>00ffffff</textcolor>
+			<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
+			<font>af3_font_tiny_bold</font>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textoffsetx>34</textoffsetx>
+			<label>$VAR[DhOsdPill_8]</label>
+			<onup condition="$EXP[DhOsdIs_8_sources]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_8_episodes]">noop</onup>
+			<onfocus condition="$EXP[DhOsdIs_8_audio]">ActivateWindow(1146)</onfocus><onup condition="$EXP[DhOsdIs_8_audio]">ActivateWindow(1146)</onup><onfocus condition="$EXP[DhOsdIs_8_subtitles]">ActivateWindow(1147)</onfocus><onup condition="$EXP[DhOsdIs_8_subtitles]">ActivateWindow(1147)</onup><onfocus condition="$EXP[DhOsdIs_8_info]">ActivateWindow(1145)</onfocus>
+			<onup condition="$EXP[DhOsdIs_8_info]">ActivateWindow(1145)</onup>
+			<onup condition="$EXP[DhOsdIs_8_subsync]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_8_nextsub]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_8_external]">noop</onup>
+			<onfocus condition="$EXP[DhOsdIs_8_video]">ActivateWindow(1148)</onfocus>
+			<onup condition="$EXP[DhOsdIs_8_video]">ActivateWindow(1148)</onup>
+			<onup condition="$EXP[DhOsdIs_8_ppi]">noop</onup>
+			<onclick>CancelAlarm(osd_timeout,true)</onclick>
+			<onclick condition="$EXP[DhOsdIs_8_sources]">ActivateWindow(1149)</onclick>
+			<onclick condition="$EXP[DhOsdIs_8_episodes]">ActivateWindow(1140)</onclick>
+			<onclick condition="$EXP[DhOsdIs_8_info]">$VAR[AF3_Action_OSD_WikiInfo]</onclick>
+			<onclick condition="$EXP[DhOsdIs_8_audio]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles&amp;kind=audio)</onclick><onlongclick condition="$EXP[DhOsdIs_8_audio]">ActivateWindow(osdaudiosettings)</onlongclick>
+			<onclick condition="$EXP[DhOsdIs_8_subtitles]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles)</onclick><onlongclick condition="$EXP[DhOsdIs_8_subtitles]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles&amp;section=look)</onlongclick>
+			<onclick condition="$EXP[DhOsdIs_8_subsync]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=subtitle_sync)</onclick>
+			<onclick condition="$EXP[DhOsdIs_8_nextsub]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=subtitle_next)</onclick>
+			<onclick condition="$EXP[DhOsdIs_8_external]">RunScript(script.dexhub.tvos.players,external)</onclick>
+			<onclick condition="$EXP[DhOsdIs_8_video]">ActivateWindow(osdvideosettings)</onclick>
+			<onclick condition="$EXP[DhOsdIs_8_ppi]">RunScript(script.tinyppi,dialog)</onclick>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+			<onleft>6507</onleft>
+			<onright>6509</onright>
+		</control>
+		<control type="group" id="6608">
+			<visible>$EXP[DhOsdSlotVis_8]</visible>
+			<left>0</left>
+			<width>0</width>
+			<control type="image">
+				<left>-64</left>
+				<top>10</top>
+				<width>48</width>
+				<height>48</height>
+				<texture colordiffuse="af3_panel_fg_70">$VAR[DhOsdSlotIcon_8]</texture>
+				<visible>!Control.HasFocus(6508)</visible>
+			</control>
+			<control type="image">
+				<left>-64</left>
+				<top>10</top>
+				<width>48</width>
+				<height>48</height>
+				<texture colordiffuse="$VAR[DhOsdOnAccent]">$VAR[DhOsdSlotIcon_8]</texture>
+				<visible>Control.HasFocus(6508)</visible>
+			</control>
+		</control>
+		<control type="button" id="6509">
+			<visible>$EXP[DhOsdSlotVis_9]</visible>
+			<animation type="Focus"><effect type="zoom" start="94" end="100" time="200" tween="cubic" easing="out" center="auto"/></animation>
+			<height>68</height>
+			<width min="68" max="520">auto</width>
+			<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
+			<texturenofocus colordiffuse="$VAR[DhOsdBtnBg]">$VAR[DhOsdNoFocusTex]</texturenofocus>
+			<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
+			<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
+			<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
+			<textcolor>00ffffff</textcolor>
+			<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
+			<font>af3_font_tiny_bold</font>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textoffsetx>34</textoffsetx>
+			<label>$VAR[DhOsdPill_9]</label>
+			<onup condition="$EXP[DhOsdIs_9_sources]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_9_episodes]">noop</onup>
+			<onfocus condition="$EXP[DhOsdIs_9_audio]">ActivateWindow(1146)</onfocus><onup condition="$EXP[DhOsdIs_9_audio]">ActivateWindow(1146)</onup><onfocus condition="$EXP[DhOsdIs_9_subtitles]">ActivateWindow(1147)</onfocus><onup condition="$EXP[DhOsdIs_9_subtitles]">ActivateWindow(1147)</onup><onfocus condition="$EXP[DhOsdIs_9_info]">ActivateWindow(1145)</onfocus>
+			<onup condition="$EXP[DhOsdIs_9_info]">ActivateWindow(1145)</onup>
+			<onup condition="$EXP[DhOsdIs_9_subsync]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_9_nextsub]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_9_external]">noop</onup>
+			<onfocus condition="$EXP[DhOsdIs_9_video]">ActivateWindow(1148)</onfocus>
+			<onup condition="$EXP[DhOsdIs_9_video]">ActivateWindow(1148)</onup>
+			<onup condition="$EXP[DhOsdIs_9_ppi]">noop</onup>
+			<onclick>CancelAlarm(osd_timeout,true)</onclick>
+			<onclick condition="$EXP[DhOsdIs_9_sources]">ActivateWindow(1149)</onclick>
+			<onclick condition="$EXP[DhOsdIs_9_episodes]">ActivateWindow(1140)</onclick>
+			<onclick condition="$EXP[DhOsdIs_9_info]">$VAR[AF3_Action_OSD_WikiInfo]</onclick>
+			<onclick condition="$EXP[DhOsdIs_9_audio]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles&amp;kind=audio)</onclick><onlongclick condition="$EXP[DhOsdIs_9_audio]">ActivateWindow(osdaudiosettings)</onlongclick>
+			<onclick condition="$EXP[DhOsdIs_9_subtitles]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles)</onclick><onlongclick condition="$EXP[DhOsdIs_9_subtitles]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles&amp;section=look)</onlongclick>
+			<onclick condition="$EXP[DhOsdIs_9_subsync]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=subtitle_sync)</onclick>
+			<onclick condition="$EXP[DhOsdIs_9_nextsub]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=subtitle_next)</onclick>
+			<onclick condition="$EXP[DhOsdIs_9_external]">RunScript(script.dexhub.tvos.players,external)</onclick>
+			<onclick condition="$EXP[DhOsdIs_9_video]">ActivateWindow(osdvideosettings)</onclick>
+			<onclick condition="$EXP[DhOsdIs_9_ppi]">RunScript(script.tinyppi,dialog)</onclick>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+			<onleft>6508</onleft>
+			<onright>6510</onright>
+		</control>
+		<control type="group" id="6609">
+			<visible>$EXP[DhOsdSlotVis_9]</visible>
+			<left>0</left>
+			<width>0</width>
+			<control type="image">
+				<left>-64</left>
+				<top>10</top>
+				<width>48</width>
+				<height>48</height>
+				<texture colordiffuse="af3_panel_fg_70">$VAR[DhOsdSlotIcon_9]</texture>
+				<visible>!Control.HasFocus(6509)</visible>
+			</control>
+			<control type="image">
+				<left>-64</left>
+				<top>10</top>
+				<width>48</width>
+				<height>48</height>
+				<texture colordiffuse="$VAR[DhOsdOnAccent]">$VAR[DhOsdSlotIcon_9]</texture>
+				<visible>Control.HasFocus(6509)</visible>
+			</control>
+		</control>
+		<control type="button" id="6510">
+			<visible>$EXP[DhOsdSlotVis_10]</visible>
+			<animation type="Focus"><effect type="zoom" start="94" end="100" time="200" tween="cubic" easing="out" center="auto"/></animation>
+			<height>68</height>
+			<width min="68" max="520">auto</width>
+			<texturefocus colordiffuse="$VAR[DhOsdFocusCol]">$VAR[DhOsdFocusTex]</texturefocus>
+			<texturenofocus colordiffuse="$VAR[DhOsdBtnBg]">$VAR[DhOsdNoFocusTex]</texturenofocus>
+			<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
+			<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
+			<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
+			<textcolor>00ffffff</textcolor>
+			<focusedcolor>$VAR[DhOsdOnAccent]</focusedcolor>
+			<font>af3_font_tiny_bold</font>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textoffsetx>34</textoffsetx>
+			<label>$VAR[DhOsdPill_10]</label>
+			<onup condition="$EXP[DhOsdIs_10_sources]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_10_episodes]">noop</onup>
+			<onfocus condition="$EXP[DhOsdIs_10_audio]">ActivateWindow(1146)</onfocus><onup condition="$EXP[DhOsdIs_10_audio]">ActivateWindow(1146)</onup><onfocus condition="$EXP[DhOsdIs_10_subtitles]">ActivateWindow(1147)</onfocus><onup condition="$EXP[DhOsdIs_10_subtitles]">ActivateWindow(1147)</onup><onfocus condition="$EXP[DhOsdIs_10_info]">ActivateWindow(1145)</onfocus>
+			<onup condition="$EXP[DhOsdIs_10_info]">ActivateWindow(1145)</onup>
+			<onup condition="$EXP[DhOsdIs_10_subsync]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_10_nextsub]">noop</onup>
+			<onup condition="$EXP[DhOsdIs_10_external]">noop</onup>
+			<onfocus condition="$EXP[DhOsdIs_10_video]">ActivateWindow(1148)</onfocus>
+			<onup condition="$EXP[DhOsdIs_10_video]">ActivateWindow(1148)</onup>
+			<onup condition="$EXP[DhOsdIs_10_ppi]">noop</onup>
+			<onclick>CancelAlarm(osd_timeout,true)</onclick>
+			<onclick condition="$EXP[DhOsdIs_10_sources]">ActivateWindow(1149)</onclick>
+			<onclick condition="$EXP[DhOsdIs_10_episodes]">ActivateWindow(1140)</onclick>
+			<onclick condition="$EXP[DhOsdIs_10_info]">$VAR[AF3_Action_OSD_WikiInfo]</onclick>
+			<onclick condition="$EXP[DhOsdIs_10_audio]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles&amp;kind=audio)</onclick><onlongclick condition="$EXP[DhOsdIs_10_audio]">ActivateWindow(osdaudiosettings)</onlongclick>
+			<onclick condition="$EXP[DhOsdIs_10_subtitles]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles)</onclick><onlongclick condition="$EXP[DhOsdIs_10_subtitles]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles&amp;section=look)</onlongclick>
+			<onclick condition="$EXP[DhOsdIs_10_subsync]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=subtitle_sync)</onclick>
+			<onclick condition="$EXP[DhOsdIs_10_nextsub]">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=subtitle_next)</onclick>
+			<onclick condition="$EXP[DhOsdIs_10_external]">RunScript(script.dexhub.tvos.players,external)</onclick>
+			<onclick condition="$EXP[DhOsdIs_10_video]">ActivateWindow(osdvideosettings)</onclick>
+			<onclick condition="$EXP[DhOsdIs_10_ppi]">RunScript(script.tinyppi,dialog)</onclick>
+			<selectedcolor>af3_main_fg_70</selectedcolor>
+			<disabledcolor>af3_main_fg_30</disabledcolor>
+			<pulseonselect>false</pulseonselect>
+			<scrollsuffix> </scrollsuffix>
+			<scrollspeed>40</scrollspeed>
+			<onleft>6509</onleft>
+			<onright>6001</onright>
+		</control>
+		<control type="group" id="6610">
+			<visible>$EXP[DhOsdSlotVis_10]</visible>
+			<left>0</left>
+			<width>0</width>
+			<control type="image">
+				<left>-64</left>
+				<top>10</top>
+				<width>48</width>
+				<height>48</height>
+				<texture colordiffuse="af3_panel_fg_70">$VAR[DhOsdSlotIcon_10]</texture>
+				<visible>!Control.HasFocus(6510)</visible>
+			</control>
+			<control type="image">
+				<left>-64</left>
+				<top>10</top>
+				<width>48</width>
+				<height>48</height>
+				<texture colordiffuse="$VAR[DhOsdOnAccent]">$VAR[DhOsdSlotIcon_10]</texture>
+				<visible>Control.HasFocus(6510)</visible>
 			</control>
 		</control>
 	</include>

@@ -1,79 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 3.28.12: the player's Sources panel (Dex Hub 5.10.243). The list is the
-     title's sources as Dex Hub found them last time, the one playing first;
-     OK plays another one from the same point. -->
+<!-- DhLegacyPlayer2 3.28.53 -->
+<!-- DhLegacyPlayer 3.28.50 (main) 3.28.52 (tvOS): the player's Sources panel as the sources page's island (Dex Hub 5.10.307) -->
 <window type="dialog" id="1149">
 	<defaultcontrol always="true">6209</defaultcontrol>
 	<onload>SetProperty(UID,$INFO[System.Time(hh:mm:ss)])</onload>
 	<controls>
 		<control type="group">
 			<animation type="WindowOpen" reversible="false">
-				<effect type="fade" start="0" end="100" time="250"/>
-				<effect type="slide" start="0,48" end="0" tween="back" easing="out" time="350"/>
+				<effect type="fade" start="0" end="100" time="260"/>
+				<effect type="slide" start="0,40" end="0,0" tween="back" easing="out" time="420"/>
 			</animation>
 			<animation type="WindowClose" reversible="false">
-				<effect type="fade" start="100" end="0" time="150"/>
+				<effect type="fade" start="100" end="0" time="160"/>
 			</animation>
-			<right>80</right>
-			<width>1440</width>
-			<bottom>200</bottom>
-			<height>820</height>
-			<control type="group">
-				<animation effect="fade" start="100" end="92" condition="true">Conditional</animation>
-				<control type="image">
-					<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
-					<left>-80</left>
-					<right>-80</right>
-					<top>-80</top>
-					<bottom>-80</bottom>
-					<bordersize>80</bordersize>
-					<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
-				</control>
-				<control type="image">
-					<fadetime>400</fadetime>
-					<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
-				</control>
+			<left>420</left>
+			<top>118</top>
+			<right>-20</right>
+			<height>900</height>
+			<control type="image">
+				<left>-40</left>
+				<right>-40</right>
+				<top>-28</top>
+				<bottom>-52</bottom>
+				<texture border="40" colordiffuse="A6000000">af3/shadows/shadow-40.png</texture>
 			</control>
 			<control type="image">
-				<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+				<texture border="40" colordiffuse="F015161A">dexhub/osd/legacy/island.png</texture>
 			</control>
 			<control type="image">
-				<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+				<texture border="40" colordiffuse="14FFFFFF">dexhub/osd/legacy/island_ring.png</texture>
 			</control>
 			<!-- header -->
 			<control type="group">
-				<height>120</height>
-				<control type="label">
-					<left>40</left>
-					<right>300</right>
-					<label>$VAR[DhSourcesTitle]</label>
-					<font>af3_font_midi_bold</font>
-					<aligny>center</aligny>
-					<textcolor>af3_dialog_fg_90</textcolor>
+				<left>44</left>
+				<right>44</right>
+				<top>30</top>
+				<height>44</height>
+				<control type="image">
+					<left>0</left>
+					<top>16</top>
+					<width>12</width>
+					<height>12</height>
+					<texture colordiffuse="FF4ADE80">af3/common/circle.png</texture>
 				</control>
 				<control type="label">
-					<right>100</right>
+					<left>26</left>
+					<width>400</width>
+					<aligny>center</aligny>
+					<font>af3_font_hint_bold</font>
+					<textcolor>FFCFD2D9</textcolor>
+					<label>$LOCALIZE[31929]</label>
+				</control>
+				<control type="label">
+					<right>0</right>
 					<width>300</width>
 					<align>right</align>
 					<aligny>center</aligny>
-					<label>$INFO[Container(6209).NumItems]</label>
-					<font>af3_font_mini_bold</font>
-					<textcolor>af3_dialog_fg_70</textcolor>
-				</control>
-				<control type="image">
-					<right>40</right>
-					<centertop>50%</centertop>
-					<height>40</height>
-					<width>40</width>
-					<bordersize>-8</bordersize>
-					<texture colordiffuse="af3_dialog_fg_90">af3/extras/icons/network.png</texture>
-				</control>
-				<control type="image">
-					<bottom>0</bottom>
-					<height>1</height>
-					<left>40</left>
-					<right>40</right>
-					<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+					<font>af3_font_tiny</font>
+					<textcolor>FF9AA0AD</textcolor>
+					<label>$INFO[Container(6209).CurrentItem] / $INFO[Container(6209).NumItems]</label>
 				</control>
 			</control>
 			<control type="label">
@@ -89,52 +74,1752 @@
 				<visible>Integer.IsEqual(Container(6209).NumItems,0) + !Container(6209).IsUpdating</visible>
 			</control>
 			<control type="panel" id="6209">
-				<top>140</top>
-				<bottom>40</bottom>
+				<left>36</left>
+				<right>36</right>
+				<top>86</top>
+				<bottom>66</bottom>
 				<onleft>Close</onleft>
 				<onright>6309</onright>
 				<ondown>noop</ondown>
 				<onup>noop</onup>
 				<pagecontrol>6309</pagecontrol>
 				<orientation>vertical</orientation>
-				<scrolltime tween="quadratic">250</scrolltime>
-				<itemlayout height="150">
-					<control type="group">
-						<left>20</left>
-						<right>20</right>
-						<include content="DhSourceRow">
-							<param name="fg">af3_dialog_fg_90</param>
-							<param name="dim">af3_dialog_fg_70</param>
-						</include>
-					</control>
-				</itemlayout>
-				<focusedlayout height="150">
-					<control type="group">
-						<left>20</left>
-						<right>20</right>
-						<control type="image">
-							<texture border="40" colordiffuse="$VAR[DhOsdAccent]">af3/common/menu.png</texture>
+				<scrolltime tween="cubic" easing="out">260</scrolltime>
+				<itemlayout height="128">
+						<control type="group">
+							<left>8</left>
+							<right>8</right>
+							<top>6</top>
+							<bottom>6</bottom>
+							<visible>!String.IsEqual(ListItem.Property(pos),sort) + String.IsEmpty(ListItem.Property(rescan))</visible>
+							<control type="image">
+								<texture border="22" colordiffuse="0CFFFFFF">af3/common/box.png</texture>
+							</control>
+							<control type="image">
+								<left>12</left>
+								<top>18</top>
+								<bottom>18</bottom>
+								<width>6</width>
+								<texture border="3" colordiffuse="$INFO[ListItem.Property(qtone)]">dexhub/osd/legacy/bar.png</texture>
+								<visible>!String.IsEmpty(ListItem.Property(qtone))</visible>
+							</control>
+							<control type="label">
+								<left>34</left>
+								<right>236</right>
+								<top>14</top>
+								<height>40</height>
+								<aligny>center</aligny>
+								<font>af3_font_main_bold</font>
+								<textcolor>FFE6E6E3</textcolor>
+								<label>$INFO[ListItem.Label]</label>
+							</control>
+							<control type="label">
+								<left>34</left>
+								<right>236</right>
+								<top>54</top>
+								<height>30</height>
+								<font>af3_font_tiny</font>
+								<textcolor>FFAEB3BF</textcolor>
+								<label>$INFO[ListItem.Label2]</label>
+							</control>
+							<control type="group">
+								<left>30</left>
+								<top>90</top>
+								<height>22</height>
+								<control type="label">
+									<width>120</width>
+									<height>22</height>
+									<aligny>center</aligny>
+									<font>af3_font_tiny_bold</font>
+									<textcolor>$INFO[ListItem.Property(qtone)]</textcolor>
+									<label>$INFO[ListItem.Property(quality)]</label>
+								</control>
+								<control type="group">
+									<left>$INFO[ListItem.Property(nv_qw)]</left>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move1),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move1),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move1),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move1),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move1),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move1),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move1),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move1),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move1),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw1)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame1)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame1))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w1)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge1)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge1))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move2),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move2),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move2),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move2),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move2),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move2),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move2),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move2),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move2),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw2)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame2)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame2))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w2)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge2)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge2))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move3),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move3),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move3),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move3),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move3),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move3),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move3),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move3),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move3),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw3)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame3)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame3))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w3)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge3)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge3))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move4),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move4),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move4),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move4),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move4),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move4),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move4),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move4),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move4),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw4)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame4)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame4))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w4)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge4)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge4))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move5),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move5),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move5),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move5),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move5),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move5),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move5),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move5),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move5),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw5)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame5)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame5))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w5)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge5)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge5))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move6),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move6),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move6),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move6),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move6),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move6),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move6),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move6),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move6),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw6)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame6)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame6))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w6)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge6)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge6))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move7),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move7),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move7),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move7),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move7),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move7),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move7),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move7),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move7),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw7)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame7)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame7))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w7)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge7)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge7))</visible>
+							</control>
+								</control>
+							</control>
+							<control type="label">
+								<right>26</right>
+								<width>200</width>
+								<top>14</top>
+								<height>40</height>
+								<align>right</align>
+								<aligny>center</aligny>
+								<font>af3_font_main_bold</font>
+								<textcolor>FFE6E6E3</textcolor>
+								<label>$INFO[ListItem.Property(size)]</label>
+							</control>
+							<control type="label">
+								<right>26</right>
+								<width>300</width>
+								<top>56</top>
+								<height>26</height>
+								<align>right</align>
+								<aligny>center</aligny>
+								<font>af3_font_hint_bold</font>
+								<textcolor>FF9AA0AD</textcolor>
+								<label>$INFO[ListItem.Property(provider)]</label>
+							</control>
+							<control type="group">
+								<right>26</right>
+								<width>118</width>
+								<top>90</top>
+								<height>30</height>
+								<visible>!String.IsEmpty(ListItem.Property(iscurrent))</visible>
+								<control type="image">
+									<texture border="14" colordiffuse="$VAR[DhOsdAccent]">af3/common/box.png</texture>
+								</control>
+								<control type="label">
+									<align>center</align>
+									<aligny>center</aligny>
+									<font>af3_font_hint_bold</font>
+									<textcolor>$VAR[DhOsdOnFill]</textcolor>
+									<label>$LOCALIZE[31983]</label>
+								</control>
+							</control>
+							<control type="group">
+								<right>26</right>
+								<width>118</width>
+								<top>90</top>
+								<height>30</height>
+								<visible>String.IsEmpty(ListItem.Property(iscurrent)) + !String.IsEmpty(ListItem.Property(cache))</visible>
+								<control type="image">
+									<texture border="14" colordiffuse="$VAR[DhSourceCacheBg]">af3/common/box.png</texture>
+								</control>
+								<control type="label">
+									<align>center</align>
+									<aligny>center</aligny>
+									<font>af3_font_hint_bold</font>
+									<textcolor>$VAR[DhSourceCacheFg]</textcolor>
+									<label>$VAR[DhSourceCacheLabel]</label>
+								</control>
+							</control>
 						</control>
-						<include content="DhSourceRow">
-							<param name="fg">$VAR[DhOsdOnFill]</param>
-							<param name="dim">$VAR[DhOsdOnFill]</param>
-						</include>
-					</control>
-				</focusedlayout>
-				<content>plugin://plugin.video.dexhub.tvos/?action=skin_osd_sources&amp;reload=$INFO[Window.Property(UID)]</content>
+						<!-- the sort row and the search-again row: a chip line -->
+						<control type="group">
+							<left>8</left>
+							<right>8</right>
+							<top>6</top>
+							<bottom>6</bottom>
+							<visible>String.IsEqual(ListItem.Property(pos),sort) | !String.IsEmpty(ListItem.Property(rescan))</visible>
+							<control type="image">
+								<left>0</left>
+								<width>760</width>
+								<centertop>50%</centertop>
+								<height>52</height>
+								<texture border="22" colordiffuse="14FFFFFF">dexhub/osd/legacy/row.png</texture>
+							</control>
+							<control type="label">
+								<left>28</left>
+								<width>720</width>
+								<aligny>center</aligny>
+								<font>af3_font_mini_bold</font>
+								<textcolor>FFE6E6E3</textcolor>
+								<label>$INFO[ListItem.Label][COLOR 80FFFFFF]   $INFO[ListItem.Label2][/COLOR]</label>
+							</control>
+						</control>
+					</itemlayout>
+				<focusedlayout height="149" condition="String.IsEqual(Container(6209).ListItem.Property(nv_fh),1)">
+						<control type="group">
+							<left>8</left>
+							<right>8</right>
+							<top>6</top>
+							<bottom>6</bottom>
+							<visible>!String.IsEqual(ListItem.Property(pos),sort) + String.IsEmpty(ListItem.Property(rescan))</visible>
+							<control type="image">
+								<texture border="22" colordiffuse="FF2B2D34">af3/common/box.png</texture>
+							</control>
+							<control type="image">
+								<left>-3</left>
+								<right>-3</right>
+								<top>-3</top>
+								<bottom>-3</bottom>
+								<texture border="24" colordiffuse="$VAR[DhOsdAccent]">af3/common/selectbox_thin.png</texture>
+							</control>
+							<control type="image">
+								<left>12</left>
+								<top>18</top>
+								<bottom>18</bottom>
+								<width>6</width>
+								<texture border="3" colordiffuse="$INFO[ListItem.Property(qtone)]">dexhub/osd/legacy/bar.png</texture>
+								<visible>!String.IsEmpty(ListItem.Property(qtone))</visible>
+							</control>
+							<control type="label">
+								<left>34</left>
+								<right>236</right>
+								<top>14</top>
+								<height>40</height>
+								<aligny>center</aligny>
+								<font>af3_font_main_bold</font>
+								<textcolor>FFFFFFFF</textcolor>
+								<label>$INFO[ListItem.Label]</label>
+							</control>
+							<control type="textbox">
+								<left>34</left>
+								<right>236</right>
+								<top>56</top>
+								<height>29</height>
+								<font>af3_font_tiny</font>
+								<textcolor>FFC2C6CF</textcolor>
+								<label>$INFO[ListItem.Property(nv_desc)]</label>
+							</control>
+							<control type="group">
+								<left>30</left>
+								<top>97</top>
+								<height>22</height>
+								<control type="label">
+									<width>120</width>
+									<height>22</height>
+									<aligny>center</aligny>
+									<font>af3_font_tiny_bold</font>
+									<textcolor>$INFO[ListItem.Property(qtone)]</textcolor>
+									<label>$INFO[ListItem.Property(quality)]</label>
+								</control>
+								<control type="group">
+									<left>$INFO[ListItem.Property(nv_qw)]</left>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move1),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move1),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move1),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move1),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move1),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move1),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move1),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move1),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move1),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw1)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame1)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame1))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w1)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge1)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge1))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move2),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move2),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move2),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move2),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move2),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move2),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move2),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move2),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move2),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw2)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame2)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame2))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w2)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge2)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge2))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move3),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move3),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move3),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move3),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move3),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move3),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move3),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move3),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move3),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw3)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame3)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame3))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w3)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge3)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge3))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move4),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move4),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move4),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move4),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move4),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move4),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move4),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move4),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move4),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw4)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame4)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame4))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w4)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge4)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge4))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move5),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move5),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move5),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move5),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move5),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move5),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move5),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move5),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move5),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw5)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame5)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame5))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w5)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge5)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge5))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move6),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move6),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move6),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move6),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move6),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move6),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move6),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move6),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move6),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw6)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame6)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame6))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w6)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge6)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge6))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move7),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move7),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move7),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move7),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move7),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move7),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move7),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move7),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move7),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw7)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame7)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame7))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w7)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge7)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge7))</visible>
+							</control>
+								</control>
+							</control>
+							<control type="label">
+								<right>26</right>
+								<width>200</width>
+								<top>14</top>
+								<height>40</height>
+								<align>right</align>
+								<aligny>center</aligny>
+								<font>af3_font_main_bold</font>
+								<textcolor>FFFFFFFF</textcolor>
+								<label>$INFO[ListItem.Property(size)]</label>
+							</control>
+							<control type="label">
+								<right>26</right>
+								<width>300</width>
+								<top>56</top>
+								<height>26</height>
+								<align>right</align>
+								<aligny>center</aligny>
+								<font>af3_font_hint_bold</font>
+								<textcolor>FF9AA0AD</textcolor>
+								<label>$INFO[ListItem.Property(provider)]</label>
+							</control>
+							<control type="group">
+								<right>26</right>
+								<width>118</width>
+								<top>97</top>
+								<height>30</height>
+								<visible>!String.IsEmpty(ListItem.Property(iscurrent))</visible>
+								<control type="image">
+									<texture border="14" colordiffuse="$VAR[DhOsdAccent]">af3/common/box.png</texture>
+								</control>
+								<control type="label">
+									<align>center</align>
+									<aligny>center</aligny>
+									<font>af3_font_hint_bold</font>
+									<textcolor>$VAR[DhOsdOnFill]</textcolor>
+									<label>$LOCALIZE[31983]</label>
+								</control>
+							</control>
+							<control type="group">
+								<right>26</right>
+								<width>118</width>
+								<top>97</top>
+								<height>30</height>
+								<visible>String.IsEmpty(ListItem.Property(iscurrent)) + !String.IsEmpty(ListItem.Property(cache))</visible>
+								<control type="image">
+									<texture border="14" colordiffuse="$VAR[DhSourceCacheBg]">af3/common/box.png</texture>
+								</control>
+								<control type="label">
+									<align>center</align>
+									<aligny>center</aligny>
+									<font>af3_font_hint_bold</font>
+									<textcolor>$VAR[DhSourceCacheFg]</textcolor>
+									<label>$VAR[DhSourceCacheLabel]</label>
+								</control>
+							</control>
+						</control>
+						<!-- the sort row and the search-again row: a chip line -->
+						<control type="group">
+							<left>8</left>
+							<right>8</right>
+							<top>6</top>
+							<bottom>6</bottom>
+							<visible>String.IsEqual(ListItem.Property(pos),sort) | !String.IsEmpty(ListItem.Property(rescan))</visible>
+							<control type="image">
+								<left>0</left>
+								<width>760</width>
+								<centertop>50%</centertop>
+								<height>52</height>
+								<texture border="22" colordiffuse="FF2B2D34">dexhub/osd/legacy/row.png</texture>
+							</control>
+							<control type="label">
+								<left>28</left>
+								<width>720</width>
+								<aligny>center</aligny>
+								<font>af3_font_mini_bold</font>
+								<textcolor>FFFFFFFF</textcolor>
+								<label>$INFO[ListItem.Label][COLOR 80FFFFFF]   $INFO[ListItem.Label2][/COLOR]</label>
+							</control>
+						</control>
+					</focusedlayout>
+				<focusedlayout height="178" condition="String.IsEqual(Container(6209).ListItem.Property(nv_fh),2)">
+						<control type="group">
+							<left>8</left>
+							<right>8</right>
+							<top>6</top>
+							<bottom>6</bottom>
+							<visible>!String.IsEqual(ListItem.Property(pos),sort) + String.IsEmpty(ListItem.Property(rescan))</visible>
+							<control type="image">
+								<texture border="22" colordiffuse="FF2B2D34">af3/common/box.png</texture>
+							</control>
+							<control type="image">
+								<left>-3</left>
+								<right>-3</right>
+								<top>-3</top>
+								<bottom>-3</bottom>
+								<texture border="24" colordiffuse="$VAR[DhOsdAccent]">af3/common/selectbox_thin.png</texture>
+							</control>
+							<control type="image">
+								<left>12</left>
+								<top>18</top>
+								<bottom>18</bottom>
+								<width>6</width>
+								<texture border="3" colordiffuse="$INFO[ListItem.Property(qtone)]">dexhub/osd/legacy/bar.png</texture>
+								<visible>!String.IsEmpty(ListItem.Property(qtone))</visible>
+							</control>
+							<control type="label">
+								<left>34</left>
+								<right>236</right>
+								<top>14</top>
+								<height>40</height>
+								<aligny>center</aligny>
+								<font>af3_font_main_bold</font>
+								<textcolor>FFFFFFFF</textcolor>
+								<label>$INFO[ListItem.Label]</label>
+							</control>
+							<control type="textbox">
+								<left>34</left>
+								<right>236</right>
+								<top>56</top>
+								<height>58</height>
+								<font>af3_font_tiny</font>
+								<textcolor>FFC2C6CF</textcolor>
+								<label>$INFO[ListItem.Property(nv_desc)]</label>
+							</control>
+							<control type="group">
+								<left>30</left>
+								<top>126</top>
+								<height>22</height>
+								<control type="label">
+									<width>120</width>
+									<height>22</height>
+									<aligny>center</aligny>
+									<font>af3_font_tiny_bold</font>
+									<textcolor>$INFO[ListItem.Property(qtone)]</textcolor>
+									<label>$INFO[ListItem.Property(quality)]</label>
+								</control>
+								<control type="group">
+									<left>$INFO[ListItem.Property(nv_qw)]</left>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move1),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move1),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move1),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move1),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move1),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move1),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move1),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move1),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move1),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw1)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame1)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame1))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w1)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge1)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge1))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move2),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move2),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move2),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move2),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move2),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move2),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move2),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move2),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move2),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw2)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame2)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame2))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w2)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge2)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge2))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move3),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move3),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move3),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move3),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move3),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move3),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move3),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move3),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move3),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw3)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame3)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame3))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w3)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge3)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge3))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move4),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move4),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move4),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move4),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move4),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move4),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move4),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move4),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move4),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw4)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame4)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame4))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w4)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge4)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge4))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move5),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move5),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move5),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move5),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move5),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move5),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move5),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move5),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move5),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw5)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame5)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame5))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w5)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge5)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge5))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move6),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move6),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move6),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move6),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move6),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move6),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move6),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move6),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move6),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw6)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame6)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame6))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w6)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge6)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge6))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move7),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move7),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move7),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move7),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move7),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move7),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move7),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move7),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move7),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw7)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame7)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame7))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w7)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge7)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge7))</visible>
+							</control>
+								</control>
+							</control>
+							<control type="label">
+								<right>26</right>
+								<width>200</width>
+								<top>14</top>
+								<height>40</height>
+								<align>right</align>
+								<aligny>center</aligny>
+								<font>af3_font_main_bold</font>
+								<textcolor>FFFFFFFF</textcolor>
+								<label>$INFO[ListItem.Property(size)]</label>
+							</control>
+							<control type="label">
+								<right>26</right>
+								<width>300</width>
+								<top>56</top>
+								<height>26</height>
+								<align>right</align>
+								<aligny>center</aligny>
+								<font>af3_font_hint_bold</font>
+								<textcolor>FF9AA0AD</textcolor>
+								<label>$INFO[ListItem.Property(provider)]</label>
+							</control>
+							<control type="group">
+								<right>26</right>
+								<width>118</width>
+								<top>126</top>
+								<height>30</height>
+								<visible>!String.IsEmpty(ListItem.Property(iscurrent))</visible>
+								<control type="image">
+									<texture border="14" colordiffuse="$VAR[DhOsdAccent]">af3/common/box.png</texture>
+								</control>
+								<control type="label">
+									<align>center</align>
+									<aligny>center</aligny>
+									<font>af3_font_hint_bold</font>
+									<textcolor>$VAR[DhOsdOnFill]</textcolor>
+									<label>$LOCALIZE[31983]</label>
+								</control>
+							</control>
+							<control type="group">
+								<right>26</right>
+								<width>118</width>
+								<top>126</top>
+								<height>30</height>
+								<visible>String.IsEmpty(ListItem.Property(iscurrent)) + !String.IsEmpty(ListItem.Property(cache))</visible>
+								<control type="image">
+									<texture border="14" colordiffuse="$VAR[DhSourceCacheBg]">af3/common/box.png</texture>
+								</control>
+								<control type="label">
+									<align>center</align>
+									<aligny>center</aligny>
+									<font>af3_font_hint_bold</font>
+									<textcolor>$VAR[DhSourceCacheFg]</textcolor>
+									<label>$VAR[DhSourceCacheLabel]</label>
+								</control>
+							</control>
+						</control>
+						<!-- the sort row and the search-again row: a chip line -->
+						<control type="group">
+							<left>8</left>
+							<right>8</right>
+							<top>6</top>
+							<bottom>6</bottom>
+							<visible>String.IsEqual(ListItem.Property(pos),sort) | !String.IsEmpty(ListItem.Property(rescan))</visible>
+							<control type="image">
+								<left>0</left>
+								<width>760</width>
+								<centertop>50%</centertop>
+								<height>52</height>
+								<texture border="22" colordiffuse="FF2B2D34">dexhub/osd/legacy/row.png</texture>
+							</control>
+							<control type="label">
+								<left>28</left>
+								<width>720</width>
+								<aligny>center</aligny>
+								<font>af3_font_mini_bold</font>
+								<textcolor>FFFFFFFF</textcolor>
+								<label>$INFO[ListItem.Label][COLOR 80FFFFFF]   $INFO[ListItem.Label2][/COLOR]</label>
+							</control>
+						</control>
+					</focusedlayout>
+				<focusedlayout height="207" condition="String.IsEqual(Container(6209).ListItem.Property(nv_fh),3)">
+						<control type="group">
+							<left>8</left>
+							<right>8</right>
+							<top>6</top>
+							<bottom>6</bottom>
+							<visible>!String.IsEqual(ListItem.Property(pos),sort) + String.IsEmpty(ListItem.Property(rescan))</visible>
+							<control type="image">
+								<texture border="22" colordiffuse="FF2B2D34">af3/common/box.png</texture>
+							</control>
+							<control type="image">
+								<left>-3</left>
+								<right>-3</right>
+								<top>-3</top>
+								<bottom>-3</bottom>
+								<texture border="24" colordiffuse="$VAR[DhOsdAccent]">af3/common/selectbox_thin.png</texture>
+							</control>
+							<control type="image">
+								<left>12</left>
+								<top>18</top>
+								<bottom>18</bottom>
+								<width>6</width>
+								<texture border="3" colordiffuse="$INFO[ListItem.Property(qtone)]">dexhub/osd/legacy/bar.png</texture>
+								<visible>!String.IsEmpty(ListItem.Property(qtone))</visible>
+							</control>
+							<control type="label">
+								<left>34</left>
+								<right>236</right>
+								<top>14</top>
+								<height>40</height>
+								<aligny>center</aligny>
+								<font>af3_font_main_bold</font>
+								<textcolor>FFFFFFFF</textcolor>
+								<label>$INFO[ListItem.Label]</label>
+							</control>
+							<control type="textbox">
+								<left>34</left>
+								<right>236</right>
+								<top>56</top>
+								<height>87</height>
+								<font>af3_font_tiny</font>
+								<textcolor>FFC2C6CF</textcolor>
+								<label>$INFO[ListItem.Property(nv_desc)]</label>
+							</control>
+							<control type="group">
+								<left>30</left>
+								<top>155</top>
+								<height>22</height>
+								<control type="label">
+									<width>120</width>
+									<height>22</height>
+									<aligny>center</aligny>
+									<font>af3_font_tiny_bold</font>
+									<textcolor>$INFO[ListItem.Property(qtone)]</textcolor>
+									<label>$INFO[ListItem.Property(quality)]</label>
+								</control>
+								<control type="group">
+									<left>$INFO[ListItem.Property(nv_qw)]</left>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move1),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move1),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move1),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move1),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move1),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move1),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move1),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move1),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move1),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw1)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame1)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame1))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w1)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge1)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge1))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move2),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move2),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move2),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move2),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move2),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move2),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move2),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move2),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move2),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw2)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame2)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame2))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w2)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge2)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge2))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move3),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move3),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move3),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move3),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move3),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move3),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move3),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move3),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move3),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw3)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame3)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame3))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w3)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge3)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge3))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move4),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move4),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move4),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move4),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move4),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move4),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move4),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move4),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move4),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw4)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame4)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame4))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w4)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge4)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge4))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move5),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move5),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move5),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move5),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move5),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move5),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move5),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move5),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move5),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw5)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame5)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame5))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w5)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge5)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge5))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move6),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move6),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move6),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move6),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move6),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move6),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move6),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move6),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move6),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw6)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame6)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame6))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w6)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge6)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge6))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move7),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move7),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move7),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move7),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move7),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move7),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move7),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move7),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move7),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw7)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame7)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame7))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w7)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge7)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge7))</visible>
+							</control>
+								</control>
+							</control>
+							<control type="label">
+								<right>26</right>
+								<width>200</width>
+								<top>14</top>
+								<height>40</height>
+								<align>right</align>
+								<aligny>center</aligny>
+								<font>af3_font_main_bold</font>
+								<textcolor>FFFFFFFF</textcolor>
+								<label>$INFO[ListItem.Property(size)]</label>
+							</control>
+							<control type="label">
+								<right>26</right>
+								<width>300</width>
+								<top>56</top>
+								<height>26</height>
+								<align>right</align>
+								<aligny>center</aligny>
+								<font>af3_font_hint_bold</font>
+								<textcolor>FF9AA0AD</textcolor>
+								<label>$INFO[ListItem.Property(provider)]</label>
+							</control>
+							<control type="group">
+								<right>26</right>
+								<width>118</width>
+								<top>155</top>
+								<height>30</height>
+								<visible>!String.IsEmpty(ListItem.Property(iscurrent))</visible>
+								<control type="image">
+									<texture border="14" colordiffuse="$VAR[DhOsdAccent]">af3/common/box.png</texture>
+								</control>
+								<control type="label">
+									<align>center</align>
+									<aligny>center</aligny>
+									<font>af3_font_hint_bold</font>
+									<textcolor>$VAR[DhOsdOnFill]</textcolor>
+									<label>$LOCALIZE[31983]</label>
+								</control>
+							</control>
+							<control type="group">
+								<right>26</right>
+								<width>118</width>
+								<top>155</top>
+								<height>30</height>
+								<visible>String.IsEmpty(ListItem.Property(iscurrent)) + !String.IsEmpty(ListItem.Property(cache))</visible>
+								<control type="image">
+									<texture border="14" colordiffuse="$VAR[DhSourceCacheBg]">af3/common/box.png</texture>
+								</control>
+								<control type="label">
+									<align>center</align>
+									<aligny>center</aligny>
+									<font>af3_font_hint_bold</font>
+									<textcolor>$VAR[DhSourceCacheFg]</textcolor>
+									<label>$VAR[DhSourceCacheLabel]</label>
+								</control>
+							</control>
+						</control>
+						<!-- the sort row and the search-again row: a chip line -->
+						<control type="group">
+							<left>8</left>
+							<right>8</right>
+							<top>6</top>
+							<bottom>6</bottom>
+							<visible>String.IsEqual(ListItem.Property(pos),sort) | !String.IsEmpty(ListItem.Property(rescan))</visible>
+							<control type="image">
+								<left>0</left>
+								<width>760</width>
+								<centertop>50%</centertop>
+								<height>52</height>
+								<texture border="22" colordiffuse="FF2B2D34">dexhub/osd/legacy/row.png</texture>
+							</control>
+							<control type="label">
+								<left>28</left>
+								<width>720</width>
+								<aligny>center</aligny>
+								<font>af3_font_mini_bold</font>
+								<textcolor>FFFFFFFF</textcolor>
+								<label>$INFO[ListItem.Label][COLOR 80FFFFFF]   $INFO[ListItem.Label2][/COLOR]</label>
+							</control>
+						</control>
+					</focusedlayout>
+				<focusedlayout height="236" condition="String.IsEqual(Container(6209).ListItem.Property(nv_fh),4)">
+						<control type="group">
+							<left>8</left>
+							<right>8</right>
+							<top>6</top>
+							<bottom>6</bottom>
+							<visible>!String.IsEqual(ListItem.Property(pos),sort) + String.IsEmpty(ListItem.Property(rescan))</visible>
+							<control type="image">
+								<texture border="22" colordiffuse="FF2B2D34">af3/common/box.png</texture>
+							</control>
+							<control type="image">
+								<left>-3</left>
+								<right>-3</right>
+								<top>-3</top>
+								<bottom>-3</bottom>
+								<texture border="24" colordiffuse="$VAR[DhOsdAccent]">af3/common/selectbox_thin.png</texture>
+							</control>
+							<control type="image">
+								<left>12</left>
+								<top>18</top>
+								<bottom>18</bottom>
+								<width>6</width>
+								<texture border="3" colordiffuse="$INFO[ListItem.Property(qtone)]">dexhub/osd/legacy/bar.png</texture>
+								<visible>!String.IsEmpty(ListItem.Property(qtone))</visible>
+							</control>
+							<control type="label">
+								<left>34</left>
+								<right>236</right>
+								<top>14</top>
+								<height>40</height>
+								<aligny>center</aligny>
+								<font>af3_font_main_bold</font>
+								<textcolor>FFFFFFFF</textcolor>
+								<label>$INFO[ListItem.Label]</label>
+							</control>
+							<control type="textbox">
+								<left>34</left>
+								<right>236</right>
+								<top>56</top>
+								<height>116</height>
+								<font>af3_font_tiny</font>
+								<textcolor>FFC2C6CF</textcolor>
+								<label>$INFO[ListItem.Property(nv_desc)]</label>
+							</control>
+							<control type="group">
+								<left>30</left>
+								<top>184</top>
+								<height>22</height>
+								<control type="label">
+									<width>120</width>
+									<height>22</height>
+									<aligny>center</aligny>
+									<font>af3_font_tiny_bold</font>
+									<textcolor>$INFO[ListItem.Property(qtone)]</textcolor>
+									<label>$INFO[ListItem.Property(quality)]</label>
+								</control>
+								<control type="group">
+									<left>$INFO[ListItem.Property(nv_qw)]</left>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move1),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move1),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move1),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move1),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move1),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move1),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move1),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move1),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move1),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw1)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame1)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame1))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w1)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge1)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge1))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move2),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move2),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move2),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move2),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move2),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move2),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move2),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move2),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move2),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw2)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame2)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame2))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w2)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge2)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge2))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move3),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move3),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move3),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move3),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move3),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move3),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move3),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move3),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move3),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw3)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame3)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame3))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w3)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge3)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge3))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move4),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move4),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move4),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move4),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move4),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move4),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move4),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move4),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move4),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw4)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame4)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame4))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w4)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge4)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge4))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move5),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move5),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move5),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move5),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move5),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move5),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move5),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move5),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move5),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw5)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame5)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame5))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w5)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge5)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge5))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move6),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move6),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move6),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move6),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move6),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move6),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move6),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move6),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move6),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw6)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame6)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame6))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w6)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge6)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge6))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move7),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move7),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move7),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move7),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move7),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move7),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move7),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move7),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move7),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw7)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame7)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame7))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w7)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge7)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge7))</visible>
+							</control>
+								</control>
+							</control>
+							<control type="label">
+								<right>26</right>
+								<width>200</width>
+								<top>14</top>
+								<height>40</height>
+								<align>right</align>
+								<aligny>center</aligny>
+								<font>af3_font_main_bold</font>
+								<textcolor>FFFFFFFF</textcolor>
+								<label>$INFO[ListItem.Property(size)]</label>
+							</control>
+							<control type="label">
+								<right>26</right>
+								<width>300</width>
+								<top>56</top>
+								<height>26</height>
+								<align>right</align>
+								<aligny>center</aligny>
+								<font>af3_font_hint_bold</font>
+								<textcolor>FF9AA0AD</textcolor>
+								<label>$INFO[ListItem.Property(provider)]</label>
+							</control>
+							<control type="group">
+								<right>26</right>
+								<width>118</width>
+								<top>184</top>
+								<height>30</height>
+								<visible>!String.IsEmpty(ListItem.Property(iscurrent))</visible>
+								<control type="image">
+									<texture border="14" colordiffuse="$VAR[DhOsdAccent]">af3/common/box.png</texture>
+								</control>
+								<control type="label">
+									<align>center</align>
+									<aligny>center</aligny>
+									<font>af3_font_hint_bold</font>
+									<textcolor>$VAR[DhOsdOnFill]</textcolor>
+									<label>$LOCALIZE[31983]</label>
+								</control>
+							</control>
+							<control type="group">
+								<right>26</right>
+								<width>118</width>
+								<top>184</top>
+								<height>30</height>
+								<visible>String.IsEmpty(ListItem.Property(iscurrent)) + !String.IsEmpty(ListItem.Property(cache))</visible>
+								<control type="image">
+									<texture border="14" colordiffuse="$VAR[DhSourceCacheBg]">af3/common/box.png</texture>
+								</control>
+								<control type="label">
+									<align>center</align>
+									<aligny>center</aligny>
+									<font>af3_font_hint_bold</font>
+									<textcolor>$VAR[DhSourceCacheFg]</textcolor>
+									<label>$VAR[DhSourceCacheLabel]</label>
+								</control>
+							</control>
+						</control>
+						<!-- the sort row and the search-again row: a chip line -->
+						<control type="group">
+							<left>8</left>
+							<right>8</right>
+							<top>6</top>
+							<bottom>6</bottom>
+							<visible>String.IsEqual(ListItem.Property(pos),sort) | !String.IsEmpty(ListItem.Property(rescan))</visible>
+							<control type="image">
+								<left>0</left>
+								<width>760</width>
+								<centertop>50%</centertop>
+								<height>52</height>
+								<texture border="22" colordiffuse="FF2B2D34">dexhub/osd/legacy/row.png</texture>
+							</control>
+							<control type="label">
+								<left>28</left>
+								<width>720</width>
+								<aligny>center</aligny>
+								<font>af3_font_mini_bold</font>
+								<textcolor>FFFFFFFF</textcolor>
+								<label>$INFO[ListItem.Label][COLOR 80FFFFFF]   $INFO[ListItem.Label2][/COLOR]</label>
+							</control>
+						</control>
+					</focusedlayout>
+				<focusedlayout height="149">
+						<control type="group">
+							<left>8</left>
+							<right>8</right>
+							<top>6</top>
+							<bottom>6</bottom>
+							<visible>!String.IsEqual(ListItem.Property(pos),sort) + String.IsEmpty(ListItem.Property(rescan))</visible>
+							<control type="image">
+								<texture border="22" colordiffuse="FF2B2D34">af3/common/box.png</texture>
+							</control>
+							<control type="image">
+								<left>-3</left>
+								<right>-3</right>
+								<top>-3</top>
+								<bottom>-3</bottom>
+								<texture border="24" colordiffuse="$VAR[DhOsdAccent]">af3/common/selectbox_thin.png</texture>
+							</control>
+							<control type="image">
+								<left>12</left>
+								<top>18</top>
+								<bottom>18</bottom>
+								<width>6</width>
+								<texture border="3" colordiffuse="$INFO[ListItem.Property(qtone)]">dexhub/osd/legacy/bar.png</texture>
+								<visible>!String.IsEmpty(ListItem.Property(qtone))</visible>
+							</control>
+							<control type="label">
+								<left>34</left>
+								<right>236</right>
+								<top>14</top>
+								<height>40</height>
+								<aligny>center</aligny>
+								<font>af3_font_main_bold</font>
+								<textcolor>FFFFFFFF</textcolor>
+								<label>$INFO[ListItem.Label]</label>
+							</control>
+							<control type="textbox">
+								<left>34</left>
+								<right>236</right>
+								<top>56</top>
+								<height>29</height>
+								<font>af3_font_tiny</font>
+								<textcolor>FFC2C6CF</textcolor>
+								<label>$INFO[ListItem.Property(nv_desc)]</label>
+							</control>
+							<control type="group">
+								<left>30</left>
+								<top>97</top>
+								<height>22</height>
+								<control type="label">
+									<width>120</width>
+									<height>22</height>
+									<aligny>center</aligny>
+									<font>af3_font_tiny_bold</font>
+									<textcolor>$INFO[ListItem.Property(qtone)]</textcolor>
+									<label>$INFO[ListItem.Property(quality)]</label>
+								</control>
+								<control type="group">
+									<left>$INFO[ListItem.Property(nv_qw)]</left>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move1),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move1),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move1),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move1),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move1),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move1),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move1),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move1),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move1),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw1)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame1)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame1))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w1)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge1)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge1))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move2),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move2),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move2),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move2),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move2),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move2),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move2),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move2),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move2),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw2)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame2)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame2))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w2)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge2)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge2))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move3),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move3),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move3),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move3),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move3),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move3),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move3),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move3),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move3),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw3)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame3)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame3))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w3)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge3)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge3))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move4),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move4),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move4),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move4),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move4),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move4),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move4),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move4),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move4),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw4)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame4)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame4))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w4)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge4)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge4))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move5),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move5),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move5),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move5),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move5),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move5),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move5),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move5),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move5),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw5)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame5)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame5))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w5)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge5)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge5))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move6),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move6),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move6),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move6),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move6),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move6),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move6),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move6),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move6),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw6)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame6)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame6))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w6)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge6)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge6))</visible>
+							</control>
+							<control type="group">
+								<animation effect="slide" start="0" end="4,0" condition="String.Contains(ListItem.Property(elite_move7),_b1_)">Conditional</animation>
+								<animation effect="slide" start="0" end="8,0" condition="String.Contains(ListItem.Property(elite_move7),_b2_)">Conditional</animation>
+								<animation effect="slide" start="0" end="16,0" condition="String.Contains(ListItem.Property(elite_move7),_b4_)">Conditional</animation>
+								<animation effect="slide" start="0" end="32,0" condition="String.Contains(ListItem.Property(elite_move7),_b8_)">Conditional</animation>
+								<animation effect="slide" start="0" end="64,0" condition="String.Contains(ListItem.Property(elite_move7),_b16_)">Conditional</animation>
+								<animation effect="slide" start="0" end="128,0" condition="String.Contains(ListItem.Property(elite_move7),_b32_)">Conditional</animation>
+								<animation effect="slide" start="0" end="256,0" condition="String.Contains(ListItem.Property(elite_move7),_b64_)">Conditional</animation>
+								<animation effect="slide" start="0" end="512,0" condition="String.Contains(ListItem.Property(elite_move7),_b128_)">Conditional</animation>
+								<animation effect="slide" start="0" end="1024,0" condition="String.Contains(ListItem.Property(elite_move7),_b256_)">Conditional</animation>
+								<left>0</left>
+								<width>120</width>
+								<height>22</height>
+								<control type="image"><left>-4</left><top>-3</top><width>$INFO[ListItem.Property(elite_fw7)]</width><height>28</height><texture border="8" colordiffuse="$INFO[ListItem.Property(elite_frame7)]">dexhub/badge_frame.png</texture><visible>!String.IsEmpty(ListItem.Property(elite_frame7))</visible></control><control type="image">
+									<width>$INFO[ListItem.Property(elite_w7)]</width>
+									<height>22</height>
+									<aspectratio align="left">keep</aspectratio>
+									<texture background="true">$INFO[ListItem.Property(elite_badge7)]</texture>
+								</control>
+								<visible>!String.IsEmpty(ListItem.Property(elite_badge7))</visible>
+							</control>
+								</control>
+							</control>
+							<control type="label">
+								<right>26</right>
+								<width>200</width>
+								<top>14</top>
+								<height>40</height>
+								<align>right</align>
+								<aligny>center</aligny>
+								<font>af3_font_main_bold</font>
+								<textcolor>FFFFFFFF</textcolor>
+								<label>$INFO[ListItem.Property(size)]</label>
+							</control>
+							<control type="label">
+								<right>26</right>
+								<width>300</width>
+								<top>56</top>
+								<height>26</height>
+								<align>right</align>
+								<aligny>center</aligny>
+								<font>af3_font_hint_bold</font>
+								<textcolor>FF9AA0AD</textcolor>
+								<label>$INFO[ListItem.Property(provider)]</label>
+							</control>
+							<control type="group">
+								<right>26</right>
+								<width>118</width>
+								<top>97</top>
+								<height>30</height>
+								<visible>!String.IsEmpty(ListItem.Property(iscurrent))</visible>
+								<control type="image">
+									<texture border="14" colordiffuse="$VAR[DhOsdAccent]">af3/common/box.png</texture>
+								</control>
+								<control type="label">
+									<align>center</align>
+									<aligny>center</aligny>
+									<font>af3_font_hint_bold</font>
+									<textcolor>$VAR[DhOsdOnFill]</textcolor>
+									<label>$LOCALIZE[31983]</label>
+								</control>
+							</control>
+							<control type="group">
+								<right>26</right>
+								<width>118</width>
+								<top>97</top>
+								<height>30</height>
+								<visible>String.IsEmpty(ListItem.Property(iscurrent)) + !String.IsEmpty(ListItem.Property(cache))</visible>
+								<control type="image">
+									<texture border="14" colordiffuse="$VAR[DhSourceCacheBg]">af3/common/box.png</texture>
+								</control>
+								<control type="label">
+									<align>center</align>
+									<aligny>center</aligny>
+									<font>af3_font_hint_bold</font>
+									<textcolor>$VAR[DhSourceCacheFg]</textcolor>
+									<label>$VAR[DhSourceCacheLabel]</label>
+								</control>
+							</control>
+						</control>
+						<!-- the sort row and the search-again row: a chip line -->
+						<control type="group">
+							<left>8</left>
+							<right>8</right>
+							<top>6</top>
+							<bottom>6</bottom>
+							<visible>String.IsEqual(ListItem.Property(pos),sort) | !String.IsEmpty(ListItem.Property(rescan))</visible>
+							<control type="image">
+								<left>0</left>
+								<width>760</width>
+								<centertop>50%</centertop>
+								<height>52</height>
+								<texture border="22" colordiffuse="FF2B2D34">dexhub/osd/legacy/row.png</texture>
+							</control>
+							<control type="label">
+								<left>28</left>
+								<width>720</width>
+								<aligny>center</aligny>
+								<font>af3_font_mini_bold</font>
+								<textcolor>FFFFFFFF</textcolor>
+								<label>$INFO[ListItem.Label][COLOR 80FFFFFF]   $INFO[ListItem.Label2][/COLOR]</label>
+							</control>
+						</control>
+					</focusedlayout>
+				<content>plugin://plugin.video.dexhub/?action=skin_osd_sources&amp;reload=$INFO[Window.Property(UID)]</content>
 				<onclick>RunPlugin($INFO[ListItem.FileNameAndPath])</onclick>
 			</control>
 			<control type="scrollbar" id="6309">
-				<top>140</top>
-				<bottom>40</bottom>
+				<top>86</top>
+				<bottom>24</bottom>
 				<onleft>6209</onleft>
 				<onright>Close</onright>
-				<centerright>0</centerright>
-				<width>10</width>
+				<right>12</right>
+				<width>6</width>
 				<showonepage>false</showonepage>
 				<texturesliderbackground/>
-				<texturesliderbar colordiffuse="af3_dialog_fg_70" border="4">af3/scrollbar/scrollv_line.png</texturesliderbar>
-				<texturesliderbarfocus border="4" colordiffuse="$VAR[DhOsdAccent]">af3/common/scrollv.png</texturesliderbarfocus>
+				<texturesliderbar colordiffuse="40FFFFFF" border="3">af3/common/box.png</texturesliderbar>
+				<texturesliderbarfocus border="3" colordiffuse="$VAR[DhOsdAccent]">af3/common/box.png</texturesliderbarfocus>
 				<textureslidernib/>
 				<textureslidernibfocus/>
 				<orientation>vertical</orientation>

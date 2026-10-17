@@ -12,8 +12,8 @@ Dolby Vision, HDR10, Dolby Atmos, Arabic subtitles, and the Dex Hub interface in
 
 ### What it is
 A modified Kodi 22 for Apple TV with:
-- **Aether 7.35.1** as the default player: Dolby Vision, HDR10 and HLG (source and display permitting), H.264, HEVC and AV1, automatic frame rate matching.
-- **Dolby Atmos:** E-AC-3 JOC automatically. TrueHD Atmos is rendered to Apple spatial audio (APAC) and output as Dolby MAT, with your real speaker layout picked in settings (5.1.2 to 9.1.6). This is not raw TrueHD passthrough.
+- **Aether 7.38.1** as the default player: Dolby Vision, HDR10 and HLG (source and display permitting), H.264, HEVC and AV1, automatic frame rate matching.
+- **Dolby Atmos and DTS:X:** E-AC-3 JOC automatically. TrueHD Atmos and DTS:X keep their heights: they are rendered to Apple spatial audio (APAC) and output as Dolby MAT, at 7.1.4 by default, or your own speaker layout picked in settings (5.1.2 to 9.1.6, or off for the lossless 7.1). This is not raw TrueHD or DTS passthrough. Needs tvOS 26.
 - **Three ways to play:** Aether, Kodi's own player, or an external app (Infuse, VidHub, SenPlayer, VLC, Native Player, Outplayer or nPlayer) with resume and subtitle hand-off where the app takes them.
 - **Dex Hub add-on and skin** installed on first launch, with Arabic subtitle fonts.
 - **Performance:** Release build; the interface runs in the Apple TV's own mode (60 Hz).
@@ -43,8 +43,8 @@ Sign and install the `-fixed.ipa` it writes. Builds from v20 on do this already.
 ### Repository layout
 | Path | What |
 |---|---|
-| `src/plugin.video.dexhub.tvos` | Dex Hub add-on for Apple TV (5.10.306) |
-| `src/skin.dexhub.tvos` | Dex Hub skin for Apple TV (3.28.51) |
+| `src/plugin.video.dexhub.tvos` | Dex Hub add-on for Apple TV (5.10.329) |
+| `src/skin.dexhub.tvos` | Dex Hub skin for Apple TV (3.28.74) |
 | `native/`, `apply_bridge.py`, `native_player_adapter.py` | Kodi source changes |
 | `DexAetherEmbedded.swift` | Swift bridge between Kodi and Aether |
 | `script.dexhub.tvos.players`, `script.module.dexhub.tvos.compat` | player choice and tvOS compatibility add-ons |
@@ -63,7 +63,7 @@ bash ~/Developer/DexHub-tvOS/DexHub-tvOS/BUILD.command
 ```
 The unsigned IPA lands in Downloads; sign it as above.
 
-The build pins Aether 7.35.1 (commit `60ac862`) and its packages, builds the small Swift bridge, applies the Kodi changes in `native/` through `apply_bridge.py` (with a backup and `--restore`), builds Kodi in Release, bundles the add-ons in `assets/`, prepares the frameworks for signing and writes the IPA. The Dex Hub add-on and skin are built from their source in `src/` by `release_assets.py` (if `src/` is missing, `get-dexhub.sh` downloads them from Releases).
+The build pins Aether 7.38.1 (commit `ce1670f`) and its packages, builds the small Swift bridge, applies the Kodi changes in `native/` through `apply_bridge.py` (with a backup and `--restore`), builds Kodi in Release, bundles the add-ons in `assets/`, prepares the frameworks for signing and writes the IPA. The Dex Hub add-on and skin are built from their source in `src/` by `release_assets.py` (if `src/` is missing, `get-dexhub.sh` downloads them from Releases).
 
 ### Licence
 - Build scripts, Kodi changes and the Aether bridge in this repository: **GPL-2.0-or-later**, © 2026 DexWorld.
@@ -76,8 +76,8 @@ The build pins Aether 7.35.1 (commit `60ac862`) and its packages, builds the sma
 
 ### ما هو
 تطبيق Kodi 22 معدّل لـ Apple TV، فيه:
-- **مشغل Aether 7.35.1** افتراضي: Dolby Vision وHDR10 وHLG حسب المصدر والشاشة، H.264 وHEVC وAV1، ومطابقة معدل الإطارات تلقائيا.
-- **Dolby Atmos:** صيغة E-AC-3 JOC تلقائيا. صيغة TrueHD Atmos تتحول إلى صوت مكاني (APAC) يخرج كـ Dolby MAT، وتختار توزيع سماعاتك من الإعدادات (5.1.2 إلى 9.1.6). هذا ليس تمرير TrueHD خام.
+- **مشغل Aether 7.38.1** افتراضي: Dolby Vision وHDR10 وHLG حسب المصدر والشاشة، H.264 وHEVC وAV1، ومطابقة معدل الإطارات تلقائيا.
+- **Dolby Atmos وDTS:X:** صيغة E-AC-3 JOC تلقائيا. صيغتا TrueHD Atmos وDTS:X تحتفظان بالقنوات العلوية: تتحولان إلى صوت مكاني (APAC) يخرج كـ Dolby MAT، على 7.1.4 افتراضيا، أو توزيع سماعاتك من الإعدادات (5.1.2 إلى 9.1.6، أو إيقاف للـ 7.1 بدون ضغط). هذا ليس تمرير TrueHD أو DTS خام. يحتاج tvOS 26.
 - **ثلاثة خيارات تشغيل:** Aether، ومشغل Kodi الأصلي، أو تطبيق خارجي (Infuse، VidHub، SenPlayer، VLC، Native Player، Outplayer أو nPlayer) مع تمرير الوقت والترجمة للتطبيقات اللي تقبلها.
 - **إضافة Dex Hub وسكين Dex Hub** مثبتة داخل التطبيق من أول تشغيل، مع خطوط عربية للترجمة.
 - **أداء:** بناء Release، والواجهة على معدل Apple TV نفسه (60Hz).
@@ -107,8 +107,8 @@ bash FIX-SIGNING.command /path/to/file.ipa
 ### محتوى المستودع
 | المسار | المحتوى |
 |---|---|
-| `src/plugin.video.dexhub.tvos` | إضافة Dex Hub لـ Apple TV (5.10.306) |
-| `src/skin.dexhub.tvos` | سكين Dex Hub لـ Apple TV (3.28.51) |
+| `src/plugin.video.dexhub.tvos` | إضافة Dex Hub لـ Apple TV (5.10.329) |
+| `src/skin.dexhub.tvos` | سكين Dex Hub لـ Apple TV (3.28.74) |
 | `native/` و`apply_bridge.py` و`native_player_adapter.py` | تعديلات سورس Kodi |
 | `DexAetherEmbedded.swift` | جسر Swift بين Kodi وAether |
 | `script.dexhub.tvos.players` و`script.module.dexhub.tvos.compat` | اختيار المشغل وتوافق tvOS |
@@ -125,10 +125,10 @@ bash ~/Developer/DexHub-tvOS/DexHub-tvOS/update-kodi.sh 22.0rc1-Piers
 ```bash
 bash ~/Developer/DexHub-tvOS/DexHub-tvOS/BUILD.command
 ```
-الناتج في Downloads باسم `Kodi-DexHub-AetherOnly-v21.13-TEST-unsigned-<وقت>.ipa`، ثم وقّعه كما فوق.
+الناتج في Downloads باسم `Kodi-DexHub-AetherOnly-v21.36-TEST-unsigned-<وقت>.ipa`، ثم وقّعه كما فوق.
 
 ما يسويه البناء:
-1. ينزل محرك Aether 7.35.1 ويثبت إصدارات مكتباته (FFmpegBuild وLibDovi وLibTrueHD وSMBClient).
+1. ينزل محرك Aether 7.38.1 ويثبت إصدارات مكتباته (FFmpegBuild وLibDovi وLibTrueHD وLibDTSX وSMBClient).
 2. يبني جسر Swift صغير (`DexAetherEmbedded.swift`) يربط Aether بـ Kodi.
 3. يطبّق تعديلات Kodi من مجلد `native/` عبر `apply_bridge.py`، مع نسخة احتياطية، ويقدر يرجعها.
 4. يبني Kodi بوضع Release، ويضيف الإضافات من `assets/`، ويجهّز المكتبات للتوقيع، ثم يطلع IPA.

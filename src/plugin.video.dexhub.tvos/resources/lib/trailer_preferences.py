@@ -12,9 +12,13 @@ def volume_level(value):
         return 30
 
 
+MODES = ('background', 'card')
+
+
 def display_mode(value=None):
-    # Embedded trailers have been retired. Old backups/profiles safely use background.
-    return 'background'
+    """v5.10.326: background (the whole screen) or card (inside the focused
+    Spotlight card of a row, skin.dexhub 3.28.70); anything else is background."""
+    return value if value in MODES else 'background'
 
 
 _MEMO = {'at': 0.0, 'scope': None, 'values': None}
@@ -34,9 +38,8 @@ def _values(scope):
     if _MEMO['values'] is None or _MEMO['scope'] != scope or now - _MEMO['at'] > _MEMO_TTL:
         import xbmcaddon
         addon = xbmcaddon.Addon('plugin.video.dexhub.tvos')
-        if addon.getSetting('homeui_trailer_mode') not in ('', 'background'):
-            addon.setSetting('homeui_trailer_mode', 'background')
         _MEMO.update(at=now, scope=scope, values={
+            'mode': addon.getSetting('homeui_trailer_mode'),
             'trailers': addon.getSetting('homeui_trailers'),
             'lang': (addon.getSetting('ui_language') or '').lower()})
     return _MEMO['values']
@@ -51,7 +54,7 @@ def publish_presentation(mode=None):
     scope = profile_scope.key()
     values = _values(scope)
     home = xbmcgui.Window(10000)
-    mode = 'background'
+    mode = display_mode(values.get('mode'))
     enabled = '0' if values['trailers'] == 'false' else '1'
     for key, value in (('dhs.trailer.mode', mode), ('dhs.trailer.enabled', enabled),
                        ('dhs.trailer.config.scope', scope)):
@@ -99,4 +102,11 @@ def write_setting(key, value):
     invalidate()
     if key in ('homeui_trailer_mode', 'homeui_trailers'):
         publish_presentation()
+    if key == 'homeui_trailer_mode':
+        # the poster rows change shape: the Home's rows are published again
+        try:
+            from .homeui.layout import _skin_follows
+            _skin_follows()
+        except Exception:
+            pass
     return saved

@@ -2,8 +2,7 @@
 <window>
 	<defaultcontrol>3</defaultcontrol>
 	<controls>
-		<include condition="!Window.IsActive(selectvideoversion)">af3p_dyn_3</include>
-		<include condition="Window.IsActive(selectvideoversion)">af3p_dyn_4</include>
+		<include>af3p_dyn_3</include>
 		<control type="button" id="5">
 			<onfocus>SetFocus(9001)</onfocus>
 			<top>-3840</top>

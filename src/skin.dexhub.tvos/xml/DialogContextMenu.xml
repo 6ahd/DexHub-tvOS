@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- DhLegacyPlayer3: the context menu as an island, sized to its items, focused row a pill in the theme colour -->
 <window type="dialog">
 	<defaultcontrol>996</defaultcontrol>
 	<coordinates>
@@ -7,235 +8,338 @@
 	<onload>AlarmClock(Refocus,SetFocus(1001),00:00,silent)</onload>
 	<controls>
 		<control type="image">
-			<animation effect="fade" start="0" end="100" delay="0" time="400" tween="sine" easing="in" reversible="false" condition="true">Visible</animation>
-			<animation effect="fade" start="0" end="100" delay="0" time="400" tween="sine" easing="in" reversible="false" condition="true">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" delay="0" time="300" tween="sine" easing="in" reversible="false" condition="true">Hidden</animation>
-			<animation effect="fade" start="100" end="0" delay="0" time="300" tween="sine" easing="in" reversible="false" condition="true">WindowClose</animation>
-			<texture colordiffuse="af3_shadow_back">af3/common/white.png</texture>
+			<animation effect="fade" start="0" end="100" time="260" reversible="false">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="200" reversible="false">WindowClose</animation>
+			<texture colordiffuse="A6000000">af3/common/white.png</texture>
 		</control>
 		<control type="group">
-			<width>640</width>
+			<width>600</width>
 			<centerleft>50%</centerleft>
-			<top>100</top>
-			<bottom>100</bottom>
-			<animation type="Visible" reversible="false" condition="true">
-				<effect type="fade" start="0" end="100" time="300" delay="200"/>
-				<effect type="slide" start="0,-80" end="0" center="auto" tween="back" easing="out" time="600" delay="200"/>
+			<top>96</top>
+			<height>1104</height>
+			<animation type="WindowOpen" reversible="false">
+				<effect type="fade" start="0" end="100" time="220"/>
+				<effect type="zoom" start="94" end="100" center="auto" tween="back" easing="out" time="420"/>
 			</animation>
-			<animation type="WindowOpen" reversible="false" condition="true">
-				<effect type="fade" start="0" end="100" time="300" delay="200"/>
-				<effect type="slide" start="0,-80" end="0" center="auto" tween="back" easing="out" time="600" delay="200"/>
+			<animation type="WindowClose" reversible="false">
+				<effect type="fade" start="100" end="0" time="160"/>
+				<effect type="zoom" start="100" end="96" center="auto" tween="sine" easing="out" time="160"/>
 			</animation>
-			<animation type="Hidden" reversible="false" condition="true">
-				<effect type="zoom" start="100" end="95" center="auto" tween="sine" delay="0" easing="out" time="300"/>
-				<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300"/>
-			</animation>
-			<animation type="WindowClose" reversible="false" condition="true">
-				<effect type="zoom" start="100" end="95" center="auto" tween="sine" delay="0" easing="out" time="300"/>
-				<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300"/>
-			</animation>
-			<control type="group">
 				<control type="group">
-					<left>40</left>
-					<right>40</right>
-					<top>40</top>
-					<bottom>40</bottom>
-					<control type="group">
-						<control type="group">
-							<control type="image">
-								<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
-								<left>-80</left>
-								<right>-80</right>
-								<top>-80</top>
-								<bottom>-80</bottom>
-								<bordersize>80</bordersize>
-								<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
-							</control>
-							<control type="image">
-								<fadetime>400</fadetime>
-								<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3P_Image_Current_Background,,-diffuse-20.jpg]</texture>
-							</control>
-						</control>
-						<control type="image">
-							<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
-						</control>
+					<visible>Integer.IsEqual(Container(996).NumItems,1)</visible>
+					<height>220</height>
+					<control type="image">
+						<left>-40</left><right>-40</right><top>-28</top><bottom>-52</bottom>
+						<texture border="40" colordiffuse="A6000000">af3/shadows/shadow-40.png</texture>
 					</control>
 					<control type="image">
-						<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog.png</texture>
+						<texture border="40" colordiffuse="F6141519">dexhub/osd/legacy/island.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="14FFFFFF">dexhub/osd/legacy/island_ring.png</texture>
 					</control>
 				</control>
 				<control type="group">
-					<right>80</right>
-					<left>80</left>
+					<visible>Integer.IsEqual(Container(996).NumItems,2)</visible>
+					<height>288</height>
+					<control type="image">
+						<left>-40</left><right>-40</right><top>-28</top><bottom>-52</bottom>
+						<texture border="40" colordiffuse="A6000000">af3/shadows/shadow-40.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="F6141519">dexhub/osd/legacy/island.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="14FFFFFF">dexhub/osd/legacy/island_ring.png</texture>
+					</control>
 				</control>
-			</control>
-			<control type="group" id="8000">
+				<control type="group">
+					<visible>Integer.IsEqual(Container(996).NumItems,3)</visible>
+					<height>356</height>
+					<control type="image">
+						<left>-40</left><right>-40</right><top>-28</top><bottom>-52</bottom>
+						<texture border="40" colordiffuse="A6000000">af3/shadows/shadow-40.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="F6141519">dexhub/osd/legacy/island.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="14FFFFFF">dexhub/osd/legacy/island_ring.png</texture>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Integer.IsEqual(Container(996).NumItems,4)</visible>
+					<height>424</height>
+					<control type="image">
+						<left>-40</left><right>-40</right><top>-28</top><bottom>-52</bottom>
+						<texture border="40" colordiffuse="A6000000">af3/shadows/shadow-40.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="F6141519">dexhub/osd/legacy/island.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="14FFFFFF">dexhub/osd/legacy/island_ring.png</texture>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Integer.IsEqual(Container(996).NumItems,5)</visible>
+					<height>492</height>
+					<control type="image">
+						<left>-40</left><right>-40</right><top>-28</top><bottom>-52</bottom>
+						<texture border="40" colordiffuse="A6000000">af3/shadows/shadow-40.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="F6141519">dexhub/osd/legacy/island.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="14FFFFFF">dexhub/osd/legacy/island_ring.png</texture>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Integer.IsEqual(Container(996).NumItems,6)</visible>
+					<height>560</height>
+					<control type="image">
+						<left>-40</left><right>-40</right><top>-28</top><bottom>-52</bottom>
+						<texture border="40" colordiffuse="A6000000">af3/shadows/shadow-40.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="F6141519">dexhub/osd/legacy/island.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="14FFFFFF">dexhub/osd/legacy/island_ring.png</texture>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Integer.IsEqual(Container(996).NumItems,7)</visible>
+					<height>628</height>
+					<control type="image">
+						<left>-40</left><right>-40</right><top>-28</top><bottom>-52</bottom>
+						<texture border="40" colordiffuse="A6000000">af3/shadows/shadow-40.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="F6141519">dexhub/osd/legacy/island.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="14FFFFFF">dexhub/osd/legacy/island_ring.png</texture>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Integer.IsEqual(Container(996).NumItems,8)</visible>
+					<height>696</height>
+					<control type="image">
+						<left>-40</left><right>-40</right><top>-28</top><bottom>-52</bottom>
+						<texture border="40" colordiffuse="A6000000">af3/shadows/shadow-40.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="F6141519">dexhub/osd/legacy/island.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="14FFFFFF">dexhub/osd/legacy/island_ring.png</texture>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Integer.IsEqual(Container(996).NumItems,9)</visible>
+					<height>764</height>
+					<control type="image">
+						<left>-40</left><right>-40</right><top>-28</top><bottom>-52</bottom>
+						<texture border="40" colordiffuse="A6000000">af3/shadows/shadow-40.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="F6141519">dexhub/osd/legacy/island.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="14FFFFFF">dexhub/osd/legacy/island_ring.png</texture>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Integer.IsEqual(Container(996).NumItems,10)</visible>
+					<height>832</height>
+					<control type="image">
+						<left>-40</left><right>-40</right><top>-28</top><bottom>-52</bottom>
+						<texture border="40" colordiffuse="A6000000">af3/shadows/shadow-40.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="F6141519">dexhub/osd/legacy/island.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="14FFFFFF">dexhub/osd/legacy/island_ring.png</texture>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Integer.IsEqual(Container(996).NumItems,11)</visible>
+					<height>900</height>
+					<control type="image">
+						<left>-40</left><right>-40</right><top>-28</top><bottom>-52</bottom>
+						<texture border="40" colordiffuse="A6000000">af3/shadows/shadow-40.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="F6141519">dexhub/osd/legacy/island.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="14FFFFFF">dexhub/osd/legacy/island_ring.png</texture>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Integer.IsEqual(Container(996).NumItems,12)</visible>
+					<height>968</height>
+					<control type="image">
+						<left>-40</left><right>-40</right><top>-28</top><bottom>-52</bottom>
+						<texture border="40" colordiffuse="A6000000">af3/shadows/shadow-40.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="F6141519">dexhub/osd/legacy/island.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="14FFFFFF">dexhub/osd/legacy/island_ring.png</texture>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Integer.IsEqual(Container(996).NumItems,13)</visible>
+					<height>1036</height>
+					<control type="image">
+						<left>-40</left><right>-40</right><top>-28</top><bottom>-52</bottom>
+						<texture border="40" colordiffuse="A6000000">af3/shadows/shadow-40.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="F6141519">dexhub/osd/legacy/island.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="14FFFFFF">dexhub/osd/legacy/island_ring.png</texture>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Integer.IsEqual(Container(996).NumItems,14)</visible>
+					<height>1104</height>
+					<control type="image">
+						<left>-40</left><right>-40</right><top>-28</top><bottom>-52</bottom>
+						<texture border="40" colordiffuse="A6000000">af3/shadows/shadow-40.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="F6141519">dexhub/osd/legacy/island.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="14FFFFFF">dexhub/osd/legacy/island_ring.png</texture>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Integer.IsGreater(Container(996).NumItems,14)</visible>
+					<height>1104</height>
+					<control type="image">
+						<left>-40</left><right>-40</right><top>-28</top><bottom>-52</bottom>
+						<texture border="40" colordiffuse="A6000000">af3/shadows/shadow-40.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="F6141519">dexhub/osd/legacy/island.png</texture>
+					</control>
+					<control type="image">
+						<texture border="40" colordiffuse="14FFFFFF">dexhub/osd/legacy/island_ring.png</texture>
+					</control>
+				</control>
+
+			<control type="group">
 				<left>40</left>
 				<right>40</right>
-				<top>40</top>
-				<bottom>40</bottom>
-				<control type="group">
-                        
-                        </control>
-				<control type="group">
-					<control type="group">
-						<height>120</height>
-						<control type="group">
-							<right>120</right>
-							<height>40</height>
-							<top>40</top>
-							<left>40</left>
-							<control type="label" id="1">
-								<label>$VAR[AF3P_DialogContextMenu_HeaderLabel]</label>
-								<font>af3_font_midi_bold</font>
-								<textcolor>af3_dialog_fg_90</textcolor>
-								<height>40</height>
-								<centertop>50%</centertop>
-								<align>left</align>
-								<aligny>center</aligny>
-								<selectedcolor>af3_main_fg_70</selectedcolor>
-								<scrollsuffix> </scrollsuffix>
-								<scrollspeed>40</scrollspeed>
-								<disabledcolor>60FFFFFF</disabledcolor>
-							</control>
-						</control>
-						<control type="group">
-							<centerright>60</centerright>
-							<centertop>50%</centertop>
-							<height>80</height>
-							<width>80</width>
-							<control type="button" id="90001">
-								<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
-								<texturenofocus/>
-								<onclick>Close</onclick>
-								<onleft></onleft>
-								<onright></onright>
-								<onup></onup>
-								<ondown></ondown>
-								<oninfo></oninfo>
-								<onback></onback>
-								<align>center</align>
-								<aligny>center</aligny>
-								<font>af3_font_mini</font>
-								<textoffsetx>30</textoffsetx>
-								<textcolor>af3_main_fg_70</textcolor>
-								<selectedcolor>af3_main_fg_70</selectedcolor>
-								<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
-								<disabledcolor>af3_main_fg_30</disabledcolor>
-								<pulseonselect>false</pulseonselect>
-								<scrollsuffix> </scrollsuffix>
-								<scrollspeed>40</scrollspeed>
-							</control>
-							<control type="group" id="90101">
-								<animation effect="fade" start="100" end="30" condition="!Control.IsEnabled(90001)" reversible="false">Conditional</animation>
-								<left>80</left>
-								<width>0</width>
-								<control type="group">
-									<left>-80</left>
-									<control type="image">
-										<bordersize>12</bordersize>
-										<height>80</height>
-										<width>80</width>
-										<texture colordiffuse="af3_dialog_fg_70" flipx="false">af3/extras/icons/xmark.png</texture>
-										<visible>!Control.HasFocus(90001)</visible>
-									</control>
-									<control type="image">
-										<bordersize>12</bordersize>
-										<height>80</height>
-										<width>80</width>
-										<texture colordiffuse="$VAR[DhKodiOnFocus]" flipx="false">af3/extras/icons/xmark.png</texture>
-										<visible>Control.HasFocus(90001)</visible>
-									</control>
-								</control>
-							</control>
-						</control>
-					</control>
-					<control type="group">
-						<top>120</top>
-						<control type="group">
-							<control type="group">
-								<top>-120</top>
-								<height>40</height>
-								<control type="grouplist">
-									<height>20</height>
-									<left>40</left>
-									<right>40</right>
-									<centertop>120</centertop>
-									<orientation>horizontal</orientation>
-									<itemgap>20</itemgap>
-									<align>left</align>
-									<visible>Control.IsVisible(996)</visible>
-									<control type="label" id="">
-										<width>auto</width>
-										<aligny>center</aligny>
-										<align>left</align>
-										<font>af3_font_hint_bold</font>
-										<textcolor>af3_dialog_fg_30</textcolor>
-										<label>$INFO[Container(996).NumItems,, $LOCALIZE[31185]]$INFO[Container(996).CurrentPage,  •  $LOCALIZE[31184] ,]$INFO[Container(996).NumPages, $LOCALIZE[20163] ,]</label>
-										<haspath>false</haspath>
-										<selectedcolor>af3_main_fg_70</selectedcolor>
-										<scrollsuffix> </scrollsuffix>
-										<scrollspeed>40</scrollspeed>
-										<disabledcolor>60FFFFFF</disabledcolor>
-									</control>
-									<control type="image">
-										<height>1</height>
-										<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
-										<centertop>50%</centertop>
-										<width>2000</width>
-									</control>
-									<scrolltime tween="quadratic">400</scrolltime>
-									<usecontrolcoords>true</usecontrolcoords>
-								</control>
-							</control>
-							<control type="grouplist" id="996">
-								<pagecontrol>61</pagecontrol>
-								<onright>61</onright>
-								<left>20</left>
-								<right>20</right>
-								<top>20</top>
-								<bottom>20</bottom>
-								<scrolltime tween="quadratic">400</scrolltime>
-								<usecontrolcoords>true</usecontrolcoords>
-								<itemgap>0</itemgap>
-							</control>
-							<control type="scrollbar" id="61">
-								<onright>6000</onright>
-								<onleft>996</onleft>
-								<top>20</top>
-								<bottom>20</bottom>
-								<centerright>0</centerright>
-								<width>10</width>
-								<showonepage>false</showonepage>
-								<texturesliderbackground/>
-								<texturesliderbar colordiffuse="af3_dialog_fg_70" border="4">af3/scrollbar/scrollv_line.png</texturesliderbar>
-								<texturesliderbarfocus border="4" colordiffuse="$VAR[DhKodiFocus]">af3/common/scrollv.png</texturesliderbarfocus>
-								<textureslidernib/>
-								<textureslidernibfocus/>
-								<orientation>vertical</orientation>
-							</control>
-						</control>
-					</control>
+				<top>36</top>
+				<control type="image">
+					<left>0</left>
+					<top>8</top>
+					<width>6</width>
+					<height>34</height>
+					<texture border="3" colordiffuse="$VAR[DhKodiFocus]">dexhub/osd/legacy/bar.png</texture>
 				</control>
+				<control type="label" id="1">
+					<left>22</left>
+					<height>50</height>
+					<right>70</right>
+					<font>af3_font_midi_bold</font>
+					<textcolor>FFF3F2EF</textcolor>
+					<aligny>center</aligny>
+					<label>$VAR[AF3P_DialogContextMenu_HeaderLabel]</label>
+				</control>
+				<control type="label">
+					<left>22</left>
+					<top>50</top>
+					<height>24</height>
+					<font>af3_font_hint_bold</font>
+					<textcolor>66FFFFFF</textcolor>
+					<aligny>center</aligny>
+					<label>$INFO[Container(996).NumItems,, $LOCALIZE[31185]]$INFO[Container(996).CurrentPage,  •  $LOCALIZE[31184] ,]$INFO[Container(996).NumPages, $LOCALIZE[20163] ,]</label>
+				</control>
+				<control type="button" id="90001">
+					<right>-6</right>
+					<top>-2</top>
+					<width>56</width>
+					<height>56</height>
+					<texturefocus colordiffuse="$VAR[DhKodiFocus]">af3/common/circle.png</texturefocus>
+					<texturenofocus colordiffuse="14FFFFFF">af3/common/circle.png</texturenofocus>
+					<onclick>Close</onclick>
+					<onleft>996</onleft>
+					<onright>noop</onright>
+					<ondown>996</ondown>
+					<label></label>
+				</control>
+				<control type="image">
+					<right>8</right>
+					<top>12</top>
+					<width>28</width>
+					<height>28</height>
+					<texture colordiffuse="B3FFFFFF">dexhub/osd/legacy/x.png</texture>
+					<visible>!Control.HasFocus(90001)</visible>
+				</control>
+				<control type="image">
+					<right>8</right>
+					<top>12</top>
+					<width>28</width>
+					<height>28</height>
+					<texture colordiffuse="$VAR[DhKodiOnFocus]">dexhub/osd/legacy/x.png</texture>
+					<visible>Control.HasFocus(90001)</visible>
+				</control>
+			</control>
+			<control type="grouplist" id="996">
+				<pagecontrol>61</pagecontrol>
+				<onup>90001</onup>
+				<onright>61</onright>
+				<left>30</left>
+				<right>30</right>
+				<top>118</top>
+				<height>952</height>
+				<scrolltime tween="cubic" easing="out">220</scrolltime>
+				<usecontrolcoords>true</usecontrolcoords>
+				<itemgap>4</itemgap>
+			</control>
+			<control type="scrollbar" id="61">
+				<onright>6000</onright>
+				<onleft>996</onleft>
+				<top>124</top>
+				<height>940</height>
+				<right>12</right>
+				<width>6</width>
+				<showonepage>false</showonepage>
+				<texturesliderbackground/>
+				<texturesliderbar colordiffuse="33FFFFFF" border="3">dexhub/osd/legacy/bar.png</texturesliderbar>
+				<texturesliderbarfocus border="3" colordiffuse="$VAR[DhKodiFocus]">dexhub/osd/legacy/bar.png</texturesliderbarfocus>
+				<textureslidernib/>
+				<textureslidernibfocus/>
+				<orientation>vertical</orientation>
 			</control>
 		</control>
 		<control type="button" id="1000">
-			<width>520</width>
+			<width>540</width>
 			<align>left</align>
 			<font>af3_font_main</font>
-			<height>80</height>
-			<textoffsetx>40</textoffsetx>
-			<texturenofocus/>
+			<height>64</height>
+			<textoffsetx>28</textoffsetx>
+			<texturenofocus border="22" colordiffuse="0AFFFFFF">af3/common/box.png</texturenofocus>
 			<alttexturenofocus/>
-			<textcolor>af3_dialog_fg_70</textcolor>
-			<selectedcolor>af3_dialog_fg_70</selectedcolor>
-			<disabledcolor>af3_dialog_fg_30</disabledcolor>
+			<textcolor>FFDBDBD8</textcolor>
+			<selectedcolor>FFDBDBD8</selectedcolor>
+			<disabledcolor>4DFFFFFF</disabledcolor>
 			<description>None</description>
 			<aligny>center</aligny>
 			<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
-			<texturefocus border="40" colordiffuse="$VAR[DhKodiFocus]">af3/common/menu.png</texturefocus>
+			<texturefocus border="22" colordiffuse="$VAR[DhKodiFocus]">af3/common/box.png</texturefocus>
 			<pulseonselect>false</pulseonselect>
-			<scrollsuffix> </scrollsuffix>
+			<scrollsuffix> </scrollsuffix>
 			<scrollspeed>40</scrollspeed>
 		</control>
 	</controls>

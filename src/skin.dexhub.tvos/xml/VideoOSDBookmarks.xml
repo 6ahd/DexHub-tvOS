@@ -239,7 +239,7 @@
 									<aligny>center</aligny>
 									<font>af3_font_tiny_bold</font>
 									<textcolor>$VAR[DhOsdOnFill]</textcolor>
-									<label>$LOCALIZE[32158]</label>
+									<label>$LOCALIZE[31923]</label>
 								</control>
 							</control>
 							</control>
@@ -335,7 +335,7 @@
 									<aligny>center</aligny>
 									<font>af3_font_tiny_bold</font>
 									<textcolor>$VAR[DhOsdOnFill]</textcolor>
-									<label>$LOCALIZE[32158]</label>
+									<label>$LOCALIZE[31923]</label>
 								</control>
 							</control>
 							<control type="group">
@@ -396,7 +396,7 @@
 							<font>af3_font_main_bold</font>
 							<textcolor>FFFFFFFF</textcolor>
 							<shadowcolor>80000000</shadowcolor>
-							<label>$LOCALIZE[32156]</label>
+							<label>$LOCALIZE[31921]</label>
 						</control>
 						<control type="label">
 							<top>116</top>
@@ -407,7 +407,7 @@
 							<font>af3_font_mini</font>
 							<textcolor>CCFFFFFF</textcolor>
 							<shadowcolor>80000000</shadowcolor>
-							<label>$LOCALIZE[32157]</label>
+							<label>$LOCALIZE[31922]</label>
 						</control>
 					</control>
 				</control>

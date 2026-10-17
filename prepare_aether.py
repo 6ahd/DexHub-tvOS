@@ -5,10 +5,10 @@ import subprocess
 import sys
 from pathlib import Path
 
-TAG = '7.35.1'
-COMMIT = '60ac862285ec641d67a984964634b54b57151704'
+TAG = '7.38.1'
+COMMIT = 'ce1670f8c6c4b8b11a8020e9c40a10c0d6da9823'
 DEPENDENCIES = {'FFmpegBuild': '3.7.1', 'SMBClient': '0.3.1',
-                'LibDovi': '2.1.0', 'LibTrueHD': '2.2.0'}
+                'LibDovi': '2.1.0', 'LibTrueHD': '2.3.1', 'LibDTSX': '2.0.0'}
 
 
 def prepare(work):

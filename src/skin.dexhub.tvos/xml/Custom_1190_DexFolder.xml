@@ -394,7 +394,6 @@
 				<shadowcolor>55000000</shadowcolor>
 				<label>$VAR[DhsFoldPlot]</label>
 				<animation effect="slide" end="0,50" time="0" condition="$EXP[dhs_hr_badges_fold]">Conditional</animation>
-				<autoscroll delay="4000" time="3000" repeat="10000">!String.IsEmpty(Window(Home).Property(dhs.opt.plot_scroll)) + !Skin.HasSetting(Textboxes.DisableAutoscroll) + String.IsEmpty(Window(Home).Property(dhs.immersive))</autoscroll>
 			</control>
 			<control type="group">
 				<left>0</left>
@@ -905,7 +904,7 @@
 								<top>14</top>
 								<width>320</width>
 								<height>180</height>
-								<animation effect="zoom" start="100" end="108" time="220" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7001)">Conditional</animation>
+								<animation effect="zoom" start="100" end="108" time="280" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7001)">Conditional</animation>
 								<control type="image">
 									<left>-26</left>
 									<top>-26</top>
@@ -951,7 +950,7 @@
 									<width>320</width>
 									<height>180</height>
 									<aspectratio>scale</aspectratio>
-									<texture diffuse="dexhub/mask_landscape.png">$INFO[ListItem.Art(gif)]</texture>
+									<texture diffuse="dexhub/mask_landscape.png" background="true">$INFO[ListItem.Art(gif)]</texture>
 									<fadetime>200</fadetime>
 									<visible>Control.HasFocus(7001) + String.IsEqual(ListItem.Property(kind),folder) + !String.IsEmpty(ListItem.Art(gif)) + !String.IsEmpty(Window(Home).Property(dhs.opt.gif))</visible>
 								</control>
@@ -1269,7 +1268,7 @@
 								<top>14</top>
 								<width>176</width>
 								<height>264</height>
-								<animation effect="zoom" start="100" end="108" time="220" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7001)">Conditional</animation>
+								<animation effect="zoom" start="100" end="108" time="280" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7001)">Conditional</animation>
 								<control type="image">
 									<left>-26</left>
 									<top>-26</top>
@@ -1327,7 +1326,7 @@
 									<width>176</width>
 									<height>264</height>
 									<aspectratio>scale</aspectratio>
-									<texture diffuse="dexhub/mask_poster.png">$INFO[ListItem.Art(gif)]</texture>
+									<texture diffuse="dexhub/mask_poster.png" background="true">$INFO[ListItem.Art(gif)]</texture>
 									<fadetime>200</fadetime>
 									<visible>Control.HasFocus(7001) + String.IsEqual(ListItem.Property(kind),folder) + !String.IsEmpty(ListItem.Art(gif)) + !String.IsEmpty(Window(Home).Property(dhs.opt.gif))</visible>
 								</control>
@@ -1848,7 +1847,7 @@
 								<top>14</top>
 								<width>320</width>
 								<height>180</height>
-								<animation effect="zoom" start="100" end="108" time="220" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7002)">Conditional</animation>
+								<animation effect="zoom" start="100" end="108" time="280" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7002)">Conditional</animation>
 								<control type="image">
 									<left>-26</left>
 									<top>-26</top>
@@ -1894,7 +1893,7 @@
 									<width>320</width>
 									<height>180</height>
 									<aspectratio>scale</aspectratio>
-									<texture diffuse="dexhub/mask_landscape.png">$INFO[ListItem.Art(gif)]</texture>
+									<texture diffuse="dexhub/mask_landscape.png" background="true">$INFO[ListItem.Art(gif)]</texture>
 									<fadetime>200</fadetime>
 									<visible>Control.HasFocus(7002) + String.IsEqual(ListItem.Property(kind),folder) + !String.IsEmpty(ListItem.Art(gif)) + !String.IsEmpty(Window(Home).Property(dhs.opt.gif))</visible>
 								</control>
@@ -2212,7 +2211,7 @@
 								<top>14</top>
 								<width>176</width>
 								<height>264</height>
-								<animation effect="zoom" start="100" end="108" time="220" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7002)">Conditional</animation>
+								<animation effect="zoom" start="100" end="108" time="280" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7002)">Conditional</animation>
 								<control type="image">
 									<left>-26</left>
 									<top>-26</top>
@@ -2270,7 +2269,7 @@
 									<width>176</width>
 									<height>264</height>
 									<aspectratio>scale</aspectratio>
-									<texture diffuse="dexhub/mask_poster.png">$INFO[ListItem.Art(gif)]</texture>
+									<texture diffuse="dexhub/mask_poster.png" background="true">$INFO[ListItem.Art(gif)]</texture>
 									<fadetime>200</fadetime>
 									<visible>Control.HasFocus(7002) + String.IsEqual(ListItem.Property(kind),folder) + !String.IsEmpty(ListItem.Art(gif)) + !String.IsEmpty(Window(Home).Property(dhs.opt.gif))</visible>
 								</control>
@@ -2793,7 +2792,7 @@
 								<top>14</top>
 								<width>320</width>
 								<height>180</height>
-								<animation effect="zoom" start="100" end="108" time="220" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7003)">Conditional</animation>
+								<animation effect="zoom" start="100" end="108" time="280" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7003)">Conditional</animation>
 								<control type="image">
 									<left>-26</left>
 									<top>-26</top>
@@ -2839,7 +2838,7 @@
 									<width>320</width>
 									<height>180</height>
 									<aspectratio>scale</aspectratio>
-									<texture diffuse="dexhub/mask_landscape.png">$INFO[ListItem.Art(gif)]</texture>
+									<texture diffuse="dexhub/mask_landscape.png" background="true">$INFO[ListItem.Art(gif)]</texture>
 									<fadetime>200</fadetime>
 									<visible>Control.HasFocus(7003) + String.IsEqual(ListItem.Property(kind),folder) + !String.IsEmpty(ListItem.Art(gif)) + !String.IsEmpty(Window(Home).Property(dhs.opt.gif))</visible>
 								</control>
@@ -3157,7 +3156,7 @@
 								<top>14</top>
 								<width>176</width>
 								<height>264</height>
-								<animation effect="zoom" start="100" end="108" time="220" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7003)">Conditional</animation>
+								<animation effect="zoom" start="100" end="108" time="280" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7003)">Conditional</animation>
 								<control type="image">
 									<left>-26</left>
 									<top>-26</top>
@@ -3215,7 +3214,7 @@
 									<width>176</width>
 									<height>264</height>
 									<aspectratio>scale</aspectratio>
-									<texture diffuse="dexhub/mask_poster.png">$INFO[ListItem.Art(gif)]</texture>
+									<texture diffuse="dexhub/mask_poster.png" background="true">$INFO[ListItem.Art(gif)]</texture>
 									<fadetime>200</fadetime>
 									<visible>Control.HasFocus(7003) + String.IsEqual(ListItem.Property(kind),folder) + !String.IsEmpty(ListItem.Art(gif)) + !String.IsEmpty(Window(Home).Property(dhs.opt.gif))</visible>
 								</control>
@@ -3740,7 +3739,7 @@
 								<top>14</top>
 								<width>320</width>
 								<height>180</height>
-								<animation effect="zoom" start="100" end="108" time="220" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7004)">Conditional</animation>
+								<animation effect="zoom" start="100" end="108" time="280" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7004)">Conditional</animation>
 								<control type="image">
 									<left>-26</left>
 									<top>-26</top>
@@ -3786,7 +3785,7 @@
 									<width>320</width>
 									<height>180</height>
 									<aspectratio>scale</aspectratio>
-									<texture diffuse="dexhub/mask_landscape.png">$INFO[ListItem.Art(gif)]</texture>
+									<texture diffuse="dexhub/mask_landscape.png" background="true">$INFO[ListItem.Art(gif)]</texture>
 									<fadetime>200</fadetime>
 									<visible>Control.HasFocus(7004) + String.IsEqual(ListItem.Property(kind),folder) + !String.IsEmpty(ListItem.Art(gif)) + !String.IsEmpty(Window(Home).Property(dhs.opt.gif))</visible>
 								</control>
@@ -4104,7 +4103,7 @@
 								<top>14</top>
 								<width>176</width>
 								<height>264</height>
-								<animation effect="zoom" start="100" end="108" time="220" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7004)">Conditional</animation>
+								<animation effect="zoom" start="100" end="108" time="280" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7004)">Conditional</animation>
 								<control type="image">
 									<left>-26</left>
 									<top>-26</top>
@@ -4162,7 +4161,7 @@
 									<width>176</width>
 									<height>264</height>
 									<aspectratio>scale</aspectratio>
-									<texture diffuse="dexhub/mask_poster.png">$INFO[ListItem.Art(gif)]</texture>
+									<texture diffuse="dexhub/mask_poster.png" background="true">$INFO[ListItem.Art(gif)]</texture>
 									<fadetime>200</fadetime>
 									<visible>Control.HasFocus(7004) + String.IsEqual(ListItem.Property(kind),folder) + !String.IsEmpty(ListItem.Art(gif)) + !String.IsEmpty(Window(Home).Property(dhs.opt.gif))</visible>
 								</control>
@@ -4689,7 +4688,7 @@
 								<top>14</top>
 								<width>320</width>
 								<height>180</height>
-								<animation effect="zoom" start="100" end="108" time="220" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7005)">Conditional</animation>
+								<animation effect="zoom" start="100" end="108" time="280" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7005)">Conditional</animation>
 								<control type="image">
 									<left>-26</left>
 									<top>-26</top>
@@ -4735,7 +4734,7 @@
 									<width>320</width>
 									<height>180</height>
 									<aspectratio>scale</aspectratio>
-									<texture diffuse="dexhub/mask_landscape.png">$INFO[ListItem.Art(gif)]</texture>
+									<texture diffuse="dexhub/mask_landscape.png" background="true">$INFO[ListItem.Art(gif)]</texture>
 									<fadetime>200</fadetime>
 									<visible>Control.HasFocus(7005) + String.IsEqual(ListItem.Property(kind),folder) + !String.IsEmpty(ListItem.Art(gif)) + !String.IsEmpty(Window(Home).Property(dhs.opt.gif))</visible>
 								</control>
@@ -5053,7 +5052,7 @@
 								<top>14</top>
 								<width>176</width>
 								<height>264</height>
-								<animation effect="zoom" start="100" end="108" time="220" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7005)">Conditional</animation>
+								<animation effect="zoom" start="100" end="108" time="280" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7005)">Conditional</animation>
 								<control type="image">
 									<left>-26</left>
 									<top>-26</top>
@@ -5111,7 +5110,7 @@
 									<width>176</width>
 									<height>264</height>
 									<aspectratio>scale</aspectratio>
-									<texture diffuse="dexhub/mask_poster.png">$INFO[ListItem.Art(gif)]</texture>
+									<texture diffuse="dexhub/mask_poster.png" background="true">$INFO[ListItem.Art(gif)]</texture>
 									<fadetime>200</fadetime>
 									<visible>Control.HasFocus(7005) + String.IsEqual(ListItem.Property(kind),folder) + !String.IsEmpty(ListItem.Art(gif)) + !String.IsEmpty(Window(Home).Property(dhs.opt.gif))</visible>
 								</control>
@@ -5640,7 +5639,7 @@
 								<top>14</top>
 								<width>320</width>
 								<height>180</height>
-								<animation effect="zoom" start="100" end="108" time="220" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7006)">Conditional</animation>
+								<animation effect="zoom" start="100" end="108" time="280" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7006)">Conditional</animation>
 								<control type="image">
 									<left>-26</left>
 									<top>-26</top>
@@ -5686,7 +5685,7 @@
 									<width>320</width>
 									<height>180</height>
 									<aspectratio>scale</aspectratio>
-									<texture diffuse="dexhub/mask_landscape.png">$INFO[ListItem.Art(gif)]</texture>
+									<texture diffuse="dexhub/mask_landscape.png" background="true">$INFO[ListItem.Art(gif)]</texture>
 									<fadetime>200</fadetime>
 									<visible>Control.HasFocus(7006) + String.IsEqual(ListItem.Property(kind),folder) + !String.IsEmpty(ListItem.Art(gif)) + !String.IsEmpty(Window(Home).Property(dhs.opt.gif))</visible>
 								</control>
@@ -6004,7 +6003,7 @@
 								<top>14</top>
 								<width>176</width>
 								<height>264</height>
-								<animation effect="zoom" start="100" end="108" time="220" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7006)">Conditional</animation>
+								<animation effect="zoom" start="100" end="108" time="280" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7006)">Conditional</animation>
 								<control type="image">
 									<left>-26</left>
 									<top>-26</top>
@@ -6062,7 +6061,7 @@
 									<width>176</width>
 									<height>264</height>
 									<aspectratio>scale</aspectratio>
-									<texture diffuse="dexhub/mask_poster.png">$INFO[ListItem.Art(gif)]</texture>
+									<texture diffuse="dexhub/mask_poster.png" background="true">$INFO[ListItem.Art(gif)]</texture>
 									<fadetime>200</fadetime>
 									<visible>Control.HasFocus(7006) + String.IsEqual(ListItem.Property(kind),folder) + !String.IsEmpty(ListItem.Art(gif)) + !String.IsEmpty(Window(Home).Property(dhs.opt.gif))</visible>
 								</control>
@@ -6593,7 +6592,7 @@
 								<top>14</top>
 								<width>320</width>
 								<height>180</height>
-								<animation effect="zoom" start="100" end="108" time="220" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7007)">Conditional</animation>
+								<animation effect="zoom" start="100" end="108" time="280" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7007)">Conditional</animation>
 								<control type="image">
 									<left>-26</left>
 									<top>-26</top>
@@ -6639,7 +6638,7 @@
 									<width>320</width>
 									<height>180</height>
 									<aspectratio>scale</aspectratio>
-									<texture diffuse="dexhub/mask_landscape.png">$INFO[ListItem.Art(gif)]</texture>
+									<texture diffuse="dexhub/mask_landscape.png" background="true">$INFO[ListItem.Art(gif)]</texture>
 									<fadetime>200</fadetime>
 									<visible>Control.HasFocus(7007) + String.IsEqual(ListItem.Property(kind),folder) + !String.IsEmpty(ListItem.Art(gif)) + !String.IsEmpty(Window(Home).Property(dhs.opt.gif))</visible>
 								</control>
@@ -6957,7 +6956,7 @@
 								<top>14</top>
 								<width>176</width>
 								<height>264</height>
-								<animation effect="zoom" start="100" end="108" time="220" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7007)">Conditional</animation>
+								<animation effect="zoom" start="100" end="108" time="280" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7007)">Conditional</animation>
 								<control type="image">
 									<left>-26</left>
 									<top>-26</top>
@@ -7015,7 +7014,7 @@
 									<width>176</width>
 									<height>264</height>
 									<aspectratio>scale</aspectratio>
-									<texture diffuse="dexhub/mask_poster.png">$INFO[ListItem.Art(gif)]</texture>
+									<texture diffuse="dexhub/mask_poster.png" background="true">$INFO[ListItem.Art(gif)]</texture>
 									<fadetime>200</fadetime>
 									<visible>Control.HasFocus(7007) + String.IsEqual(ListItem.Property(kind),folder) + !String.IsEmpty(ListItem.Art(gif)) + !String.IsEmpty(Window(Home).Property(dhs.opt.gif))</visible>
 								</control>
@@ -7548,7 +7547,7 @@
 								<top>14</top>
 								<width>320</width>
 								<height>180</height>
-								<animation effect="zoom" start="100" end="108" time="220" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7008)">Conditional</animation>
+								<animation effect="zoom" start="100" end="108" time="280" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7008)">Conditional</animation>
 								<control type="image">
 									<left>-26</left>
 									<top>-26</top>
@@ -7594,7 +7593,7 @@
 									<width>320</width>
 									<height>180</height>
 									<aspectratio>scale</aspectratio>
-									<texture diffuse="dexhub/mask_landscape.png">$INFO[ListItem.Art(gif)]</texture>
+									<texture diffuse="dexhub/mask_landscape.png" background="true">$INFO[ListItem.Art(gif)]</texture>
 									<fadetime>200</fadetime>
 									<visible>Control.HasFocus(7008) + String.IsEqual(ListItem.Property(kind),folder) + !String.IsEmpty(ListItem.Art(gif)) + !String.IsEmpty(Window(Home).Property(dhs.opt.gif))</visible>
 								</control>
@@ -7912,7 +7911,7 @@
 								<top>14</top>
 								<width>176</width>
 								<height>264</height>
-								<animation effect="zoom" start="100" end="108" time="220" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7008)">Conditional</animation>
+								<animation effect="zoom" start="100" end="108" time="280" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(7008)">Conditional</animation>
 								<control type="image">
 									<left>-26</left>
 									<top>-26</top>
@@ -7970,7 +7969,7 @@
 									<width>176</width>
 									<height>264</height>
 									<aspectratio>scale</aspectratio>
-									<texture diffuse="dexhub/mask_poster.png">$INFO[ListItem.Art(gif)]</texture>
+									<texture diffuse="dexhub/mask_poster.png" background="true">$INFO[ListItem.Art(gif)]</texture>
 									<fadetime>200</fadetime>
 									<visible>Control.HasFocus(7008) + String.IsEqual(ListItem.Property(kind),folder) + !String.IsEmpty(ListItem.Art(gif)) + !String.IsEmpty(Window(Home).Property(dhs.opt.gif))</visible>
 								</control>
@@ -8249,7 +8248,7 @@
 						<width>24</width>
 						<height>24</height>
 						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="FF101010">$INFO[ListItem.Icon]</texture>
+						<texture colordiffuse="FF101010" background="true">$INFO[ListItem.Icon]</texture>
 						<visible>false + ![String.IsEqual(ListItem.Property(key),pause) + Player.Paused]</visible>
 					</control>
 					<control type="image">
@@ -8291,7 +8290,7 @@
 						<width>24</width>
 						<height>24</height>
 						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="FFFFFFFF">$INFO[ListItem.Icon]</texture>
+						<texture colordiffuse="FFFFFFFF" background="true">$INFO[ListItem.Icon]</texture>
 						<visible>true + ![String.IsEqual(ListItem.Property(key),pause) + Player.Paused]</visible>
 					</control>
 					<control type="image">
@@ -8351,7 +8350,7 @@
 						<width>24</width>
 						<height>24</height>
 						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="$VAR[DhKodiOnFocus]">$INFO[ListItem.Icon]</texture>
+						<texture colordiffuse="$VAR[DhKodiOnFocus]" background="true">$INFO[ListItem.Icon]</texture>
 						<visible>Control.HasFocus(9500) + ![String.IsEqual(ListItem.Property(key),pause) + Player.Paused]</visible>
 					</control>
 					<control type="image">
@@ -8393,7 +8392,7 @@
 						<width>24</width>
 						<height>24</height>
 						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="FFFFFFFF">$INFO[ListItem.Icon]</texture>
+						<texture colordiffuse="FFFFFFFF" background="true">$INFO[ListItem.Icon]</texture>
 						<visible>!Control.HasFocus(9500) + ![String.IsEqual(ListItem.Property(key),pause) + Player.Paused]</visible>
 					</control>
 					<control type="image">

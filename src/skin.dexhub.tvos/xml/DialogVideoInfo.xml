@@ -7,6 +7,8 @@
 	<onload>ClearProperty(dhs.tp.none.episodes,home)</onload>
 	<onload>ClearProperty(dhs.tp.none.cast,home)</onload>
 	<onload>ClearProperty(dhs.tp.none.related,home)</onload>
+	<onload>ClearProperty(dhs.tp.none.collection,home)</onload>
+	<onload>ClearProperty(dhs.tp.none.studios,home)</onload>
 	<onload condition="String.IsEmpty(ListItem.Property(dhs.id))">SetProperty(infobackground,$ESCINFO[ListItem.Art(fanart)],home)</onload>
 	<onload condition="String.IsEmpty(ListItem.Property(dhs.id))">SetFocus(8)</onload>
 	<onunload>ClearProperty(infobackground,home)</onunload>
@@ -57,6 +59,7 @@
 					<texture background="true">$INFO[Window(Home).Property(dhs.tp.fanart)]</texture>
 					<visible>String.IsEmpty(ListItem.Art(fanart)) + String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id))</visible>
 				</control>
+				<!-- 3.28.65: the backdrop chosen with Change artwork --><control type="image"><left>0</left><top>0</top><width>1920</width><height>1080</height><aspectratio align="right" aligny="top">scale</aspectratio><fadetime>250</fadetime><texture background="true">$INFO[Window(Home).Property(dhs.tp.art.fanart)]</texture><visible>$EXP[dhs_tp_artfan]</visible></control>
 			</control>
 			<control type="image">
 				<left>0</left>
@@ -77,6 +80,15 @@
 				<animation effect="slide" end="0,-840" time="240" tween="cubic" easing="out" condition="Control.HasFocus(8500) + $EXP[dhs_series] + Integer.IsGreater(Container(8400).NumItems,0)">Conditional</animation>
 				<animation effect="slide" end="0,-540" time="240" tween="cubic" easing="out" condition="Control.HasFocus(8500) + $EXP[dhs_series] + !Integer.IsGreater(Container(8400).NumItems,0)">Conditional</animation>
 				<animation effect="slide" end="0,-300" time="240" tween="cubic" easing="out" condition="Control.HasFocus(8500) + !$EXP[dhs_series] + Integer.IsGreater(Container(8400).NumItems,0)">Conditional</animation>
+				<animation effect="slide" end="0,-1256" time="240" tween="cubic" easing="out" condition="Control.HasFocus(8600)">Conditional</animation>
+				<animation effect="slide" end="0,540" time="240" tween="cubic" easing="out" condition="Control.HasFocus(8600) + !$EXP[dhs_series]">Conditional</animation>
+				<animation effect="slide" end="0,300" time="240" tween="cubic" easing="out" condition="Control.HasFocus(8600) + !Integer.IsGreater(Container(8400).NumItems,0)">Conditional</animation>
+				<animation effect="slide" end="0,416" time="240" tween="cubic" easing="out" condition="Control.HasFocus(8600) + !Integer.IsGreater(Container(8500).NumItems,0)">Conditional</animation>
+				<animation effect="slide" end="0,-1644" time="240" tween="cubic" easing="out" condition="Control.HasFocus(8700)">Conditional</animation>
+				<animation effect="slide" end="0,540" time="240" tween="cubic" easing="out" condition="Control.HasFocus(8700) + !$EXP[dhs_series]">Conditional</animation>
+				<animation effect="slide" end="0,300" time="240" tween="cubic" easing="out" condition="Control.HasFocus(8700) + !Integer.IsGreater(Container(8400).NumItems,0)">Conditional</animation>
+				<animation effect="slide" end="0,416" time="240" tween="cubic" easing="out" condition="Control.HasFocus(8700) + !Integer.IsGreater(Container(8500).NumItems,0)">Conditional</animation>
+				<animation effect="slide" end="0,388" time="240" tween="cubic" easing="out" condition="Control.HasFocus(8700) + !Integer.IsGreater(Container(8600).NumItems,0)">Conditional</animation>
 				<control type="group">
 					<left>96</left>
 					<top>0</top>
@@ -88,8 +100,8 @@
 						<aspectratio align="left" aligny="bottom">keep</aspectratio>
 						<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
 						<fadetime>250</fadetime>
-						<visible>!String.IsEmpty(ListItem.Art(clearlogo))</visible>
-					</control>
+						<visible>!String.IsEmpty(ListItem.Art(clearlogo)) + !$EXP[dhs_tp_artlogo]</visible>
+					</control><control type="image"><left>0</left><top>70</top><width>640</width><height>180</height><aspectratio align="left" aligny="bottom">keep</aspectratio><texture background="true">$INFO[Window(Home).Property(dhs.tp.art.clearlogo)]</texture><fadetime>250</fadetime><visible>$EXP[dhs_tp_artlogo]</visible></control>
 					<control type="image">
 						<left>0</left>
 						<top>70</top>
@@ -98,7 +110,7 @@
 						<aspectratio align="left" aligny="bottom">keep</aspectratio>
 						<texture background="true">$INFO[Window(Home).Property(dhs.tp.clearlogo)]</texture>
 						<fadetime>250</fadetime>
-						<visible>String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + !String.IsEmpty(Window(Home).Property(dhs.tp.clearlogo))</visible>
+						<visible>String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + !String.IsEmpty(Window(Home).Property(dhs.tp.clearlogo)) + !$EXP[dhs_tp_artlogo]</visible>
 					</control>
 					<control type="label">
 						<left>0</left>
@@ -111,7 +123,7 @@
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>[B]$INFO[ListItem.Label][/B]</label>
-						<visible>String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Property(dhs.long)) + ![String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + !String.IsEmpty(Window(Home).Property(dhs.tp.clearlogo))]</visible>
+						<visible>String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Property(dhs.long)) + ![String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + !String.IsEmpty(Window(Home).Property(dhs.tp.clearlogo))] + !$EXP[dhs_tp_artlogo]</visible>
 					</control>
 					<control type="label">
 						<left>0</left>
@@ -125,7 +137,7 @@
 						<aligny>center</aligny>
 						<label>[B]$INFO[ListItem.Label][/B]</label>
 						<wrapmultiline>true</wrapmultiline>
-						<visible>String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEmpty(ListItem.Property(dhs.long)) + ![String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + !String.IsEmpty(Window(Home).Property(dhs.tp.clearlogo))]</visible>
+						<visible>String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEmpty(ListItem.Property(dhs.long)) + ![String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + !String.IsEmpty(Window(Home).Property(dhs.tp.clearlogo))] + !$EXP[dhs_tp_artlogo]</visible>
 					</control>
 					<control type="grouplist">
 						<left>0</left>
@@ -675,298 +687,18 @@
 							<visible>[!String.IsEmpty(Window(Home).Property(dhs.tp.id)) + String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id))] + !String.IsEmpty(Window(Home).Property(dhs.tp.ratings.mal)) + ![[!String.IsEmpty(Window(Home).Property(dhs.hr.id)) + String.IsEqual(Window(Home).Property(dhs.hr.id),ListItem.Property(dhs.id))] + !String.IsEmpty(Window(Home).Property(dhs.hr.any))]</visible>
 						</control>
 					</control>
-					<control type="textbox">
-						<left>0</left>
-						<top>332</top>
-						<width>900</width>
-						<height>112</height>
-						<font>font12</font>
-						<textcolor>D9FFFFFF</textcolor>
-						<shadowcolor>55000000</shadowcolor>
-						<label>$VAR[DhsTpPlot]</label>
-						<autoscroll delay="4000" time="3000" repeat="10000">!String.IsEmpty(Window(Home).Property(dhs.opt.plot_scroll)) + !Skin.HasSetting(Textboxes.DisableAutoscroll) + String.IsEmpty(Window(Home).Property(dhs.immersive))</autoscroll>
-					</control>
-					<control type="label">
-						<left>0</left>
-						<top>452</top>
-						<width>1400</width>
-						<height>34</height>
-						<font>font12</font>
-						<textcolor>$VAR[DhAccent]</textcolor>
-						<align>left</align>
-						<aligny>center</aligny>
-						<label>$VAR[DhsTpStatus]</label>
-					</control>
+					<!-- 3.28.66: the plot, the Parents Guide and the time left, each on its own lines -->
+					<control type="textbox"><left>0</left><top>332</top><width>900</width><height>124</height><font>font12</font><textcolor>D9FFFFFF</textcolor><shadowcolor>55000000</shadowcolor><label>$VAR[DhsTpPlot]</label><visible>!$EXP[dhs_tp_pg] + !$EXP[dhs_tp_left]</visible></control>
+					<control type="textbox"><left>0</left><top>332</top><width>900</width><height>93</height><font>font12</font><textcolor>D9FFFFFF</textcolor><shadowcolor>55000000</shadowcolor><label>$VAR[DhsTpPlot]</label><visible>[$EXP[dhs_tp_pg] + !$EXP[dhs_tp_left]] | [!$EXP[dhs_tp_pg] + $EXP[dhs_tp_left]]</visible></control>
+					<control type="textbox"><left>0</left><top>332</top><width>900</width><height>62</height><font>font12</font><textcolor>D9FFFFFF</textcolor><shadowcolor>55000000</shadowcolor><label>$VAR[DhsTpPlot]</label><visible>$EXP[dhs_tp_pg] + $EXP[dhs_tp_left]</visible></control>
+					<control type="group"><left>0</left><top>432</top><height>34</height><visible>$EXP[dhs_tp_pg]</visible><animation effect="slide" end="0,-32" time="0" condition="$EXP[dhs_tp_left]">Conditional</animation><control type="image"><left>0</left><top>4</top><width>52</width><height>26</height><aspectratio>keep</aspectratio><texture>dexhub/ratings/imdb.png</texture></control><control type="grouplist"><left>64</left><top>0</top><width>1600</width><height>34</height><orientation>horizontal</orientation><itemgap>10</itemgap><usecontrolcoords>true</usecontrolcoords><control type="button"><width>auto</width><height>34</height><texturenofocus border="17" colordiffuse="1FFFFFFF">dexhub/pill.png</texturenofocus><texturefocus border="17" colordiffuse="1FFFFFFF">dexhub/pill.png</texturefocus><font>font10</font><textcolor>FFFFFFFF</textcolor><disabledcolor>FFFFFFFF</disabledcolor><textoffsetx>16</textoffsetx><aligny>center</aligny><label>$INFO[Window(Home).Property(dhs.tp.pg1)]</label><enable>false</enable><visible>!String.IsEmpty(Window(Home).Property(dhs.tp.pg1))</visible></control><control type="button"><width>auto</width><height>34</height><texturenofocus border="17" colordiffuse="1FFFFFFF">dexhub/pill.png</texturenofocus><texturefocus border="17" colordiffuse="1FFFFFFF">dexhub/pill.png</texturefocus><font>font10</font><textcolor>FFFFFFFF</textcolor><disabledcolor>FFFFFFFF</disabledcolor><textoffsetx>16</textoffsetx><aligny>center</aligny><label>$INFO[Window(Home).Property(dhs.tp.pg2)]</label><enable>false</enable><visible>!String.IsEmpty(Window(Home).Property(dhs.tp.pg2))</visible></control><control type="button"><width>auto</width><height>34</height><texturenofocus border="17" colordiffuse="1FFFFFFF">dexhub/pill.png</texturenofocus><texturefocus border="17" colordiffuse="1FFFFFFF">dexhub/pill.png</texturefocus><font>font10</font><textcolor>FFFFFFFF</textcolor><disabledcolor>FFFFFFFF</disabledcolor><textoffsetx>16</textoffsetx><aligny>center</aligny><label>$INFO[Window(Home).Property(dhs.tp.pg3)]</label><enable>false</enable><visible>!String.IsEmpty(Window(Home).Property(dhs.tp.pg3))</visible></control><control type="button"><width>auto</width><height>34</height><texturenofocus border="17" colordiffuse="1FFFFFFF">dexhub/pill.png</texturenofocus><texturefocus border="17" colordiffuse="1FFFFFFF">dexhub/pill.png</texturefocus><font>font10</font><textcolor>FFFFFFFF</textcolor><disabledcolor>FFFFFFFF</disabledcolor><textoffsetx>16</textoffsetx><aligny>center</aligny><label>$INFO[Window(Home).Property(dhs.tp.pg4)]</label><enable>false</enable><visible>!String.IsEmpty(Window(Home).Property(dhs.tp.pg4))</visible></control><control type="button"><width>auto</width><height>34</height><texturenofocus border="17" colordiffuse="1FFFFFFF">dexhub/pill.png</texturenofocus><texturefocus border="17" colordiffuse="1FFFFFFF">dexhub/pill.png</texturefocus><font>font10</font><textcolor>FFFFFFFF</textcolor><disabledcolor>FFFFFFFF</disabledcolor><textoffsetx>16</textoffsetx><aligny>center</aligny><label>$INFO[Window(Home).Property(dhs.tp.pg5)]</label><enable>false</enable><visible>!String.IsEmpty(Window(Home).Property(dhs.tp.pg5))</visible></control></control></control>
+					<control type="group"><left>0</left><top>440</top><height>28</height><visible>$EXP[dhs_tp_left]</visible><control type="group"><visible>String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + !String.IsEmpty(Window(Home).Property(dhs.tp.pstep))</visible><control type="image"><left>0</left><top>11</top><width>200</width><height>6</height><texture border="3" colordiffuse="33FFFFFF">dexhub/pill.png</texture></control><control type="image"><left>0</left><top>11</top><width>20</width><height>6</height><texture border="3" colordiffuse="$VAR[DhAccent]">dexhub/pill.png</texture><visible>String.IsEqual(Window(Home).Property(dhs.tp.pstep),1)</visible></control><control type="image"><left>0</left><top>11</top><width>40</width><height>6</height><texture border="3" colordiffuse="$VAR[DhAccent]">dexhub/pill.png</texture><visible>String.IsEqual(Window(Home).Property(dhs.tp.pstep),2)</visible></control><control type="image"><left>0</left><top>11</top><width>60</width><height>6</height><texture border="3" colordiffuse="$VAR[DhAccent]">dexhub/pill.png</texture><visible>String.IsEqual(Window(Home).Property(dhs.tp.pstep),3)</visible></control><control type="image"><left>0</left><top>11</top><width>80</width><height>6</height><texture border="3" colordiffuse="$VAR[DhAccent]">dexhub/pill.png</texture><visible>String.IsEqual(Window(Home).Property(dhs.tp.pstep),4)</visible></control><control type="image"><left>0</left><top>11</top><width>100</width><height>6</height><texture border="3" colordiffuse="$VAR[DhAccent]">dexhub/pill.png</texture><visible>String.IsEqual(Window(Home).Property(dhs.tp.pstep),5)</visible></control><control type="image"><left>0</left><top>11</top><width>120</width><height>6</height><texture border="3" colordiffuse="$VAR[DhAccent]">dexhub/pill.png</texture><visible>String.IsEqual(Window(Home).Property(dhs.tp.pstep),6)</visible></control><control type="image"><left>0</left><top>11</top><width>140</width><height>6</height><texture border="3" colordiffuse="$VAR[DhAccent]">dexhub/pill.png</texture><visible>String.IsEqual(Window(Home).Property(dhs.tp.pstep),7)</visible></control><control type="image"><left>0</left><top>11</top><width>160</width><height>6</height><texture border="3" colordiffuse="$VAR[DhAccent]">dexhub/pill.png</texture><visible>String.IsEqual(Window(Home).Property(dhs.tp.pstep),8)</visible></control><control type="image"><left>0</left><top>11</top><width>180</width><height>6</height><texture border="3" colordiffuse="$VAR[DhAccent]">dexhub/pill.png</texture><visible>String.IsEqual(Window(Home).Property(dhs.tp.pstep),9)</visible></control><control type="image"><left>0</left><top>11</top><width>200</width><height>6</height><texture border="3" colordiffuse="$VAR[DhAccent]">dexhub/pill.png</texture><visible>String.IsEqual(Window(Home).Property(dhs.tp.pstep),10)</visible></control></control><control type="label"><left>216</left><top>0</top><width>1200</width><height>28</height><font>font10</font><textcolor>D9FFFFFF</textcolor><aligny>center</aligny><label>$VAR[DhsTpStatus]</label><visible>String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + !String.IsEmpty(Window(Home).Property(dhs.tp.pstep))</visible></control><control type="label"><left>0</left><top>0</top><width>1400</width><height>28</height><font>font10</font><textcolor>D9FFFFFF</textcolor><aligny>center</aligny><label>$VAR[DhsTpStatus]</label><visible>![String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + !String.IsEmpty(Window(Home).Property(dhs.tp.pstep))]</visible></control></control>
 				</control>
-				<control type="group">
-					<left>84</left>
-					<top>476</top>
-					<control type="button" id="8101">
-						<left>0</left>
-						<top>0</top>
-						<width>262</width>
-						<height>62</height>
-						<texturefocus border="30" colordiffuse="$VAR[DhKodiFocus]">dexhub/pill.png</texturefocus>
-						<texturenofocus border="30" colordiffuse="33FFFFFF">dexhub/pill.png</texturenofocus>
-						<font>font12</font>
-						<textcolor>FFFFFFFF</textcolor>
-						<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
-						<textoffsetx>62</textoffsetx>
-						<textwidth>182</textwidth>
-						<aligny>center</aligny>
-						<label>[B]$VAR[DhsTpPlay][/B]</label>
-						<onleft>noop</onleft>
-						<onright>8102</onright>
-						<onup>noop</onup>
-						<ondown condition="$EXP[dhs_series] + String.IsEmpty(Window(Home).Property(dhs.tp.touched)) + String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + Integer.IsGreater(Container(8200).NumItems,0)">Control.SetFocus(8200,$INFO[Window(Home).Property(dhs.tp.season_idx)],absolute)</ondown>
-						<ondown condition="$EXP[dhs_series]">8200</ondown>
-						<ondown condition="Integer.IsGreater(Container(8400).NumItems,0)">8400</ondown>
-						<ondown>8500</ondown>
-						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_play&amp;$INFO[ListItem.Property(dhs.q)])</onclick>
-						<onlongclick condition="System.Platform.TVOS">RunScript(script.dexhub.tvos.players,choose-click,$INFO[ListItem.Property(dhs.q)])</onlongclick>
-					</control>
-					<control type="image">
-						<left>24</left>
-						<top>17</top>
-						<width>28</width>
-						<height>28</height>
-						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="$VAR[DhKodiOnFocus]">dexhub/btn_play.png</texture>
-						<visible>Control.HasFocus(8101)</visible>
-					</control>
-					<control type="image">
-						<left>24</left>
-						<top>17</top>
-						<width>28</width>
-						<height>28</height>
-						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="FFFFFFFF">dexhub/btn_play.png</texture>
-						<visible>!Control.HasFocus(8101)</visible>
-					</control>
-					<control type="button" id="8102">
-						<left>274</left>
-						<top>0</top>
-						<width>232</width>
-						<height>62</height>
-						<texturefocus border="30" colordiffuse="$VAR[DhKodiFocus]">dexhub/pill.png</texturefocus>
-						<texturenofocus border="30" colordiffuse="33FFFFFF">dexhub/pill.png</texturenofocus>
-						<font>font12</font>
-						<textcolor>FFFFFFFF</textcolor>
-						<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
-						<textoffsetx>62</textoffsetx>
-						<textwidth>152</textwidth>
-						<aligny>center</aligny>
-						<label>[B]$VAR[DhsS31821][/B]</label>
-						<onleft>8101</onleft>
-						<onright>8103</onright>
-						<onup>noop</onup>
-						<ondown condition="$EXP[dhs_series] + String.IsEmpty(Window(Home).Property(dhs.tp.touched)) + String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + Integer.IsGreater(Container(8200).NumItems,0)">Control.SetFocus(8200,$INFO[Window(Home).Property(dhs.tp.season_idx)],absolute)</ondown>
-						<ondown condition="$EXP[dhs_series]">8200</ondown>
-						<ondown condition="Integer.IsGreater(Container(8400).NumItems,0)">8400</ondown>
-						<ondown>8500</ondown>
-						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_sources&amp;$INFO[ListItem.Property(dhs.q)])</onclick>
-					</control>
-					<control type="image">
-						<left>298</left>
-						<top>17</top>
-						<width>28</width>
-						<height>28</height>
-						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="$VAR[DhKodiOnFocus]">dexhub/btn_sources.png</texture>
-						<visible>Control.HasFocus(8102)</visible>
-					</control>
-					<control type="image">
-						<left>298</left>
-						<top>17</top>
-						<width>28</width>
-						<height>28</height>
-						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="FFFFFFFF">dexhub/btn_sources.png</texture>
-						<visible>!Control.HasFocus(8102)</visible>
-					</control>
-					<control type="button" id="8103">
-						<left>518</left>
-						<top>0</top>
-						<width>232</width>
-						<height>62</height>
-						<texturefocus border="30" colordiffuse="$VAR[DhKodiFocus]">dexhub/pill.png</texturefocus>
-						<texturenofocus border="30" colordiffuse="33FFFFFF">dexhub/pill.png</texturenofocus>
-						<font>font12</font>
-						<textcolor>FFFFFFFF</textcolor>
-						<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
-						<textoffsetx>62</textoffsetx>
-						<textwidth>152</textwidth>
-						<aligny>center</aligny>
-						<label>[B]$VAR[DhsS31822][/B]</label>
-						<onleft>8102</onleft>
-						<onright>8104</onright>
-						<onup>noop</onup>
-						<ondown condition="$EXP[dhs_series] + String.IsEmpty(Window(Home).Property(dhs.tp.touched)) + String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + Integer.IsGreater(Container(8200).NumItems,0)">Control.SetFocus(8200,$INFO[Window(Home).Property(dhs.tp.season_idx)],absolute)</ondown>
-						<ondown condition="$EXP[dhs_series]">8200</ondown>
-						<ondown condition="Integer.IsGreater(Container(8400).NumItems,0)">8400</ondown>
-						<ondown>8500</ondown>
-						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_trailer&amp;$INFO[ListItem.Property(dhs.q)])</onclick>
-					</control>
-					<control type="image">
-						<left>542</left>
-						<top>17</top>
-						<width>28</width>
-						<height>28</height>
-						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="$VAR[DhKodiOnFocus]">dexhub/btn_trailer.png</texture>
-						<visible>Control.HasFocus(8103)</visible>
-					</control>
-					<control type="image">
-						<left>542</left>
-						<top>17</top>
-						<width>28</width>
-						<height>28</height>
-						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="FFFFFFFF">dexhub/btn_trailer.png</texture>
-						<visible>!Control.HasFocus(8103)</visible>
-					</control>
-					<control type="button" id="8104">
-						<left>762</left>
-						<top>0</top>
-						<width>232</width>
-						<height>62</height>
-						<texturefocus border="30" colordiffuse="$VAR[DhKodiFocus]">dexhub/pill.png</texturefocus>
-						<texturenofocus border="30" colordiffuse="33FFFFFF">dexhub/pill.png</texturenofocus>
-						<font>font12</font>
-						<textcolor>FFFFFFFF</textcolor>
-						<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
-						<textoffsetx>62</textoffsetx>
-						<textwidth>152</textwidth>
-						<aligny>center</aligny>
-						<label>[B]$VAR[DhsS31823][/B]</label>
-						<onleft>8103</onleft>
-						<onright>8106</onright>
-						<onup>noop</onup>
-						<ondown condition="$EXP[dhs_series] + String.IsEmpty(Window(Home).Property(dhs.tp.touched)) + String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + Integer.IsGreater(Container(8200).NumItems,0)">Control.SetFocus(8200,$INFO[Window(Home).Property(dhs.tp.season_idx)],absolute)</ondown>
-						<ondown condition="$EXP[dhs_series]">8200</ondown>
-						<ondown condition="Integer.IsGreater(Container(8400).NumItems,0)">8400</ondown>
-						<ondown>8500</ondown>
-						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_fav&amp;$INFO[ListItem.Property(dhs.q)])</onclick>
-					</control>
-					<control type="image">
-						<left>786</left>
-						<top>17</top>
-						<width>28</width>
-						<height>28</height>
-						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="$VAR[DhKodiOnFocus]">dexhub/btn_fav.png</texture>
-						<visible>Control.HasFocus(8104) + ![[String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + String.IsEqual(Window(Home).Property(dhs.tp.fav),1)] | [!String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + String.IsEqual(ListItem.Property(dhs.fav),1)]]</visible>
-					</control>
-					<control type="image">
-						<left>786</left>
-						<top>17</top>
-						<width>28</width>
-						<height>28</height>
-						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="$VAR[DhKodiOnFocus]">dexhub/btn_fav_on.png</texture>
-						<visible>Control.HasFocus(8104) + [[String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + String.IsEqual(Window(Home).Property(dhs.tp.fav),1)] | [!String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + String.IsEqual(ListItem.Property(dhs.fav),1)]]</visible>
-					</control>
-					<control type="image">
-						<left>786</left>
-						<top>17</top>
-						<width>28</width>
-						<height>28</height>
-						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="FFFFFFFF">dexhub/btn_fav.png</texture>
-						<visible>!Control.HasFocus(8104) + ![[String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + String.IsEqual(Window(Home).Property(dhs.tp.fav),1)] | [!String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + String.IsEqual(ListItem.Property(dhs.fav),1)]]</visible>
-					</control>
-					<control type="image">
-						<left>786</left>
-						<top>17</top>
-						<width>28</width>
-						<height>28</height>
-						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="FFFFFFFF">dexhub/btn_fav_on.png</texture>
-						<visible>!Control.HasFocus(8104) + [[String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + String.IsEqual(Window(Home).Property(dhs.tp.fav),1)] | [!String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + String.IsEqual(ListItem.Property(dhs.fav),1)]]</visible>
-					</control>
-					<control type="button" id="8106">
-						<left>1006</left>
-						<top>0</top>
-						<width>280</width>
-						<height>62</height>
-						<texturefocus border="30" colordiffuse="$VAR[DhKodiFocus]">dexhub/pill.png</texturefocus>
-						<texturenofocus border="30" colordiffuse="33FFFFFF">dexhub/pill.png</texturenofocus>
-						<font>font12</font>
-						<textcolor>FFFFFFFF</textcolor>
-						<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
-						<textoffsetx>62</textoffsetx>
-						<textwidth>200</textwidth>
-						<aligny>center</aligny>
-						<label>[B]$VAR[DhsTrackLabel][/B]</label>
-						<onleft>8104</onleft>
-						<onright>8105</onright>
-						<onup>noop</onup>
-						<ondown condition="$EXP[dhs_series] + String.IsEmpty(Window(Home).Property(dhs.tp.touched)) + String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + Integer.IsGreater(Container(8200).NumItems,0)">Control.SetFocus(8200,$INFO[Window(Home).Property(dhs.tp.season_idx)],absolute)</ondown>
-						<ondown condition="$EXP[dhs_series]">8200</ondown>
-						<ondown condition="Integer.IsGreater(Container(8400).NumItems,0)">8400</ondown>
-						<ondown>8500</ondown>
-						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_track&amp;$INFO[ListItem.Property(dhs.q)])</onclick>
-					</control>
-					<control type="image">
-						<left>1030</left>
-						<top>17</top>
-						<width>28</width>
-						<height>28</height>
-						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="$VAR[DhKodiOnFocus]">dexhub/btn_track.png</texture>
-						<visible>Control.HasFocus(8106)</visible>
-					</control>
-					<control type="image">
-						<left>1030</left>
-						<top>17</top>
-						<width>28</width>
-						<height>28</height>
-						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="FFFFFFFF">dexhub/btn_track.png</texture>
-						<visible>!Control.HasFocus(8106)</visible>
-					</control>
-					<control type="button" id="8105">
-						<left>1298</left>
-						<top>0</top>
-						<width>232</width>
-						<height>62</height>
-						<texturefocus border="30" colordiffuse="$VAR[DhKodiFocus]">dexhub/pill.png</texturefocus>
-						<texturenofocus border="30" colordiffuse="33FFFFFF">dexhub/pill.png</texturenofocus>
-						<font>font12</font>
-						<textcolor>FFFFFFFF</textcolor>
-						<focusedcolor>$VAR[DhKodiOnFocus]</focusedcolor>
-						<textoffsetx>62</textoffsetx>
-						<textwidth>152</textwidth>
-						<aligny>center</aligny>
-						<label>[B]$VAR[DhsS31828][/B]</label>
-						<onleft>8106</onleft>
-						<onright>noop</onright>
-						<onup>noop</onup>
-						<ondown condition="$EXP[dhs_series] + String.IsEmpty(Window(Home).Property(dhs.tp.touched)) + String.IsEqual(Window(Home).Property(dhs.tp.id),ListItem.Property(dhs.id)) + Integer.IsGreater(Container(8200).NumItems,0)">Control.SetFocus(8200,$INFO[Window(Home).Property(dhs.tp.season_idx)],absolute)</ondown>
-						<ondown condition="$EXP[dhs_series]">8200</ondown>
-						<ondown condition="Integer.IsGreater(Container(8400).NumItems,0)">8400</ondown>
-						<ondown>8500</ondown>
-						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_more&amp;$INFO[ListItem.Property(dhs.q)])</onclick>
-					</control>
-					<control type="image">
-						<left>1322</left>
-						<top>17</top>
-						<width>28</width>
-						<height>28</height>
-						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="$VAR[DhKodiOnFocus]">dexhub/btn_more.png</texture>
-						<visible>Control.HasFocus(8105)</visible>
-					</control>
-					<control type="image">
-						<left>1322</left>
-						<top>17</top>
-						<width>28</width>
-						<height>28</height>
-						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="FFFFFFFF">dexhub/btn_more.png</texture>
-						<visible>!Control.HasFocus(8105)</visible>
-					</control>
-				</control>
+				<!-- DhPanel: Up opens the island -->
+				<control type="group"><left>1626</left><top>48</top><width>198</width><height>52</height><visible>Control.HasFocus(8101) | Control.HasFocus(8102) | Control.HasFocus(8103) | Control.HasFocus(8104) | Control.HasFocus(8105) | Control.HasFocus(8106) | Control.HasFocus(8107) | Control.HasFocus(8108) | Control.HasFocus(8109)</visible><animation effect="fade" start="0" end="100" time="200">Visible</animation><animation effect="fade" start="100" end="0" time="140">Hidden</animation><control type="image"><left>0</left><top>0</top><width>198</width><height>52</height><texture border="26" colordiffuse="2EFFFFFF">dexhub/pill.png</texture></control><control type="image"><left>18</left><top>15</top><width>22</width><height>22</height><texture colordiffuse="$VAR[DhAccent]">dexhub/osd/legacy/arrow-up.png</texture></control><control type="image"><left>54</left><top>13</top><width>26</width><height>26</height><texture colordiffuse="E6FFFFFF">dexhub/osd/legacy/bookmark.png</texture></control><control type="image"><left>98</left><top>13</top><width>26</width><height>26</height><texture colordiffuse="E6FFFFFF">dexhub/osd/legacy/bell.png</texture></control><control type="image"><left>116</left><top>10</top><width>10</width><height>10</height><texture colordiffuse="FFFF5A5F">dexhub/circle.png</texture><visible>!String.IsEmpty(Window(Home).Property(dhs.newep.count))</visible></control><control type="image"><left>142</left><top>13</top><width>26</width><height>26</height><texture colordiffuse="E6FFFFFF">dexhub/osd/legacy/calendar.png</texture></control></control>
+				<!-- DhDesigns: Player buttons > Title buttons (skin string DexHub.TitleActions, read when the skin loads) -->
+				<include condition="String.IsEqual(Skin.String(DexHub.TitleActions),pills)">DhDesign_TitleActions_Pills</include>
+				<include condition="!String.IsEqual(Skin.String(DexHub.TitleActions),pills)">DhDesign_TitleActions_Icons</include>
 				<control type="list" id="8200">
 					<left>84</left>
 					<top>566</top>
@@ -1401,7 +1133,7 @@
 							<scrolltime tween="cubic" easing="out">220</scrolltime>
 							<onleft>noop</onleft>
 							<onright>noop</onright>
-							<ondown>noop</ondown>
+							<ondown condition="Integer.IsGreater(Container(8600).NumItems,0)">8600</ondown><ondown condition="Integer.IsGreater(Container(8700).NumItems,0)">8700</ondown><ondown>noop</ondown>
 							<onup condition="Integer.IsGreater(Container(8400).NumItems,0)">8400</onup>
 							<onup condition="$EXP[dhs_series]">8300</onup>
 							<onup>8101</onup>
@@ -1558,7 +1290,7 @@
 									<top>14</top>
 									<width>176</width>
 									<height>264</height>
-									<animation effect="zoom" start="100" end="108" time="220" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(8500)">Conditional</animation>
+									<animation effect="zoom" start="100" end="108" time="280" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(8500)">Conditional</animation>
 									<control type="image">
 										<left>-26</left>
 										<top>-26</top>
@@ -1616,7 +1348,7 @@
 										<width>176</width>
 										<height>264</height>
 										<aspectratio>scale</aspectratio>
-										<texture diffuse="dexhub/mask_poster.png">$INFO[ListItem.Art(gif)]</texture>
+										<texture diffuse="dexhub/mask_poster.png" background="true">$INFO[ListItem.Art(gif)]</texture>
 										<fadetime>200</fadetime>
 										<visible>Control.HasFocus(8500) + String.IsEqual(ListItem.Property(kind),folder) + !String.IsEmpty(ListItem.Art(gif)) + !String.IsEmpty(Window(Home).Property(dhs.opt.gif))</visible>
 									</control>
@@ -1724,6 +1456,18 @@
 							</focusedlayout>
 							<content sortby="playlist">$VAR[DhsTpRelatedPath]</content>
 						</control>
+
+						<!-- DhPanel: the saga and the studios under More like this (Nuvio Legacy, detail.c) -->
+						<control type="group">
+							<animation effect="slide" end="0,-416" time="300" tween="cubic" easing="out" condition="!Integer.IsGreater(Container(8500).NumItems,0)">Conditional</animation>
+						<control type="label"><left>96</left><top>1752</top><width>1400</width><height>44</height><font>font14</font><textcolor>FFFFFFFF</textcolor><align>left</align><aligny>center</aligny><label>[B]$VAR[DhsS32105][/B]</label><visible>Integer.IsGreater(Container(8600).NumItems,0)</visible></control>
+						<control type="list" id="8600"><left>84</left><top>1790</top><width>1836</width><height>330</height><orientation>horizontal</orientation><scrolltime tween="cubic" easing="out">220</scrolltime><onleft>noop</onleft><onright>noop</onright><onup condition="Integer.IsGreater(Container(8500).NumItems,0)">8500</onup><onup condition="Integer.IsGreater(Container(8400).NumItems,0)">8400</onup><onup condition="$EXP[dhs_series]">8300</onup><onup>8101</onup><ondown condition="Integer.IsGreater(Container(8700).NumItems,0)">8700</ondown><ondown>noop</ondown><onclick>RunPlugin($ESCINFO[Container(8600).ListItem.Property(dhs.target)])</onclick><itemlayout width="800" height="330"><control type="group"><left>12</left><top>15</top><width>760</width><height>300</height><control type="image"><left>0</left><top>0</top><width>760</width><height>300</height><texture border="24" colordiffuse="$VAR[DhCard]">dexhub/tile_bg.png</texture></control><control type="image"><left>0</left><top>0</top><width>760</width><height>300</height><aspectratio>scale</aspectratio><fadetime>200</fadetime><texture diffuse="dexhub/mask_card.png" background="true">$INFO[ListItem.Art(fanart)]</texture></control><control type="image"><left>0</left><top>0</top><width>760</width><height>300</height><texture>dexhub/veil_card.png</texture></control><control type="image"><left>455</left><top>56</top><width>128</width><height>188</height><texture border="12" colordiffuse="73000000">dexhub/tile_bg.png</texture><visible>!String.IsEmpty(ListItem.Property(p3))</visible></control><control type="image"><left>458</left><top>59</top><width>122</width><height>182</height><aspectratio>scale</aspectratio><texture diffuse="dexhub/mask_poster.png" background="true" colordiffuse="A3FFFFFF">$INFO[ListItem.Property(p3)]</texture><visible>!String.IsEmpty(ListItem.Property(p3))</visible></control><control type="image"><left>512</left><top>44</top><width>143</width><height>211</height><texture border="12" colordiffuse="73000000">dexhub/tile_bg.png</texture><visible>!String.IsEmpty(ListItem.Property(p2))</visible></control><control type="image"><left>515</left><top>47</top><width>137</width><height>205</height><aspectratio>scale</aspectratio><texture diffuse="dexhub/mask_poster.png" background="true" colordiffuse="D1FFFFFF">$INFO[ListItem.Property(p2)]</texture><visible>!String.IsEmpty(ListItem.Property(p2))</visible></control><control type="image"><left>569</left><top>33</top><width>158</width><height>234</height><texture border="12" colordiffuse="73000000">dexhub/tile_bg.png</texture><visible>!String.IsEmpty(ListItem.Property(p1))</visible></control><control type="image"><left>572</left><top>36</top><width>152</width><height>228</height><aspectratio>scale</aspectratio><texture diffuse="dexhub/mask_poster.png" background="true" colordiffuse="FFFFFFFF">$INFO[ListItem.Property(p1)]</texture><visible>!String.IsEmpty(ListItem.Property(p1))</visible></control><control type="textbox"><left>36</left><top>36</top><width>396</width><height>100</height><font>font36_title</font><textcolor>FFFAFBFF</textcolor><label>$INFO[ListItem.Label]</label></control><control type="label"><left>36</left><top>140</top><width>396</width><height>34</height><font>font12</font><textcolor>E6CDD2DC</textcolor><aligny>center</aligny><label>$INFO[ListItem.Property(meta)]</label></control><control type="label"><left>36</left><top>172</top><width>396</width><height>30</height><font>dh_tiny</font><textcolor>$VAR[DhAccent]</textcolor><aligny>center</aligny><label>$INFO[ListItem.Property(here_label)]</label></control><control type="image"><left>36</left><top>216</top><width>236</width><height>48</height><texture border="24" colordiffuse="24FFFFFF">dexhub/pill.png</texture><visible>!false</visible></control><control type="image"><left>36</left><top>216</top><width>236</width><height>48</height><texture border="24" colordiffuse="$VAR[DhKodiFocus]">dexhub/pill.png</texture><visible>false</visible></control><control type="label"><left>36</left><top>216</top><width>236</width><height>48</height><font>font12</font><textcolor>FFEBEEF5</textcolor><align>center</align><aligny>center</aligny><label>[B]$VAR[DhsS32107][/B]</label><visible>!false</visible></control><control type="label"><left>36</left><top>216</top><width>236</width><height>48</height><font>font12</font><textcolor>$VAR[DhKodiOnFocus]</textcolor><align>center</align><aligny>center</aligny><label>[B]$VAR[DhsS32107][/B]</label><visible>false</visible></control></control></itemlayout><focusedlayout width="800" height="330"><control type="group"><left>12</left><top>15</top><width>760</width><height>300</height><animation effect="zoom" start="100" end="103" time="280" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(8600)">Conditional</animation><control type="image"><left>0</left><top>0</top><width>760</width><height>300</height><texture border="24" colordiffuse="$VAR[DhCard]">dexhub/tile_bg.png</texture></control><control type="image"><left>0</left><top>0</top><width>760</width><height>300</height><aspectratio>scale</aspectratio><fadetime>200</fadetime><texture diffuse="dexhub/mask_card.png" background="true">$INFO[ListItem.Art(fanart)]</texture></control><control type="image"><left>0</left><top>0</top><width>760</width><height>300</height><texture>dexhub/veil_card.png</texture></control><control type="image"><left>455</left><top>56</top><width>128</width><height>188</height><texture border="12" colordiffuse="73000000">dexhub/tile_bg.png</texture><visible>!String.IsEmpty(ListItem.Property(p3))</visible></control><control type="image"><left>458</left><top>59</top><width>122</width><height>182</height><aspectratio>scale</aspectratio><texture diffuse="dexhub/mask_poster.png" background="true" colordiffuse="A3FFFFFF">$INFO[ListItem.Property(p3)]</texture><visible>!String.IsEmpty(ListItem.Property(p3))</visible></control><control type="image"><left>512</left><top>44</top><width>143</width><height>211</height><texture border="12" colordiffuse="73000000">dexhub/tile_bg.png</texture><visible>!String.IsEmpty(ListItem.Property(p2))</visible></control><control type="image"><left>515</left><top>47</top><width>137</width><height>205</height><aspectratio>scale</aspectratio><texture diffuse="dexhub/mask_poster.png" background="true" colordiffuse="D1FFFFFF">$INFO[ListItem.Property(p2)]</texture><visible>!String.IsEmpty(ListItem.Property(p2))</visible></control><control type="image"><left>569</left><top>33</top><width>158</width><height>234</height><texture border="12" colordiffuse="73000000">dexhub/tile_bg.png</texture><visible>!String.IsEmpty(ListItem.Property(p1))</visible></control><control type="image"><left>572</left><top>36</top><width>152</width><height>228</height><aspectratio>scale</aspectratio><texture diffuse="dexhub/mask_poster.png" background="true" colordiffuse="FFFFFFFF">$INFO[ListItem.Property(p1)]</texture><visible>!String.IsEmpty(ListItem.Property(p1))</visible></control><control type="textbox"><left>36</left><top>36</top><width>396</width><height>100</height><font>font36_title</font><textcolor>FFFAFBFF</textcolor><label>$INFO[ListItem.Label]</label></control><control type="label"><left>36</left><top>140</top><width>396</width><height>34</height><font>font12</font><textcolor>E6CDD2DC</textcolor><aligny>center</aligny><label>$INFO[ListItem.Property(meta)]</label></control><control type="label"><left>36</left><top>172</top><width>396</width><height>30</height><font>dh_tiny</font><textcolor>$VAR[DhAccent]</textcolor><aligny>center</aligny><label>$INFO[ListItem.Property(here_label)]</label></control><control type="image"><left>36</left><top>216</top><width>236</width><height>48</height><texture border="24" colordiffuse="24FFFFFF">dexhub/pill.png</texture><visible>!Control.HasFocus(8600)</visible></control><control type="image"><left>36</left><top>216</top><width>236</width><height>48</height><texture border="24" colordiffuse="$VAR[DhKodiFocus]">dexhub/pill.png</texture><visible>Control.HasFocus(8600)</visible></control><control type="label"><left>36</left><top>216</top><width>236</width><height>48</height><font>font12</font><textcolor>FFEBEEF5</textcolor><align>center</align><aligny>center</aligny><label>[B]$VAR[DhsS32107][/B]</label><visible>!Control.HasFocus(8600)</visible></control><control type="label"><left>36</left><top>216</top><width>236</width><height>48</height><font>font12</font><textcolor>$VAR[DhKodiOnFocus]</textcolor><align>center</align><aligny>center</aligny><label>[B]$VAR[DhsS32107][/B]</label><visible>Control.HasFocus(8600)</visible></control><control type="image"><left>-5</left><top>-5</top><width>770</width><height>310</height><texture border="28" colordiffuse="$VAR[DhAccent]">dexhub/ring.png</texture><visible>Control.HasFocus(8600)</visible></control></control></focusedlayout><content sortby="playlist">$VAR[DhsTpCollectionPath]</content></control>
+						<control type="group">
+							<animation effect="slide" end="0,-388" time="300" tween="cubic" easing="out" condition="!Integer.IsGreater(Container(8600).NumItems,0)">Conditional</animation>
+						<control type="label"><left>96</left><top>2140</top><width>1400</width><height>44</height><font>font14</font><textcolor>FFFFFFFF</textcolor><align>left</align><aligny>center</aligny><label>[B]$VAR[DhsS32106][/B]</label><visible>Integer.IsGreater(Container(8700).NumItems,0)</visible></control>
+						<control type="list" id="8700"><left>84</left><top>2186</top><width>1836</width><height>130</height><orientation>horizontal</orientation><scrolltime tween="cubic" easing="out">220</scrolltime><onleft>noop</onleft><onright>noop</onright><onup condition="Integer.IsGreater(Container(8600).NumItems,0)">8600</onup><onup condition="Integer.IsGreater(Container(8500).NumItems,0)">8500</onup><onup condition="Integer.IsGreater(Container(8400).NumItems,0)">8400</onup><onup condition="$EXP[dhs_series]">8300</onup><onup>8101</onup><ondown>noop</ondown><onclick>RunPlugin($ESCINFO[Container(8700).ListItem.Property(dhs.target)])</onclick><itemlayout width="258" height="130"><control type="group"><left>0</left><top>15</top><width>240</width><height>100</height><control type="image"><left>0</left><top>0</top><width>240</width><height>100</height><texture border="14" colordiffuse="$VAR[DhCard]">dexhub/tile_bg.png</texture><visible>!String.IsEqual(ListItem.Property(logo_mode),plate)</visible></control><control type="image"><left>0</left><top>0</top><width>240</width><height>100</height><texture border="14" colordiffuse="F2EEF0F4">dexhub/tile_bg.png</texture><visible>String.IsEqual(ListItem.Property(logo_mode),plate)</visible></control><control type="image"><left>18</left><top>24</top><width>204</width><height>52</height><aspectratio>keep</aspectratio><texture background="true" colordiffuse="EDFFFFFF">$INFO[ListItem.Property(logo)]</texture><visible>String.IsEqual(ListItem.Property(logo_mode),white)</visible></control><control type="image"><left>18</left><top>20</top><width>204</width><height>60</height><aspectratio>keep</aspectratio><texture background="true">$INFO[ListItem.Property(logo)]</texture><visible>String.IsEqual(ListItem.Property(logo_mode),plate)</visible></control><control type="label"><left>14</left><top>0</top><width>212</width><height>100</height><font>font12</font><textcolor>FFD0D0DC</textcolor><align>center</align><aligny>center</aligny><label>[B]$INFO[ListItem.Label][/B]</label><visible>String.IsEqual(ListItem.Property(logo_mode),name)</visible></control></control></itemlayout><focusedlayout width="258" height="130"><control type="group"><left>0</left><top>15</top><width>240</width><height>100</height><animation effect="zoom" start="100" end="106" time="280" tween="cubic" easing="out" center="auto" condition="Control.HasFocus(8700)">Conditional</animation><control type="image"><left>0</left><top>0</top><width>240</width><height>100</height><texture border="14" colordiffuse="$VAR[DhCard]">dexhub/tile_bg.png</texture><visible>!String.IsEqual(ListItem.Property(logo_mode),plate)</visible></control><control type="image"><left>0</left><top>0</top><width>240</width><height>100</height><texture border="14" colordiffuse="F2EEF0F4">dexhub/tile_bg.png</texture><visible>String.IsEqual(ListItem.Property(logo_mode),plate)</visible></control><control type="image"><left>18</left><top>24</top><width>204</width><height>52</height><aspectratio>keep</aspectratio><texture background="true" colordiffuse="EDFFFFFF">$INFO[ListItem.Property(logo)]</texture><visible>String.IsEqual(ListItem.Property(logo_mode),white)</visible></control><control type="image"><left>18</left><top>20</top><width>204</width><height>60</height><aspectratio>keep</aspectratio><texture background="true">$INFO[ListItem.Property(logo)]</texture><visible>String.IsEqual(ListItem.Property(logo_mode),plate)</visible></control><control type="label"><left>14</left><top>0</top><width>212</width><height>100</height><font>font12</font><textcolor>FFF5F5F5</textcolor><align>center</align><aligny>center</aligny><label>[B]$INFO[ListItem.Label][/B]</label><visible>String.IsEqual(ListItem.Property(logo_mode),name)</visible></control><control type="image"><left>-5</left><top>-5</top><width>250</width><height>110</height><texture border="24" colordiffuse="$VAR[DhAccent]">dexhub/ring.png</texture><visible>Control.HasFocus(8700)</visible></control></control></focusedlayout><content sortby="playlist">$VAR[DhsTpStudiosPath]</content></control>
+						</control>
+						</control>
 					</control>
 				</control>
 			</control>
@@ -1798,7 +1542,7 @@
 						<width>506</width>
 						<height>801</height>
 						<aspectratio>keep</aspectratio>
-						<texture>$INFO[ListItem.Thumb]</texture>
+						<texture background="true">$INFO[ListItem.Thumb]</texture>
 						<bordertexture border="21" infill="false">overlays/shadow.png</bordertexture>
 						<bordersize>20</bordersize>
 					</control>

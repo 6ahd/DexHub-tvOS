@@ -661,7 +661,7 @@
 							<top>108</top>
 							<width>130</width>
 							<height>130</height>
-							<texture>$INFO[ListItem.Icon]</texture>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
 						</control>
 						<control type="label">
 							<left>15</left>
@@ -722,7 +722,7 @@
 							<top>108</top>
 							<width>130</width>
 							<height>130</height>
-							<texture>$INFO[ListItem.Icon]</texture>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
 						</control>
 						<control type="label">
 							<left>15</left>

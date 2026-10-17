@@ -1,0 +1,2006 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- the player's Audio and Subtitles lists: the Classic design's (3.28.56) and the Legacy design's (Dex Hub flags, badges and page) -->
+<includes>
+	<include name="DhQuick1146_Classic">
+		<control type="group">
+			<animation effect="fade" time="200" start="100" end="0" condition="Window.IsActive(1140) | Window.IsActive(1141) | Window.IsActive(1142) | Window.IsActive(videobookmarks) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml)" reversible="false">Conditional</animation>
+			<animation effect="fade" time="200" delay="200" end="100" start="0" condition="![Window.IsActive(1140) | Window.IsActive(1141) | Window.IsActive(1142) | Window.IsActive(videobookmarks) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml)]" reversible="false">Conditional</animation>
+			<left>80</left>
+			<right>80</right>
+			<visible>!Window.IsActive(DialogPlayerProcessInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogSlider.xml)</visible>
+			<control type="group">
+				<control type="group">
+					<visible>!Window.IsVisible(DialogSettings.xml)</visible>
+					<animation type="Visible" reversible="false" condition="true">
+						<effect type="fade" start="0" end="100" time="300" delay="150"/>
+						<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="150"/>
+					</animation>
+					<animation type="WindowOpen" reversible="false" condition="true">
+						<effect type="fade" start="0" end="100" time="300" delay="400"/>
+						<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="400"/>
+					</animation>
+					<animation effect="fade" start="100" end="0" condition="Integer.IsEqual(Container(6206).NumItems,0)">Conditional</animation>
+					<right>-40</right>
+					<width>960</width>
+					<bottom>220</bottom>
+					<height>760</height>
+					<control type="group">
+						<animation effect="slide" start="0" end="0,80" condition="Integer.IsEqual(Container(6206).NumItems,6)">Conditional</animation>
+						<animation effect="slide" start="0" end="0,160" condition="Integer.IsEqual(Container(6206).NumItems,5)">Conditional</animation>
+						<animation effect="slide" start="0" end="0,240" condition="Integer.IsEqual(Container(6206).NumItems,4)">Conditional</animation>
+						<animation effect="slide" start="0" end="0,320" condition="Integer.IsEqual(Container(6206).NumItems,3)">Conditional</animation>
+						<animation effect="slide" start="0" end="0,400" condition="Integer.IsEqual(Container(6206).NumItems,2)">Conditional</animation>
+						<animation effect="slide" start="0" end="0,480" condition="Integer.IsLess(Container(6206).NumItems,2)">Conditional</animation>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>760</height>
+							<visible>Integer.IsGreater(Container(6206).NumItems,6)</visible>
+						</control>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>680</height>
+							<visible>Integer.IsEqual(Container(6206).NumItems,6)</visible>
+						</control>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>600</height>
+							<visible>Integer.IsEqual(Container(6206).NumItems,5)</visible>
+						</control>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>520</height>
+							<visible>Integer.IsEqual(Container(6206).NumItems,4)</visible>
+						</control>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>440</height>
+							<visible>Integer.IsEqual(Container(6206).NumItems,3)</visible>
+						</control>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>360</height>
+							<visible>Integer.IsEqual(Container(6206).NumItems,2)</visible>
+						</control>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>280</height>
+							<visible>Integer.IsLess(Container(6206).NumItems,2)</visible>
+						</control>
+						<control type="group" id="">
+							<height>120</height>
+							<control type="label">
+								<label>$LOCALIZE[292]</label>
+								<textoffsetx>40</textoffsetx>
+								<font>af3_font_midi_bold</font>
+								<aligny>center</aligny>
+								<textcolor>af3_dialog_fg_90</textcolor>
+								<align>left</align>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="group" id="">
+								<right>40</right>
+								<centertop>50%</centertop>
+								<height>40</height>
+								<width>40</width>
+								<control type="image">
+									<bordersize>-8</bordersize>
+									<texture colordiffuse="af3_dialog_fg_90">dexhub/osd/legacy/volume-2.png</texture>
+								</control>
+							</control>
+							<control type="image">
+								<bottom>0</bottom>
+								<height>1</height>
+								<left>40</left>
+								<right>40</right>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+						</control>
+						<control type="panel" id="6206">
+							<top>140</top>
+							<bottom>40</bottom>
+							<ondown>6006</ondown>
+							<onleft>6006</onleft>
+							<onright>6306</onright>
+							<onup>noop</onup>
+							<pagecontrol>6306</pagecontrol>
+							<orientation>vertical</orientation>
+							<itemlayout height="80">
+								<control type="group">
+									<left>20</left>
+									<right>20</right>
+									<control type="group">
+										<left>40</left>
+										<right>20</right>
+										<control type="label">
+											<textcolor>af3_dialog_fg_90</textcolor>
+											<label>$VAR[AF3_Label_StreamLanguage,[UPPERCASE],[/UPPERCASE]]$INFO[ListItem.Label2, | ,]</label>
+											<width/>
+											<align>left</align>
+											<aligny>center</aligny>
+											<font>af3_font_main</font>
+											<selectedcolor>af3_main_fg_70</selectedcolor>
+											<scrollsuffix> </scrollsuffix>
+											<scrollspeed>40</scrollspeed>
+											<disabledcolor>60FFFFFF</disabledcolor>
+										</control>
+										<control type="label">
+											<right>240</right>
+											<align>right</align>
+											<label>$VAR[AF3_Label_PlayerStream_IsForced,  ,]$VAR[AF3_Label_PlayerStream_IsDefault,  ,]$VAR[AF3_Label_PlayerStream_IsOriginal,  ,]$INFO[ListItem.Property(codec),  ,]$INFO[ListItem.Property(channels),  , $LOCALIZE[10127]]$INFO[ListItem.Property(bitrate),  , bps]</label>
+											<bottom>2</bottom>
+											<font>af3_font_tiny_bold</font>
+											<textcolor>af3_dialog_fg_90</textcolor>
+											<aligny>center</aligny>
+											<selectedcolor>af3_main_fg_70</selectedcolor>
+											<scrollsuffix> </scrollsuffix>
+											<scrollspeed>40</scrollspeed>
+											<disabledcolor>60FFFFFF</disabledcolor>
+										</control>
+										<control type="image">
+											<right>120</right>
+											<top>-1</top>
+											<bottom>1</bottom>
+											<width>80</width>
+											<bordersize>22</bordersize>
+											<aspectratio align="right">keep</aspectratio>
+											<texture colordiffuse="af3_dialog_fg_90">dexhub/osd/legacy/captions.png</texture>
+											<animation effect="fade" end="33" condition="String.IsEmpty(ListItem.Property(isimpaired))">Conditional</animation>
+										</control>
+										<control type="image">
+											<right>60</right>
+											<width>80</width>
+											<bordersize>28</bordersize>
+											<aspectratio align="right">keep</aspectratio>
+											<texture colordiffuse="af3_dialog_fg_90">$VAR[AF3_Image_IsCurrentStream]</texture>
+										</control>
+										<control type="image">
+											<right>0</right>
+											<width>80</width>
+											<bordersize>18</bordersize>
+											<aspectratio align="right">keep</aspectratio>
+											<texture>$INFO[ListItem.Property(language),af3/flags/color/language/,.png]</texture>
+										</control>
+									</control>
+								</control>
+							</itemlayout>
+							<focusedlayout height="80">
+								<control type="group">
+									<left>20</left>
+									<right>20</right>
+									<control type="image" id="">
+										<texture border="40" colordiffuse="$VAR[DhOsdAccent]">af3/common/menu.png</texture>
+									</control>
+									<control type="group">
+										<left>40</left>
+										<right>20</right>
+										<control type="label">
+											<textcolor>$VAR[DhOsdOnFill]</textcolor>
+											<label>$VAR[AF3_Label_StreamLanguage,[UPPERCASE],[/UPPERCASE]]$INFO[ListItem.Label2, | ,]</label>
+											<width/>
+											<align>left</align>
+											<aligny>center</aligny>
+											<font>af3_font_main</font>
+											<selectedcolor>af3_main_fg_70</selectedcolor>
+											<scrollsuffix> </scrollsuffix>
+											<scrollspeed>40</scrollspeed>
+											<disabledcolor>60FFFFFF</disabledcolor>
+										</control>
+										<control type="label">
+											<right>240</right>
+											<align>right</align>
+											<label>$VAR[AF3_Label_PlayerStream_IsForced,  ,]$VAR[AF3_Label_PlayerStream_IsDefault,  ,]$VAR[AF3_Label_PlayerStream_IsOriginal,  ,]$INFO[ListItem.Property(codec),  ,]$INFO[ListItem.Property(channels),  , $LOCALIZE[10127]]$INFO[ListItem.Property(bitrate),  , bps]</label>
+											<bottom>2</bottom>
+											<font>af3_font_tiny_bold</font>
+											<textcolor>$VAR[DhOsdOnFill]</textcolor>
+											<aligny>center</aligny>
+											<selectedcolor>af3_main_fg_70</selectedcolor>
+											<scrollsuffix> </scrollsuffix>
+											<scrollspeed>40</scrollspeed>
+											<disabledcolor>60FFFFFF</disabledcolor>
+										</control>
+										<control type="image">
+											<right>120</right>
+											<top>-1</top>
+											<bottom>1</bottom>
+											<width>80</width>
+											<bordersize>22</bordersize>
+											<aspectratio align="right">keep</aspectratio>
+											<texture colordiffuse="$VAR[DhOsdOnFill]">dexhub/osd/legacy/captions.png</texture>
+											<animation effect="fade" end="33" condition="String.IsEmpty(ListItem.Property(isimpaired))">Conditional</animation>
+										</control>
+										<control type="image">
+											<right>60</right>
+											<width>80</width>
+											<bordersize>28</bordersize>
+											<aspectratio align="right">keep</aspectratio>
+											<texture colordiffuse="$VAR[DhOsdOnFill]">$VAR[AF3_Image_IsCurrentStream]</texture>
+										</control>
+										<control type="image">
+											<right>0</right>
+											<width>80</width>
+											<bordersize>18</bordersize>
+											<aspectratio align="right">keep</aspectratio>
+											<texture>$INFO[ListItem.Property(language),af3/flags/color/language/,.png]</texture>
+										</control>
+									</control>
+								</control>
+							</focusedlayout>
+							<content>plugin://plugin.video.dexhub.tvos/?action=skin_osd_streams&amp;stream_type=audio&amp;reload=$INFO[Window.Property(UID)]</content>
+							<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_stream&amp;method=set_player_audiostream&amp;index=$INFO[ListItem.Property(index)])</onclick>
+						</control>
+					</control>
+					<control type="scrollbar" id="6306">
+						<top>120</top>
+						<bottom>40</bottom>
+						<onleft>6206</onleft>
+						<onright>6006</onright>
+						<centerright>0</centerright>
+						<width>10</width>
+						<showonepage>false</showonepage>
+						<texturesliderbackground/>
+						<texturesliderbar colordiffuse="af3_dialog_fg_70" border="4">af3/scrollbar/scrollv_line.png</texturesliderbar>
+						<texturesliderbarfocus border="4" colordiffuse="$VAR[DhOsdAccent]">af3/common/scrollv.png</texturesliderbarfocus>
+						<textureslidernib/>
+						<textureslidernibfocus/>
+						<orientation>vertical</orientation>
+					</control>
+				</control>
+			</control>
+			<control type="grouplist">
+				<onright condition="!Control.IsVisible(6016) + !Control.IsVisible(6015)">6005</onright><onright condition="!Control.IsVisible(6016) + Control.IsVisible(6015)">6015</onright><onright condition="Control.IsVisible(6016)">6016</onright><onleft condition="!Control.IsVisible(6009)">6008</onleft><onleft condition="Control.IsVisible(6009)">6009</onleft><height>120</height>
+				<left>-20</left>
+				<centerbottom>80</centerbottom>
+				<orientation>horizontal</orientation>
+				<itemgap>37</itemgap>
+				<align>left</align>
+				<control type="button" id="6001">
+					<width>80</width>
+					<texturefocus/>
+					<texturenofocus/>
+					<font/>
+					<label/>
+					<onfocus>Close</onfocus>
+					<onfocus>SetFocus(6001)</onfocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>30</textoffsetx>
+					<textcolor>af3_main_fg_70</textcolor>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<focusedcolor>ff272727</focusedcolor>
+					<disabledcolor>af3_main_fg_30</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+				<onleft condition="Control.IsVisible(6009)">6009</onleft><onleft condition="!Control.IsVisible(6009)">6008</onleft><onright>6002</onright></control>
+				<control type="button" id="6002">
+					<width>80</width>
+					<texturefocus/>
+					<texturenofocus/>
+					<font/>
+					<label/>
+					<onfocus>Close</onfocus>
+					<onfocus>SetFocus(6002)</onfocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>30</textoffsetx>
+					<textcolor>af3_main_fg_70</textcolor>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<focusedcolor>ff272727</focusedcolor>
+					<disabledcolor>af3_main_fg_30</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+				<onleft>6001</onleft><onright>6003</onright></control>
+				<control type="button" id="6003">
+					<width>80</width>
+					<texturefocus/>
+					<texturenofocus/>
+					<font/>
+					<label/>
+					<onfocus>Close</onfocus>
+					<onfocus>SetFocus(6003)</onfocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>30</textoffsetx>
+					<textcolor>af3_main_fg_70</textcolor>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<focusedcolor>ff272727</focusedcolor>
+					<disabledcolor>af3_main_fg_30</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+				<onleft>6002</onleft><onright>6004</onright></control>
+				<control type="button" id="6004">
+					<width>80</width>
+					<texturefocus/>
+					<texturenofocus/>
+					<font/>
+					<label/>
+					<onfocus>Close</onfocus>
+					<onfocus>SetFocus(6004)</onfocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>30</textoffsetx>
+					<textcolor>af3_main_fg_70</textcolor>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<focusedcolor>ff272727</focusedcolor>
+					<disabledcolor>af3_main_fg_30</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+				<onleft>6003</onleft><onright condition="Control.IsVisible(6016)">6016</onright><onright condition="!Control.IsVisible(6016) + Control.IsVisible(6015)">6015</onright><onright condition="!Control.IsVisible(6016) + !Control.IsVisible(6015)">6005</onright></control>
+				<scrolltime tween="quadratic">400</scrolltime>
+				<usecontrolcoords>true</usecontrolcoords>
+			</control>
+			<!-- dhs osd slots v1 (skin 3.28.40, Dex Hub 5.10.288) -->
+			<!-- the OSD's own buttons stay drawn under this panel, in the order chosen in Player buttons; this holder keeps the panel's actions, Left/Right close it and focus the neighbour slot -->
+			<control type="button" id="6006">
+				<right>0</right>
+				<bottom>0</bottom>
+				<width>1</width>
+				<height>1</height>
+				<texturefocus />
+				<texturenofocus />
+				<font />
+				<label />
+				<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
+				<onclick>ActivateWindow(osdaudiosettings)</onclick>
+				<onup>SetFocus(6206)</onup>
+				<ondown>ActivateWindow($VAR[AF3_Action_OSD_Main_OnDown])</ondown>
+				<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
+				<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
+				<onleft>Close</onleft>
+				<onleft>SetFocus($VAR[DhOsdPrev_audio])</onleft>
+				<onright>Close</onright>
+				<onright>SetFocus($VAR[DhOsdNext_audio])</onright>
+			</control>
+		</control>
+	</include>
+	<include name="DhQuick1146_Dex">
+		<control type="group">
+			<animation effect="fade" time="200" start="100" end="0" condition="Window.IsActive(1140) | Window.IsActive(1141) | Window.IsActive(1142) | Window.IsActive(videobookmarks) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml)" reversible="false">Conditional</animation>
+			<animation effect="fade" time="200" delay="200" end="100" start="0" condition="![Window.IsActive(1140) | Window.IsActive(1141) | Window.IsActive(1142) | Window.IsActive(videobookmarks) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml)]" reversible="false">Conditional</animation>
+			<left>80</left>
+			<right>80</right>
+			<visible>!Window.IsActive(DialogPlayerProcessInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogSlider.xml)</visible>
+			<control type="group">
+				<control type="group">
+					<visible>!Window.IsVisible(DialogSettings.xml)</visible>
+					<animation type="Visible" reversible="false" condition="true">
+						<effect type="fade" start="0" end="100" time="300" delay="150"/>
+						<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="150"/>
+					</animation>
+					<animation type="WindowOpen" reversible="false" condition="true">
+						<effect type="fade" start="0" end="100" time="300" delay="400"/>
+						<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="400"/>
+					</animation>
+					<animation effect="fade" start="100" end="0" condition="Integer.IsEqual(Container(6206).NumItems,0)">Conditional</animation>
+					<right>-40</right>
+					<width>1160</width>
+					<bottom>220</bottom>
+					<height>760</height>
+					<control type="group">
+						<animation effect="slide" start="0" end="0,80" condition="Integer.IsEqual(Container(6206).NumItems,6)">Conditional</animation>
+						<animation effect="slide" start="0" end="0,160" condition="Integer.IsEqual(Container(6206).NumItems,5)">Conditional</animation>
+						<animation effect="slide" start="0" end="0,240" condition="Integer.IsEqual(Container(6206).NumItems,4)">Conditional</animation>
+						<animation effect="slide" start="0" end="0,320" condition="Integer.IsEqual(Container(6206).NumItems,3)">Conditional</animation>
+						<animation effect="slide" start="0" end="0,400" condition="Integer.IsEqual(Container(6206).NumItems,2)">Conditional</animation>
+						<animation effect="slide" start="0" end="0,480" condition="Integer.IsLess(Container(6206).NumItems,2)">Conditional</animation>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>760</height>
+							<visible>Integer.IsGreater(Container(6206).NumItems,6)</visible>
+						</control>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>680</height>
+							<visible>Integer.IsEqual(Container(6206).NumItems,6)</visible>
+						</control>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>600</height>
+							<visible>Integer.IsEqual(Container(6206).NumItems,5)</visible>
+						</control>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>520</height>
+							<visible>Integer.IsEqual(Container(6206).NumItems,4)</visible>
+						</control>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>440</height>
+							<visible>Integer.IsEqual(Container(6206).NumItems,3)</visible>
+						</control>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>360</height>
+							<visible>Integer.IsEqual(Container(6206).NumItems,2)</visible>
+						</control>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>280</height>
+							<visible>Integer.IsLess(Container(6206).NumItems,2)</visible>
+						</control>
+						<control type="group" id="">
+							<height>120</height>
+							<control type="label">
+								<label>$LOCALIZE[292]</label>
+								<textoffsetx>40</textoffsetx>
+								<font>af3_font_midi_bold</font>
+								<aligny>center</aligny>
+								<textcolor>af3_dialog_fg_90</textcolor>
+								<align>left</align>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="group" id="">
+								<right>40</right>
+								<centertop>50%</centertop>
+								<height>40</height>
+								<width>40</width>
+								<control type="image">
+									<bordersize>-8</bordersize>
+									<texture colordiffuse="af3_dialog_fg_90">dexhub/osd/legacy/volume-2.png</texture>
+								</control>
+							</control>
+							<control type="image">
+								<bottom>0</bottom>
+								<height>1</height>
+								<left>40</left>
+								<right>40</right>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+						</control>
+						<control type="panel" id="6206">
+							<top>140</top>
+							<bottom>40</bottom>
+							<ondown>6006</ondown>
+							<onleft>6006</onleft>
+							<onright>6306</onright>
+							<onup>noop</onup>
+							<pagecontrol>6306</pagecontrol>
+							<orientation>vertical</orientation>
+							<itemlayout height="80"><control type="group"><left>20</left><right>20</right><control type="group"><left>40</left><right>20</right><control type="image"><left>0</left><top>20</top><width>60</width><height>40</height><aspectratio>keep</aspectratio><texture background="true">$INFO[ListItem.Property(dh_flag)]</texture><visible>!String.IsEmpty(ListItem.Property(dh_lang))</visible></control><control type="image"><left>12</left><top>22</top><width>36</width><height>36</height><texture colordiffuse="af3_dialog_fg_90">$INFO[ListItem.Property(dh_icon)]</texture><visible>!!String.IsEmpty(ListItem.Property(dh_lang))</visible></control><control type="label"><left>84</left><top>6</top><width>620</width><height>40</height><font>af3_font_main</font><textcolor>af3_dialog_fg_90</textcolor><aligny>center</aligny><label>[B]$INFO[ListItem.Property(dh_lang)][/B]$INFO[ListItem.Property(dh_title),   ·   ,]</label><visible>!String.IsEmpty(ListItem.Property(dh_lang))</visible></control><control type="label"><left>84</left><top>44</top><width>620</width><height>28</height><font>af3_font_hint</font><textcolor>af3_dialog_fg_70</textcolor><aligny>center</aligny><label>$INFO[ListItem.Property(dh_tags)]</label><visible>!String.IsEmpty(ListItem.Property(dh_lang))</visible></control><control type="label"><left>84</left><top>0</top><width>900</width><height>80</height><font>af3_font_main</font><textcolor>af3_dialog_fg_90</textcolor><aligny>center</aligny><label>$INFO[ListItem.Label]$INFO[ListItem.Label2,   ·   ,]</label><visible>!!String.IsEmpty(ListItem.Property(dh_lang))</visible></control><control type="image"><right>62</right><top>16</top><width>92</width><height>48</height><aspectratio align="right">keep</aspectratio><texture colordiffuse="af3_dialog_fg_70">$INFO[ListItem.Property(dh_b1)]</texture></control><control type="image"><right>166</right><top>16</top><width>92</width><height>48</height><aspectratio align="right">keep</aspectratio><texture colordiffuse="af3_dialog_fg_70">$INFO[ListItem.Property(dh_b2)]</texture></control><control type="image"><right>270</right><top>16</top><width>92</width><height>48</height><aspectratio align="right">keep</aspectratio><texture colordiffuse="af3_dialog_fg_70">$INFO[ListItem.Property(dh_b3)]</texture></control><control type="image"><right>0</right><top>20</top><width>40</width><height>40</height><texture colordiffuse="$VAR[DhOsdAccent]">dexhub/osd/legacy/check.png</texture><visible>!String.IsEmpty(ListItem.Property(iscurrent))</visible></control></control></control></itemlayout><focusedlayout height="80"><control type="group"><left>20</left><right>20</right><control type="image"><texture border="40" colordiffuse="$VAR[DhOsdAccent]">af3/common/menu.png</texture></control><control type="group"><left>40</left><right>20</right><control type="image"><left>0</left><top>20</top><width>60</width><height>40</height><aspectratio>keep</aspectratio><texture background="true">$INFO[ListItem.Property(dh_flag)]</texture><visible>!String.IsEmpty(ListItem.Property(dh_lang))</visible></control><control type="image"><left>12</left><top>22</top><width>36</width><height>36</height><texture colordiffuse="$VAR[DhOsdOnFill]">$INFO[ListItem.Property(dh_icon)]</texture><visible>!!String.IsEmpty(ListItem.Property(dh_lang))</visible></control><control type="label"><left>84</left><top>6</top><width>620</width><height>40</height><font>af3_font_main</font><textcolor>$VAR[DhOsdOnFill]</textcolor><aligny>center</aligny><scroll>true</scroll><label>[B]$INFO[ListItem.Property(dh_lang)][/B]$INFO[ListItem.Property(dh_title),   ·   ,]</label><visible>!String.IsEmpty(ListItem.Property(dh_lang))</visible></control><control type="label"><left>84</left><top>44</top><width>620</width><height>28</height><font>af3_font_hint</font><textcolor>$VAR[DhOsdOnFill]</textcolor><aligny>center</aligny><label>$INFO[ListItem.Property(dh_tags)]</label><visible>!String.IsEmpty(ListItem.Property(dh_lang))</visible></control><control type="label"><left>84</left><top>0</top><width>900</width><height>80</height><font>af3_font_main</font><textcolor>$VAR[DhOsdOnFill]</textcolor><aligny>center</aligny><label>$INFO[ListItem.Label]$INFO[ListItem.Label2,   ·   ,]</label><visible>!!String.IsEmpty(ListItem.Property(dh_lang))</visible></control><control type="image"><right>62</right><top>16</top><width>92</width><height>48</height><aspectratio align="right">keep</aspectratio><texture colordiffuse="$VAR[DhOsdOnFill]">$INFO[ListItem.Property(dh_b1)]</texture></control><control type="image"><right>166</right><top>16</top><width>92</width><height>48</height><aspectratio align="right">keep</aspectratio><texture colordiffuse="$VAR[DhOsdOnFill]">$INFO[ListItem.Property(dh_b2)]</texture></control><control type="image"><right>270</right><top>16</top><width>92</width><height>48</height><aspectratio align="right">keep</aspectratio><texture colordiffuse="$VAR[DhOsdOnFill]">$INFO[ListItem.Property(dh_b3)]</texture></control><control type="image"><right>0</right><top>20</top><width>40</width><height>40</height><texture colordiffuse="$VAR[DhOsdOnFill]">dexhub/osd/legacy/check.png</texture><visible>!String.IsEmpty(ListItem.Property(iscurrent))</visible></control></control></control></focusedlayout>
+							<content>plugin://plugin.video.dexhub.tvos/?action=skin_osd_streams&amp;stream_type=audio&amp;reload=$INFO[Window.Property(UID)]</content>
+							<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_stream&amp;method=set_player_audiostream&amp;index=$INFO[ListItem.Property(index)])</onclick>
+						</control>
+					</control>
+					<control type="scrollbar" id="6306">
+						<top>120</top>
+						<bottom>40</bottom>
+						<onleft>6206</onleft>
+						<onright>6006</onright>
+						<centerright>0</centerright>
+						<width>10</width>
+						<showonepage>false</showonepage>
+						<texturesliderbackground/>
+						<texturesliderbar colordiffuse="af3_dialog_fg_70" border="4">af3/scrollbar/scrollv_line.png</texturesliderbar>
+						<texturesliderbarfocus border="4" colordiffuse="$VAR[DhOsdAccent]">af3/common/scrollv.png</texturesliderbarfocus>
+						<textureslidernib/>
+						<textureslidernibfocus/>
+						<orientation>vertical</orientation>
+					</control>
+				</control>
+			</control>
+			<control type="grouplist">
+				<onright condition="!Control.IsVisible(6016) + !Control.IsVisible(6015)">6005</onright><onright condition="!Control.IsVisible(6016) + Control.IsVisible(6015)">6015</onright><onright condition="Control.IsVisible(6016)">6016</onright><onleft condition="!Control.IsVisible(6009)">6008</onleft><onleft condition="Control.IsVisible(6009)">6009</onleft><height>120</height>
+				<left>-20</left>
+				<centerbottom>80</centerbottom>
+				<orientation>horizontal</orientation>
+				<itemgap>37</itemgap>
+				<align>left</align>
+				<control type="button" id="6001">
+					<width>80</width>
+					<texturefocus/>
+					<texturenofocus/>
+					<font/>
+					<label/>
+					<onfocus>Close</onfocus>
+					<onfocus>SetFocus(6001)</onfocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>30</textoffsetx>
+					<textcolor>af3_main_fg_70</textcolor>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<focusedcolor>ff272727</focusedcolor>
+					<disabledcolor>af3_main_fg_30</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+				<onleft condition="Control.IsVisible(6009)">6009</onleft><onleft condition="!Control.IsVisible(6009)">6008</onleft><onright>6002</onright></control>
+				<control type="button" id="6002">
+					<width>80</width>
+					<texturefocus/>
+					<texturenofocus/>
+					<font/>
+					<label/>
+					<onfocus>Close</onfocus>
+					<onfocus>SetFocus(6002)</onfocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>30</textoffsetx>
+					<textcolor>af3_main_fg_70</textcolor>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<focusedcolor>ff272727</focusedcolor>
+					<disabledcolor>af3_main_fg_30</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+				<onleft>6001</onleft><onright>6003</onright></control>
+				<control type="button" id="6003">
+					<width>80</width>
+					<texturefocus/>
+					<texturenofocus/>
+					<font/>
+					<label/>
+					<onfocus>Close</onfocus>
+					<onfocus>SetFocus(6003)</onfocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>30</textoffsetx>
+					<textcolor>af3_main_fg_70</textcolor>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<focusedcolor>ff272727</focusedcolor>
+					<disabledcolor>af3_main_fg_30</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+				<onleft>6002</onleft><onright>6004</onright></control>
+				<control type="button" id="6004">
+					<width>80</width>
+					<texturefocus/>
+					<texturenofocus/>
+					<font/>
+					<label/>
+					<onfocus>Close</onfocus>
+					<onfocus>SetFocus(6004)</onfocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>30</textoffsetx>
+					<textcolor>af3_main_fg_70</textcolor>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<focusedcolor>ff272727</focusedcolor>
+					<disabledcolor>af3_main_fg_30</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+				<onleft>6003</onleft><onright condition="Control.IsVisible(6016)">6016</onright><onright condition="!Control.IsVisible(6016) + Control.IsVisible(6015)">6015</onright><onright condition="!Control.IsVisible(6016) + !Control.IsVisible(6015)">6005</onright></control>
+				<scrolltime tween="quadratic">400</scrolltime>
+				<usecontrolcoords>true</usecontrolcoords>
+			</control>
+			<!-- dhs osd slots v1 (skin 3.28.40, Dex Hub 5.10.288) -->
+			<!-- the OSD's own buttons stay drawn under this panel, in the order chosen in Player buttons; this holder keeps the panel's actions, Left/Right close it and focus the neighbour slot -->
+			<control type="button" id="6006">
+				<right>0</right>
+				<bottom>0</bottom>
+				<width>1</width>
+				<height>1</height>
+				<texturefocus />
+				<texturenofocus />
+				<font />
+				<label />
+				<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
+				<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles&amp;kind=audio)</onclick>
+				<onlongclick>ActivateWindow(osdaudiosettings)</onlongclick>
+				<onup>SetFocus(6206)</onup>
+				<ondown>ActivateWindow($VAR[AF3_Action_OSD_Main_OnDown])</ondown>
+				<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
+				<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
+				<onleft>Close</onleft>
+				<onleft>SetFocus($VAR[DhOsdPrev_audio])</onleft>
+				<onright>Close</onright>
+				<onright>SetFocus($VAR[DhOsdNext_audio])</onright>
+			</control>
+		</control>
+	</include>
+	<include name="DhQuick1147_Classic">
+		<control type="group">
+			<animation effect="fade" time="200" start="100" end="0" condition="Window.IsActive(1140) | Window.IsActive(1141) | Window.IsActive(1142) | Window.IsActive(videobookmarks) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml)" reversible="false">Conditional</animation>
+			<animation effect="fade" time="200" delay="200" end="100" start="0" condition="![Window.IsActive(1140) | Window.IsActive(1141) | Window.IsActive(1142) | Window.IsActive(videobookmarks) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml)]" reversible="false">Conditional</animation>
+			<left>80</left>
+			<right>80</right>
+			<visible>!Window.IsActive(DialogPlayerProcessInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogSlider.xml)</visible>
+			<control type="group">
+				<control type="group">
+					<visible>!Window.IsVisible(DialogSettings.xml)</visible>
+					<animation type="Visible" reversible="false" condition="true">
+						<effect type="fade" start="0" end="100" time="300" delay="150"/>
+						<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="150"/>
+					</animation>
+					<animation type="WindowOpen" reversible="false" condition="true">
+						<effect type="fade" start="0" end="100" time="300" delay="400"/>
+						<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="400"/>
+					</animation>
+					<animation effect="fade" start="100" end="0" condition="Integer.IsEqual(Container(6207).NumItems,0)">Conditional</animation>
+					<right>-40</right>
+					<width>640</width>
+					<bottom>220</bottom>
+					<height>760</height>
+					<control type="group">
+						<animation effect="slide" start="0" end="0,80" condition="Integer.IsEqual(Container(6207).NumItems,6)">Conditional</animation>
+						<animation effect="slide" start="0" end="0,160" condition="Integer.IsEqual(Container(6207).NumItems,5)">Conditional</animation>
+						<animation effect="slide" start="0" end="0,240" condition="Integer.IsEqual(Container(6207).NumItems,4)">Conditional</animation>
+						<animation effect="slide" start="0" end="0,320" condition="Integer.IsEqual(Container(6207).NumItems,3)">Conditional</animation>
+						<animation effect="slide" start="0" end="0,400" condition="Integer.IsEqual(Container(6207).NumItems,2)">Conditional</animation>
+						<animation effect="slide" start="0" end="0,480" condition="Integer.IsLess(Container(6207).NumItems,2)">Conditional</animation>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>760</height>
+							<visible>Integer.IsGreater(Container(6207).NumItems,6)</visible>
+						</control>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>680</height>
+							<visible>Integer.IsEqual(Container(6207).NumItems,6)</visible>
+						</control>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>600</height>
+							<visible>Integer.IsEqual(Container(6207).NumItems,5)</visible>
+						</control>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>520</height>
+							<visible>Integer.IsEqual(Container(6207).NumItems,4)</visible>
+						</control>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>440</height>
+							<visible>Integer.IsEqual(Container(6207).NumItems,3)</visible>
+						</control>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>360</height>
+							<visible>Integer.IsEqual(Container(6207).NumItems,2)</visible>
+						</control>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>280</height>
+							<visible>Integer.IsLess(Container(6207).NumItems,2)</visible>
+						</control>
+						<control type="group" id="">
+							<height>120</height>
+							<control type="label">
+								<label>$LOCALIZE[287]</label>
+								<textoffsetx>40</textoffsetx>
+								<font>af3_font_midi_bold</font>
+								<aligny>center</aligny>
+								<textcolor>af3_dialog_fg_90</textcolor>
+								<align>left</align>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="group" id="">
+								<right>40</right>
+								<centertop>50%</centertop>
+								<height>40</height>
+								<width>40</width>
+								<control type="image">
+									<bordersize>-8</bordersize>
+									<texture colordiffuse="af3_dialog_fg_90">dexhub/osd/legacy/quote.png</texture>
+								</control>
+							</control>
+							<control type="image">
+								<bottom>0</bottom>
+								<height>1</height>
+								<left>40</left>
+								<right>40</right>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+						</control>
+						<control type="panel" id="6207">
+							<top>140</top>
+							<bottom>40</bottom>
+							<ondown>6007</ondown>
+							<onleft>6007</onleft>
+							<onright>6307</onright>
+							<onup>noop</onup>
+							<pagecontrol>6307</pagecontrol>
+							<orientation>vertical</orientation>
+							<itemlayout height="80">
+								<control type="group">
+									<left>20</left>
+									<right>20</right>
+									<control type="group">
+										<left>40</left>
+										<right>20</right>
+										<control type="label">
+											<textcolor>af3_dialog_fg_90</textcolor>
+											<label>$VAR[AF3_Label_StreamLanguage,[UPPERCASE],[/UPPERCASE]]$INFO[ListItem.Label2, | ,]</label>
+											<width/>
+											<align>left</align>
+											<aligny>center</aligny>
+											<font>af3_font_main</font>
+											<selectedcolor>af3_main_fg_70</selectedcolor>
+											<scrollsuffix> </scrollsuffix>
+											<scrollspeed>40</scrollspeed>
+											<disabledcolor>60FFFFFF</disabledcolor>
+										</control>
+										<control type="label">
+											<right>240</right>
+											<align>right</align>
+											<label>$VAR[AF3_Label_PlayerStream_IsForced,  ,]$VAR[AF3_Label_PlayerStream_IsDefault,  ,]$VAR[AF3_Label_PlayerStream_IsOriginal,  ,]$INFO[ListItem.Property(codec),  ,]$INFO[ListItem.Property(channels),  , $LOCALIZE[10127]]$INFO[ListItem.Property(bitrate),  , bps]</label>
+											<bottom>2</bottom>
+											<font>af3_font_tiny_bold</font>
+											<textcolor>af3_dialog_fg_90</textcolor>
+											<aligny>center</aligny>
+											<selectedcolor>af3_main_fg_70</selectedcolor>
+											<scrollsuffix> </scrollsuffix>
+											<scrollspeed>40</scrollspeed>
+											<disabledcolor>60FFFFFF</disabledcolor>
+										</control>
+										<control type="image">
+											<right>120</right>
+											<top>-1</top>
+											<bottom>1</bottom>
+											<width>80</width>
+											<bordersize>22</bordersize>
+											<aspectratio align="right">keep</aspectratio>
+											<texture colordiffuse="af3_dialog_fg_90">dexhub/osd/legacy/captions.png</texture>
+											<animation effect="fade" end="33" condition="String.IsEmpty(ListItem.Property(isimpaired))">Conditional</animation>
+										</control>
+										<control type="image">
+											<right>60</right>
+											<width>80</width>
+											<bordersize>28</bordersize>
+											<aspectratio align="right">keep</aspectratio>
+											<texture colordiffuse="af3_dialog_fg_90">$VAR[AF3_Image_IsCurrentStream]</texture>
+											<visible>VideoPlayer.SubtitlesEnabled</visible>
+										</control>
+										<control type="image">
+											<right>60</right>
+											<width>80</width>
+											<bordersize>28</bordersize>
+											<aspectratio align="right">keep</aspectratio>
+											<texture colordiffuse="af3_dialog_fg_90">af3/buttons/check-off.png</texture>
+											<visible>!VideoPlayer.SubtitlesEnabled</visible>
+										</control>
+										<control type="image">
+											<right>0</right>
+											<width>80</width>
+											<bordersize>18</bordersize>
+											<aspectratio align="right">keep</aspectratio>
+											<texture>$INFO[ListItem.Property(language),af3/flags/color/language/,.png]</texture>
+										</control>
+									</control>
+								</control>
+							</itemlayout>
+							<focusedlayout height="80">
+								<control type="group">
+									<left>20</left>
+									<right>20</right>
+									<control type="image" id="">
+										<texture border="40" colordiffuse="$VAR[DhOsdAccent]">af3/common/menu.png</texture>
+									</control>
+									<control type="group">
+										<left>40</left>
+										<right>20</right>
+										<control type="label">
+											<textcolor>$VAR[DhOsdOnFill]</textcolor>
+											<label>$VAR[AF3_Label_StreamLanguage,[UPPERCASE],[/UPPERCASE]]$INFO[ListItem.Label2, | ,]</label>
+											<width/>
+											<align>left</align>
+											<aligny>center</aligny>
+											<font>af3_font_main</font>
+											<selectedcolor>af3_main_fg_70</selectedcolor>
+											<scrollsuffix> </scrollsuffix>
+											<scrollspeed>40</scrollspeed>
+											<disabledcolor>60FFFFFF</disabledcolor>
+										</control>
+										<control type="label">
+											<right>240</right>
+											<align>right</align>
+											<label>$VAR[AF3_Label_PlayerStream_IsForced,  ,]$VAR[AF3_Label_PlayerStream_IsDefault,  ,]$VAR[AF3_Label_PlayerStream_IsOriginal,  ,]$INFO[ListItem.Property(codec),  ,]$INFO[ListItem.Property(channels),  , $LOCALIZE[10127]]$INFO[ListItem.Property(bitrate),  , bps]</label>
+											<bottom>2</bottom>
+											<font>af3_font_tiny_bold</font>
+											<textcolor>$VAR[DhOsdOnFill]</textcolor>
+											<aligny>center</aligny>
+											<selectedcolor>af3_main_fg_70</selectedcolor>
+											<scrollsuffix> </scrollsuffix>
+											<scrollspeed>40</scrollspeed>
+											<disabledcolor>60FFFFFF</disabledcolor>
+										</control>
+										<control type="image">
+											<right>120</right>
+											<top>-1</top>
+											<bottom>1</bottom>
+											<width>80</width>
+											<bordersize>22</bordersize>
+											<aspectratio align="right">keep</aspectratio>
+											<texture colordiffuse="$VAR[DhOsdOnFill]">dexhub/osd/legacy/captions.png</texture>
+											<animation effect="fade" end="33" condition="String.IsEmpty(ListItem.Property(isimpaired))">Conditional</animation>
+										</control>
+										<control type="image">
+											<right>60</right>
+											<width>80</width>
+											<bordersize>28</bordersize>
+											<aspectratio align="right">keep</aspectratio>
+											<texture colordiffuse="$VAR[DhOsdOnFill]">$VAR[AF3_Image_IsCurrentStream]</texture>
+											<visible>VideoPlayer.SubtitlesEnabled</visible>
+										</control>
+										<control type="image">
+											<right>60</right>
+											<width>80</width>
+											<bordersize>28</bordersize>
+											<aspectratio align="right">keep</aspectratio>
+											<texture colordiffuse="$VAR[DhOsdOnFill]">af3/buttons/check-off.png</texture>
+											<visible>!VideoPlayer.SubtitlesEnabled</visible>
+										</control>
+										<control type="image">
+											<right>0</right>
+											<width>80</width>
+											<bordersize>18</bordersize>
+											<aspectratio align="right">keep</aspectratio>
+											<texture>$INFO[ListItem.Property(language),af3/flags/color/language/,.png]</texture>
+										</control>
+									</control>
+								</control>
+							</focusedlayout>
+							<content>plugin://plugin.video.dexhub.tvos/?action=skin_osd_streams&amp;stream_type=subtitle&amp;reload=$INFO[Window.Property(UID)]</content>
+							<onclick condition="!String.IsEmpty(ListItem.Property(iscurrent))">Action(ShowSubtitles)</onclick>
+							<onclick condition="String.IsEmpty(ListItem.Property(iscurrent))">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_stream&amp;method=set_player_subtitle&amp;index=$INFO[ListItem.Property(index)])</onclick>
+						</control>
+					</control>
+					<control type="scrollbar" id="6307">
+						<top>120</top>
+						<bottom>40</bottom>
+						<onleft>6207</onleft>
+						<onright>6007</onright>
+						<centerright>0</centerright>
+						<width>10</width>
+						<showonepage>false</showonepage>
+						<texturesliderbackground/>
+						<texturesliderbar colordiffuse="af3_dialog_fg_70" border="4">af3/scrollbar/scrollv_line.png</texturesliderbar>
+						<texturesliderbarfocus border="4" colordiffuse="$VAR[DhOsdAccent]">af3/common/scrollv.png</texturesliderbarfocus>
+						<textureslidernib/>
+						<textureslidernibfocus/>
+						<orientation>vertical</orientation>
+					</control>
+				</control>
+			</control>
+			<control type="grouplist">
+				<onright condition="!Control.IsVisible(6016) + !Control.IsVisible(6015)">6005</onright><onright condition="!Control.IsVisible(6016) + Control.IsVisible(6015)">6015</onright><onright condition="Control.IsVisible(6016)">6016</onright><onleft condition="!Control.IsVisible(6009)">6008</onleft><onleft condition="Control.IsVisible(6009)">6009</onleft><height>120</height>
+				<left>-20</left>
+				<centerbottom>80</centerbottom>
+				<orientation>horizontal</orientation>
+				<itemgap>37</itemgap>
+				<align>left</align>
+				<control type="button" id="6001">
+					<width>80</width>
+					<texturefocus/>
+					<texturenofocus/>
+					<font/>
+					<label/>
+					<onfocus>Close</onfocus>
+					<onfocus>SetFocus(6001)</onfocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>30</textoffsetx>
+					<textcolor>af3_main_fg_70</textcolor>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<focusedcolor>ff272727</focusedcolor>
+					<disabledcolor>af3_main_fg_30</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+				<onleft condition="Control.IsVisible(6009)">6009</onleft><onleft condition="!Control.IsVisible(6009)">6008</onleft><onright>6002</onright></control>
+				<control type="button" id="6002">
+					<width>80</width>
+					<texturefocus/>
+					<texturenofocus/>
+					<font/>
+					<label/>
+					<onfocus>Close</onfocus>
+					<onfocus>SetFocus(6002)</onfocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>30</textoffsetx>
+					<textcolor>af3_main_fg_70</textcolor>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<focusedcolor>ff272727</focusedcolor>
+					<disabledcolor>af3_main_fg_30</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+				<onleft>6001</onleft><onright>6003</onright></control>
+				<control type="button" id="6003">
+					<width>80</width>
+					<texturefocus/>
+					<texturenofocus/>
+					<font/>
+					<label/>
+					<onfocus>Close</onfocus>
+					<onfocus>SetFocus(6003)</onfocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>30</textoffsetx>
+					<textcolor>af3_main_fg_70</textcolor>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<focusedcolor>ff272727</focusedcolor>
+					<disabledcolor>af3_main_fg_30</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+				<onleft>6002</onleft><onright>6004</onright></control>
+				<control type="button" id="6004">
+					<width>80</width>
+					<texturefocus/>
+					<texturenofocus/>
+					<font/>
+					<label/>
+					<onfocus>Close</onfocus>
+					<onfocus>SetFocus(6004)</onfocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>30</textoffsetx>
+					<textcolor>af3_main_fg_70</textcolor>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<focusedcolor>ff272727</focusedcolor>
+					<disabledcolor>af3_main_fg_30</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+				<onleft>6003</onleft><onright condition="Control.IsVisible(6016)">6016</onright><onright condition="!Control.IsVisible(6016) + Control.IsVisible(6015)">6015</onright><onright condition="!Control.IsVisible(6016) + !Control.IsVisible(6015)">6005</onright></control>
+				<scrolltime tween="quadratic">400</scrolltime>
+				<usecontrolcoords>true</usecontrolcoords>
+			</control>
+			<!-- dhs osd slots v1 (skin 3.28.40, Dex Hub 5.10.288) -->
+			<!-- the OSD's own buttons stay drawn under this panel, in the order chosen in Player buttons; this holder keeps the panel's actions, Left/Right close it and focus the neighbour slot -->
+			<control type="button" id="6007">
+				<right>0</right>
+				<bottom>0</bottom>
+				<width>1</width>
+				<height>1</height>
+				<texturefocus />
+				<texturenofocus />
+				<font />
+				<label />
+				<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
+				<onclick>ActivateWindow(osdsubtitlesettings)</onclick>
+				<onup>SetFocus(6207)</onup>
+				<ondown>ActivateWindow($VAR[AF3_Action_OSD_Main_OnDown])</ondown>
+				<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
+				<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
+				<onleft>Close</onleft>
+				<onleft>SetFocus($VAR[DhOsdPrev_subtitles])</onleft>
+				<onright>Close</onright>
+				<onright>SetFocus($VAR[DhOsdNext_subtitles])</onright>
+			</control>
+		</control>
+	</include>
+	<include name="DhQuick1147_Dex">
+		<control type="group">
+			<animation effect="fade" time="200" start="100" end="0" condition="Window.IsActive(1140) | Window.IsActive(1141) | Window.IsActive(1142) | Window.IsActive(videobookmarks) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml)" reversible="false">Conditional</animation>
+			<animation effect="fade" time="200" delay="200" end="100" start="0" condition="![Window.IsActive(1140) | Window.IsActive(1141) | Window.IsActive(1142) | Window.IsActive(videobookmarks) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml)]" reversible="false">Conditional</animation>
+			<left>80</left>
+			<right>80</right>
+			<visible>!Window.IsActive(DialogPlayerProcessInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogSlider.xml)</visible>
+			<control type="group">
+				<control type="group">
+					<visible>!Window.IsVisible(DialogSettings.xml)</visible>
+					<animation type="Visible" reversible="false" condition="true">
+						<effect type="fade" start="0" end="100" time="300" delay="150"/>
+						<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="150"/>
+					</animation>
+					<animation type="WindowOpen" reversible="false" condition="true">
+						<effect type="fade" start="0" end="100" time="300" delay="400"/>
+						<effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="400"/>
+					</animation>
+					<animation effect="fade" start="100" end="0" condition="Integer.IsEqual(Container(6207).NumItems,0)">Conditional</animation>
+					<right>-40</right>
+					<width>1160</width>
+					<bottom>220</bottom>
+					<height>760</height>
+					<control type="group">
+						<animation effect="slide" start="0" end="0,80" condition="Integer.IsEqual(Container(6207).NumItems,6)">Conditional</animation>
+						<animation effect="slide" start="0" end="0,160" condition="Integer.IsEqual(Container(6207).NumItems,5)">Conditional</animation>
+						<animation effect="slide" start="0" end="0,240" condition="Integer.IsEqual(Container(6207).NumItems,4)">Conditional</animation>
+						<animation effect="slide" start="0" end="0,320" condition="Integer.IsEqual(Container(6207).NumItems,3)">Conditional</animation>
+						<animation effect="slide" start="0" end="0,400" condition="Integer.IsEqual(Container(6207).NumItems,2)">Conditional</animation>
+						<animation effect="slide" start="0" end="0,480" condition="Integer.IsLess(Container(6207).NumItems,2)">Conditional</animation>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>760</height>
+							<visible>Integer.IsGreater(Container(6207).NumItems,6)</visible>
+						</control>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>680</height>
+							<visible>Integer.IsEqual(Container(6207).NumItems,6)</visible>
+						</control>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>600</height>
+							<visible>Integer.IsEqual(Container(6207).NumItems,5)</visible>
+						</control>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>520</height>
+							<visible>Integer.IsEqual(Container(6207).NumItems,4)</visible>
+						</control>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>440</height>
+							<visible>Integer.IsEqual(Container(6207).NumItems,3)</visible>
+						</control>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>360</height>
+							<visible>Integer.IsEqual(Container(6207).NumItems,2)</visible>
+						</control>
+						<control type="group">
+							<control type="group">
+								<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+								<control type="image">
+									<texture colordiffuse="af3_dialog_bg_100" border="20">af3/common/dialog.png</texture>
+									<left>-80</left>
+									<right>-80</right>
+									<top>-80</top>
+									<bottom>-80</bottom>
+									<bordersize>80</bordersize>
+									<bordertexture border="100" colordiffuse="af3_shadow_hard">af3/shadows/shadow-80.png</bordertexture>
+								</control>
+								<control type="image">
+									<fadetime>400</fadetime>
+									<texture border="40" colordiffuse="af3_overlay_hard">$VAR[AF3_Image_Current_Background,,-diffuse-20.jpg]</texture>
+								</control>
+							</control>
+							<control type="image">
+								<texture colordiffuse="af3_dialog_fg_06" border="20">af3/common/dialog-outline.png</texture>
+							</control>
+							<control type="image">
+								<texture border="20" colordiffuse="af3_dialog_fg_12">af3/common/dialog.png</texture>
+							</control>
+							<control type="image">
+								<left>40</left>
+								<right>40</right>
+								<height>1</height>
+								<centerbottom>40</centerbottom>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+							<height>280</height>
+							<visible>Integer.IsLess(Container(6207).NumItems,2)</visible>
+						</control>
+						<control type="group" id="">
+							<height>120</height>
+							<control type="label">
+								<label>$LOCALIZE[287]</label>
+								<textoffsetx>40</textoffsetx>
+								<font>af3_font_midi_bold</font>
+								<aligny>center</aligny>
+								<textcolor>af3_dialog_fg_90</textcolor>
+								<align>left</align>
+								<selectedcolor>af3_main_fg_70</selectedcolor>
+								<scrollsuffix> </scrollsuffix>
+								<scrollspeed>40</scrollspeed>
+								<disabledcolor>60FFFFFF</disabledcolor>
+							</control>
+							<control type="group" id="">
+								<right>40</right>
+								<centertop>50%</centertop>
+								<height>40</height>
+								<width>40</width>
+								<control type="image">
+									<bordersize>-8</bordersize>
+									<texture colordiffuse="af3_dialog_fg_90">dexhub/osd/legacy/quote.png</texture>
+								</control>
+							</control>
+							<control type="image">
+								<bottom>0</bottom>
+								<height>1</height>
+								<left>40</left>
+								<right>40</right>
+								<texture colordiffuse="af3_dialog_fg_06">af3/common/white.png</texture>
+							</control>
+						</control>
+						<control type="panel" id="6207">
+							<top>140</top>
+							<bottom>40</bottom>
+							<ondown>6007</ondown>
+							<onleft>6007</onleft>
+							<onright>6307</onright>
+							<onup>noop</onup>
+							<pagecontrol>6307</pagecontrol>
+							<orientation>vertical</orientation>
+							<itemlayout height="80"><control type="group"><left>20</left><right>20</right><control type="group"><left>40</left><right>20</right><control type="image"><left>0</left><top>20</top><width>60</width><height>40</height><aspectratio>keep</aspectratio><texture background="true">$INFO[ListItem.Property(dh_flag)]</texture><visible>!String.IsEmpty(ListItem.Property(dh_lang))</visible></control><control type="image"><left>12</left><top>22</top><width>36</width><height>36</height><texture colordiffuse="af3_dialog_fg_90">$INFO[ListItem.Property(dh_icon)]</texture><visible>!!String.IsEmpty(ListItem.Property(dh_lang))</visible></control><control type="label"><left>84</left><top>6</top><width>620</width><height>40</height><font>af3_font_main</font><textcolor>af3_dialog_fg_90</textcolor><aligny>center</aligny><label>[B]$INFO[ListItem.Property(dh_lang)][/B]$INFO[ListItem.Property(dh_title),   ·   ,]</label><visible>!String.IsEmpty(ListItem.Property(dh_lang))</visible></control><control type="label"><left>84</left><top>44</top><width>620</width><height>28</height><font>af3_font_hint</font><textcolor>af3_dialog_fg_70</textcolor><aligny>center</aligny><label>$INFO[ListItem.Property(dh_tags)]</label><visible>!String.IsEmpty(ListItem.Property(dh_lang))</visible></control><control type="label"><left>84</left><top>0</top><width>900</width><height>80</height><font>af3_font_main</font><textcolor>af3_dialog_fg_90</textcolor><aligny>center</aligny><label>$INFO[ListItem.Label]$INFO[ListItem.Label2,   ·   ,]</label><visible>!!String.IsEmpty(ListItem.Property(dh_lang))</visible></control><control type="image"><right>62</right><top>16</top><width>92</width><height>48</height><aspectratio align="right">keep</aspectratio><texture colordiffuse="af3_dialog_fg_70">$INFO[ListItem.Property(dh_b1)]</texture></control><control type="image"><right>166</right><top>16</top><width>92</width><height>48</height><aspectratio align="right">keep</aspectratio><texture colordiffuse="af3_dialog_fg_70">$INFO[ListItem.Property(dh_b2)]</texture></control><control type="image"><right>270</right><top>16</top><width>92</width><height>48</height><aspectratio align="right">keep</aspectratio><texture colordiffuse="af3_dialog_fg_70">$INFO[ListItem.Property(dh_b3)]</texture></control><control type="image"><right>0</right><top>20</top><width>40</width><height>40</height><texture colordiffuse="$VAR[DhOsdAccent]">dexhub/osd/legacy/check.png</texture><visible>!String.IsEmpty(ListItem.Property(iscurrent)) + VideoPlayer.SubtitlesEnabled</visible></control></control></control></itemlayout><focusedlayout height="80"><control type="group"><left>20</left><right>20</right><control type="image"><texture border="40" colordiffuse="$VAR[DhOsdAccent]">af3/common/menu.png</texture></control><control type="group"><left>40</left><right>20</right><control type="image"><left>0</left><top>20</top><width>60</width><height>40</height><aspectratio>keep</aspectratio><texture background="true">$INFO[ListItem.Property(dh_flag)]</texture><visible>!String.IsEmpty(ListItem.Property(dh_lang))</visible></control><control type="image"><left>12</left><top>22</top><width>36</width><height>36</height><texture colordiffuse="$VAR[DhOsdOnFill]">$INFO[ListItem.Property(dh_icon)]</texture><visible>!!String.IsEmpty(ListItem.Property(dh_lang))</visible></control><control type="label"><left>84</left><top>6</top><width>620</width><height>40</height><font>af3_font_main</font><textcolor>$VAR[DhOsdOnFill]</textcolor><aligny>center</aligny><scroll>true</scroll><label>[B]$INFO[ListItem.Property(dh_lang)][/B]$INFO[ListItem.Property(dh_title),   ·   ,]</label><visible>!String.IsEmpty(ListItem.Property(dh_lang))</visible></control><control type="label"><left>84</left><top>44</top><width>620</width><height>28</height><font>af3_font_hint</font><textcolor>$VAR[DhOsdOnFill]</textcolor><aligny>center</aligny><label>$INFO[ListItem.Property(dh_tags)]</label><visible>!String.IsEmpty(ListItem.Property(dh_lang))</visible></control><control type="label"><left>84</left><top>0</top><width>900</width><height>80</height><font>af3_font_main</font><textcolor>$VAR[DhOsdOnFill]</textcolor><aligny>center</aligny><label>$INFO[ListItem.Label]$INFO[ListItem.Label2,   ·   ,]</label><visible>!!String.IsEmpty(ListItem.Property(dh_lang))</visible></control><control type="image"><right>62</right><top>16</top><width>92</width><height>48</height><aspectratio align="right">keep</aspectratio><texture colordiffuse="$VAR[DhOsdOnFill]">$INFO[ListItem.Property(dh_b1)]</texture></control><control type="image"><right>166</right><top>16</top><width>92</width><height>48</height><aspectratio align="right">keep</aspectratio><texture colordiffuse="$VAR[DhOsdOnFill]">$INFO[ListItem.Property(dh_b2)]</texture></control><control type="image"><right>270</right><top>16</top><width>92</width><height>48</height><aspectratio align="right">keep</aspectratio><texture colordiffuse="$VAR[DhOsdOnFill]">$INFO[ListItem.Property(dh_b3)]</texture></control><control type="image"><right>0</right><top>20</top><width>40</width><height>40</height><texture colordiffuse="$VAR[DhOsdOnFill]">dexhub/osd/legacy/check.png</texture><visible>!String.IsEmpty(ListItem.Property(iscurrent)) + VideoPlayer.SubtitlesEnabled</visible></control></control></control></focusedlayout>
+							<content>plugin://plugin.video.dexhub.tvos/?action=skin_osd_streams&amp;stream_type=subtitle&amp;reload=$INFO[Window.Property(UID)]</content>
+							<onclick condition="String.IsEqual(ListItem.Property(index),-8)">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles&amp;section=look)</onclick><onclick condition="!String.IsEmpty(ListItem.Property(iscurrent))">Action(ShowSubtitles)</onclick>
+							<onclick condition="String.IsEmpty(ListItem.Property(iscurrent)) + !String.IsEqual(ListItem.Property(index),-8)">RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_stream&amp;method=set_player_subtitle&amp;index=$INFO[ListItem.Property(index)])</onclick>
+						</control>
+					</control>
+					<control type="scrollbar" id="6307">
+						<top>120</top>
+						<bottom>40</bottom>
+						<onleft>6207</onleft>
+						<onright>6007</onright>
+						<centerright>0</centerright>
+						<width>10</width>
+						<showonepage>false</showonepage>
+						<texturesliderbackground/>
+						<texturesliderbar colordiffuse="af3_dialog_fg_70" border="4">af3/scrollbar/scrollv_line.png</texturesliderbar>
+						<texturesliderbarfocus border="4" colordiffuse="$VAR[DhOsdAccent]">af3/common/scrollv.png</texturesliderbarfocus>
+						<textureslidernib/>
+						<textureslidernibfocus/>
+						<orientation>vertical</orientation>
+					</control>
+				</control>
+			</control>
+			<control type="grouplist">
+				<onright condition="!Control.IsVisible(6016) + !Control.IsVisible(6015)">6005</onright><onright condition="!Control.IsVisible(6016) + Control.IsVisible(6015)">6015</onright><onright condition="Control.IsVisible(6016)">6016</onright><onleft condition="!Control.IsVisible(6009)">6008</onleft><onleft condition="Control.IsVisible(6009)">6009</onleft><height>120</height>
+				<left>-20</left>
+				<centerbottom>80</centerbottom>
+				<orientation>horizontal</orientation>
+				<itemgap>37</itemgap>
+				<align>left</align>
+				<control type="button" id="6001">
+					<width>80</width>
+					<texturefocus/>
+					<texturenofocus/>
+					<font/>
+					<label/>
+					<onfocus>Close</onfocus>
+					<onfocus>SetFocus(6001)</onfocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>30</textoffsetx>
+					<textcolor>af3_main_fg_70</textcolor>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<focusedcolor>ff272727</focusedcolor>
+					<disabledcolor>af3_main_fg_30</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+				<onleft condition="Control.IsVisible(6009)">6009</onleft><onleft condition="!Control.IsVisible(6009)">6008</onleft><onright>6002</onright></control>
+				<control type="button" id="6002">
+					<width>80</width>
+					<texturefocus/>
+					<texturenofocus/>
+					<font/>
+					<label/>
+					<onfocus>Close</onfocus>
+					<onfocus>SetFocus(6002)</onfocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>30</textoffsetx>
+					<textcolor>af3_main_fg_70</textcolor>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<focusedcolor>ff272727</focusedcolor>
+					<disabledcolor>af3_main_fg_30</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+				<onleft>6001</onleft><onright>6003</onright></control>
+				<control type="button" id="6003">
+					<width>80</width>
+					<texturefocus/>
+					<texturenofocus/>
+					<font/>
+					<label/>
+					<onfocus>Close</onfocus>
+					<onfocus>SetFocus(6003)</onfocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>30</textoffsetx>
+					<textcolor>af3_main_fg_70</textcolor>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<focusedcolor>ff272727</focusedcolor>
+					<disabledcolor>af3_main_fg_30</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+				<onleft>6002</onleft><onright>6004</onright></control>
+				<control type="button" id="6004">
+					<width>80</width>
+					<texturefocus/>
+					<texturenofocus/>
+					<font/>
+					<label/>
+					<onfocus>Close</onfocus>
+					<onfocus>SetFocus(6004)</onfocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>30</textoffsetx>
+					<textcolor>af3_main_fg_70</textcolor>
+					<selectedcolor>af3_main_fg_70</selectedcolor>
+					<focusedcolor>ff272727</focusedcolor>
+					<disabledcolor>af3_main_fg_30</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<scrollsuffix> </scrollsuffix>
+					<scrollspeed>40</scrollspeed>
+				<onleft>6003</onleft><onright condition="Control.IsVisible(6016)">6016</onright><onright condition="!Control.IsVisible(6016) + Control.IsVisible(6015)">6015</onright><onright condition="!Control.IsVisible(6016) + !Control.IsVisible(6015)">6005</onright></control>
+				<scrolltime tween="quadratic">400</scrolltime>
+				<usecontrolcoords>true</usecontrolcoords>
+			</control>
+			<!-- dhs osd slots v1 (skin 3.28.40, Dex Hub 5.10.288) -->
+			<!-- the OSD's own buttons stay drawn under this panel, in the order chosen in Player buttons; this holder keeps the panel's actions, Left/Right close it and focus the neighbour slot -->
+			<control type="button" id="6007">
+				<right>0</right>
+				<bottom>0</bottom>
+				<width>1</width>
+				<height>1</height>
+				<texturefocus />
+				<texturenofocus />
+				<font />
+				<label />
+				<onclick condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onclick>
+				<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles)</onclick>
+				<onlongclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_osd_subtitles&amp;section=look)</onlongclick>
+				<onup>SetFocus(6207)</onup>
+				<ondown>ActivateWindow($VAR[AF3_Action_OSD_Main_OnDown])</ondown>
+				<onfocus condition="!String.IsEmpty(Skin.String(OSD_Timeout)) + [Window.IsVisible(videoosd) | Window.IsVisible(musicosd)]">AlarmClock(osd_timeout,Dialog.Close(videoosd),$INFO[Skin.String(OSD_Timeout),00:,],silent)</onfocus>
+				<onunfocus>CancelAlarm(osd_timeout,true)</onunfocus>
+				<onleft>Close</onleft>
+				<onleft>SetFocus($VAR[DhOsdPrev_subtitles])</onleft>
+				<onright>Close</onright>
+				<onright>SetFocus($VAR[DhOsdNext_subtitles])</onright>
+			</control>
+		</control>
+	</include>
+</includes>

@@ -32,10 +32,14 @@ for asset in sorted((base / 'assets').glob('*.zip')):
 # v20: no overlays. The plugin and skin ZIPs in assets are built whole from src/
 # (release_assets.py), so nothing older is copied over a newer release.
 shutil.copytree(base / 'script.dexhub.tvos.players', addons / 'script.dexhub.tvos.players', dirs_exist_ok=True)
-managed.add('script.dexhub.tvos.players')
-if (base / 'script.dexhub.tvos.test').is_dir():
-    shutil.copytree(base / 'script.dexhub.tvos.test', addons / 'script.dexhub.tvos.test', dirs_exist_ok=True)
-    managed.add('script.dexhub.tvos.test')
+shutil.copytree(base / 'script.dexhub.tvos.test', addons / 'script.dexhub.tvos.test', dirs_exist_ok=True)
+managed.update(('script.dexhub.tvos.players', 'script.dexhub.tvos.test'))
+# v21.34: the Dex Hub repository travels with the app, so Kodi keeps the
+# add-on, the skin and the player controls up to date from it (the bundle
+# itself never installs an older copy over a newer one)
+if (base / 'repository.dexhub' / 'addon.xml').is_file():
+    shutil.copytree(base / 'repository.dexhub', addons / 'repository.dexhub', dirs_exist_ok=True)
+    managed.add('repository.dexhub')
 if os.environ.get('DEX_REPO_URL'):
     import subprocess
     repo = base / 'repo-generated'

@@ -2200,34 +2200,282 @@ msgid "Player buttons"
 msgstr ""
 
 # 3.28.44: the one Appearance place (Dex Hub 5.10.299)
-msgctxt "#32151"
+msgctxt "#31916"
 msgid "All appearance options"
 msgstr ""
 
-msgctxt "#32152"
+msgctxt "#31917"
 msgid "One place: theme, colours, Home, cards, motion"
 msgstr ""
 
-msgctxt "#32153"
+msgctxt "#31918"
 msgid "Theme and colours"
 msgstr ""
 
-msgctxt "#32154"
+msgctxt "#31919"
 msgid "Home and cards"
 msgstr ""
 
-msgctxt "#32155"
+msgctxt "#31920"
 msgid "Motion and trailers"
 msgstr ""
 
-msgctxt "#32156"
+msgctxt "#31921"
 msgid "No chapters or bookmarks in this video"
 msgstr ""
 
-msgctxt "#32157"
+msgctxt "#31922"
 msgid "Add a bookmark with the button above"
 msgstr ""
 
-msgctxt "#32158"
+msgctxt "#31923"
 msgid "Now"
+msgstr ""
+
+msgctxt "#31924"
+msgid "Pause"
+msgstr ""
+
+msgctxt "#31925"
+msgid "Play"
+msgstr ""
+
+msgctxt "#31926"
+msgid "Previous"
+msgstr ""
+
+msgctxt "#31927"
+msgid "Next"
+msgstr ""
+
+msgctxt "#31928"
+msgid "Stop"
+msgstr ""
+
+msgctxt "#31929"
+msgid "Sources"
+msgstr ""
+
+msgctxt "#31930"
+msgid "Episodes"
+msgstr ""
+
+msgctxt "#31931"
+msgid "Info"
+msgstr ""
+
+msgctxt "#31932"
+msgid "Audio"
+msgstr ""
+
+msgctxt "#31933"
+msgid "Subtitles"
+msgstr ""
+
+msgctxt "#31934"
+msgid "Sync subtitle"
+msgstr ""
+
+msgctxt "#31935"
+msgid "Next subtitle"
+msgstr ""
+
+msgctxt "#31936"
+msgid "Video"
+msgstr ""
+
+msgctxt "#31937"
+msgid "PPI"
+msgstr ""
+
+msgctxt "#31938"
+msgid "External player"
+msgstr ""
+
+msgctxt "#31939"
+msgid "Primary"
+msgstr ""
+
+msgctxt "#31978"
+msgid "Off"
+msgstr ""
+
+msgctxt "#31979"
+msgid "Style and sync"
+msgstr ""
+
+msgctxt "#31980"
+msgid "Size, colour, delay"
+msgstr ""
+
+msgctxt "#31981"
+msgid "Audio settings"
+msgstr ""
+
+msgctxt "#31982"
+msgid "Volume, delay, passthrough"
+msgstr ""
+
+msgctxt "#31983"
+msgid "Playing"
+msgstr ""
+
+msgctxt "#31984"
+msgid "ends"
+msgstr ""
+
+msgctxt "#31985"
+msgid "Embedded"
+msgstr ""
+
+msgctxt "#31986"
+msgid "Search again"
+msgstr ""
+
+msgctxt "#31987"
+msgid "Sort"
+msgstr ""
+
+msgctxt "#31988"
+msgid "Ready"
+msgstr ""
+
+msgctxt "#31989"
+msgid "Not ready"
+msgstr ""
+
+msgctxt "#31990"
+msgid "Watched"
+msgstr ""
+
+msgctxt "#31991"
+msgid "TMDb Helper"
+msgstr ""
+
+msgctxt "#31992"
+msgid "Classic page"
+msgstr ""
+
+msgctxt "#32099"
+msgid "Saved"
+msgstr ""
+
+msgctxt "#32100"
+msgid "Alerts"
+msgstr ""
+
+msgctxt "#32101"
+msgid "Schedule"
+msgstr ""
+
+msgctxt "#32102"
+msgid "Sort"
+msgstr ""
+
+msgctxt "#32103"
+msgid "Group"
+msgstr ""
+
+msgctxt "#32104"
+msgid "Style"
+msgstr ""
+
+msgctxt "#32105"
+msgid "Collection"
+msgstr ""
+
+msgctxt "#32106"
+msgid "Studios"
+msgstr ""
+
+msgctxt "#32107"
+msgid "View collection"
+msgstr ""
+
+msgctxt "#32108"
+msgid "Nothing saved yet"
+msgstr ""
+
+msgctxt "#32109"
+msgid "Recent"
+msgstr ""
+
+msgctxt "#32110"
+msgid "Oldest"
+msgstr ""
+
+msgctxt "#32111"
+msgid "A to Z"
+msgstr ""
+
+msgctxt "#32112"
+msgid "Progress"
+msgstr ""
+
+msgctxt "#32113"
+msgid "Type"
+msgstr ""
+
+msgctxt "#32114"
+msgid "None"
+msgstr ""
+
+msgctxt "#32115"
+msgid "List"
+msgstr ""
+
+msgctxt "#32116"
+msgid "Posters"
+msgstr ""
+
+msgctxt "#32117"
+msgid "Cards"
+msgstr ""
+
+msgctxt "#32118"
+msgid "Nothing new today"
+msgstr ""
+
+msgctxt "#32119"
+msgid "Nothing coming up"
+msgstr ""
+
+msgctxt "#32120"
+msgid "Saved and schedule"
+msgstr ""
+
+msgctxt "#31993"
+msgid "Subtitle look"
+msgstr ""
+
+msgctxt "#31994"
+msgid "Dex Hub"
+msgstr ""
+
+msgctxt "#31995"
+msgid "Cinema"
+msgstr ""
+
+msgctxt "#31996"
+msgid "Box"
+msgstr ""
+
+msgctxt "#31997"
+msgid "Large"
+msgstr ""
+
+msgctxt "#31998"
+msgid "Left and Right change it"
+msgstr ""
+
+msgctxt "#32151"
+msgid "Power"
+msgstr ""
+
+msgctxt "#32152"
+msgid "Interface settings"
+msgstr ""
+
+msgctxt "#32153"
+msgid "Reload skin"
 msgstr ""

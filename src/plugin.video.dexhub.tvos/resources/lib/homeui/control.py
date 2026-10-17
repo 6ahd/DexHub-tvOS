@@ -30,6 +30,8 @@ import xbmcgui
 
 ADDON_ID = 'plugin.video.dexhub.tvos'
 SECTIONS, ENTRIES = 100, 200
+# v5.10.329: the power buttons under the sections (None: the power menu)
+POWER_BUTTONS = {301: None, 302: 'Reset()', 303: 'Powerdown()', 304: 'Suspend()'}
 A_BACK = {9, 10, 92, 216, 247, 257, 275, 61448, 61467}
 LAST_PROP = 'dexhub.control.section'
 
@@ -65,7 +67,8 @@ SECTION_LIST = (
         ('home_layout_mode', 'pick', 'display', 'وضع الواجهة', 'هيرو وصفوف أو سينمائي أو رف بطاقات أو غيرها', 'skin'),
         ('nav_position', 'pick', 'list-ul', 'مكان تبويبات الأقسام', 'شريط علوي أو قائمة جانبية', 'skin'),
         ('nav_icons', 'toggle', 'bars', 'القائمة الجانبية أيقونات فقط', 'ما تنفتح بالكلمات لما تروح لها', 'skin'),
-        ('nav_autohide', 'toggle', 'eye-slash', 'إخفاء الشريط العلوي عند التمرير', 'يختفي لما تنزل للصفوف ويرجع لما تطلع', 'skin'),
+        ('nav_autohide', 'toggle', 'eye-slash', 'إخفاء القائمة عند التمرير', 'الشريط العلوي أو القائمة الجانبية تختفي لما تنزل للصفوف وترجع لما تطلع أو تروح يسار', 'skin'),
+        ('nav_focus_open', 'toggle', 'circle-dot', 'فتح الأقسام بالتمرير', 'القسم ينفتح لما توقف على أيقونته ثانية، بدون ضغط', 'skin'),
         ('nav_names', 'toggle', 'list-ul', 'أسماء الأقسام', 'أسماء بجانب أيقونات الشريط', ''),
         ('size', 'open', 'up-right-and-down-left-from-center', 'حجم الواجهة والبطاقات', 'من 50% إلى 200%', ''),
         ('card_style', 'pick', 'layer-group', 'عناوين البطاقات', 'على الصورة أو تحتها أو بدون', ''),
@@ -74,6 +77,8 @@ SECTION_LIST = (
         ('row_dim', 'pick', 'display', 'تعتيم الصفوف', 'الصفوف غير المحددة', ''),
         ('row_source', 'toggle', 'tags', 'إظهار مصدر الصف', 'From بجانب عنوان الصف', ''),
         ('season_names', 'toggle', 'tags', 'أسماء المواسم', 'الموسم 1: Murder House بدل الموسم 1', ''),
+        ('rating_inline', 'toggle', 'star', 'التقييم في سطر التفاصيل', 'بعد التصنيفات والسنة والمدة بدل سطر لحاله', ''),
+        ('compact_hero', 'toggle', 'display', 'هيرو الصفين أصغر', 'أزرار وأسماء صفوف أصغر ونبذة أعرض في وضع الصفين', ''),
     )),
     ('look_motion', 'wand-magic-sparkles', 'المظهر: الحركة والتريلرات', 'التحديد والخلفيات والتريلر', (
         ('focus_motion', 'pick', 'wand-magic-sparkles', 'حركة التحديد', 'تكبير أو رفع أو قفزة أو إضاءة', ''),
@@ -85,6 +90,7 @@ SECTION_LIST = (
         ('trailers', 'pick', 'clapperboard', 'التريلرات', 'متى يبدأ تريلر العمل المحدد', ''),
         ('trailer_sound', 'toggle', 'film', 'صوت التريلر', 'التريلر بصوته أو صامت', ''),
         ('trailer_volume', 'pick', 'film', 'مستوى صوت التريلر', 'من 0 إلى 100؛ يرجع صوت المشاهدة بعد التريلر', ''),
+        ('trailer_place', 'pick', 'clapperboard', 'مكان التريلر', 'خلف الصفحة، أو داخل البطاقة المحددة وهي مفتوحة في صفها', ''),
     )),
     ('player', 'circle-play', 'المشغل', 'التشغيل والرموز والترجمة', (
         ('player', 'open', 'circle-play', 'خيارات المشغل', 'الشعار والتقييمات وسطر المعلومات', 'player'),
@@ -190,11 +196,12 @@ PICKS = {
     'background_style': ('homeui_background_style', (('cinematic', 'سينمائي'), ('soft', 'هادئ'), ('dark', 'داكن'))),
     # v5.10.286: the two new Home layouts first (cinematic keeps the default: options[0]
     # is only the fallback label, the setting's default stays cinematic)
-    'home_layout_mode': ('homeui_layout_mode', (('cinematic', 'هيرو وصفوف'), ('cinema', 'سينمائي ملء الشاشة'), ('shelf', 'رف بطاقات عريضة'),
+    'home_layout_mode': ('homeui_layout_mode', (('cinematic', 'هيرو وصفوف'), ('legacy', 'ليقسي'), ('cinema', 'سينمائي ملء الشاشة'), ('shelf', 'رف بطاقات عريضة'),
                                                 ('netflix', 'هيرو وصف واحد'), ('two_rows', 'هيرو مختصر وصفين'),
                                                 ('spotlight_posters', 'Spotlight وبوسترات'))),
     'nav_position': ('homeui_nav_position', (('top', 'أعلى الشاشة'), ('side', 'قائمة جانبية'))),
     'trailer_volume': ('homeui_trailer_volume', tuple((str(v), str(v) + '%') for v in range(0,101,5))),
+    'trailer_place': ('homeui_trailer_mode', (('background', 'خلفية الشاشة'), ('card', 'داخل البطاقة'))),
     'meta_lang': ('homeui_metadata_language', (('Auto', 'تلقائي (لغة الواجهة)'), ('Arabic', 'العربية'),
                                                 ('English', 'English'))),
     'server_meta': ('server_metadata', (('0', 'من السيرفر أولاً'), ('1', 'من المصدر المختار'))),
@@ -265,7 +272,8 @@ PICK_LINES = {
 }
 TOGGLES = {'library_split': ('library_split_media', 'true'), 'badges_visible': ('player_badges_visible', 'true'),
            'row_source': ('homeui_show_row_source', 'true'), 'plot_scroll': ('homeui_plot_scroll', 'true'),
-           'hide_plot': ('homeui_hide_plot', 'false'), 'nav_icons': ('homeui_nav_icons_only', 'false'), 'nav_autohide': ('homeui_nav_autohide', 'false'), 'carousel': ('homeui_carousel', 'true'),'trailer_sound': ('homeui_trailer_sound', 'true'), 'ratings': ('metadata_badges', 'true'),
+           'hide_plot': ('homeui_hide_plot', 'false'), 'rating_inline': ('homeui_rating_inline', 'true'),
+           'compact_hero': ('homeui_compact_hero', 'true'), 'nav_icons': ('homeui_nav_icons_only', 'false'), 'nav_autohide': ('homeui_nav_autohide', 'false'), 'nav_focus_open': ('homeui_nav_focus_open', 'false'), 'carousel': ('homeui_carousel', 'true'),'trailer_sound': ('homeui_trailer_sound', 'true'), 'ratings': ('metadata_badges', 'true'),
            'nav_names': ('homeui_nav_names', 'false'), 'follow_merge': ('follow_merge', 'true'),
            'trakt_smart': ('trakt_smart_sync', 'true'), 'season_names': ('season_names', 'true'),
            'reminders': ('episode_reminders', 'true'),
@@ -273,9 +281,9 @@ TOGGLES = {'library_split': ('library_split_media', 'true'), 'badges_visible': (
            'kenburns': ('homeui_kenburns', 'true'), 'focus_gif': ('homeui_focus_gif', 'true')}
 SIZES = {'': 'عادي', 'large': 'كبير', 'xlarge': 'كبير جداً',
          'normal': 'عادي', 'extra large': 'كبير جداً'}
-_SETTINGS = ('homeui_nav_icons_only', 'homeui_nav_autohide', 'library_split_media', 'player_badges_visible', 'player_badges_brightness', 'homeui_poster_scale', 'homeui_show_row_source', 'homeui_title_style', 'homeui_background_style', 'homeui_plot_scroll', 'homeui_hide_plot', 'homeui_carousel', 'homeui_layout_mode', 'homeui_nav_position', 'homeui_metadata_language', 'server_metadata', 'homeui_card_style', 'homeui_focus_motion',
+_SETTINGS = ('homeui_nav_icons_only', 'homeui_nav_autohide', 'homeui_nav_focus_open', 'library_split_media', 'player_badges_visible', 'player_badges_brightness', 'homeui_poster_scale', 'homeui_show_row_source', 'homeui_title_style', 'homeui_background_style', 'homeui_plot_scroll', 'homeui_hide_plot', 'homeui_rating_inline', 'homeui_compact_hero', 'homeui_carousel', 'homeui_layout_mode', 'homeui_nav_position', 'homeui_metadata_language', 'server_metadata', 'homeui_card_style', 'homeui_focus_motion',
              'homeui_row_dim', 'homeui_trailer_sound', 'metadata_badges', 'homeui_nav_names', 'homeui_trailers',
-             'homeui_trailer_delay', 'homeui_trailer_volume', 'homeui_size', 'global_meta_source_id', 'global_meta_source_all',
+             'homeui_trailer_delay', 'homeui_trailer_volume', 'homeui_trailer_mode', 'homeui_size', 'global_meta_source_id', 'global_meta_source_all',
              'tmdb_api_key', 'global_poster_source_id', 'follow_order', 'library_sort', 'follow_merge',
              'trakt_smart_sync', 'continue_episode_art', 'season_names', 'episode_titles', 'episode_reminders', 'credits_panel',
              'home_hide_new_rows', 'home_group_recs', 'homeui_kenburns', 'homeui_focus_gif',
@@ -602,6 +610,10 @@ class ControlCentre(xbmcgui.WindowXMLDialog):
         self.setProperty('cc.caption', tr('مركز التحكم'))
         self.setProperty('cc.version', 'Dex Hub %s' % self.version if self.version else 'Dex Hub')
         self.setProperty('cc.hint', tr('اضغط OK للفتح أو التغيير  \u2022  يسار للأقسام  \u2022  رجوع للإغلاق'))
+        # v5.10.329: the power buttons under the sections
+        for prop, name in (('cc.pw1', 'خيارات الطاقة'), ('cc.pw2', 'إعادة تشغيل الجهاز'),
+                           ('cc.pw3', 'إطفاء الجهاز'), ('cc.pw4', 'وضع السكون')):
+            self.setProperty(prop, tr(name))
         self._read()
         items = []
         for sid, icon, title, line, entries in self.sections:
@@ -677,6 +689,17 @@ class ControlCentre(xbmcgui.WindowXMLDialog):
         if control_id == SECTIONS:
             self.setFocusId(ENTRIES)
             return
+        if control_id in POWER_BUTTONS:
+            # v5.10.329: the power buttons (the options open the power menu)
+            builtin = POWER_BUTTONS[control_id]
+            self._closing = True
+            if builtin is None:
+                self.choice = 'power'
+                self.close()
+                return
+            self.close()
+            xbmc.executebuiltin(builtin)
+            return
         if control_id != ENTRIES:
             return
         try:
@@ -704,7 +727,7 @@ class ControlCentre(xbmcgui.WindowXMLDialog):
             xbmc.log('[DexHub] control centre %s:\n%s' % (key, traceback.format_exc()), xbmc.LOGWARNING)
             if key in ('home_layout_mode', 'nav_position'):
                 xbmcgui.Dialog().notification('Dex Hub', self.tr('تعذر حفظ وضع الواجهة؛ حدّث الإضافة وأعد تشغيل Kodi'), sound=False)
-            if key in ('trailer_volume', 'trailer_sound', 'trailers'):
+            if key in ('trailer_volume', 'trailer_sound', 'trailers', 'trailer_place'):
                 xbmcgui.Dialog().notification('Dex Hub', self.tr('تعذر حفظ إعداد التريلر؛ حدّث الإضافة وأعد تشغيل Kodi'), sound=False)
         if changed:
             self._read()
@@ -761,6 +784,7 @@ class ControlCentre(xbmcgui.WindowXMLDialog):
                      'two_rows': 'شريط بارز صغير وصفين كاملين',
                      'cinematic': 'عمل بارز وتحته الصفوف',
                      'shelf': 'بدون هيرو: بطاقات عريضة كبيرة ثم الصفوف',
+                     'legacy': 'شعار ومعلومات العمل فوق، والصفوف تحتها بإطار أبيض',
                      'spotlight_posters': 'عمل بارز وصفوف بوسترات'}
             gallery = [(tr(label), 'current' if i == preselect else '',
                         os.path.join(folder, 'homelayout_%s.jpg' % value), tr(lines.get(value, '')))

@@ -1,6 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <includes>
 	<include file="Includes_DexPlayer.xml" />
+	<include file="Includes_DexDesigns.xml" />
+	<include file="Includes_DexQuick.xml" />
 	<include file="Includes_AF3Pages.xml" />
 	<include file="Includes_AF3Player.xml" />
 	<include file="Defaults.xml" />

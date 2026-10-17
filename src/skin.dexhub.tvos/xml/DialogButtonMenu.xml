@@ -1,68 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- 3.28.72: the power menu with icons, two columns (Dex Hub tools first) -->
 <window>
-	<defaultcontrol>9000</defaultcontrol>
+	<defaultcontrol always="true">9000</defaultcontrol>
 	<include>Animation_DialogPopupOpenClose</include>
 	<controls>
 		<control type="group">
 			<centerleft>50%</centerleft>
-			<width>600</width>
+			<width>1200</width>
 			<centertop>50%</centertop>
-			<height>700</height>
+			<height>712</height>
 			<include content="DialogBackgroundCommons">
-				<param name="width" value="600" />
-				<param name="height" value="80" />
+				<param name="width" value="1200" />
+				<param name="height" value="712" />
 				<param name="header_label" value="$LOCALIZE[31072]" />
 				<param name="header_id" value="2" />
 			</include>
 			<control type="panel" id="9000">
-				<include>ButtonMenuList</include>
+				<left>30</left>
+				<top>94</top>
+				<width>1140</width>
+				<height>588</height>
+				<onleft>9000</onleft>
+				<onright>9000</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<orientation>vertical</orientation>
+				<scrolltime tween="cubic" easing="out">200</scrolltime>
+				<itemlayout width="570" height="84">
+					<control type="group">
+						<control type="image"><left>6</left><top>6</top><width>558</width><height>72</height><texture border="24" colordiffuse="14FFFFFF">dexhub/tile_bg.png</texture></control>
+						<control type="image"><left>20</left><top>16</top><width>52</width><height>52</height><texture colordiffuse="1AFFFFFF">dexhub/circle.png</texture></control>
+						<control type="image"><left>32</left><top>28</top><width>28</width><height>28</height><aspectratio>keep</aspectratio><texture colordiffuse="E6FFFFFF">$INFO[ListItem.Icon]</texture></control>
+						<control type="label"><left>90</left><top>6</top><width>460</width><height>72</height><font>font13</font><textcolor>E6FFFFFF</textcolor><aligny>center</aligny><label>$INFO[ListItem.Label]</label></control>
+					</control>
+				</itemlayout>
+				<focusedlayout width="570" height="84">
+					<control type="group"><animation effect="zoom" start="96" end="100" center="auto" time="160" tween="cubic" easing="out">Focus</animation>
+						<control type="image"><left>6</left><top>6</top><width>558</width><height>72</height><texture border="24" colordiffuse="$VAR[DhAccent]">dexhub/tile_bg.png</texture></control>
+						<control type="image"><left>20</left><top>16</top><width>52</width><height>52</height><texture colordiffuse="26000000">dexhub/circle.png</texture></control>
+						<control type="image"><left>32</left><top>28</top><width>28</width><height>28</height><aspectratio>keep</aspectratio><texture colordiffuse="$VAR[DhOnAccent]">$INFO[ListItem.Icon]</texture></control>
+						<control type="label"><left>90</left><top>6</top><width>460</width><height>72</height><font>font13</font><textcolor>$VAR[DhOnAccent]</textcolor><aligny>center</aligny><label>$INFO[ListItem.Label]</label></control>
+					</control>
+				</focusedlayout>
 				<content>
 					<item>
-						<label>$LOCALIZE[13012]</label>
-						<onclick>Quit()</onclick>
-						<visible>System.ShowExitButton</visible>
+						<label>$LOCALIZE[32152]</label>
+						<icon>dexhub/power/skin.png</icon>
+						<onclick>Dialog.Close(shutdownmenu)</onclick>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=skin_menu)</onclick>
 					</item>
 					<item>
-						<label>$LOCALIZE[13016]</label>
-						<onclick>Powerdown()</onclick>
-						<visible>System.CanPowerDown</visible>
+						<label>$LOCALIZE[5]</label>
+						<icon>dexhub/power/settings.png</icon>
+						<onclick>Dialog.Close(shutdownmenu)</onclick>
+						<onclick>ActivateWindow(settings)</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[137]</label>
+						<icon>dexhub/power/search.png</icon>
+						<onclick>Dialog.Close(shutdownmenu)</onclick>
+						<onclick>RunPlugin(plugin://plugin.video.dexhub.tvos/?action=home_search)</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[32153]</label>
+						<icon>dexhub/power/reload.png</icon>
+						<onclick>Dialog.Close(shutdownmenu)</onclick>
+						<onclick>ReloadSkin()</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[10007]</label>
+						<icon>dexhub/power/info.png</icon>
+						<onclick>Dialog.Close(shutdownmenu)</onclick>
+						<onclick>ActivateWindow(systeminfo)</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[7]</label>
+						<icon>dexhub/power/folder.png</icon>
+						<onclick>Dialog.Close(shutdownmenu)</onclick>
+						<onclick>ActivateWindow(filemanager)</onclick>
 					</item>
 					<item>
 						<label>$LOCALIZE[20150]</label>
+						<icon>dexhub/power/timer.png</icon>
+						<onclick>Dialog.Close(shutdownmenu)</onclick>
 						<onclick>AlarmClock(shutdowntimer,Shutdown())</onclick>
 						<visible>!System.HasAlarm(shutdowntimer)</visible>
 						<visible>System.CanPowerDown | System.CanSuspend | System.CanHibernate</visible>
 					</item>
 					<item>
 						<label>$LOCALIZE[20151] $INFO[System.AlarmPos,(,)]</label>
+						<icon>dexhub/power/timer.png</icon>
+						<onclick>Dialog.Close(shutdownmenu)</onclick>
 						<onclick>CancelAlarm(shutdowntimer)</onclick>
 						<visible>System.HasAlarm(shutdowntimer)</visible>
 					</item>
 					<item>
+						<label>$LOCALIZE[13013]</label>
+						<icon>dexhub/power/reboot.png</icon>
+						<onclick>Dialog.Close(shutdownmenu)</onclick>
+						<onclick>Reset()</onclick>
+						<visible>System.CanReboot</visible>
+					</item>
+					<item>
+						<label>$LOCALIZE[31886]</label>
+						<icon>dexhub/power/reboot.png</icon>
+						<onclick>Dialog.Close(shutdownmenu)</onclick>
+						<onclick>System.ExecWait("/usr/sbin/rebootfromnand")</onclick>
+						<onclick>Reboot()</onclick>
+						<visible>System.HasAddon(service.coreelec.settings)</visible>
+					</item>
+					<item>
+						<label>$LOCALIZE[13016]</label>
+						<icon>dexhub/power/power.png</icon>
+						<onclick>Dialog.Close(shutdownmenu)</onclick>
+						<onclick>Powerdown()</onclick>
+						<visible>System.CanPowerDown</visible>
+					</item>
+					<item>
 						<label>$LOCALIZE[13011]</label>
+						<icon>dexhub/power/moon.png</icon>
 						<onclick>Dialog.Close(shutdownmenu)</onclick>
 						<onclick>Suspend()</onclick>
 						<visible>System.CanSuspend</visible>
 					</item>
 					<item>
 						<label>$LOCALIZE[13010]</label>
+						<icon>dexhub/power/moon.png</icon>
 						<onclick>Dialog.Close(shutdownmenu)</onclick>
 						<onclick>Hibernate()</onclick>
 						<visible>System.CanHibernate</visible>
 					</item>
 					<item>
-						<label>$LOCALIZE[13013]</label>
-						<onclick>Reset()</onclick>
-						<visible>System.CanReboot</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[31886]</label>
-						<onclick>System.ExecWait("/usr/sbin/rebootfromnand")</onclick>
-						<onclick>Reboot()</onclick>
-						<visible>System.HasAddon(service.coreelec.settings)</visible>
+						<label>$LOCALIZE[13012]</label>
+						<icon>dexhub/power/exit.png</icon>
+						<onclick>Dialog.Close(shutdownmenu)</onclick>
+						<onclick>Quit()</onclick>
+						<visible>System.ShowExitButton</visible>
 					</item>
 					<item>
 						<label>$LOCALIZE[20126] $INFO[system.profilename]</label>
+						<icon>dexhub/power/person.png</icon>
 						<onclick>dialog.close(all,true)</onclick>
 						<onclick>System.LogOff</onclick>
 						<visible>System.HasLoginScreen | Integer.IsGreater(System.ProfileCount,1)</visible>
@@ -70,16 +147,22 @@
 					</item>
 					<item>
 						<label>$VAR[MasterModeLabel]</label>
+						<icon>dexhub/power/lock.png</icon>
+						<onclick>Dialog.Close(shutdownmenu)</onclick>
 						<onclick>mastermode</onclick>
 						<visible>System.HasLocks</visible>
 					</item>
 					<item>
 						<label>$LOCALIZE[13017]</label>
+						<icon>dexhub/power/awake.png</icon>
+						<onclick>Dialog.Close(shutdownmenu)</onclick>
 						<onclick>InhibitIdleShutdown(true)</onclick>
 						<visible>System.HasShutdown +!System.IdleShutdownInhibited</visible>
 					</item>
 					<item>
 						<label>$LOCALIZE[13018]</label>
+						<icon>dexhub/power/awake.png</icon>
+						<onclick>Dialog.Close(shutdownmenu)</onclick>
 						<onclick>InhibitIdleShutdown(false)</onclick>
 						<visible>System.HasShutdown + System.IdleShutdownInhibited</visible>
 					</item>

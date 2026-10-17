@@ -49,8 +49,8 @@ from pathlib import Path
 path = Path(sys.argv[1])
 data = plistlib.loads(path.read_bytes())
 data['DexHubBridgeAPI'] = 2
-data['DexHubBridgeRevision'] = 19
-data['DexHubAetherVersion'] = '7.35.1'
+data['DexHubBridgeRevision'] = 20
+data['DexHubAetherVersion'] = '7.38.1'
 path.write_bytes(plistlib.dumps(data, fmt=plistlib.FMT_BINARY))
 PY
 echo "Framework API 2 verified. Continuing with Kodi integration."

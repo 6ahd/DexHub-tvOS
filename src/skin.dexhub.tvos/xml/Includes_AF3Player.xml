@@ -987,6 +987,7 @@
 		<animation effect="fade" start="100" end="85" time="0" condition="String.IsEqual(Window(Home).Property(dhs.pref.player_badges_opacity),85)">Conditional</animation>
 		<animation effect="fade" start="100" end="70" time="0" condition="String.IsEqual(Window(Home).Property(dhs.pref.player_badges_opacity),70)">Conditional</animation></control>
 	</include>
+	<!-- DhLegacyDyn: icon groups before their buttons, 68 discs -->
 	<include name="af3_dyn_2">
 		<control type="group" id="6102">
 			<animation effect="fade" start="100" end="30" condition="!Control.IsEnabled(6002)" reversible="false">Conditional</animation>

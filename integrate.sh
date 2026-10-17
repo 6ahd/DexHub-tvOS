@@ -13,7 +13,7 @@ CONFIG="${DEX_CONFIG:-Release}"
 case "$CONFIG" in Release|Debug) ;; *) echo "DEX_CONFIG must be Release or Debug"; exit 1 ;; esac
 FRAMEWORK="$WORK/aether-bridge-build/Products/Release-appletvos/DexAetherBridge.framework"
 test -s "$FRAMEWORK/DexAetherBridge"
-"$PYTHON" -c 'import plistlib,sys; p=plistlib.load(open(sys.argv[1],"rb")); sys.exit(0 if str(p.get("DexHubBridgeAPI")) == "2" and p.get("DexHubBridgeRevision") == 19 and p.get("DexHubAetherVersion") == "7.35.1" else "Old Swift bridge: run all.sh before packaging.")' "$FRAMEWORK/Info.plist"
+"$PYTHON" -c 'import plistlib,sys; p=plistlib.load(open(sys.argv[1],"rb")); sys.exit(0 if str(p.get("DexHubBridgeAPI")) == "2" and p.get("DexHubBridgeRevision") == 20 and p.get("DexHubAetherVersion") == "7.38.1" else "Old Swift bridge: run all.sh before packaging.")' "$FRAMEWORK/Info.plist"
 MINIMUM="$(cat "$WORK/aether-bridge-build/deployment.txt")"
 echo "Experimental IPA will require tvOS $MINIMUM or newer."
 KODI_SRC="${KODI_SRC:-$WORK/kodi-rc1-source}"
@@ -37,17 +37,53 @@ APP="$STAGE/Payload/Kodi.app"
 mkdir -p "$STAGE/Payload"
 ditto "$KODI_BUILD/build/$CONFIG-appletvos/Kodi.app" "$APP"
 ditto "$FRAMEWORK" "$APP/Frameworks/DexAetherBridge.framework"
+# v21.36: Aether's resource bundle. AetherEngine 7.38 loads silent-atmos.mp4
+# from Bundle.module (AetherEngine_AetherEngine.bundle) when Atmos or DTS:X
+# plays as APAC; Xcode leaves the bundle beside the framework, not inside the
+# app, and Kodi stopped with a trap the moment such a title started.
+AE_BUNDLE="AetherEngine_AetherEngine.bundle"
+AE_BUILT="$(find "$WORK/aether-bridge-build/Products" "$WORK/aether-bridge-build/Intermediates" -type d -name "$AE_BUNDLE" 2>/dev/null | while read -r B; do [ -f "$B/silent-atmos.mp4" ] && echo "$B"; done | head -1 || true)"
+rm -rf "$APP/$AE_BUNDLE"
+if [ -n "$AE_BUILT" ]; then
+  ditto "$AE_BUILT" "$APP/$AE_BUNDLE"
+else
+  AE_MP4="$(find "$WORK" -path '*Sources/AetherEngine/Resources/silent-atmos.mp4' -type f 2>/dev/null | head -1 || true)"
+  [ -n "$AE_MP4" ] || { echo "Aether resource silent-atmos.mp4 not found: stop before shipping an app that stops on Atmos."; exit 1; }
+  mkdir -p "$APP/$AE_BUNDLE"
+  cp "$AE_MP4" "$APP/$AE_BUNDLE/silent-atmos.mp4"
+  "$PYTHON" - "$APP/$AE_BUNDLE/Info.plist" <<'PY'
+import plistlib, sys
+plistlib.dump({'CFBundleIdentifier': 'AetherEngine-AetherEngine-resources', 'CFBundleName': 'AetherEngine_AetherEngine',
+               'CFBundlePackageType': 'BNDL', 'CFBundleInfoDictionaryVersion': '6.0', 'CFBundleShortVersionString': '1.0',
+               'CFBundleVersion': '1', 'CFBundleSupportedPlatforms': ['AppleTVOS'], 'MinimumOSVersion': '18.0'},
+              open(sys.argv[1], 'wb'))
+PY
+fi
+test -s "$APP/$AE_BUNDLE/silent-atmos.mp4" || { echo "Missing $AE_BUNDLE in the app."; exit 1; }
+echo "Aether resources: $APP/$AE_BUNDLE"
 
 # The resolved graph contains the reviewed binary slices. Copy these rather
 # than stale products left by an earlier build of the bridge.
 "$PYTHON" "$BASE/package_frameworks.py" "$WORK/aether-bridge-build/SourcePackages" "$APP"
+# v21.31: DTSX.framework is LGPL; its NOTICE and licences travel with the app
+DTSX_SRC="$(find "$WORK/aether-bridge-build/SourcePackages/checkouts" -maxdepth 1 -iname 'LibDTSX' | head -1)"
+if [ -n "$DTSX_SRC" ] && [ -d "$APP/Frameworks/DTSX.framework" ]; then
+  mkdir -p "$APP/Licenses/LibDTSX"
+  cp "$DTSX_SRC/NOTICE" "$DTSX_SRC/LICENSE" "$APP/Licenses/LibDTSX/"
+  cp -R "$DTSX_SRC/LICENSES" "$APP/Licenses/LibDTSX/"
+fi
+cp "$BASE/licenses/"*.txt "$APP/Licenses/" 2>/dev/null || true
+# v21.3: rebuild the Dex Hub, skin and player ZIPs from src/ first. Before this,
+# assets/ kept the ZIPs of the last manual release_assets.py run, so a build
+# shipped an old Dex Hub even when src/ was newer.
+"$PYTHON" "$BASE/release_assets.py"
 "$PYTHON" "$BASE/package_assets.py" "$BASE" "$APP" "$MINIMUM"
 xcrun swift-stdlib-tool --copy --platform appletvos \
   --scan-executable "$APP/Frameworks/DexAetherBridge.framework/DexAetherBridge" \
   --scan-folder "$APP/Frameworks" --destination "$APP/Frameworks"
 bash "$BASE/normalize_frameworks.sh" "$APP"
 
-OUT="$HOME/Downloads/Kodi-DexHub-AetherOnly-v21.13-TEST-unsigned-$(date +%Y%m%d-%H%M%S).ipa"
+OUT="$HOME/Downloads/Kodi-DexHub-AetherOnly-v21.36-TEST-unsigned-$(date +%Y%m%d-%H%M%S).ipa"
 ditto -c -k --keepParent "$STAGE/Payload" "$OUT"
 unzip -t "$OUT" >/dev/null
 for ASSET in "$BASE"/assets/*.zip; do
