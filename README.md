@@ -1,4 +1,4 @@
-# Dex Hub tvOS
+# Kodi tvOS
 
 **Kodi for Apple TV with the Aether player and Dex Hub built in.**
 Dolby Vision, HDR10, Dolby Atmos, Arabic subtitles, and the Dex Hub interface in one app.
